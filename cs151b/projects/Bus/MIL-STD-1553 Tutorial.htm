@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://www.1553-mil-std.com/mil-std-1553-tutorial.html -->
+<HTML><HEAD><TITLE>MIL-STD-1553 Tutorial</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META 
+content="Condor Engineering, mil-std-1553, mil-std-1773, avionic databuses, MIL-STD-1553, military, interface, data bus, mil, std, 1773, 1553, milstd, avionics, interface hardware, VME/VXI" 
+name=keywords><LINK href="MIL-STD-1553 Tutorial_files/stylesheet.css" 
+type=text/css rel=STYLESHEET>
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#003399 aLink=#003399 link=#003399 bgColor=#ffffff>
+<TABLE cellSpacing=10 cellPadding=0 width=640>
+  <TBODY>
+  <TR>
+    <TD colSpan=2><A href="http://www.condoreng.com/"><IMG height=74 
+      alt="Condor Engineering - MIL-STD-1553 Tutotial" 
+      src="MIL-STD-1553 Tutorial_files/logo2.gif" width=300 border=0></A></TD>
+  <TR>
+    <TD width=500>
+      <H2>MIL-STD-1553 Tutorial</H2>
+      <P>This is a brief overview of the 1553 architecture. For a full tutorial 
+      in PDF format, please visit <A 
+      href="http://www.condoreng.com/support/downloads/tutorials/index.shtml">http://www.condoreng.com/support/downloads/tutorials/index.shtml</A>. 
+      <A name=over>
+      <P><STRONG>Overview</STRONG> <BR><A 
+      href="http://www.condoreng.com/products/protocols/1553.shtml">MIL-STD-1553</A> 
+      is a military standard that defines the electrical and protocol 
+      characteristics for a data bus. A data bus is used to provide a medium for 
+      the exchange of data and information between various systems. It is 
+      similar to what the personal computer and office automation industry has 
+      dubbed a Local Area Network (LAN).</P><A name=app>
+      <P><STRONG>MIL-STD-1553 Applications</STRONG> <BR>Since its inception, 
+      MIL-STD-1553 has found numerous applications. Notice 2 to the standard has 
+      even removed all references to "aircraft" or "airborne" so as not to limit 
+      its use. While all the programs to which the standard has been applied are 
+      too numerous to be covered here, the following is a summary of its 
+      uses.</P>
+      <P>While the standard has been applied to satellites as well as payloads 
+      within the space shuttle (it is even being used on the International Space 
+      Station), its military applications are the most numerous and far ranging. 
+      It has been employed on large transports, aerial refuelers, and bombers, 
+      tactical fighters, and helicopters. It is even contained within missiles 
+      and serves, in some instances, as the primary interface between the 
+      aircraft and a missile. The Navy has applied the data bus to both surface 
+      and subsurface ships. The Army, in addition to its helicopters, has put 
+      1553 into tanks and howitzers.</P>
+      <P>Commercial applications have applied the standard to systems including 
+      subways, for example the Bay Area Rapid Transit (BART), and manufacturing 
+      production lines. </P>
+      <P>MIL-STD-1553B has also been accepted and implemented by NATO and many 
+      foreign governments. The UK has issued Def Stan 00-18 (Part 2) and NATO 
+      has published STANAG 3838 AVS, both of which are versions of 
+      MIL-STD-1553B. </P>
+      <P>The broad acceptance and application of MIL-STD-1553B has also fostered 
+      the development of other standardization efforts. MIL-STD-1773 is a fiber 
+      optic version of 1553B. And MIL-STD-1760A, the Aircraft/Store 
+      Interconnect, has 1553B embedded within it.</P><A name=def>
+      <P><STRONG>MIL-STD-1553B Defined</STRONG> <BR>So now that we understand 
+      the driving need for the development of a data bus, and a little of its 
+      history and application, what exactly is MIL-STD-1553B? A summary of the 
+      characteristics of MIL-STD-1553B is found in Table 1.</P>
+      <TABLE cellSpacing=0 cellPadding=1 width=400 border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=black>
+            <TABLE cellSpacing=0 cellPadding=2 bgColor=white border=0>
+              <TBODY>
+              <TR bgColor=black>
+                <TD align=middle colSpan=2><STRONG><SPAN 
+                  style="COLOR: white">Table 1. Summary of <A 
+                  style="COLOR: white; TEXT-DECORATION: none" 
+                  href="http://www.1553-mil-std.com/">MIL-STD-1553</A> 
+                  Characteristics</SPAN></STRONG></TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Data Rate</TD>
+                <TD>1 MHz</TD></TR>
+              <TR>
+                <TD>Word Length</TD>
+                <TD>20 bits</TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Data Bits / Word</TD>
+                <TD>16 bits</TD></TR>
+              <TR>
+                <TD>Message Length</TD>
+                <TD>Maximum of 32 data words </TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Transmission Technique</TD>
+                <TD>Half-duplex</TD></TR>
+              <TR>
+                <TD>Operation</TD>
+                <TD>Asynchronous</TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Encoding</TD>
+                <TD>Manchester II bi-phase</TD></TR>
+              <TR>
+                <TD>Protocol</TD>
+                <TD>Command/response</TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Bus Control</TD>
+                <TD>Single or Multiple</TD></TR>
+              <TR>
+                <TD>Fault Tolerance</TD>
+                <TD>Typically Dual Redundant, second bus in "Hot Backup" 
+                status</TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Message Formats</TD>
+                <TD>Controller to terminalTerminal to controllerTerminal to 
+                  terminalBroadcastSystem control</TD></TR>
+              <TR>
+                <TD>Number of Remote Terminals</TD>
+                <TD>Maximum of 31</TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Terminal Types</TD>
+                <TD>Remote terminal Bus controllerBus monitor</TD></TR>
+              <TR>
+                <TD>Transmission Media</TD>
+                <TD>Twisted shielded pair</TD></TR>
+              <TR bgColor=#f4f4f9>
+                <TD>Coupling</TD>
+                <TD>Transformer and 
+      direct</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <P>The primary purpose of the data bus is to move data between black 
+      boxes. How these boxes are connected and the methodology with which the 
+      communication is accomplished is central to the operation of the data bus. 
+      </P><A name=hard>
+      <P><STRONG>Hardware Elements</STRONG> <BR>MIL-STD-1553 defines certain 
+      aspects regarding the design of the data bus system and the black boxes to 
+      which the data bus is connected. The standard defines four hardware 
+      elements. These are: 
+      <UL>
+        <LI>The transmission media 
+        <LI>Remote terminals 
+        <LI>Bus controllers 
+        <LI>Bus monitors </LI></UL>
+      <P></P><A name=trans>
+      <P><STRONG>Transmission Media</STRONG> <BR>The transmission media, or data 
+      bus, is defined as a twisted shielded pair transmission line consisting of 
+      the main bus and a number of stubs. There is one stub for each terminal 
+      connected to the bus. The main MIL-STD-1553 data bus is terminated at each 
+      end with a resistance equal to the cable's characteristic impedance (plus 
+      or minus two percent). This termination makes the data bus behave 
+      electrically like an infinite transmission line.</P><A name=rem>
+      <P><STRONG>Remote Terminals</STRONG> <BR>Remote terminals are defined 
+      within the standard as "All terminals not operating as the bus controller 
+      or as a bus monitor". Therefore if it is not a controller, monitor, or the 
+      main bus or stub, it must be a remote terminal. The remote terminal 
+      comprises the electronics necessary to transfer data between the data bus 
+      and the subsystem. So what is a subsystem? For 1553 applications, the 
+      subsystem is the sender or user of the data being transferred.</P><A 
+      name=busc>
+      <P><STRONG>Bus Controller</STRONG> <BR>The bus controller is responsible 
+      for directing the flow of data on the MIL-STD-1553 data bus. While several 
+      terminals may be capable of performing as the bus controller, only one bus 
+      controller may be active at a time. The bus controller is the only one 
+      allowed to issue commands onto the data bus. The commands may be for the 
+      transfer of data or the control and management of the bus (referred to as 
+      mode commands). </P><A name=busm>
+      <P><STRONG>Bus Monitor</STRONG> <BR>A bus monitor is a terminal that 
+      listens (monitors) to the exchange of information on the MIL-STD-1553 data 
+      bus. The standard strictly defines how bus monitors may be used, stating 
+      that the information obtained by a bus monitor be used "for off-line 
+      applications (e.g., flight test recording, maintenance recording or 
+      mission analysis) or to provide the back-up bus controller sufficient 
+      information to take over as the bus controller." A monitor may collect all 
+      the data from the bus or may collect selected data. The reason for 
+      restricting its use is that while a monitor may collect data, it deviates 
+      from the command-response protocol of the standard, in that a monitor is a 
+      passive device that doesn't transmit a status word and therefore cannot 
+      report on the status of the information transferred. </P><A name=term>
+      <P><STRONG>Terminal Hardware</STRONG> <BR>The electronic hardware between 
+      a remote terminal, bus controller, and bus monitor doesn't differ much. 
+      Both the remote terminal and bus controller (and bus monitor if it is also 
+      a remote terminal) must have the transmitters/receivers and 
+      encoders/decoders to format and transfer data. The requirements upon the 
+      transceivers and the encoders/decoders don't vary between the hardware 
+      elements.</P>
+      <P>To view a longer, more in-depth PDF version of this MIL-STD-1553 
+      tutorial, please visit <A 
+      href="http://www.condoreng.com/support/downloads/tutorials/index.shtml">http://www.condoreng.com/support/downloads/tutorials/index.shtml</A>. 
+      </P></TD>
+    <TD vAlign=top width=140>
+      <TABLE cellSpacing=0 cellPadding=2 border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=black>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR bgColor=#f4f4f9>
+                <TD><SPAN style="Z-INDEX: 50"><IMG height=200 alt="" 
+                  src="MIL-STD-1553 Tutorial_files/nav_back.gif" width=140 
+                  border=0></SPAN> <SPAN class=small 
+                  style="Z-INDEX: 100; LEFT: 10px; POSITION: relative; TOP: -180px"><STRONG>Navigation</STRONG> 
+                  <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#over">Overview</A> 
+                  <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#app">Applications</A> 
+                  <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#def">Definition</A> 
+                  <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#hard">Hardware 
+                  Elements</A> <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#trans">Transmission 
+                  Media</A> <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#rem">Remote 
+                  Terminals</A> <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#busc">Bus 
+                  Controller</A> <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#busm">Bus 
+                  Monitor</A> <BR><A 
+                  href="http://www.1553-mil-std.com/mil-std-1553-tutorial.html#term">Terminal 
+                  Hardware</A> 
+  </SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TR></TBODY></TABLE></BODY></HTML>

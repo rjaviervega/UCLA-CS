@@ -1,0 +1,102 @@
+A:link {
+	COLOR: #536895; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #536895; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+A:active {
+	TEXT-DECORATION: underline
+}
+BODY {
+	MARGIN: 0em; FONT-FAMILY: Arial, sans-serif
+}
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+INPUT:unknown {
+	BORDER-RIGHT: #536895 2px solid; BORDER-TOP: #536895 2px solid; BORDER-LEFT: #536895 2px solid; BORDER-BOTTOM: #536895 2px solid
+}
+TEXTAREA:unknown {
+	BORDER-RIGHT: #536895 2px solid; BORDER-TOP: #536895 2px solid; BORDER-LEFT: #536895 2px solid; BORDER-BOTTOM: #536895 2px solid
+}
+LABEL {
+	CURSOR: hand
+}
+FONT.activated {
+	COLOR: green
+}
+FONT.announcement_date {
+	FONT-SIZE: 0.8em; COLOR: #808080
+}
+FONT.bruin_blue {
+	COLOR: #536895
+}
+FONT.not_activated {
+	COLOR: red
+}
+FONT.notify {
+	FONT-SIZE: 0.6em; COLOR: #ff3399; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: #ffff00
+}
+FONT.old_entry {
+	COLOR: #a0a0a0
+}
+FONT.yellow_text {
+	COLOR: #ffcc00
+}
+H3.announcement_headline {
+	CLEAR: both; FONT-SIZE: 1em; MARGIN-BOTTOM: 2px; PADDING-BOTTOM: 0px; WIDTH: 90%; BORDER-BOTTOM: #536895 1px solid; BACKGROUND-COLOR: transparent
+}
+H3.class_title {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: -5px; COLOR: #000000; BACKGROUND-COLOR: #99ccff
+}
+H3.section_title {
+	PADDING-LEFT: 5px; MARGIN-LEFT: -5px; COLOR: #000000; BACKGROUND-COLOR: #e3eeee
+}
+H3.title {
+	COLOR: #536895
+}
+FONT.link_color {
+	COLOR: #536895
+}
+FONT.tool_bullet {
+	COLOR: #536895
+}
+PRE {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 10px; PADDING-TOP: 5px; BACKGROUND-COLOR: #e3eeee
+}
+SPAN.small_red_text {
+	FONT-SIZE: 0.7em; COLOR: red
+}
+TABLE.bruin_blue {
+	BACKGROUND-COLOR: #536895
+}
+TABLE.bruin_gold {
+	BACKGROUND-COLOR: #ffcc00
+}
+TH.bruin_blue {
+	BACKGROUND-COLOR: #536895
+}
+TR.bruin_blue {
+	BACKGROUND-COLOR: #536895
+}
+.error {
+	FONT-WEIGHT: bold; COLOR: red
+}
+.success {
+	FONT-WEIGHT: bold; COLOR: green
+}
+.activeSection {
+	BACKGROUND-COLOR: #ffcc00
+}
+.bar_table {
+	BORDER-RIGHT: #536895 1px solid; BORDER-TOP: #536895 1px solid; BORDER-LEFT: #536895 1px solid; BORDER-BOTTOM: #536895 1px solid; BACKGROUND-COLOR: #ffffee
+}
+.current_link {
+	FONT-WEIGHT: bold
+}
+.info_table {
+	BORDER-RIGHT: #ffcc00 1px solid; BORDER-TOP: #ffcc00 1px solid; BORDER-LEFT: #ffcc00 1px solid; BORDER-BOTTOM: #ffcc00 1px solid; BACKGROUND-COLOR: #ffffff
+}

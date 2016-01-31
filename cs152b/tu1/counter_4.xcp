@@ -1,0 +1,27 @@
+# Xilinx CORE Generator 4.1i
+SELECT Binary_Counter Virtex Xilinx,_Inc. 4.0
+CSET threshold_1_value = MAX
+CSET threshold_early = true
+CSET threshold_0_value = MAX
+CSET synchronous_settings = none
+CSET count_style = count_by_constant
+CSET create_rpm = true
+CSET threshold_options = non_registered
+CSET count_by_value = 1
+CSET load = false
+CSET async_init_value = 0
+CSET component_name = counter_4
+CSET sync_init_value = 0
+CSET operation = up
+CSET restrict_count = true
+CSET ce_overrides = sync_controls_override_ce
+CSET set_clear_priority = clear_overrides_set
+CSET ce_override_for_load = false
+CSET output_width = 4
+CSET clock_enable = true
+CSET asynchronous_settings = clear
+CSET threshold_1 = false
+CSET threshold_0 = false
+CSET load_sense = active_high
+CSET count_to_value = A
+GENERATE

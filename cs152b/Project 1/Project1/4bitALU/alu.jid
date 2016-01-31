@@ -1,0 +1,4 @@
+. 4bitalu 4bitalu.sch e:\hingkei\152bs04\project1\4bitalu\4bitalu.sch
+XLXI_104 mux2to1_4bits mux2to1_4bits.xco e:\hingkei\152bs04\project1\4bitalu\mux2to1_4bits.xco
+XLXI_105 mux2to1_4bits mux2to1_4bits.xco e:\hingkei\152bs04\project1\4bitalu\mux2to1_4bits.xco
+XLXI_5 mux8x4bus mux8x4bus.xco e:\hingkei\152bs04\project1\4bitalu\mux8x4bus.xco

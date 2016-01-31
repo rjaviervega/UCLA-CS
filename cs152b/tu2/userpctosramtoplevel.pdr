@@ -1,0 +1,15 @@
+# Created 2004/07/02 11:27:27
+BeginProm
+  Type   Serial
+  Format MCS-86
+  FillValue FF
+  Info MaxAddress 0x0001110B
+  Device Auto XC1701
+  BeginChain
+    StartAddress    0x00000000
+    Direction       UP
+    Info EndAddress 0x0001110B
+    Info Size       0x0001110C
+    File "E:\HingKei\152bs04\tu2\userpctosramtoplevel.bit"
+  EndChain
+EndProm

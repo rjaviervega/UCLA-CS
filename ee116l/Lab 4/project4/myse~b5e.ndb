@@ -1,0 +1,227 @@
+NDB006
+The number of symbol table entries is: 10
+The length of the symbol table is: 111
+
+Index Hierarchy Path
+----- --------------
+!	&null_hpath&
+.	|21mux:13|
+9	|21mux:11|
+D	|21mux:49|
+O	|21mux:37|
+Z	|7483:38|
+d	|7491:35|
+n	|7491:93|
+x	|74393:78|
+"%	|control:80|
+
+The number of name info structs is : 206
+
+InsOrder BitField SymTableIndex NextSyn SynParent Loc ChainType NextChain ChainParent FanOut DirExp ParExp ShareExp NodeName
+-------- -------- ------------- ------- --------- --- --------- --------- ----------- ------ ------ ------ -------- --------
+"	IGdW	!	:101	"l
+#	IGdW	!	:103	"k
+$	IGdW	!	:104	"m
+%	IGdW	!	:105	"p
+&	IGdW	!	:106	"q
+'	IGdW	!	:107	"o
+(	IGdW	!	:108	"n
+)	IGdG	!	:76	"j
+*	Ky&}	!	11	3	5	8	N	">	"@	"N	"O	"P	"Q	"D	AOUT	|
++	Ky&|	!	2	#3	"V	ASTREAM	o
+,	Ky&}	!	12	3	5	8	N	">	"?	"@	"N	"P	"Q	"R	"D	BOUT	w
+-	Ky&|	!	1	"D	BSTREAM	s
+.	Ky&}	!	17	1	#3	/	0	4	5	8	N	"?	"@	"N	"O	"P	"Q	"D	f	.	C0	}
+/	Ky&}	!	17	1	#3	0	4	5	8	N	"?	"@	"N	"O	"P	"Q	"R	"D	f	/	C1	{
+0	Ky&}	!	16	1	#3	4	5	8	N	"?	"@	"N	"O	"P	"Q	"R	"D	f	0	C2	z
+1	NLG+	!	1	CIN	x
+2	(@>U^	!	23	3	,	0	/	*	.	"X	"Z	"[	"\	"]	"T	"U	"V	#3	"H	"I	"J	"K	"B	"C	"D	f	CLOCK	p
+3	[)+g	!	13	1	3	5	8	N	"?	"@	"N	"O	"P	"Q	"R	"D	5	1	1	COUT	u
+4	IGdq	!	M4	v
+5	NLG+	!	3	overflow	t
+6	Ky&|	!	15	1	3	4	5	8	N	">	"?	"@	"N	"O	"P	"Q	"R	"D	S0	q
+7	Ky&|	!	15	1	3	4	5	8	N	">	"?	"@	"N	"O	"P	"Q	"R	"D	S1	r
+8	NLG+	!	9	Z	y
+9	IVOQ	9	=	:5	#-
+:	IGdW	9	:6	#,
+;	IGdW	9	:7	#+
+<	IGdW	9	:8	#*
+=	INu}	9	9	Y	#-
+>	IVOQ	.	B	:5	"~
+?	IGdW	.	:6	"}
+@	IGdW	.	:7	"|
+A	IGdW	.	:8	"{
+B	INu}	.	>	Y	"~
+C	IVOQ	O	G	:5	#E
+D	IGdW	O	:6	#D
+E	IGdW	O	:7	#C
+F	IGdW	O	:8	#B
+G	INu}	O	C	Y	#E
+H	IVOQ	D	L	:5	#9
+I	IGdW	D	:6	#8
+J	IGdW	D	:7	#7
+K	IGdW	D	:8	#6
+L	INu}	D	H	Y	#9
+M	IM}Q	D	N	Y~1	-h
+N	Q-YI	D	M	1	5	1	~5~1	-h
+O	IVOA	x	g	:1	$e
+P	IGdW	x	:10	$`
+Q	IGdW	x	:11	$Z
+R	IGdW	x	:14	$o
+S	IGdW	x	:15	$n
+T	IGdW	x	:2	$p
+U	IGdW	x	:24	$m
+V	IGdW	x	:25	$l
+W	IGdW	x	:26	$k
+X	IGdW	x	:27	$i
+Y	IVOA	x	k	:28	$d
+Z	IVOA	x	l	:29	$c
+[	IVOA	x	h	:3	$f
+\	IVOA	x	m	:30	$b
+]	IVOA	x	n	:31	$a
+^	IGdW	x	:32	$]
+_	IGdW	x	:33	$\
+`	IGdW	x	:34	$[
+a	IGdW	x	:35	$Y
+b	IGdW	x	:4	$^
+c	IVOA	x	i	:5	$g
+d	IGdW	x	:6	$_
+e	IGdW	x	:8	$j
+f	L)p/	x	j	4	.	/	0	f	:9	$h
+g	INum	x	O	Q1A	$e
+h	INum	x	[	Q1B	$f
+i	INum	x	c	Q1C	$g
+j	INvO	x	f	Q1D	$h
+k	INum	x	Y	Q2A	$d
+l	INum	x	Z	Q2B	$c
+m	INum	x	\	Q2C	$b
+n	INum	x	]	Q2D	$a
+o	IGdW	Z	:1	#x
+p	IGdW	Z	:12	#v
+q	IGdW	Z	:13	#u
+r	IGdW	Z	:14	#t
+s	IGdW	Z	:15	#s
+t	IGdW	Z	:16	#r
+u	IGdW	Z	:17	#q
+v	IGdW	Z	:18	#p
+w	IGdW	Z	:19	#o
+x	IGdW	Z	:2	#w
+y	IGdW	Z	:20	#n
+z	IGdW	Z	:21	#m
+{	IGdW	Z	:22	#l
+|	IGdW	Z	:23	#k
+}	IGdW	Z	:24	#j
+~	IGdW	Z	:25	#i
+"!	IGdW	Z	:26	#h
+""	IGdW	Z	:27	#g
+"#	IGdW	Z	:28	#f
+"$	IGdW	Z	:29	#e
+"%	IGdW	Z	:30	#d
+"&	IGdW	Z	:31	#c
+"'	IGdW	Z	:32	#b
+"(	IGdW	Z	:33	#a
+")	IGdW	Z	:34	#`
+"*	IGdW	Z	:38	#_
+"+	IGdW	Z	:39	#^
+",	IGdW	Z	:40	#]
+"-	IVOQ	Z	"7	:42	#\
+".	IVOQ	Z	"9	:43	#[
+"/	IVOQ	Z	"<	:44	#Z
+"0	IVOQ	Z	"=	:45	#Y
+"1	IGdW	Z	:51	#|
+"2	IGdW	Z	:52	#{
+"3	IGdW	Z	:53	#z
+"4	IGdW	Z	:54	#y
+"5	IVOQ	Z	"6	:83	#X
+"6	INu}	Z	"5	C4	#X
+"7	INu}	Z	"-	S1	#\
+"8	IM}Q	Z	">	S1~1	-`
+"9	INu}	Z	".	S2	#[
+":	IM}Q	Z	"?	S2~1	-T
+";	IM}Q	Z	"@	S2~2	-\
+"<	INu}	Z	"/	S3	#Z
+"=	INu}	Z	"0	S4	#Y
+">	Q-YI	Z	"8	1	8	1	~42~1	-`
+"?	Q-YI	Z	":	1	3	1	~43~1	-T
+"@	Q-YI	Z	";	1	3	1	~43~2	-\
+"A	IGdW	d	:1	$)
+"B	Ky'5	d	1	"K	:10	$1
+"C	Ky'5	d	1	"B	:11	$2
+"D	[)+}	d	1	"C	4	1	1	:12	$3
+"E	IGdW	d	:3	$*
+"F	IVOA	d	"M	:4	$+
+"G	IVOA	d	"L	:5	$,
+"H	Ky'5	d	1	,	:6	$-
+"I	Ky'5	d	1	"H	:7	$.
+"J	Ky'5	d	1	"I	:8	$/
+"K	Ky'5	d	1	"J	:9	$0
+"L	INum	d	"G	QH	$,
+"M	INum	d	"F	QHN	$+
+"N	P|i%	d	1	"D	1	~3~1	-H
+"O	P|i%	d	1	"D	1	~3~2	-L
+"P	P|i%	d	1	"D	1	~3~3	-P
+"Q	P|i%	d	1	"D	1	~3~4	-X
+"R	P|i%	d	1	"D	1	~3~5	-d
+"S	IGdW	n	:1	$>
+"T	Ky'5	n	1	"]	:10	$F
+"U	Ky'5	n	1	"T	:11	$G
+"V	Ky'5	n	1	"U	:12	$H
+"W	IGdW	n	:3	$?
+"X	L)p/	n	"_	12	3	5	8	N	">	"?	"@	"N	"O	"Q	"R	"D	:4	$@
+"Y	IVOA	n	"^	:5	$A
+"Z	Ky'5	n	2	*	"X	:6	$B
+"[	Ky'5	n	1	"Z	:7	$C
+"\	Ky'5	n	1	"[	:8	$D
+"]	Ky'5	n	1	"\	:9	$E
+"^	INum	n	"Y	QH	$A
+"_	INvO	n	"X	QHN	$@
+"`	IeEA	"%	14	13	:41	%&
+"a	IeEA	"%	14	23	:42	%'
+"b	IeEA	"%	15	10	:43	%(
+"c	IeEA	"%	17	10	:44	%)
+"d	IeEA	"%	17	10	:45	%*
+"e	IeEA	"%	17	10	:46	%+
+"f	IeEA	"%	20	13	:47	%,
+"g	IeEA	"%	20	13	:48	%-
+"h	IeEA	"%	20	13	:49	%.
+"i	IeEA	"%	26	14	:50	%/
+"j	IeEA	"%	26	14	:51	%0
+"k	IeEA	"%	26	36	:52	%1
+"l	IeEA	"%	26	36	:53	%2
+"m	IeEA	"%	26	25	:54	%3
+"n	IeEA	"%	32	13	:55	%4
+"o	IeEA	"%	32	13	:56	%5
+"p	IeEA	"%	34	16	:57	%6
+"q	IeEA	"%	34	16	:58	%7
+"r	IeEA	"%	34	1	:59	%8
+"s	IeEA	"%	34	1	:60	%9
+"t	IeEA	"%	34	1	:61	%:
+"u	IeEA	"%	34	1	:62	%;
+"v	IeEA	"%	34	1	:63	%<
+"w	IeEA	"%	37	5	:64	%=
+"x	IeEA	"%	37	5	:65	%>
+"y	IeEA	"%	37	5	:66	%?
+"z	IeEA	"%	40	13	:67	%@
+"{	IeEA	"%	40	13	:68	%A
+"|	IeEA	"%	40	13	:69	%B
+"}	IeEA	"%	40	23	:70	%C
+"~	IeEA	"%	40	23	:71	%D
+#!	IeEA	"%	41	13	:72	%E
+#"	IeEA	"%	41	2	:73	%F
+##	IeEA	"%	42	7	:74	%G
+#$	IeEA	"%	41	2	:75	%H
+#%	IeEA	"%	41	2	:76	%I
+#&	IeEA	"%	44	7	:77	%J
+#'	IeEA	"%	44	7	:78	%K
+#(	IeEA	"%	47	6	:79	%L
+#)	IeEA	"%	47	6	:80	%M
+#*	IeEA	"%	47	6	:81	%N
+#+	IeEA	"%	50	13	:82	%O
+#,	IeEA	"%	50	23	:83	%P
+#-	IeEA	"%	51	14	:84	%Q
+#.	IeEA	"%	51	14	:85	%R
+#/	IeEA	"%	51	14	:86	%S
+#0	IeEA	"%	51	2	:87	%T
+#1	IeEA	"%	51	2	:88	%U
+#2	IeEA	"%	51	2	:89	%V
+#3	L8e}	"%	8	1	12	1	#3	3	8	N	">	"?	"@	"N	"O	"R	"D	ASIGN	%%

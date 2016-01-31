@@ -1,0 +1,205 @@
+;	CALSUM FUNCTION
+;
+;// Sum calculation function
+;//  This fucntion calculates the sum of the columns and 
+;//  rows of the matrix and stores the results into new 
+;//  arrays of column sums and rows sums.
+;//
+;	START FUNCTIONS AT ADDRESS $800
+.EQU	@,	$800
+
+; LOCAL VARS
+.EQU	MxN,		0
+.EQU	RESULT,		1
+.EQU	I,			2
+.EQU	I2,			3
+.EQU	SUM_1,		4
+.EQU	SUM_2,		5
+.EQU	SUM_3,		6
+.EQU	NUM_LOCALS, 7 
+
+; PARAMS
+.EQU	PCS,	NUM_LOCALS + 2
+.EQU	PRS,	NUM_LOCALS + 3
+.EQU	IND,	NUM_LOCALS + 4
+.EQU	COLS,	NUM_LOCALS + 5
+.EQU	ROWS,	NUM_LOCALS + 6
+.EQU	PMAT,	NUM_LOCALS + 7
+
+CALSUM:	BGN#	NUM_LOCALS
+		PSHX
+		LDA#	0						; ACC = 0
+		STA		!RESULT					; RESULT = 0
+		CMA		!IND					; RM ? 0,1
+		JNE		ROW_MAJOR				; RM = -1
+		JMP		COL_MAJOR				; RM = 0
+
+
+;		// operation with Row major order
+ROW_MAJOR:
+		LDX#	0
+										; STORE ROW SUMS ROW MAJOR
+LOOP_R1:CMX		!ROWS					; for ( int i = 0; i < rows; i++ )
+		JGE		DONE_R1
+		LDA#	0						; prs[i] = 0;
+		STA&	!PRS
+		STX		!I						; I = I
+		LDX#	0
+		LOOP_R2:	CMX		!COLS		; for ( int i2 = 0; i2 < cols; i2++)
+					JGE		DONE_R2
+					STX		!I2			; I2 = i2
+					LDA		!I			; ACC = I
+					MUL		!COLS		; ACC = I * COLS
+					ADA		!I2			; prs[i] = prs[i] + pmat[cols*i+i2];
+					STA		!SUM_1		; SUM_1 = COLS * I + I2
+					LDX		!I
+					LDA&	!PRS		; ACC = PRS [ I ]
+					STA		!SUM_2		; SUM_2 = PRS[ I ]
+					LDX		!SUM_1
+					LDA&	!PMAT		; ACC = PMAT [ COLS * I + I2 ]
+					ADA		!SUM_2		; ACC = PRS [ I ] + PMAT [ COLS * I + I2 ]
+					STA		!SUM_3		; SUM_3 = ACC
+					LDX		!I			; X = I
+					LDA		!SUM_3		; ACC = PRS [ I ] + PMAT [ COLS * I + I2 ]
+					STA&	!PRS		; PRS [ I ] = PRS [ I ] + PMAT [ COLS * I +I2 ]
+					LDX		!I2			; ACC = I2
+					ADX#	1			; I2++
+					JMP		LOOP_R2
+		DONE_R2:
+		LDX		!I						; RESULT = RESULT + PRS [ I ]
+		LDA&	!PRS		 
+		ADA		!RESULT
+		STA		!RESULT		
+		ADX#	1
+		JMP		LOOP_R1
+DONE_R1:LDX#	0
+
+
+; STORE THE COLUMN SUM ROW MAJOR
+
+LOOP_C1:CMX		!COLS					; FOR ( int i = 0; i < cols; i++ )
+		JGE		DONE_C1
+		LDA#	0						; pcs[i] = 0;
+		STA&	!PCS	
+		STX		!I						; I = I
+		LDX#	0
+		LOOP_C2:	CMX		!ROWS		; for ( int i2 = 0; i2 < cols; i2++)
+					JGE		DONE_C2
+					STX		!I2			; I2 = i2
+					LDA		!I2			; ACC = I2
+					MUL		!COLS		; ACC = I2 * COLS
+					ADA		!I			; pcs[i] = pcs[i] + pmat[i+cols*i2];
+					STA		!SUM_1		; SUM_1 = COLS * I2 + I
+					LDX		!I
+					LDA&	!PCS		; ACC = PCS [ I ]					
+					STA		!SUM_2		; SUM_2 = PCS[ I ]
+					LDX		!SUM_1
+					LDA&	!PMAT		; ACC = PMAT [ COLS * I2 + I ]
+					ADA		!SUM_2		; ACC = PCS [ I ] + PMAT [ COLS * I2 + I ]
+					STA		!SUM_3		; SUM_3 = ACC
+					LDX		!I			; X = I
+					LDA		!SUM_3		; ACC = PCS [ I ] + PMAT [ COLS * I2 + I ]
+					STA&	!PCS		; PRS [ I ] = PRS [ I ] + PMAT [ COLS * I2 +I ]
+					LDX		!I2			; ACC = I2
+					ADX#	1			; I2++
+					JMP		LOOP_C2
+		DONE_C2:
+		LDX		!I						; RESULT = RESULT + PRS [ I ]
+		LDA&	!PCS		 
+		ADA		!RESULT
+		STA		!RESULT		
+		ADX#	1
+		JMP		LOOP_C1
+		
+DONE_C1:
+		LDX#	0
+		JMP		DONE
+										; OPERATION INVOLVING COLUMN MAJOR ORDER
+										;		
+
+;		// operation with Column major order
+COL_MAJOR:
+		LDX#	0
+										; STORE ROW SUMS ROW MAJOR
+LOOP_CR1:
+		CMX		!ROWS					; for ( int i = 0; i < rows; i++ )
+		JGE		DONE_CR1
+		LDA#	0						; prs[i] = 0;
+		STA&	!PRS
+		STX		!I						; I = INDEX
+		LDX#	0
+		LOOP_CR2:	CMX		!COLS		; for ( int i2 = 0; i2 < cols; i2++)
+					JGE		DONE_CR2
+					STX		!I2			; I2 = i2
+					LDA		!I2			; ACC = I
+					MUL		!ROWS		; ACC = I * COLS
+					ADA		!I			; prs[i] = prs[i] + pmat[ROWS*i2+i];
+					STA		!SUM_1		; SUM_1 = ROWS * I2 + I
+					LDX		!I			;
+					LDA&	!PRS		; 
+					STA		!SUM_2		; SUM_2 = PRS[ I ]
+					LDX		!SUM_1		;
+					LDA&	!PMAT		; ACC = PMAT [ ROWS * I2 + I ]
+					ADA		!SUM_2		; ACC = PRS [ I ] + PMAT [ COLS * I + I2 ]
+					STA		!SUM_3		; SUM_3 = ACC
+					LDX		!I			; X = I
+					LDA		!SUM_3		; ACC = PRS [ I ] + PMAT [ COLS * I + I2 ]
+					STA&	!PRS		; PRS [ I ] = PRS [ I ] + PMAT [ COLS * I +I2 ]
+					LDX		!I2			; ACC = I2
+					ADX#	1			; I2++
+					JMP		LOOP_CR2
+		DONE_CR2:
+		LDX		!I						; RESULT = RESULT + PRS [ I ]
+		LDA&	!PRS
+		ADA		!RESULT
+		STA		!RESULT
+		ADX#	1
+		JMP		LOOP_CR1
+DONE_CR1:
+		LDX#	0
+										; STORE THE COLUMN SUM ROW MAJOR
+LOOP_CC1:
+		CMX		!COLS					; FOR ( int i = 0; i < cols; i++ )
+		JGE		DONE_CC1
+		LDA#	0						; pcs[i] = 0;
+		STA&	!PCS
+		STX		!I						; I = I
+		LDX#	0
+		LOOP_CC2:	CMX		!ROWS		; for ( int i = 0; i < cols; i++ )
+					JGE		DONE_CC2
+					STX		!I2			; I2 = i2
+					LDA		!I			; ACC = I2
+					MUL		!ROWS		; ACC = I2 * COLS
+					ADA		!I2			; pcs[i] = pcs[i] + pmat[i2+rows*i];
+					STA		!SUM_1		; SUM_1 = COLS * I2 + I
+					LDX		!I
+					LDA&	!PCS
+					STA		!SUM_2		; SUM_2 = PCS[ I ]
+					LDX		!SUM_1
+					LDA&	!PMAT		; ACC = PMAT [ COLS * I2 + I ]
+					ADA		!SUM_2		; ACC = PCS [ I ] + PMAT [ COLS * I2 + I ]
+					STA		!SUM_3		; SUM_3 = ACC
+					LDX		!I			; X = I
+					LDA		!SUM_3		; ACC = PCS [ I ] + PMAT [ COLS * I2 + I ]
+					STA&	!PCS		; PRS [ I ] = PRS [ I ] + PMAT [ COLS * I2 +I ]
+					LDX		!I2			; ACC = I2
+					ADX#	1			; I2++
+					JMP		LOOP_CC2
+		DONE_CC2:
+		LDX		!I						; RESULT = RESULT + PCS [ I ]
+		LDA&	!PCS
+		ADA		!RESULT
+		STA		!RESULT
+		ADX#	1
+		JMP		LOOP_CC1
+DONE_CC1:
+;		// since result holds the sum of the cols and the rows
+;		// it is a factor of 2 of the sum
+;		// so it needs to be divided into 2 to express 
+;		// the final sum
+		LDX#	0
+DONE:	LDA		!RESULT				; RESULT / 2
+		DIV#	2
+		POPX					
+		FIN#	NUM_LOCALS
+		RTN

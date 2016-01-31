@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<da_list><da><ds><vendor>UNKNOWN</vendor></ds><le leid="2"><type>net</type><name>xlxi_15_xlxi_23/xlxi_15_xlxi_23/ofl</name></le><msg type="WARNING"><num>454</num><ltext>logical net </ltext><ltext lref="2">'xlxi_15_xlxi_23/ofl'</ltext><ltext> has no load</ltext></msg></da></da_list>

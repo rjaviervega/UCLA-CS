@@ -1,0 +1,17 @@
+[xcv50-6pq240-XST VHDL]
+Design Entry Utilities=true
+[alu]
+Design Entry Utilities=true
+Place & Route=true
+User Constraints=true
+Synthesize=false
+Implement Design=false
+[negative_detect]
+Generate Programming File=false
+Design Entry Utilities=true
+Place & Route=true
+User Constraints=true
+Synthesize=false
+Implement Design=false
+Map=false
+Translate=false

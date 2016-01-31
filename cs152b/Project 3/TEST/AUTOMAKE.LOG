@@ -1,0 +1,41 @@
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Generate Programming File
+
+Starting: 'exewrap -tcl -command C:/Xilinx/data/projnav/_bitgen.tcl bitgen.rsp project2'
+
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -tcl -command C:/Xilinx/data/projnav/_utTObit.tcl project2'
+
+
+Creating TCL Process
+Starting: 'bitgen -f project2.ut project2.ncd'
+
+
+Release 4.1i - Bitgen E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Loading design for application Bitgen from file project2.ncd.
+   "project2" is an NCD, version 2.36, device xcv50, package pq240, speed -6
+Loading device for application Bitgen from file 'v50.nph' in environment
+C:/Xilinx.
+Opened constraints file project2.pcf.
+
+Thu Jul 29 10:18:08 2004
+
+Running DRC.
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net
+   xlxi_30_pctofpgainterface_pportinterface_N361 is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+DRC detected 0 errors and 1 warnings.
+Creating bit map...
+Saving bit stream in "project2.bit".
+Bitstream generation is complete.
+Tcl C:/Xilinx/data/projnav/_utTObit.tcl detected that program 'bitgen -f project2.ut project2.ncd' completed successfully.
+
+
+Done: completed successfully.

@@ -1,0 +1,34 @@
+Release 4.1i - ngdbuild E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -dd e:/hingkei/152bs04/project1/_ngo -nt timestamp -p
+xcv50-pq240-6 alu4.ngc alu4.ngd 
+
+Reading NGO file "E:/HingKei/152bs04/Project1/alu4.ngc" ...
+Reading component libraries for design expansion...
+Launcher: Executing edif2ngd -noa "mux2to1.edn"
+"e:\hingkei\152bs04\project1\_ngo\mux2to1.ngo"
+INFO:NgdBuild - Release 4.1i - edif2ngd E.30
+INFO:NgdBuild - Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Writing the design to "e:/hingkei/152bs04/project1/_ngo/mux2to1.ngo"...
+Loading design module "e:\hingkei\152bs04\project1\_ngo\mux2to1.ngo"...
+Launcher: Executing edif2ngd -noa "mux8to1.edn"
+"e:\hingkei\152bs04\project1\_ngo\mux8to1.ngo"
+INFO:NgdBuild - Release 4.1i - edif2ngd E.30
+INFO:NgdBuild - Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Writing the design to "e:/hingkei/152bs04/project1/_ngo/mux8to1.ngo"...
+Loading design module "e:\hingkei\152bs04\project1\_ngo\mux8to1.ngo"...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:454 - logical net 'adder/ofl' has no load
+WARNING:NgdBuild:454 - logical net 'xlxi_28/gt' has no load
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   2
+
+Writing NGD file "alu4.ngd" ...
+
+Writing NGDBUILD log file "alu4.bld"...

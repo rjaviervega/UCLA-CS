@@ -1,0 +1,1 @@
+-tcl -command C:/Xilinx/data/projnav/_msim_simBehavModel.tcl _msim_simBehavVhdlModel.rsp

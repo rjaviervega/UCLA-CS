@@ -1,0 +1,6 @@
+-p xcv50-pq240-6
+-cm area
+-k 4
+-c 100
+-tx off
+alu4.ngd

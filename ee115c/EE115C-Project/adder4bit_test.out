@@ -1,0 +1,730 @@
+
+**** 03/18/04 17:19:57 ********* PSpice 9.2 (Mar 2000) ******** ID# 1107000621 
+ * Four Bit Adder Test
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+*.include "adder4bit.sp"
+.include "adder4bit2.sp"
+
+**** INCLUDING adder4bit2.sp ****
+* 4bit ripple carry adder
+* Mirror Inverting Inputs
+
+.include "mirroradder2.sp"
+
+
+**** INCLUDING mirroradder2.sp ****
+* MirrorAdder                                           
+* Version (B) No Inverters
+
+.subckt fulladder A B Ci S Cout Vdd Vss                                                 
+
+* NMOS NETWORK
+M1              1               A               0       0       NMOS    w=1u            l=.25u  ad=1p           as=1p
+M2              1               B               0       0       NMOS    w=1u            l=.25u  ad=1p           as=1p
+M3              2               B               0       0       NMOS    w=1u            l=.25u  ad=1p           as=1p
+M4              Cout    Ci              1       0       NMOS    w=1u            l=.25u  ad=1p           as=1p
+M5              Cout    A               2       0       NMOS    w=1u            l=.25u  ad=1p           as=1p
+M6              6               A               0       0       NMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M7              6               B               0       0       NMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M8              6               Ci              0       0       NMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M9              S               Cout    6       0       NMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M10     9               B               0       0       NMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M11     10              A               9       0       NMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M12     S               Ci              10      0       NMOS    w=.375u l=.25u  ad=.375p        as=.375p
+
+* PMOS NETWORK
+M13     Cout    Ci              4               Vdd     PMOS    w=2u            l=.25u  ad=2p           as=2p
+M14     Cout    A               5               Vdd     PMOS    w=2u            l=.25u  ad=2p           as=2p
+M15     4               A               Vdd     Vdd     PMOS    w=2u            l=.25u  ad=2p           as=2p
+M16     4               B               Vdd     Vdd     PMOS    w=2u            l=.25u  ad=2p           as=2p
+M17     5               B               Vdd     Vdd     PMOS    w=2u            l=.25u  ad=2p           as=2p
+M18     S               Cout    8               Vdd     PMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M19     8               A               Vdd     Vdd     PMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M20     8               B               Vdd     Vdd     PMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M21     8               Ci              Vdd     Vdd     PMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M22     12      A               Vdd     Vdd     PMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M23     11      B               12      Vdd     PMOS    w=.375u l=.25u  ad=.375p        as=.375p
+M24     S               Ci              11      Vdd     PMOS    w=.375u l=.25u  ad=.375p        as=.375p
+
+.ends                                           
+
+**** RESUMING adder4bit2.sp ****
+.subckt adder4bit 
++ A0 A1 A2 A3 B0 B1 B2 B3 Ci 
++ S0 S1 S2 S3 C3
++ Vdd GND
+
+* Invert Inputs for 2d version of M_Adder
+XA1     A1      A1_not  Vdd     GND     inv_1x
+XA3     A3      A3_not  Vdd     GND     inv_1x
+XB1     B1              B1_not  Vdd     GND     inv_1x
+XB3     B3      B3_not  Vdd     GND     inv_1x
+
+* Modified version of bar Inputs
+X1 A0           B0              Ci      S0_not  C0      Vdd     GND     fulladder 
+X2 A1_not       B1_not  C0      S1              C1      Vdd     GND     fulladder
+X3 A2           B2              C1      S2_not  C2      Vdd     GND     fulladder
+X4 A3_not       B3_not  C2      S3                      C3      Vdd     GND     fulladder  
+
+
+* Inverting output
+XS0     S0_not  S0              Vdd     GND     inv_1x
+XS2     S2_not  S2              Vdd     GND     inv_1x
+
+
+.ends
+
+**** RESUMING adder4bit_test.cir ****
+.include "inv_1x.sp"
+
+**** INCLUDING inv_1x.sp ****
+* INV1X
+
+.subckt inv_1x In Out Vdd GND 
+M1 Out In Vdd Vdd pmos W=2U   L=0.25U PD=1U   PS=1U   AS=3P   AD=3P
+M2 Out In GND GND nmos W=0.6U L=0.25U PD=0.3U PS=0.3U AS=1.6P AD=1.6P
+.ends
+
+**** RESUMING adder4bit_test.cir ****
+.include "4bd2a.sp"
+
+
+**** INCLUDING 4bd2a.sp ****
+* 4BIT D2A (4bit D-to-A converter)
+* Weight and sum the bits
+* (Convert the 4bits to analog)
+* You could post process this to 
+* round to the nearest integer
+* assumes Vdd=2.5V
+.SUBCKT 4BD2A I0 I1 I2 I3 OUT
+E0 1   0 I0 0 1
+E1 2   1 I1 0 2
+E2 3   2 I2 0 4
+E3 SUM 3 I3 0 8
+E4 OUT 0 SUM 0 0.4
+.ENDS
+
+.SUBCKT 5BD2A I0 I1 I2 I3 I4 OUT
+E0 1   0 I0 0 1
+E1 2   1 I1 0 2
+E2 3   2 I2 0 4
+E3 4   3 I3 0 8
+E5 SUM 4 I4 0 16
+E4 OUT 0 SUM 0 0.4
+.ENDS
+
+.SUBCKT SUMMER A B C OUT 
+* Scale C to 1V (Initially 2.5V)
+E2 OUT 2 C 0 0.4
+E0 1 0 A 0 1
+E1 2 1 B 0 1
+.ENDS
+
+**** RESUMING adder4bit_test.cir ****
+.include "0.25um_PSPICE_BSIM3.txt"
+
+
+**** INCLUDING 0.25um_PSPICE_BSIM3.txt ****
+
+
+***************************************************************
+*                 NMOS DEVICES MODEL                          *
+***************************************************************
+
+
+.MODEL nmos          NMOS   (                    
++LMIN    = 2.4E-07        LMAX    = '5.1E-07'     
++LEVEL   = 7              TNOM    = 25             
++XW      = 0              TOX     = 5.8E-9           
++XJ      = 1E-07          NCH     = 2.354946E+17   LLN     = 1              
++LWN     = 1              WLN     = 1              WWN     = 1              
++LINT    = 1.76E-08       WINT    = 6.75E-09       MOBMOD  = 1              
++BINUNIT = 2              DWG     = 0              DWB     = 0              
++VTH0    = '0.4321336' LVTH0   = 2.081814E-08   WVTH0   = -5.470342E-11
++PVTH0   = -6.721795E-16  K1      = 0.3281252      LK1     = 9.238362E-08   
++WK1     = 2.878255E-08   PK1     = -2.426481E-14  K2      = 0.0402824      
++LK2     = -3.208392E-08  WK2     = -1.154091E-08  PK2     = 9.192045E-15   
++K3      = 0              DVT0    = 0              DVT1    = 0              
++DVT2    = 0              DVT0W   = 0              DVT1W   = 0              
++DVT2W   = 0              NLX     = 0              W0      = 0              
++K3B     = 0              VSAT    = 7.586954E+04   LVSAT   = 3.094656E-03   
++WVSAT   = -1.747416E-03  PVSAT   = 8.820956E-10   UA      = 8.924498E-10   
++LUA     = -1.511745E-16  WUA     = -3.509821E-17  PUA     = -3.08778E-23   
++UB      = 8.928832E-21   LUB     = -1.655745E-27  WUB     = -2.03282E-27   
++PUB     = 3.4578E-34     UC      = -1.364265E-11  LUC     = 1.170473E-17   
++WUC     = -1.256705E-18  PUC     = -6.249644E-24  RDSW    = 447.8871       
++PRWB    = 0              PRWG    = 0              WR      = 0.99           
++U0      = 0.06005258     LU0     = -6.31976E-09   WU0     = -8.819531E-09  
++PU0     = 3.57209E-15    A0      = -1.468837      LA0     = 6.419548E-07   
++WA0     = 5.512414E-07   PA0     = -9.222928E-14  KETA    = -0.04922795    
++LKETA   = 2.360844E-08   WKETA   = 1.560385E-08   PKETA   = -5.98377E-15   
++A1      = 0.02659908     LA1     = -6.511454E-09  A2      = 1              
++AGS     = -4.01637       LAGS    = 1.090294E-06   WAGS    = 1.162021E-06   
++PAGS    = -3.108579E-13  B0      = 0              B1      = 0              
++VOFF    = -0.1829426     LVOFF   = 9.941631E-09   WVOFF   = 1.568082E-08   
++PVOFF   = -2.832958E-15  NFACTOR = 0.6790636      LNFACTOR= 3.454948E-08   
++WNFACTOR= 1.501016E-07   PNFACTOR= -2.955591E-14  CIT     = 2.218499E-04   
++LCIT    = -1.076934E-10  WCIT    = -3.286884E-10  PCIT    = 1.658928E-16   
++CDSC    = 0              CDSCB   = 0              CDSCD   = 0              
++ETA0    = 1.215578E-04   LETA0   = -1.037758E-11  WETA0   = -3.030225E-11  
++PETA0   = 1.529658E-17   ETAB    = 3.548681E-03   LETAB   = -1.791374E-09  
++WETAB   = -6.897268E-10  PETAB   = 3.481742E-16   DSUB    = 0              
++PCLM    = 3.583838       LPCLM   = -6.874146E-07  WPCLM   = 5.664574E-08   
++PPCLM   = -1.33176E-15   PDIBLC1 = 0              PDIBLC2 = 5.379674E-03   
++LPDIBLC2= 7.808481E-09   WPDIBLC2= 5.516945E-10   PPDIBLC2= -2.784957E-16  
++PDIBLCB = -0.1229374     LPDIBLCB= 4.956215E-08   WPDIBLCB= 3.299946E-08   
++PPDIBLCB= -9.624918E-15  DROUT   = 0              PSCBE1  = 4.472639E+08   
++LPSCBE1 = 28.64041       WPSCBE1 = 15.7154        PPSCBE1 = -7.933138E-06  
++PSCBE2  = 1.842585E-06   LPSCBE2 = 2.871008E-12   WPSCBE2 = 2.579183E-12   
++PPSCBE2 = -1.301972E-18  PVAG    = -2.015254E-03  LPVAG   = 1.017757E-09   
++WPVAG   = 3.07622E-10    PPVAG   = -1.55418E-16   DELTA   = 0.02862256    
++LDELTA  = 1.492454E-08   WDELTA  = -6.71663E-09   PDELTA  = 3.407521E-15   
++ALPHA0  = 0              BETA0   = 30             KT1     = -0.2579945     
++LKT1    = -1.664895E-08  WKT1    = -1.633463E-08  PKT1    = 3.755864E-15   
++KT2     = -0.05347481    LKT2    = 8.244731E-09   WKT2    = 1.13705E-09    
++PKT2    = -1.240924E-15  AT      = -1.132632E+04  LAT     = 6.469047E-03   
++WAT     = 6.829220E-04   PAT     = -4.154249E-10  UTE     = -2.309089      
++LUTE    = 1.662427E-07   WUTE    = 1.244801E-07   PUTE    = -5.627924E-14  
++UA1     = -3.461758E-10  LUA1    = 1.747495E-16   WUA1    = -1.42065E-16   
++PUA1    = 7.171442E-23   UB1     = 0              UC1     = -2.38157E-12   
++LUC1    = -2.895726E-18  WUC1    = -1.990052E-17  PUC1    = 1.004497E-23   
++KT1L    = 0              PRT     = -1E-18         CJ      = 2.024128E-3
++MJ      = 0.4960069      PB      = 0.9173808      CJSW    = 2.751528E-10         
++MJSW    = 0.443145       PBSW    = 0.9173808      CJSWG   = 2.135064E-10        
++MJSWG   = 0.443145       PBSWG   = 0.9173808              
++RS      = 0              RD      = 0
++RSH     = 4.5            
++N       = 1              XTI     = 3              
++CGDO    = '3.11E-10'         CGSO    = '3.11E-10'         CAPMOD  = 0              
++NQSMOD  = 0              XPART   = 1              CF      = 0              
++JS      = 1E-06          
++JSW     = 5E-11           )
+
+
+***************************************************************
+*                 PMOS DEVICES MODEL                          *
+***************************************************************
+      
+.MODEL pmos PMOS (                               
++LEVEL   = 7               LMIN    = 2.4E-7         LMAX    = '5.0E-7'          
++XW      = '0'            TNOM    = 25             TOX     = 5.8e-9          
++XJ      = 1E-7           NCH     = 4.1589E17          
++LLN     = 1              LWN     = 1              WLN     = 1                  
++WWN     = 1              LINT    = 1.2365E-8      WINT    = 7.8E-9             
++MOBMOD  = 1              BINUNIT = 2              DWG     = 0                  
++DWB     = 0              VTH0    = '-0.6236538' LVTH0   = 2.649834E-8
++WVTH0   = 3.214189E-8    PVTH0   = -3.22268E-15   K1      = 0.4198155          
++LK1     = 5.770498E-8    WK1     = 5.577151E-8    PK1     = -2.81684E-14       
++K2      = 0.0429467      LK2     = -2.296405E-8   WK2     = -1.355302E-8       
++PK2     = 6.848271E-15   K3      = 0              DVT0    = 0                  
++DVT1    = 0              DVT2    = 0              DVT0W   = 0                  
++DVT1W   = 0              DVT2W   = 0              NLX     = 0                  
++W0      = 0              K3B     = 0              VSAT    = 1.443912E5         
++LVSAT   = -7.688012E-4   WVSAT   = -6.083648E-3   PVSAT   = 2.186471E-10       
++UA      = 1.846811E-9    LUA     = -3.27694E-16   WUA     = -2.82106E-16       
++PUA     = 7.180233E-23   UB      = -7.84535E-19   LUB     = 4.772849E-25       
++WUB     = 2.599205E-25   PUB     = -1.46530E-31   UC      = -1.75560E-10       
++LUC     = 3.360832E-17   WUC     = 1.504425E-17   PUC     = -1.30556E-23       
++RDSW    = 1.03E3         PRWB    = 0              PRWG    = 0                  
++WR      = 1              U0      = 0.0136443      LU0     = -7.22084E-10       
++WU0     = -1.088554E-9   PU0     = 2.730854E-16   A0      = 0.1071803          
++LA0     = 4.64252E-7     WA0     = 5.383179E-7    PA0     = -1.32033E-13       
++KETA    = -4.943762E-3   LKETA   = -3.565304E-9   WKETA   = -5.226247E-9       
++PKETA   = 2.640665E-15   A1      = 0              A2      = 0.4                
++AGS     = 0.1664005      LAGS    = 1.19106E-7     WAGS    = 5.29237E-8         
++PAGS    = -2.67304E-14   B0      = 0              B1      = 0                  
++VOFF    = -0.0592623     LVOFF   = -1.96686E-8    WVOFF   = -1.486398E-8       
++PVOFF   = 7.510321E-15   NFACTOR = 0.8588103      LNFACTOR= -1.158881E-7       
++WNFACTOR= 1.210664E-8    PNFACTOR= -6.11712E-15   CIT     = 6.439495E-5        
++LCIT    = 2.916437E-10   WCIT    = -3.11284E-11   PCIT    = 1.572825E-17       
++CDSC    = 0              CDSCB   = 0              CDSCD   = 0                  
++ETA0    = -3.819468E-3   LETA0   = 2.155422E-9    WETA0   = 8.235612E-10       
++PETA0   = -4.16037E-16   ETAB    = 1.334637E-3    LETAB   = -7.93631E-10       
++WETAB   = 5.284657E-11   PETAB   = -2.68353E-17   DSUB    = 0                  
++PCLM    = 0.1098002      LPCLM   = 6.874263E-7    WPCLM   = 6.724724E-7        
++PPCLM   = -1.97766E-13   PDIBLC1 = 0              PDIBLC2 = 5.801323E-3        
++LPDIBLC2= -1.81964E-9    WPDIBLC2= -5.853396E-9   PPDIBLC2= 2.957545E-15       
++PDIBLCB = 0.1921199      DROUT   = 0              PSCBE1  = 7.19E8             
++PSCBE2  = 1E-20          PVAG    = 0              DELTA   = 0.01               
++ALPHA0  = 0              BETA0   = 30             KT1     = -0.3248987         
++LKT1    = -1.160393E-8   WKT1    = 4.153356E-8    PKT1    = -4.62347E-15       
++KT2     = -0.0367632     AT      = 1E4            UTE     = -1.04              
++UA1     = 3.992421E-10   UB1     = -9.23294E-19   LUB1    = -5.28718E-26       
++WUB1    = -6.13069E-26   PUB1    = 1.503674E-32   UC1     = -1.00699E-12       
++KT1L    = 0              PRT     = 0              CJ      = 1.931092E-3                
++MJ      = 0.4812153      PB      = 0.9134669      CJSW    = 2.232277E-10              
++MJSW    = 0.3237595      PBSW    = 0.9134669      CJSWG   = 1.607088E-10           
++MJSWG   = 0.3237595      PBSWG   = 0.9134669               
++RS      = 0                  
++RD      = 0              RSH     = 3.5           
++CGDO    = 2.68E-10           CGSO    = 2.68E-10                         
++CAPMOD  = 0              NQSMOD  = 0              XPART   = 1              
++CF      = 0              N       = 1              XTI     = 3
++JS      = 3E-7           
++JSW     = 5E-12           )  
+
+
+
+**** RESUMING adder4bit_test.cir ****
+xadder A0_B A1_B A2_B A3_B 
++ B0_B B1_B B2_B B3_B 
++ CI_B S0 S1 S2 S3 COUT
++ VDD VSS adder4bit
+
+vdd Vdd 0 2.5V
+vss VSS 0 0
+
+* Functional Test for Average power measurement
+VA0 A0 0 pulse 0 2.5 1n   10p 10p 10n  20n
+VB0 B0 0 pulse 0 2.5 161n 10p 10p 10n  20n
+VA1 A1 0 pulse 0 2.5 1n   10p 10p 20n  40n
+VB1 B1 0 pulse 0 2.5 161n 10p 10p 20n  40n
+VA2 A2 0 pulse 0 2.5 1n   10p 10p 40n  80n
+VB2 B2 0 pulse 0 2.5 161n 10p 10p 40n  80n
+VA3 A3 0 pulse 0 2.5 1n   10p 10p 80n  160n
+VB3 B3 0 pulse 0 2.5 161n 10p 10p 80n  160n
+VCI CI 0 pulse 0 2.5 1n   10p 10p 160n 320n
+
+XA0 A0 A0_B Vdd VSS inv_1x
+XB0 B0 B0_B Vdd VSS inv_1x
+XA1 A1 A1_B Vdd VSS inv_1x
+XB1 B1 B1_B Vdd VSS inv_1x
+XA2 A2 A2_B Vdd VSS inv_1x
+XB2 B2 B2_B Vdd VSS inv_1x
+XA3 A3 A3_B Vdd VSS inv_1x
+XB3 B3 B3_B Vdd VSS inv_1x
+XCI CI CI_B Vdd VSS inv_1x
+
+C1 S0 0 100F
+C2 S1 0 100F
+C3 S2 0 100F
+C4 S3 0 100F
+C5 COUT 0 100F
+
+XD2AA A0_B A1_B A2_B A3_B AIN 4BD2A
+XD2AB B0_B B1_B B2_B B3_B BIN 4BD2A
+XSUMM AIN BIN CI_B SUM_IN SUMMER
+XD2AS S0 S1 S2 S3 COUT SUM 5BD2A
+
+.tran 10n 480n
+.print tran V([SUM]) V([SUM_IN])
+.probe
+.options DEFW=0.375U DEFL=0.25U DEFAD=0.11P DEFAS=0.11P 
+.end
+
+WARNING -- Mosfet XA0.M2, model nmos: Pd = 3e-007 is less than W
+WARNING -- Mosfet XA0.M2, model nmos: Ps = 3e-007 is less than W
+WARNING -- Mosfet xadder.X1.M1, model nmos: Pd = 0 is less than W
+WARNING -- Mosfet xadder.X1.M1, model nmos: Ps = 0 is less than W
+WARNING -- Mosfet xadder.X1.M6, model nmos: Pd = 0 is less than W
+WARNING -- Mosfet xadder.X1.M6, model nmos: Ps = 0 is less than W
+WARNING -- Mosfet XA0.M1, model pmos: Pd = 1e-006 is less than W
+WARNING -- Mosfet XA0.M1, model pmos: Ps = 1e-006 is less than W
+WARNING -- Mosfet xadder.X1.M18, model pmos: Pd = 0 is less than W
+WARNING -- Mosfet xadder.X1.M18, model pmos: Ps = 0 is less than W
+**** 03/18/04 17:19:57 ********* PSpice 9.2 (Mar 2000) ******** ID# 1107000621 
+ * Four Bit Adder Test
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               nmos            pmos            
+               NMOS            PMOS            
+  T_Measured   25              25            
+   T_Current   27              27            
+       LEVEL    7               7            
+           L  250.000000E-09  250.000000E-09 
+           W  375.000000E-09  375.000000E-09 
+         VTO     .432134        -.623654     
+          KP  357.221800E-06  357.221800E-06 
+       GAMMA    0               0            
+      LAMBDA    0               0            
+         RSH    4.5             3.5          
+          IS    1.000000E-15    1.000000E-15 
+          JS    1.000000E-06  300.000000E-09 
+        JSSW   50.000000E-12    5.000000E-12 
+          PB     .917381         .913467     
+        PBSW     .917381         .913467     
+          CJ    2.024128E-03    1.931092E-03 
+        CJSW  275.152800E-12  223.227700E-12 
+          MJ     .496007         .481215     
+        MJSW     .443145         .32376      
+        CGSO  311.000000E-12  268.000000E-12 
+        CGDO  311.000000E-12  268.000000E-12 
+        CGBO   80.374900E-12   92.877660E-12 
+         TOX    5.800000E-09    5.800000E-09 
+          XJ  100.000000E-09  100.000000E-09 
+       UCRIT   10.000000E+03   10.000000E+03 
+       DELTA     .028623         .01         
+      DIOMOD    2               2            
+          K1     .328125         .419816     
+         LK1   92.383620E-09   57.704980E-09 
+         WK1   28.782550E-09   55.771510E-09 
+          K2     .040282         .042947     
+         LK2  -32.083920E-09  -22.964050E-09 
+         WK2  -11.540910E-09  -13.553020E-09 
+        LETA    0               0            
+        WETA    0               0            
+          U0     .060053         .013644     
+         LU0   -6.319760E-09 -722.084000E-12 
+         WU0   -8.819531E-09   -1.088554E-09 
+       XPART    1               1            
+        VTH0     .432134        -.623654     
+          K3    0               0            
+          W0    0               0            
+         NLX    0               0            
+        DVT0    0               0            
+        DVT1    0               0            
+          UA  892.449800E-12    1.846811E-09 
+          UB    8.928832E-21 -784.535000E-21 
+          UC  -13.642650E-12 -175.560000E-12 
+        VSAT   75.869540E+03  144.391200E+03 
+        RDSW  447.8871          1.030000E+03 
+        VOFF    -.182943        -.059262     
+     NFACTOR     .679064         .85881      
+        CDSC    0               0            
+        PCLM    3.583838         .1098       
+      PDIBL1    0               0            
+      PDIBL2    5.379674E-03    5.801323E-03 
+       DROUT    0               0            
+      PSCBE1  447.263900E+06  719.000000E+06 
+      PSCBE2    1.842585E-06   10.000000E-21 
+          A0   -1.468837         .10718      
+          A1     .026599        0            
+          A2    1                .4          
+       NPEAK  235.494600E+15  415.890000E+15 
+         LDD    0               0            
+        LITL   41.713310E-09   41.713310E-09 
+         KT1    -.257995        -.324899     
+         KT2    -.053475        -.036763     
+         UA1 -346.175800E-12  399.242100E-12 
+         UB1    0            -923.294000E-21 
+         UC1   -2.381570E-12   -1.006990E-12 
+          AT  -11.326320E+03   10.000000E+03 
+        PVAG   -2.015254E-03                 
+        KETA    -.049228       -4.943762E-03 
+        ETA0  121.557800E-06   -3.819468E-03 
+        ETAB    3.548681E-03    1.334637E-03 
+        DVT2    0               0            
+         CIT  221.849900E-06   64.394950E-06 
+        DSUB    0               0            
+         UTE   -2.309089       -1.04         
+     BINUNIT    2               2            
+      CAPMOD    0               0            
+         AGS   -4.01637          .166401     
+       DVT1W    0               0            
+       DVT2W    0               0            
+         PRT   -1.000000E-18                 
+     PDIBLCB    -.122937         .19212      
+          WR     .99                         
+        LINT   17.600000E-09   12.365000E-09 
+        LMIN  240.000000E-09  240.000000E-09 
+        LMAX  510.000000E-09  500.000000E-09 
+        WINT    6.750000E-09    7.800000E-09 
+         DLC   17.600000E-09   12.365000E-09 
+         DWC    6.750000E-09    7.800000E-09 
+          CF    0               0            
+        NOIA  100.000000E+18    9.900001E+18 
+        NOIB   50.000000E+03    2.400000E+03 
+        NOIC   -1.400000E-12    1.400000E-12 
+        LCIT -107.693400E-12  291.643700E-12 
+    LNFACTOR   34.549480E-09 -115.888100E-09 
+       LVSAT    3.094656E-03 -768.801200E-06 
+         LAT    6.469047E-03                 
+         LA0  641.954800E-09  464.252000E-09 
+        LAGS    1.090294E-06  119.106000E-09 
+         LA1   -6.511454E-09                 
+       LKETA   23.608440E-09   -3.565304E-09 
+        LKT1  -16.648950E-09  -11.603930E-09 
+        LKT2    8.244731E-09                 
+       LVTH0   20.818140E-09   26.498340E-09 
+         LUA -151.174500E-18 -327.694000E-18 
+        LUA1  174.749500E-18                 
+         LUB   -1.655745E-27  477.284900E-27 
+        LUB1                  -52.871800E-27 
+         LUC   11.704730E-18   33.608320E-18 
+        LUC1   -2.895726E-18                 
+        LUTE  166.242700E-09                 
+       LVOFF    9.941631E-09  -19.668600E-09 
+      LDELTA   14.924540E-09                 
+       LETA0  -10.377580E-12    2.155422E-09 
+       LETAB   -1.791374E-09 -793.631000E-12 
+       LPCLM -687.414600E-09  687.426300E-09 
+    LPDIBLC2    7.808481E-09   -1.819640E-09 
+    LPDIBLCB   49.562150E-09                 
+     LPSCBE1   28.64041                      
+     LPSCBE2    2.871008E-12                 
+       LPVAG    1.017757E-09                 
+        WCIT -328.688400E-12  -31.128400E-12 
+    WNFACTOR  150.101600E-09   12.106640E-09 
+       WVSAT   -1.747416E-03   -6.083648E-03 
+         WAT  682.922000E-06                 
+         WA0  551.241400E-09  538.317900E-09 
+        WAGS    1.162021E-06   52.923700E-09 
+       WKETA   15.603850E-09   -5.226247E-09 
+        WKT1  -16.334630E-09   41.533560E-09 
+        WKT2    1.137050E-09                 
+       WVTH0  -54.703420E-12   32.141890E-09 
+         WUA  -35.098210E-18 -282.106000E-18 
+        WUA1 -142.065000E-18                 
+         WUB   -2.032820E-27  259.920500E-27 
+        WUB1                  -61.306900E-27 
+         WUC   -1.256705E-18   15.044250E-18 
+        WUC1  -19.900520E-18                 
+        WUTE  124.480100E-09                 
+       WVOFF   15.680820E-09  -14.863980E-09 
+      WDELTA   -6.716630E-09                 
+       WETA0  -30.302250E-12  823.561200E-12 
+       WETAB -689.726800E-12   52.846570E-12 
+       WPCLM   56.645740E-09  672.472400E-09 
+    WPDIBLC2  551.694500E-12   -5.853396E-09 
+    WPDIBLCB   32.999460E-09                 
+     WPSCBE1   15.7154                       
+     WPSCBE2    2.579183E-12                 
+       WPVAG  307.622000E-12                 
+        PCIT  165.892800E-18   15.728250E-18 
+    PNFACTOR  -29.555910E-15   -6.117120E-15 
+       PVSAT  882.095600E-12  218.647100E-12 
+         PAT -415.424900E-12                 
+         PA0  -92.229280E-15 -132.033000E-15 
+        PAGS -310.857900E-15  -26.730400E-15 
+       PKETA   -5.983770E-15    2.640665E-15 
+        PKT1    3.755864E-15   -4.623470E-15 
+        PKT2   -1.240924E-15                 
+       PVTH0 -672.179500E-18   -3.222680E-15 
+         PUA  -30.877800E-24   71.802330E-24 
+        PUA1   71.714420E-24                 
+         PUB    0              -0            
+        PUB1                    0            
+         PUC   -6.249644E-24  -13.055600E-24 
+        PUC1   10.044970E-24                 
+         PU0    3.572090E-15  273.085400E-18 
+        PUTE  -56.279240E-15                 
+       PVOFF   -2.832958E-15    7.510321E-15 
+      PDELTA    3.407521E-15                 
+       PETA0   15.296580E-18 -416.037000E-18 
+       PETAB  348.174200E-18  -26.835300E-18 
+       PPCLM   -1.331760E-15 -197.766000E-15 
+    PPDIBLC2 -278.495700E-18    2.957545E-15 
+    PPDIBLCB   -9.624918E-15                 
+     PPSCBE1   -7.933138E-06                 
+     PPSCBE2   -1.301972E-18                 
+       PPVAG -155.418000E-18                 
+         PK1  -24.264810E-15  -28.168400E-15 
+         PK2    9.192045E-15    6.848271E-15 
+         VTM     .025692         .025692     
+       PBSWG     .917381         .913467     
+       MJSWG     .443145         .32376      
+       CJSWG  213.506400E-12  160.708800E-12 
+       JTSCD    1.000000E-06  300.000000E-09 
+      JSTSCD   50.000000E-12    5.000000E-12 
+
+
+WARNING -- Mosfet XA0.M1, model pmos: Pd = 1e-006 is less than W
+WARNING -- Mosfet XA0.M1, model pmos: Ps = 1e-006 is less than W
+WARNING -- Mosfet xadder.X1.M18, model pmos: Pd = 0 is less than W
+WARNING -- Mosfet xadder.X1.M18, model pmos: Ps = 0 is less than W
+WARNING -- Mosfet XA0.M2, model nmos: Pd = 3e-007 is less than W
+WARNING -- Mosfet XA0.M2, model nmos: Ps = 3e-007 is less than W
+WARNING -- Mosfet xadder.X1.M1, model nmos: Pd = 0 is less than W
+WARNING -- Mosfet xadder.X1.M1, model nmos: Ps = 0 is less than W
+WARNING -- Mosfet xadder.X1.M6, model nmos: Pd = 0 is less than W
+WARNING -- Mosfet xadder.X1.M6, model nmos: Ps = 0 is less than W
+**** 03/18/04 17:19:57 ********* PSpice 9.2 (Mar 2000) ******** ID# 1107000621 
+ * Four Bit Adder Test
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   A0)    0.0000  (   A1)    0.0000  (   A2)    0.0000  (   A3)    0.0000      
+
+(   B0)    0.0000  (   B1)    0.0000  (   B2)    0.0000  (   B3)    0.0000      
+
+(   CI)    0.0000  (   S0)    2.5000  (   S1)    2.5000  (   S2)    2.5000      
+
+(   S3)    2.5000  (  AIN)   15.0000  (  BIN)   15.0000  (  SUM)   31.0000      
+
+(  Vdd)    2.5000  (  VSS)    0.0000  ( A0_B)    2.5000  ( A1_B)    2.5000      
+
+( A2_B)    2.5000  ( A3_B)    2.5000  ( B0_B)    2.5000  ( B1_B)    2.5000      
+
+( B2_B)    2.5000  ( B3_B)    2.5000  ( CI_B)    2.5000  ( COUT)    2.5000      
+
+(SUM_IN)   31.0000 (XD2AA.1)    2.5000                   (XD2AA.2)    7.5000    
+
+(XD2AA.3)   17.5000                   (XD2AB.1)    2.5000                       
+
+(XD2AB.2)    7.5000                   (XD2AB.3)   17.5000                       
+
+(XD2AS.1)    2.5000                   (XD2AS.2)    7.5000                       
+
+(XD2AS.3)   17.5000                   (XD2AS.4)   37.5000                       
+
+(XSUMM.1)   15.0000                   (XSUMM.2)   30.0000                       
+
+(xadder.C0) 10.43E-09                 (xadder.C1)    2.5000                     
+
+(xadder.C2) 10.43E-09                 (XD2AA.SUM)   37.5000                     
+
+(XD2AB.SUM)   37.5000                 (XD2AS.SUM)   77.5000                     
+
+(xadder.X1.1) 3.476E-09               (xadder.X1.2) 5.214E-09                   
+
+(xadder.X1.4)    2.4709               (xadder.X1.5)    2.4569                   
+
+(xadder.X1.6) 1.718E-15               (xadder.X1.8)     .4522                   
+
+(xadder.X1.9) 43.99E-09               (xadder.X2.1)     .0307                   
+
+(xadder.X2.2)     .0409               (xadder.X2.4)    2.5000                   
+
+(xadder.X2.5)    2.5000               (xadder.X2.6)    2.0387                   
+
+(xadder.X2.8)    2.5000               (xadder.X2.9)     .0177                   
+
+(xadder.X3.1) 3.476E-09               (xadder.X3.2) 5.214E-09                   
+
+(xadder.X3.4)    2.4709               (xadder.X3.5)    2.4569                   
+
+(xadder.X3.6) 1.539E-15               (xadder.X3.8)     .4522                   
+
+(xadder.X3.9) 43.99E-09               (xadder.X4.1)     .0307                   
+
+(xadder.X4.2)     .0409               (xadder.X4.4)    2.5000                   
+
+(xadder.X4.5)    2.5000               (xadder.X4.6)    2.0387                   
+
+(xadder.X4.8)    2.5000               (xadder.X4.9)     .0177                   
+
+(xadder.X1.10) 87.98E-09              (xadder.X1.11)    2.4518                  
+
+(xadder.X1.12)    2.4865              (xadder.X2.10)     .0629                  
+
+(xadder.X2.11)    2.5000              (xadder.X2.12)    2.5000                  
+
+(xadder.X3.10) 87.98E-09              (xadder.X3.11)    2.4518                  
+
+(xadder.X3.12)    2.4865              (xadder.X4.10)     .0629                  
+
+(xadder.X4.11)    2.5000              (xadder.X4.12)    2.5000                  
+
+(xadder.A1_not) 23.75E-09             (xadder.A3_not) 23.75E-09                 
+
+(xadder.B1_not) 23.75E-09             (xadder.B3_not) 23.75E-09                 
+
+(xadder.S0_not) 132.0E-09             (xadder.S2_not) 132.0E-09             
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    vdd         -2.317E-10
+    vss          1.122E-10
+    VA0          0.000E+00
+    VB0          0.000E+00
+    VA1          0.000E+00
+    VB1          0.000E+00
+    VA2          0.000E+00
+    VB2          0.000E+00
+    VA3          0.000E+00
+    VB3          0.000E+00
+    VCI          0.000E+00
+
+    TOTAL POWER DISSIPATION   5.79E-10  WATTS
+
+
+**** 03/18/04 17:19:57 ********* PSpice 9.2 (Mar 2000) ******** ID# 1107000621 
+ * Four Bit Adder Test
+
+
+ ****     TRANSIENT ANALYSIS               TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+  TIME        V(SUM)      V(SUM_IN)   
+
+   0.000E+00   3.100E+01   3.100E+01
+   1.000E-08   1.496E+01   1.500E+01
+   2.000E-08   1.600E+01   1.600E+01
+   3.000E-08   1.700E+01   1.700E+01
+   4.000E-08   1.773E+01   1.800E+01
+   5.000E-08   1.900E+01   1.900E+01
+   6.000E-08   2.000E+01   2.000E+01
+   7.000E-08   2.100E+01   2.100E+01
+   8.000E-08   2.173E+01   2.200E+01
+   9.000E-08   2.300E+01   2.300E+01
+   1.000E-07   2.280E+01   2.400E+01
+   1.100E-07   2.497E+01   2.500E+01
+   1.200E-07   2.574E+01   2.600E+01
+   1.300E-07   2.700E+01   2.700E+01
+   1.400E-07   2.800E+01   2.800E+01
+   1.500E-07   2.900E+01   2.900E+01
+   1.600E-07   2.973E+01   3.000E+01
+   1.700E-07   9.961E-01   1.000E+00
+   1.800E-07   2.936E+00   3.000E+00
+   1.900E-07   5.001E+00   5.000E+00
+   2.000E-07   6.725E+00   7.000E+00
+   2.100E-07   8.775E+00   9.000E+00
+   2.200E-07   1.094E+01   1.100E+01
+   2.300E-07   1.300E+01   1.300E+01
+   2.400E-07   1.472E+01   1.500E+01
+   2.500E-07   1.700E+01   1.700E+01
+   2.600E-07   1.893E+01   1.900E+01
+   2.700E-07   2.100E+01   2.100E+01
+   2.800E-07   2.273E+01   2.300E+01
+   2.900E-07   2.397E+01   2.500E+01
+   3.000E-07   2.691E+01   2.700E+01
+   3.100E-07   2.900E+01   2.900E+01
+   3.200E-07   3.072E+01   3.100E+01
+   3.300E-07  -4.523E-03   4.083E-06
+   3.400E-07   1.966E+00   2.000E+00
+   3.500E-07   4.000E+00   4.000E+00
+   3.600E-07   5.734E+00   6.000E+00
+   3.700E-07   7.770E+00   8.000E+00
+   3.800E-07   9.939E+00   1.000E+01
+   3.900E-07   1.200E+01   1.200E+01
+   4.000E-07   1.373E+01   1.400E+01
+   4.100E-07   1.600E+01   1.600E+01
+   4.200E-07   1.796E+01   1.800E+01
+   4.300E-07   2.000E+01   2.000E+01
+   4.400E-07   2.173E+01   2.200E+01
+   4.500E-07   2.296E+01   2.400E+01
+   4.600E-07   2.591E+01   2.600E+01
+   4.700E-07   2.800E+01   2.800E+01
+   4.800E-07   2.974E+01   3.000E+01
+
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME           26.09
+

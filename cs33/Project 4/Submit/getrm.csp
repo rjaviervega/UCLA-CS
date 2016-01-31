@@ -1,0 +1,69 @@
+;	GETRM FUNCTION
+;
+;	This function fills with numbers 
+;	a array passed by a stack push
+;	from the caller program.
+;
+
+; MINI_OS FUNCTIONS
+		.EQU	PUT_NUM,	$E00
+		.EQU	GET_NUM,	$E01
+		.EQU	PUT_STR,	$E05
+		.EQU	PUT_NL,		$E06
+		.EQU	PUT_NUM2,	$E07
+		
+;	START FUNCTIONS AT ADDRESS $700
+.EQU	@,	$700
+
+; LOCAL VARS
+.EQU	MxN, 0
+.EQU	NUM_LOCALS, 1
+
+; PARAMS
+.EQU	COLS, NUM_LOCALS + 2
+.EQU	ROWS, NUM_LOCALS + 3
+.EQU	PMAT, NUM_LOCALS + 4
+
+
+GETRM:	BGN#	NUM_LOCALS
+		PSHA					; SAVE VALUES
+		PSHX
+
+;	//Prompt for values
+		PSH#	PRT_ELEMENTS_L	; OUTPUT MESSAGE
+		PSH#	PRT_ELEMENTS		
+		JSR		PUT_STR					
+		ADS#	2				
+		JSR		PUT_NL
+
+		LDA		!ROWS		; ACC = ROWS * COLS
+		MUL		!COLS
+		STA		!MxN
+
+;	//Read each value into the matrix and store the
+;	//value into the matrix array with row-major order.
+		
+		LDX#	0
+LOOP:	CMX		!MxN		; X ? ROWS * COLS
+		JGE		DONE		; X >= DONE
+		JSR		GET_NUM		; PMAT [ X ] = GET_NUM
+
+;		//store number into array
+		STA&	!PMAT
+		ADX#	1
+		JMP		LOOP
+
+DONE:	POPX					; RESTORE VALUES
+		POPA
+		FIN#	NUM_LOCALS
+		RTN
+		
+;	STRING VARS		
+PRT_ELEMENTS	:	.CHAR		'Enter matrix element values',		PRT_ELEMENTS_L
+
+
+
+
+
+
+

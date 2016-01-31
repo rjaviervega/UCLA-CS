@@ -1,0 +1,432 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (Win98; U) [Netscape]">
+   <title>CS 33 Systems Programming</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#3366FF">
+
+<center><b><i><font size=+2>HOMEWORK Chapter 5</font></i></b></center>
+
+<p><br>
+<p>5-1.Indexed addressing is used to access arrays of data which are stored
+in
+<br>consecutive memory locations. The index register provides automatic
+<br>addition of an offset to an address value, resulting in automatic
+<br>calculation of the location of an array element to be accessed.
+<p>5-2.In row-major order, a sequence of arrays represents the rows of
+a matrix.
+<br>In column-major order, a sequence of arrays represents the columns
+of a
+<br>matrix. In other words, the sequential traversal of the entire storage
+<br>array for a matrix will result in going across each row for a row-major
+<br>case and down each column for a column-major case.
+<p>Example:
+<p>Matrix: M(1,1) M(1,2) M(1,3)
+<br>M(2,1) M(2,2) M(2,3)
+<p>Storage: Row-Major Order Address Column-Major Order
+<p>M(1,1) $A00 M(1,1)
+<br>M(1,2) $A01 M(2,1)
+<br>M(1,3) $A02 M(1,2)
+<br>M(2,1) $A03 M(2,2)
+<br>M(2,2) $A04 M(1,3)
+<br>M(2.3) $A05 M(2,3)
+<br>&nbsp;
+<p>5-3.(a) $000 LDA $100 ACC := Memory[$100]
+<br>$001 LDX# 1 XR := 1
+<br>$002 ADA+ $100 ACC := Memory[$100] + Memory[$101]
+<br>$003 ADX# 2 XR := 3
+<br>$004 SBA $100 ACC := Memory[$101]
+<br>$005 MUL+ $100 ACC := Memory[$101] * Memory[$103]
+<br>$006 HLT
+<p>(b) $000 LDX# 1 XR := 1
+<br>$001 LDA+ LABEL+2 ACC := Memory[$100]
+<br>$002 ADX# 3 XR := 4
+<br>$003 ADA+ LABEL ACC := Memory[$100] + Memory[$101]
+<br>$004 SBX# 2 XR :=2
+<br>$005 SBA LABEL+3 ACC := Memory[$101]
+<br>$006 MUL+ LABEL+4 ACC := Memory[$101] * Memory[$103]
+<br>$007 HLT
+<br>.EQU LABEL,$0FD
+<p>Both code fragments result in ACC := Memory[$101] * Memory[$103]
+<br>&nbsp;
+<p>5-4. Code XR ACC LT OV EQ
+<p>(a) LDX LAB $056 N/A N/A 1 N/A
+<br>HLT
+<br>LAB: .WORD $002056
+<p>(b) LDX# 0 $000 N/A N/A 0 N/A
+<br>SBX# 1 $FFF N/A N/A 1 0
+<br>HLT
+<p>(c) LDX# $234 $234 N/A 0 N/A
+<br>TXA $234 $000234 N/A N/A N/A
+<br>HLT
+<p>(d) LDX# $FFF $FFF N/A N/A 0 N/A
+<br>ADX# 1 $000 N/A N/A 1 1
+<br>HLT
+<br>&nbsp;
+<p>5-5. (a) .EQU @,$000 ; Program Base
+<br>.EQU SIZE,10 ; Array Size
+<p>$000 LDX# 0 ; Initialize XR := I := 0
+<br>$001 LDA# 1 ; Initialize ACC := Product := 1
+<br>$002LOOP: MUL+ X ; Product := Product * X[I]
+<br>$003 AOC# SIZE ; I := I + 1 &amp; Compare
+<br>$004 JLT LOOP ; Continue If I &lt; SIZE
+<br>$005 HLT ; Stop
+<p>.EQU @,$100 ; Array Base
+<br>$100 X: .BLKW SIZE ; Array Data
+<br>.END
+<p>(b) .EQU @,$000 ; Program Base
+<br>.EQU SIZE,10 ; Array Size
+<p>$000 LDX# SIZE-1 ; Initialize XR := I := SIZE-1
+<br>$001 LDA# 1 ; Initialize ACC := Product := 1
+<br>$002LOOP: MUL+ X ; Product := Product * X[I]
+<br>$003 SOJ LOOP ; I := I - 1 &amp; Jump If XR >= 0
+<br>$004 HLT ; Stop
+<p>.EQU @,$100 ; Array Base
+<br>$100 X: .BLKW SIZE ; Array Data
+<br>.END
+<p>(c1) .EQU @,$000 ; Program Base
+<br>.EQU SIZE,10 ; Array Size
+<p>$000 LDX# 0 ; Initialize XR := I := 0
+<br>$001 LDA# 1 ; Initialize ACC := Product := 1
+<br>$002LOOP: MUL+ X ; Product := Product * X[I]
+<br>$003 ADX# 1 ; I := I + 1
+<br>$004 CMX# SIZE ; Compare
+<br>$005 JLT LOOP ; Continue If I &lt; SIZE
+<br>$006 HLT ; Stop
+<p>.EQU @,$100 ; Array Base
+<br>$100 X: .BLKW SIZE ; Array Data
+<br>.END
+<p>(c2) .EQU @,$000 ; Program Base
+<br>.EQU SIZE,10 ; Array Size
+<p>$000 LDX# SIZE-1 ; Initialize XR := I := SIZE-1
+<br>$001 LDA# 1 ; Initialize ACC := Product := 1
+<br>$002LOOP: MUL+ X ; Product := Product * X[I]
+<br>$003 SBX# 1 ; I := I - 1
+<br>$004 JNO LOOP ; Jump If XR >= 0
+<br>$004 HLT ; Stop
+<p>.EQU @,$100 ; Array Base
+<br>$100 X: .BLKW SIZE ; Array Data
+<br>.END
+<br>&nbsp;
+<br>&nbsp;
+<p>5-6.Programs (a) and (c1) count up. The program which uses the looping
+<br>instruction (AOC) is one word shorter than the one which does not.
+<br>Programs (b) and (c2) count down. Each one is one word shorter than
+the
+<br>corresponding program which counts up.
+<p>5-7.A matrix which has a lower bound of zero in all dimensions does
+not require
+<br>adjustments for the indices when computing addresses. The element of
+the
+<br>matrix is offset by exactly its index value in address calculations.
+<p>5-8.No change is necessary in either case because no assumption was
+made about
+<br>the elements in the array. If it were known that the array were sorted
+in
+<br>ascending order, a binary search could be used instead of a linear
+search.
+<p>5-9.One approach is to use the base address of the array in instructions
+which
+<br>access the array and to put the calculated offset in XR. The other
+<br>approach adjusts the addresses in the instruction so that the XR value
+is
+<br>calculated as if the base were 0. The first approach can work well
+with
+<br>the AOC instruction but not well with the SOJ instruction because the
+index
+<br>will not be zero at the end of the loop. The second approach can work
+with
+<br>either of the looping instructions (AOC or SOJ) because it is similar
+to
+<br>programs for zero-based arrays.
+<p>5-10.(a)SOJ derives its addressing modes from the jump instruction because
+<br>the subtract and compare are internal and the net effect of the
+<br>instruction is a conditional jump.
+<p>(b) AOC derives its addressing modes from the compare operation because
+the
+<br>add is implicit and the net effect of the instruction is a compare.
+<p>5-12. See Below
+<p>5-18.(a) LDA+ $100 w/XR = $FFF -----> LDA $0FF;
+<br>LDA+ $100 w/XR = $FFE -----> LDA $0FE.
+<p>(b) $FFF = -1; $FFE = -2.
+<p>(c) Since overflow is discarded and arithmetic is the same for signed
+and
+<br>unsigned numbers, the index values can be interpreted as two's-
+<br>complement integer values.
+<p>(d) 1. For XR arithmetic, the OV flag is set according to rules for
+<br>unsigned numbers.
+<p>2. For XR comparisons, the OV flag is set according to rules for
+<br>unsigned numbers.
+<p>3. For storing the XR, sign extension is as an unsigned number (i.e.
+<br>positive extension only).
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>CHASM - CUSP Assembler 12:21:33 Thursday Apr. 25th, 1996 Page 1
+<br>Filename: P510.CSP
+<p>LINE ADDR CONTENTS SOURCE LINE
+<p>1. ; UCLA SPRING 1996
+<br>2. ; CS 33 HOMEWORK PROBLEM 5-10: BUBBLE SORT
+<br>3. ; JOHN A. ROHR
+<br>4. ; APRIL 24, 1996
+<br>5. ;
+<br>6. ;
+<br>7. .EQU MAX_N,10 ; MAXIMUM NUMBER OF
+<br>VALUES IN ARRAY
+<br>8.
+<br>9. .EQU PUT_NUM,$E00 ; WRITE NUMBER
+<br>10. .EQU GET_NUM,$E01 ; READ NUMBER
+<br>11. .EQU PUT_STR,$E05 ; WRITE STRING
+<br>12. .EQU PUT_NL,$E06 ; WRITE NEW LINE
+<br>13. .EQU PUT_NUM2,$E07 ; PUT_NUM WITHOUT NEW
+<br>LINE
+<br>14.
+<br>15. .EQU INITA,$000 ; INITIAL CODE ADDRESS
+<br>16. .EQU LOADA,$100 ; LOAD CODE ADDRESS
+<br>17. .EQU SORTA,$200 ; SORT CODE ADDRESS
+<br>18. .EQU PRINTA,$300 ; PRINT CODE ADDRESS
+<br>19. .EQU DATAA,$400 ; DATA ADDRESS
+<br>20. .EQU ARRAYA,$500 ; ARRAY ADDRESS
+<br>21. .EQU STACKA,$E00 ; INITIAL STACK ADDRESS
+<br>22.
+<br>23. .EQU @,INITA ; INITIAL CODE LOCATION
+<br>24.
+<br>25. 000 020E00 INIT: LDS# STACKA ; INITIALIZE MINI_OS
+<br>26. 001 08001D PSH# GREET_LENGTH ; PRINT GREETING
+<br>27. 002 080400 PSH# GREET ;
+<br>28. 003 412E05 JSR PUT_STR ;
+<br>29. 004 120002 ADS# 2 ;
+<br>30. 005 412E06 JSR PUT_NL ;
+<br>31. 006 402100 JMP LOAD ; GO TO DATA ENTRY
+<br>32.
+<br>&nbsp;
+<br>&nbsp;
+<p>CHASM - CUSP Assembler 12:21:33 Thursday Apr. 25th, 1996 Page 2
+<br>Filename: P510.CSP
+<p>LINE ADDR CONTENTS SOURCE LINE
+<p>33. .PAGE ;
+<br>34. .EQU @,LOADA ; DATA ENTRY CODE
+<br>LOCATION
+<br>35.
+<br>36. 100 08001C LOAD: PSH# NPRMPT_LENGTH ; PROMPT FOR N
+<br>37. 101 08040A PSH# NPRMPT ;
+<br>38. 102 412E05 JSR PUT_STR ;
+<br>39. 103 120002 ADS# 2 ;
+<br>40. 104 412E01 JSR GET_NUM ; INPUT N
+<br>41. 105 042437 STA N ; SAVE N
+<br>42. 106 002437 CKMIN: LDA N ; TEST FOR TOO SMALL
+<p>43. 107 200001 CMA# 1 ;
+<br>44. 108 4B210F JGE CKMAX ; JUMP OF NOT TOO SMALL
+<br>45. 109 080021 PSH# SMALL_LENGTH ; PRINT TOO SMALL
+<br>MESSAGE
+<br>46. 10A 080418 PSH# SMALL ;
+<br>47. 10B 412E05 JSR PUT_STR ;
+<br>48. 10C 120002 ADS# 2 ;
+<br>49. 10D 412E06 JSR PUT_NL ;
+<br>50. 10E 402100 JMP LOAD ; TRY AGAIN
+<br>51. 10F 20000A CKMAX: CMA# MAX_N ; TEST FOR TOO LARGE
+<p>52. 110 4C211E JLE SETI ; JUMP OF NOT TOO LARGE
+<br>53. 111 080012 PSH# LARGE1_LENGTH ; PRINT TOO LARGE
+<br>MESSAGE 1
+<br>54. 112 080423 PSH# LARGE1 ;
+<br>55. 113 412E05 JSR PUT_STR ;
+<br>56. 114 120002 ADS# 2 ;
+<br>57. 115 00000A LDA# MAX_N ; PRINT MAXIMUM SIZE + 1
+<br>58. 116 100001 ADA# 1 ;
+<br>59. 117 412E07 JSR PUT_NUM2 ;
+<br>60. 118 08000A PSH# LARGE2_LENGTH ; PRINT TOO LARGE
+<br>MESSAGE 2
+<br>61. 119 080429 PSH# LARGE2 ;
+<br>62. 11A 412E05 JSR PUT_STR ;
+<br>63. 11B 120002 ADS# 2 ;
+<br>64. 11C 412E06 JSR PUT_NL ;
+<br>65. 11D 402100 JMP LOAD ; TRY AGAIN
+<br>66.
+<br>67. 11E 010000 SETI: LDX# 0 ; I := 0
+<br>68. 11F 08000A LDLOOP: PSH# DPRMPT_LENGTH ; PROMPT FOR DATA
+<br>69. 120 080414 PSH# DPRMPT ;
+<br>70. 121 412E05 JSR PUT_STR ;
+<br>71. 122 120002 ADS# 2 ;
+<br>72. 123 412E01 JSR GET_NUM ; INPUT NUMBER
+<br>73. 124 044500 STA+ ARRAY ; SAVE NUMBER
+<br>74. 125 602437 AOC N ; I := I + 1 &amp; TEST
+<br>75. 126 4A211F JLT LDLOOP ; JUMP IF NOT DONE
+<br>76. 127 402200 JMP SORT ; GO TO SORT
+<br>77.
+<br>&nbsp;
+<br>&nbsp;
+<p>CHASM - CUSP Assembler 12:21:33 Thursday Apr. 25th, 1996 Page 3
+<br>Filename: P510.CSP
+<p>LINE ADDR CONTENTS SOURCE LINE
+<p>78. .PAGE ;
+<br>79. .EQU @,SORTA ; SORT CODE LOCATION
+<br>80.
+<br>81. 200 002437 SORT: LDA N ; TEST FOR N > 1
+<br>82. 201 200001 CMA# 1 ;
+<br>83. 202 4C2300 JLE PRINT ; JUMP OUT IF ONLY 1
+<br>ARRAY ITEM
+<br>84. 203 140002 SBA# 2 ; LIMIT := N - 2
+<br>85. 204 042438 STA LIMIT ;
+<br>86. 205 010000 OULOOP: LDX# 0 ; I := 0
+<br>87. 206 0A2439 CLR CHANGE ; CHANGE := 0
+<br>88. 207 004500 INLOOP: LDA+ ARRAY ; ARRAY[I] ? ARRAY[I+1]
+<br>89. 208 110001 ADX# 1 ; I := I + 1
+<br>90. 209 204500 CMA+ ARRAY ;
+<br>91. 20A 4C2214 JLE TESTI ; JUMP IF IN ORDER
+<br>92. 20B 04243A STA SWSAVE ; SWAP ARRAY[I] &amp;
+<br>ARRAY[I+1]
+<br>93. 20C 004500 LDA+ ARRAY ;
+<br>94. 20D 150001 SBX# 1 ;
+<br>95. 20E 044500 STA+ ARRAY ;
+<br>96. 20F 00243A LDA SWSAVE ;
+<br>97. 210 110001 ADX# 1 ;
+<br>98. 211 044500 STA+ ARRAY ;
+<br>99. 212 150001 SBX# 1 ;
+<br>100. 213 1B2439 INC CHANGE ; CHANGE := CHANGE + 1
+<br>101. 214 212438 TESTI: CMX LIMIT ; I ? LIMIT
+<br>102. 215 4C2207 JLE INLOOP ; JUMP IF NOT DONE
+<br>103. 216 242439 TST CHANGE ; TEST FOR CHANGE
+<br>104. 217 482300 JEQ PRINT ; JUMP IF DONE (NO
+<br>CHANGE)
+<br>105. 218 1C2438 DEC LIMIT ; LIMIT := LIMIT - 1 &amp;
+<br>TEST
+<br>106. 219 4B2205 JGE OULOOP ; JUMP IF NOT DONE
+<br>107. 21A 402300 JMP PRINT ; GO TO PRINT
+<br>108.
+<br>&nbsp;
+<br>&nbsp;
+<p>CHASM - CUSP Assembler 12:21:33 Thursday Apr. 25th, 1996 Page 4
+<br>Filename: P510.CSP
+<p>LINE ADDR CONTENTS SOURCE LINE
+<p>109. .PAGE ;
+<br>110. .EQU @,PRINTA ; PRINT CODE LOCATION
+<br>111.
+<br>112. 300 08001D PRINT: PSH# SORTED_LENGTH ; PRINT SORTED ARRAY
+<br>HEADER
+<br>113. 301 08042D PSH# SORTED ;
+<br>114. 302 412E05 JSR PUT_STR ;
+<br>115. 303 120002 ADS# 2 ;
+<br>116. 304 412E06 JSR PUT_NL ;
+<br>117. 305 010000 LDX# 0 ; I := 0
+<br>118. 306 004500 PRLOOP: LDA+ ARRAY ; PRINT ARRAY[I]
+<br>119. 307 412E00 JSR PUT_NUM ;
+<br>120. 308 602437 AOC N ; I := I + 1 &amp; TEST
+<br>121. 309 4A2306 JLT PRLOOP ; JUMP IF NOT DONE
+<br>122.
+<br>123. 30A FFFFFF DONE: HLT ; STOP
+<br>124.
+<br>&nbsp;
+<br>&nbsp;
+<p>CHASM - CUSP Assembler 12:21:33 Thursday Apr. 25th, 1996 Page 5
+<br>Filename: P510.CSP
+<p>LINE ADDR CONTENTS SOURCE LINE
+<p>125. .PAGE ;
+<br>126. .EQU @,DATAA ; DATA LOCATION
+<br>127.
+<br>128. 400 2A2A2A GREET: .CHAR '*** Welcome to the SORTER
+<br>***',GREET_LENGTH ;
+<br>401 205765
+<br>402 6C636F
+<br>403 6D6520
+<br>404 746F20
+<br>405 746865
+<br>406 20534F
+<br>407 525445
+<br>408 52202A
+<br>409 2A2A20
+<br>129. 40A 456E74 NPRMPT:.CHAR 'Enter the number of
+<br>elements',NPRMPT_LENGTH ;
+<br>40B 657220
+<br>40C 746865
+<br>40D 206E75
+<br>40E 6D6265
+<br>40F 72206F
+<br>410 662065
+<br>411 6C656D
+<br>412 656E74
+<br>413 73202A
+<br>130. 414 456E74 DPRMPT:.CHAR 'Enter data',DPRMPT_LENGTH
+<br>;
+<br>415 657220
+<br>416 646174
+<br>417 61202A
+<br>131. 418 4D7573 SMALL: .CHAR 'Must be greater than 0, try again',
+<br>SMALL_LENGTH;
+<br>419 742062
+<br>41A 652067
+<br>41B 726561
+<br>41C 746572
+<br>41D 207468
+<br>41E 616E20
+<br>41F 302C20
+<br>420 747279
+<br>421 206167
+<br>422 61696E
+<br>132. 423 4D7573 LARGE1:.CHAR 'Must be less than ',LARGE1_LENGTH
+<br>;
+<br>424 742062
+<br>425 65206C
+<br>426 657373
+<br>427 207468
+<br>428 616E20
+<br>133. 429 207472 LARGE2:.CHAR ' try again',LARGE2_LENGTH
+<br>;
+<br>42A 792061
+<br>42B 676169
+<br>42C 6E202A
+<br>&nbsp;
+<br>&nbsp;
+<p>CHASM - CUSP Assembler 12:21:33 Thursday Apr. 25th, 1996 Page 6
+<br>Filename: P510.CSP
+<p>LINE ADDR CONTENTS SOURCE LINE
+<p>134. .PAGE
+<br>;
+<br>135. 42D 2A2A2A SORTED:.CHAR '*** Sorted Array Contents
+<br>***',SORTED_LENGTH ;
+<br>42E 20536F
+<br>42F 727465
+<br>430 642041
+<br>431 727261
+<br>432 792043
+<br>433 6F6E74
+<br>434 656E74
+<br>435 73202A
+<br>436 2A2A20
+<br>136.
+<br>137. 437 FFFFFF N: .BLKW 1,-1 ; NUMBER OF VALUES IN
+<br>ARRAY
+<br>138. 438 FFFFFE LIMIT: .BLKW 1,-2 ; LOOP LIMIT
+<br>139. 439 FFFFFD CHANGE:.BLKW 1,-3 ; CHANGE INDICATOR
+<br>140. 43A FFFFFC SWSAVE:.BLKW 1,-4 ; SWAP SAVE
+<br>141.
+<br>142. .EQU @,ARRAYA ; ARRAY LOCATION
+<br>143.
+<br>144. 500 ARRAY: .BLKW MAX_N ; ARRAY OF VALUES
+<br>145. .END ;
+<p>SYMBOL TABLE CONTENTS
+<p>MAX_N = 00000A PUT_NUM = 000E00 GET_NUM = 000E01
+<br>PUT_STR = 000E05 PUT_NL = 000E06 PUT_NUM2 = 000E07
+<br>INITA = 000000 LOADA = 000100 SORTA = 000200
+<br>PRINTA = 000300 DATAA = 000400 ARRAYA = 000500
+<br>STACKA = 000E00 INIT = 000000 GREET_LENGTH = 00001D
+<br>GREET = 000400 LOAD = 000100 NPRMPT_LENGTH = 00001C
+<br>NPRMPT = 00040A N = 000437 CKMIN = 000106
+<br>CKMAX = 00010F SMALL_LENGTH = 000021 SMALL = 000418
+<br>SETI = 00011E LARGE1_LENGTH = 000012 LARGE1 = 000423
+<br>LARGE2_LENGTH = 00000A LARGE2 = 000429 LDLOOP = 00011F
+<br>DPRMPT_LENGTH = 00000A DPRMPT = 000414 ARRAY = 000500
+<br>SORT = 000200 PRINT = 000300 LIMIT = 000438
+<br>OULOOP = 000205 CHANGE = 000439 INLOOP = 000207
+<br>TESTI = 000214 SWSAVE = 00043A SORTED_LENGTH = 00001D
+<br>SORTED = 00042D PRLOOP = 000306 DONE = 00030A
+<p>Number of Warning Lines: 0
+<br>Number of Error Lines: 0
+<p>&lt;&lt;&lt; End of Program Listing >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

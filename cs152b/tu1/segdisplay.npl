@@ -1,0 +1,22 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT segdisplay
+DESIGN segdisplay Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+MODULE const_32.vhd
+MODSTYLE const_32 Normal
+MODULE segdisplay.sch
+MODSTYLE segdisplay Normal
+MODULE counter_4.xco
+MODSTYLE counter_4 Normal
+MODULE counter_32.xco
+MODSTYLE counter_32 Normal
+MODULE maptoseg.vhd
+MODSTYLE maptoseg Normal
+[STRATEGY-LIST]
+Normal=True, 1088531488
+[Normal]
+xilxMapIgnoreRLOC=xstvhd, VIRTEX, Implementation.t_placeAndRouteDes, 1088707667, True
+p_ModelSimSimRes=xstvhd, VIRTEX, VHDL.t_launchModelSimSimulator, 1088707090, 1 ns

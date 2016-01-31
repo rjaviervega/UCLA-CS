@@ -1,0 +1,14 @@
+[xcv50-6pq240-XST VHDL]
+Design Entry Utilities=true
+[alu]
+Design Entry Utilities=true
+Place & Route=true
+Synthesize=false
+Implement Design=false
+[mux2_16bits]
+Coregen=true
+[negative_detect]
+Generate Programming File=true
+Design Entry Utilities=true
+Place & Route=true
+Implement Design=true

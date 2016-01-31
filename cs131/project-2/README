@@ -1,0 +1,33 @@
+  Implementation of Extra Credit:
+
+  Within this project there are 6 extra files that implement the
+  extra credit option. This files are:
+
+
+	extra1-credit.html
+	extra1-credit.rpy
+	extra1.py
+	extra2-credit.html
+	extra2-credit.rpy
+	extra2.py
+
+  To test the extra credit option 1 and 2 there two .html files 
+  point to the script that runs the code. Therefore, to test it
+  after the web server is running connect to the root of the
+  server, where the files will be listed. After that, you can
+  click on any of the .html extra 1 and 2 files. 
+
+  This files are forms where old and new urls can be inputted
+  and the script will be called showing the output to the browser.
+
+  Both files have default values for input pointing to the same
+  location, therefore the output is expected to be valid.
+
+  Both extra credit scripts descrive the part of the assignment
+  that they implement and the estimated amount of points expected.
+
+  The files .rpy are the script that talks to twisted and the .py
+  are the actual code base written in python.
+
+  --
+  R. Javier Vega 

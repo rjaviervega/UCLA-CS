@@ -1,0 +1,14 @@
+	Pctosraminterface	NULL	E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd	sub00/vhpl00
+	Pctosraminterface	Pctosraminterface_arch	E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd	sub00/vhpl01
+	Memorymultiplexor	NULL	E:/HingKei/152bs04/Proj2Memory/memorymultiplexor-sv01.vhd	sub00/vhpl02
+	Memorymultiplexor	Memorymultiplexor_arch	E:/HingKei/152bs04/Proj2Memory/memorymultiplexor-sv01.vhd	sub00/vhpl03
+	Sraminterface	NULL	E:/HingKei/152bs04/Proj2Memory/sram512kleft16bit50mhzreadreq-sv05.vhd	sub00/vhpl04
+	Sraminterface	Sraminterface_arch	E:/HingKei/152bs04/Proj2Memory/sram512kleft16bit50mhzreadreq-sv05.vhd	sub00/vhpl05
+	Memoryread	NULL	E:/HingKei/152bs04/Proj2Memory/memoryread.vhd	sub00/vhpl06
+	Memoryread	Behavioral	E:/HingKei/152bs04/Proj2Memory/memoryread.vhd	sub00/vhpl07
+	Memorywrite	NULL	E:/HingKei/152bs04/Proj2Memory/memorywrite.vhd	sub00/vhpl08
+	Memorywrite	Behavioral	E:/HingKei/152bs04/Proj2Memory/memorywrite.vhd	sub00/vhpl09
+	Sraminterfacewithpport	NULL	E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd	sub00/vhpl10
+	Sraminterfacewithpport	Sraminterfacewithpport_arch	E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd	sub00/vhpl11
+	memorymodule	NULL	E:/HingKei/152bs04/Proj2Memory/memaccess.vhd	sub00/vhpl12
+	memorymodule	behavioral	E:/HingKei/152bs04/Proj2Memory/memaccess.vhd	sub00/vhpl13

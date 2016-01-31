@@ -1,0 +1,411 @@
+;       UCLA SPRING 2003
+;       CS 33 PROJECT 6:  CONSTRUCTION PROJECT:
+;                         MAIN PROGRAM
+;       JOHN A. ROHR
+;       JANUARY 20, 2003
+;
+        .EQU     N,6                     ; BRICK GRAB LIMIT
+        .EQU     TRYLMT,10               ; MOVE  TRY  LIMIT
+
+        .EQU     TIMBIN,$FF7             ; BINARY TIME LOCATION
+
+        .EQU     DEBUG,0                 ; DEBUG CONTROL
+        .EQU     ROWS,14                 ; DISPLAY ROWS
+        .EQU     COLS,38                 ; DISPLAY COLUMNS
+
+        .EQU     DROWS,3                 ; DATA     ROWS
+        .EQU     BROWS,10                ; BUILDING ROWS
+        .EQU     BCOLS,24                ; BUILDING COLUMNS
+        .EQU     SROWS,10                ; BUILDING ROWS
+        .EQU     SCOLS,12                ; BUILDING COLUMNS
+        .EQU     MAXGRD,8                ; MAXIMUM  GIRDERS
+
+        .EQU     BURPOS,14               ; INITIAL BUILDING ROW
+        .EQU     BUCPOS,1                ; INITIAL BUILDING COLUMN
+        .EQU     SURPOS,14               ; INITIAL SUPPLY   ROW
+        .EQU     SUCPOS,27               ; INITIAL SUPPLY   COLUMN
+        .EQU     CRRPOS,4                ; INITIAL CRANE    ROW
+        .EQU     CRCPOS,27               ; INITIAL CRANE    COLUMN
+        .EQU     CRICHR,'c'              ; INITIAL CRANE    CHAR
+
+;       .EQU     MOVERT,'M'              ; MOVE RIGHT CHARACTER
+;       .EQU     MOVELT,'K'              ; MOVE LEFT  CHARACTER
+;       .EQU     MOVEUP,'H'              ; MOVE UP    CHARACTER
+;       .EQU     MOVEDN,'P'              ; MOVE DOWN  CHARACTER
+
+;       .EQU     ENDPRG,'Q'              ; QUIT               CHAR
+;       .EQU     SHOCON,'C'              ; SHOW CONSTRUCTION  CHAR
+;       .EQU     SHOSOL,'S'              ; SHOW SOLUTION      CHAR
+;       .EQU     GRAB1,'1'               ; GRAB ONE BRICK     CHAR
+;       .EQU     GRABG,'G'               ; GRAB GIRDER INPUT  CHAR
+;       .EQU     GRABGC,'C'              ; GRAB GIRDER DISPLY CHAR
+;       .EQU     RELEAS,'R'              ; RELEASE LOAD       CHAR
+
+        .EQU     TITPOS,0                ; TITLE          POSITION
+        .EQU     STAPOS,TITPOS+COLS      ; STATUS         POSITION
+        .EQU     SEPPOS,TITPOS+2*COLS    ; SEPARATOR      POSITION
+        .EQU     MODPOS,STAPOS           ; MODE           POSITION
+        .EQU     TIMPOS,STAPOS+10        ; TIME           POSITION
+        .EQU     BRKPOS,STAPOS+21        ; BRICKS         POSITION
+        .EQU     BRTPOS,STAPOS+25        ; BRICK TOTAL    POSITION
+        .EQU     GRDPOS,STAPOS+35        ; GIRDERS        POSITION
+        .EQU     GRTPOS,STAPOS+37        ; TOTAL GIRDERS  POSITION
+        .EQU     ERRPOS,STAPOS+9         ; TERMINAL ERROR POSITION
+        .EQU     TRYPOS,STAPOS+16        ; TOO MAY TRIES  POSITION
+        .PAGE                    ;
+        .EQU     CRT_BUF,$100    ; CRT DISPLAY I/O ADDRESS
+        .EQU     CRT_XPOS,$314   ; CRT X POSITION  ADDRESS
+        .EQU     CRT_YPOS,$315   ; CRT Y POSITION  ADDRESS
+        .EQU     CRT_CTRL,$316   ; CRT CONTROL I/O ADDRESS
+
+        .EQU     INIFUN,$FFC     ; I/O INITIALIZATION FUNCTION
+        .EQU     KBDFUN,$FFD     ; I/O KEYBOARD       FUNCTION
+        .EQU     TAPFUN,$FFE     ; I/O TAPE DRIVE     FUNCTION
+        .EQU     CLKFUN,$FFF     ; I/O CLOCK          FUNCTION
+
+
+        .EQU     CLEAR,1         ; CRT   CLEAR SCREEN OPCODE
+        .EQU     BELLOP,6        ; CRT   RING BELL    OPCODE
+
+        .EQU     TAPREW,0        ; TAPE  REWIND       OPCODE
+        .EQU     TAPRD,1         ; TAPE  READ         OPCODE
+
+        .EQU     CLKRES,1        ; CLOCK RESET OPCODE + 1
+        .EQU     CLKGO,2         ; CLOCK START OPCODE + 1
+        .EQU     CLKSTP,0        ; CLOCK STOP  OPCODE + 1
+
+
+        .EQU     TERM,0          ; STRING TERMINATOR
+
+
+        .EQU     BUILD,$100      ; BUILD PROJECT       SUBROUTINE
+
+        .EQU     READ,$200       ; READ INPUT          SUBROUTINE
+        .EQU     SCAN,$201       ; SCAN INPUT          SUBROUTINE
+        .EQU     POST,$202       ; POST INPUT          SUBROUTINE
+
+        .EQU     SAVCON,$A00     ; SAVE CONSTRUCTION   SUBROUTINE
+        .EQU     DISCON,$A01     ; DISPLAY CONSTRUCT'N SUBROUTINE
+        .EQU     DISSOL,$A02     ; SAVE PROJECT        SUBROUTINE
+        .EQU     CKSOLN,$A03     ; CHECK SOLUTION      FUNCTION
+
+        .EQU     ERROR,$B00      ; DISPLAY ERROR       SUBROTUINE
+        .EQU     PUTNUM,$B01     ; DISPLAY NUMBER      SUBROUTINE
+        .EQU     PTOA,$B02       ; POSITION-TO-ADDRESS FUNCTION
+
+
+        .EQU     @,$000          ; MAIN PROGRAM CODE ADDRESS
+
+        .EQU     STACKTOP,$E00   ; INITIAL STACK ADDRESS
+        .PAGE                    ; ******************
+                                 ; *  MAIN PROGRAM  *
+                                 ; ******************
+                                 ;
+PROJ6:  LDS#    STACKTOP        ; INITIALIZE STACK POINTER
+
+         JSR     START           ; INITIALIZE THE PROGRAM
+
+LOOP:   JSR     INIT            ; INITIALIZE A   PROJECT
+         JSR     SETUP           ; SET UP     THE PROJECT
+
+         JSR     DISSOL          ; DISPLAY THE SOLUTION
+         JSR     DISCON          ; DISPLAY THE CONSTRUCTION
+         JSR     DISSOL          ; DISPLAY THE SOLUTION
+         JSR     DISCON          ; DISPLAY THE CONSTRUCTION
+         JSR     DISSOL          ; DISPLAY THE SOLUTION
+         JSR     DISCON          ; DISPLAY THE CONSTRUCTION
+
+
+         JSR     BUILD           ; CONSTRUCT  THE PROJECT
+         JSR     FINISH          ; FINISH     THE PROJECT
+
+         LDA     MORE            ; TEST FOR MORE
+         CMA#    'Y'             ;
+         JEQ     LOOP            ; LOOP IF MORE
+         CMA#    'y'             ;
+         JEQ     LOOP            ; LOOP IF MORE
+
+         JSR     STOP            ; FINISH THE PROGRAM
+
+DONE:   HLT                     ; STOP
+        .PAGE                    ; ****************************
+                                 ; *  INITIALIZE THE PROGRAM  *
+                                 ; ****************************
+                                 ;
+START:  JSR     INIFUN          ; INITIALIZE I/O
+
+         LDA#    0               ; TURN THE CURSOR OFF
+         OUTB    CRT_XPOS        ;
+         OUTB    CRT_YPOS        ;
+
+         CLR     READY           ; READY := -2
+         DEC     READY           ;
+         DEC     READY           ;
+
+         CLR     PHASE           ; PHASE := 0
+
+         LDA#    'Y'             ; MORE  := 'Y'
+         STA     MORE            ;
+
+         RTN                     ; RETURN
+        .PAGE                    ; **************************
+                                 ; *  INITIALIZE A PROJECT  *
+                                 ; **************************
+                                 ;
+INIT:   LDA#    CLKRES          ; RESET CLOCK
+         SBA#    1               ;
+         JSR     CLKFUN          ;
+
+         LDA     TIMBIN          ; INITIALIZE THE LOCAL TIME
+         STA     TIMER           ;
+
+         LDA#    TAPREW          ; REWIND TAPE
+         JSR     TAPFUN          ;
+
+         LDA#    2               ; READY := 2
+         STA     READY           ;
+
+         LDA#    CLEAR           ; CLEAR THE SCREEN
+         OUTB    CRT_CTRL        ;
+         LDA#    0               ; TURN THE CURSOR OFF
+         OUTB    CRT_XPOS        ;
+         OUTB    CRT_YPOS        ;
+
+         CLR     ERRIND          ; ERRIND := 0
+
+         CLR     TBRICK          ; TBRICK := 0
+         CLR     TGIRD           ; TGIRD  := 0
+         CLR     CBRICK          ; CBRICK := 0
+         CLR     CGIRD           ; CGIRD  := 0
+         CLR     SBRICK          ; SBRICK := 0
+         CLR     SGIRD           ; SGIRD  := 0
+
+         CLR     SLINE           ; SLINE  := 0
+
+         CLR     NEXT            ; NEXT   := 0
+
+         LDA#    CRRPOS          ; CRNROW := CRRPOS
+         STA     CRNROW          ;
+         LDA#    CRCPOS          ; CRNCOL := CRCPOS
+         STA     CRNCOL          ;
+         LDA#    CRICHR          ; CRANE  := CRICHR
+         STA     CRANE           ;
+
+         LDA     CRNROW          ; DISPLAY THE CRANE
+         LDX     CRNCOL          ;
+         JSR     PTOA            ;
+         LDA     CRANE           ;
+         OUTB+   CRT_BUF         ;
+        .PAGE                    ;
+         LDA#    ' '             ; ACTION := BLANK
+         STA     ACTION          ;
+
+         CLR     TRIES           ; TRIES  := 0
+
+         LDA#    1               ; PHASE := 1
+         STA     PHASE           ;
+
+         LDX#    0               ; SET THE TITLE
+         LDC     TITLE           ;
+         OUTB+   CRT_BUF+TITPOS  ;
+         AOC#    TITLE_LENGTH    ;
+         JLT     @-3             ;
+
+         LDX#    0               ; SET THE STATUS LINE
+         LDC     STATUS          ;
+         OUTB+   CRT_BUF+STAPOS  ;
+         AOC#    STATUS_LENGTH   ;
+         JLT     @-3             ;
+
+         LDX#    0               ; SET THE SPEARATOR LINE
+         LDC     SEPLIN          ;
+         OUTB+   CRT_BUF+SEPPOS  ;
+         AOC#    SEPLIN_LENGTH   ;
+         JLT     @-3             ;
+
+         LDA#    'C'             ; SET THE MODE DISPLAY TO 'C'
+         OUTB    CRT_BUF+MODPOS  ;
+
+         LDA#    '0'             ; SET THE TIME DISPLAY TO '   0'
+         OUTB    CRT_BUF+TIMPOS  ;
+         LDA#    ' '             ;
+         OUTB    CRT_BUF+TIMPOS-1;
+         OUTB    CRT_BUF+TIMPOS-2;
+         OUTB    CRT_BUF+TIMPOS-3;
+
+         LDA#    '0'             ; SET THE BRICK DISPLAYS TO '   0'
+         OUTB    CRT_BUF+BRKPOS  ;
+         OUTB    CRT_BUF+BRTPOS  ;
+         LDA#    ' '             ;
+         OUTB    CRT_BUF+BRKPOS-1;
+         OUTB    CRT_BUF+BRKPOS-2;
+         OUTB    CRT_BUF+BRTPOS-1;
+         OUTB    CRT_BUF+BRTPOS-2;
+
+         LDA#    '0'             ; SET THE GIRDER DISPLAYS TO '0'
+         OUTB    CRT_BUF+GRDPOS  ;
+         OUTB    CRT_BUF+GRTPOS  ;
+
+         JSR     SAVCON          ; SAVE THE CONSTRUCTION PROJECT
+
+         JSR     READ            ; READ AND POST DATA RECORD 1
+         RTN                     ; RETURN
+        .PAGE                    ; ************************
+                                 ; *  SET UP THE PROJECT  *
+                                 ; ************************
+                                 ;
+        .EQU     OFFSET,0        ; LINE OFFSET
+
+SETUP:  BGN#    1               ; INITIATE SUBROUTINE
+         TST     READY           ; TEST FOR READY
+         JLE     MOVEIT          ; JUMP IF NOT READY
+         LDA     PHASE           ; TEST FOR SUPPLY PHASE
+         CMA#    1               ;
+         JNE     MOVEIT          ; JUMP IF NOT SUPPLY PHASE
+
+         JSR     POST            ; POST THE INPUT RECORD
+         JSR     READ            ; READ NEXT RECORD
+         JMP     @-7             ; LOOP
+
+MOVEIT: LDA#    BROWS           ; TEST FOR UNUSED SOLUTION ROWS
+         SBA     SLINE           ;
+         JLE     SDONE           ; JUMP IF ALL ROWS USED
+
+         MUL#    BCOLS           ; CALCULATE LINE OFFSET
+         STA   ! OFFSET          ;
+
+         LDA     SLINE           ; I := SLINE*BCOLS - 1
+         MUL#    BCOLS           ;
+         JEQ     @+8             ; JUMP OF NO LINES
+         SBA#    1               ;
+         TAX                     ;
+
+         LDC     SBUF            ; MOVE CHARACTER
+         ADX   ! OFFSET          ;
+         STC     SBUF            ;
+         SBX   ! OFFSET          ;
+         SOJ     @-4             ;
+
+         LDA#    ' '             ; CLEAR TOP OF SOLUTION
+         LDX   ! OFFSET          ;
+         SBX#    1               ;
+         STC     SBUF            ;
+         SOJ     @-1             ;
+
+SDONE:  FIN#    1               ; TERMINATE SUBROUTINE
+         RTN                     ; RETURN
+        .PAGE                    ; ************************
+                                 ; *  FINISH THE PROJECT  *
+                                 ; ************************
+                                 ;
+FINISH: LDA#    CLKSTP          ; STOP THE CLOCK
+         SBA#    1               ;
+         JSR     CLKFUN          ;
+
+         LDA     TRIES           ; TEST FOR TOO MANY TRIES
+         CMA#    TRYLMT          ;
+         JGE     FEND            ; JUMP IF  TOO MANY TRIES
+
+FEND:   LDX#    0               ; SET GAME END MESSAGE
+         LDC     AGAIN           ;
+         OUTB+   CRT_BUF+TITPOS  ;
+         AOC#    AGAIN_LENGTH    ;
+         JLT     @-3             ;
+
+         JSR     KBDFUN          ; GET ONE CHARACTER
+         CMA#    0               ; TEST FOR   CHRACTER PRESENT
+         JEQ     @-2             ; LOOP UNTIL CHARACTER PRESENT
+
+         CMA#    'Y'             ; TEST FOR 'Y'
+         JEQ     @+7             ; JUMP IF  'Y'
+         CMA#    'y'             ; TEST FOR 'y'
+         JEQ     @+5             ; JUMP IF  'y'
+         CMA#    'N'             ; TEST FOR 'N'
+         JEQ     @+3             ; JUMP IF  'N'
+         CMA#    'n'             ; TEST FOR 'n'
+         JNE     @-10            ; JUMP IF  'n'
+
+         STA     MORE            ; SAVE CHARACTER
+         RTN                     ; RETURN
+        .PAGE                    ; ************************
+                                 ; *  FINISH THE PROGRAM  *
+                                 ; ************************
+                                 ;
+STOP:   LDX#    0               ; SET FINISH MESSAGE
+         LDC     OVER            ;
+         OUTB+   CRT_BUF+TITPOS  ;
+         AOC#    OVER_LENGTH     ;
+         JLT     @-3             ;
+         RTN                     ; RETURN
+        .PAGE                    ;
+        .EQU     @,$B80          ; CONSTANT DATA BASE
+
+TITLE: .CHAR    '- - - CS 33 CONSTRUCTION PROJECT - - -',TITLE_LENGTH  ;
+
+STATUS:.CHAR    'M Time:xxxx Bricks:xxx/xxx Girders:x/x',STATUS_LENGTH ; 
+
+SEPLIN:.CHAR    '======================================',SEPLIN_LENGTH ;
+        .PAGE                                                           ;
+AGAIN: .CHAR    'PROJECT COMPLETED!  Build again? (Y/N)',AGAIN_LENGTH  ;
+
+OVER:  .CHAR    'CONSTRUCTION PROJECT PROGRAM IS DONE!!',OVER_LENGTH   ;
+        .PAGE                                                           ;
+RINVST:.CHAR    '**** INVALID READY STATE IN READ!!****',RINVST_LENGTH ;
+
+SINVST:.CHAR    '**** INVALID READY STATE IN SCAN!!****',SINVST_LENGTH ;
+        .PAGE                                                           ;
+ERRMSG:.CHAR    'Error xxx:        Project Terminated!!',ERRMSG_LENGTH ;
+
+TRYMSG:.CHAR    'Too Many Tries:xx Project Terminated!!',TRYMSG_LENGTH ;
+
+BLANKS:.CHAR    '   '
+        .PAGE
+        .EQU     @,$C00          ; VARIABLE DATA BASE
+
+DBGCTL:.WORD    DEBUG           ; DEBUG CONTROL
+TIMER: .WORD    -1              ; LOCAL PROJECT TIME
+PHASE: .WORD    -2              ; PROGRAM PHASE
+ACTION:.WORD    -3              ; ACTION INPUI
+MORE:  .WORD    -4              ; MORE   ANSWER
+ERRIND:.WORD    -5              ; ERROR INDICATOR
+TRIES: .WORD    -6              ; BLOCKED MOVE TRIES
+SLINE: .WORD    -7              ; SOLUTION LINE
+
+GIRDL: .WORD    -8              ; LEFT  GIRDER SEGMENTS
+GIRDR: .WORD    -9              ; RIGHT GRIDER SEGMENTS
+TBRICK:.WORD    -10             ; TOTAL   BRICK  COUNT
+TGIRD: .WORD    -11             ; TOTAL   GIRDER COUNT
+CBRICK:.WORD    -12             ; CURRENT BRICK  COUNT
+CGIRD: .WORD    -13             ; CURRENT GIRDER COUNT
+SBRICK:.WORD    -14             ; SUPPLY  BRICK  COUNT
+SGIRD: .WORD    -15             ; SUPPLY  GIRDER COUNT
+
+NEXT:  .WORD    -16             ; NEXT SUPPLY TIME
+READY: .WORD    -17             ; NEXT SUPPLY READY
+INTYPE:.WORD    -18             ; INPUT TYPE
+INTIME:.WORD    -19             ; INPUT TIME
+INCNT: .WORD    -20             ; INPUT ITEM   COUNT
+INBRIK:.WORD    -21             ; INPUT BRICK  COUNT
+INGIRD:.WORD    -22             ; INPUT GIRDER COUNT
+INLEN: .WORD    -23             ; INPUT GIRDER LENGTH
+
+CRANE: .WORD    -24             ; CRANE CHARACTER
+CRNROW:.WORD    -25             ; CRANE ROW
+CRNCOL:.WORD    -26             ; CRANE COLUMN
+PICKUP:.WORD    -27             ; LOAD PICKUP AREA
+M:     .WORD    -28             ; CRANE BRICK LIFT COUNT
+SCNLST:.WORD    -29             ; LAST INPUT SCAN CHARACTER
+DECDIG:.WORD    -30             ; DECIMAL DIGIT VALUE
+BUFADR:.WORD    -31             ; INPUT BUFFER ADDRESS
+
+SGIRDL:.BLKW    MAXGRD          ; SUPPLY GIRDER LENGTHS
+
+        .BLKW    8,-1            ; FILL
+
+SBUF:  .BLKW    (BROWS*BCOLS+2)/3             ; SOLUTION BUFFER
+
+CBUF:  .BLKW    ((ROWS-DROWS)*(SUCPOS-1)+2)/3 ; CONSTRUCT BUFFER
+
+DATEND:.WORD    -1              ;
+        .PAGE                    ;
+        .END                     ;

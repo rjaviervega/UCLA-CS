@@ -1,0 +1,576 @@
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap @__filesAllClean_exewrap.rsp'
+
+
+Creating TCL Process
+Cleaning Up Project
+deleting file(s): __projnav.log
+deleting file(s): _toldo.pl __checkModelSim.pl
+deleting file(s): regfile.ldo
+deleting file(s): _launchCoregen.rsp _launchModelSimApp_exewrap.rsp _regfile_sch2sym_exewrap.rsp _regfile_sch2vhf_exewrap.rsp __filesAllClean_exewrap.rsp __launchModelSimApp.rsp
+deleting file(s): regfile.vhf
+deleting file(s): transcript
+The tcl interpreter reported the following error when executing the script C:/Xilinx/data/projnav/_filesAllClean.tcl
+called "processFiles" with too many arguments
+    while executing
+"processFiles $_schematicFiles $_edifFiles"
+    ("foreach" body line 48)
+    invoked from within
+"foreach _File [split $_Files] {
+               set _RootName  [file rootname $_File]
+               set _Extension [file extension $_File]
+           ..."
+    ("cleanup" arm line 6)
+    invoked from within
+"switch -exact $_Type {
+         cleanup {
+            if [regexp {\*} $_Files junk] {
+               catch {glob -nocomplain $_Files} _FileList
+      ..."
+    ("foreach" body line 4)
+    invoked from within
+"foreach _line [split [read $_RspFileHandle] \n] {
+      set _Type  [lindex $_line 0]
+      set _Files [lrange $_line 1 [llength $_line]]
+      switch ..."
+    invoked from within
+"if [catch {open $_RspFile r} _RspFileHandle] {
+  puts "Cannot open $_RspFile: $_RspFileHandle"
+  set _RetVal 1
+} else {
+   puts "Cleaning Up Project"
+..."
+    (file "C:/Xilinx/data/projnav/_filesAllClean.tcl" line 41)
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Edit Implementation Constraints File
+
+Starting: 'exewrap @_editucf_exewrap.rsp'
+
+
+Creating TCL Process
+copy Foundation UCF template
+Starting: 'notepad regfile.ucf'
+
+
+Tcl C:/Xilinx/data/projnav/_editucf.tcl detected that program 'notepad regfile.ucf' completed successfully.
+
+Starting: 'chkdate'
+
+
+Tcl C:/Xilinx/data/projnav/_editucf.tcl detected that program 'chkdate' completed successfully.
+
+ Existing implementation results have been retained !
+ To incorporate your constraint changes, right click on the 'Implement Design' process and select 'Rerun All'.
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Create Schematic Symbol
+
+Starting: 'exewrap @_regfile_sch2sym_exewrap.rsp'
+
+
+Starting: 'sch2sym -family=virtex RegFile.sch regfile.sym '
+
+
+Release 4.1i - sch2sym E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+EXEWRAP detected that program 'sch2sym' completed successfully.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+WARNING:Portability:111 - Message file "SchematicEditor.msg" wasn't found.
+ERROR:SchematicEditor - Net "XLXN_1" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Pin "MG(15:0)" is connected to a bus of a different
+   width.
+ERROR:SchematicEditor - Pin "MG(15:0)" is connected to a bus of a different
+   width.
+EXEWRAP detected a return code of '1' from program 'sch2vhdl'
+
+Done: failed with exit code: 0001.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+WARNING:Portability:111 - Message file "SchematicEditor.msg" wasn't found.
+ERROR:SchematicEditor - Net "XLXN_1" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Pin "MG(15:0)" is connected to a bus of a different
+   width.
+ERROR:SchematicEditor - Pin "MG(15:0)" is connected to a bus of a different
+   width.
+EXEWRAP detected a return code of '1' from program 'sch2vhdl'
+
+Done: failed with exit code: 0001.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex RegFile.sch RegFile.jhd'
+
+
+Done: completed successfully.
+

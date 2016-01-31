@@ -1,0 +1,125 @@
+# Reading c:/Modeltech_xe/win32xoem/../tcl/vsim/pref.tcl 
+# do segdisplay.ldo 
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity counter_32
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture counter_32_a of counter_32
+# -- Loading package std_logic_1164
+# -- Loading entity counter_32
+# -- Loading package prims_constants_v4_0
+# -- Loading package prims_utils_v4_0
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package c_reg_fd_v4_0_comp
+# -- Loading package c_addsub_v4_0_comp
+# -- Loading package c_compare_v4_0_comp
+# -- Loading package c_mux_bus_v4_0_comp
+# -- Loading entity c_counter_binary_v4_0
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity counter_4
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture counter_4_a of counter_4
+# -- Loading package std_logic_1164
+# -- Loading entity counter_4
+# -- Loading package prims_constants_v4_0
+# -- Loading package prims_utils_v4_0
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package c_reg_fd_v4_0_comp
+# -- Loading package c_addsub_v4_0_comp
+# -- Loading package c_compare_v4_0_comp
+# -- Loading package c_mux_bus_v4_0_comp
+# -- Loading entity c_counter_binary_v4_0
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity const_32
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture behavioral of const_32
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading entity const_32
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity maptoseg
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture behavioral of maptoseg
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading entity maptoseg
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Compiling entity segdisplay
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture schematic of segdisplay
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Loading entity segdisplay
+# -- Loading entity bufg
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading entity const_32
+# -- Loading entity counter_32
+# -- Loading entity counter_4
+# -- Loading entity ibuf
+# -- Loading entity inv
+# -- Loading entity maptoseg
+# -- Loading entity obuf
+# vsim -t 1ns -L xilinxcorelib segdisplay 
+# Loading c:/Modeltech_xe/win32xoem/../std.standard
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_1164(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.numeric_std(body)
+# Loading c:/Modeltech_xe/win32xoem/../std.textio(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.vital_timing(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.vcomponents
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_arith(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_unsigned(body)
+# Loading work.segdisplay(schematic)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.vital_primitives(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.vpkg(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.bufg(bufg_v)
+# Loading work.const_32(behavioral)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.prims_constants_v4_0
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.prims_utils_v4_0(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_reg_fd_v4_0_comp
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_addsub_v4_0_comp
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_compare_v4_0_comp
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_mux_bus_v4_0_comp
+# Loading work.counter_32(counter_32_a)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_counter_binary_v4_0(behavioral)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_addsub_v4_0(behavioral)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_reg_fd_v4_0(behavioral)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_mux_bus_v4_0(behavioral)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_compare_v4_0(behavioral)
+# Loading work.counter_4(counter_4_a)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.ibuf(ibuf_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.inv(inv_v)
+# Loading work.maptoseg(behavioral)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.obuf(obuf_v)
+# WARNING: Design size of 6331 statements exceeds ModelSim XE-Starter recommended capacity.
+# Expect performance to be adversely affected.
+# .wave
+# .structure
+# .signals

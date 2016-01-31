@@ -1,0 +1,3 @@
+. regfile RegFile.sch e:\proj2\regfile\RegFile.sch
+BusAMux buxmux16 buxmux16.xco e:\proj2\regfile\buxmux16.xco
+BusBMux buxmux16 buxmux16.xco e:\proj2\regfile\buxmux16.xco

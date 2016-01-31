@@ -1,0 +1,17 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT Project1a
+DESIGN project1a Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+MODULE mux2to1.xco
+MODSTYLE mux2to1 Normal
+MODULE mux8to1.xco
+MODSTYLE mux8to1 Normal
+MODULE alu4.sch
+MODSTYLE alu4 Normal
+[STRATEGY-LIST]
+Normal=True, 1089393074
+[Normal]
+p_ModelSimSimRes=xstvhd, VIRTEX, VHDL.t_launchModelSimSimulator, 1089395388, 1 ns

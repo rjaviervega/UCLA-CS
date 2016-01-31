@@ -1,0 +1,17 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT 4bitALU
+DESIGN 4bitalu Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+MODULE mux2to1__4bit.xco
+MODSTYLE mux2to1__4bit Normal
+MODULE 4bitalu.sch
+MODSTYLE 4bitalu Normal
+MODULE mux2to1.xco
+MODSTYLE mux2to1 Normal
+MODULE mux8x4bus.xco
+MODSTYLE mux8x4bus Normal
+[STRATEGY-LIST]
+Normal=True, 1089134723

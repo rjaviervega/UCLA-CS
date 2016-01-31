@@ -1,0 +1,1 @@
+-tapkeep -show normal -mode pipe -command sch2vhdl -family=virtex -tionly -w test.sch test.vhi

@@ -1,0 +1,267 @@
+; UCLA Spring	2003
+; CS 33 Project 4
+; Roberto Javier Vega
+; SID: 003-110-717
+; May 2003
+;
+; MATRIX OPERATION
+;
+
+		.EQU	@,	$000	;	START PROGRAM AT POSSITION $000
+
+; MINI_OS FUNCTIONS
+		.EQU	PUT_NUM,	$E00
+		.EQU	GET_NUM,	$E01
+		.EQU	PUT_STR,	$E05
+		.EQU	PUT_NL,		$E06
+		.EQU	PUT_NUM2,	$E07
+		
+; PROGRAM FUNCTIONS
+		.EQU	GETRM,		$700
+		.EQU	LINEAR,		$750
+		.EQU	CALSUM,		$800
+		.EQU	MATRIX,		$900
+		.EQU	RMTOCM,		$BA0
+
+		LDS#	$E00		;	INITIALIZE STACK POINTER
+							;	INITIALIZE VARS
+		CLR		M
+		CLR		N
+		CLR		MxN
+		CLR		RM
+		CLR		SUM1
+		CLR		SUM2
+		CLR		PMATRIX
+		CLR		PRSUMS
+		CLR		PCSUMS
+
+
+;    // Get the row dimension			
+MAIN:	PSH#	PRT_ROWS_L		;	ENTER NUMBER OF ROWS
+		PSH#	PRT_ROWS		
+		JSR		PUT_STR			 
+		ADS#	2
+		JSR		GET_NUM			
+		STA		M				;	STORE ROWS INTO M
+		CMA#	2
+		JGE		G_COLS			;	IF INPUT IS VALID GET NUMBER OF COLS
+		PSH#	PRT_INV_DIME_L	
+		PSH#	INV_DIME		
+		JSR		PUT_STR					
+		ADS#	2				
+		JSR		PUT_NL
+		JMP		MAIN		
+
+;    // Get the column dimension		
+G_COLS:	PSH#	PRT_COLS_L		;	GET NUMBER OF COLS
+		PSH#	PRT_COLS		
+		JSR		PUT_STR			 
+		ADS#	2				
+		JSR		GET_NUM			
+		STA		N				;	STORE COLS INTO N
+		CMA#	2
+		JGE		SET_ARR					
+		PSH#	PRT_INV_DIME_L	;	INVALID ROWS
+		PSH#	INV_DIME		
+		JSR		PUT_STR					
+		ADS#	2				;	RESTORE STACK
+		JSR		PUT_NL
+		JMP		G_COLS		
+
+
+;    // Allocate the matrix storage
+;	SETUP ARRAYS MEMORY
+SET_ARR:
+		LDA		M				;	MxN	= ACC
+		MUL		N					
+		STA		MxN					
+		
+		SBS		MxN				;	PMATRIX = NEW [ M * N ]
+		STS		PMATRIX				
+		
+		SBS		M				;	PRSUMS = NEW [ M ] 
+		STS		PRSUMS			
+		
+		SBS		N				;	PCSUMS = NEW [ N ]
+		STS		PCSUMS
+
+;    // Read the matrix elements
+;	GETRM ( PMTRIX, M, N )
+		PSH		PMATRIX
+		PSH		M
+		PSH		N
+		JSR		GETRM
+		ADS#	3
+		
+		JSR		PUT_NL			;	COUT << ENDL;
+
+;    // Set the indicator to row major		
+		LDA#	1				;	RM = -1
+		COMA
+		ADA#	1
+		STA		RM
+
+;    // Display the matrix storage
+;	LINEAR ( PMATRIX, M, N, RM )
+		PSH		PMATRIX			
+		PSH		M
+		PSH		N
+		PSH		RM
+		JSR		LINEAR
+		ADS#	4
+
+;    // Calculate the row and column sums
+;	CALSUM ( PMATRIX, M, N, RM, PRSUMS, PCSUMS )
+		PSH		PMATRIX			
+		PSH		M
+		PSH		N
+		PSH		RM
+		PSH		PRSUMS
+		PSH		PCSUMS
+		JSR		CALSUM
+		ADS#	6		
+		STA		SUM1				; STORE THE RESULT OF CALSUM ON SUM1
+
+;	// Display the matrix and the sums
+;	MATRIX ( pmatrix, m, n, rm, prsums, pcsums, sum1);
+		PSH		PMATRIX			
+		PSH		M
+		PSH		N
+		PSH		RM
+		PSH		PRSUMS
+		PSH		PCSUMS
+		PSH		SUM1
+		JSR		MATRIX
+		ADS#	7		
+
+;    // Convert the matrix storage to column major
+;	RMTOCM	(pmatrix, m, n);
+		PSH		PMATRIX
+		PSH		M
+		PSH		N
+		JSR		RMTOCM
+		ADS#	3
+
+;    // Set the indicator to column major
+		LDA#	0				;	RM = 0
+		STA		RM		
+
+;    // Display the matrix storage		
+;	LINEAR ( PMATRIX, M, N, RM )
+		PSH		PMATRIX			
+		PSH		M
+		PSH		N
+		PSH		RM
+		JSR		LINEAR
+		ADS#	4		
+
+;    // Calculate the row and column sums		
+;	CALSUM ( PMATRIX, M, N, RM, PRSUMS, PCSUMS )
+		PSH		PMATRIX			
+		PSH		M
+		PSH		N
+		PSH		RM
+		PSH		PRSUMS
+		PSH		PCSUMS
+		JSR		CALSUM
+		ADS#	6		
+		STA		SUM2				; STORE THE RESULT OF CALSUM ON SUM2		
+
+;    // Display the matrix and the sums
+;	MATRIX ( pmatrix, m, n, rm, prsums, pcsums, sum2);
+		PSH		PMATRIX			
+		PSH		M
+		PSH		N
+		PSH		RM
+		PSH		PRSUMS
+		PSH		PCSUMS
+		PSH		SUM2
+		JSR		MATRIX
+		ADS#	7		
+
+
+;	// If the elements sums are the same
+		LDA		SUM1
+		CMA		SUM2
+		JEQ		SUM_OK
+		JNE		SUM_ERROR		
+		
+SUM_OK:	
+		PSH#	PRT_SUM_L	
+		PSH#	PRT_SUM		
+		JSR		PUT_STR					
+		ADS#	2			
+		LDA		SUM1
+		PSHA
+		JSR		PUT_NUM2
+		POPA			
+		JSR		PUT_NL		
+		JMP		END
+
+;	//Else
+SUM_ERROR:
+;	// Display an error message,
+		PSH#	PRT_ERROR_L	
+		PSH#	PRT_ERROR		
+		JSR		PUT_STR					
+		ADS#	2		
+;	// Display the first sum message
+		PSH#	PRT_SUM1_L	
+		PSH#	PRT_SUM1		
+		JSR		PUT_STR					
+		ADS#	2		
+;	// Display the first sum
+		LDA		SUM1
+		PSHA
+		JSR		PUT_NUM
+		POPA
+		JSR		PUT_NL
+;	// Display the second sum message
+		PSH#	PRT_SUM2_L	
+		PSH#	PRT_SUM2		
+		JSR		PUT_STR					
+		ADS#	2	
+;	// Display the second sum
+		LDA		SUM2
+		PSHA
+		JSR		PUT_NUM
+		POPA
+		JSR		PUT_NL
+;	// Display a blank line
+		JSR		PUT_NL
+		JMP		END
+
+END:
+;	// Free the column sum storage
+		ADS		N
+;	// Free the row sum storage
+		ADS		M
+;	// Free the matrix storage
+		ADS		MxN
+
+;	// END OF PROGRAM		
+		HLT
+
+		
+;	PROGRAM VARS
+
+M		:		.WORD	0
+N		:		.WORD	0
+MxN		:		.WORD	0
+RM		:		.WORD	0
+SUM1	:		.WORD	0
+SUM2	:		.WORD	0
+PMATRIX	:		.WORD	0
+PRSUMS	:		.WORD	0
+PCSUMS	:		.WORD	0
+
+
+;	STRING VARS
+
+PRT_ROWS	:	.CHAR		'Enter the number of rows   ',				PRT_ROWS_L
+PRT_COLS	:	.CHAR		'Enter the number of columns',				PRT_COLS_L
+PRT_SUM		:	.CHAR		'The sum of the elements is ',				PRT_SUM_L
+PRT_ERROR	:	.CHAR		'ERROR:  The matrix sums are different!',	PRT_ERROR_L
+PRT_SUM1	:	.CHAR		'The first  sum of the elements is ',		PRT_SUM1_L
+PRT_SUM2	:	.CHAR		'The second sum of the elements is ',		PRT_SUM2_L
+INV_DIME	:	.CHAR		'Invalid dimension:  Try again!',			PRT_INV_DIME_L

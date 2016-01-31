@@ -1,0 +1,47 @@
+# Xilinx CORE Generator 4.1i
+# User = Student 152B
+# Initializing default project...
+# Loading plug-ins...
+# Initializing GUI...
+SETPROJECT E:\HingKei\152bs04\Project1a
+# lockprojectprops=false
+# busformat=BusFormatAngleBracket
+# designflow=Vhdl
+# expandedprojectpath=E:\HingKei\152bs04\Project1a
+# flowvendor=Foundation_iSE
+# formalverification=None
+# simulationoutputproducts=Verilog VHDL
+# xilinxfamily=Virtex
+# outputoption=DesignFlow
+# overwritefiles=Default
+# expandedprojectpath=E:\HingKei\152bs04\Project1a
+# Set current Project to E:\HingKei\152bs04\Project1a
+SELECT Bus_Multiplexer Virtex Xilinx,_Inc. 4.0
+CSET input_bus_width = 4
+CSET synchronous_settings = none
+CSET multiplexer_construction = lut_based
+CSET create_rpm = true
+CSET output_enable = false
+CSET async_init_value = 0
+CSET sync_init_value = 0
+CSET ce_overrides = sync_controls_override_ce
+CSET set_clear_priority = clear_overrides_set
+CSET Latency = 0
+CSET clock_enable = false
+CSET asynchronous_settings = none
+CSET output_options = non_registered
+CSET Component_Name = mux8to1
+CSET number_of_input_buses = 8
+GENERATE
+# Preparing to elaborate core...
+# Elaborating the module...
+# Generating the core .EDN implementation netlist...
+# Generating the .VHO/.VHD simulation support files...
+# Generating the .VEO/.V simulation support files...
+# Generating the .ASY symbol file...
+# Generating iSE symbol file...
+# Executing: C:\Xilinx\bin\nt\coresupt.exe E:\HingKei\152bs04\Project1a\mux8to1.asy
+# Execution Complete.  Return code: 0
+# Successfully generated mux8to1 (Bus Multiplexer 4.0)
+#  
+END

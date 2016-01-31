@@ -1,0 +1,398 @@
+<!--?xml version='1.0' encoding='US-ASCII'?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Project 1. Scheme program matcher</title>
+<link rel="copyright" href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">
+<link rev="made" href="mailto:eggert@cs.ucla.edu">
+</head>
+
+<body>
+
+<h1>Project 1. Scheme program matcher</h1>
+
+<h2>Introduction</h2>
+
+<p>Your boss at Jerry-built Computer Networks Corp. (JCN) is thinking
+of countersuing Tortuous Data Processing Inc. (TDP), claiming that TDP
+stole bits of JCN's Scheme code and used it in TDP's operating
+system. Your boss wants you to look through TDP's code for certain
+coding style patterns that are emblematic of JCN's style. Every
+instance of those patterns will be useful in your company's potential
+case against TDP. There are a lot of patterns and a lot of Scheme code
+in TDP's operating system, so efficiency will be important. Your boss
+plans to run your pattern-matching code on the JCN Scheme Engine, a
+hardware implementation of Scheme that is blindingly fast if you limit
+yourself to the Scheme primitives that are implemented directly in the
+hardware.</p>
+
+<p>In this assignment you will write a simple pattern-matcher
+generator for Scheme programs. Your generator will take a pattern and
+produce a pattern-matcher. This is akin to the POSIX <a href="http://www.opengroup.org/onlinepubs/007904975/functions/regcomp.html"><samp>regcomp</samp></a>
+regular expression compiler. However, unlike <samp>regcomp</samp> your
+generator will produce a procedure that can be called directly, not
+data to be passed to a separate <samp>regexec</samp> interpreter. For
+efficiency reasons, your procedure will limit itself to the JCN Scheme
+Engine's primitives.</p>
+
+<p>It should be said right up front that this assignment is just a
+toy: real program analyzers are much more complicated than this, and don't
+rely solely on the simple kinds of backtracking used here.</p>
+
+<p>The key notion of this assignment is that of a "pmatcher". A
+pmatcher is a procedure that inspects a given program fragment to find
+a match for a pattern. For example, a pmatcher for the pattern
+<samp>(append (or (list '+ symbol) (list '+)) (list symbol))</samp>
+will succeed only on a program fragment that is a two- or
+three-element list whose car is <samp>+</samp> and whose remaining
+elements are symbols.</p>
+
+<p>As you can see by mentally executing the example pattern on the
+fragment <samp>(+ a)</samp>, pmatchers sometimes need to try
+multiple alternatives and to backtrack to a later alternative if an
+earlier one is a blind alley.</p>
+
+<h2>Definitions</h2>
+
+<dl>
+
+<dt>fragment</dt> <dd> Any object that can represent part of a Scheme
+program. This definition excludes infinite objects, but it includes
+improper lists.</dd>
+
+<dt>pattern</dt> <dd>an object that represents a set of fragments. It
+is said to <dfn>match</dfn> each such fragment. It takes one of the
+following forms:
+
+<dl>
+
+<dt><samp>boolean</samp></dt> <dd> matches any boolean. That is, it
+matches only <samp>#t</samp> and <samp>#f</samp>.</dd>
+
+<dt><samp>symbol</samp></dt> <dd> matches any symbol. For example,
+it matches <samp>cons</samp> but not <samp>1.0</samp>.</dd>
+
+<dt><samp>pair</samp></dt> <dd> matches any pair.</dd>
+
+<dt><samp>list</samp></dt> <dd> matches any (proper) list.</dd>
+
+<dt><samp>char</samp></dt> <dd> matches any character.</dd>
+
+<dt><samp>vector</samp></dt> <dd> matches any vector.</dd>
+
+<dt><samp>number</samp></dt> <dd> matches any number.</dd>
+
+<dt><samp>string</samp></dt> <dd> matches any string.</dd>
+
+<dt><samp>(is </samp><var>procedure</var><samp>)</samp></dt> <dd>
+matches any object <var>obj</var> such that
+<samp>(</samp><var>procedure obj</var><samp>)</samp> returns true. For
+example, <samp>(list 'is (lambda (x) x))</samp> returns a pattern that
+matches any object other than <samp>#f</samp>. It is an
+error if an error occurs during the execution of
+<samp>(</samp><var>procedure obj</var><samp>)</samp>.</dd>
+
+<dt><samp>obj</samp></dt> <dd> matches any object. Don't forget that
+lists are objects.</dd>
+
+<dt><samp>'</samp><var>obj</var></dt> <dd> matches any fragment that
+is <samp>equal?</samp> to <var>obj</var>. For example, <samp>'(lambda
+(x) x)</samp> matches <samp>(lambda (x) x)</samp> but not
+<samp>(lambda (y) y)</samp>.</dd>
+
+<dt><samp>(or </samp><var>pat</var><samp>…)</samp></dt> <dd>
+matches any fragment that any pattern <var>pat</var> matches. For
+example, <samp>(or)</samp> does not match any fragment, and <samp>(or
+'car 'cdr 'cons)</samp> matches <samp>car</samp>, <samp>cdr</samp>,
+and <samp>cons</samp>.</dd>
+
+<dt><samp>(cons </samp><var>pat1</var><samp>
+</samp><var>pat2</var><samp>)</samp></dt> <dd> matches any pair whose
+car matches <var>pat1</var> and whose cdr matches <var>pat2</var>. For
+example, the pattern <samp>(cons 'x 'y)</samp> is equivalent to the
+pattern <samp>'(x . y)</samp>.</dd>
+
+<dt><samp>(list </samp><var>pat1 …
+patN</var><samp>)</samp></dt> <dd> matches any <var>N</var>-element
+list whose members match each pattern in turn. For example, the
+pattern <samp>(list '+ 'x 'y)</samp> is equivalent to the pattern
+<samp>'(+ x y)</samp>. <var>N</var> may be zero; the pattern
+<samp>(list)</samp> is equivalent to the pattern <samp>'()</samp>.</dd>
+
+<dt><samp>(append </samp><var>pat1 … patN</var><samp>
+</samp><var>pattail</var><samp>)</samp></dt> <dd> matches any
+concatenation of fragments that are matched by each pattern,
+respectively. More formally, if <var>pat1</var> matches
+<var>list1</var>,… <var>patN</var> matches <var>listn</var>,
+and <var>pattail</var> matches <var>obj</var>, then the pattern
+<samp>(append </samp><var>pat1 … patN</var><samp>
+</samp><var>pattail</var><samp>)</samp> matches the object returned by
+<samp>(append </samp><var>list1 … listn
+obj</var><samp>)</samp>. The last pattern <var>pattail</var> need not
+match a list; if it matches a non-list then the overall
+<samp>append</samp> pattern matches an improper list. <var>N</var>
+may be zero; the pattern <samp>(append
+</samp><var>pattail</var><samp>)</samp> is equivalent to
+<var>pattail</var>. None of the first <var>N</var> patterns may
+be of the form <samp>(is </samp><var>procedure</var><samp>)</samp>.</dd>
+
+<dt><samp>(* </samp><var>pat</var><samp>)</samp></dt> <dd> matches any
+concatenation of fragments that are each matched by <var>pat</var>. If
+the matched concatenation is of two or more fragments, this pattern is
+equivalent to <samp>(append </samp><var>pat</var><samp> (*
+</samp><var>pat</var><samp>))</samp>.  If the matched concatenation is
+of one fragment, this pattern is equivalent to <samp>pat</samp>. If
+the matched concatenation is of zero fragments, this pattern is
+equivalent to the pattern <samp>'()</samp>.</dd>
+
+</dl>
+
+<p>A pattern is not a procedure call. For example, you do not need to
+define a procedure called <samp>is</samp>. The symbol <samp>is</samp>
+is part of the pattern returned by <samp>(list 'is boolean)</samp>,
+but <samp>is</samp> does not need to be defined as a
+procedure.</p></dd>
+
+<dt>pmatcher</dt> <dd>a procedure with one arguments: a fragment
+<var>frag</var>. A pmatcher matches <var>frag</var> if it returns
+true; it fails to match <var>frag</var> if it returns <samp>#f</samp>.</dd> </dl>
+
+<h2>Assignment</h2>
+
+<p>Write a procedure <samp>(make-pmatcher
+</samp><var>pat</var><samp>)</samp> that returns a pmatcher for the
+pattern <var>pat</var>.</p>
+
+<p>Your implementation should use portable Scheme code, and it must be
+free of side effects. It should avoid using unnecessary storage. Tail
+recursion is desirable but is not required, and you will probably find
+it necessary to use non-tail-recursive procedures both in
+<samp>make-pmatcher</samp> and in the pmatchers that
+<samp>make-pmatcher</samp> returns.</p>
+
+<p>There are extra constraints on the pmatchers that
+<samp>make-pmatcher</samp> returns. These pmatchers must use only the
+following Scheme primitives:</p>
+
+<ul>
+<li>numerical constants</li>
+<li>variable references</li>
+<li>procedure calls</li>
+<li>symbols (e.g., the symbol <samp>a</samp>)</li>
+<li>literal expressions (e.g., <samp>'(a b)</samp>)</li>
+</ul>
+
+<p>along with the following procedures and special forms:
+<samp>&lt;</samp>, <samp>&lt;=</samp>, <samp>=</samp>,
+<samp>&gt;</samp>, <samp>&gt;=</samp>, <samp>-</samp>, <samp>+</samp>,
+<samp>and</samp>, <samp>boolean?</samp>, <samp>car</samp>,
+<samp>char?</samp>, <samp>cond</samp>,
+<samp>cons</samp>, <samp>cdr</samp>, <samp>eq?</samp>,
+<samp>equal?</samp>, <samp>eqv?</samp>, <samp>if</samp>,
+<samp>lambda</samp>, <samp>let</samp>, <samp>letrec</samp>, <samp>list?</samp>,
+<samp>not</samp>, <samp>null?</samp>, <samp>number?</samp>, <samp>or</samp>,
+<samp>pair?</samp>, <samp>quote</samp> (or <samp>'</samp>),
+<samp>string?</samp>, <samp>symbol?</samp>, and
+<samp>vector?</samp>.</p>
+
+<p>In all cases it is an error if procedure arguments are not of the
+proper form. For example, it is an error if the argument to
+<samp>make-pmatcher</samp> is not a pattern, if the first argument to
+a pmatcher is not a fragment, or if the procedure associated with an
+<samp>is</samp> pattern produces an error when applied to an object in
+the fragment. Your can assume that <samp>make-pmatcher</samp> and the
+pmatchers it returns are given valid arguments by the test program;
+however, you must insure that the pmatchers do not cause any errors
+when given valid arguments.</p>
+
+<p>To turn in your assignment, <a href="http://www.cs.ucla.edu/classes/fall03/cs131/seasnet.html">submit</a> a
+file <samp>pr1.ss</samp> that contains a definition of
+<samp>make-pmatcher</samp> along with any auxiliary definitions that
+<samp>make-pmatcher</samp> needs. The first line of
+<samp>pr1.ss</samp> should be a comment containing your name and
+student ID.</p>
+
+<h2>Examples</h2>
+
+<p>The following examples show how <samp>make-pmatcher</samp> might be
+used in a test program. Please do not submit them as part of
+<samp>pr1.ss</samp>.</p>
+
+<pre><samp>(define expr 'obj)
+(define exprs '(* (list obj)))
+(define star-obj '(* obj))
+(define unary-fn `(append (list 'lambda (list symbol)) ,exprs))
+(define binary-fn `(append (list 'lambda (list symbol symbol)) ,exprs))
+(define unary-or-binary-fn `(or ,unary-fn ,binary-fn))
+(define nary-fn `(append (list 'lambda (* (list symbol))) ,exprs))
+(define nary-fn-defn `(list 'define symbol ,nary-fn))
+
+; For each pattern defined above, use make-pmatcher to create a
+; pmatcher that matches the pattern.
+(define pmatch-expr (make-pmatcher expr))
+(define pmatch-exprs (make-pmatcher exprs))
+(define pmatch-star-obj (make-pmatcher star-obj))
+(define pmatch-unary-fn (make-pmatcher unary-fn))
+(define pmatch-binary-fn (make-pmatcher binary-fn))
+(define pmatch-unary-or-binary-fn (make-pmatcher unary-or-binary-fn))
+(define pmatch-nary-fn (make-pmatcher nary-fn))
+(define pmatch-nary-fn-defn (make-pmatcher nary-fn-defn))
+
+; Test the pmatchers.
+(pmatch-expr 0)  ===&gt;  <var>true</var>
+(pmatch-exprs 0)  ===&gt;  #f
+(pmatch-exprs '(0))  ===&gt;  <var>true</var>
+(pmatch-star-obj 0)  ===&gt;  <var>true</var>
+(pmatch-unary-fn '(lambda () #f))  ===&gt;  #f
+(pmatch-unary-fn '(lambda () #f))  ===&gt;  #f
+(pmatch-unary-fn '(lambda (x) x))  ===&gt;  <var>true</var>
+(pmatch-unary-fn '(lambda (x y) x))  ===&gt;  #f
+(pmatch-binary-fn '(lambda () #f))  ===&gt;  #f
+(pmatch-binary-fn '(lambda (x) x))  ===&gt;  #f
+(pmatch-binary-fn '(lambda (x y) x))  ===&gt;  <var>true</var>
+(pmatch-binary-fn '(lambda (x y z) x))  ===&gt;  #f
+(pmatch-unary-or-binary-fn '(lambda () #f))  ===&gt;  #f
+(pmatch-unary-or-binary-fn '(lambda (x) x))  ===&gt;  <var>true</var>
+(pmatch-unary-or-binary-fn '(lambda (x y) x))  ===&gt;  <var>true</var>
+(pmatch-unary-or-binary-fn '(lambda (x y z) x))  ===&gt;  #f
+(pmatch-nary-fn '(lambda () #f))  ===&gt;  <var>true</var>
+(pmatch-nary-fn '(lambda (x) x))  ===&gt;  <var>true</var>
+(pmatch-nary-fn '(lambda (x y) x))  ===&gt;  <var>true</var>
+(pmatch-nary-fn '(lambda (x y z) x))  ===&gt;  <var>true</var>
+(pmatch-nary-fn-defn '(lambda (x y z) x))  ===&gt;  #f
+(pmatch-nary-fn-defn '(define foo (lambda (x y z) x)))  ===&gt;  <var>true</var>
+
+
+; Some more examples.
+
+(define allowed-procedures
+  '(or '&lt; '&lt;= '= '&gt; '&gt;= '- '+ 'boolean?
+       'car 'char? 'cons 'cdr 'eq? 'equal? 'eqv?
+       'list? 'not 'null? 'number?
+       'pair? 'string? 'symbol? 'vector?))
+
+(define other-allowed-special-forms
+  '(or 'and 'cond 'if 'let 'letrec 'or 'quote))
+
+(define lambda-args
+  '(or symbol
+       (* (list symbol))
+       (append (* (list symbol)) symbol)))
+
+(define lambda-expr `(append (list 'lambda ,lambda-args) ,exprs))
+(define quote-expr '(list 'quote obj))
+(define call-expr `(cons (or ,lambda-expr ,allowed-procedures) ,exprs))
+
+(define allowed-primitives
+  `(or number symbol ,call-expr (cons ,other-allowed-special-forms ,exprs)))
+
+(define pmatch-*-boolean (make-pmatcher '(* boolean)))
+(define pmatch-*-list-boolean (make-pmatcher '(* (list boolean))))
+(define pmatch-nil-a (make-pmatcher '(append '() 'a)))
+(define pmatch-a-a (make-pmatcher '(append 'a 'a)))
+(define pmatch-star-a (make-pmatcher '(* 'a)))
+(define pmatch-star-list-a (make-pmatcher '(* (list 'a))))
+(define pmatch-list (make-pmatcher 'list))
+(define pmatch-list-list (make-pmatcher '(list list)))
+(define pmatch-allowed-procedures (make-pmatcher allowed-procedures))
+(define pmatch-other-allowed-special-forms
+  (make-pmatcher other-allowed-special-forms))
+(define pmatch-lambda-args (make-pmatcher lambda-args))
+(define pmatch-lambda-expr (make-pmatcher lambda-expr))
+(define pmatch-quote-expr (make-pmatcher quote-expr))
+(define pmatch-call-expr (make-pmatcher call-expr))
+(define pmatch-allowed-primitives (make-pmatcher allowed-primitives))
+
+(pmatch-*-boolean #t)  ===&gt;  <var>true</var>
+(pmatch-*-boolean #f)  ===&gt;  <var>true</var>
+(pmatch-*-boolean '())  ===&gt;  <var>true</var>
+(pmatch-*-boolean '(#f))  ===&gt;  #f
+(pmatch-*-list-boolean #t)  ===&gt;  #f
+(pmatch-*-list-boolean #f)  ===&gt;  #f
+(pmatch-*-list-boolean '())  ===&gt;  <var>true</var>
+(pmatch-*-list-boolean '(#f))  ===&gt;  <var>true</var>
+(pmatch-*-list-boolean '(#f #t))  ===&gt;  <var>true</var>
+(pmatch-*-list-boolean '(#f (#t)))  ===&gt;  #f
+(pmatch-nil-a 'a)  ===&gt;  <var>true</var>
+(pmatch-nil-a '())  ===&gt;  #f
+(pmatch-nil-a '(() . a))  ===&gt;  #f
+(pmatch-nil-a '(a . a))  ===&gt;  #f
+(pmatch-a-a 'a)  ===&gt;  #f
+(pmatch-a-a '())  ===&gt;  #f
+(pmatch-a-a '(() . a))  ===&gt;  #f
+(pmatch-a-a '(a . a))  ===&gt;  #f
+(pmatch-star-a 'a)  ===&gt;  <var>true</var>
+(pmatch-star-a '())  ===&gt;  <var>true</var>
+(pmatch-star-a '(a))  ===&gt;  #f
+(pmatch-star-a '(a a))  ===&gt;  #f
+(pmatch-star-list-a 'a)  ===&gt;  #f
+(pmatch-star-list-a '())  ===&gt;  <var>true</var>
+(pmatch-star-list-a '(a))  ===&gt;  <var>true</var>
+(pmatch-star-list-a '(a a))  ===&gt;  <var>true</var>
+(pmatch-list '())  ===&gt;  <var>true</var>
+(pmatch-list 'a)  ===&gt;  #f
+(pmatch-list '(a))  ===&gt;  <var>true</var>
+(pmatch-list '(a a))  ===&gt;  <var>true</var>
+(pmatch-list '((a) a))  ===&gt;  <var>true</var>
+(pmatch-list '((a) (a)))  ===&gt;  <var>true</var>
+(pmatch-list-list '())  ===&gt;  #f
+(pmatch-list-list '(()))  ===&gt;  <var>true</var>
+(pmatch-list-list 'a)  ===&gt;  #f
+(pmatch-list-list '(a))  ===&gt;  #f
+(pmatch-list-list '(a a))  ===&gt;  #f
+(pmatch-list-list '((a) a))  ===&gt;  #f
+(pmatch-list-list '((a) (a)))  ===&gt;  #f
+(pmatch-list-list '((a)))  ===&gt;  <var>true</var>
+(pmatch-allowed-procedures 'or)  ===&gt;  #f
+(pmatch-allowed-procedures 'number?)  ===&gt;  <var>true</var>
+(pmatch-allowed-procedures 'modulo)  ===&gt;  #f
+(pmatch-other-allowed-special-forms 'or)  ===&gt;  <var>true</var>
+(pmatch-other-allowed-special-forms 'number?)  ===&gt;  #f
+(pmatch-other-allowed-special-forms '+)  ===&gt;  #f
+(pmatch-lambda-args '())  ===&gt;  <var>true</var>
+(pmatch-lambda-args '(x))  ===&gt;  <var>true</var>
+(pmatch-lambda-args '(x y))  ===&gt;  <var>true</var>
+(pmatch-lambda-args '(x y . z))  ===&gt;  <var>true</var>
+(pmatch-lambda-args 'z)  ===&gt;  <var>true</var>
+(pmatch-lambda-args 0)  ===&gt;  #f
+(pmatch-lambda-args '(0))  ===&gt;  #f
+(pmatch-lambda-args '(()))  ===&gt;  #f
+(pmatch-lambda-expr '(lambda x x))  ===&gt;  <var>true</var>
+(pmatch-lambda-expr '(lambda (x . y) y))  ===&gt;  <var>true</var>
+(pmatch-lambda-expr '(lambda x (x) (x)))  ===&gt;  <var>true</var>
+(pmatch-lambda-expr '(lambda ((x) (x))))  ===&gt;  #f
+(pmatch-quote-expr 'x)  ===&gt;  #f
+(pmatch-quote-expr ''x)  ===&gt;  <var>true</var>
+(pmatch-quote-expr '''x)  ===&gt;  <var>true</var>
+(pmatch-quote-expr '())  ===&gt;  #f
+(pmatch-call-expr '())  ===&gt;  #f
+(pmatch-call-expr '(modulo))  ===&gt;  #f
+(pmatch-call-expr '(cons))  ===&gt;  <var>true</var>
+(pmatch-call-expr 'cons)  ===&gt;  #f
+(pmatch-call-expr '((lambda (x) x) 1 2))  ===&gt;  <var>true</var>
+(pmatch-call-expr '(lambda (x) x))  ===&gt;  #f
+(pmatch-allowed-primitives 12)  ===&gt;  <var>true</var>
+(pmatch-allowed-primitives 'a)  ===&gt;  <var>true</var>
+(pmatch-allowed-primitives '(modulo 3 4))  ===&gt;  #f
+(pmatch-allowed-primitives '(lambda (x) x))  ===&gt;  #f
+(pmatch-allowed-primitives '(if (null? x) (cons x y)))  ===&gt;  <var>true</var>
+</samp></pre>
+
+<h2>Hint</h2>
+
+<p>See the <a href="http://www.cs.ucla.edu/classes/fall03/cs131/hw/pr1-old.html">DNA fragment analyzer</a> problem
+that was assigned in a previous quarter, along with the solution at
+the end of the problem.</p>
+
+<hr>
+<address>
+ © 2003 <a href="http://www.cs.ucla.edu/classes/fall03/cs131/mail-eggert.html">Paul Eggert</a>.
+ See <a href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">copying rules</a>.<br>
+
+ $Id: pr1.html,v 1.15 2003/10/22 06:02:57 eggert Exp $
+
+</address>
+
+
+
+</body></html>

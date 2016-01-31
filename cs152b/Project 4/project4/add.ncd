@@ -1,0 +1,2308 @@
+2_35.G2
+
+pc_3
+   pc_3.YQ
+         1.533  xlxi_31_N1583.F2
+         1.295  xlxi_31_N860.F4
+
+pc_4
+   pc_5.YQ
+         2.065  xlxi_31_N1598.F1
+         1.043  xlxi_31_N860.G1
+
+pc_5
+   pc_5.XQ
+         1.710  xlxi_31_N1598.G3
+         1.323  xlxi_31_N884.F2
+
+pc_6
+   pc_6.YQ
+         1.929  xlxi_31_N1583.G2
+         1.401  xlxi_31_N884.G4
+
+pc_7
+   pc_7.YQ
+         1.752  xlxi_31_N1465.G2
+         1.877  xlxi_31_N908.F3
+
+pc_8
+   pc_9.YQ
+         1.846  xlxi_31_N1523.G2
+         1.043  xlxi_31_N908.G1
+
+pc_9
+   pc_9.XQ
+         1.268  xlxi_31_N932.F3
+         1.970  xlxi_31_prest_FFD3.G2
+
+pcwren
+   xlxi_31_N1426.Y
+         0.927  pc_2.CE
+         2.662  pc_11.CE
+         2.663  pc_13.CE
+         2.564  pc_15.CE
+         0.946  pc_0.CE
+         1.013  pc_1.CE
+         1.308  pc_3.CE
+         1.300  pc_5.CE
+         1.315  pc_6.CE
+         1.027  pc_7.CE
+         1.314  pc_9.CE
+
+pp_0
+   ppdata<0>.I
+         2.594  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_1.BY
+         2.660 
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.F2
+
+pp_1
+   ppdata<1>.I
+         2.095  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_1.BX
+         2.423 
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.F1
+
+pp_2
+   ppdata<2>.I
+         2.230  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_3.BY
+         2.424 
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.G2
+
+pp_3
+   ppdata<3>.I
+         1.488  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_3.BX
+         1.793 
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.G1
+
+pp_4
+   ppdata<4>.I
+         0.916  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_5.BY
+         1.352  xlxi_30_pctofpgainterface_pportinterface_N357.F2
+
+pp_5
+   ppdata<5>.I
+         0.718  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_5.BX
+         1.328  xlxi_30_pctofpgainterface_pportinterface_N357.F1
+
+pp_6
+   ppdata<6>.I
+         0.979  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_7.BY
+         1.205  xlxi_30_pctofpgainterface_pportinterface_N357.G2
+
+pp_7
+   ppdata<7>.I
+         1.544  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_7.BX
+         2.285  xlxi_30_pctofpgainterface_pportinterface_N357.G1
+
+ppstatus_3
+   ppstatus_3.X
+         1.973  ppstatus3.O
+
+ppstatus_4
+   ppstatus_4.X
+         2.214  ppstatus4.O
+
+ppstatus_5
+   ppstatus_5.X
+         2.096  ppstatus5.O
+
+ppstatus_6
+   ppstatus_6.X
+         2.242  ppstatus6.O
+
+resetl
+   resetl.YQ
+         3.236  xlxi_30_pctofpgainterface_pportinterface_N382.G2
+         2.237  xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD5.SR
+         1.665  lcen.SR
+         4.779  la_2.SR
+         3.363  la_9.SR
+         3.912  la_1.SR
+         2.759  la_8.SR
+         3.856  la_0.SR
+         3.750  la_15.SR
+         5.670  la_7.SR
+         3.750  la_14.SR
+         4.177  la_6.SR
+         3.666  la_13.SR
+         3.653  la_5.SR
+         3.495  la_12.SR
+         3.723  la_4.SR
+         4.082  la_11.SR
+         3.341  pc_2.SR
+         3.999  la_3.SR
+         5.944  la_10.SR
+         3.670  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_10.SR
+         5.597  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_11.SR
+         3.592  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_12.SR
+         5.776  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_13.SR
+         3.740  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_14.SR
+         3.811  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_15.SR
+         3.076  xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2.SR
+         2.668  xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD4.SR
+         2.759  xlxi_30_aluwritesram_prestate_FFD1.SR
+         2.668  xlxi_30_aluwritesram_prestate_FFD2.SR
+         3.608  la_17.SR
+         2.709  la_18.SR
+         3.217  xlxi_30_alureadsram_prestate_FFD1.SR
+         3.217  xlxi_30_alureadsram_prestate_FFD2.SR
+         2.478  xlxi_30_alureadsram_prestate_FFD3.SR
+         4.278  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_0.SR
+         3.776  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_1.SR
+         5.643  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_2.SR
+         4.347  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_3.SR
+         3.190  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_4.SR
+         3.816  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_5.SR
+         4.347  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_6.SR
+         5.818  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_7.SR
+         3.606  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_8.SR
+         3.746  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_9.SR
+         2.478  xlxi_30_aluwritesram_prestate_FFD3.SR
+         4.777  pc_11.SR
+         3.079  pc_13.SR
+         3.076  xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD1.SR
+         2.537  pc_15.SR
+         3.135  pc_0.SR
+         4.354  pc_1.SR
+         4.687  pc_3.SR
+         4.708  pc_5.SR
+         4.697  pc_6.SR
+         3.657  pc_7.SR
+         4.851  pc_9.SR
+
+rst
+   reset.I
+         1.908  resetl.SR
+         1.459  xlxi_31_regint_1.SR
+         1.497  xlxi_31_regint_3.SR
+         2.233  xlxi_31_regint_5.SR
+         2.332  xlxi_31_regint_7.SR
+         2.329  xlxi_31_regint_9.SR
+         2.332  xlxi_31_regint_11.SR
+         2.435  xlxi_31_regint_13.SR
+         2.194  xlxi_31_regint_15.SR
+         2.303  xlxi_31_prest_FFD1.SR
+         1.590  xlxi_31_prest_FFD2.SR
+         2.130  xlxi_31_prest_FFD3.SR
+         1.587  xlxi_31_prest_FFD4.SR
+         1.579  xlxi_31_prest_FFD6.SR
+         1.805  xlxi_31_prest_FFD8.SR
+         1.590  xlxi_31_prest_FFD9.SR
+         1.459  xlxi_31_prest_FFD10.SR
+         1.564  xlxi_31_prest_FFD11.SR
+
+xlxi_13
+   N697.Y
+         1.454  lwen.O
+
+xlxi_1_add_overflow
+   xlxi_1_add_overflow.X
+         0.025  xlxi_1_add_overflow.G4
+
+xlxi_1_shift_overflow
+   xlxi_1_xlxi_17_N212.Y
+         1.214  xlxi_1_add_overflow.G3
+
+xlxi_1_xlxi_10_N25
+   xlxi_1_xlxi_10_N25.X
+         0.627  xlxi_1_xlxn_2_1.CLK
+
+xlxi_1_xlxi_15_alu_out_0
+   xlxi_1_xlxi_15_alu_out_0.X
+         1.564  N935.G1
+         1.551  xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O.F2
+
+xlxi_1_xlxi_15_alu_out_1
+   xlxi_1_xlxi_15_alu_out_0.Y
+         1.488  N970.F4
+
+xlxi_1_xlxi_15_alu_out_10
+   xlxi_1_xlxi_15_alu_out_10.X
+         1.136  N961.F1
+
+xlxi_1_xlxi_15_alu_out_11
+   xlxi_1_xlxi_15_alu_out_10.Y
+         0.819  N960.F2
+
+xlxi_1_xlxi_15_alu_out_12
+   xlxi_1_xlxi_15_alu_out_12.X
+         1.484  N959.F1
+
+xlxi_1_xlxi_15_alu_out_13
+   xlxi_1_xlxi_15_alu_out_12.Y
+         0.649  N958.F4
+
+xlxi_1_xlxi_15_alu_out_14
+   xlxi_1_xlxi_15_alu_out_14.X
+         1.480  N957.F1
+
+xlxi_1_xlxi_15_alu_out_15
+   xlxi_1_xlxi_15_alu_out_14.Y
+         1.306  N956.F3
+         1.104  xlxi_1_xlxi_15_xlxi_24_N77.BX
+         1.374  xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O.G1
+
+xlxi_1_xlxi_15_alu_out_151
+   N935.Y
+         0.690  xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O.G3
+
+xlxi_1_xlxi_15_alu_out_2
+   xlxi_1_xlxi_15_alu_out_2.X
+         0.948  N969.F2
+
+xlxi_1_xlxi_15_alu_out_3
+   xlxi_1_xlxi_15_alu_out_2.Y
+         1.825  N968.F2
+
+xlxi_1_xlxi_15_alu_out_4
+   xlxi_1_xlxi_15_alu_out_4.X
+         0.424  N967.F3
+
+xlxi_1_xlxi_15_alu_out_5
+   xlxi_1_xlxi_15_alu_out_4.Y
+         1.069  N966.F4
+
+xlxi_1_xlxi_15_alu_out_6
+   xlxi_1_xlxi_15_alu_out_6.X
+         0.801  N965.F2
+
+xlxi_1_xlxi_15_alu_out_7
+   xlxi_1_xlxi_15_alu_out_6.Y
+         1.176  N964.F1
+
+xlxi_1_xlxi_15_alu_out_8
+   xlxi_1_xlxi_15_alu_out_8.X
+         0.424  N963.F3
+
+xlxi_1_xlxi_15_alu_out_9
+   xlxi_1_xlxi_15_alu_out_8.Y
+         1.276  N962.F3
+
+xlxi_1_xlxi_15_selectb_1
+   xlxi_1_xlxi_15_selectb_1.Y
+         2.004  xlxi_1_xlxi_15_xlxn_64_8.BX
+         2.030  xlxi_1_xlxi_15_xlxn_64_2.BX
+         1.706  xlxi_1_xlxi_15_xlxn_64_15.BX
+         1.784  xlxi_1_xlxi_15_xlxn_64_7.BX
+         0.787  xlxi_1_xlxi_15_xlxn_64_1.BX
+         2.250  xlxi_1_xlxi_15_xlxn_64_14.BX
+         0.910  xlxi_1_xlxi_15_xlxn_64_6.BX
+         2.013  xlxi_1_xlxi_15_xlxn_64_0.BX
+         2.370  xlxi_1_xlxi_15_xlxn_64_13.BX
+         2.400  xlxi_1_xlxi_15_xlxn_64_12.BX
+         1.443  xlxi_1_xlxi_15_xlxn_64_11.BX
+         1.936  xlxi_1_xlxi_15_xlxn_64_5.BX
+         1.925  xlxi_1_xlxi_15_xlxn_64_10.BX
+         1.936  xlxi_1_xlxi_15_xlxn_64_4.BX
+         1.130  xlxi_1_xlxi_15_xlxn_64_9.BX
+         1.517  xlxi_1_xlxi_15_xlxn_64_3.BX
+
+xlxi_1_xlxi_15_xlxi_23/i_36_110/O
+   xlxi_1_xlxi_15_alu_out_12.COUT
+         0.000  xlxi_1_xlxi_15_alu_out_14.CIN
+
+xlxi_1_xlxi_15_xlxi_23/i_36_248/O
+   xlxi_1_xlxi_15_alu_out_6.COUT
+         0.000  xlxi_1_xlxi_15_alu_out_8.CIN
+
+xlxi_1_xlxi_15_xlxi_23/i_36_250/O
+   xlxi_1_xlxi_15_alu_out_4.COUT
+         0.000  xlxi_1_xlxi_15_alu_out_6.CIN
+
+xlxi_1_xlxi_15_xlxi_23/i_36_252/O
+   xlxi_1_xlxi_15_alu_out_2.COUT
+         0.000  xlxi_1_xlxi_15_alu_out_4.CIN
+
+xlxi_1_xlxi_15_xlxi_23/i_36_254/O
+   xlxi_1_xlxi_15_alu_out_0.COUT
+         0.000  xlxi_1_xlxi_15_alu_out_2.CIN
+
+xlxi_1_xlxi_15_xlxi_23/i_36_55/O
+   xlxi_1_xlxi_15_alu_out_8.COUT
+         0.000  xlxi_1_xlxi_15_alu_out_10.CIN
+
+xlxi_1_xlxi_15_xlxi_23/i_36_58/O
+   xlxi_1_xlxi_15_alu_out_10.COUT
+         0.000  xlxi_1_xlxi_15_alu_out_12.CIN
+
+xlxi_1_xlxi_15_xlxi_24_N100
+   xlxi_1_xlxi_15_xlxi_24_N98.Y
+         0.387  xlxi_1_xlxi_15_xlxi_24_N157.G3
+
+xlxi_1_xlxi_15_xlxi_24_N106
+   N930.Y
+         1.358  xlxi_1_xlxi_15_xlxi_24_N124.G2
+
+xlxi_1_xlxi_15_xlxi_24_N112
+   N928.Y
+         0.993  xlxi_1_xlxi_15_xlxi_24_N124.G1
+
+xlxi_1_xlxi_15_xlxi_24_N118
+   xlxi_1_xlxn_5_8.X
+         0.849  xlxi_1_xlxi_15_xlxi_24_N124.G3
+
+xlxi_1_xlxi_15_xlxi_24_N124
+   xlxi_1_xlxi_15_xlxi_24_N124.X
+         0.025  xlxi_1_xlxi_15_xlxi_24_N124.G4
+
+xlxi_1_xlxi_15_xlxi_24_N126
+   xlxi_1_xlxi_15_xlxi_24_N124.Y
+         0.647  xlxi_1_xlxi_15_xlxi_24_N157.G1
+
+xlxi_1_xlxi_15_xlxi_24_N132
+   N920.Y
+         1.563  xlxi_1_xlxi_15_xlxi_24_N138.G3
+
+xlxi_1_xlxi_15_xlxi_24_N138
+   xlxi_1_xlxi_15_xlxi_24_N138.X
+         0.025  xlxi_1_xlxi_15_xlxi_24_N138.G4
+
+xlxi_1_xlxi_15_xlxi_24_N140
+   xlxi_1_xlxi_15_xlxi_24_N138.Y
+         0.512  xlxi_1_xlxi_15_xlxi_24_N157.G2
+
+xlxi_1_xlxi_15_xlxi_24_N146
+   N926.Y
+         0.706  xlxi_1_xlxi_15_xlxi_24_N157.F3
+
+xlxi_1_xlxi_15_xlxi_24_N155
+   N924.Y
+         1.528  xlxi_1_xlxi_15_xlxi_24_N157.F2
+
+xlxi_1_xlxi_15_xlxi_24_N157
+   xlxi_1_xlxi_15_xlxi_24_N157.X
+         0.025  xlxi_1_xlxi_15_xlxi_24_N157.G4
+
+xlxi_1_xlxi_15_xlxi_24_N159
+   xlxi_1_xlxi_15_xlxi_24_N157.Y
+         0.851  xlxi_1_add_overflow.F3
+
+xlxi_1_xlxi_15_xlxi_24_N57
+   xlxi_1_xlxi_15_xlxi_24_N57.X
+         0.314  xlxi_1_add_overflow.F1
+
+xlxi_1_xlxi_15_xlxi_24_N77
+   xlxi_1_xlxi_15_xlxi_24_N77.X
+         1.201  xlxi_1_add_overflow.F4
+
+xlxi_1_xlxi_15_xlxi_24_N88
+   N922.Y
+         0.647  xlxi_1_xlxi_15_xlxi_24_N98.G1
+
+xlxi_1_xlxi_15_xlxi_24_N98
+   xlxi_1_xlxi_15_xlxi_24_N98.X
+         0.025  xlxi_1_xlxi_15_xlxi_24_N98.G4
+
+xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O
+   xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O.X
+         0.025  xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O.G4
+
+xlxi_1_xlxi_15_xlxi_25_N46
+   N951.Y
+         2.178  N935.G4
+         2.955  N961.F4
+         3.119  N962.F1
+         2.602  N963.F4
+         3.018  N966.F1
+         3.098  N956.F4
+         1.994  N964.F4
+         2.519  N967.F4
+         3.049  N957.F2
+         2.666  N965.F3
+         3.184  N968.F1
+         2.860  N958.F2
+         2.922  N969.F1
+         2.875  N959.F3
+         2.990  N970.F2
+         2.524  N960.F4
+         2.300  xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O.F3
+
+xlxi_1_xlxi_15_xlxn_64_0
+   xlxi_1_xlxi_15_xlxn_64_0.X
+         0.516  xlxi_1_xlxi_15_alu_out_0.F2
+
+xlxi_1_xlxi_15_xlxn_64_1
+   xlxi_1_xlxi_15_xlxn_64_1.X
+         1.207  xlxi_1_xlxi_15_alu_out_0.G3
+
+xlxi_1_xlxi_15_xlxn_64_10
+   xlxi_1_xlxi_15_xlxn_64_10.X
+         1.445  xlxi_1_xlxi_15_alu_out_10.F2
+
+xlxi_1_xlxi_15_xlxn_64_11
+   xlxi_1_xlxi_15_xlxn_64_11.X
+         1.450  xlxi_1_xlxi_15_alu_out_10.G4
+
+xlxi_1_xlxi_15_xlxn_64_12
+   xlxi_1_xlxi_15_xlxn_64_12.X
+         0.861  xlxi_1_xlxi_15_alu_out_12.F3
+
+xlxi_1_xlxi_15_xlxn_64_13
+   xlxi_1_xlxi_15_xlxn_64_13.X
+         0.373  xlxi_1_xlxi_15_alu_out_12.G4
+
+xlxi_1_xlxi_15_xlxn_64_14
+   xlxi_1_xlxi_15_xlxn_64_14.X
+         1.076  xlxi_1_xlxi_15_alu_out_14.F4
+
+xlxi_1_xlxi_15_xlxn_64_15
+   xlxi_1_xlxi_15_xlxn_64_15.X
+         1.013  xlxi_1_xlxi_15_alu_out_14.G2
+
+xlxi_1_xlxi_15_xlxn_64_2
+   xlxi_1_xlxi_15_xlxn_64_2.X
+         0.516  xlxi_1_xlxi_15_alu_out_2.F2
+
+xlxi_1_xlxi_15_xlxn_64_3
+   xlxi_1_xlxi_15_xlxn_64_3.X
+         1.018  xlxi_1_xlxi_15_alu_out_2.G4
+
+xlxi_1_xlxi_15_xlxn_64_4
+   xlxi_1_xlxi_15_xlxn_64_4.X
+         0.869  xlxi_1_xlxi_15_alu_out_4.F4
+
+xlxi_1_xlxi_15_xlxn_64_5
+   xlxi_1_xlxi_15_xlxn_64_5.X
+         0.958  xlxi_1_xlxi_15_alu_out_4.G2
+
+xlxi_1_xlxi_15_xlxn_64_6
+   xlxi_1_xlxi_15_xlxn_64_6.X
+         1.583  xlxi_1_xlxi_15_alu_out_6.F2
+
+xlxi_1_xlxi_15_xlxn_64_7
+   xlxi_1_xlxi_15_xlxn_64_7.X
+         1.018  xlxi_1_xlxi_15_alu_out_6.G4
+
+xlxi_1_xlxi_15_xlxn_64_8
+   xlxi_1_xlxi_15_xlxn_64_8.X
+         1.279  xlxi_1_xlxi_15_alu_out_8.F2
+
+xlxi_1_xlxi_15_xlxn_64_9
+   xlxi_1_xlxi_15_xlxn_64_9.X
+         1.485  xlxi_1_xlxi_15_alu_out_8.G3
+
+xlxi_1_xlxi_15_xlxn_74_0
+   xlxi_1_xlxi_15_xlxn_74_1.Y
+         0.931  xlxi_1_xlxi_15_alu_out_0.F1
+
+xlxi_1_xlxi_15_xlxn_74_1
+   xlxi_1_xlxi_15_xlxn_74_1.X
+         0.647  xlxi_1_xlxi_15_alu_out_0.G1
+
+xlxi_1_xlxi_15_xlxn_74_10
+   xlxi_1_xlxi_15_xlxn_74_11.Y
+         1.091  xlxi_1_xlxi_15_alu_out_10.F1
+
+xlxi_1_xlxi_15_xlxn_74_11
+   xlxi_1_xlxi_15_xlxn_74_11.X
+         1.066  xlxi_1_xlxi_15_alu_out_10.G1
+
+xlxi_1_xlxi_15_xlxn_74_12
+   xlxi_1_xlxi_15_xlxn_74_13.Y
+         1.115  xlxi_1_xlxi_15_alu_out_12.F1
+
+xlxi_1_xlxi_15_xlxn_74_13
+   xlxi_1_xlxi_15_xlxn_74_13.X
+         1.155  xlxi_1_xlxi_15_alu_out_12.G1
+
+xlxi_1_xlxi_15_xlxn_74_14
+   xlxi_1_xlxi_15_xlxn_74_15.Y
+         1.085  xlxi_1_xlxi_15_alu_out_14.F1
+
+xlxi_1_xlxi_15_xlxn_74_15
+   xlxi_1_xlxi_15_xlxn_74_15.X
+         1.086  xlxi_1_xlxi_15_alu_out_14.G1
+
+xlxi_1_xlxi_15_xlxn_74_2
+   xlxi_1_xlxi_15_xlxn_74_3.Y
+         0.926  xlxi_1_xlxi_15_alu_out_2.F1
+
+xlxi_1_xlxi_15_xlxn_74_3
+   xlxi_1_xlxi_15_xlxn_74_3.X
+         0.310  xlxi_1_xlxi_15_alu_out_2.G1
+
+xlxi_1_xlxi_15_xlxn_74_4
+   xlxi_1_xlxi_15_xlxn_74_5.Y
+         1.312  xlxi_1_xlxi_15_alu_out_4.F1
+
+xlxi_1_xlxi_15_xlxn_74_5
+   xlxi_1_xlxi_15_xlxn_74_5.X
+         1.080  xlxi_1_xlxi_15_alu_out_4.G1
+
+xlxi_1_xlxi_15_xlxn_74_6
+   xlxi_1_xlxi_15_xlxn_74_7.Y
+         1.144  xlxi_1_xlxi_15_alu_out_6.F1
+
+xlxi_1_xlxi_15_xlxn_74_7
+   xlxi_1_xlxi_15_xlxn_74_7.X
+         1.174  xlxi_1_xlxi_15_alu_out_6.G1
+
+xlxi_1_xlxi_15_xlxn_74_8
+   xlxi_1_xlxi_15_xlxn_74_9.Y
+         0.926  xlxi_1_xlxi_15_alu_out_8.F1
+
+xlxi_1_xlxi_15_xlxn_74_9
+   xlxi_1_xlxi_15_xlxn_74_9.X
+         0.310  xlxi_1_xlxi_15_alu_out_8.G1
+
+xlxi_1_xlxi_15_xlxn_78
+   N953.Y
+         1.460  xlxi_1_xlxi_15_alu_out_0.BX
+
+xlxi_1_xlxi_16_N25
+   xlxi_31_N1027.Y
+         0.175  xlxi_1_xlxi_16_N55.G2
+
+xlxi_1_xlxi_16_N35
+   xlxi_1_xlxi_16_N35.X
+         0.387  xlxi_1_xlxi_16_N55.G3
+
+xlxi_1_xlxi_16_N45
+   xlxi_1_xlxi_16_N45.X
+         1.076  xlxi_1_xlxi_16_N55.G1
+
+xlxi_1_xlxi_16_N55
+   xlxi_1_xlxi_16_N55.X
+         0.025  xlxi_1_xlxi_16_N55.G4
+
+xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname14
+   xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname14.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname18.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname18
+   xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname18.Y
+         0.899  xlxi_1_xlxi_17_N869.F4
+
+xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname21
+   xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname21.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname25.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname25
+   xlxi_1_xlxi_17_Mmux__n0001_xstmacro_int_tempname25.Y
+         0.516  xlxi_1_xlxi_17_N869.F2
+
+xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname29
+   xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname29.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname33.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname33
+   xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname33.Y
+         1.243  xlxi_1_xlxi_17_N394.F3
+
+xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname36
+   xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname36.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname40.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname40
+   xlxi_1_xlxi_17_Mmux__n0003_xstmacro_int_tempname40.Y
+         0.719  xlxi_1_xlxi_17_N394.F4
+
+xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname44
+   xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname44.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname48.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname48
+   xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname48.Y
+         1.191  xlxi_1_xlxi_17_N663.F4
+
+xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname51
+   xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname51.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname55.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname55
+   xlxi_1_xlxi_17_Mmux__n0005_xstmacro_int_tempname55.Y
+         0.796  xlxi_1_xlxi_17_N663.F2
+
+xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname59
+   xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname59.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname63.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname63
+   xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname63.Y
+         1.085  xlxi_1_xlxn_5_3.F1
+
+xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname66
+   xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname66.F5
+         0.000  xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname70.F5IN
+
+xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname70
+   xlxi_1_xlxi_17_Mmux__n0007_xstmacro_int_tempname70.Y
+         0.989  xlxi_1_xlxn_5_3.F3
+
+xlxi_1_xlxi_17_N105
+   xlxi_1_xlxi_17_N105.X
+         1.723  xlxi_1_xlxi_17_N212.G3
+         3.940  xlxi_1_xlxi_17_N715.G1
+         2.976  xlxi_1_xlxi_17_N656.G2
+         3.050  xlxi_1_xlxi_17_N259.G1
+         4.026  xlxi_1_xlxi_17_N236.G3
+         3.006  xlxi_1_xlxi_17_N273.G3
+         2.682  xlxi_1_xlxi_17_N299.G1
+         3.924  xlxi_1_xlxi_17_N289.F2
+         0.053  xlxi_1_xlxi_17_N105.G4
+         3.828  xlxi_1_xlxi_17_N453.F4
+         3.328  xlxi_1_xlxi_17_N517.F2
+         3.137  xlxi_1_xlxi_17_N397.F1
+         4.234  xlxi_1_xlxi_17_N924.F3
+         3.109  xlxi_1_xlxi_17_N924.G3
+         3.636  xlxi_1_xlxi_17_N6791.F2
+         3.632  xlxi_1_xlxi_17_N6791.G2
+         3.339  xlxi_1_xlxi_17_N948.F2
+         3.313  xlxi_1_xlxi_17_N948.G1
+         3.522  N17966.F1
+         2.611  N17966.G4
+         3.340  xlxi_1_xlxi_17_N493.F4
+         3.344  xlxi_1_xlxi_17_N293.F4
+         3.286  xlxi_1_xlxi_17_N293.G4
+         3.361  xlxi_1_xlxi_17_N966.F3
+         3.361  xlxi_1_xlxi_17_N966.G2
+         2.823  xlxi_1_xlxi_17_N766.F4
+         2.765  xlxi_1_xlxi_17_N766.G4
+         4.039  xlxi_1_xlxi_17_N319.F2
+         4.333  xlxi_1_xlxn_23_10.CLK
+         3.340  xlxi_1_xlxn_23_11.CLK
+         4.371  xlxi_1_xlxn_23_12.CLK
+         3.363  xlxi_1_xlxn_23_13.CLK
+         3.333  xlxi_1_xlxn_23_14.CLK
+         3.481  xlxi_1_xlxn_23_15.CLK
+         3.016  xlxi_1_xlxn_23_15.G2
+         4.083  xlxi_1_xlxn_23_0.CLK
+         3.474  xlxi_1_xlxn_23_1.CLK
+         4.083  xlxi_1_xlxn_23_2.CLK
+         4.059  xlxi_1_xlxn_23_2.F3
+         3.801  xlxi_1_xlxn_23_3.CLK
+         2.202  xlxi_1_xlxn_23_4.CLK
+         2.928  xlxi_1_xlxn_23_5.CLK
+         3.125  xlxi_1_xlxn_23_6.CLK
+         3.408  xlxi_1_xlxn_23_6.F4
+         2.606  xlxi_1_xlxn_23_7.CLK
+         2.786  xlxi_1_xlxn_23_7.F4
+         2.252  xlxi_1_xlxn_23_8.CLK
+         2.762  xlxi_1_xlxn_23_9.CLK
+
+xlxi_1_xlxi_17_N115
+   N933.Y
+         0.760  xlxi_1_xlxi_17_N135.G3
+
+xlxi_1_xlxi_17_N123
+   N947.Y
+         1.861  xlxi_1_xlxi_17_N135.G2
+         2.158  xlxi_1_xlxi_17_N236.F2
+         1.909  xlxi_1_xlxi_17_N474.G1
+         2.028  xlxi_1_xlxi_17_N421.G1
+         1.736  xlxi_1_xlxi_17_N344.G3
+         2.066  xlxi_1_xlxi_17_N933.F3
+         1.440  xlxi_1_xlxi_17_N208.G2
+         2.058  xlxi_1_xlxi_17_N352.F2
+         2.193  xlxi_1_xlxi_17_N784.F1
+         1.767  xlxi_1_xlxi_17_N537.F4
+         2.226  xlxi_1_xlxi_17_N429.G1
+         2.077  xlxi_1_xlxi_17_N484.G2
+
+xlxi_1_xlxi_17_N128
+   xlxi_1_xlxi_17_N128.X
+         1.603  xlxi_1_xlxi_17_N135.G1
+         0.508  xlxi_1_xlxi_17_N350.G3
+         1.332  xlxi_1_xlxi_17_N234.G2
+         1.614  xlxi_1_xlxi_17_N830.F3
+         1.683  xlxi_1_xlxi_17_N289.F1
+         1.174  xlxi_1_xlxi_17_N352.G3
+         1.587  xlxi_1_xlxi_17_N268.G1
+         0.096  xlxi_1_xlxi_17_N128.G4
+         1.127  xlxi_1_xlxi_17_N228.G1
+         1.001  xlxi_1_xlxi_17_N429.G2
+         1.439  xlxi_1_xlxi_17_N484.F4
+
+xlxi_1_xlxi_17_N135
+   xlxi_1_xlxi_17_N135.X
+         0.039  xlxi_1_xlxi_17_N135.G4
+         1.721  xlxi_1_xlxi_17_N728.F2
+         1.899  xlxi_1_xlxi_17_N728.G1
+
+xlxi_1_xlxi_17_N137
+   xlxi_1_xlxi_17_N135.Y
+         0.796  xlxi_1_xlxi_17_N212.F2
+
+xlxi_1_xlxi_17_N142
+   xlxi_1_xlxi_17_N142.X
+         1.848  xlxi_1_xlxi_17_N161.G1
+         2.060  xlxi_1_xlxi_17_N350.G1
+         1.801  xlxi_1_xlxi_17_N234.G3
+         1.730  xlxi_1_xlxi_17_N307.G3
+         1.602  xlxi_1_xlxi_17_N830.F4
+         1.887  xlxi_1_xlxi_17_N268.G3
+         0.941  xlxi_1_xlxi_17_N453.F3
+         1.925  xlxi_1_xlxi_17_N228.G2
+         0.917  xlxi_1_xlxi_17_N315.F3
+         1.958  xlxi_1_xlxi_17_N423.F2
+         1.853  xlxi_1_xlxi_17_N985.F1
+         1.849  xlxi_1_xlxi_17_N985.G1
+         1.846  xlxi_1_xlxi_17_N484.F1
+         1.615  xlxi_1_xlxi_17_N377.F4
+
+xlxi_1_xlxi_17_N149
+   N929.Y
+         1.432  xlxi_1_xlxi_17_N161.G2
+         1.381  xlxi_1_xlxi_17_N728.F3
+         1.344  xlxi_1_xlxi_17_N728.G3
+         1.349  xlxi_1_xlxi_17_N497.G3
+
+xlxi_1_xlxi_17_N154
+   N948.Y
+         1.726  xlxi_1_xlxi_17_N161.G3
+         2.271  xlxi_1_xlxi_17_N715.F3
+         1.986  xlxi_1_xlxi_17_N336.G3
+         1.937  xlxi_1_xlxi_17_N299.G3
+         2.221  xlxi_1_xlxi_17_N307.G2
+         1.908  xlxi_1_xlxi_17_N315.F4
+         2.077  xlxi_1_xlxi_17_N423.G2
+         1.902  xlxi_1_xlxi_17_N972.F3
+         1.989  xlxi_1_xlxi_17_N863.G3
+         1.695  xlxi_1_xlxi_17_N827.G3
+         2.055  xlxi_1_xlxi_17_N497.F2
+         2.174  xlxi_1_xlxi_17_N377.G1
+
+xlxi_1_xlxi_17_N161
+   xlxi_1_xlxi_17_N161.X
+         0.039  xlxi_1_xlxi_17_N161.G4
+         1.309  xlxi_1_xlxi_17_N985.F4
+         1.535  xlxi_1_xlxi_17_N497.F4
+         1.749  xlxi_1_xlxi_17_N497.G1
+         1.824  xlxi_1_xlxn_23_3.F1
+
+xlxi_1_xlxi_17_N163
+   xlxi_1_xlxi_17_N161.Y
+         1.144  xlxi_1_xlxi_17_N212.F4
+
+xlxi_1_xlxi_17_N168
+   xlxi_1_xlxi_17_N168.X
+         1.245  xlxi_1_xlxi_17_N715.F4
+         0.082  xlxi_1_xlxi_17_N168.G4
+         0.472  xlxi_1_xlxi_17_N784.F3
+         0.435  xlxi_1_xlxi_17_N784.G3
+         1.214  xlxi_1_xlxi_17_N972.F1
+         0.778  xlxi_1_xlxi_17_N972.G3
+         1.039  xlxi_1_xlxi_17_N863.F4
+         1.198  xlxi_1_xlxi_17_N863.G1
+         1.414  xlxi_1_xlxi_17_N900.F3
+
+xlxi_1_xlxi_17_N175
+   N925.Y
+         1.699  xlxi_1_xlxi_17_N608.F3
+         1.529  xlxi_1_xlxi_17_N608.G4
+         1.562  xlxi_1_xlxi_17_N972.F4
+         1.921  xlxi_1_xlxi_17_N972.G1
+         1.718  xlxi_1_xlxi_17_N985.G4
+         1.978  xlxi_1_xlxn_23_5.F1
+
+xlxi_1_xlxi_17_N180
+   xlxi_1_xlxi_17_N142.Y
+         1.579  xlxi_1_xlxi_17_N972.G2
+         1.648  xlxi_1_xlxi_17_N863.F1
+         1.509  xlxi_1_xlxi_17_N985.G2
+         1.488  xlxi_1_xlxi_17_N976.F4
+         1.320  xlxi_1_xlxi_17_N900.F1
+         1.300  xlxi_1_xlxi_17_N900.G1
+
+xlxi_1_xlxi_17_N187
+   N923.Y
+         1.782  xlxi_1_xlxi_17_N715.F1
+         0.998  N17906.F3
+         1.365  xlxi_1_xlxi_17_N608.F4
+         1.431  xlxi_1_xlxi_17_N608.G2
+         1.056  xlxi_1_xlxi_17_N972.F2
+         0.878  xlxi_1_xlxi_17_N972.G4
+         1.651  xlxi_1_xlxn_23_11.F2
+         1.197  xlxi_1_xlxi_17_N377.F2
+
+xlxi_1_xlxi_17_N189
+   xlxi_1_xlxi_17_N972.Y
+         1.258  xlxi_1_xlxi_17_N212.F1
+
+xlxi_1_xlxi_17_N194
+   xlxi_1_xlxi_17_N194.X
+         1.579  xlxi_1_xlxi_17_N985.F2
+         1.440  xlxi_1_xlxi_17_N976.G1
+         1.583  xlxi_1_xlxi_17_N900.G4
+
+xlxi_1_xlxi_17_N201
+   N921.Y
+         1.657  xlxi_1_xlxi_17_N715.F2
+         1.493  xlxi_1_xlxi_17_N289.G3
+         1.440  xlxi_1_xlxi_17_N453.G4
+         1.785  xlxi_1_xlxi_17_N509.F4
+         1.785  xlxi_1_xlxi_17_N976.F1
+         0.907  xlxi_1_xlxi_17_N976.G4
+         1.622  xlxi_1_xlxn_23_13.F2
+         1.378  xlxi_1_xlxi_17_N377.G3
+
+xlxi_1_xlxi_17_N208
+   xlxi_1_xlxi_17_N208.X
+         1.586  xlxi_1_xlxi_17_N236.F1
+         1.179  xlxi_1_xlxi_17_N474.G2
+         1.233  xlxi_1_xlxi_17_N421.G2
+         1.134  xlxi_1_xlxi_17_N344.G2
+         1.355  xlxi_1_xlxi_17_N933.F4
+         0.096  xlxi_1_xlxi_17_N208.G4
+         1.254  xlxi_1_xlxi_17_N352.F4
+         1.570  xlxi_1_xlxi_17_N517.G1
+         1.113  xlxi_1_xlxi_17_N423.F3
+         1.275  xlxi_1_xlxi_17_N423.G1
+         0.982  xlxi_1_xlxi_17_N948.F3
+         1.014  xlxi_1_xlxi_17_N537.F3
+         1.154  xlxi_1_xlxi_17_N537.G2
+         1.217  xlxi_1_xlxi_17_N976.G3
+         1.674  xlxi_1_xlxi_17_N484.G1
+         1.330  xlxi_1_xlxi_17_N5551.F4
+         1.310  xlxi_1_xlxi_17_N5551.G2
+
+xlxi_1_xlxi_17_N210
+   xlxi_1_xlxi_17_N976.Y
+         1.239  xlxi_1_xlxi_17_N212.F3
+
+xlxi_1_xlxi_17_N212
+   xlxi_1_xlxi_17_N212.X
+         0.025  xlxi_1_xlxi_17_N212.G4
+
+xlxi_1_xlxi_17_N222
+   xlxi_1_xlxi_17_N128.Y
+         1.102  xlxi_1_xlxi_17_N236.G1
+
+xlxi_1_xlxi_17_N228
+   xlxi_1_xlxi_17_N228.X
+         1.219  xlxi_1_xlxi_17_N236.F3
+         1.093  xlxi_1_xlxi_17_N234.G1
+         0.053  xlxi_1_xlxi_17_N228.G4
+         1.272  xlxi_1_xlxi_17_N429.G4
+
+xlxi_1_xlxi_17_N234
+   xlxi_1_xlxi_17_N234.X
+         1.219  xlxi_1_xlxi_17_N236.F4
+         0.053  xlxi_1_xlxi_17_N234.G4
+         1.363  xlxi_1_xlxi_17_N933.F2
+         0.752  xlxi_1_xlxi_17_N423.G4
+         0.912  xlxi_1_xlxi_17_N429.G3
+
+xlxi_1_xlxi_17_N236
+   xlxi_1_xlxi_17_N236.X
+         0.025  xlxi_1_xlxi_17_N236.G4
+
+xlxi_1_xlxi_17_N238
+   xlxi_1_xlxi_17_N236.Y
+         1.187  xlxi_1_xlxn_23_4.G3
+
+xlxi_1_xlxi_17_N247
+   xlxi_1_xlxi_17_N105.Y
+         3.085  xlxi_1_xlxi_17_N656.F2
+         4.590  xlxi_1_xlxi_17_N397.G2
+         4.022  xlxi_1_xlxi_17_N326.F2
+         3.842  xlxi_1_xlxi_17_N326.G1
+         3.087  xlxi_1_xlxi_17_N249.F3
+         3.215  xlxi_1_xlxi_17_N249.G4
+         4.811  xlxi_1_xlxi_17_N942.F2
+         4.493  xlxi_1_xlxi_17_N942.G3
+         3.886  xlxi_1_xlxi_17_N509.F3
+         4.208  xlxi_1_xlxi_17_N509.G2
+         2.735  xlxi_1_xlxi_17_N394.G2
+         2.718  xlxi_1_xlxi_17_N663.G3
+         5.096  xlxi_1_xlxi_17_N722.F1
+         4.659  xlxi_1_xlxi_17_N722.G2
+         1.246  xlxi_1_xlxi_17_N869.G3
+         3.139  xlxi_1_xlxn_23_10.F3
+         2.993  xlxi_1_xlxn_23_12.F3
+         3.179  xlxi_1_xlxn_23_14.F2
+
+xlxi_1_xlxi_17_N249
+   xlxi_1_xlxi_17_N249.X
+         1.379  xlxi_1_xlxn_23_4.G2
+
+xlxi_1_xlxi_17_N254
+   xlxi_1_xlxi_17_N254.Y
+         0.812  xlxi_1_xlxi_17_N268.G2
+         1.273  xlxi_1_xlxi_17_N956.G2
+         1.205  xlxi_1_xlxn_23_4.F1
+
+xlxi_1_xlxi_17_N259
+   xlxi_1_xlxi_17_N259.X
+         0.025  xlxi_1_xlxi_17_N259.G4
+
+xlxi_1_xlxi_17_N263
+   xlxi_1_xlxi_17_N259.Y
+         1.959  xlxi_1_xlxi_17_N313.G2
+         2.182  N17906.F1
+         2.023  N17906.G2
+         1.478  xlxi_1_xlxi_17_N568.F4
+         1.593  xlxi_1_xlxi_17_N315.G1
+         1.321  xlxi_1_xlxi_17_N608.F2
+         2.140  xlxi_1_xlxi_17_N956.F1
+         1.508  xlxi_1_xlxi_17_N956.G3
+         1.446  xlxi_1_xlxi_17_N728.F4
+         1.676  xlxi_1_xlxi_17_N497.F1
+         1.416  xlxi_1_xlxi_17_N497.G4
+         1.304  xlxi_1_xlxn_23_11.F4
+         1.388  xlxi_1_xlxn_23_13.F3
+         1.062  xlxi_1_xlxn_23_14.F3
+         1.923  xlxi_1_xlxn_23_4.F3
+
+xlxi_1_xlxi_17_N268
+   xlxi_1_xlxi_17_N268.X
+         1.254  xlxi_1_xlxi_17_N933.G3
+         0.067  xlxi_1_xlxi_17_N268.G4
+         1.999  N17906.G1
+         0.893  xlxi_1_xlxn_23_4.F4
+
+xlxi_1_xlxi_17_N273
+   xlxi_1_xlxi_17_N273.X
+         0.025  xlxi_1_xlxi_17_N273.G4
+
+xlxi_1_xlxi_17_N277
+   xlxi_1_xlxi_17_N273.Y
+         0.962  xlxi_1_xlxi_17_N656.F3
+         1.458  xlxi_1_xlxi_17_N289.G2
+         1.303  xlxi_1_xlxi_17_N568.F2
+         1.299  xlxi_1_xlxi_17_N568.G2
+         1.251  xlxi_1_xlxi_17_N315.G4
+         1.571  xlxi_1_xlxi_17_N608.F1
+         1.530  xlxi_1_xlxi_17_N608.G1
+         1.582  xlxi_1_xlxi_17_N956.G4
+         1.470  xlxi_1_xlxi_17_N728.F1
+         1.496  xlxi_1_xlxi_17_N728.G2
+         1.271  xlxi_1_xlxi_17_N497.G2
+         1.464  xlxi_1_xlxn_23_13.F4
+         1.463  xlxi_1_xlxn_23_4.F2
+
+xlxi_1_xlxi_17_N279
+   xlxi_1_xlxn_23_4.X
+         0.025  xlxi_1_xlxn_23_4.G4
+
+xlxi_1_xlxi_17_N284
+   xlxi_1_xlxi_17_N822.Y
+         2.152  xlxi_1_xlxi_17_N307.G1
+         1.536  xlxi_1_xlxi_17_N568.F3
+         1.548  xlxi_1_xlxi_17_N568.G4
+         1.501  xlxi_1_xlxi_17_N863.G4
+         2.115  xlxi_1_xlxi_17_N319.F1
+         2.111  xlxi_1_xlxi_17_N319.G1
+
+xlxi_1_xlxi_17_N289
+   xlxi_1_xlxi_17_N289.X
+         1.525  xlxi_1_xlxi_17_N933.G1
+         0.096  xlxi_1_xlxi_17_N289.G4
+         0.970  xlxi_1_xlxi_17_N453.G1
+         1.101  xlxi_1_xlxi_17_N568.G3
+         1.262  xlxi_1_xlxi_17_N574.F3
+         1.330  xlxi_1_xlxi_17_N608.G3
+         1.015  xlxi_1_xlxi_17_N728.G4
+         1.209  xlxi_1_xlxi_17_N319.F4
+         1.559  xlxi_1_xlxi_17_N319.G2
+         1.583  xlxi_1_xlxn_23_10.F1
+         0.706  xlxi_1_xlxn_23_3.F4
+         1.084  xlxi_1_xlxn_23_5.F3
+
+xlxi_1_xlxi_17_N293
+   xlxi_1_xlxi_17_N293.X
+         1.218  xlxi_1_xlxi_17_N319.G4
+
+xlxi_1_xlxi_17_N299
+   xlxi_1_xlxi_17_N299.X
+         2.045  xlxi_1_xlxi_17_N656.F1
+         0.053  xlxi_1_xlxi_17_N299.G4
+         1.724  xlxi_1_xlxi_17_N784.G2
+         1.141  xlxi_1_xlxi_17_N574.F4
+         1.236  xlxi_1_xlxi_17_N900.F2
+         1.044  xlxi_1_xlxi_17_N900.G3
+         2.274  xlxi_1_xlxn_23_10.F4
+         1.685  xlxi_1_xlxn_23_14.F4
+
+xlxi_1_xlxi_17_N301
+   xlxi_1_xlxi_17_N784.Y
+         0.638  xlxi_1_xlxi_17_N319.BX
+
+xlxi_1_xlxi_17_N307
+   xlxi_1_xlxi_17_N307.X
+         0.082  xlxi_1_xlxi_17_N307.G4
+         1.523  xlxi_1_xlxi_17_N568.F1
+         1.630  xlxi_1_xlxi_17_N568.G1
+         1.344  xlxi_1_xlxi_17_N315.F1
+         0.934  xlxi_1_xlxi_17_N315.G3
+         1.128  xlxi_1_xlxi_17_N863.G2
+
+xlxi_1_xlxi_17_N313
+   xlxi_1_xlxi_17_N313.X
+         0.067  xlxi_1_xlxi_17_N313.G4
+         1.433  xlxi_1_xlxi_17_N315.F2
+         1.429  xlxi_1_xlxi_17_N315.G2
+         0.552  xlxi_1_xlxi_17_N574.F2
+         0.548  xlxi_1_xlxi_17_N574.G2
+         0.868  xlxi_1_xlxi_17_N900.F4
+         1.021  xlxi_1_xlxi_17_N900.G2
+
+xlxi_1_xlxi_17_N315
+   xlxi_1_xlxi_17_N315.X
+         0.811  xlxi_1_xlxi_17_N319.G3
+
+xlxi_1_xlxi_17_N319
+   xlxi_1_xlxi_17_N319.X
+         1.297  xlxi_1_xlxn_23_4.G1
+
+xlxi_1_xlxi_17_N326
+   xlxi_1_xlxi_17_N326.X
+         1.141  xlxi_1_xlxn_23_5.G2
+
+xlxi_1_xlxi_17_N330
+   xlxi_1_xlxi_17_N966.Y
+         1.782  xlxi_1_xlxi_17_N352.G1
+
+xlxi_1_xlxi_17_N336
+   xlxi_1_xlxi_17_N336.X
+         0.096  xlxi_1_xlxi_17_N336.G4
+         1.127  xlxi_1_xlxi_17_N352.G2
+         0.700  xlxi_1_xlxi_17_N948.F1
+         1.360  xlxi_1_xlxi_17_N194.G1
+         1.206  xlxi_1_xlxi_17_N484.F3
+         1.158  xlxi_1_xlxi_17_N484.G4
+
+xlxi_1_xlxi_17_N344
+   xlxi_1_xlxi_17_N344.X
+         1.227  xlxi_1_xlxi_17_N350.G2
+         0.053  xlxi_1_xlxi_17_N344.G4
+         1.248  xlxi_1_xlxi_17_N352.F3
+         1.331  xlxi_1_xlxi_17_N863.F2
+
+xlxi_1_xlxi_17_N350
+   xlxi_1_xlxi_17_N350.X
+         0.039  xlxi_1_xlxi_17_N350.G4
+         1.485  xlxi_1_xlxi_17_N352.F1
+         1.279  xlxi_1_xlxi_17_N863.F3
+         1.414  xlxi_1_xlxi_17_N484.F2
+         1.311  xlxi_1_xlxi_17_N484.G3
+
+xlxi_1_xlxi_17_N352
+   xlxi_1_xlxi_17_N352.X
+         0.025  xlxi_1_xlxi_17_N352.G4
+
+xlxi_1_xlxi_17_N354
+   xlxi_1_xlxi_17_N352.Y
+         0.940  xlxi_1_xlxn_23_5.G3
+
+xlxi_1_xlxi_17_N360
+   xlxi_1_xlxi_17_N497.Y
+         0.968  xlxi_1_xlxn_23_5.G1
+
+xlxi_1_xlxi_17_N366
+   xlxi_1_xlxi_17_N924.Y
+         0.779  xlxi_1_xlxn_23_5.F2
+
+xlxi_1_xlxi_17_N373
+   xlxi_1_xlxi_17_N168.Y
+         1.369  xlxi_1_xlxi_17_N377.G2
+
+xlxi_1_xlxi_17_N377
+   xlxi_1_xlxi_17_N377.X
+         0.025  xlxi_1_xlxi_17_N377.G4
+
+xlxi_1_xlxi_17_N379
+   xlxi_1_xlxi_17_N377.Y
+         1.541  xlxi_1_xlxn_23_5.F4
+
+xlxi_1_xlxi_17_N381
+   xlxi_1_xlxn_23_5.X
+         0.025  xlxi_1_xlxn_23_5.G4
+
+xlxi_1_xlxi_17_N388
+   xlxi_1_xlxi_17_N388.X
+         1.498  xlxi_1_xlxn_23_13.F1
+
+xlxi_1_xlxi_17_N391
+   xlxi_1_xlxn_23_13.X
+         0.025  xlxi_1_xlxn_23_13.G4
+
+xlxi_1_xlxi_17_N394
+   xlxi_1_xlxi_17_N394.X
+         1.161  xlxi_1_xlxi_17_N397.F2
+
+xlxi_1_xlxi_17_N397
+   xlxi_1_xlxi_17_N397.X
+         0.025  xlxi_1_xlxi_17_N397.G4
+
+xlxi_1_xlxi_17_N403
+   xlxi_1_xlxi_17_N403.X
+         0.387  xlxi_1_xlxi_17_N397.G3
+
+xlxi_1_xlxi_17_N405
+   xlxi_1_xlxi_17_N397.Y
+         1.536  xlxi_1_xlxn_23_13.G1
+
+xlxi_1_xlxi_17_N414
+   N950.Y
+         2.032  xlxi_1_xlxi_17_N423.F1
+
+xlxi_1_xlxi_17_N421
+   xlxi_1_xlxi_17_N421.X
+         0.053  xlxi_1_xlxi_17_N421.G4
+         1.269  xlxi_1_xlxi_17_N228.G3
+         1.123  xlxi_1_xlxi_17_N423.F4
+
+xlxi_1_xlxi_17_N423
+   xlxi_1_xlxi_17_N423.X
+         1.745  xlxi_1_xlxn_23_6.F1
+
+xlxi_1_xlxi_17_N429
+   xlxi_1_xlxi_17_N429.Y
+         1.156  xlxi_1_xlxn_23_6.F3
+
+xlxi_1_xlxi_17_N431
+   xlxi_1_xlxn_23_6.X
+         0.025  xlxi_1_xlxn_23_6.G4
+
+xlxi_1_xlxi_17_N437
+   xlxi_1_xlxi_17_N299.Y
+         0.362  N17906.G4
+
+xlxi_1_xlxi_17_N441
+   N17906.Y
+         0.767  xlxi_1_xlxn_23_6.G3
+
+xlxi_1_xlxi_17_N447
+   xlxi_1_xlxi_17_N568.Y
+         1.333  xlxi_1_xlxn_23_6.G1
+
+xlxi_1_xlxi_17_N453
+   xlxi_1_xlxi_17_N453.X
+         0.696  xlxi_1_xlxi_17_N453.G3
+         1.117  xlxi_1_xlxi_17_N574.F1
+         0.827  xlxi_1_xlxi_17_N574.G4
+         1.658  xlxi_1_xlxi_17_N509.F2
+
+xlxi_1_xlxi_17_N461
+   xlxi_1_xlxi_17_N942.Y
+         1.391  xlxi_1_xlxi_17_N574.G1
+
+xlxi_1_xlxi_17_N463
+   xlxi_1_xlxi_17_N574.Y
+         0.175  xlxi_1_xlxn_23_6.G2
+
+xlxi_1_xlxi_17_N474
+   xlxi_1_xlxi_17_N474.X
+         0.040  xlxi_1_xlxi_17_N474.G4
+         0.325  xlxi_1_xlxi_17_N344.G1
+         0.659  xlxi_1_xlxi_17_N194.G4
+
+xlxi_1_xlxi_17_N478
+   xlxi_1_xlxi_17_N344.Y
+         1.287  xlxi_1_xlxn_23_7.F1
+
+xlxi_1_xlxi_17_N484
+   xlxi_1_xlxi_17_N484.X
+         1.256  xlxi_1_xlxn_23_7.F2
+
+xlxi_1_xlxi_17_N486
+   xlxi_1_xlxn_23_7.X
+         0.025  xlxi_1_xlxn_23_7.G4
+
+xlxi_1_xlxi_17_N493
+   xlxi_1_xlxi_17_N493.X
+         0.797  xlxi_1_xlxi_17_N497.F3
+
+xlxi_1_xlxi_17_N497
+   xlxi_1_xlxi_17_N497.X
+         1.163  xlxi_1_xlxn_23_7.G3
+
+xlxi_1_xlxi_17_N503
+   xlxi_1_xlxi_17_N608.Y
+         1.017  xlxi_1_xlxn_23_7.G2
+
+xlxi_1_xlxi_17_N509
+   xlxi_1_xlxi_17_N509.X
+         0.943  xlxi_1_xlxn_23_7.G1
+
+xlxi_1_xlxi_17_N517
+   xlxi_1_xlxi_17_N517.X
+         0.039  xlxi_1_xlxi_17_N517.G4
+         0.927  xlxi_1_xlxi_17_N5551.F1
+
+xlxi_1_xlxi_17_N519
+   xlxi_1_xlxi_17_N517.Y
+         0.797  xlxi_1_xlxn_23_0.G2
+
+xlxi_1_xlxi_17_N523
+   N17966.Y
+         1.424  xlxi_1_xlxi_17_N5551.F2
+         1.421  xlxi_1_xlxn_23_0.F2
+
+xlxi_1_xlxi_17_N528
+   N934.Y
+         0.651  xlxi_1_xlxi_17_N537.F1
+
+xlxi_1_xlxi_17_N534
+   N932.Y
+         0.516  xlxi_1_xlxi_17_N537.F2
+
+xlxi_1_xlxi_17_N537
+   xlxi_1_xlxi_17_N537.X
+         1.493  xlxi_1_xlxn_23_0.F3
+
+xlxi_1_xlxi_17_N543
+   xlxi_1_xlxi_17_N268.Y
+         1.437  xlxi_1_xlxn_23_0.F4
+
+xlxi_1_xlxi_17_N549
+   xlxi_1_xlxi_17_N863.Y
+         0.651  xlxi_1_xlxn_23_0.F1
+
+xlxi_1_xlxi_17_N555
+   xlxi_1_xlxi_17_N900.Y
+         0.641  xlxi_1_xlxn_23_0.G3
+
+xlxi_1_xlxi_17_N5550
+   xlxi_1_xlxn_23_0.X
+         0.025  xlxi_1_xlxn_23_0.G4
+
+xlxi_1_xlxi_17_N5551
+   xlxi_1_xlxi_17_N5551.X
+         0.310  xlxi_1_xlxn_23_0.G1
+
+xlxi_1_xlxi_17_N562
+   xlxi_1_xlxi_17_N394.Y
+         1.512  xlxi_1_xlxn_23_8.G1
+
+xlxi_1_xlxi_17_N568
+   xlxi_1_xlxi_17_N568.X
+         1.140  xlxi_1_xlxn_23_8.G3
+
+xlxi_1_xlxi_17_N574
+   xlxi_1_xlxi_17_N574.X
+         1.112  xlxi_1_xlxn_23_8.G2
+
+xlxi_1_xlxi_17_N578
+   xlxi_1_xlxi_17_N293.Y
+         1.371  xlxi_1_xlxn_23_8.F2
+
+xlxi_1_xlxi_17_N584
+   xlxi_1_xlxi_17_N234.Y
+         1.148  xlxi_1_xlxn_23_8.F4
+
+xlxi_1_xlxi_17_N589
+   xlxi_1_xlxi_17_N827.Y
+         0.885  xlxi_1_xlxn_23_8.F3
+
+xlxi_1_xlxi_17_N594
+   xlxi_1_xlxi_17_N781.Y
+         0.836  xlxi_1_xlxi_17_N421.G3
+
+xlxi_1_xlxi_17_N599
+   xlxi_1_xlxi_17_N421.Y
+         0.950  xlxi_1_xlxn_23_8.F1
+
+xlxi_1_xlxi_17_N601
+   xlxi_1_xlxn_23_8.X
+         0.025  xlxi_1_xlxn_23_8.G4
+
+xlxi_1_xlxi_17_N608
+   xlxi_1_xlxi_17_N608.X
+         1.223  xlxi_1_xlxn_23_9.G2
+
+xlxi_1_xlxi_17_N614
+   xlxi_1_xlxi_17_N493.Y
+         0.175  xlxi_1_xlxi_17_N453.G2
+
+xlxi_1_xlxi_17_N617
+   xlxi_1_xlxi_17_N453.Y
+         1.778  xlxi_1_xlxn_23_9.G1
+
+xlxi_1_xlxi_17_N623
+   xlxi_1_xlxi_17_N249.Y
+         0.387  xlxi_1_xlxn_23_9.G3
+
+xlxi_1_xlxi_17_N627
+   xlxi_1_xlxi_17_N766.Y
+         0.811  xlxi_1_xlxn_23_9.F3
+
+xlxi_1_xlxi_17_N633
+   xlxi_1_xlxi_17_N350.Y
+         1.007  xlxi_1_xlxn_23_9.F2
+
+xlxi_1_xlxi_17_N637
+   xlxi_1_xlxi_17_N336.Y
+         1.252  xlxi_1_xlxn_23_9.F4
+
+xlxi_1_xlxi_17_N642
+   xlxi_1_xlxi_17_N796.Y
+         0.387  xlxi_1_xlxi_17_N474.G3
+
+xlxi_1_xlxi_17_N647
+   xlxi_1_xlxi_17_N474.Y
+         1.773  xlxi_1_xlxn_23_9.F1
+
+xlxi_1_xlxi_17_N649
+   xlxi_1_xlxn_23_9.X
+         0.025  xlxi_1_xlxn_23_9.G4
+
+xlxi_1_xlxi_17_N656
+   xlxi_1_xlxi_17_N656.X
+         0.025  xlxi_1_xlxi_17_N656.G4
+         0.314  xlxi_1_xlxn_23_12.F1
+
+xlxi_1_xlxi_17_N660
+   xlxi_1_xlxi_17_N869.Y
+         1.470  xlxi_1_xlxi_17_N656.G1
+
+xlxi_1_xlxi_17_N663
+   xlxi_1_xlxi_17_N663.X
+         0.976  xlxi_1_xlxn_23_12.G3
+
+xlxi_1_xlxi_17_N6630
+   xlxi_1_xlxn_23_12.X
+         0.025  xlxi_1_xlxn_23_12.G4
+
+xlxi_1_xlxi_17_N6631
+   xlxi_1_xlxi_17_N656.Y
+         0.175  xlxi_1_xlxn_23_12.G2
+
+xlxi_1_xlxi_17_N676
+   xlxi_1_xlxi_17_N722.Y
+         1.191  xlxi_1_xlxi_17_N6791.F4
+         1.422  xlxi_1_xlxn_23_11.F1
+
+xlxi_1_xlxi_17_N679
+   xlxi_1_xlxn_5_3.X
+         1.917  xlxi_1_xlxn_23_11.G3
+
+xlxi_1_xlxi_17_N6790
+   xlxi_1_xlxn_23_11.X
+         0.025  xlxi_1_xlxn_23_11.G4
+
+xlxi_1_xlxi_17_N6791
+   xlxi_1_xlxi_17_N6791.X
+         0.310  xlxi_1_xlxn_23_11.G1
+
+xlxi_1_xlxi_17_N692
+   xlxi_1_xlxi_17_N849.Y
+         1.456  xlxi_1_xlxi_17_N289.G1
+
+xlxi_1_xlxi_17_N695
+   xlxi_1_xlxi_17_N289.Y
+         0.938  xlxi_1_xlxi_17_N6791.F3
+         0.943  xlxi_1_xlxn_23_11.F3
+
+xlxi_1_xlxi_17_N704
+   xlxi_1_xlxi_17_N388.Y
+         1.102  xlxi_1_xlxi_17_N985.G3
+
+xlxi_1_xlxi_17_N709
+   xlxi_1_xlxi_17_N985.Y
+         0.856  xlxi_1_xlxi_17_N715.G3
+
+xlxi_1_xlxi_17_N715
+   xlxi_1_xlxi_17_N715.X
+         0.025  xlxi_1_xlxi_17_N715.G4
+
+xlxi_1_xlxi_17_N717
+   xlxi_1_xlxi_17_N715.Y
+         0.175  xlxi_1_xlxn_23_3.G2
+
+xlxi_1_xlxi_17_N722
+   xlxi_1_xlxi_17_N722.X
+         1.036  xlxi_1_xlxn_23_3.G3
+
+xlxi_1_xlxi_17_N728
+   xlxi_1_xlxi_17_N728.X
+         0.919  xlxi_1_xlxn_23_3.G1
+
+xlxi_1_xlxi_17_N734
+   xlxi_1_xlxi_17_N6791.Y
+         0.706  xlxi_1_xlxn_23_3.F3
+
+xlxi_1_xlxi_17_N740
+   xlxi_1_xlxi_17_N484.Y
+         0.896  xlxi_1_xlxn_23_3.F2
+
+xlxi_1_xlxi_17_N742
+   xlxi_1_xlxn_23_3.X
+         0.025  xlxi_1_xlxn_23_3.G4
+
+xlxi_1_xlxi_17_N747
+   xlxi_1_xlxi_17_N663.Y
+         0.984  xlxi_1_xlxn_23_10.G3
+
+xlxi_1_xlxi_17_N753
+   xlxi_1_xlxi_17_N315.Y
+         1.134  xlxi_1_xlxn_23_10.G1
+
+xlxi_1_xlxi_17_N759
+   xlxi_1_xlxi_17_N403.Y
+         0.179  xlxi_1_xlxn_23_10.F2
+
+xlxi_1_xlxi_17_N762
+   xlxi_1_xlxn_23_10.X
+         0.025  xlxi_1_xlxn_23_10.G4
+
+xlxi_1_xlxi_17_N766
+   xlxi_1_xlxi_17_N766.X
+         1.311  xlxi_1_xlxi_17_N803.F1
+         1.335  xlxi_1_xlxi_17_N803.G1
+
+xlxi_1_xlxi_17_N771
+   xlxi_1_xlxi_17_N5551.Y
+         1.255  xlxi_1_xlxi_17_N803.G2
+
+xlxi_1_xlxi_17_N775
+   xlxi_1_xlxi_17_N930.Y
+         1.167  xlxi_1_xlxi_17_N784.F2
+
+xlxi_1_xlxi_17_N781
+   xlxi_1_xlxi_17_N781.X
+         1.369  xlxi_1_xlxi_17_N784.F4
+
+xlxi_1_xlxi_17_N784
+   xlxi_1_xlxi_17_N784.X
+         0.920  xlxi_1_xlxi_17_N803.BX
+
+xlxi_1_xlxi_17_N790
+   xlxi_1_xlxi_17_N228.Y
+         0.791  xlxi_1_xlxi_17_N803.G3
+
+xlxi_1_xlxi_17_N796
+   xlxi_1_xlxi_17_N796.X
+         0.984  xlxi_1_xlxi_17_N423.G3
+
+xlxi_1_xlxi_17_N799
+   xlxi_1_xlxi_17_N423.Y
+         0.977  xlxi_1_xlxi_17_N803.G4
+
+xlxi_1_xlxi_17_N803
+   xlxi_1_xlxi_17_N803.X
+         0.512  xlxi_1_xlxn_23_10.G2
+
+xlxi_1_xlxi_17_N812
+   xlxi_1_xlxi_17_N537.Y
+         0.835  xlxi_1_xlxi_17_N830.G3
+
+xlxi_1_xlxi_17_N816
+   N952.Y
+         2.314  xlxi_1_xlxi_17_N830.G2
+
+xlxi_1_xlxi_17_N822
+   xlxi_1_xlxi_17_N822.X
+         0.516  xlxi_1_xlxi_17_N830.F2
+
+xlxi_1_xlxi_17_N827
+   xlxi_1_xlxi_17_N827.X
+         0.314  xlxi_1_xlxi_17_N830.F1
+
+xlxi_1_xlxi_17_N830
+   xlxi_1_xlxi_17_N830.X
+         0.025  xlxi_1_xlxi_17_N830.G4
+
+xlxi_1_xlxi_17_N832
+   xlxi_1_xlxi_17_N830.Y
+         0.387  xlxi_1_xlxn_23_15.G3
+
+xlxi_1_xlxi_17_N837
+   xlxi_1_xlxi_17_N948.Y
+         1.081  xlxi_1_xlxn_23_15.G1
+
+xlxi_1_xlxi_17_N844
+   xlxi_1_xlxi_17_N194.Y
+         0.960  xlxi_1_xlxn_23_15.F2
+
+xlxi_1_xlxi_17_N849
+   xlxi_1_xlxi_17_N849.X
+         1.144  xlxi_1_xlxi_17_N208.G3
+
+xlxi_1_xlxi_17_N854
+   xlxi_1_xlxi_17_N854.X
+         1.062  xlxi_1_xlxi_17_N208.G1
+
+xlxi_1_xlxi_17_N857
+   xlxi_1_xlxi_17_N208.Y
+         0.719  xlxi_1_xlxn_23_15.F4
+
+xlxi_1_xlxi_17_N863
+   xlxi_1_xlxi_17_N863.X
+         1.079  xlxi_1_xlxn_23_15.F1
+
+xlxi_1_xlxi_17_N865
+   xlxi_1_xlxn_23_15.X
+         0.025  xlxi_1_xlxn_23_15.G4
+
+xlxi_1_xlxi_17_N869
+   xlxi_1_xlxi_17_N869.X
+         0.984  xlxi_1_xlxn_23_14.G3
+
+xlxi_1_xlxi_17_N877
+   xlxi_1_xlxi_17_N509.Y
+         0.797  xlxi_1_xlxn_23_14.G2
+
+xlxi_1_xlxi_17_N883
+   xlxi_1_xlxn_23_14.X
+         0.025  xlxi_1_xlxn_23_14.G4
+
+xlxi_1_xlxi_17_N894
+   xlxi_1_xlxi_17_N307.Y
+         0.651  xlxi_1_xlxn_23_2.F1
+
+xlxi_1_xlxi_17_N900
+   xlxi_1_xlxi_17_N900.X
+         1.117  xlxi_1_xlxn_23_2.F4
+
+xlxi_1_xlxi_17_N902
+   xlxi_1_xlxn_23_2.X
+         0.025  xlxi_1_xlxn_23_2.G4
+
+xlxi_1_xlxi_17_N908
+   xlxi_1_xlxi_17_N326.Y
+         0.175  xlxi_1_xlxn_23_2.G2
+
+xlxi_1_xlxi_17_N913
+   xlxi_1_xlxi_17_N953.Y
+         0.647  xlxi_1_xlxi_17_N956.G1
+
+xlxi_1_xlxi_17_N918
+   xlxi_1_xlxi_17_N956.Y
+         0.976  xlxi_1_xlxn_23_2.G3
+
+xlxi_1_xlxi_17_N924
+   xlxi_1_xlxi_17_N924.X
+         0.512  xlxi_1_xlxi_17_N933.G2
+
+xlxi_1_xlxi_17_N930
+   xlxi_1_xlxi_17_N930.X
+         0.651  xlxi_1_xlxi_17_N933.F1
+
+xlxi_1_xlxi_17_N933
+   xlxi_1_xlxi_17_N933.X
+         0.025  xlxi_1_xlxi_17_N933.G4
+
+xlxi_1_xlxi_17_N935
+   xlxi_1_xlxi_17_N933.Y
+         0.891  xlxi_1_xlxn_23_2.G1
+
+xlxi_1_xlxi_17_N942
+   xlxi_1_xlxi_17_N942.X
+         1.163  xlxi_1_xlxn_23_1.G2
+
+xlxi_1_xlxi_17_N948
+   xlxi_1_xlxi_17_N948.X
+         0.704  xlxi_1_xlxi_17_N956.F3
+
+xlxi_1_xlxi_17_N953
+   xlxi_1_xlxi_17_N953.X
+         0.516  xlxi_1_xlxi_17_N956.F2
+
+xlxi_1_xlxi_17_N956
+   xlxi_1_xlxi_17_N956.X
+         1.137  xlxi_1_xlxn_23_1.G1
+
+xlxi_1_xlxi_17_N962
+   xlxi_1_xlxi_17_N728.Y
+         1.002  xlxi_1_xlxn_23_1.G3
+
+xlxi_1_xlxi_17_N966
+   xlxi_1_xlxi_17_N966.X
+         1.359  xlxi_1_xlxn_23_1.F2
+
+xlxi_1_xlxi_17_N972
+   xlxi_1_xlxi_17_N972.X
+         0.314  xlxi_1_xlxn_23_1.F1
+
+xlxi_1_xlxi_17_N976
+   xlxi_1_xlxi_17_N976.X
+         0.709  xlxi_1_xlxn_23_1.F3
+
+xlxi_1_xlxi_17_N980
+   xlxi_1_xlxi_17_N854.Y
+         1.528  xlxi_1_xlxi_17_N985.F3
+
+xlxi_1_xlxi_17_N985
+   xlxi_1_xlxi_17_N985.X
+         0.915  xlxi_1_xlxn_23_1.F4
+
+xlxi_1_xlxi_17_N987
+   xlxi_1_xlxn_23_1.X
+         0.025  xlxi_1_xlxn_23_1.G4
+
+xlxi_1_xlxi_5_N107
+   xlxi_1_xlxi_15_xlxi_24_N57.Y
+         3.279  xlxi_1_xlxn_5_1.CLK
+         2.115  xlxi_1_xlxn_5_1.F2
+         2.037  xlxi_1_xlxn_5_1.G4
+         3.235  xlxi_1_xlxn_5_2.CLK
+         1.181  xlxi_1_xlxn_5_2.G1
+         3.244  xlxi_1_xlxn_5_3.CLK
+         1.995  xlxi_1_xlxn_5_3.G2
+         3.241  xlxi_1_xlxn_5_5.CLK
+         1.376  xlxi_1_xlxn_5_5.F3
+         1.703  xlxi_1_xlxn_5_5.G1
+         3.277  xlxi_1_xlxn_5_7.CLK
+         0.712  xlxi_1_xlxn_5_7.F1
+         0.581  xlxi_1_xlxn_5_7.G2
+         3.237  xlxi_1_xlxn_5_8.CLK
+         0.753  xlxi_1_xlxn_5_8.G4
+         3.235  xlxi_1_xlxn_5_9.CLK
+         1.174  xlxi_1_xlxn_5_9.G1
+         3.239  xlxi_1_xlxn_5_11.CLK
+         1.670  xlxi_1_xlxn_5_11.F4
+         1.739  xlxi_1_xlxn_5_11.G2
+         3.241  xlxi_1_xlxn_5_13.CLK
+         1.572  xlxi_1_xlxn_5_13.F2
+         1.625  xlxi_1_xlxn_5_13.G1
+         3.277  xlxi_1_xlxn_5_15.CLK
+         1.667  xlxi_1_xlxn_5_15.F4
+         2.119  xlxi_1_xlxn_5_15.G1
+
+xlxi_1_xlxn_18
+   xlxi_1_xlxi_10_N25.Y
+         0.512  xlxi_1_add_overflow.G2
+
+xlxi_1_xlxn_21_0
+   xlxi_1_xlxi_15_xlxi_25_I_0_LUT_99_SW1/O.Y
+         1.048  N971.F4
+
+xlxi_1_xlxn_23_0
+   xlxi_1_xlxn_23_0.YQ
+         1.719  N971.G1
+
+xlxi_1_xlxn_23_1
+   xlxi_1_xlxn_23_1.YQ
+         1.332  N970.G3
+
+xlxi_1_xlxn_23_10
+   xlxi_1_xlxn_23_10.YQ
+         2.311  N961.G1
+
+xlxi_1_xlxn_23_11
+   xlxi_1_xlxn_23_11.YQ
+         1.824  N960.G2
+
+xlxi_1_xlxn_23_12
+   xlxi_1_xlxn_23_12.YQ
+         2.243  N959.G1
+
+xlxi_1_xlxn_23_13
+   xlxi_1_xlxn_23_13.YQ
+         1.993  N958.G1
+
+xlxi_1_xlxn_23_14
+   xlxi_1_xlxn_23_14.YQ
+         2.013  N957.G3
+
+xlxi_1_xlxn_23_15
+   xlxi_1_xlxn_23_15.YQ
+         1.151  N956.G4
+
+xlxi_1_xlxn_23_2
+   xlxi_1_xlxn_23_2.YQ
+         1.711  N969.G4
+
+xlxi_1_xlxn_23_3
+   xlxi_1_xlxn_23_3.YQ
+         1.209  N968.G4
+
+xlxi_1_xlxn_23_4
+   xlxi_1_xlxn_23_4.YQ
+         1.457  N967.G3
+
+xlxi_1_xlxn_23_5
+   xlxi_1_xlxn_23_5.YQ
+         1.567  N966.G3
+
+xlxi_1_xlxn_23_6
+   xlxi_1_xlxn_23_6.YQ
+         1.980  N965.G4
+
+xlxi_1_xlxn_23_7
+   xlxi_1_xlxn_23_7.YQ
+         1.458  N964.G4
+
+xlxi_1_xlxn_23_8
+   xlxi_1_xlxn_23_8.YQ
+         1.536  N963.G2
+
+xlxi_1_xlxn_23_9
+   xlxi_1_xlxn_23_9.YQ
+         2.150  N962.G4
+
+xlxi_1_xlxn_2_0
+   xlxi_1_xlxn_2_1.YQ
+         3.155  N971.F1
+         3.163  N971.G3
+         2.439  N961.F3
+         2.838  N961.G4
+         2.750  N962.F4
+         3.264  N962.G3
+         2.531  N963.F2
+         3.123  N963.G1
+         2.558  N966.F3
+         3.051  N966.G2
+         2.705  N956.F2
+         3.216  N956.G3
+         2.169  N964.F3
+         1.784  N964.G2
+         2.762  N967.F2
+         2.552  N967.G4
+         2.613  N957.F3
+         3.341  N957.G2
+         2.370  N965.F4
+         2.362  N965.G2
+         3.325  N968.F3
+         3.389  N968.G2
+         2.676  N958.F1
+         2.603  N958.G2
+         2.421  N969.F4
+         2.523  N969.G3
+         2.612  N959.F2
+         2.656  N959.G4
+         3.292  N970.F1
+         2.960  N970.G2
+         2.590  N960.F1
+         2.586  N960.G1
+
+xlxi_1_xlxn_2_1
+   xlxi_1_xlxn_2_1.XQ
+         4.409  N971.BX
+         4.071  N961.BX
+         4.427  N962.BX
+         3.836  N963.BX
+         4.243  N966.BX
+         4.003  N956.BX
+         1.720  N964.BX
+         2.135  N967.BX
+         4.478  N957.BX
+         1.881  N965.BX
+         4.462  N968.BX
+         4.050  N958.BX
+         1.959  N969.BX
+         2.153  N959.BX
+         3.948  N970.BX
+         2.540  N960.BX
+
+xlxi_1_xlxn_5_0
+   xlxi_1_xlxn_5_1.YQ
+         0.988  N971.F2
+
+xlxi_1_xlxn_5_1
+   xlxi_1_xlxn_5_1.XQ
+         0.898  N970.F3
+
+xlxi_1_xlxn_5_10
+   xlxi_1_xlxn_5_11.YQ
+         1.169  N961.F2
+
+xlxi_1_xlxn_5_11
+   xlxi_1_xlxn_5_11.XQ
+         1.317  N960.F3
+
+xlxi_1_xlxn_5_12
+   xlxi_1_xlxn_5_13.YQ
+         0.612  N959.F4
+
+xlxi_1_xlxn_5_13
+   xlxi_1_xlxn_5_13.XQ
+         1.348  N958.F3
+
+xlxi_1_xlxn_5_14
+   xlxi_1_xlxn_5_15.YQ
+         0.958  N957.F4
+
+xlxi_1_xlxn_5_15
+   xlxi_1_xlxn_5_15.XQ
+         1.271  N956.F1
+
+xlxi_1_xlxn_5_2
+   xlxi_1_xlxn_5_2.YQ
+         1.655  N969.F3
+
+xlxi_1_xlxn_5_3
+   xlxi_1_xlxn_5_3.YQ
+         1.342  N968.F4
+
+xlxi_1_xlxn_5_4
+   xlxi_1_xlxn_5_5.YQ
+         1.119  N967.F1
+
+xlxi_1_xlxn_5_5
+   xlxi_1_xlxn_5_5.XQ
+         1.177  N966.F2
+
+xlxi_1_xlxn_5_6
+   xlxi_1_xlxn_5_7.YQ
+         1.272  N965.F1
+
+xlxi_1_xlxn_5_7
+   xlxi_1_xlxn_5_7.XQ
+         0.708  N964.F2
+
+xlxi_1_xlxn_5_8
+   xlxi_1_xlxn_5_8.YQ
+         1.882  N963.F1
+
+xlxi_1_xlxn_5_9
+   xlxi_1_xlxn_5_9.YQ
+         1.878  N962.F2
+
+xlxi_30_alureadsram_prestate_FFD1
+   xlxi_30_alureadsram_prestate_FFD1.YQ
+         1.194  xlxi_30_alureadsram_prestate_FFD1.G2
+         1.183  xlxi_30_alureadsram_prestate_FFD2.G2
+
+xlxi_30_alureadsram_prestate_FFD2
+   xlxi_30_alureadsram_prestate_FFD2.YQ
+         1.260  xlxi_30_alureadsram_prestate_FFD2.G3
+         1.612  xlxi_30_alureadsram_prestate_FFD3.F2
+         1.377  xlxi_30_alureadsram_prestate_FFD3.G4
+
+xlxi_30_alureadsram_prestate_FFD3
+   xlxi_30_alureadsram_prestate_FFD3.YQ
+         1.378  N1033.F1
+         1.216  xlxi_30_alureadsram_prestate_FFD1.G3
+         1.360  xlxi_30_alureadsram_prestate_FFD3.G1
+
+xlxi_30_aluwritesram_prestate_FFD1
+   xlxi_30_aluwritesram_prestate_FFD1.YQ
+         1.057  xlxi_30_aluwritesram_prestate_FFD1.G3
+         1.259  xlxi_30_aluwritesram_prestate_FFD2.G3
+
+xlxi_30_aluwritesram_prestate_FFD2
+   xlxi_30_aluwritesram_prestate_FFD2.YQ
+         0.683  xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2.G3
+         0.970  xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD4.F3
+         1.282  xlxi_30_aluwritesram_prestate_FFD2.G1
+         1.345  xlxi_30_aluwritesram_prestate_FFD3.F1
+
+xlxi_30_aluwritesram_prestate_FFD3
+   xlxi_30_aluwritesram_prestate_FFD3.XQ
+         1.392  N1034.F2
+         1.515  xlxi_30_aluwritesram_prestate_FFD1.G1
+         1.259  xlxi_30_aluwritesram_prestate_FFD3.F2
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite1
+   xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2.YQ
+         1.936  N697.F1
+         1.853  N697.G2
+         0.863  xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2.BX
+         0.905  xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD1.G3
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2
+   xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2.XQ
+         1.254  N1034.F4
+         1.228  N1033.F3
+         1.899  N697.F3
+         1.862  N697.G3
+         0.972  xlxi_30_aluwritesram_prestate_FFD2.F2
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD1
+   xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD1.XQ
+         1.299  N1034.F1
+         1.068  N1033.F4
+         1.244  xlxi_30_aluwritesram_prestate_FFD2.F1
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD4
+   xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD4.YQ
+         1.211  xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD5.BY
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD5
+   xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD5.YQ
+         0.831  N1034.F3
+         0.923  N1033.F2
+         1.289  xlxi_30_aluwritesram_prestate_FFD2.F3
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_0
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_0.YQ
+         1.847  ldata<0>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_1
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_1.YQ
+         2.444  ldata<1>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_10
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_10.YQ
+         1.509  ldata<10>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_11
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_11.YQ
+         2.061  ldata<11>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_12
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_12.YQ
+         0.993  ldata<12>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_13
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_13.YQ
+         2.030  ldata<13>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_14
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_14.YQ
+         1.637  ldata<14>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_15
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_15.YQ
+         1.412  ldata<15>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_2
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_2.YQ
+         2.012  ldata<2>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_3
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_3.YQ
+         1.681  ldata<3>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_4
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_4.YQ
+         1.495  ldata<4>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_5
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_5.YQ
+         1.709  ldata<5>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_6
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_6.YQ
+         1.843  ldata<6>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_7
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_7.YQ
+         1.563  ldata<7>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_8
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_8.YQ
+         1.786  ldata<8>.O
+
+xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_9
+   xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_9.YQ
+         2.076  ldata<9>.O
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_11
+   xlxi_30_pctofpgainterface_pportinterface_N548.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N560.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_13
+   xlxi_30_pctofpgainterface_pportinterface_N560.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N580.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_15
+   xlxi_30_pctofpgainterface_pportinterface_N580.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N592.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_17
+   xlxi_30_pctofpgainterface_pportinterface_N592.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N604.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_19
+   xlxi_30_pctofpgainterface_pportinterface_N604.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N634.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_21
+   xlxi_30_pctofpgainterface_pportinterface_N634.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N662.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_5
+   xlxi_30_pctofpgainterface_pportinterface_N497.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N507.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_7
+   xlxi_30_pctofpgainterface_pportinterface_N507.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N528.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Madd__n0000_inst_cy_9
+   xlxi_30_pctofpgainterface_pportinterface_N528.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N548.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1
+   xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N357.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1
+   xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N359.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1
+   xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N674.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1
+   xlxi_30_pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.COUT
+         0.000  xlxi_30_pctofpgainterface_pportinterface_N676.CIN
+
+xlxi_30_pctofpgainterface_pportinterface_N357
+   xlxi_30_pctofpgainterface_pportinterface_N357.COUT
+         1.604  xlxi_30_pctofpgainterface_pportinterface_N361.G3
+
+xlxi_30_pctofpgainterface_pportinterface_N359
+   xlxi_30_pctofpgainterface_pportinterface_N359.COUT
+         1.580  xlxi_30_pctofpgainterface_pportinterface_N361.G4
+
+xlxi_30_pctofpgainterface_pportinterface_N361
+   xlxi_30_pctofpgainterface_pportinterface_N361.Y
+         0.806  xlxi_30_pctofpgainterface_pportinterface_mysyncdata_1.CLK
+         0.696  xlxi_30_pctofpgainterface_pportinterface_mysyncdata_3.CLK
+         1.036  xlxi_30_pctofpgainterface_pportinterface_mysyncdata_5.CLK
+         0.792  xlxi_30_pctofpgainterface_pportinterface_mysyncdata_7.CLK
+
+xlxi_30_pctofpgainterface_pportinterface_N372
+   xlxi_30_pctofpgainterface_pportinterface_N372.Y
+         0.968  xlxi_30_pctofpgainterface_pportinterface_N382.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N382
+   xlxi_30_pctofpgainterface_pportinterface_N382.X
+         0.025  xlxi_30_pctofpgainterface_pportinterface_N382.G4
+
+xlxi_30_pctofpgainterface_pportinterface_N384
+   xlxi_30_pctofpgainterface_pportinterface_N382.Y
+         1.323  xlxi_30_pctofpgainterface_pportinterface_syncread.SR
+         1.442  xlxi_30_pctofpgainterface_pportinterface_syncnextslice.SR
+         1.877  xlxi_30_pctofpgainterface_pportinterface_pccontrolenabled.SR
+         1.323  xlxi_30_pctofpgainterface_pportinterface_datainreg_1.SR
+         1.552  xlxi_30_pctofpgainterface_pportinterface_datainreg_3.SR
+         1.578  xlxi_30_pctofpgainterface_pportinterface_datainreg_4.SR
+         2.735  xlxi_30_pctofpgainterface_pportinterface_readdatareg_11.SR
+         4.656  xlxi_30_pctofpgainterface_pportinterface_readdatareg_13.SR
+         4.485  xlxi_30_pctofpgainterface_pportinterface_readdatareg_15.SR
+         1.402  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_1.SR
+         1.490  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_3.SR
+         1.048  xlxi_30_pctofpgainterface_pportinterface_syncinputs2_1.SR
+         1.506  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_5.SR
+         1.262  xlxi_30_pctofpgainterface_pportinterface_syncinputs2_3.SR
+         1.902  xlxi_30_pctofpgainterface_pportinterface_syncinputs1_7.SR
+         0.874  xlxi_30_pctofpgainterface_pportinterface_syncinputs3_1.SR
+         2.005  xlxi_30_pctofpgainterface_pportinterface_syncinputs2_5.SR
+         0.849  xlxi_30_pctofpgainterface_pportinterface_syncinputs3_3.SR
+         1.639  xlxi_30_pctofpgainterface_pportinterface_syncinputs2_7.SR
+         1.914  xlxi_30_pctofpgainterface_pportinterface_syncinputs3_5.SR
+         1.356  xlxi_30_pctofpgainterface_pportinterface_syncinputs3_7.SR
+         2.938  xlxi_30_pctofpgainterface_pportinterface_writedatareg_11.SR
+         1.605  xlxi_30_pctofpgainterface_pportinterface_syncwrite.SR
+         4.767  xlxi_30_pctofpgainterface_pportinterface_readdatareg_1.SR
+         4.485  xlxi_30_pctofpgainterface_pportinterface_readdatareg_3.SR
+         4.762  xlxi_30_pctofpgainterface_pportinterface_readdatareg_5.SR
+         4.550  xlxi_30_pctofpgainterface_pportinterface_readdatareg_7.SR
+         2.629  xlxi_30_pctofpgainterface_pportinterface_readdatareg_9.SR
+         3.008  xlxi_30_pctofpgainterface_pportinterface_writedatareg_1.SR
+         2.937  xlxi_30_pctofpgainterface_pportinterface_writedatareg_3.SR
+         2.698  xlxi_30_pctofpgainterface_pportinterface_writedatareg_5.SR
+         2.321  xlxi_30_pctofpgainterface_pportinterface_writedatareg_7.SR
+         2.849  xlxi_30_pctofpgainterface_pportinterface_writedatareg_9.SR
+         2.929  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD1.SR
+         1.585  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD3.SR
+         1.585  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD8.SR
+         3.258  xlxi_30_pctofpgainterface_pportinterface_curaddrreg_18.SR
+         3.274  N1216.SR
+         1.512  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD10.SR
+         2.630  xlxi_30_pctofpgainterface_pportinterface_outslicenum_0.SR
+         2.884  xlxi_30_pctofpgainterface_pportinterface_outslicenum_1.SR
+         2.909  xlxi_30_pctofpgainterface_pportinterface_inslicenum_0.SR
+         2.670  xlxi_30_pctofpgainterface_pportinterface_inslicenum_1.SR
+         4.570  xlxi_30_pctofpgainterface_pportinterface_writedatareg_13.SR
+         1.532  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD2.SR
+         4.648  xlxi_30_pctofpgainterface_pportinterface_writedatareg_15.SR
+         2.848  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD4.SR
+         4.135  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD6.SR
+         4.173  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD7.SR
+         1.791  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD9.SR
+         3.960  N1223.SR
+         3.854  N1221.SR
+         3.852  N1219.SR
+         3.104  N1218.SR
+         3.233  N1217.SR
+         2.221  N1232.SR
+         2.189  N1231.SR
+         2.186  xlxi_30_pctofpgainterface_pportinterface_curaddrreg_0.SR
+         2.186  N1228.SR
+         2.738  N1227.SR
+         2.766  N1225.SR
+
+xlxi_30_pctofpgainterface_pportinterface_N391
+   xlxi_30_pctofpgainterface_pportinterface_N391.X
+         0.025  xlxi_30_pctofpgainterface_pportinterface_N391.G4
+
+xlxi_30_pctofpgainterface_pportinterface_N396
+   xlxi_30_pctofpgainterface_pportinterface_N396.X
+         0.314  xlxi_30_pctofpgainterface_pportinterface_N406.F1
+
+xlxi_30_pctofpgainterface_pportinterface_N404
+   xlxi_30_pctofpgainterface_pportinterface_N404.X
+         1.012  xlxi_30_pctofpgainterface_pportinterface_N406.F2
+
+xlxi_30_pctofpgainterface_pportinterface_N406
+   xlxi_30_pctofpgainterface_pportinterface_N406.X
+         0.067  xlxi_30_pctofpgainterface_pportinterface_N406.G4
+         0.909  xlxi_30_pctofpgainterface_pportinterface_N417.F2
+         0.956  xlxi_30_pctofpgainterface_pportinterface_N417.G2
+         1.431  xlxi_30_pctofpgainterface_pportinterface_writedatareg_13.CE
+         1.431  xlxi_30_pctofpgainterface_pportinterface_writedatareg_15.CE
+
+xlxi_30_pctofpgainterface_pportinterface_N409
+   xlxi_30_pctofpgainterface_pportinterface_N406.Y
+         1.124  xlxi_30_pctofpgainterface_pportinterface_writedatareg_1.CE
+         1.014  xlxi_30_pctofpgainterface_pportinterface_writedatareg_3.CE
+
+xlxi_30_pctofpgainterface_pportinterface_N413
+   xlxi_30_pctofpgainterface_pportinterface_N417.Y
+         1.047  xlxi_30_pctofpgainterface_pportinterface_writedatareg_5.CE
+         0.652  xlxi_30_pctofpgainterface_pportinterface_writedatareg_7.CE
+
+xlxi_30_pctofpgainterface_pportinterface_N417
+   xlxi_30_pctofpgainterface_pportinterface_N417.X
+         0.739  xlxi_30_pctofpgainterface_pportinterface_writedatareg_11.CE
+         0.715  xlxi_30_pctofpgainterface_pportinterface_writedatareg_9.CE
+
+xlxi_30_pctofpgainterface_pportinterface_N444
+   xlxi_30_pctofpgainterface_pportinterface_N444.X
+         1.590  xlxi_30_pctofpgainterface_pportinterface_N468.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N450
+   xlxi_30_pctofpgainterface_pportinterface_N450.Y
+         1.163  xlxi_30_pctofpgainterface_pportinterface_N468.F3
+         1.386  xlxi_30_pctofpgainterface_pportinterface_N391.G1
+         1.120  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD2.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N457
+   xlxi_30_pctofpgainterface_pportinterface_N404.Y
+         0.175  xlxi_30_pctofpgainterface_pportinterface_N391.G2
+
+xlxi_30_pctofpgainterface_pportinterface_N464
+   xlxi_30_pctofpgainterface_pportinterface_N464.X
+         0.053  xlxi_30_pctofpgainterface_pportinterface_N464.G4
+         0.528  xlxi_30_pctofpgainterface_pportinterface_N717.F2
+         1.403  xlxi_30_pctofpgainterface_pportinterface_presstate_FFD9.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N466
+   xlxi_30_pctofpgainterface_pportinterface_N464.Y
+         0.420  xlxi_30_pctofpgainterface_pportinterface_N468.F4
+
+xlxi_30_pctofpgainterface_pportinterface_N468
+   xlxi_30_pctofpgainterface_pportinterface_N468.X
+         0.685  xlxi_30_pctofpgainterface_pportinterface_N468.G3
+         1.373  xlxi_30_pctofpgainterface_pportinterface_N834.G2
+         1.219  xlxi_30_pctofpgainterface_pportinterface_N578.F1
+         0.907  xlxi_30_pctofpgainterface_pportinterface_N578.G4
+
+xlxi_30_pctofpgainterface_pportinterface_N479
+   xlxi_30_pctofpgainterface_pportinterface_N479.X
+         0.352  N1173.G1
+         1.371  xlxi_30_pctofpgainterface_pportinterface_N515.F2
+         1.610  xlxi_30_pctofpgainterface_pportinterface_N505.F3
+         1.631  xlxi_30_pctofpgainterface_pportinterface_N468.G2
+         0.996  xlxi_30_pctofpgainterface_pportinterface_N638.F1
+         0.605  xlxi_30_pctofpgainterface_pportinterface_N638.G2
+         1.280  xlxi_30_pctofpgainterface_pportinterface_N624.F4
+         1.278  xlxi_30_pctofpgainterface_pportinterface_N624.G4
+         1.366  xlxi_30_pctofpgainterface_pportinterface_N6481.F4
+         1.485  xlxi_30_pctofpgainterface_pportinterface_N6481.G3
+         1.313  xlxi_30_pctofpgainterface_pportinterface_N834.F2
+         1.134  xlxi_30_pctofpgainterface_pportinterface_N834.G1
+         1.505  xlxi_30_pctofpgainterface_pportinterface_N578.F3
+         1.468  xlxi_30_pctofpgainterface_pportinterface_N578.G3
+         3.135  N1223.F2
+         2.289  N1223.G1
+         2.007  N1221.F3
+         1.970  N1221.G3
+         2.095  N1219.G2
+         1.938  N1232.G2
+         2.816  N1231.F4
+         2.285  N1231.G2
+         2.820  xlxi_30_pctofpgainterface_pportinterface_curaddrreg_0.F2
+         2.787  xlxi_30_pctofpgainterface_pportinterface_curaddrreg_0.G3
+         2.691  N1228.G3
+         3.076  N1227.F4
+         2.222  N1227.G3
+         3.044  N1225.F4
+         2.998  N1225.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N481
+   xlxi_30_pctofpgainterface_pportinterface_N468.Y
+         1.151  N1232.CE
+         1.376  N1231.CE
+         1.166  xlxi_30_pctofpgainterface_pportinterface_curaddrreg_0.CE
+
+xlxi_30_pctofpgainterface_pportinterface_N485
+   xlxi_30_pctofpgainterface_pportinterface_N638.Y
+         0.829  N1218.F2
+
+xlxi_30_pctofpgainterface_pportinterface_N495
+   xlxi_30_pctofpgainterface_pportinterface_N624.Y
+         0.179  N1217.F2
+
+xlxi_30_pctofpgainterface_pportinterface_N497
+   xlxi_30_pctofpgainterface_pportinterface_N497.Y
+         1.488  N1232.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N505
+   xlxi_30_pctofpgainterface_pportinterface_N505.X
+         0.039  xlxi_30_pctofpgainterface_pportinterface_N505.G4
+         0.424  N1216.F3
+
+xlxi_30_pctofpgainterface_pportinterface_N507
+   xlxi_30_pctofpgainterface_pportinterface_N507.X
+         1.048  N1231.F3
+
+xlxi_30_pctofpgainterface_pportinterface_N515
+   xlxi_30_pctofpgainterface_pportinterface_N515.X
+         0.039  xlxi_30_pctofpgainterface_pportinterface_N515.G4
+         0.828  xlxi_30_pctofpgainterface_pportinterface_curaddrreg_18.F3
+
+xlxi_30_pctofpgainterface_pportinterface_N517
+   xlxi_30_pctofpgainterface_pportinterface_N507.Y
+         1.256  N1231.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N528
+   xlxi_30_pctofpgainterface_pportinterface_N528.X
+         1.022  xlxi_30_pctofpgainterface_pportinterface_curaddrreg_0.G4
+
+xlxi_30_pctofpgainterface_pportinterface_N535
+   xlxi_30_pctofpgainterface_pportinterface_N790.Y
+         0.825  xlxi_30_pctofpgainterface_pportinterface_N578.G2
+
+xlxi_30_pctofpgainterface_pportinterface_N540
+   xlxi_30_pctofpgainterface_pportinterface_N578.Y
+         1.110  N1228.CE
+         1.517  N1227.CE
+         1.296  N1225.CE
+
+xlxi_30_pctofpgainterface_pportinterface_N542
+   xlxi_30_pctofpgainterface_pportinterface_N528.Y
+         1.260  N1228.G1
+
+xlxi_30_pctofpgainterface_pportinterface_N548
+   xlxi_30_pctofpgainterface_pportinterface_N548.X
+         0.314  N1227.F1
+
+xlxi_30_pctofpgainterface_pportinterface_N554
+   xlxi_30_pctofpgainterface_pportinterface_N548.Y
+         0.175  N1227.G2
+
+xlxi_30_pctofpgainterface_pportinterface_N560
+   xlxi_30_pctofpgainterface_pportinterface_N560.X
+         0.314  N1225.F1
+
+xlxi_30_pctofpgainterface_pportinterface_N566
+   xlxi_30_pctofpgainterface_pportinterface_N560.Y
+         0.175  N1225.G2
+
+xlxi_30_pctofpgainterface_pportinterface_N573
+   xlxi_30_pctofpgainterface_pportinterface_N785.Y
+         0.179  xlxi_30_pctofpgainterface_pportinterface_N578.F2
+
+xlxi_30_pctofpgainterface_pportinterface_N578
+   xlxi_30_pctofpgainterface_pportinterface_N578.X
+         1.562  N1223.CE
+         1.628  N1221.CE
+         1.772  N1219.CE
+
+xlxi_30_pctofpgainterface_pportinterface_N580
+   xlxi_30_pctofpgainterface_pportinterface_N580.X
+         0.314  N1223.F1
+
+xlxi_30_pctofpgainterface_pportinterface_N586
+   xlxi_30_pctofpgainterface_pportinterface_N580.Y
+         0.175  N1223.G2
+
+xlxi_30_pctofpgainterface_pportinterface_N592
+   xlxi_30_pctofpgainterface_pportinterface_N592.X
+         0.314  N1221.F1
+
+xlxi_30_pctofpgainterface_pportinterface_N598
+   xlxi_30_pctofpgainterface_pportinterface_N592.Y
+         0.175  N1221.G2
+
+xlxi_30_pctofpgainterface_pportinterface_N604
+   xlxi_30_pctofpgainterface_pportinterface_N604.X
+         0.

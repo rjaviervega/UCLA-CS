@@ -1,0 +1,64 @@
+V1 63
+EN work/OF_ENABLE       FL E:/cs152b/proj2alu/OF_enable.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+FL E:/cs152b/proj2alu/OF_detect.vhd 2004/07/16.12:29:24
+FL E:/cs152b/proj2alu/shift.vhd 2004/07/16.13:04:32
+FL E:/cs152b/proj2alu/OF_enable.vhd 2004/07/16.11:25:20
+AR work/CONTROL_UNIT/BEHAVIORAL FL E:/cs152b/proj2alu/control_module.vhd \
+      EN work/CONTROL_UNIT
+FL E:/cs152b/proj2alu/negative_detect.vhd 2004/07/16.10:59:30
+AR work/LOGICAL/BEHAVIORAL FL E:/cs152b/proj2alu/logical.vhd EN work/LOGICAL
+EN work/INV16_MXILINX   FL E:/cs152b/proj2alu/add.vhf PB ieee/STD_LOGIC_1164 \
+      PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+FL E:/cs152b/proj2alu/control_module.vhd 2004/07/16.11:24:31
+FL E:/cs152b/proj2alu/one_bus.vhd 2004/07/16.12:15:44
+AR work/NEGATIVE_DETECT/BEHAVIORAL FL E:/cs152b/proj2alu/negative_detect.vhd \
+      EN work/NEGATIVE_DETECT
+EN work/ALU             FL E:/cs152b/proj2alu/alu.vhf PB ieee/STD_LOGIC_1164 \
+      PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+EN work/OF_DETECT       FL E:/cs152b/proj2alu/OF_detect.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+EN work/ONE_BUS         FL E:/cs152b/proj2alu/one_bus.vhd PB ieee/STD_LOGIC_1164 \
+      PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+AR work/ZERO_DETECT/BEHAVIORAL FL E:/cs152b/proj2alu/zero_detect.vhd \
+      EN work/ZERO_DETECT
+AR work/ADSU16_MXILINX/SCHEMATIC FL E:/cs152b/proj2alu/add.vhf \
+      EN work/ADSU16_MXILINX CP FMAP      CP INV            CP MUXCY          CP MUXCY_D \
+      CP MUXCY_L        CP XOR2           CP XOR3           CP XORCY
+FL E:/cs152b/proj2alu/logical.vhd 2004/07/16.11:22:07
+FL E:/cs152b/proj2alu/alu.vhf 2004/07/16.13:08:05
+EN work/CONTROL_UNIT    FL E:/cs152b/proj2alu/control_module.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+EN work/NEGATIVE_DETECT FL E:/cs152b/proj2alu/negative_detect.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+EN work/ADSU16_MXILINX  FL E:/cs152b/proj2alu/add.vhf PB ieee/STD_LOGIC_1164 \
+      PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+AR work/OF_DETECT/BEHAVIORAL FL E:/cs152b/proj2alu/OF_detect.vhd \
+      EN work/OF_DETECT
+FL E:/cs152b/proj2alu/zero_detect.vhd 2004/07/16.12:43:27
+EN work/ZERO_DETECT     FL E:/cs152b/proj2alu/zero_detect.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+FL E:/cs152b/proj2alu/zeroBus.vhd 2004/07/15.19:47:12
+EN work/LOGICAL         FL E:/cs152b/proj2alu/logical.vhd PB ieee/STD_LOGIC_1164 \
+      PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+EN work/ADD             FL E:/cs152b/proj2alu/add.vhf PB ieee/STD_LOGIC_1164 \
+      PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+EN work/ZEROBUS         FL E:/cs152b/proj2alu/zeroBus.vhd PB ieee/STD_LOGIC_1164 \
+      PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+AR work/INV16_MXILINX/SCHEMATIC FL E:/cs152b/proj2alu/add.vhf \
+      EN work/INV16_MXILINX CP INV
+AR work/ZEROBUS/BEHAVIORAL FL E:/cs152b/proj2alu/zeroBus.vhd EN work/ZEROBUS
+FL E:/cs152b/proj2alu/add.vhf 2004/07/16.13:08:07
+AR work/ADD/SCHEMATIC   FL E:/cs152b/proj2alu/add.vhf EN work/ADD \
+      CP ADSU16_MXILINX CP AND4           CP INV            CP INV16_MXILINX \
+      CP MUX2_16BITS    CP MUX4_16BITS_NEW CP NEGATIVE_DETECT CP OF_DETECT \
+      CP ONE_BUS        CP OR2            CP XOR2           CP ZEROBUS
+AR work/ALU/SCHEMATIC   FL E:/cs152b/proj2alu/alu.vhf EN work/ALU CP ADD      CP AND2 \
+      CP CONTROL_UNIT   CP LOGICAL        CP MUX_FOUR       CP OF_ENABLE      CP OR2 \
+      CP SHIFT          CP ZERO_DETECT
+AR work/ONE_BUS/BEHAVIORAL FL E:/cs152b/proj2alu/one_bus.vhd EN work/ONE_BUS
+EN work/SHIFT           FL E:/cs152b/proj2alu/shift.vhd PB ieee/STD_LOGIC_1164 \
+      PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+AR work/SHIFT/BEHAVIORAL FL E:/cs152b/proj2alu/shift.vhd EN work/SHIFT
+AR work/OF_ENABLE/BEHAVIORAL FL E:/cs152b/proj2alu/OF_enable.vhd \
+      EN work/OF_ENABLE

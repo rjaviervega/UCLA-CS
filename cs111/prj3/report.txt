@@ -1,0 +1,57 @@
+Eduardo Jose Esquivel	SID# 103-016-644
+Roberto Javier Vega	SID# 003-110-717
+
+This project implements a round robin scheduler that manages the scheduling 
+of threads that you create. A round robin scheduler strives to give each 
+process a fair share of the cpu. This is accomplished in our program by 
+giving each process a set amount of time to run and then preempting it to 
+allow another thread to run. The threads are placed in a circular array with 
+an index that indicates which thread is running. The scheduler gives each 
+thread a set amount of time in which it can run. This is specified a system 
+timer. After a timer is up, the next thread on the sheduler queue is allowed 
+to run.
+
+The race condition in the race driver was fixed by implementing locks. We 
+specify a set number of virtual mutexes and then choose the first one to be 
+the lock for the critical section, it is up to the application which mutex 
+to use with each critical section. We simply decided to use the first mutex 
+for this critical section. When a thread is about to enter the critical 
+section he calls mutex_lock. The code in mutex_lock is protected by a system 
+mutex. The reason for this is that in mutex_lock we are handling the virtual 
+mutex array in order to detect whether or not the mutex we want is available 
+or not. During this checking we can not allow another thread to update the 
+virtual mutexes array because we will not be able to get the correct result.
+
+To compile the program we have provided a Makefile:
+
+
+bash $ > Makefile 
+
+============= cut ==============
+all: round race
+
+round: round_robin.c scheduler.o
+        gcc -o round round_robin.c scheduler.o -pthread
+
+race: race_condition_fixed.c scheduler.o
+        gcc -o race race_condition_fixed.c scheduler.o -pthread
+
+scheduler.o : scheduler.c scheduler.h
+        gcc -c scheduler.c
+
+clean:
+        rm round race scheduler.o
+
+============= cut ==============
+
+
+* which can be ran with the command:
+
+bash $ > make
+
+And it will create an executable file called "round"
+and another called "race"; which each represents
+the fixed solutions fo the project.
+
+
+

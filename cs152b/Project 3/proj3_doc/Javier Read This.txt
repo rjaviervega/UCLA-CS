@@ -1,0 +1,9 @@
+Since you guys told me to do 4 waveforms only, I choose the ones we didnt test in our programs
+pop, push, jal and jr are used here, the code that we havent tested were some tedious ALU function like add, subtract, shift...etc
+To discribe each waveform, just rephrase the VHDL code into words
+Remember to state each waveform to its associate .do file
+
+sth add to the waveform: whenever you see a line across the waveform, please refer to the value high-lighted on the far left hand side and describe how it changes (easy to understand what is going on if check back the VHDL code)
+
+the project 3 files I send to you have already clear implementation data
+ Number of SLICEs                  742 out of 768    96%

@@ -1,0 +1,1 @@
+-tapkeep -mode pipe -command sch2vhdl -family=virtex -flat -suppress -w project2.sch project2.vhf

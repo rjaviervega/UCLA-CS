@@ -1,0 +1,23 @@
+-prj userpctosram
+-template C:/Xilinx/data/testbnch2.tft
+
+-lib work 
+-lib work userpctosramtoplevel.vhd
+-module userpctosramtoplevel
+-o testbench.vhd
+-inc C:/Xilinx/data/vhdlan/standard/standard_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/numeric_bit_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/numeric_extra_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/numeric_signed_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/numeric_std_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/numeric_unsigned_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/std_logic_1164_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/std_logic_arith_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/std_logic_signed_p.vao
+-inc C:/Xilinx/data/vhdlan/ieee/std_logic_unsigned_p.vao
+-inc C:/Xilinx/data/vhdlan/stdarith/std_logic_arith_p.vao
+-inc C:/Xilinx/data/vhdlan/logiblox/logiblox.vao
+-inc C:/Xilinx/data/vhdlan/logiblox/mvlarith.vao
+-inc C:/Xilinx/data/vhdlan/logiblox/mvlutil.vao
+-inc C:/Xilinx/data/vhdlan/xc/unisim_VCOMP.vao
+-err automake.err

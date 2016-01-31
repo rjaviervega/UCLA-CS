@@ -1,0 +1,19 @@
+# Xilinx CORE Generator 4.1i
+# User = Student 152B
+# Initializing default project...
+# Loading plug-ins...
+# busformat=BusFormatAngleBracket
+# designflow=VHDL
+# expandedprojectpath=E:\proj3\project3test2
+# flowvendor=Foundation_iSE
+# formalverification=None
+# simulationoutputproducts=VHDL
+# xilinxfamily=Virtex
+# outputoption=DesignFlow
+# overwritefiles=true
+# expandedprojectpath=E:\proj3\project3test2
+SETPROJECT e:/proj3/project3test2
+# Set current Project to E:\proj3\project3test2
+SET OverwriteFiles=true
+LAUNCHXCO buxmux16.xco
+SET BusFormat = 

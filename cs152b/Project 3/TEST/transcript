@@ -1,0 +1,72 @@
+# Reading c:/Modeltech_xe/win32xoem/../tcl/vsim/pref.tcl 
+# do ctrlunit.ldo 
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity ctrlunit
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture behavioral of ctrlunit
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading entity ctrlunit
+# vsim -t 1ns -L xilinxcorelib ctrlunit 
+# Loading c:/Modeltech_xe/win32xoem/../std.standard
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_1164(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_arith(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_unsigned(body)
+# Loading work.ctrlunit(behavioral)
+# .wave
+# .structure
+# .signals
+force -freeze sim:/ctrlunit/clk 1 0, 0 {50 ns} -r 100
+run
+run
+run
+force -freeze sim:/ctrlunit/rddone 1 0
+run
+force -freeze sim:/ctrlunit/rddone 0 0
+run
+run
+run
+run
+run
+force -freeze sim:/ctrlunit/reset 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/ctrlunit/reset 1 0
+run
+run
+run
+run
+run
+run
+noforce sim:/ctrlunit/rddone
+force -freeze sim:/ctrlunit/rddone 1 0
+force -freeze sim:/ctrlunit/wrdone 0 0
+run
+force -freeze sim:/ctrlunit/rddone 0 0
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/ctrlunit/wrdone 1 0
+run
+force -freeze sim:/ctrlunit/wrdone 0 0
+run
+run
+run

@@ -1,0 +1,644 @@
+;       UCLA SPRING 2003 
+;       CS 33 PROJECT 6:  INPUT/OUTPUT MODULE:  P6IO
+;       JOHN A. ROHR 
+;       MARCH 11, 2003 
+; 
+	   .EQU     TICCNT,400       ; TIMER THOUSANDS PER CLOCK TICK
+       .EQU     CLKLOC,48       ; CLOCK POSITION (LAST DIGIT)
+       .EQU     CLKDIG,4        ; NUMBER OF CLOCK DIGITS
+
+       .EQU     KBQSIZ,16       ; KEYBOARD QUEUE  SIZE (CHARS)
+       .EQU     TPBSIZ,38       ; TAPE     BUFFER SIZE (CHARS)
+       .EQU     TPQSIZ,16       ; TAPE     QUEUE  SIZE (RECORDS)
+
+       .EQU     P6IO,$E00       ; I/O MODULE (P6IO) ADDRESS
+       .EQU     TIMBIN,$FF7     ; BINARU TIME ADDRESS
+       .EQU     INTVEC,$FF8     ; INTERRUPT VECTOR BASE ADDRESS
+
+       .EQU     @,INTVEC        ; INTERRUPT VECTORS
+
+       .WORD    KBDINT          ; $FF8:  KEYBOARD
+       .WORD    0               ; $FF9:  NOT USED (PRINTER)
+       .WORD    TAPINT          ; $FFA:  TAPE DRIVE
+       .WORD    TIMINT          ; $FFB:  TIMER
+
+                                ; P6IO TRANSFER TABLE
+
+        JMP     INIFUN          ; $FFC:  INITIALIZE
+
+        JMP     KBDFUN          ; $FFD:  KEYBOARD OPERATION
+                                ;        GET CHARACTER
+                                ;        CHARACTER RETURNED IN ACC
+
+        JMP     TAPFUN          ; $FFE:  TAPE OPERATION
+                                ;  ACC:  0       = REWIND
+                                ;        NONZERO = READ
+                                ;        BUFFER POINTER RETURNED
+
+        JMP     TIMFUN          ; $FFF:  TIMER OPERATION
+                                ;  ACC:  0       = RESET
+                                ;        +       = START
+                                ;        -       = STOP
+                                ;        DISPLAY LOCATION RETURNED
+ 
+       .PAGE                    ;
+       .EQU     KBD_CTRL,$000   ; KEYBOARD CONTROL REGISTER
+       .EQU     KBD_STAT,$000   ; KEYBOARD STATUS  REGISTER
+       .EQU     KBD_DATA,$001   ; KEYBOARD DATA    REGISTER
+
+       .EQU     TDR_CTRL,$020   ; TAPE DRIVE CONTROL REGISTER
+       .EQU     TDR_STAT,$020   ; TAPE DRIVE STATUS  REGISTER
+       .EQU     TDR_LEN,$021    ; TAPE DRIVE LENGTH  REGISTER
+       .EQU     TDR_ADDR,$022   ; TAPE DRIVE ADDRESS REGISTER
+
+       .EQU     TIM_CTRL,$030   ; TIMER CONTROL REGISTER
+       .EQU     TIM_STAT,$030   ; TIMER STATUS  REGISTER
+       .EQU     TIM_VALUE,$031  ; TIMER VALUE   REGISTER
+       .EQU     TIM_COUNT,$034  ; TIMER COUNT   REGISTER
+
+       .EQU     CRT_BUF,$100    ; CRT DISPLAY BIFFER
+       .EQU     CRT_COL,$314    ; CRT COLUMN  REGISTER
+       .EQU     CRT_ROW,$315    ; CRT ROW     REGISTER
+       .EQU     CRT_CTRL,$316   ; CRT CONTROL REGISTER
+       .EQU     CRT_DATA,$317   ; CRT DATA    REGISTER
+
+
+       .EQU     INT_ENA,$80     ; INTERRUPT ENABLE BIT
+       .EQU     INT_CLR,$40     ; INTERRUPT ENABLE BIT
+
+       .EQU     FLUSH,$40       ; KEYBOARD FLUSH  OPERATION CODE
+
+       .EQU     TDR_RES,$40     ; TAPE DRIVE INTERRUPT RESET
+       .EQU     TDR_RD,$10      ; TAPE DRIVE READ   OPERATION CODE
+       .EQU     TDR_WR,$20      ; TAPE DRIVE WIRTE  OPERATION CODE
+       .EQU     TDR_RW,$30      ; TAPE DRIVE REWIND OPERATION CODE
+       .EQU     TDR_MNT,$20     ; TAPE DRIVE TAPE MOUNTED BIT
+       .EQU     TDR_PND,$10     ; TAPE DRIVE INT PENDING BIT
+       .EQU     TDR_EOT,$08     ; TAPE DRIVE END-OF-TAPE  BIT
+
+       .EQU     TIM_RES,$40     ; RESET TIMER BIT
+       .EQU     TIM_LGO,$10     ; START TIMER BITS (WITH LOAD)
+       .EQU     TIM_STP,$20     ; STOP  TIMER BIT
+       .EQU     TIM_GO,$30      ; START TIMER BITS (W/O  LOAD)
+
+       .EQU     CLRSCN,1        ; CRT CLEAR SCREEN OPERATION CODE
+       .EQU     NEWLINE,5       ; CRT NEWLINE      OPERATION CODE
+       .EQU     BELLOP,6        ; CRT RING BELL    OPERATION CODE
+
+
+       .EQU     BELL,$07        ; ASCII BELL VALUE
+       .EQU     BS,$08          ; ASCII BS   VALUE
+       .EQU     CR,$0D          ; ASCII CR   VALUE
+       .EQU     LF,$0A          ; ASCII LF   VALUE
+       .EQU     ESC,$1B         ; ASCII ESC  VALUE
+       .EQU     TERM,0          ; STRING TERMINATOR
+
+
+       .EQU     @,P6IO          ; BASE OF P6IO CODE
+ 
+       .PAGE
+;       INIFUN:  INITIALIZE INPUT/OUTPUT
+;
+;       PARAMETERS:     NONE
+;
+;       THIS FUNCTION INITIALIZES INPUT/OUTPUT
+;       THE KEYBOARD IS FLUSHED  AND STARTED
+;       THE TAPE UNIT IS REWOUND AND STARTED
+;       THE TIMER IS RESET TO 0  AND STARTED
+
+INIFUN: JSR		KBDINI          ; INITIALIZE THE KEYBOARD
+        JSR		TIMINI          ; INITIALIZE THE TIMER
+        JSR		TAPINI          ; INITIALIZE THE TAPE UNIT
+        SIE						; ENABLE INTERRRUPTS
+        RTN                     ; RETURN
+ 
+       .PAGE
+;       KBDINI:  INITIALIZE THE KEYBOARD
+;
+;       PARAMETERS:     NONE
+;
+;       THIS FUNCTION INITIALIZES THE KEYBOARD
+;       THE KEYBOARD IS FLUSHED
+;       KEYBOARD INTERRUPTS ARE ENABLED
+
+KBDINI: PSHA					; SAVE ACC
+        LDA#	FLUSH			; FLUSH KEY BUFFER
+		OUTB	KBD_CTRL		;
+		LDA#	INT_ENA			; ENABLE KEYBOARD INTERRUPTS
+		OUTB	KBD_CTRL		;
+		POPA					; RESTORE ACC
+        RTN                     ; RETURN
+
+
+       .PAGE
+;       KBDFUN:  KEYBOARD FUNCTION
+;
+;       PARAMETERS:     INPUT:  NONE
+;
+;                       OUTPUT: ACC = CHARACTER IF READY
+;                               ACC = 0 IF NO CHARACTER READY
+;
+;       THIS FUNCTION PROVIDES ONE KEYBOARD FUNCTION
+;       THE NEXT CHARACTER IN THE QUEUE IS RETURNED
+;       OR AN EMPTY QUEUE INDICATION IS RETURNED
+
+KBDFUN: JSR		KBDDEQ
+        RTN                     ; RETURN
+
+       .PAGE
+;       KBDINT:  KEYBOARD INTERRUPT SERVICE ROUTINE
+;
+;       THIS FUNCTION PROCESSES KEYBOARD INTERRUPTS
+
+KBDINT:	PSHA                    ; SAVE ACC
+		INB		KBD_STAT
+		JGE		KBDFUL			; CHECK FOR VALID CHAR, IF NOT REPORT ERROR AND EXIT
+		INB		KBD_DATA		; GET CHAR
+		CMA#	ESC				; COMP TO ESCAPE
+		JNE		NO_ESC_CHAR		; NOT ESCAPE STRING
+		INB		KBD_STAT
+		JGE		KBDFUL			; INVALID CHAR, EXIT WITH ERROR
+		INB		KBD_DATA		; READ NEXT CHAR
+		COMA					; CONVERT TO NEGATIVE 
+		ADA#	1				;
+NO_ESC_CHAR:
+		JSR		KBDENQ			; ENQUEUE CHARACTER 
+        POPA                    ; RESTORE ACC
+        IRTN                    ; RETURN
+        
+KBDFUL: PSHX                    ; SAVE XR
+        LDX#    0               ; INDEX := 0
+        LDC     ERROR           ; DISPLAY ERROR MESSAGE
+        OUTB+   CRT_BUF         ;
+        AOC#    ERROR_LENGTH    ;
+        JLT     @-3             ;
+        POPX                    ; RESTORE XR
+        POPA                    ; RESTORE ACC
+        POPA                    ; SET CALL ADDRESS IN ACC
+        HLT                     ; STOP
+ 
+       .PAGE
+;       KBDENQ:  ENQUEUE A KEYBOARD CHARACTER       
+;
+;       PARAMETERS:     INPUT:  ACC = CHARACTER
+;
+;                       OUTPUT: ACC = CHARACTER IF SUCCESFUL
+;                               ACC = 0 IF BUFFER FULL
+;
+;       THIS FUNCTION ENQUEUES ONE CHARACTER IN THE QUEUE
+
+KBDENQ: PSHX
+		LDX		KQUSED			; CHECK IF BUFFER IS FULL
+		CMX#	KBQSIZ			;
+		JGE		KBDFULL			;
+		LDX		KQTAIL			; STORE CHAR
+		STC		KQRING			;
+		AOC#	KBQSIZ			; INC SIZE
+		JNE		ENQ_NWRP		; NO WRAP
+		LDX#	0				; WRAP IF NESS
+ENQ_NWRP:
+		STX		KQTAIL
+		INC		KQUSED
+		JMP		ENQ_EX
+KBDFULL:LDA#	0				; BUFFER FULL
+ENQ_EX:	
+		POPX
+        RTN                     ; RETURN
+
+
+       .PAGE
+;       KBDDEQ:  DEQUEUE A KEYBOARD CHARACTER       
+;
+;       PARAMETERS:     INPUT:  NONE
+;
+;                       OUTPUT: ACC = CHARACTER IF SUCCESFUL
+;                               ACC = 0 IF BUFFER EMPTY
+;
+;       THIS FUNCTION DEQUEUES ONE CHARACTER FROM THE QUEUE
+
+KBDDEQ: PSHX					;
+			
+		LDX		KQUSED			; CHECK FOR EMPTY QUEUE
+		CMX#	0				;
+		JEQ		EMP_Q			;
+		LDX		KQHEAD			; LOAD CHAR INTO ACC
+		LDC		KQRING			; INC HEAD
+		AOC#	KBQSIZ			; CHECK FOR WRAP
+		JNE		DEQ_NWR			;
+		LDX#	0				; WRAP IF NESS
+DEQ_NWR:STX		KQHEAD
+		DEC		KQUSED
+		JMP		EX_DEQ
+EMP_Q:	LDA#	0
+EX_DEQ:	
+								; CHECK IF THE CHARACTER MUST BE A ESCAPE CHAR
+		CMA#	$20
+		JLT		DEQ_DONE
+		CMA#	$7E
+		JLT		DEQ_DONE
+		STA		TEMP_CHAR		; EXAMPLE : TEMP_CHAR = $00 00 B8
+		LDA#	$FF				; ACC = $00 00 FF
+		COMA					; ACC = $FF FF 00
+		ADA		TEMP_CHAR		; ACC = $FF FF B8
+DEQ_DONE:
+		POPX
+		
+        RTN                     ; RETURN
+TEMP_CHAR:		.WORD	0		; TEMP_CHAR TO STORE VALUE 
+
+       .PAGE
+;       TAPINI:  INITIALIZE THE TAPE DRIVE       
+;
+;       PARAMETERS:     NONE
+;
+;       THIS FUNCTION INITIALIZES THE TAPE DRIVE
+;       THE TAPE IS REWOUND
+;       TAPE READ IS INITIAITED
+;       TAPE DRIVE INTERRUPTS ARE ENABLED
+
+TAPINI: PSHA
+		
+		; SET INITIAL PARAMETERS
+;		CLR		TQUSED			; TQUSED = 0
+;		LDA#	TQRING			; ACC = MEM [ TQRING ]
+;		STA		TQTAIL			; TQTAIL -> MEM [ BUFFER ]
+;		STA		TNQBUF
+;		STA		TQHEAD			; TQHEAD -> MEM [ BUFFER ]
+
+		INB		TDR_STAT		; WAIT THE TAPE TO BE READY
+		JGE		@ - 1			;
+
+		LDA#	TDR_RW			; REWIND TAPE
+		OUTB	TDR_CTRL		; 		
+		
+		; START READ NEXT BUFFER 
+;		INB		TDR_STAT		; WAIT UNTIL TAPE IS READY
+;		JGE		@ - 1			;		
+		
+;		LDA		TNQBUF			; INITIATE READ
+;		OUTW	TDR_ADDR		;
+		
+;		LDA#	TPBSIZ			; LOAD THE LENGHT OF THE BUFFER
+;		OUTB	TDR_LEN			;
+		
+;		LDA#	TDR_RD + INT_CLR; START READING BUFFER CHAR
+;		OUTB	TDR_CTRL		;
+		
+		POPA
+        RTN                     ; RETURN
+
+
+       .PAGE
+;       TAPFUN:  TAPE FUNCTION
+;
+;       PARAMETERS:     INPUT:  ACC = 0:        REWIND
+;                               ACC = NONZERO:  READ+
+;
+;                       OUTPUT: ACC = BUFFER ADDRESS FOR READ
+;                               ACC = 0 IF NO BUFFER READY
+;                               ACC < 0 IF EOF OR NOT MOUNTED
+;
+;       THIS FUNCTION PROVIDES TAPE OPERATION FUNCTIONS
+
+TAPFUN:	PSHX
+
+
+		; CHECK INPUT
+		CMA#	0
+		JNE		DO_READ
+		
+		; ELSE DO REWIND
+
+		INB		TDR_STAT		; WAIT THE TAPE TO BE READY
+		JGE		@ - 1			;
+
+		LDA#	TDR_RW			; REWIND TAPE
+		OUTB	TDR_CTRL		; 		
+		JMP		TFUN_DONE		; EXIT
+
+
+DO_READ:
+		INB		TDR_STAT
+		AND#	TDR_EOT
+		JNE		EOT
+
+		LDA#	TQRING
+		OUTW	TDR_ADDR
+		
+		LDA#	TPBSIZ
+		OUTB	TDR_LEN
+	
+		LDA#	TDR_RD
+		OUTB	TDR_CTRL
+
+		INB		TDR_STAT
+		JGE		@ - 1
+
+		INB		TDR_LEN
+		TAX	
+		LDA#	0
+		STC		TQRING
+	
+		LDA#	TQRING
+		JMP		TFUN_DONE
+	
+
+
+EOT:	LDA#	1
+		NEGA
+
+
+TFUN_DONE:	
+		POPX
+		RTN                     ; RETURN
+
+       .PAGE
+;       TAPINT:  TAPE DRIVE INTERRUPT SERVICE ROUTINE
+;
+;       THIS FUNCTION PROCESSES TAPE DRIVE INTERRUPTS
+
+TAPINT:	;PSHX
+
+		; CHECK TAPE STATUS
+;		INB		TDR_STAT		; CHECK IF A TAPE IS MOUNTED
+;		JGT		INTEX			; EXIT INTERRUPT
+		
+;		INB		TDR_STAT		; CHECK FOR END OF TAPE
+;		AND#	TDR_EOT			;
+;		JEQ		FULL			; DO GOOD
+
+;		LDA#	1				; SET END OF TAPE
+;		NEGA					;
+;		STA		TAPEOT			;
+		
+;		LDA#	INT_CLR			; STOP INTERRUPTS
+;		OUTB	TDR_CTRL		;
+;		JMP		INTEX			;
+					
+;FULL:		
+;		LDA		TQUSED			; CHECK FOR FULL BUFFER
+;		CMA#	TPQSIZ			;
+;		JGE		INTEX			;
+
+		; IF EVERYTHING IS OK
+;		JSR		TAPENQ			; ENQUEU BUFFER
+		
+		; CHECK FOR END OF TAPE
+;		CMA#	0				;
+;		JLT		INTEX			;
+		
+		; START READ NEXT BUFFER 
+;		LDA		TNQBUF			; CURRENT ENQUEUENING BUFFER
+;		OUTW	TDR_ADDR		;
+		
+;		LDA#	TPBLGT			; LOAD THE LENGHT OF THE BUFFER
+;		OUTB	TDR_LEN			;
+		
+;		LDA#	TDR_RD + INT_ENA; START READING NEXT CHAR
+;		OUTB	TDR_CTRL		;
+		
+;INTEX:
+;		POPX
+IRTN                    ; RETURN
+ 
+       .PAGE
+;       TAPENQ:  ENQUEUE A TAPE DRIVE RECORD       
+;
+;       THIS FUNCTION INITIATES A TAPE READ
+;       IF THERE IS AN EMPTY BUFFER AVAILABLE
+
+TAPENQ: ;PSHX
+		
+;		INB		TDR_LEN			; PUT END OF BUFFER
+;		TAX						;
+;		LDA#	0				;
+;		STC*	TNQBUF			;
+		
+		; ELSE SET TAIL TO STORE CURRENT BUFFER
+;		LDA		TNQBUF			; LOAD TAIL
+;		STA		TQTAIL			; ENQUEUING POINTER
+;		INC		TQUSED			; INCREASE USED
+		
+;		LDA		TQUSED			; ??
+;		CMA#	TPQSIZ			; CHECK FOR WRAP
+;		JNE		TENQ_NWRP		; NO WRAP
+;		LDA#	TQRING			; WRAP IF NESS
+
+;TENQ_NWRP:
+;		LDA		TQTAIL			; CURRENT ENQUENING BUFFER
+;		ADA#	TPBLGT			; ADD BUFF SIZE
+;		STA		TNQBUF			; STORE POINTER
+
+;TENQ_EX:
+;		POPX
+		RTN                     ; RETURN
+
+
+       .PAGE
+;       TAPDEQ:  DEQUEUE A TAPE DRIVE RECORD       
+;
+;       PARAMETERS:     INPUT:  NONE
+;
+;                       OUTPUT: ACC = BUFFER ADDRESS IF READY
+;                               ACC = 0 IF NO BUFFER READY
+;                               ACC < 0 IF EOF OR NOT MOUNTED
+;
+;       THIS FUNCTION DEQUEUES ONE TAPE RECORD
+;       IF THERE IS A BUFFER READY
+
+TAPDEQ: ;PSHX
+;		CIE
+		
+;		LDX		TQUSED		; CHECK IF THE QUEUE IS EMPTY
+;		CMX#	0
+;		JEQ		NOT_READY	; NO BUFFER IS READY
+		
+							; ADVANCE HEAD POINTER AND RETURN NETX DEQUEU VALUE
+;		LDA		TQHEAD		; CURRENT HEAD POINTER
+;		STA		TDQBUF		; VALUE TO BE READ
+		
+;		ADA#	TPBLGT		; INC HEAD POINTER
+;		STA		TQHEAD		; STORE VALUE
+
+;		LDA		TQUSED		; CHECK IF NEED TO WRAP
+;		CMA#	TPQSIZ		; COMPARE TO MAX SIZE QEUE
+;		JNE		NWRAP_TAP	; NO WRAP
+;		LDA#	TQRING		;
+;		STA		TQHEAD		; WRAPPING
+
+;NWRAP_TAP:
+;		DEC		TQUSED
+;		LDA		TDQBUF		; RETURN NEW BUFFER ADDRESS
+;		JMP		TDEQ_EX		; DONE
+
+;NOT_READY:
+;		LDA#	1
+;		NEGA
+		
+;TDEQ_EX:
+;		SIE	
+;		POPX
+		RTN                     ; RETURN
+ 
+       .PAGE
+;       TIMINI:  INITIALIZE THE TIMER
+;
+;       PARAMETERS:     NONE
+;
+;       THIS FUNCTION INITIALIZES THE TIMER AND CLOCK
+;       THE TIMER IS RESET
+;       THE CLOCK IS RESET
+;       TIMER INTERRUPTS ARE ENABLED
+;       THE TIMER IS STARTED
+
+TIMINI:	PSHX				
+		PSHA
+			
+		LDA#	'0'				; SET POSSITION OF CLOCK
+		LDX#	CLKLOC			; SET POSSITION OF BUFFER
+		OUTB+	CRT_BUF			; DISPLAY '0'
+		LDA#	' '				; DISPLAY ' '
+		SBX#	1				; MOVE BACK
+		OUTB+	CRT_BUF			; DISPLAY
+		SBX#	1				; MOVE BACK 
+		OUTB+	CRT_BUF			; DISPLAY
+		SBX#	1				; MOVE BACK 
+		OUTB+	CRT_BUF			; DISPLAY
+		LDA#	TICCNT			; LOAD TICK COUNT
+		MUL#	1000			; THOUNSAN IT..
+		OUTW	TIM_VALUE		; SET VALUE
+		CLR		TIMBIN			; RESET TIMBIN
+								; SET TIMER FLAGS INT ENABLE, TIME RESET, TIME GO
+								
+		LDA#	INT_ENA + TIM_RES + TIM_LGO	
+		OUTB	TIM_CTRL		; SET FLAGS
+		
+		POPA					; RESTORE VALUES
+		POPX					;
+        RTN                     ; RETURN
+
+       .PAGE
+;       TIMFUN:  TIME FUNCTION
+;
+;       PARAMETERS:     INPUT:  ACC > 0:  START CLOCK
+;                               ACC = 0:  RESET CLOCK
+;                               ACC < 0:  STOP CLOCK
+;
+;                       OUTPUT: ACC = CLOCK DISPLAY LOCATION (LSD)
+;
+;       THIS FUNCTION PROVIDES CLOCK FUNCTIONS
+
+TIMFUN: CMA#	0				 
+		JLT		TIM_STOP			 
+		JGT		TIM_START			 
+		JSR		TIMINI			 
+		JMP		TIMER_END
+TIM_START:
+		LDA#	TIM_GO + INT_ENA
+		OUTB	TIM_CTRL
+		JMP		TIMER_END
+TIM_STOP:
+		LDA#	TIM_STP
+		OUTB	TIM_CTRL
+TIMER_END:
+		LDA#	CLKLOC
+
+        RTN                     ; RETURN
+
+       .PAGE
+;       TIMINT:  TIMER INTERRUPT SERVICE ROUTINE
+;
+;       THIS FUNCTION PROCESSES TIMER INTERRUPTS
+
+TIMINT: PSHA
+		PSHX
+
+		INC		TIMBIN				; INCREMENT THE BINARY TIME
+	
+		LDX#	CLKLOC				; LOAD CLOCK INTO INDEX POSITION 
+
+		INB+	CRT_BUF				; READ FROM BUFFER
+		SBA#	'0'					; SUBSTRACT 0
+		CMA#	9					;
+		JLT		NUM					; SET NUMBER INCREMENT
+		LDA#	'0'					; ELSE LAOD 0 CHAR
+		OUTB+	CRT_BUF				; DISPLAY IT
+		SBX#	1					; NEXT INDEX POSSITION
+
+		INB+	CRT_BUF				; READ CHAR
+		CMA#	' '					; CHECK FOR BLANK SPACE
+		JEQ		NONUM				; IF BLANK SET TO 1
+		SBA#	'0'					; ELSE GET NUMERIC VALUE
+		CMA#	9					; COMPARE TO 9
+		JLT		NUM					; SET NUMBER INCREMENT
+		LDA#	'0'					;
+		OUTB+	CRT_BUF
+		SBX#	1
+
+		INB+	CRT_BUF
+		CMA#	' '
+		JEQ		NONUM
+		SBA#	'0'
+		CMA#	9
+		JLT		NUM
+		LDA#	'0'
+		OUTB+	CRT_BUF
+		SBX#	1
+
+		INB+	CRT_BUF
+		CMA#	' '
+		JEQ		NONUM
+		SBA#	'0'
+		CMA#	9
+		JLT		NUM
+		LDA#	'0'
+		OUTB+	CRT_BUF
+		SBX#	1
+
+;ALL NINES SO SET TO '   0'
+		LDA#	'0'			
+		LDX#	CLKLOC
+		OUTB+	CRT_BUF			
+		LDA#	' '			
+		SBX#	1			
+		OUTB+	CRT_BUF
+		SBX#	1
+		OUTB+	CRT_BUF
+		SBX#	1
+		OUTB+	CRT_BUF
+		JMP		END
+
+NONUM:
+		LDA#	0
+
+NUM:	ADA#	1	
+		ADA#	'0'
+		OUTB+	CRT_BUF	
+
+END:	LDA#	INT_ENA + TIM_RES + TIM_LGO	
+		OUTB	TIM_CTRL
+			
+		POPX		
+		POPA
+        IRTN                    ; RETURN
+ 
+       .PAGE
+ERROR: .CHAR    'ERROR: KEYBOARD CHARACTER MISSED',ERROR_LENGTH ;
+
+KQUSED:.WORD    0               ; KEYBOARD QUEUE COUNT
+KQHEAD:.WORD    0               ; KEYBOARD QUEUE HEAD POINTER
+KQTAIL:.WORD    0               ; KEYBOARD QUEUE TAIL POINTER
+KQRING:.BLKW    (KBQSIZ+2)/3,0  ; KEYBOARD QUEUE RING BUFFER
+
+       .EQU     TPBLGT,(TPBSIZ+3)/3  ; TAPE BUFFER LENGTH (W0RDS) 
+       .EQU     TPQLGT,TPBLGT*TPQSIZ ; TAPE QUEUE  LENGTH (WORDS)
+TAPEOT:.WORD    0               ; TAPE DRIVE END OF TAPE INDICATOR
+TNQBUF:.WORD    0               ; CURRENT ENQUEUE TAPE BUFFER
+TDQBUF:.WORD    0               ; CURRENT DEQUEUE TAPE BUFFER
+TQUSED:.WORD    0               ; TAPE QUEUE COUNT
+TQHEAD:.WORD    0               ; TAPE QUEUE HEAD POINTER
+TQTAIL:.WORD    0               ; TAPE QUEUE TAIL POINTER
+TQRING:.BLKW    TPQLGT,'==='    ; TAPE QUEUE RING BUFFER
+TQUEND:                         ; TAPE QUEUE END
+       .PAGE                    ;
+       .END                     ;

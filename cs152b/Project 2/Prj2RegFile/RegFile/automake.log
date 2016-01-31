@@ -1,0 +1,37 @@
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_regfile_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w RegFile.sch regfile.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+

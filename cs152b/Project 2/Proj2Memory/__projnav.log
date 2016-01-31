@@ -1,0 +1,5186 @@
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @testbench.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    testbench.vhd
+Scanning    testbench.vhd
+Writing testbench.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+Starting: 'jhdparse @wrdiptosram.jp'
+
+
+
+Starting: 'jhdparse @newtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    newtest.vhd
+Scanning    newtest.vhd
+Writing newtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+Starting: 'jhdparse @pctosraminterface-sv06.jp'
+
+
+
+Starting: 'jhdparse @memorymultiplexor-sv01.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorymultiplexor-sv01.vhd
+Scanning    memorymultiplexor-sv01.vhd
+Writing memorymultiplexor-sv01.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+Starting: 'jhdparse @sraminterfacewithpport-sv01.jp'
+
+
+
+Starting: 'jhdparse @sram512kleft16bit50mhzreadreq-sv05.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    sram512kleft16bit50mhzreadreq-sv05.vhd
+Scanning    sram512kleft16bit50mhzreadreq-sv05.vhd
+Writing sram512kleft16bit50mhzreadreq-sv05.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+Starting: 'jhdparse @userpctosramtoplevel.jp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @wralutosram.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    wralutosram.vhd
+Scanning    wralutosram.vhd
+Writing wralutosram.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @wralutosram.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    wralutosram.vhd
+Scanning    wralutosram.vhd
+Writing wralutosram.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @wralutosram.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    wralutosram.vhd
+Scanning    wralutosram.vhd
+Writing wralutosram.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @wralutosram.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    wralutosram.vhd
+Scanning    wralutosram.vhd
+Writing wralutosram.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memaccess.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memaccess.vhd
+Scanning    memaccess.vhd
+Writing memaccess.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -tcl -command __runBencher.tcl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap @testbenchApp.rsp'
+
+
+Analyzing VHDL source files...
+Elaborating design unit memorymodule...
+vhdtdtfi completed without error...
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap @testbenchApp.rsp'
+
+
+Analyzing VHDL source files...
+Elaborating design unit memoryread...
+vhdtdtfi completed without error...
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Place & Route Report
+
+Starting: 'exewrap @__memorymodule_2prj_exewrap.rsp'
+
+
+Creating TCL Process
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -tcl -command C:/Xilinx/data/projnav/_filesAllClean.tcl _XSTClean.rsp 0'
+
+
+Creating TCL Process
+Cleaning Up Project
+Finished cleaning up project
+Done: completed successfully.
+
+Starting: 'exewrap -mode pipe -tapkeep -command C:/Xilinx/bin/nt/xst.exe -ifn memorymodule.xst -ofn memorymodule.syr'
+
+
+Starting: 'C:/Xilinx/bin/nt/xst.exe -ifn memorymodule.xst -ofn memorymodule.syr '
+
+
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.20 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.22 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.22 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : memorymodule.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : memorymodule
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : memorymodule
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd in Library work.
+Entity <pctosraminterface> (Architecture <pctosraminterface_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/Proj2Memory/memorymultiplexor-sv01.vhd in Library work.
+Entity <memorymultiplexor> (Architecture <memorymultiplexor_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/Proj2Memory/sram512kleft16bit50mhzreadreq-sv05.vhd in Library work.
+Entity <sraminterface> (Architecture <sraminterface_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/Proj2Memory/memoryread.vhd in Library work.
+Entity <memoryread> (Architecture <behavioral>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/Proj2Memory/memorywrite.vhd in Library work.
+Entity <memorywrite> (Architecture <behavioral>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd in Library work.
+Entity <sraminterfacewithpport> (Architecture <sraminterfacewithpport_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/Proj2Memory/memaccess.vhd in Library work.
+Entity <memorymodule> (Architecture <behavioral>) compiled.
+
+Analyzing Entity <memorymodule> (Architecture <Behavioral>).
+Entity <memorymodule> analyzed. Unit <memorymodule> generated.
+
+Analyzing Entity <memoryread> (Architecture <behavioral>).
+Entity <memoryread> analyzed. Unit <memoryread> generated.
+
+Analyzing Entity <memorywrite> (Architecture <behavioral>).
+Entity <memorywrite> analyzed. Unit <memorywrite> generated.
+
+Analyzing Entity <sraminterfacewithpport> (Architecture <sraminterfacewithpport_arch>).
+WARNING:Xst:753 - E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portin
+slicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portou
+tslicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'stateo
+utput' of component 'pctosraminterface'.
+Entity <sraminterfacewithpport> analyzed. Unit <sraminterfacewithpport> generated.
+
+Analyzing Entity <pctosraminterface> (Architecture <pctosraminterface_arch>).
+WARNING:Xst:819 - E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd (Line 193). The following signals are missing in
+ the process sensitivity list:
+   asyncinputs, syncinputs1, syncinputs2.
+WARNING:Xst:819 - E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd (Line 211). The following signals are missing in
+ the process sensitivity list:
+   softreset.
+Entity <pctosraminterface> analyzed. Unit <pctosraminterface> generated.
+
+Analyzing Entity <memorymultiplexor> (Architecture <memorymultiplexor_arch>).
+Entity <memorymultiplexor> analyzed. Unit <memorymultiplexor> generated.
+
+Analyzing Entity <sraminterface> (Architecture <sraminterface_arch>).
+Entity <sraminterface> analyzed. Unit <sraminterface> generated.
+
+
+Synthesizing Unit <sraminterface>.
+    Related source file is E:/HingKei/152bs04/Proj2Memory/sram512kleft16bit50mhzreadreq-sv05.vhd.
+    Found finite state machine <FSM_0> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 8                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 19-bit register for signal <addrreg>.
+    Found 1-bit register for signal <cen>.
+    Found 1-bit register for signal <doingwrite1>.
+    Found 1-bit register for signal <doingwrite2>.
+    Found 1-bit register for signal <oen>.
+    Found 16-bit tristate buffer for signal <sramdata>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  39 D-type flip-flop(s).
+	inferred  19 Multiplexer(s).
+	inferred  16 Tristate(s).
+Unit <sraminterface> synthesized.
+
+
+Synthesizing Unit <memorymultiplexor>.
+    Related source file is E:/HingKei/152bs04/Proj2Memory/memorymultiplexor-sv01.vhd.
+    Found 1-bit register for signal <presstate>.
+    Found 57 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred  57 Multiplexer(s).
+Unit <memorymultiplexor> synthesized.
+
+
+Synthesizing Unit <pctosraminterface>.
+    Related source file is E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd.
+WARNING:Xst:646 - Signal <regdatain> is assigned but never used.
+    Found finite state machine <FSM_1> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 45                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 12                                             |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 8-bit latch for signal <mysyncdata>.
+    Found 4-bit 4-to-1 multiplexer for signal <dataout>.
+    Found 19-bit adder for signal <$n0000> created at line 261.
+    Found 8-bit comparator equal for signal <$n0098> created at line 200.
+    Found 8-bit comparator equal for signal <$n0099> created at line 200.
+    Found 8-bit comparator equal for signal <$n0100> created at line 250.
+    Found 8-bit comparator equal for signal <$n0101> created at line 250.
+    Found 19-bit register for signal <curaddrreg>.
+    Found 5-bit register for signal <datainreg>.
+    Found 2-bit up counter for signal <inslicenum>.
+    Found 2-bit up counter for signal <outslicenum>.
+    Found 1-bit register for signal <pccontrolenabled>.
+    Found 16-bit register for signal <readdatareg>.
+    Found 8-bit register for signal <syncinputs1>.
+    Found 8-bit register for signal <syncinputs2>.
+    Found 8-bit register for signal <syncinputs3>.
+    Found 1-bit register for signal <syncnextslice>.
+    Found 1-bit register for signal <syncread>.
+    Found 1-bit register for signal <syncwrite>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred  84 D-type flip-flop(s).
+	inferred   8 Latch(s).
+	inferred   1 Adder/Subtracter(s).
+	inferred   4 Comparator(s).
+	inferred  23 Multiplexer(s).
+Unit <pctosraminterface> synthesized.
+
+
+Synthesizing Unit <sraminterfacewithpport>.
+    Related source file is E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd.
+Unit <sraminterfacewithpport> synthesized.
+
+
+Synthesizing Unit <memorywrite>.
+    Related source file is E:/HingKei/152bs04/Proj2Memory/memorywrite.vhd.
+WARNING:Xst:646 - Signal <prestate> is assigned but never used.
+WARNING:Xst:646 - Signal <nextstate> is assigned but never used.
+WARNING:Xst:647 - Input <clk> is never used.
+Unit <memorywrite> synthesized.
+
+
+Synthesizing Unit <memoryread>.
+    Related source file is E:/HingKei/152bs04/Proj2Memory/memoryread.vhd.
+    Found 1-bit register for signal <prestate>.
+    Found 1 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <memoryread> synthesized.
+
+
+Synthesizing Unit <memorymodule>.
+    Related source file is E:/HingKei/152bs04/Proj2Memory/memaccess.vhd.
+Unit <memorymodule> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# FSMs                             : 2
+# Registers                        : 52
+  19-bit register                  : 1
+  8-bit register                   : 3
+  1-bit register                   : 45
+  5-bit register                   : 1
+  16-bit register                  : 2
+# Latches                          : 1
+  8-bit latch                      : 1
+# Counters                         : 2
+  2-bit up counter                 : 2
+# Multiplexers                     : 28
+  2-to-1 multiplexer               : 27
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 1
+  19-bit adder                     : 1
+# Comparators                      : 4
+  8-bit comparator equal           : 4
+
+=========================================================================
+
+Optimizing FSM <FSM_0> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_1> with One-Hot encoding and D flip-flops.
+
+Starting low level synthesis...
+Optimizing unit <pctosraminterface> ...
+
+Optimizing unit <memorymultiplexor> ...
+
+Optimizing unit <memoryread> ...
+
+Optimizing unit <memorywrite> ...
+
+Optimizing unit <memorymodule> ...
+
+Building and optimizing final netlist ...
+
+WARNING:Xst:164 - Inserting OBUF on port <dout<0>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<10>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<11>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<12>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<13>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<14>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<15>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<1>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<2>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<3>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<4>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<5>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<6>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<7>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<8>> driven by tristate(s), possible simulation mismatch.
+WARNING:Xst:164 - Inserting OBUF on port <dout<9>> driven by tristate(s), possible simulation mismatch.
+Register pctofpgainterface_fpgatosraminterface_presstate_FFD2 equivalent to pctofpgainterface_fpgatosraminterface_doingwrite
+1 has been removed
+Register pctofpgainterface_fpgatosraminterface_presstate_FFD3 equivalent to pctofpgainterface_fpgatosraminterface_doingwrite
+2 has been removed
+FlipFlop pctofpgainterface_thememmultiplexor_presstate has been replicated 2 time(s)
+FlipFlop pctofpgainterface_pportinterface_syncnextslice has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_syncread has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_syncwrite has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_inslicenum_0 has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_inslicenum_1 has been replicated 1 time(s)
+=========================================================================
+Final Results
+Top Level Output File Name         : memorymodule
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Macro Statistics
+# FSMs                             : 2
+# Registers                        : 54
+  19-bit register                  : 1
+  8-bit register                   : 3
+  1-bit register                   : 45
+  5-bit register                   : 1
+  16-bit register                  : 2
+  2-bit register                   : 2
+# Multiplexers                     : 1
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 1
+  19-bit adder                     : 1
+# Comparators                      : 4
+  8-bit comparator equal           : 4
+
+Design Statistics
+# IOs                              : 124
+
+Cell Usage :
+# BELS                             : 340
+#      GND                         : 1
+#      LUT1                        : 21
+#      LUT2                        : 20
+#      LUT3                        : 87
+#      LUT3_D                      : 2
+#      LUT3_L                      : 19
+#      LUT4                        : 112
+#      LUT4_D                      : 1
+#      LUT4_L                      : 3
+#      MUXCY                       : 34
+#      MUXF5                       : 21
+#      VCC                         : 1
+#      XORCY                       : 18
+# FlipFlops/Latches                : 157
+#      FDC                         : 42
+#      FDCE                        : 104
+#      FDP                         : 3
+#      LD                          : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 123
+#      IBUF                        : 63
+#      IOBUF                       : 16
+#      OBUF                        : 44
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 151   |
+pctofpgainterface_pportinterface_I__n0037:O| NONE(*)(pctofpgainterface_pportinterface_mysyncdata_1)| 8     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: 12.204ns (Maximum Frequency: 81.940MHz)
+   Minimum input arrival time before clock: 10.957ns
+   Maximum output required time after clock: 12.353ns
+   Maximum combinational path delay: 16.079ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default period analysis for Clock 'clk'
+Delay:               12.204ns (Levels of Logic = 4)
+  Source:            pctofpgainterface_fpgatosraminterface_doingwrite2
+  Destination:       pctofpgainterface_fpgatosraminterface_addrreg_15
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: pctofpgainterface_fpgatosraminterface_doingwrite2 to pctofpgainterface_fpgatosraminterface_addrreg_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              12   1.065   2.160  pctofpgainterface_fpgatosraminterface_doingwrite2 (pctofpgainterface_fpgatosra
+minterface_doingwrite2)
+    LUT3_D:I1->O          12   0.573   2.160  I_pctofpgainterface_fpgatosraminterface_canwrite (N453)
+    MUXF5:S->O             3   0.636   1.332  pctofpgainterface_thememmultiplexor_I_memdoread (N470)
+    LUT3_D:I1->O          19   0.573   2.790  I_pctofpgainterface_fpgatosraminterface_presstate_XX_FFD4 (N473)
+    LUT3_L:I0->LO          1   0.573   0.000  I_pctofpgainterface_fpgatosraminterface_Mmux__n0008_I3_Result (N517)
+    FDCE:D                     0.342          pctofpgainterface_fpgatosraminterface_addrreg_15
+    ----------------------------------------
+    Total                     12.204ns (3.762ns logic, 8.442ns route)
+                                       (30.8% logic, 69.2% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+Offset:              10.957ns (Levels of Logic = 6)
+  Source:            resetl
+  Destination:       pctofpgainterface_fpgatosraminterface_addrreg_15
+  Destination Clock: clk rising
+
+  Data Path: resetl to pctofpgainterface_fpgatosraminterface_addrreg_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O              6   0.768   1.665  resetl_IBUF (resetl_IBUF)
+    LUT2:I1->O             3   0.573   1.332  I_pctofpgainterface_fpgatosraminterface_canwrite_SW0 (N5853)
+    LUT4:I3->O             1   0.573   0.000  pctofpgainterface_thememmultiplexor_I_memdowrite_F (N6021)
+    MUXF5:I0->O            3   0.436   1.332  pctofpgainterface_thememmultiplexor_I_memdowrite (N459)
+    LUT3_D:I2->O          19   0.573   2.790  I_pctofpgainterface_fpgatosraminterface_presstate_XX_FFD4 (N473)
+    LUT3_L:I0->LO          1   0.573   0.000  I_pctofpgainterface_fpgatosraminterface_Mmux__n0008_I3_Result (N517)
+    FDCE:D                     0.342          pctofpgainterface_fpgatosraminterface_addrreg_15
+    ----------------------------------------
+    Total                     10.957ns (3.838ns logic, 7.119ns route)
+                                       (35.0% logic, 65.0% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+Offset:              12.353ns (Levels of Logic = 3)
+  Source:            pctofpgainterface_fpgatosraminterface_doingwrite2
+  Destination:       rddone
+  Source Clock:      clk rising
+
+  Data Path: pctofpgainterface_fpgatosraminterface_doingwrite2 to rddone
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              12   1.065   2.160  pctofpgainterface_fpgatosraminterface_doingwrite2 (pctofpgainterface_fpgatosra
+minterface_doingwrite2)
+    LUT3_D:I1->O          12   0.573   2.160  I_pctofpgainterface_fpgatosraminterface_canwrite (N453)
+    LUT2:I0->O             1   0.573   1.035  alureadsram_I_readdone (rddone_OBUF)
+    OBUF:I->O                  4.787          rddone_OBUF (rddone)
+    ----------------------------------------
+    Total                     12.353ns (6.998ns logic, 5.355ns route)
+                                       (56.7% logic, 43.3% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Delay:               16.079ns (Levels of Logic = 3)
+  Source:            clk
+  Destination:       ldata_13
+
+  Data Path: clk to ldata_13
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    BUFGP:I->O           151   0.687   7.380  clk_BUFGP (clk_BUFGP)
+    LUT3:I1->O            16   0.573   2.520  I_pctofpgainterface_fpgatosraminterface_I7_EnableTr_INV (N458)
+    IOBUF:T->IO                4.919          ldata_13_IOBUF (ldata_13)
+    ----------------------------------------
+    Total                     16.079ns (6.179ns logic, 9.900ns route)
+                                       (38.4% logic, 61.6% route)
+
+=========================================================================
+CPU : 9.27 / 9.48 s | Elapsed : 9.00 / 9.00 s
+ 
+--> 
+EXEWRAP detected that program 'C:/Xilinx/bin/nt/xst.exe' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @__ednTOngd_exewrap.rsp'
+
+
+Starting: 'ngdbuild -f __ngdbuild.rsp '
+
+
+Release 4.1i - ngdbuild E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -dd e:/hingkei/152bs04/proj2memory/_ngo -nt timestamp -p
+xcv50-pq240-6 memorymodule.ngc memorymodule.ngd 
+
+Reading NGO file "E:/HingKei/152bs04/Proj2Memory/memorymodule.ngc" ...
+Reading component libraries for design expansion...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:477 - clock net 'clk_BUFGP' has non-clock connections
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Writing NGD file "memorymodule.ngd" ...
+
+Writing NGDBUILD log file "memorymodule.bld"...
+
+NGDBUILD done.
+EXEWRAP detected that program 'ngdbuild' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_ngdTOnc1_exewrap.rsp'
+
+
+Creating TCL Process
+Starting: 'map -f _map.rsp'
+
+
+Release 4.1i - Map E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Using target part "v50pq240-6".
+Removing unused or disabled logic...
+Running cover...
+Writing file memorymodule.ngm...
+Running directed packing...
+Running delay-based packing...
+Running related packing...
+Writing design file "memorymodule.ncd"...
+
+Design Summary:
+   Number of errors:      0
+   Number of warnings:    2
+   Number of Slices:                186 out of    768   24%
+   Number of Slices containing
+      unrelated logic:                0 out of    186    0%
+   Total Number Slice Registers:    156 out of  1,536   10%
+      Number used as Flip Flops:                  148
+      Number used as Latches:                       8
+   Total Number 4 input LUTs:       253 out of  1,536   16%
+      Number used as LUTs:                        243
+      Number used as a route-thru:                 10
+   Number of bonded IOBs:           123 out of    166   74%
+      IOB Flip Flops:                               1
+   Number of GCLKs:                   1 out of      4   25%
+   Number of GCLKIOBs:                1 out of      4   25%
+Total equivalent gate count for design:  2,957
+Additional JTAG gate count for IOBs:  5,952
+
+Mapping completed.
+See MAP report file "memorymodule.mrp" for details.
+Tcl C:/Xilinx/data/projnav/_map.tcl detected that program 'map -f _map.rsp' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_nc1TOncd_exewrap.rsp'
+
+
+Creating TCL Process
+Found _prepar.rsp
+Starting: 'par -f _par.rsp'
+
+
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+WARNING:Par:69 - Option "-xe" overrides some effects of "-ol".
+
+
+Constraints file: memorymodule.pcf
+
+Loading design for application par from file par_temp.ncd.
+   "memorymodule" is an NCD, version 2.36, device xcv50, package pq240, speed -6
+Loading device for application par from file 'v50.nph' in environment C:/Xilinx.
+Device speed data version:  FINAL 1.115 2001-06-20.
+
+
+Resolving physical constraints.
+Finished resolving physical constraints.
+
+Device utilization summary:
+
+   Number of External GCLKIOBs         1 out of 4      25%
+   Number of External IOBs           123 out of 166    74%
+      Number of LOCed External IOBs    0 out of 123     0%
+
+   Number of SLICEs                  186 out of 768    24%
+
+   Number of GCLKs                     1 out of 4      25%
+
+
+
+Overall effort level (-ol):   2 (set by user)
+Placer effort level (-pl):    2 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    2 (set by user)
+Extra effort level (-xe):     0 (set by user)
+
+Starting initial Placement phase. REAL time: 0 secs 
+Finished initial Placement phase. REAL time: 2 secs 
+Starting the placer. REAL time: 2 secs 
+Placement pass 1 ....
+Placer score = 40255
+Placement pass 2 ......
+Placer score = 38540
+Optimizing ... 
+Placer score = 32595
+Placer score = 27675
+Placer completed in real time: 2 secs 
+
+Dumping design to file memorymodule.ncd.
+
+Total REAL time to Placer completion: 2 secs 
+Total CPU time to Placer completion: 1 secs 
+
+0 connection(s) routed; 1314 unrouted active, 2 unrouted PWR/GND.
+Starting router resource preassignment
+Completed router resource preassignment. REAL time: 2 secs 
+Starting iterative routing. 
+Routing active signals.
+......
+End of iteration 1 
+1316 successful; 0 unrouted; (0) REAL time: 3 secs 
+Constraints are met. 
+Total REAL time: 3 secs 
+Total CPU  time: 1 secs 
+End of route.  1316 routed (100.00%); 0 unrouted.
+No errors found. 
+Completely routed. 
+
+This design was run without timing constraints.  It is likely that much better
+circuit performance can be obtained by trying either or both of the following:
+
+  - Enabling the Delay Based Cleanup router pass, if not already enabled
+  - Supplying timing constraints in the input design
+
+
+Total REAL time to Router completion: 3 secs 
+Total CPU time to Router completion: 2 secs 
+
+Generating PAR statistics.
+Dumping design to file memorymodule.ncd.
+
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 3 secs 
+Total CPU time to PAR completion: 2 secs 
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+PAR done.
+Tcl C:/Xilinx/data/projnav/_par.tcl detected that program 'par -f _par.rsp' completed successfully.
+
+PAR completed successfully
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap @testbenchApp.rsp'
+
+
+Analyzing VHDL source files...
+Elaborating design unit memorywrite...
+vhdtdtfi completed without error...
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @writetest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    writetest.vhd
+Scanning    writetest.vhd
+Writing writetest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @writetest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    writetest.vhd
+Scanning    writetest.vhd
+Writing writetest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memorywrite.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memorywrite.vhd
+Scanning    memorywrite.vhd
+Writing memorywrite.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @memoryread.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memoryread.vhd
+Scanning    memoryread.vhd
+Writing memoryread.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @readtest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    readtest.vhd
+Scanning    readtest.vhd
+Writing readtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @writetest.jp'
+
+
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    writetest.vhd
+Scanning    writetest.vhd
+Writing writetest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @_vhdTOfdo_exewrap.rsp'
+
+
+Starting: 'xilperl C:/Xilinx/data/projnav/createfdo.pl __vhdTOfdo.rsp '
+
+
+Opening __vhdTOfdo.rsp
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Simulate Behavioral VHDL Model
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_msim_simBehavVhdlModel_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+

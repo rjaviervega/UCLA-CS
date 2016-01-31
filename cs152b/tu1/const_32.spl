@@ -1,0 +1,4 @@
+[Inputs]
+[Outputs]
+=const_out[31:0]=
+[BiDir]

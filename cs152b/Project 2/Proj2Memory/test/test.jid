@@ -1,0 +1,3 @@
+. test test.sch e:\proj2\proj2memory\test\test.sch
+XLXI_31 simtest simtest.vhd e:\proj2\proj2memory\test\simtest.vhd
+XLXI_1 memorymodule memaccess.vhd e:\proj2\proj2memory\test\memaccess.vhd

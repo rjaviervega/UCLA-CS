@@ -1,0 +1,8 @@
+[Inputs]
+=A[15:0]=
+=B[3:0]=
+=control[3:0]=
+[Outputs]
+shifted_out
+=shift_result[15:0]=
+[BiDir]

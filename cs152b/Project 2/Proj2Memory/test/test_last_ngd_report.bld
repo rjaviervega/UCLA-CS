@@ -1,0 +1,26 @@
+Release 4.1i - ngdbuild E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -dd e:/proj2/proj2memory/test/_ngo -nt timestamp -p
+xcv50-pq240-6 test.ngc test.ngd 
+
+Reading NGO file "E:/proj2/Proj2Memory/test/test.ngc" ...
+Reading component libraries for design expansion...
+
+Annotating constraints to design from file "test.ucf" ...
+ERROR:NgdBuild:397 - Could not find NET 'ppstatus3' in design 'test'.  NET entry
+   is 'NET "ppstatus3" LOC = "P132";
+   '
+ERROR:NgdBuild:397 - Could not find NET 'ppstatus4' in design 'test'.  NET entry
+   is 'NET "ppstatus4" LOC = "P133";
+   '
+ERROR:NgdBuild:397 - Could not find NET 'ppstatus5' in design 'test'.  NET entry
+   is 'NET "ppstatus5" LOC = "P139";
+   '
+ERROR:NgdBuild:397 - Could not find NET 'ppstatus6' in design 'test'.  NET entry
+   is 'NET "ppstatus6" LOC = "P141";
+   '
+ERROR:Parsers:11 - Encountered unrecognized constraint while parsing.
+ERROR:NgdBuild:19 - Errors found while parsing constraint file "test.ucf".
+
+Writing NGDBUILD log file "test.bld"...

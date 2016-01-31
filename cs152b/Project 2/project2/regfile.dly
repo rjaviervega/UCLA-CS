@@ -1,0 +1,1435 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Fri Jul 23 13:27:01 2004
+
+File: regfile.dly
+
+ The 20 Worst Net Delays are:
+-------------------------------
+| Max Delay (ns)  | Netname   |
+-------------------------------
+   4.916            rb_0_IBUF
+   4.664            ra_0_IBUF
+   3.906            ra_1_IBUF
+   3.583            busw_2_IBUF
+   3.460            wren4
+   3.422            rb_1_IBUF
+   3.169            rb_2_IBUF
+   3.111            busw_14_IBUF
+   3.043            ra_2_IBUF
+   3.043            busw_11_IBUF
+   2.954            busw_6_IBUF
+   2.935            wren3
+   2.908            busw_4_IBUF
+   2.907            busw_5_IBUF
+   2.901            wren2
+   2.685            wren1
+   2.550            busw_3_IBUF
+   2.339            busw_8_IBUF
+   2.301            rw_0_IBUF
+   2.257            busw_15_IBUF
+---------------------------------
+
+-------------------------------------------------------------------------------
+                               Net Delays
+-------------------------------------------------------------------------------
+
+busa_0_OBUF
+   busa_0_OBUF.Y
+         0.873  busa<0>.O
+
+busa_10_OBUF
+   busa_10_OBUF.Y
+         2.090  busa<10>.O
+
+busa_11_OBUF
+   busa_11_OBUF.Y
+         1.838  busa<11>.O
+
+busa_12_OBUF
+   busa_12_OBUF.Y
+         1.221  busa<12>.O
+
+busa_13_OBUF
+   busa_13_OBUF.Y
+         1.235  busa<13>.O
+
+busa_14_OBUF
+   busa_14_OBUF.Y
+         1.210  busa<14>.O
+
+busa_15_OBUF
+   busa_15_OBUF.Y
+         1.210  busa<15>.O
+
+busa_1_OBUF
+   busa_1_OBUF.Y
+         0.965  busa<1>.O
+
+busa_2_OBUF
+   busa_2_OBUF.Y
+         2.090  busa<2>.O
+
+busa_3_OBUF
+   busa_3_OBUF.Y
+         1.438  busa<3>.O
+
+busa_4_OBUF
+   busa_4_OBUF.Y
+         1.733  busa<4>.O
+
+busa_5_OBUF
+   busa_5_OBUF.Y
+         1.509  busa<5>.O
+
+busa_6_OBUF
+   busa_6_OBUF.Y
+         0.875  busa<6>.O
+
+busa_7_OBUF
+   busa_7_OBUF.Y
+         1.210  busa<7>.O
+
+busa_8_OBUF
+   busa_8_OBUF.Y
+         1.188  busa<8>.O
+
+busa_9_OBUF
+   busa_9_OBUF.Y
+         1.553  busa<9>.O
+
+busamux/N1019
+   busamux/N1019.F5
+         0.000  busa_4_OBUF.F5IN
+
+busamux/N1135
+   busamux/N1135.F5
+         0.000  busa_5_OBUF.F5IN
+
+busamux/N1251
+   busamux/N1251.F5
+         0.000  busa_6_OBUF.F5IN
+
+busamux/N1367
+   busamux/N1367.F5
+         0.000  busa_7_OBUF.F5IN
+
+busamux/N1483
+   busamux/N1483.F5
+         0.000  busa_8_OBUF.F5IN
+
+busamux/N1599
+   busamux/N1599.F5
+         0.000  busa_9_OBUF.F5IN
+
+busamux/N1715
+   busamux/N1715.F5
+         0.000  busa_10_OBUF.F5IN
+
+busamux/N1831
+   busamux/N1831.F5
+         0.000  busa_11_OBUF.F5IN
+
+busamux/N1947
+   busamux/N1947.F5
+         0.000  busa_12_OBUF.F5IN
+
+busamux/N2063
+   busamux/N2063.F5
+         0.000  busa_13_OBUF.F5IN
+
+busamux/N2179
+   busamux/N2179.F5
+         0.000  busa_14_OBUF.F5IN
+
+busamux/N2295
+   busamux/N2295.F5
+         0.000  busa_15_OBUF.F5IN
+
+busamux/N555
+   busamux/N555.F5
+         0.000  busa_0_OBUF.F5IN
+
+busamux/N671
+   busamux/N671.F5
+         0.000  busa_1_OBUF.F5IN
+
+busamux/N787
+   busamux/N787.F5
+         0.000  busa_2_OBUF.F5IN
+
+busamux/N903
+   busamux/N903.F5
+         0.000  busa_3_OBUF.F5IN
+
+busb_0_OBUF
+   busb_0_OBUF.Y
+         0.965  busb<0>.O
+
+busb_10_OBUF
+   busb_10_OBUF.Y
+         0.875  busb<10>.O
+
+busb_11_OBUF
+   busb_11_OBUF.Y
+         1.733  busb<11>.O
+
+busb_12_OBUF
+   busb_12_OBUF.Y
+         1.221  busb<12>.O
+
+busb_13_OBUF
+   busb_13_OBUF.Y
+         1.221  busb<13>.O
+
+busb_14_OBUF
+   busb_14_OBUF.Y
+         2.095  busb<14>.O
+
+busb_15_OBUF
+   busb_15_OBUF.Y
+         1.210  busb<15>.O
+
+busb_1_OBUF
+   busb_1_OBUF.Y
+         0.965  busb<1>.O
+
+busb_2_OBUF
+   busb_2_OBUF.Y
+         1.221  busb<2>.O
+
+busb_3_OBUF
+   busb_3_OBUF.Y
+         1.464  busb<3>.O
+
+busb_4_OBUF
+   busb_4_OBUF.Y
+         1.418  busb<4>.O
+
+busb_5_OBUF
+   busb_5_OBUF.Y
+         2.090  busb<5>.O
+
+busb_6_OBUF
+   busb_6_OBUF.Y
+         1.210  busb<6>.O
+
+busb_7_OBUF
+   busb_7_OBUF.Y
+         1.207  busb<7>.O
+
+busb_8_OBUF
+   busb_8_OBUF.Y
+         1.464  busb<8>.O
+
+busb_9_OBUF
+   busb_9_OBUF.Y
+         1.235  busb<9>.O
+
+busbmux/N1019
+   busbmux/N1019.F5
+         0.000  busb_4_OBUF.F5IN
+
+busbmux/N1135
+   busbmux/N1135.F5
+         0.000  busb_5_OBUF.F5IN
+
+busbmux/N1251
+   busbmux/N1251.F5
+         0.000  busb_6_OBUF.F5IN
+
+busbmux/N1367
+   busbmux/N1367.F5
+         0.000  busb_7_OBUF.F5IN
+
+busbmux/N1483
+   busbmux/N1483.F5
+         0.000  busb_8_OBUF.F5IN
+
+busbmux/N1599
+   busbmux/N1599.F5
+         0.000  busb_9_OBUF.F5IN
+
+busbmux/N1715
+   busbmux/N1715.F5
+         0.000  busb_10_OBUF.F5IN
+
+busbmux/N1831
+   busbmux/N1831.F5
+         0.000  busb_11_OBUF.F5IN
+
+busbmux/N1947
+   busbmux/N1947.F5
+         0.000  busb_12_OBUF.F5IN
+
+busbmux/N2063
+   busbmux/N2063.F5
+         0.000  busb_13_OBUF.F5IN
+
+busbmux/N2179
+   busbmux/N2179.F5
+         0.000  busb_14_OBUF.F5IN
+
+busbmux/N2295
+   busbmux/N2295.F5
+         0.000  busb_15_OBUF.F5IN
+
+busbmux/N555
+   busbmux/N555.F5
+         0.000  busb_0_OBUF.F5IN
+
+busbmux/N671
+   busbmux/N671.F5
+         0.000  busb_1_OBUF.F5IN
+
+busbmux/N787
+   busbmux/N787.F5
+         0.000  busb_2_OBUF.F5IN
+
+busbmux/N903
+   busbmux/N903.F5
+         0.000  busb_3_OBUF.F5IN
+
+busw_0_IBUF
+   busw<0>.I
+         1.213  reg4_1.BY
+         1.615  reg2_1.BY
+         1.268  reg1_1.BY
+         1.266  reg6_1.BY
+         1.348  reg3_1.BY
+         1.265  reg5_1.BY
+         1.281  reg7_1.BY
+
+busw_10_IBUF
+   busw<10>.I
+         1.311  reg2_11.BY
+         1.969  reg1_11.BY
+         1.529  reg7_11.BY
+         1.829  reg4_11.BY
+         1.479  reg6_11.BY
+         1.313  reg3_11.BY
+         1.959  reg5_11.BY
+
+busw_11_IBUF
+   busw<11>.I
+         2.483  reg2_11.BX
+         3.043  reg1_11.BX
+         2.608  reg7_11.BX
+         2.484  reg4_11.BX
+         2.691  reg6_11.BX
+         2.385  reg3_11.BX
+         2.994  reg5_11.BX
+
+busw_12_IBUF
+   busw<12>.I
+         1.637  reg2_13.BY
+         1.789  reg1_13.BY
+         1.687  reg7_13.BY
+         1.902  reg4_13.BY
+         1.560  reg6_13.BY
+         1.563  reg3_13.BY
+         1.902  reg5_13.BY
+
+busw_13_IBUF
+   busw<13>.I
+         1.520  reg2_13.BX
+         1.404  reg1_13.BX
+         1.506  reg7_13.BX
+         1.353  reg4_13.BX
+         1.373  reg6_13.BX
+         1.404  reg3_13.BX
+         1.540  reg5_13.BX
+
+busw_14_IBUF
+   busw<14>.I
+         3.049  reg2_15.BY
+         2.333  reg1_15.BY
+         3.062  reg7_15.BY
+         2.355  reg4_15.BY
+         2.334  reg6_15.BY
+         3.111  reg3_15.BY
+         2.282  reg5_15.BY
+
+busw_15_IBUF
+   busw<15>.I
+         1.327  reg2_15.BX
+         1.812  reg1_15.BX
+         1.725  reg7_15.BX
+         2.257  reg4_15.BX
+         1.993  reg6_15.BX
+         1.226  reg3_15.BX
+         2.038  reg5_15.BX
+
+busw_1_IBUF
+   busw<1>.I
+         1.165  reg4_1.BX
+         1.246  reg2_1.BX
+         0.958  reg1_1.BX
+         0.943  reg6_1.BX
+         1.147  reg3_1.BX
+         0.852  reg5_1.BX
+         1.230  reg7_1.BX
+
+busw_2_IBUF
+   busw<2>.I
+         3.243  reg7_3.BY
+         3.320  reg4_3.BY
+         3.269  reg2_3.BY
+         3.390  reg1_3.BY
+         3.239  reg6_3.BY
+         3.511  reg3_3.BY
+         3.583  reg5_3.BY
+
+busw_3_IBUF
+   busw<3>.I
+         1.833  reg7_3.BX
+         1.782  reg4_3.BX
+         2.360  reg2_3.BX
+         2.532  reg1_3.BX
+         2.550  reg6_3.BX
+         2.409  reg3_3.BX
+         2.512  reg5_3.BX
+
+busw_4_IBUF
+   busw<4>.I
+         2.703  reg7_5.BY
+         2.810  reg4_5.BY
+         2.720  reg2_5.BY
+         2.694  reg1_5.BY
+         2.280  reg6_5.BY
+         2.908  reg3_5.BY
+         2.318  reg5_5.BY
+
+busw_5_IBUF
+   busw<5>.I
+         2.367  reg7_5.BX
+         2.444  reg4_5.BX
+         2.782  reg2_5.BX
+         2.711  reg1_5.BX
+         2.468  reg6_5.BX
+         2.907  reg3_5.BX
+         2.579  reg5_5.BX
+
+busw_6_IBUF
+   busw<6>.I
+         2.780  reg7_7.BY
+         2.954  reg4_7.BY
+         2.877  reg2_7.BY
+         2.654  reg1_7.BY
+         2.713  reg6_7.BY
+         2.780  reg3_7.BY
+         2.659  reg5_7.BY
+
+busw_7_IBUF
+   busw<7>.I
+         1.484  reg7_7.BX
+         1.300  reg4_7.BX
+         1.417  reg2_7.BX
+         1.299  reg1_7.BX
+         1.611  reg6_7.BX
+         1.711  reg3_7.BX
+         1.327  reg5_7.BX
+
+busw_8_IBUF
+   busw<8>.I
+         1.715  reg7_9.BY
+         1.615  reg4_9.BY
+         2.329  reg2_9.BY
+         2.110  reg1_9.BY
+         2.332  reg6_9.BY
+         2.158  reg3_9.BY
+         2.339  reg5_9.BY
+
+busw_9_IBUF
+   busw<9>.I
+         1.703  reg7_9.BX
+         1.579  reg4_9.BX
+         1.684  reg2_9.BX
+         2.103  reg1_9.BX
+         2.195  reg6_9.BX
+         1.630  reg3_9.BX
+         1.841  reg5_9.BX
+
+clock_BUFGP
+   clock_BUFGP/BUFG.OUT
+         0.311  reg7_3.CLK
+         0.313  reg7_5.CLK
+         0.343  reg4_1.CLK
+         0.316  reg7_7.CLK
+         0.353  reg4_3.CLK
+         0.315  reg7_9.CLK
+         0.320  reg4_5.CLK
+         0.313  reg2_11.CLK
+         0.311  reg4_7.CLK
+         0.321  reg2_13.CLK
+         0.357  reg4_9.CLK
+         0.311  reg2_15.CLK
+         0.318  reg1_11.CLK
+         0.306  reg1_13.CLK
+         0.305  reg2_1.CLK
+         0.316  reg1_15.CLK
+         0.311  reg2_3.CLK
+         0.315  reg2_5.CLK
+         0.313  reg2_7.CLK
+         0.325  reg2_9.CLK
+         0.303  reg1_1.CLK
+         0.320  reg1_3.CLK
+         0.313  reg1_5.CLK
+         0.313  reg7_11.CLK
+         0.316  reg1_7.CLK
+         0.324  reg7_13.CLK
+         0.326  reg1_9.CLK
+         0.313  reg7_15.CLK
+         0.313  reg4_11.CLK
+         0.324  reg4_13.CLK
+         0.318  reg4_15.CLK
+         0.304  reg6_1.CLK
+         0.315  reg6_3.CLK
+         0.317  reg6_5.CLK
+         0.305  reg3_1.CLK
+         0.311  reg6_7.CLK
+         0.320  reg3_3.CLK
+         0.318  reg6_9.CLK
+         0.324  reg3_5.CLK
+         0.303  reg5_1.CLK
+         0.311  reg6_11.CLK
+         0.313  reg3_7.CLK
+         0.324  reg5_3.CLK
+         0.324  reg6_13.CLK
+         0.326  reg3_9.CLK
+         0.317  reg5_5.CLK
+         0.318  reg6_15.CLK
+         0.313  reg5_7.CLK
+         0.318  reg5_9.CLK
+         0.311  reg3_11.CLK
+         0.306  reg3_13.CLK
+         0.311  reg3_15.CLK
+         0.318  reg5_11.CLK
+         0.324  reg5_13.CLK
+         0.316  reg5_15.CLK
+         0.304  reg7_1.CLK
+
+clock_BUFGP/IBUFG
+   clock.GCLKOUT
+         0.006  clock_BUFGP/BUFG.IN
+
+ra_0_IBUF
+   ra<0>.I
+         3.931  busamux/N2179.F4
+         3.847  busamux/N2179.G3
+         3.977  busa_6_OBUF.F3
+         3.940  busa_6_OBUF.G3
+         4.069  busamux/N1251.F2
+         4.065  busamux/N1251.G2
+         4.648  busa_2_OBUF.F1
+         4.644  busa_2_OBUF.G1
+         4.088  busamux/N787.F2
+         4.630  busamux/N787.G2
+         3.797  busa_13_OBUF.F1
+         3.617  busa_13_OBUF.G2
+         3.769  busamux/N2063.F2
+         3.494  busamux/N2063.G4
+         3.160  busa_1_OBUF.F1
+         2.889  busa_1_OBUF.G3
+         3.237  busamux/N671.F2
+         2.871  busamux/N671.G4
+         3.183  busa_12_OBUF.F1
+         3.068  busa_12_OBUF.G1
+         3.373  busamux/N1947.F1
+         2.727  busamux/N1947.G4
+         3.091  busa_0_OBUF.F4
+         3.133  busa_0_OBUF.G3
+         3.322  busamux/N555.F1
+         2.963  busamux/N555.G3
+         4.018  busa_11_OBUF.F2
+         4.037  busa_11_OBUF.G1
+         3.926  busamux/N1831.F3
+         3.889  busamux/N1831.G3
+         4.008  busa_10_OBUF.F3
+         4.081  busa_10_OBUF.G1
+         3.854  busamux/N1715.F4
+         3.859  busamux/N1715.G3
+         4.395  busa_9_OBUF.F1
+         4.391  busa_9_OBUF.G1
+         4.164  busamux/N1599.F4
+         4.106  busamux/N1599.G4
+         4.153  busa_5_OBUF.F1
+         4.149  busa_5_OBUF.G1
+         3.782  busamux/N1135.F4
+         3.864  busamux/N1135.G4
+         4.067  busa_8_OBUF.F3
+         4.030  busa_8_OBUF.G3
+         4.148  busamux/N1483.F4
+         4.155  busamux/N1483.G2
+         4.161  busa_4_OBUF.F1
+         4.076  busa_4_OBUF.G2
+         4.664  busamux/N1019.F2
+         4.106  busamux/N1019.G1
+         3.823  busa_15_OBUF.F3
+         3.786  busa_15_OBUF.G3
+         3.915  busamux/N2295.F2
+         3.911  busamux/N2295.G2
+         3.730  busa_7_OBUF.F3
+         3.693  busa_7_OBUF.G3
+         3.822  busamux/N1367.F2
+         3.818  busamux/N1367.G2
+         3.516  busa_3_OBUF.F4
+         4.664  busa_3_OBUF.G2
+         4.230  busamux/N903.F3
+         4.193  busamux/N903.G3
+         3.976  busa_14_OBUF.F2
+         3.995  busa_14_OBUF.G3
+
+ra_1_IBUF
+   ra<1>.I
+         2.480  busamux/N2179.BX
+         1.225  busa_6_OBUF.BX
+         2.542  busamux/N1251.BX
+         2.792  busa_2_OBUF.BX
+         2.820  busamux/N787.BX
+         2.921  busa_13_OBUF.BX
+         2.994  busamux/N2063.BX
+         2.168  busa_1_OBUF.BX
+         2.234  busamux/N671.BX
+         2.082  busa_12_OBUF.BX
+         2.148  busamux/N1947.BX
+         1.921  busa_0_OBUF.BX
+         1.970  busamux/N555.BX
+         2.649  busa_11_OBUF.BX
+         2.352  busamux/N1831.BX
+         2.543  busa_10_OBUF.BX
+         2.328  busamux/N1715.BX
+         2.936  busa_9_OBUF.BX
+         3.649  busamux/N1599.BX
+         2.736  busa_5_OBUF.BX
+         2.656  busamux/N1135.BX
+         3.906  busa_8_OBUF.BX
+         3.740  busamux/N1483.BX
+         2.321  busa_4_OBUF.BX
+         2.439  busamux/N1019.BX
+         1.754  busa_15_OBUF.BX
+         1.814  busamux/N2295.BX
+         2.208  busa_7_OBUF.BX
+         2.268  busamux/N1367.BX
+         3.650  busa_3_OBUF.BX
+         3.740  busamux/N903.BX
+         2.591  busa_14_OBUF.BX
+
+ra_2_IBUF
+   ra<2>.I
+         1.427  busa_6_OBUF.BY
+         2.555  busa_2_OBUF.BY
+         2.049  busa_13_OBUF.BY
+         1.234  busa_1_OBUF.BY
+         1.656  busa_12_OBUF.BY
+         1.242  busa_0_OBUF.BY
+         2.160  busa_11_OBUF.BY
+         2.209  busa_10_OBUF.BY
+         2.984  busa_9_OBUF.BY
+         2.182  busa_5_OBUF.BY
+         2.777  busa_8_OBUF.BY
+         3.043  busa_4_OBUF.BY
+         2.015  busa_15_OBUF.BY
+         1.853  busa_7_OBUF.BY
+         2.601  busa_3_OBUF.BY
+         2.141  busa_14_OBUF.BY
+
+rb_0_IBUF
+   rb<0>.I
+         3.855  busb_10_OBUF.F2
+         3.695  busb_10_OBUF.G4
+         3.984  busbmux/N1715.F1
+         3.980  busbmux/N1715.G1
+         4.633  busb_3_OBUF.F3
+         4.596  busb_3_OBUF.G3
+         4.725  busbmux/N903.F2
+         4.721  busbmux/N903.G2
+         3.135  busb_9_OBUF.F1
+         3.060  busb_9_OBUF.G3
+         3.272  busbmux/N1599.F1
+         3.268  busbmux/N1599.G1
+         4.916  busb_2_OBUF.F1
+         4.604  busb_2_OBUF.G2
+         4.844  busbmux/N787.F2
+         4.356  busbmux/N787.G3
+         3.010  busb_8_OBUF.F1
+         3.006  busb_8_OBUF.G1
+         2.779  busbmux/N1483.F4
+         2.750  busbmux/N1483.G3
+         3.460  busb_1_OBUF.F2
+         3.188  busb_1_OBUF.G1
+         3.430  busbmux/N671.F1
+         3.374  busbmux/N671.G3
+         3.011  busb_15_OBUF.F2
+         2.993  busb_15_OBUF.G3
+         2.919  busbmux/N2295.F3
+         2.882  busbmux/N2295.G3
+         3.849  busb_7_OBUF.F1
+         3.845  busb_7_OBUF.G1
+         3.618  busbmux/N1367.F4
+         3.560  busbmux/N1367.G4
+         3.272  busb_0_OBUF.F2
+         3.588  busb_0_OBUF.G1
+         3.619  busbmux/N555.F1
+         3.303  busbmux/N555.G4
+         3.362  busb_14_OBUF.F3
+         3.727  busb_14_OBUF.G1
+         3.771  busbmux/N2179.F1
+         3.442  busbmux/N2179.G4
+         3.404  busb_6_OBUF.F2
+         3.462  busb_6_OBUF.G3
+         3.591  busbmux/N1251.F2
+         3.275  busbmux/N1251.G3
+         2.943  busb_13_OBUF.F4
+         3.218  busb_13_OBUF.G2
+         3.046  busbmux/N2063.F3
+         2.739  busbmux/N2063.G4
+         3.026  busb_12_OBUF.F3
+         2.989  busb_12_OBUF.G3
+         3.030  busbmux/N1947.F4
+         3.114  busbmux/N1947.G2
+         3.718  busb_5_OBUF.F3
+         3.681  busb_5_OBUF.G3
+         3.685  busbmux/N1135.F3
+         3.806  busbmux/N1135.G2
+         3.473  busb_11_OBUF.F3
+         3.436  busb_11_OBUF.G3
+         3.540  busbmux/N1831.F4
+         3.561  busbmux/N1831.G2
+         4.747  busb_4_OBUF.F1
+         3.766  busb_4_OBUF.G2
+         3.678  busbmux/N1019.F3
+         3.641  busbmux/N1019.G3
+
+rb_1_IBUF
+   rb<1>.I
+         1.590  busb_10_OBUF.BX
+         2.280  busbmux/N1715.BX
+         3.329  busb_3_OBUF.BX
+         3.299  busbmux/N903.BX
+         2.572  busb_9_OBUF.BX
+         3.277  busbmux/N1599.BX
+         3.259  busb_2_OBUF.BX
+         3.422  busbmux/N787.BX
+         3.087  busb_8_OBUF.BX
+         3.350  busbmux/N1483.BX
+         1.379  busb_1_OBUF.BX
+         1.677  busbmux/N671.BX
+         2.791  busb_15_OBUF.BX
+         3.006  busbmux/N2295.BX
+         2.198  busb_7_OBUF.BX
+         2.204  busbmux/N1367.BX
+         1.622  busb_0_OBUF.BX
+         1.624  busbmux/N555.BX
+         2.824  busb_14_OBUF.BX
+         3.184  busbmux/N2179.BX
+         1.976  busb_6_OBUF.BX
+         2.029  busbmux/N1251.BX
+         2.900  busb_13_OBUF.BX
+         1.623  busbmux/N2063.BX
+         2.684  busb_12_OBUF.BX
+         1.678  busbmux/N1947.BX
+         3.095  busb_5_OBUF.BX
+         2.571  busbmux/N1135.BX
+         2.994  busb_11_OBUF.BX
+         2.969  busbmux/N1831.BX
+         3.074  busb_4_OBUF.BX
+         3.270  busbmux/N1019.BX
+
+rb_2_IBUF
+   rb<2>.I
+         1.862  busb_10_OBUF.BY
+         2.749  busb_3_OBUF.BY
+         2.190  busb_9_OBUF.BY
+         3.169  busb_2_OBUF.BY
+         2.979  busb_8_OBUF.BY
+         1.410  busb_1_OBUF.BY
+         1.616  busb_15_OBUF.BY
+         1.986  busb_7_OBUF.BY
+         1.224  busb_0_OBUF.BY
+         2.264  busb_14_OBUF.BY
+         1.855  busb_6_OBUF.BY
+         2.142  busb_13_OBUF.BY
+         1.457  busb_12_OBUF.BY
+         2.136  busb_5_OBUF.BY
+         2.316  busb_11_OBUF.BY
+         3.043  busb_4_OBUF.BY
+
+reg1_0
+   reg1_1.YQ
+         1.067  busamux/N555.G4
+         1.501  busbmux/N555.G1
+
+reg1_1
+   reg1_1.XQ
+         0.908  busamux/N671.G2
+         1.483  busbmux/N671.G1
+
+reg1_10
+   reg1_11.YQ
+         1.465  busbmux/N1715.G2
+         1.326  busamux/N1715.G1
+
+reg1_11
+   reg1_11.XQ
+         0.758  busamux/N1831.G4
+         1.186  busbmux/N1831.G4
+
+reg1_12
+   reg1_13.YQ
+         1.383  busamux/N1947.G2
+         1.050  busbmux/N1947.G4
+
+reg1_13
+   reg1_13.XQ
+         1.483  busamux/N2063.G1
+         0.908  busbmux/N2063.G2
+
+reg1_14
+   reg1_15.YQ
+         0.758  busamux/N2179.G4
+         1.491  busbmux/N2179.G1
+
+reg1_15
+   reg1_15.XQ
+         1.394  busbmux/N2295.G4
+         1.187  busamux/N2295.G3
+
+reg1_2
+   reg1_3.YQ
+         0.645  busamux/N787.G4
+         1.108  busbmux/N787.G4
+
+reg1_3
+   reg1_3.XQ
+         1.389  busbmux/N903.G1
+         1.453  busamux/N903.G2
+
+reg1_4
+   reg1_5.YQ
+         1.088  busamux/N1019.G4
+         1.700  busbmux/N1019.G1
+
+reg1_5
+   reg1_5.XQ
+         1.152  busamux/N1135.G2
+         0.618  busbmux/N1135.G4
+
+reg1_6
+   reg1_7.YQ
+         1.163  busamux/N1251.G3
+         1.559  busbmux/N1251.G2
+
+reg1_7
+   reg1_7.XQ
+         1.596  busbmux/N1367.G1
+         1.120  busamux/N1367.G4
+
+reg1_8
+   reg1_9.YQ
+         0.944  busbmux/N1483.G4
+         0.906  busamux/N1483.G4
+
+reg1_9
+   reg1_9.XQ
+         1.229  busbmux/N1599.G4
+         1.415  busamux/N1599.G2
+
+reg2_0
+   reg2_1.YQ
+         1.832  busamux/N555.F2
+         1.596  busbmux/N555.F2
+
+reg2_1
+   reg2_1.XQ
+         1.080  busamux/N671.F4
+         0.965  busbmux/N671.F3
+
+reg2_10
+   reg2_11.YQ
+         1.584  busbmux/N1715.F2
+         1.496  busamux/N1715.F2
+
+reg2_11
+   reg2_11.XQ
+         1.559  busamux/N1831.F2
+         1.875  busbmux/N1831.F1
+
+reg2_12
+   reg2_13.YQ
+         1.590  busamux/N1947.F4
+         1.695  busbmux/N1947.F1
+
+reg2_13
+   reg2_13.XQ
+         0.820  busamux/N2063.F3
+         1.146  busbmux/N2063.F4
+
+reg2_14
+   reg2_15.YQ
+         1.775  busamux/N2179.F2
+         1.620  busbmux/N2179.F3
+
+reg2_15
+   reg2_15.XQ
+         1.706  busbmux/N2295.F1
+         1.475  busamux/N2295.F4
+
+reg2_2
+   reg2_3.YQ
+         1.230  busamux/N787.F4
+         1.262  busbmux/N787.F4
+
+reg2_3
+   reg2_3.XQ
+         0.820  busbmux/N903.F3
+         1.205  busamux/N903.F4
+
+reg2_4
+   reg2_5.YQ
+         1.526  busamux/N1019.F1
+         0.816  busbmux/N1019.F4
+
+reg2_5
+   reg2_5.XQ
+         1.462  busamux/N1135.F3
+         1.096  busbmux/N1135.F4
+
+reg2_6
+   reg2_7.YQ
+         1.618  busamux/N1251.F4
+         1.854  busbmux/N1251.F1
+
+reg2_7
+   reg2_7.XQ
+         1.613  busbmux/N1367.F3
+         1.489  busamux/N1367.F4
+
+reg2_8
+   reg2_9.YQ
+         1.557  busbmux/N1483.F2
+         1.508  busamux/N1483.F1
+
+reg2_9
+   reg2_9.XQ
+         1.527  busbmux/N1599.F3
+         1.212  busamux/N1599.F2
+
+reg3_0
+   reg3_1.YQ
+         1.693  busamux/N555.F4
+         1.491  busbmux/N555.F4
+
+reg3_1
+   reg3_1.XQ
+         1.519  busamux/N671.F1
+         1.125  busbmux/N671.F4
+
+reg3_10
+   reg3_11.YQ
+         1.699  busbmux/N1715.F3
+         1.754  busamux/N1715.F1
+
+reg3_11
+   reg3_11.XQ
+         1.182  busamux/N1831.F4
+         1.457  busbmux/N1831.F3
+
+reg3_12
+   reg3_13.YQ
+         1.378  busamux/N1947.F2
+         1.195  busbmux/N1947.F2
+
+reg3_13
+   reg3_13.XQ
+         1.247  busamux/N2063.F4
+         1.047  busbmux/N2063.F1
+
+reg3_14
+   reg3_15.YQ
+         1.465  busamux/N2179.F3
+         1.453  busbmux/N2179.F4
+
+reg3_15
+   reg3_15.XQ
+         1.683  busbmux/N2295.F2
+         1.883  busamux/N2295.F1
+
+reg3_2
+   reg3_3.YQ
+         0.820  busamux/N787.F3
+         1.731  busbmux/N787.F1
+
+reg3_3
+   reg3_3.XQ
+         1.171  busbmux/N903.F4
+         1.513  busamux/N903.F2
+
+reg3_4
+   reg3_5.YQ
+         1.348  busamux/N1019.F4
+         1.361  busbmux/N1019.F1
+
+reg3_5
+   reg3_5.XQ
+         1.771  busamux/N1135.F1
+         1.619  busbmux/N1135.F2
+
+reg3_6
+   reg3_7.YQ
+         1.744  busamux/N1251.F1
+         1.452  busbmux/N1251.F4
+
+reg3_7
+   reg3_7.XQ
+         1.181  busbmux/N1367.F2
+         0.692  busamux/N1367.F3
+
+reg3_8
+   reg3_9.YQ
+         1.508  busbmux/N1483.F1
+         1.192  busamux/N1483.F2
+
+reg3_9
+   reg3_9.XQ
+         1.348  busbmux/N1599.F4
+         1.528  busamux/N1599.F1
+
+reg4_0
+   reg4_1.YQ
+         1.297  busa_0_OBUF.G4
+         1.322  busb_0_OBUF.G3
+
+reg4_1
+   reg4_1.XQ
+         1.557  busa_1_OBUF.G1
+         1.413  busb_1_OBUF.G4
+
+reg4_10
+   reg4_11.YQ
+         1.805  busb_10_OBUF.G2
+         1.183  busa_10_OBUF.G4
+
+reg4_11
+   reg4_11.XQ
+         1.294  busa_11_OBUF.G4
+         1.487  busb_11_OBUF.G2
+
+reg4_12
+   reg4_13.YQ
+         1.052  busa_12_OBUF.G3
+         0.780  busb_12_OBUF.G2
+
+reg4_13
+   reg4_13.XQ
+         1.460  busa_13_OBUF.G1
+         1.044  busb_13_OBUF.G4
+
+reg4_14
+   reg4_15.YQ
+         1.647  busb_14_OBUF.G4
+         1.470  busa_14_OBUF.G4
+
+reg4_15
+   reg4_15.XQ
+         1.044  busb_15_OBUF.G4
+         1.352  busa_15_OBUF.G2
+
+reg4_2
+   reg4_3.YQ
+         1.482  busa_2_OBUF.G4
+         1.534  busb_2_OBUF.G3
+
+reg4_3
+   reg4_3.XQ
+         1.409  busb_3_OBUF.G1
+         1.716  busa_3_OBUF.G1
+
+reg4_4
+   reg4_5.YQ
+         1.316  busa_4_OBUF.G1
+         1.192  busb_4_OBUF.G4
+
+reg4_5
+   reg4_5.XQ
+         0.758  busa_5_OBUF.G4
+         1.245  busb_5_OBUF.G4
+
+reg4_6
+   reg4_7.YQ
+         1.309  busa_6_OBUF.G4
+         1.509  busb_6_OBUF.G2
+
+reg4_7
+   reg4_7.XQ
+         1.382  busb_7_OBUF.G4
+         1.325  busa_7_OBUF.G2
+
+reg4_8
+   reg4_9.YQ
+         1.188  busb_8_OBUF.G3
+         1.055  busa_8_OBUF.G4
+
+reg4_9
+   reg4_9.XQ
+         1.617  busb_9_OBUF.G4
+         1.620  busa_9_OBUF.G2
+
+reg5_0
+   reg5_1.YQ
+         1.364  busa_0_OBUF.G1
+         1.185  busb_0_OBUF.G4
+
+reg5_1
+   reg5_1.XQ
+         0.758  busa_1_OBUF.G4
+         1.369  busb_1_OBUF.G2
+
+reg5_10
+   reg5_11.YQ
+         1.770  busb_10_OBUF.G1
+         1.188  busa_10_OBUF.G3
+
+reg5_11
+   reg5_11.XQ
+         0.908  busa_11_OBUF.G2
+         1.402  busb_11_OBUF.G1
+
+reg5_12
+   reg5_13.YQ
+         1.361  busa_12_OBUF.G2
+         1.193  busb_12_OBUF.G1
+
+reg5_13
+   reg5_13.XQ
+         1.032  busa_13_OBUF.G4
+         1.482  busb_13_OBUF.G1
+
+reg5_14
+   reg5_15.YQ
+         1.328  busb_14_OBUF.G2
+         0.908  busa_14_OBUF.G2
+
+reg5_15
+   reg5_15.XQ
+         1.524  busb_15_OBUF.G2
+         1.432  busa_15_OBUF.G1
+
+reg5_2
+   reg5_3.YQ
+         0.678  busa_2_OBUF.G3
+         1.429  busb_2_OBUF.G1
+
+reg5_3
+   reg5_3.XQ
+         1.389  busb_3_OBUF.G2
+         1.032  busa_3_OBUF.G4
+
+reg5_4
+   reg5_5.YQ
+         0.783  busa_4_OBUF.G3
+         1.517  busb_4_OBUF.G1
+
+reg5_5
+   reg5_5.XQ
+         1.416  busa_5_OBUF.G3
+         1.344  busb_5_OBUF.G2
+
+reg5_6
+   reg5_7.YQ
+         1.595  busa_6_OBUF.G1
+         1.694  busb_6_OBUF.G1
+
+reg5_7
+   reg5_7.XQ
+         1.185  busb_7_OBUF.G2
+         0.917  busa_7_OBUF.G1
+
+reg5_8
+   reg5_9.YQ
+         1.208  busb_8_OBUF.G4
+         1.304  busa_8_OBUF.G2
+
+reg5_9
+   reg5_9.XQ
+         1.194  busb_9_OBUF.G2
+         0.758  busa_9_OBUF.G4
+
+reg6_0
+   reg6_1.YQ
+         1.378  busa_0_OBUF.F3
+         1.253  busb_0_OBUF.F3
+
+reg6_1
+   reg6_1.XQ
+         1.074  busa_1_OBUF.F3
+         1.238  busb_1_OBUF.F3
+
+reg6_10
+   reg6_11.YQ
+         1.753  busb_10_OBUF.F1
+         1.483  busa_10_OBUF.F2
+
+reg6_11
+   reg6_11.XQ
+         1.686  busa_11_OBUF.F1
+         1.572  busb_11_OBUF.F2
+
+reg6_12
+   reg6_13.YQ
+         1.316  busa_12_OBUF.F2
+         1.047  busb_12_OBUF.F1
+
+reg6_13
+   reg6_13.XQ
+         1.266  busa_13_OBUF.F3
+         1.346  busb_13_OBUF.F1
+
+reg6_14
+   reg6_15.YQ
+         1.625  busb_14_OBUF.F1
+         1.266  busa_14_OBUF.F3
+
+reg6_15
+   reg6_15.XQ
+         1.486  busb_15_OBUF.F1
+         1.090  busa_15_OBUF.F4
+
+reg6_2
+   reg6_3.YQ
+         1.108  busa_2_OBUF.F4
+         1.642  busb_2_OBUF.F2
+
+reg6_3
+   reg6_3.XQ
+         1.157  busb_3_OBUF.F4
+         1.436  busa_3_OBUF.F1
+
+reg6_4
+   reg6_5.YQ
+         0.816  busa_4_OBUF.F4
+         1.236  busb_4_OBUF.F3
+
+reg6_5
+   reg6_5.XQ
+         1.283  busa_5_OBUF.F4
+         1.214  busb_5_OBUF.F4
+
+reg6_6
+   reg6_7.YQ
+         1.438  busa_6_OBUF.F4
+         1.582  busb_6_OBUF.F3
+
+reg6_7
+   reg6_7.XQ
+         1.476  busb_7_OBUF.F4
+         1.367  busa_7_OBUF.F2
+
+reg6_8
+   reg6_9.YQ
+         1.496  busb_8_OBUF.F2
+         1.268  busa_8_OBUF.F4
+
+reg6_9
+   reg6_9.XQ
+         1.074  busb_9_OBUF.F3
+         0.820  busa_9_OBUF.F3
+
+reg7_0
+   reg7_1.YQ
+         1.663  busa_0_OBUF.F2
+         1.461  busb_0_OBUF.F1
+
+reg7_1
+   reg7_1.XQ
+         0.952  busa_1_OBUF.F4
+         1.101  busb_1_OBUF.F4
+
+reg7_10
+   reg7_11.YQ
+         1.261  busb_10_OBUF.F4
+         0.940  busa_10_OBUF.F1
+
+reg7_11
+   reg7_11.XQ
+         1.277  busa_11_OBUF.F4
+         1.670  busb_11_OBUF.F1
+
+reg7_12
+   reg7_13.YQ
+         1.457  busa_12_OBUF.F4
+         1.292  busb_12_OBUF.F2
+
+reg7_13
+   reg7_13.XQ
+         1.215  busa_13_OBUF.F2
+         1.388  busb_13_OBUF.F2
+
+reg7_14
+   reg7_15.YQ
+         1.544  busb_14_OBUF.F2
+         1.631  busa_14_OBUF.F1
+
+reg7_15
+   reg7_15.XQ
+         1.583  busb_15_OBUF.F4
+         1.651  busa_15_OBUF.F2
+
+reg7_2
+   reg7_3.YQ
+         1.269  busa_2_OBUF.F3
+         1.264  busb_2_OBUF.F4
+
+reg7_3
+   reg7_3.XQ
+         1.047  busb_3_OBUF.F1
+         1.292  busa_3_OBUF.F2
+
+reg7_4
+   reg7_5.YQ
+         1.344  busa_4_OBUF.F2
+         1.554  busb_4_OBUF.F2
+
+reg7_5
+   reg7_5.XQ
+         1.325  busa_5_OBUF.F2
+         0.912  busb_5_OBUF.F2
+
+reg7_6
+   reg7_7.YQ
+         1.280  busa_6_OBUF.F1
+         1.499  busb_6_OBUF.F1
+
+reg7_7
+   reg7_7.XQ
+         1.440  busb_7_OBUF.F3
+         1.437  busa_7_OBUF.F1
+
+reg7_8
+   reg7_9.YQ
+         1.249  busb_8_OBUF.F3
+         1.047  busa_8_OBUF.F1
+
+reg7_9
+   reg7_9.XQ
+         1.628  busb_9_OBUF.F2
+         1.313  busa_9_OBUF.F4
+
+rw_0_IBUF
+   rw<0>.I
+         2.003  wren5.G3
+         2.196  wren2.F1
+         1.995  wren2.G2
+         2.126  wren4.F3
+         2.301  wren4.G1
+         1.903  wren3.F4
+         1.870  wren3.G3
+
+rw_1_IBUF
+   rw<1>.I
+         1.736  wren5.G4
+         1.721  wren2.F2
+         1.570  wren2.G3
+         1.940  wren4.F1
+         1.780  wren4.G2
+         1.692  wren3.F3
+         1.695  wren3.G2
+
+rw_2_IBUF
+   rw<2>.I
+         1.563  wren5.G2
+         1.371  wren2.F4
+         1.670  wren2.G1
+         1.454  wren4.F2
+         1.438  wren4.G3
+         1.417  wren3.F2
+         1.377  wren3.G4
+
+wren1
+   wren3.Y
+         2.685  reg1_11.CE
+         0.826  reg1_13.CE
+         1.777  reg1_15.CE
+         1.583  reg1_1.CE
+         1.525  reg1_3.CE
+         2.167  reg1_5.CE
+         2.229  reg1_7.CE
+         1.741  reg1_9.CE
+
+wren2
+   wren2.X
+         2.804  reg2_11.CE
+         1.599  reg2_13.CE
+         2.759  reg2_15.CE
+         1.181  reg2_1.CE
+         2.262  reg2_3.CE
+         2.225  reg2_5.CE
+         2.901  reg2_7.CE
+         1.211  reg2_9.CE
+
+wren3
+   wren3.X
+         1.025  reg3_1.CE
+         2.485  reg3_3.CE
+         2.429  reg3_5.CE
+         2.692  reg3_7.CE
+         2.461  reg3_9.CE
+         2.935  reg3_11.CE
+         0.774  reg3_13.CE
+         2.935  reg3_15.CE
+
+wren4
+   wren4.X
+         1.062  reg4_1.CE
+         2.523  reg4_3.CE
+         2.886  reg4_5.CE
+         3.460  reg4_7.CE
+         2.095  reg4_9.CE
+         2.509  reg4_11.CE
+         1.997  reg4_13.CE
+         1.666  reg4_15.CE
+
+wren5
+   wren5.Y
+         1.131  reg5_1.CE
+         1.605  reg5_3.CE
+         1.816  reg5_5.CE
+         2.225  reg5_7.CE
+         1.332  reg5_9.CE
+         1.849  reg5_11.CE
+         1.433  reg5_13.CE
+         2.060  reg5_15.CE
+
+wren6
+   wren2.Y
+         1.252  reg6_1.CE
+         1.837  reg6_3.CE
+         1.561  reg6_5.CE
+         2.141  reg6_7.CE
+         1.049  reg6_9.CE
+         2.128  reg6_11.CE
+         1.157  reg6_13.CE
+         1.656  reg6_15.CE
+
+wren7
+   wren4.Y
+         1.958  reg7_3.CE
+         1.959  reg7_5.CE
+         2.092  reg7_7.CE
+         1.838  reg7_9.CE
+         1.942  reg7_11.CE
+         1.403  reg7_13.CE
+         1.942  reg7_15.CE
+         0.895  reg7_1.CE
+
+wren_IBUF
+   wren.I
+         1.602  wren5.G1
+         1.413  wren2.F3
+         1.232  wren2.G4
+         1.375  wren4.F4
+         1.176  wren4.G4
+         1.521  wren3.F1
+         1.517  wren3.G1
+

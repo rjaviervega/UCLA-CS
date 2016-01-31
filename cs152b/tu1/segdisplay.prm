@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+promgen -p mcs -x XC1701 -c 0xFF -w -o C:\152B\152bs04\tu1\segdisplay.mcs -u 0 C:\152B\152bs04\tu1\segdisplay.bit 
+
+PROM C:\152B\152bs04\tu1\segdisplay.prm map: Thu Jul 01 12:15:14 2004
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          128K
+PROM start    0000:0000
+PROM end      0001:ffff
+PROM checksum 012b5f38
+
+        Addr1        Addr2 File(s)
+    0000:0000    0001:110b C:/152B/152bs04/tu1/segdisplay.bit

@@ -1,0 +1,195 @@
+Release 4.1i - Map E.30
+Xilinx Mapping Report File for Design 'alu'
+
+Design Information
+------------------
+Command Line   : map -p xcv50-pq240-6 -cm area -ir -k 4 -c 100 -tx off alu.ngd 
+Target Device  : xv50
+Target Package : pq240
+Target Speed   : -6
+Mapper Version : virtex -- $Revision: 1.58 $
+Mapped Date    : Fri Jul 23 13:12:16 2004
+
+Design Summary
+--------------
+   Number of errors:      0
+   Number of warnings:    4
+   Number of Slices:                185 out of    768   24%
+   Number of Slices containing
+      unrelated logic:                0 out of    185    0%
+   Number of Slice Latches:          34 out of  1,536    2%
+   Number of 4 input LUTs:          347 out of  1,536   22%
+   Number of bonded IOBs:            54 out of    166   32%
+Total equivalent gate count for design:  2,477
+Additional JTAG gate count for IOBs:  2,592
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group Summary
+Section 10 - Modular Design Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net xlxi_17_N189 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net xlxi_5_N107 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net xlxi_10_N25 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:DesignRules:367 - Netcheck: Loadless. Net xlxi_15_xlxi_23/co_dummy has
+   no load.
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:62 - All of the external outputs in this design are using slew rate
+   limited output drivers. The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the schematic.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   5 block(s) removed
+  20 block(s) optimized away
+   2 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "xlxi_15_xlxi_23/ofl" is sourceless and has been removed.
+The signal "xlxi_15_xlxi_23/N187" is sourceless and has been removed.
+Unused block "xlxi_15_xlxi_2/VCC" (ONE) removed.
+Unused block "xlxi_15_xlxi_23/GND_I" (ZERO) removed.
+Unused block "xlxi_15_xlxi_23/i_36_353" (XOR) removed.
+Unused block "xlxi_15_xlxi_9/VCC" (ONE) removed.
+Unused block "xlxi_2/VCC" (ONE) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		GND_I
+VCC 		XST_VCC
+GND 		xlxi_15_xlxi_2/GND
+LUT4 		xlxi_15_xlxi_9/BU10
+LUT4 		xlxi_15_xlxi_9/BU13
+LUT4 		xlxi_15_xlxi_9/BU16
+LUT4 		xlxi_15_xlxi_9/BU19
+LUT4 		xlxi_15_xlxi_9/BU22
+LUT4 		xlxi_15_xlxi_9/BU25
+LUT4 		xlxi_15_xlxi_9/BU28
+LUT4 		xlxi_15_xlxi_9/BU31
+LUT4 		xlxi_15_xlxi_9/BU34
+LUT4 		xlxi_15_xlxi_9/BU37
+LUT4 		xlxi_15_xlxi_9/BU4
+LUT4 		xlxi_15_xlxi_9/BU40
+LUT4 		xlxi_15_xlxi_9/BU43
+LUT4 		xlxi_15_xlxi_9/BU46
+LUT4 		xlxi_15_xlxi_9/BU7
+GND 		xlxi_15_xlxi_9/GND
+GND 		xlxi_2/GND
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type    | Direction | IO Standard | Drive    | Slew | Reg (s)  | Resistor | IOB   |
+|                                    |         |           |             | Strength | Rate |          |          | Delay |
++------------------------------------------------------------------------------------------------------------------------+
+| a<0>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<10>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<11>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<12>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<13>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<14>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<15>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<1>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<2>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<3>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<4>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<5>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<6>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<7>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<8>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a<9>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<0>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<10>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<11>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<12>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<13>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<14>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<15>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<1>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<2>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<3>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<4>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<5>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<6>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<7>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<8>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b<9>                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| control<0>                         | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| control<1>                         | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| control<2>                         | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| control<3>                         | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| overflow                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<0>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<10>                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<11>                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<12>                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<13>                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<14>                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<15>                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<1>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<2>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<3>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<4>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<5>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<6>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<7>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<8>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s<9>                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| zero                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
++------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+xlxi_2/hset                             
+xlxi_15_xlxi_9/hset                     
+xlxi_15_xlxi_23/hset                    
+xlxi_15_xlxi_2/hset                     
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group Summary
+------------------------------
+No area groups were found in this design.
+
+Section 10 - Modular Design Summary
+-----------------------------------
+Modular Design not used for this design.

@@ -1,0 +1,808 @@
+Project Information        c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+
+MAX+plus II Compiler Report File
+Version 10.23 07/09/2003
+Compiled: 11/10/2003 21:19:17
+
+Copyright (C) 1988-2003 Altera Corporation
+Any megafunction design, and related net list (encrypted or decrypted),
+support information, device programming or simulation file, and any other
+associated documentation or information provided by Altera or a partner
+under Altera's Megafunction Partnership Program may be used only to
+program PLD devices (but not masked PLD devices) from Altera.  Any other
+use of such megafunction design, net list, support information, device
+programming or simulation file, or any other related documentation or
+information is prohibited for any other purpose, including, but not
+limited to modification, reverse engineering, de-compiling, or use with
+any other silicon devices, unless such use is explicitly licensed under
+a separate agreement with Altera or a megafunction partner.  Title to
+the intellectual property, including patents, copyrights, trademarks,
+trade secrets, or maskworks, embodied in any such megafunction design,
+net list, support information, device programming or simulation file, or
+any other related documentation or information provided by Altera or a
+megafunction partner, remains with Altera, the megafunction partner, or
+their respective licensors.  No other licenses, including any licenses
+needed under any third party's intellectual property, are provided herein.
+
+
+
+***** Project compilation was successful
+
+
+
+
+** DEVICE SUMMARY **
+
+Chip/                     Input   Output   Bidir         Shareable
+POF       Device          Pins    Pins     Pins     LCs  Expanders  % Utilized
+
+pm        EPM7128SLC84-7   8        8        0      29      7           22 %
+
+User Pins:                 8        8        0  
+
+
+
+Project Information        c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+
+** FILE HIERARCHY **
+
+
+
+|mf:9|
+|mf:9|fulladd:2|
+|mf:9|fulladd:2|halfadd:1|
+|mf:9|fulladd:2|halfadd:2|
+|mf:8|
+|mf:8|fulladd:2|
+|mf:8|fulladd:2|halfadd:1|
+|mf:8|fulladd:2|halfadd:2|
+|mf:7|
+|mf:7|fulladd:2|
+|mf:7|fulladd:2|halfadd:1|
+|mf:7|fulladd:2|halfadd:2|
+|mf:6|
+|mf:6|fulladd:2|
+|mf:6|fulladd:2|halfadd:1|
+|mf:6|fulladd:2|halfadd:2|
+|mf:5|
+|mf:5|fulladd:2|
+|mf:5|fulladd:2|halfadd:1|
+|mf:5|fulladd:2|halfadd:2|
+|mf:4|
+|mf:4|fulladd:2|
+|mf:4|fulladd:2|halfadd:1|
+|mf:4|fulladd:2|halfadd:2|
+|mf:2|
+|mf:2|fulladd:2|
+|mf:2|fulladd:2|halfadd:1|
+|mf:2|fulladd:2|halfadd:2|
+|mf:3|
+|mf:3|fulladd:2|
+|mf:3|fulladd:2|halfadd:1|
+|mf:3|fulladd:2|halfadd:2|
+|mh:10|
+|mh:10|halfadd:1|
+|mh:33|
+|mh:33|halfadd:1|
+|mh:11|
+|mh:11|halfadd:1|
+|mh:12|
+|mh:12|halfadd:1|
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+***** Logic for device 'pm' compiled without errors.
+
+
+
+
+Device: EPM7128SLC84-7
+
+Device Options:
+    Turbo Bit                                    = ON
+    Security Bit                                 = OFF
+    Enable JTAG Support                        = ON
+    User Code                                  = ffff
+    MultiVolt I/O                              = OFF
+
+                                                        R  R  R     R  R     
+                                                        E  E  E     E  E     
+                                      V                 S  S  S     S  S     
+                                      C                 E  E  E  V  E  E     
+                                      C                 R  R  R  C  R  R     
+                          G           I  G  G  G  G  G  V  V  V  C  V  V     
+              b  b  b  b  N  a  a  a  N  N  N  N  N  N  E  E  E  I  E  E  p  
+              3  2  1  0  D  3  2  1  T  D  D  D  D  D  D  D  D  O  D  D  7  
+            -----------------------------------------------------------------_ 
+          /  11 10  9  8  7  6  5  4  3  2  1 84 83 82 81 80 79 78 77 76 75   | 
+      a0 | 12                                                              74 | p4 
+   VCCIO | 13                                                              73 | p1 
+    #TDI | 14                                                              72 | GND 
+RESERVED | 15                                                              71 | #TDO 
+RESERVED | 16                                                              70 | RESERVED 
+RESERVED | 17                                                              69 | p3 
+RESERVED | 18                                                              68 | p6 
+     GND | 19                                                              67 | p5 
+RESERVED | 20                                                              66 | VCCIO 
+RESERVED | 21                                                              65 | RESERVED 
+RESERVED | 22                        EPM7128SLC84-7                        64 | p2 
+    #TMS | 23                                                              63 | p0 
+RESERVED | 24                                                              62 | #TCK 
+RESERVED | 25                                                              61 | RESERVED 
+   VCCIO | 26                                                              60 | RESERVED 
+RESERVED | 27                                                              59 | GND 
+RESERVED | 28                                                              58 | RESERVED 
+RESERVED | 29                                                              57 | RESERVED 
+RESERVED | 30                                                              56 | RESERVED 
+RESERVED | 31                                                              55 | RESERVED 
+     GND | 32                                                              54 | RESERVED 
+         |_  33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53  _| 
+           ------------------------------------------------------------------ 
+              R  R  R  R  R  V  R  R  R  G  V  R  R  R  G  R  R  R  R  R  V  
+              E  E  E  E  E  C  E  E  E  N  C  E  E  E  N  E  E  E  E  E  C  
+              S  S  S  S  S  C  S  S  S  D  C  S  S  S  D  S  S  S  S  S  C  
+              E  E  E  E  E  I  E  E  E     I  E  E  E     E  E  E  E  E  I  
+              R  R  R  R  R  O  R  R  R     N  R  R  R     R  R  R  R  R  O  
+              V  V  V  V  V     V  V  V     T  V  V  V     V  V  V  V  V     
+              E  E  E  E  E     E  E  E        E  E  E     E  E  E  E  E     
+              D  D  D  D  D     D  D  D        D  D  D     D  D  D  D  D     
+
+
+N.C. = No Connect. This pin has no internal connection to the device.
+VCCINT = Dedicated power pin, which MUST be connected to VCC (5.0 volts).
+VCCIO = Dedicated power pin, which MUST be connected to VCC (5.0 volts).
+GND = Dedicated ground pin or unused dedicated input, which MUST be connected to GND.
+RESERVED = Unused I/O pin, which MUST be left unconnected.
+
+^ = Dedicated configuration pin.
++ = Reserved configuration pin, which is tri-stated during user mode.
+* = Reserved configuration pin, which drives out in user mode.
+PDn = Power Down pin. 
+@ = Special-purpose pin. 
+# = JTAG Boundary-Scan Testing/In-System Programming or Configuration Pin. The JTAG inputs TMS and TDI should be tied to VCC and TCK should be tied to GND when not in use.
+& = JTAG pin used for I/O. When used as user I/O, JTAG pins must be kept stable before and during configuration.  JTAG pin stability prevents accidental loading of JTAG instructions.
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+** RESOURCE USAGE **
+
+                                                Shareable     External
+Logic Array Block     Logic Cells   I/O Pins    Expanders   Interconnect
+
+A:     LC1 - LC16     0/16(  0%)   8/ 8(100%)   0/16(  0%)   0/36(  0%) 
+B:    LC17 - LC32     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+C:    LC33 - LC48     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+D:    LC49 - LC64     0/16(  0%)   0/ 8(  0%)   0/16(  0%)   0/36(  0%) 
+E:    LC65 - LC80     0/16(  0%)   0/ 8(  0%)   0/16(  0%)   0/36(  0%) 
+F:    LC81 - LC96     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+G:   LC97 - LC112    13/16( 81%)   6/ 8( 75%)  13/16( 81%)  22/36( 61%) 
+H:  LC113 - LC128    16/16(100%)   3/ 8( 37%)  16/16(100%)  15/36( 41%) 
+
+
+Total dedicated input pins used:                 0/4      (  0%)
+Total I/O pins used:                            20/64     ( 31%)
+Total logic cells used:                         29/128    ( 22%)
+Total shareable expanders used:                  7/128    (  5%)
+Total Turbo logic cells used:                   29/128    ( 22%)
+Total shareable expanders not available (n/a):  22/128    ( 17%)
+Average fan-in:                                  7.75
+Total fan-in:                                   225
+
+Total input pins required:                       8
+Total fast input logic cells required:           0
+Total output pins required:                      8
+Total bidirectional pins required:               0
+Total reserved pins required                     4
+Total logic cells required:                     29
+Total flipflops required:                        0
+Total product terms required:                  135
+Total logic cells lending parallel expanders:    0
+Total shareable expanders in database:           6
+
+Synthesized logic cells:                        21/ 128   ( 16%)
+
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+** INPUTS **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+  12    (3)  (A)      INPUT               0      0   0    0    0    7   17  a0
+   4   (16)  (A)      INPUT               0      0   0    0    0    6   21  a1
+   5   (14)  (A)      INPUT               0      0   0    0    0    5   21  a2
+   6   (13)  (A)      INPUT               0      0   0    0    0    4   21  a3
+   8   (11)  (A)      INPUT               0      0   0    0    0    7   20  b0
+   9    (8)  (A)      INPUT               0      0   0    0    0    6   21  b1
+  10    (6)  (A)      INPUT               0      0   0    0    0    5   21  b2
+  11    (5)  (A)      INPUT               0      0   0    0    0    4   18  b3
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+/ = Slow slew-rate output
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+** OUTPUTS **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+  63     97    G     OUTPUT      t        0      0   0    2    0    0    0  p0
+  73    115    H     OUTPUT      t        0      0   0    4    0    0    0  p1
+  64     99    G     OUTPUT      t        1      0   0    6    0    0    0  p2
+  69    107    G     OUTPUT      t        3      1   0    8    3    0    0  p3
+  74    117    H     OUTPUT      t        2      1   1    8    7    0    0  p4
+  67    104    G     OUTPUT      t        0      0   0    0    7    0    0  p5
+  68    105    G     OUTPUT      t        1      0   1    8    4    0    0  p6
+  75    118    H     OUTPUT      t        3      0   1    8    0    0    0  p7
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+/ = Slow slew-rate output
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+** BURIED LOGIC **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+ (76)   120    H       SOFT    s t        1      0   1    8    0    1    0  |mf:7|fulladd:2|halfadd:2|p~1 (|mf:7|fulladd:2|halfadd:2|~1~1)
+   -    116    H       SOFT    s t        1      0   1    8    0    1    0  |mf:7|fulladd:2|halfadd:2|p~2 (|mf:7|fulladd:2|halfadd:2|~1~2)
+   -    114    H       SOFT    s t        1      0   1    8    0    1    0  |mf:7|fulladd:2|halfadd:2|p~3 (|mf:7|fulladd:2|halfadd:2|~1~3)
+   -    124    H       SOFT    s t        1      0   1    8    0    1    0  |mf:7|fulladd:2|halfadd:2|p~4 (|mf:7|fulladd:2|halfadd:2|~1~4)
+ (77)   123    H       SOFT    s t        1      0   1    8    0    1    0  |mf:7|fulladd:2|halfadd:2|p~5 (|mf:7|fulladd:2|halfadd:2|~1~5)
+   -    122    H       SOFT    s t        1      0   1    8    0    1    0  |mf:7|fulladd:2|halfadd:2|p~6 (|mf:7|fulladd:2|halfadd:2|~1~6)
+   -    121    H       SOFT    s t        0      0   0    7    0    1    0  |mf:7|fulladd:2|halfadd:2|p~7 (|mf:7|fulladd:2|halfadd:2|~1~7)
+ (79)   125    H       SOFT    s t        1      0   1    8    0    1    0  |mf:8|fulladd:2|halfadd:2|p~1 (|mf:8|fulladd:2|halfadd:2|~1~1)
+   -    113    H       SOFT    s t        1      0   1    8    0    1    0  |mf:8|fulladd:2|halfadd:2|p~2 (|mf:8|fulladd:2|halfadd:2|~1~2)
+   -    127    H       SOFT    s t        1      0   1    8    0    1    0  |mf:8|fulladd:2|halfadd:2|p~3 (|mf:8|fulladd:2|halfadd:2|~1~3)
+ (80)   126    H       SOFT    s t        1      0   1    8    0    1    0  |mf:8|fulladd:2|halfadd:2|p~4 (|mf:8|fulladd:2|halfadd:2|~1~4)
+   -    119    H       SOFT    s t        1      0   1    8    0    1    0  |mf:8|fulladd:2|halfadd:2|p~5 (|mf:8|fulladd:2|halfadd:2|~1~5)
+ (70)   109    G       SOFT    s t        1      0   1    7    0    1    0  |mf:8|fulladd:2|halfadd:2|p~6 (|mf:8|fulladd:2|halfadd:2|~1~6)
+ (81)   128    H       SOFT    s t        0      0   0    6    0    1    0  |mf:8|fulladd:2|halfadd:2|p~7 (|mf:8|fulladd:2|halfadd:2|~1~7)
+ (71)   112    G       SOFT    s t        1      0   1    8    0    1    0  |mf:9|fulladd:2|halfadd:2|p~1 (|mf:9|fulladd:2|halfadd:2|~1~1)
+   -    103    G       SOFT    s t        1      0   1    8    0    1    0  |mf:9|fulladd:2|halfadd:2|p~2 (|mf:9|fulladd:2|halfadd:2|~1~2)
+   -    108    G       SOFT    s t        1      0   1    8    0    1    0  |mf:9|fulladd:2|halfadd:2|p~3 (|mf:9|fulladd:2|halfadd:2|~1~3)
+   -     98    G       SOFT    s t        1      0   1    7    0    1    0  |mf:9|fulladd:2|halfadd:2|p~4 (|mf:9|fulladd:2|halfadd:2|~1~4)
+   -    100    G       SOFT    s t        1      0   1    7    0    1    0  |mh:10|halfadd:1|p~1 (|mh:10|halfadd:1|~1~1)
+ (65)   101    G       SOFT    s t        1      0   1    7    0    1    0  |mh:10|halfadd:1|p~2 (|mh:10|halfadd:1|~1~2)
+   -    102    G       SOFT    s t        1      0   1    7    0    1    0  |mh:10|halfadd:1|p~3 (|mh:10|halfadd:1|~1~3)
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+/ = Slow slew-rate output
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+** LOGIC CELL INTERCONNECTIONS **
+
+Logic Array Block 'G':
+
+                                   Logic cells placed in LAB 'G'
+        +------------------------- LC109 |mf:8|fulladd:2|halfadd:2|p~6
+        | +----------------------- LC112 |mf:9|fulladd:2|halfadd:2|p~1
+        | | +--------------------- LC103 |mf:9|fulladd:2|halfadd:2|p~2
+        | | | +------------------- LC108 |mf:9|fulladd:2|halfadd:2|p~3
+        | | | | +----------------- LC98 |mf:9|fulladd:2|halfadd:2|p~4
+        | | | | | +--------------- LC100 |mh:10|halfadd:1|p~1
+        | | | | | | +------------- LC101 |mh:10|halfadd:1|p~2
+        | | | | | | | +----------- LC102 |mh:10|halfadd:1|p~3
+        | | | | | | | | +--------- LC97 p0
+        | | | | | | | | | +------- LC99 p2
+        | | | | | | | | | | +----- LC107 p3
+        | | | | | | | | | | | +--- LC104 p5
+        | | | | | | | | | | | | +- LC105 p6
+        | | | | | | | | | | | | | 
+        | | | | | | | | | | | | |   Other LABs fed by signals
+        | | | | | | | | | | | | |   that feed LAB 'G'
+LC      | | | | | | | | | | | | | | A B C D E F G H |     Logic cells that feed LAB 'G':
+LC109-> - - - - - - - - - - - * - | - - - - - - * - | <-- |mf:8|fulladd:2|halfadd:2|p~6
+LC112-> - - - - - - - - - - - - * | - - - - - - * - | <-- |mf:9|fulladd:2|halfadd:2|p~1
+LC103-> - - - - - - - - - - - - * | - - - - - - * - | <-- |mf:9|fulladd:2|halfadd:2|p~2
+LC108-> - - - - - - - - - - - - * | - - - - - - * - | <-- |mf:9|fulladd:2|halfadd:2|p~3
+LC98 -> - - - - - - - - - - - - * | - - - - - - * - | <-- |mf:9|fulladd:2|halfadd:2|p~4
+LC100-> - - - - - - - - - - * - - | - - - - - - * - | <-- |mh:10|halfadd:1|p~1
+LC101-> - - - - - - - - - - * - - | - - - - - - * - | <-- |mh:10|halfadd:1|p~2
+LC102-> - - - - - - - - - - * - - | - - - - - - * - | <-- |mh:10|halfadd:1|p~3
+
+Pin
+12   -> - * * * - * * * * * * - * | - - - - - - * * | <-- a0
+4    -> * * * * * * * * - * * - * | - - - - - - * * | <-- a1
+5    -> * * * * * * * * - * * - * | - - - - - - * * | <-- a2
+6    -> * * * * * * * * - - * - * | - - - - - - * * | <-- a3
+8    -> * * * * * * * * * * * - * | - - - - - - * * | <-- b0
+9    -> * * * * * * * * - * * - * | - - - - - - * * | <-- b1
+10   -> * * * * * * * * - * * - * | - - - - - - * * | <-- b2
+11   -> * * * * * - - - - - * - * | - - - - - - * * | <-- b3
+LC125-> - - - - - - - - - - - * - | - - - - - - * - | <-- |mf:8|fulladd:2|halfadd:2|p~1
+LC113-> - - - - - - - - - - - * - | - - - - - - * - | <-- |mf:8|fulladd:2|halfadd:2|p~2
+LC127-> - - - - - - - - - - - * - | - - - - - - * - | <-- |mf:8|fulladd:2|halfadd:2|p~3
+LC126-> - - - - - - - - - - - * - | - - - - - - * - | <-- |mf:8|fulladd:2|halfadd:2|p~4
+LC119-> - - - - - - - - - - - * - | - - - - - - * - | <-- |mf:8|fulladd:2|halfadd:2|p~5
+LC128-> - - - - - - - - - - - * - | - - - - - - * - | <-- |mf:8|fulladd:2|halfadd:2|p~7
+
+
+* = The logic cell or pin is an input to the logic cell (or LAB) through the PIA.
+- = The logic cell or pin is not an input to the logic cell (or LAB).
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+** LOGIC CELL INTERCONNECTIONS **
+
+Logic Array Block 'H':
+
+                                         Logic cells placed in LAB 'H'
+        +------------------------------- LC120 |mf:7|fulladd:2|halfadd:2|p~1
+        | +----------------------------- LC116 |mf:7|fulladd:2|halfadd:2|p~2
+        | | +--------------------------- LC114 |mf:7|fulladd:2|halfadd:2|p~3
+        | | | +------------------------- LC124 |mf:7|fulladd:2|halfadd:2|p~4
+        | | | | +----------------------- LC123 |mf:7|fulladd:2|halfadd:2|p~5
+        | | | | | +--------------------- LC122 |mf:7|fulladd:2|halfadd:2|p~6
+        | | | | | | +------------------- LC121 |mf:7|fulladd:2|halfadd:2|p~7
+        | | | | | | | +----------------- LC125 |mf:8|fulladd:2|halfadd:2|p~1
+        | | | | | | | | +--------------- LC113 |mf:8|fulladd:2|halfadd:2|p~2
+        | | | | | | | | | +------------- LC127 |mf:8|fulladd:2|halfadd:2|p~3
+        | | | | | | | | | | +----------- LC126 |mf:8|fulladd:2|halfadd:2|p~4
+        | | | | | | | | | | | +--------- LC119 |mf:8|fulladd:2|halfadd:2|p~5
+        | | | | | | | | | | | | +------- LC128 |mf:8|fulladd:2|halfadd:2|p~7
+        | | | | | | | | | | | | | +----- LC115 p1
+        | | | | | | | | | | | | | | +--- LC117 p4
+        | | | | | | | | | | | | | | | +- LC118 p7
+        | | | | | | | | | | | | | | | | 
+        | | | | | | | | | | | | | | | |   Other LABs fed by signals
+        | | | | | | | | | | | | | | | |   that feed LAB 'H'
+LC      | | | | | | | | | | | | | | | | | A B C D E F G H |     Logic cells that feed LAB 'H':
+LC120-> - - - - - - - - - - - - - - * - | - - - - - - - * | <-- |mf:7|fulladd:2|halfadd:2|p~1
+LC116-> - - - - - - - - - - - - - - * - | - - - - - - - * | <-- |mf:7|fulladd:2|halfadd:2|p~2
+LC114-> - - - - - - - - - - - - - - * - | - - - - - - - * | <-- |mf:7|fulladd:2|halfadd:2|p~3
+LC124-> - - - - - - - - - - - - - - * - | - - - - - - - * | <-- |mf:7|fulladd:2|halfadd:2|p~4
+LC123-> - - - - - - - - - - - - - - * - | - - - - - - - * | <-- |mf:7|fulladd:2|halfadd:2|p~5
+LC122-> - - - - - - - - - - - - - - * - | - - - - - - - * | <-- |mf:7|fulladd:2|halfadd:2|p~6
+LC121-> - - - - - - - - - - - - - - * - | - - - - - - - * | <-- |mf:7|fulladd:2|halfadd:2|p~7
+
+Pin
+12   -> * * * * * * - * * * * * - * * * | - - - - - - * * | <-- a0
+4    -> * * * * * * * * * * * * * * * * | - - - - - - * * | <-- a1
+5    -> * * * * * * * * * * * * * - * * | - - - - - - * * | <-- a2
+6    -> * * * * * * * * * * * * * - * * | - - - - - - * * | <-- a3
+8    -> * * * * * * * * * * * * - * * * | - - - - - - * * | <-- b0
+9    -> * * * * * * * * * * * * * * * * | - - - - - - * * | <-- b1
+10   -> * * * * * * * * * * * * * - * * | - - - - - - * * | <-- b2
+11   -> * * * * * * * * * * * * * - * * | - - - - - - * * | <-- b3
+
+
+* = The logic cell or pin is an input to the logic cell (or LAB) through the PIA.
+- = The logic cell or pin is not an input to the logic cell (or LAB).
+
+
+Device-Specific Information:c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+pm
+
+** EQUATIONS **
+
+a0       : INPUT;
+a1       : INPUT;
+a2       : INPUT;
+a3       : INPUT;
+b0       : INPUT;
+b1       : INPUT;
+b2       : INPUT;
+b3       : INPUT;
+
+-- Node name is 'p0' 
+-- Equation name is 'p0', location is LC097, type is output.
+ p0      = LCELL( _EQ001 $  GND);
+  _EQ001 =  a0 &  b0;
+
+-- Node name is 'p1' 
+-- Equation name is 'p1', location is LC115, type is output.
+ p1      = LCELL( _EQ002 $  GND);
+  _EQ002 =  a0 & !a1 &  b1
+         #  a0 & !b0 &  b1
+         # !a0 &  a1 &  b0
+         #  a1 &  b0 & !b1;
+
+-- Node name is 'p2' 
+-- Equation name is 'p2', location is LC099, type is output.
+ p2      = LCELL( _EQ003 $  _EQ004);
+  _EQ003 = !a0 &  a1 & !a2 &  b1
+         #  a2 &  b0 &  _X001
+         #  a1 & !b0 &  b1;
+  _X001  = EXP(!a0 &  a1 &  b1);
+  _EQ004 =  a0 &  b2;
+
+-- Node name is 'p3' 
+-- Equation name is 'p3', location is LC107, type is output.
+ p3      = LCELL( _EQ005 $  _EQ006);
+  _EQ005 =  _X002;
+  _X002  = EXP( a0 &  b3);
+  _EQ006 = !_LC100 & !_LC101 & !_LC102 &  _X003 &  _X004;
+  _X003  = EXP( a0 &  a1 &  a2 &  a3 &  b0);
+  _X004  = EXP( a1 & !b0 & !b1 &  b2);
+
+-- Node name is 'p4' 
+-- Equation name is 'p4', location is LC117, type is output.
+ p4      = LCELL( _EQ007 $  _EQ008);
+  _EQ007 =  a0 &  a1 & !a2 &  a3 &  b1 &  b2 & !b3 & !_LC114 & !_LC116 & 
+             !_LC120 & !_LC121 & !_LC122 & !_LC123 & !_LC124 &  _X003
+         # !a0 &  a2 &  a3 & !b0 &  b1 &  b2 &  b3 & !_LC114 & !_LC116 & 
+             !_LC120 & !_LC121 & !_LC122 & !_LC123 & !_LC124 &  _X003
+         # !a0 &  a1 &  a2 &  a3 & !b0 &  b2 &  b3 & !_LC114 & !_LC116 & 
+             !_LC120 & !_LC121 & !_LC122 & !_LC123 & !_LC124 &  _X003
+         #  a1 &  a2 & !a3 &  b0 &  b1 & !b2 &  b3 & !_LC114 & !_LC116 & 
+             !_LC120 & !_LC121 & !_LC122 & !_LC123 & !_LC124 &  _X003;
+  _X003  = EXP( a0 &  a1 &  a2 &  a3 &  b0);
+  _EQ008 = !_LC114 & !_LC116 & !_LC120 & !_LC121 & !_LC122 & !_LC123 & 
+             !_LC124 &  _X003;
+  _X003  = EXP( a0 &  a1 &  a2 &  a3 &  b0);
+
+-- Node name is 'p5' 
+-- Equation name is 'p5', location is LC104, type is output.
+ p5      = LCELL( _EQ009 $  VCC);
+  _EQ009 = !_LC109 & !_LC113 & !_LC119 & !_LC125 & !_LC126 & !_LC127 & 
+             !_LC128;
+
+-- Node name is 'p6' 
+-- Equation name is 'p6', location is LC105, type is output.
+ p6      = LCELL( _EQ010 $  _EQ011);
+  _EQ010 =  a0 &  a1 &  a2 &  b0 & !b1 & !b2 & !_LC098 & !_LC103 & !_LC108 & 
+             !_LC112
+         #  a0 & !a1 & !a2 &  b0 &  b1 &  b2 & !_LC098 & !_LC103 & !_LC108 & 
+             !_LC112
+         # !a1 &  a2 &  a3 & !b0 &  b2 &  b3 & !_LC098 & !_LC103 & !_LC108 & 
+             !_LC112
+         # !a0 &  a2 &  a3 & !b1 &  b2 &  b3 & !_LC098 & !_LC103 & !_LC108 & 
+             !_LC112;
+  _EQ011 = !_LC098 & !_LC103 & !_LC108 & !_LC112;
+
+-- Node name is 'p7' 
+-- Equation name is 'p7', location is LC118, type is output.
+ p7      = LCELL( _EQ012 $  GND);
+  _EQ012 =  a0 &  a1 &  a2 &  a3 &  b0 &  b3
+         #  a0 &  a3 &  b0 &  b1 &  b2 &  b3
+         #  a1 &  a3 &  b2 &  b3 &  _X005
+         #  a2 &  a3 &  b1 &  b3 &  _X006
+         #  a2 &  a3 &  b2 &  b3;
+  _X005  = EXP(!a0 & !b0 & !b1);
+  _X006  = EXP(!a0 & !a1 & !b0);
+
+-- Node name is '|mf:7|fulladd:2|halfadd:2|~1~1' = '|mf:7|fulladd:2|halfadd:2|p~1' 
+-- Equation name is '_LC120', type is buried 
+-- synthesized logic cell 
+_LC120   = LCELL( _EQ013 $  GND);
+  _EQ013 =  a1 & !a2 &  a3 &  b0 & !b1 &  b2 &  b3
+         #  a0 & !a1 &  a2 &  a3 & !b0 & !b2 &  b3
+         # !a1 &  a2 &  a3 & !b0 &  b1 &  b2 & !b3
+         # !a0 &  a1 &  a2 & !a3 & !b1 &  b2 &  b3
+         #  a1 & !a2 &  a3 & !b0 &  b1 & !b2 &  b3;
+
+-- Node name is '|mf:7|fulladd:2|halfadd:2|~1~2' = '|mf:7|fulladd:2|halfadd:2|p~2' 
+-- Equation name is '_LC116', type is buried 
+-- synthesized logic cell 
+_LC116   = LCELL( _EQ014 $  GND);
+  _EQ014 = !a0 &  a1 & !a2 &  a3 &  b1 & !b2 &  b3
+         #  a0 & !a1 &  a2 &  b0 &  b2 &  b3
+         #  a0 & !a1 &  a3 &  b0 &  b1 &  b3
+         #  a0 &  a1 &  a3 &  b0 &  b1 & !b3
+         #  a0 &  a1 &  a2 & !a3 &  b1 &  b3;
+
+-- Node name is '|mf:7|fulladd:2|halfadd:2|~1~3' = '|mf:7|fulladd:2|halfadd:2|p~3' 
+-- Equation name is '_LC114', type is buried 
+-- synthesized logic cell 
+_LC114   = LCELL( _EQ015 $  GND);
+  _EQ015 =  a0 &  a1 & !a3 &  b0 &  b1 &  b3
+         #  a0 &  a1 &  a3 &  b0 & !b1 &  b3
+         # !a1 &  a2 &  a3 &  b0 &  b1 & !b2
+         #  a0 & !a1 & !a3 &  b0 &  b1 &  b2
+         # !a0 &  a1 &  b0 &  b1 &  b2 & !b3;
+
+-- Node name is '|mf:7|fulladd:2|halfadd:2|~1~4' = '|mf:7|fulladd:2|halfadd:2|p~4' 
+-- Equation name is '_LC124', type is buried 
+-- synthesized logic cell 
+_LC124   = LCELL( _EQ016 $  GND);
+  _EQ016 =  a0 &  a1 & !a2 & !b1 &  b2 &  b3
+         # !a0 &  a1 &  a3 & !b0 &  b1 &  b3
+         #  a0 & !a1 &  a3 &  b0 & !b1 & !b3
+         #  a1 &  a2 & !a3 & !b0 &  b1 & !b3
+         #  a0 &  a1 & !a3 &  b0 & !b1 & !b3;
+
+-- Node name is '|mf:7|fulladd:2|halfadd:2|~1~5' = '|mf:7|fulladd:2|halfadd:2|p~5' 
+-- Equation name is '_LC123', type is buried 
+-- synthesized logic cell 
+_LC123   = LCELL( _EQ017 $  GND);
+  _EQ017 =  a0 &  b0 &  b1 &  b2 &  b3
+         #  a1 &  a2 &  a3 &  b0 & !b3
+         #  a0 & !a3 &  b1 &  b2 &  b3
+         # !a0 & !a1 & !a3 & !b2
+         # !a1 & !a3 & !b1 & !b2;
+
+-- Node name is '|mf:7|fulladd:2|halfadd:2|~1~6' = '|mf:7|fulladd:2|halfadd:2|p~6' 
+-- Equation name is '_LC122', type is buried 
+-- synthesized logic cell 
+_LC122   = LCELL( _EQ018 $  GND);
+  _EQ018 = !a1 & !a3 & !b2 & !b3
+         # !a0 & !a1 & !a2 & !b1
+         # !a1 & !a2 & !b0 & !b1
+         # !a0 & !a1 & !b1 & !b2
+         # !a0 & !a2 & !a3 & !b3;
+
+-- Node name is '|mf:7|fulladd:2|halfadd:2|~1~7' = '|mf:7|fulladd:2|halfadd:2|p~7' 
+-- Equation name is '_LC121', type is buried 
+-- synthesized logic cell 
+_LC121   = LCELL( _EQ019 $  GND);
+  _EQ019 = !a2 & !a3 & !b2 & !b3
+         # !a2 & !b0 & !b1 & !b3
+         # !a1 & !a2 & !a3
+         # !b1 & !b2 & !b3;
+
+-- Node name is '|mf:8|fulladd:2|halfadd:2|~1~1' = '|mf:8|fulladd:2|halfadd:2|p~1' 
+-- Equation name is '_LC125', type is buried 
+-- synthesized logic cell 
+_LC125   = LCELL( _EQ020 $  GND);
+  _EQ020 =  a0 & !a1 &  a2 &  a3 &  b0 & !b1 &  b3
+         #  a0 &  a1 & !a2 &  a3 &  b0 & !b2 &  b3
+         #  a0 & !a2 &  a3 &  b0 &  b1 & !b2 &  b3
+         #  a0 &  a1 &  a2 & !a3 &  b0 &  b2 & !b3
+         #  a0 &  a2 & !a3 &  b0 &  b1 &  b2 & !b3;
+
+-- Node name is '|mf:8|fulladd:2|halfadd:2|~1~2' = '|mf:8|fulladd:2|halfadd:2|p~2' 
+-- Equation name is '_LC113', type is buried 
+-- synthesized logic cell 
+_LC113   = LCELL( _EQ021 $  GND);
+  _EQ021 =  a0 &  a1 &  a3 &  b0 &  b1 &  b3
+         #  a0 &  a1 &  a3 &  b0 &  b1 & !b2
+         #  a1 &  a2 &  a3 &  b0 &  b1 & !b3
+         #  a0 &  a1 & !a2 &  b0 &  b1 &  b3
+         #  a0 &  a1 &  a2 & !a3 &  b1 &  b2;
+
+-- Node name is '|mf:8|fulladd:2|halfadd:2|~1~3' = '|mf:8|fulladd:2|halfadd:2|p~3' 
+-- Equation name is '_LC127', type is buried 
+-- synthesized logic cell 
+_LC127   = LCELL( _EQ022 $  GND);
+  _EQ022 = !a0 &  a1 &  a2 &  a3 & !b1 &  b3
+         #  a1 &  a2 &  a3 & !b0 & !b1 &  b3
+         #  a0 &  a1 & !a2 & !a3 &  b2 &  b3
+         #  a1 & !a2 &  a3 &  b1 & !b2 &  b3
+         #  a2 &  a3 &  b0 &  b1 & !b2 & !b3;
+
+-- Node name is '|mf:8|fulladd:2|halfadd:2|~1~4' = '|mf:8|fulladd:2|halfadd:2|p~4' 
+-- Equation name is '_LC126', type is buried 
+-- synthesized logic cell 
+_LC126   = LCELL( _EQ023 $  GND);
+  _EQ023 =  a1 &  a2 & !a3 &  b1 &  b2 & !b3
+         # !a1 &  a3 & !b0 &  b1 &  b2 &  b3
+         # !a0 & !a1 &  a3 &  b1 &  b2 &  b3
+         # !a0 &  a1 &  a3 & !b0 & !b1 &  b2
+         # !a0 & !a1 &  a2 & !b0 & !b2 &  b3;
+
+-- Node name is '|mf:8|fulladd:2|halfadd:2|~1~5' = '|mf:8|fulladd:2|halfadd:2|p~5' 
+-- Equation name is '_LC119', type is buried 
+-- synthesized logic cell 
+_LC119   = LCELL( _EQ024 $  GND);
+  _EQ024 = !a0 & !a1 &  a3 & !b1 &  b2 & !b3
+         # !a0 & !a2 &  a3 & !b0 &  b2 & !b3
+         # !a1 &  a2 & !a3 & !b0 & !b1 &  b3
+         # !a0 &  a2 & !a3 & !b0 & !b2 &  b3
+         # !a0 & !a1 &  a2 & !a3 &  b3;
+
+-- Node name is '|mf:8|fulladd:2|halfadd:2|~1~6' = '|mf:8|fulladd:2|halfadd:2|p~6' 
+-- Equation name is '_LC109', type is buried 
+-- synthesized logic cell 
+_LC109   = LCELL( _EQ025 $  GND);
+  _EQ025 =  a3 & !b0 & !b1 &  b2 & !b3
+         # !a1 & !a2 &  a3 & !b1 &  b2
+         # !a1 & !a2 &  a3 &  b2 & !b3
+         # !a2 &  a3 & !b1 &  b2 & !b3
+         # !a1 &  a2 & !a3 & !b2 &  b3;
+
+-- Node name is '|mf:8|fulladd:2|halfadd:2|~1~7' = '|mf:8|fulladd:2|halfadd:2|p~7' 
+-- Equation name is '_LC128', type is buried 
+-- synthesized logic cell 
+_LC128   = LCELL( _EQ026 $  GND);
+  _EQ026 =  a2 & !a3 & !b1 & !b2 &  b3
+         # !a1 &  a2 & !b1 & !b2 &  b3;
+
+-- Node name is '|mf:9|fulladd:2|halfadd:2|~1~1' = '|mf:9|fulladd:2|halfadd:2|p~1' 
+-- Equation name is '_LC112', type is buried 
+-- synthesized logic cell 
+_LC112   = LCELL( _EQ027 $  GND);
+  _EQ027 = !a1 &  a2 &  a3 & !b1 &  b2 &  b3
+         # !a0 &  a1 &  a2 & !b0 &  b1 & !b2
+         # !a0 &  a1 & !a2 & !b0 &  b1 &  b2
+         #  a1 &  a2 &  a3 &  b1 & !b2
+         #  a0 &  a1 & !a2 &  b2 &  b3;
+
+-- Node name is '|mf:9|fulladd:2|halfadd:2|~1~2' = '|mf:9|fulladd:2|halfadd:2|p~2' 
+-- Equation name is '_LC103', type is buried 
+-- synthesized logic cell 
+_LC103   = LCELL( _EQ028 $  GND);
+  _EQ028 =  a1 & !a2 &  b0 &  b2 &  b3
+         #  a2 &  a3 & !b0 & !b1 &  b2
+         # !a1 &  a2 &  b0 &  b1 & !b2
+         #  a0 & !a1 &  a2 &  b1 & !b2
+         #  a1 & !a2 &  b0 & !b1 &  b2;
+
+-- Node name is '|mf:9|fulladd:2|halfadd:2|~1~3' = '|mf:9|fulladd:2|halfadd:2|p~3' 
+-- Equation name is '_LC108', type is buried 
+-- synthesized logic cell 
+_LC108   = LCELL( _EQ029 $  GND);
+  _EQ029 = !a0 & !a1 &  a2 &  b2 &  b3
+         # !a1 &  a2 & !b0 & !b1 &  b2
+         # !a0 & !a1 &  a2 & !b1 &  b2
+         # !a3 & !b1 & !b2
+         # !a1 & !a3 & !b2;
+
+-- Node name is '|mf:9|fulladd:2|halfadd:2|~1~4' = '|mf:9|fulladd:2|halfadd:2|p~4' 
+-- Equation name is '_LC098', type is buried 
+-- synthesized logic cell 
+_LC098   = LCELL( _EQ030 $  GND);
+  _EQ030 = !b0 & !b1 & !b3
+         # !a1 & !a2 & !b3
+         # !a2 & !a3
+         # !b2 & !b3
+         # !a3 & !b3;
+
+-- Node name is '|mh:10|halfadd:1|~1~1' = '|mh:10|halfadd:1|p~1' 
+-- Equation name is '_LC100', type is buried 
+-- synthesized logic cell 
+_LC100   = LCELL( _EQ031 $  GND);
+  _EQ031 =  a0 &  a1 & !a2 & !a3 &  b0 &  b1 & !b2
+         #  a0 & !a1 &  a2 & !a3 &  b0 & !b1 &  b2
+         # !a0 &  a2 & !a3 &  b0 &  b1 &  b2
+         #  a0 &  a3 &  b0 &  b1 &  b2
+         # !a0 &  a1 &  a3 &  b0 & !b2;
+
+-- Node name is '|mh:10|halfadd:1|~1~2' = '|mh:10|halfadd:1|p~2' 
+-- Equation name is '_LC101', type is buried 
+-- synthesized logic cell 
+_LC101   = LCELL( _EQ032 $  GND);
+  _EQ032 = !a0 &  a1 & !a3 &  b0 &  b2
+         # !a1 &  a2 & !a3 &  b1 & !b2
+         # !a0 & !a1 &  a3 &  b0 & !b1
+         #  a1 & !a2 & !a3 & !b1 &  b2
+         # !a0 &  a1 & !a2 & !b0 &  b2;
+
+-- Node name is '|mh:10|halfadd:1|~1~3' = '|mh:10|halfadd:1|p~3' 
+-- Equation name is '_LC102', type is buried 
+-- synthesized logic cell 
+_LC102   = LCELL( _EQ033 $  GND);
+  _EQ033 =  a0 &  a2 & !b0 &  b1
+         # !a1 & !a2 &  a3 &  b0
+         # !a1 &  a2 & !b0 &  b1
+         #  a2 & !b0 &  b1 & !b2
+         #  a3 &  b0 & !b1 & !b2;
+
+
+
+--     Shareable expanders that are duplicated in multiple LABs:
+--    _X003 occurs in LABs G, H
+
+
+
+
+Project Information        c:\documents and settings\s4g09\desktop\lab5\pm.rpt
+
+** COMPILATION SETTINGS & TIMES **
+
+Processing Menu Commands
+------------------------
+
+Design Doctor                             = off
+
+Logic Synthesis:
+
+   Synthesis Type Used                    = Standard
+
+   Default Synthesis Style                = NORMAL
+
+      Logic option settings in 'NORMAL' style for 'MAX7000S' family
+
+      DECOMPOSE_GATES                     = on
+      DUPLICATE_LOGIC_EXTRACTION          = on
+      MINIMIZATION                        = full
+      MULTI_LEVEL_FACTORING               = on
+      NOT_GATE_PUSH_BACK                  = on
+      PARALLEL_EXPANDERS                  = off
+      REDUCE_LOGIC                        = on
+      REFACTORIZATION                     = on
+      REGISTER_OPTIMIZATION               = on
+      RESYNTHESIZE_NETWORK                = on
+      SLOW_SLEW_RATE                      = off
+      SOFT_BUFFER_INSERTION               = on
+      SUBFACTOR_EXTRACTION                = on
+      TURBO_BIT                           = on
+      XOR_SYNTHESIS                       = on
+      IGNORE_SOFT_BUFFERS                 = off
+      USE_LPM_FOR_AHDL_OPERATORS          = off
+
+   Other logic synthesis settings:
+
+      Automatic Global Clock              = on
+      Automatic Global Clear              = on
+      Automatic Global Preset             = on
+      Automatic Global Output Enable      = on
+      Automatic Fast I/O                  = off
+      Automatic Register Packing          = off
+      Automatic Open-Drain Pins           = on
+      Automatic Implement in EAB          = off
+      One-Hot State Machine Encoding      = off
+      Optimize                            = 5
+
+Default Timing Specifications: None
+
+Cut All Bidir Feedback Timing Paths       = on
+Cut All Clear & Preset Timing Paths       = on
+
+Ignore Timing Assignments                 = on
+
+Functional SNF Extractor                  = off
+
+Linked SNF Extractor                      = off
+Timing SNF Extractor                      = on
+Optimize Timing SNF                       = off
+Generate AHDL TDO File                    = off
+Fitter Settings                           = NORMAL
+Smart Recompile                           = off
+Total Recompile                           = off
+
+Interfaces Menu Commands
+------------------------
+
+EDIF Netlist Writer                       = off
+Verilog Netlist Writer                    = off
+VHDL Netlist Writer                       = off
+ADT PALACE Compilation                    = off
+
+Compilation Times
+-----------------
+
+   Compiler Netlist Extractor             00:00:00
+   Database Builder                       00:00:00
+   Logic Synthesizer                      00:00:00
+   Partitioner                            00:00:00
+   Fitter                                 00:00:00
+   Timing SNF Extractor                   00:00:00
+   Assembler                              00:00:01
+   --------------------------             --------
+   Total Time                             00:00:01
+
+
+Memory Allocated
+-----------------
+
+Peak memory allocated during compilation  = 4,521K

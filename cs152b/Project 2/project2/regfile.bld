@@ -1,0 +1,23 @@
+Release 4.1i - ngdbuild E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -dd e:/proj2/project2/_ngo -nt timestamp -p xcv50-pq240-6
+regfile.ngc regfile.ngd 
+
+Reading NGO file "E:/proj2/project2/regfile.ngc" ...
+Reading component libraries for design expansion...
+Launcher: "buxmux16.ngo" is up to date.
+Loading design module "e:\proj2\project2\_ngo\buxmux16.ngo"...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:454 - logical net 'xlxi_7/d0' has no load
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Writing NGD file "regfile.ngd" ...
+
+Writing NGDBUILD log file "regfile.bld"...

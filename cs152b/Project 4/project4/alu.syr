@@ -1,0 +1,767 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : alu.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : alu
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : alu
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/proj2/project2/negative_detect.vhd in Library work.
+Architecture Behavioral of Entity Negative_detect is up to date.
+Compiling vhdl file E:/proj2/project2/OF_detect.vhd in Library work.
+Architecture Behavioral of Entity Of_detect is up to date.
+Compiling vhdl file E:/proj2/project2/one_bus.vhd in Library work.
+Architecture Behavioral of Entity One_bus is up to date.
+Compiling vhdl file E:/proj2/project2/zeroBus.vhd in Library work.
+Architecture Behavioral of Entity Zerobus is up to date.
+Compiling vhdl file E:/proj2/project2/add.vhf in Library work.
+Architecture Schematic of Entity Adsu16_mxilinx is up to date.
+Architecture Schematic of Entity Inv16_mxilinx is up to date.
+Architecture Schematic of Entity Add is up to date.
+Compiling vhdl file E:/proj2/project2/control_module.vhd in Library work.
+Architecture Behavioral of Entity Control_unit is up to date.
+Compiling vhdl file E:/proj2/project2/logical.vhd in Library work.
+Architecture Behavioral of Entity Logical is up to date.
+Compiling vhdl file E:/proj2/project2/OF_enable.vhd in Library work.
+Architecture Behavioral of Entity Of_enable is up to date.
+Compiling vhdl file E:/proj2/project2/shift.vhd in Library work.
+Architecture Behavioral of Entity Shift is up to date.
+Compiling vhdl file E:/proj2/project2/zero_detect.vhd in Library work.
+Architecture Behavioral of Entity Zero_detect is up to date.
+Compiling vhdl file E:/proj2/project2/alu.vhf in Library work.
+Architecture Schematic of Entity Alu is up to date.
+
+Analyzing Entity <alu> (Architecture <Schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:766 - E:/proj2/project2/alu.vhf (Line 126). Generating a Black Box for component <mux_four>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <alu> analyzed. Unit <alu> generated.
+
+Analyzing Entity <add> (Architecture <schematic>).
+WARNING:Xst:753 - E:/proj2/project2/add.vhf (Line 627). Unconnected output port 'co' of component 'adsu16_mxilinx'.
+WARNING:Xst:753 - E:/proj2/project2/add.vhf (Line 627). Unconnected output port 'ofl' of component 'adsu16_mxilinx'.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_23> in unit <add>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_10> in unit <add>.
+WARNING:Xst:766 - E:/proj2/project2/add.vhf (Line 671). Generating a Black Box for component <mux2_16bits>.
+WARNING:Xst:766 - E:/proj2/project2/add.vhf (Line 686). Generating a Black Box for component <mux4_16bits_new>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <add> analyzed. Unit <add> generated.
+
+Analyzing Entity <control_unit> (Architecture <behavioral>).
+Entity <control_unit> analyzed. Unit <control_unit> generated.
+
+Analyzing Entity <logical> (Architecture <behavioral>).
+Entity <logical> analyzed. Unit <logical> generated.
+
+Analyzing Entity <of_enable> (Architecture <behavioral>).
+Entity <of_enable> analyzed. Unit <of_enable> generated.
+
+Analyzing Entity <shift> (Architecture <behavioral>).
+Entity <shift> analyzed. Unit <shift> generated.
+
+Analyzing Entity <zero_detect> (Architecture <behavioral>).
+Entity <zero_detect> analyzed. Unit <zero_detect> generated.
+
+Analyzing Entity <adsu16_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_23> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_22> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_21> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_20> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R2C0.S1" for instance <i_36_19> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R2C0.S1" for instance <i_36_18> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R3C0.S1" for instance <i_36_17> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R3C0.S1" for instance <i_36_16> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R4C0.S1" for instance <i_36_299> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R4C0.S1" for instance <i_36_295> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R5C0.S1" for instance <i_36_291> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R5C0.S1" for instance <i_36_287> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R6C0.S1" for instance <i_36_283> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R6C0.S1" for instance <i_36_279> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R7C0.S1" for instance <i_36_272> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R7C0.S1" for instance <i_36_275> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_64> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_107> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R7C0.S1" for instance <i_36_255> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_110> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_63> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R2C0.S1" for instance <i_36_58> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R2C0.S1" for instance <i_36_62> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R3C0.S1" for instance <i_36_55> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R3C0.S1" for instance <i_36_111> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R4C0.S1" for instance <i_36_248> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R4C0.S1" for instance <i_36_249> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R5C0.S1" for instance <i_36_250> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R5C0.S1" for instance <i_36_251> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R6C0.S1" for instance <i_36_252> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R6C0.S1" for instance <i_36_253> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R7C0.S1" for instance <i_36_254> in unit <adsu16_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <adsu16_mxilinx> analyzed. Unit <adsu16_mxilinx> generated.
+
+Analyzing Entity <inv16_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <inv16_mxilinx> analyzed. Unit <inv16_mxilinx> generated.
+
+Analyzing Entity <negative_detect> (Architecture <behavioral>).
+WARNING:Xst:819 - E:/proj2/project2/negative_detect.vhd (Line 18). The following signals are missing in the process sensitivity list:
+   a_msb, b_msb.
+Entity <negative_detect> analyzed. Unit <negative_detect> generated.
+
+Analyzing Entity <of_detect> (Architecture <behavioral>).
+WARNING:Xst:819 - E:/proj2/project2/OF_detect.vhd (Line 18). The following signals are missing in the process sensitivity list:
+   control.
+Entity <of_detect> analyzed. Unit <of_detect> generated.
+
+Analyzing Entity <one_bus> (Architecture <behavioral>).
+Entity <one_bus> analyzed. Unit <one_bus> generated.
+
+Analyzing Entity <zerobus> (Architecture <behavioral>).
+Entity <zerobus> analyzed. Unit <zerobus> generated.
+
+
+Synthesizing Unit <zerobus>.
+    Related source file is E:/proj2/project2/zeroBus.vhd.
+Unit <zerobus> synthesized.
+
+
+Synthesizing Unit <one_bus>.
+    Related source file is E:/proj2/project2/one_bus.vhd.
+Unit <one_bus> synthesized.
+
+
+Synthesizing Unit <of_detect>.
+    Related source file is E:/proj2/project2/OF_detect.vhd.
+WARNING:Xst:647 - Input <b<14>> is never used.
+WARNING:Xst:647 - Input <b<13>> is never used.
+WARNING:Xst:647 - Input <b<12>> is never used.
+WARNING:Xst:647 - Input <b<11>> is never used.
+WARNING:Xst:647 - Input <b<10>> is never used.
+WARNING:Xst:647 - Input <b<9>> is never used.
+WARNING:Xst:647 - Input <b<8>> is never used.
+WARNING:Xst:647 - Input <b<7>> is never used.
+WARNING:Xst:647 - Input <b<6>> is never used.
+WARNING:Xst:647 - Input <b<5>> is never used.
+WARNING:Xst:647 - Input <b<4>> is never used.
+WARNING:Xst:647 - Input <b<3>> is never used.
+WARNING:Xst:647 - Input <b<2>> is never used.
+WARNING:Xst:647 - Input <b<1>> is never used.
+WARNING:Xst:647 - Input <b<0>> is never used.
+WARNING:Xst:647 - Input <result<14>> is never used.
+WARNING:Xst:647 - Input <result<13>> is never used.
+WARNING:Xst:647 - Input <result<12>> is never used.
+WARNING:Xst:647 - Input <result<11>> is never used.
+WARNING:Xst:647 - Input <result<10>> is never used.
+WARNING:Xst:647 - Input <result<9>> is never used.
+WARNING:Xst:647 - Input <result<8>> is never used.
+WARNING:Xst:647 - Input <result<7>> is never used.
+WARNING:Xst:647 - Input <result<6>> is never used.
+WARNING:Xst:647 - Input <result<5>> is never used.
+WARNING:Xst:647 - Input <result<4>> is never used.
+WARNING:Xst:647 - Input <result<3>> is never used.
+WARNING:Xst:647 - Input <result<2>> is never used.
+WARNING:Xst:647 - Input <result<1>> is never used.
+WARNING:Xst:647 - Input <result<0>> is never used.
+Unit <of_detect> synthesized.
+
+
+Synthesizing Unit <negative_detect>.
+    Related source file is E:/proj2/project2/negative_detect.vhd.
+Unit <negative_detect> synthesized.
+
+
+Synthesizing Unit <inv16_mxilinx>.
+    Related source file is E:/proj2/project2/add.vhf.
+Unit <inv16_mxilinx> synthesized.
+
+
+Synthesizing Unit <adsu16_mxilinx>.
+    Related source file is E:/proj2/project2/add.vhf.
+WARNING:Xst:653 - Signal <dummy> is used but never assigned. Tied to value 0.
+Unit <adsu16_mxilinx> synthesized.
+
+
+Synthesizing Unit <zero_detect>.
+    Related source file is E:/proj2/project2/zero_detect.vhd.
+Unit <zero_detect> synthesized.
+
+
+Synthesizing Unit <shift>.
+    Related source file is E:/proj2/project2/shift.vhd.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<15>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<14>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<13>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<12>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<11>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<10>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<9>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<8>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<7>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<6>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<5>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<4>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<3>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<2>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<1>>.
+WARNING:Xst:737 - Found 1-bit latch for signal <shift_result<0>>.
+    Found 1-bit 16-to-1 multiplexer for signal <$n0016>.
+    Summary:
+	inferred  16 Latch(s).
+	inferred   1 Multiplexer(s).
+Unit <shift> synthesized.
+
+
+Synthesizing Unit <of_enable>.
+    Related source file is E:/proj2/project2/OF_enable.vhd.
+Unit <of_enable> synthesized.
+
+
+Synthesizing Unit <logical>.
+    Related source file is E:/proj2/project2/logical.vhd.
+WARNING:Xst:737 - Found 16-bit latch for signal <logicalout>.
+    Summary:
+	inferred  16 Latch(s).
+Unit <logical> synthesized.
+
+
+Synthesizing Unit <control_unit>.
+    Related source file is E:/proj2/project2/control_module.vhd.
+WARNING:Xst:737 - Found 2-bit latch for signal <sel>.
+    Summary:
+	inferred   2 Latch(s).
+Unit <control_unit> synthesized.
+
+
+Synthesizing Unit <add>.
+    Related source file is E:/proj2/project2/add.vhf.
+WARNING:Xst:653 - Signal <xlxn_60<15>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<14>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<13>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<12>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<11>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<10>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<9>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<8>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<7>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<6>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<5>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<4>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<3>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<2>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<1>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_60<0>> is used but never assigned. Tied to value 0.
+Unit <add> synthesized.
+
+
+Synthesizing Unit <alu>.
+    Related source file is E:/proj2/project2/alu.vhf.
+WARNING:Xst:653 - Signal <xlxn_3<15>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<14>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<13>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<12>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<11>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<10>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<9>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<8>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<7>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<6>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<5>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<4>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<3>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<2>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<1>> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <xlxn_3<0>> is used but never assigned. Tied to value 0.
+Unit <alu> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Latches                          : 18
+  1-bit latch                      : 16
+  16-bit latch                     : 1
+  2-bit latch                      : 1
+# Multiplexers                     : 1
+  1-bit 16-to-1 multiplexer        : 1
+
+=========================================================================
+
+
+Starting low level synthesis...
+Optimizing unit <logical> ...
+
+Optimizing unit <control_unit> ...
+
+Optimizing unit <adsu16_mxilinx> ...
+
+Optimizing unit <inv16_mxilinx> ...
+
+Optimizing unit <negative_detect> ...
+
+Optimizing unit <of_detect> ...
+
+Optimizing unit <add> ...
+
+Optimizing unit <shift> ...
+
+Optimizing unit <zero_detect> ...
+
+Optimizing unit <of_enable> ...
+
+Optimizing unit <alu> ...
+
+Building and optimizing final netlist ...
+
+WARNING:Xst:387 - The KEEP property attached to the net <c0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c10> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c11> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c12> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c13> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c14> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c14o> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c4> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c5> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c6> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c7> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c8> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c9> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i10> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i11> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i12> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i13> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i14> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i15> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I4> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i5> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i6> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i7> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i8> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <i9> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_10> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_11> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_12> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_13> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_14> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_15> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_4> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_5> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_6> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_7> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_8> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s_9> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_10> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_11> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_12> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_13> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_14> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_15> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_4> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_5> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_6> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_7> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_8> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxn_21_9> may hinder timing optimization.
+   You may achieve better results by removing this property
+=========================================================================
+Final Results
+Top Level Output File Name         : alu
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Macro Statistics
+# Multiplexers                     : 1
+  1-bit 16-to-1 multiplexer        : 1
+
+Design Statistics
+# IOs                              : 54
+
+Cell Usage :
+# BELS                             : 360
+#      GND                         : 2
+#      INV                         : 36
+#      LUT2                        : 11
+#      LUT2_L                      : 15
+#      LUT3                        : 114
+#      LUT4                        : 137
+#      LUT4_L                      : 1
+#      muxcy                       : 1
+#      muxcy_d                     : 1
+#      muxcy_l                     : 14
+#      MUXF5                       : 9
+#      MUXF6                       : 2
+#      VCC                         : 1
+#      xorcy                       : 16
+# FlipFlops/Latches                : 34
+#      LD                          : 34
+# IO Buffers                       : 54
+#      IBUF                        : 36
+#      OBUF                        : 18
+# Logical                          : 22
+#      AND2                        : 1
+#      AND4                        : 1
+#      OR2                         : 2
+#      XOR2                        : 2
+#      XOR3                        : 16
+# Others                           : 19
+#      fmap                        : 16
+#      mux2_16bits                 : 1
+#      mux4_16bits_new             : 1
+#      mux_four                    : 1
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+xlxi_10_I__n0001:O                 | NONE(*)(xlxi_10_Sel_1) | 2     |
+xlxi_5_I__n0001:O                  | NONE(*)(xlxi_5_logicalout_14)| 32    |
+xlxi_17_I_SF1794:O                 | NONE(*)(xlxi_17_shift_result_0)| 16    |
+-----------------------------------+------------------------+-------+
+(*) These 3 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 14.691ns
+   Maximum output required time after clock: 1.171ns
+   Maximum combinational path delay: 25.563ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET IN BEFORE for Clock 'xlxi_17_I_SF1794:O'
+Offset:              14.691ns (Levels of Logic = 7)
+  Source:            b_2
+  Destination:       xlxi_17_shift_result_12
+  Destination Clock: xlxi_17_I_SF1794:O falling
+
+  Data Path: b_2 to xlxi_17_shift_result_12
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O             55   0.768   4.455  b_2_IBUF (b_2_IBUF)
+    LUT4:I0->O             1   0.573   1.035  xlxi_17_I_19_LUT_88 (xlxi_17_N266)
+    LUT3:I0->O             2   0.573   1.206  xlxi_17_I_SF1777 (xlxi_17_N274)
+    LUT3:I2->O             2   0.573   1.206  xlxi_17_I_SF1807 (xlxi_17_N338)
+    LUT3:I2->O             2   0.573   1.206  xlxi_17_I_SF1853 (xlxi_17_N456)
+    LUT4:I3->O             1   0.573   1.035  xlxi_17_I_35_LUT_90 (xlxi_17_N481)
+    LUT4:I0->O             1   0.573   0.000  xlxi_17_I__n0004 (xlxi_17_N483)
+    LD:D                       0.342          xlxi_17_shift_result_12
+    ----------------------------------------
+    Total                     14.691ns (4.548ns logic, 10.143ns route)
+                                       (31.0% logic, 69.0% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET OUT AFTER for Clock 'xlxi_10_I__n0001:O'
+Offset:              1.171ns (Levels of Logic = 0)
+  Source:            xlxi_10_Sel_0
+  Destination:       xlxi_2
+  Source Clock:      xlxi_10_I__n0001:O falling
+
+  Data Path: xlxi_10_Sel_0 to xlxi_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    LD:G->Q                0   1.171   0.000  xlxi_10_Sel_0 (xlxn_2_0)
+    mux_four:s_0               0.000          xlxi_2
+    ----------------------------------------
+    Total                      1.171ns (1.171ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Delay:               25.563ns (Levels of Logic = 25)
+  Source:            control_0
+  Destination:       overflow
+
+  Data Path: control_0 to overflow
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O             49   0.768   4.185  control_0_IBUF (control_0_IBUF)
+    INV:I->O              16   0.573   2.520  xlxi_15_xlxi_26 (xlxi_15_xlxn_120)
+     begin scope: 'xlxi_15_xlxi_23'
+    INV:I->O               1   0.573   1.035  i_36_355 (sub0)
+    XOR3:I2->O             1   0.573   1.035  i_36_220 (I0)
+    muxcy_l:S->LO          1   0.653   0.000  i_36_255 (c0)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_254 (c1)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_253 (c2)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_252 (c3)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_251 (c4)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_250 (c5)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_249 (c6)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_248 (c7)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_111 (c8)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_55 (c9)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_62 (c10)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_58 (c11)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_63 (c12)
+    muxcy_l:CI->LO         1   0.044   0.000  i_36_110 (c13)
+    muxcy_d:CI->LO         1   0.044   0.000  i_36_107 (c14)
+    xorcy:CI->O            3   0.418   1.332  i_36_80 (s_15)
+     end scope: 'xlxi_15_xlxi_23'
+    MUXF5:S->O             1   0.636   1.035  xlxi_15_xlxi_24_I_0_LUT_28 (xlxi_15_xlxi_24_N71)
+    LUT4:I0->O             1   0.573   1.035  xlxi_15_xlxi_24_I_overflow (add_overflow)
+    OR2:I1->O              1   0.573   1.035  xlxi_7 (xlxn_17)
+    AND2:I1->O             1   0.573   1.035  xlxi_14 (overflow_OBUF)
+    OBUF:I->O                  4.787          overflow_OBUF (overflow)
+    ----------------------------------------
+    Total                     25.563ns (11.316ns logic, 14.247ns route)
+                                       (44.3% logic, 55.7% route)
+
+=========================================================================
+CPU : 13.89 / 13.92 s | Elapsed : 14.00 / 14.00 s
+ 
+--> 

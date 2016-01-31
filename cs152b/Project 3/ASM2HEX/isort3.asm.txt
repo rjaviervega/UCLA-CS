@@ -1,0 +1,40 @@
+Define arraySize 8
+Define Addr 48	; 48..54
+Define Dest 56	; 56..62
+
+		
+addi	r1,	r0,	0 
+addi	r2,	r0,	0 
+addi	r4, 	r0, 	8 
+
+for:		slt	r5,	r1, r4
+		beq	r5, 	r0, done
+
+		lw	r5,	Addr(r0)
+		sw	r5,	Dest(r1)
+		addi	r7,	r0,	0
+
+	for2:	slt	r6,	r2,	r4
+		beq	r6,	r0,	done2
+
+		lw	r5, 	Dest(r1)
+		lw	r6,	Addr(r2)
+
+		slt	r3,	r6,	r5
+		beq	r3,	r0,	nocopy
+
+		sw	r6,	Dest(r1)
+		addi	r7,	r2,	0
+
+	nocopy:
+		addi	r2,	r2,	2
+		j	for2
+
+	done2:
+		addi	r6,	r0,	10
+		sw	r6,	Addr(r7)
+		addi	r2,	r0,	0
+		addi	r1,	r1,	2
+		j	for
+done:
+	hlt

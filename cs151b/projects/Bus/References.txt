@@ -1,0 +1,9 @@
+Refs:
+
+http://pccorot15.obspm.fr/COROT-ETC/Files/1553_overview.pdf
+
+
+http://www.interfacebus.com/Design_Connector_1553.html
+
+http://www.chipcenter.com/circuitcellar/may01/c0501gn6.htm
+

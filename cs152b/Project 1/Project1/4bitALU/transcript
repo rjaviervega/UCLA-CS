@@ -1,0 +1,83 @@
+# Reading c:/Modeltech_xe/win32xoem/../tcl/vsim/pref.tcl 
+# do 4bitalu.ldo 
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity mux8x4bus
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture mux8x4bus_a of mux8x4bus
+# -- Loading package std_logic_1164
+# -- Loading entity mux8x4bus
+# -- Loading package prims_utils_v4_0
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package prims_constants_v4_0
+# -- Loading package c_reg_fd_v4_0_comp
+# -- Loading entity c_mux_bus_v4_0
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2to1_4bits
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture mux2to1_4bits_a of mux2to1_4bits
+# -- Loading package std_logic_1164
+# -- Loading entity mux2to1_4bits
+# -- Loading package prims_utils_v4_0
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package prims_constants_v4_0
+# -- Loading package c_reg_fd_v4_0_comp
+# -- Loading entity c_mux_bus_v4_0
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Compiling entity m2_1_mxilinx
+# -- Compiling entity compm4_mxilinx
+# -- Compiling entity ibuf4_mxilinx
+# -- Compiling entity add4_mxilinx
+# WARNING[4]: 4bitalu.vhf(345): A space is required between a number and an identifier.
+# ERROR: 4bitalu.vhf(345): near "4": expecting: IDENTIFIER
+# WARNING[4]: 4bitalu.vhf(366): A space is required between a number and an identifier.
+# ERROR: 4bitalu.vhf(366): near "4": expecting: ';'
+# WARNING[4]: 4bitalu.vhf(368): A space is required between a number and an identifier.
+# ERROR: 4bitalu.vhf(368): near "4": expecting: IDENTIFIER
+# ERROR: 4bitalu.vhf(416): near "and": expecting: IDENTIFIER
+# ERROR: 4bitalu.vhf(423): near "or": expecting: IDENTIFIER
+# ERROR: 4bitalu.vhf(578): near "and":syntax error
+# ERROR: 4bitalu.vhf(581): near "and":syntax error
+# ERROR: 4bitalu.vhf(584): near "and":syntax error
+# ERROR: 4bitalu.vhf(587): near "and":syntax error
+# ERROR: 4bitalu.vhf(596): near "out":syntax error
+# ERROR: 4bitalu.vhf(596): near "out":syntax error
+# ERROR: 4bitalu.vhf(596): near "out":syntax error
+# ERROR: 4bitalu.vhf(596): near "out":syntax error
+# ERROR: 4bitalu.vhf(768): near "or":syntax error
+# ERROR: 4bitalu.vhf(768): near "or":syntax error
+# ERROR: 4bitalu.vhf(769): near "or":syntax error
+# ERROR: 4bitalu.vhf(769): near "or":syntax error
+# ERROR: 4bitalu.vhf(769): near "and":syntax error
+# ERROR: 4bitalu.vhf(769): near "and":syntax error
+# ERROR: 4bitalu.vhf(769): near "and":syntax error
+# ERROR: 4bitalu.vhf(770): near "and":syntax error
+# ERROR: 4bitalu.vhf(772): near "out":syntax error
+# ERROR: 4bitalu.vhf(773): near "out":syntax error
+# ERROR: 4bitalu.vhf(773): near "out":syntax error
+# ERROR: 4bitalu.vhf(773): near "out":syntax error
+# ERROR: 4bitalu.vhf(779): near "out":syntax error
+# ERROR: 4bitalu.vhf(788): near "out":syntax error
+# ERROR: 4bitalu.vhf(791): near "out":syntax error
+# ERROR: 4bitalu.vhf(794): near "out":syntax error
+# ERROR: 4bitalu.vhf(800): near "or":syntax error
+# ERROR: 4bitalu.vhf(803): near "or":syntax error
+# ERROR: 4bitalu.vhf(806): near "or":syntax error
+# ERROR: 4bitalu.vhf(809): near "or":syntax error
+# ERROR: c:/Modeltech_xe/win32xoem/vcom failed.
+# Error in macro ./4bitalu.ldo line 8
+# c:/Modeltech_xe/win32xoem/vcom failed.
+#     while executing
+# "vcom -just e -93 -explicit   4bitalu.vhf"

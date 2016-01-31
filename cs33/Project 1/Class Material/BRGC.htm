@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://algoart.com/help/softstep/alldocs/brgc.htm -->
+<HTML><HEAD><TITLE>BRGC</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY>
+<H3>Binary Reflected Gray Code Transformation</H3>
+<P>I make big use of the reflected binary gray code in my programming, both the 
+bitmap programming and the MIDI programming that I do using your SoftStep (also 
+with CAL). I don't know if anybody else would find it fascinating, but I 
+certainly do. My way of performing what I choose to call the "binary reflected 
+gray code transformation" is to take whatever module is outputting the stream of 
+numbers that I want transformed, and first I use your "Divide" module to halve 
+the numbers. The least significant bit, of course, is lost. </P>
+<P>Then, I use your XOR between the original module and the now-halved stream 
+calculated by the "Divide" module. The output of the "XOR" module is the binary 
+reflected gray code transformation" of each original number. </P>
+<P>The biggest use I have made of the brgc transforms so far is by taking some 
+brief musical motif created somewhere, and sending it to the MIDI Voice Out 
+module first raw, and then, both delayed and transformed by brgc, then both 
+delayed again and transformed again by the brgc. </P>
+<P>You may know that this transformation acts on numbers in different ranges in 
+fascinating ways. 0 and 1 are unaltered by the transformation. 2 and 3 
+alternate. The integers between 4 and 15 are transformed into other integers 
+that return to the original values after repeated application of the 
+transformation in cycles of 4. </P>
+<P>4 is transformed into 6, which is transformed into 5, which is transformed 
+into 7, which is transformed into 4, again. </P>
+<P>8 becomes 12, becomes 10, becomes 15, becomes 8. </P>
+<P>9 becomes 13, becomes 11, becomes 14, becomes 9, again. </P>
+<P>All integers from 16 up to 255 (though with MIDI, we never go above 127) 
+belong to cycles of length 8. All numbers below 128 are members of cycles all of 
+whose members are below 128. </P>
+<P><B>Steve Whealton</B></P></BODY></HTML>

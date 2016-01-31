@@ -1,0 +1,2 @@
+plslib 
+pls    memoryread.vhd memorywrite.vhd memorymultiplexor-sv01.vhd pctosraminterface-sv06.vhd sram512kleft16bit50mhzreadreq-sv05.vhd sraminterfacewithpport-sv01.vhd memaccess.vhd simtest.vhd test.vhf 

@@ -1,0 +1,24 @@
+* Problem 3.4 PSPICE 
+* Part (d)
+
+.include "z:\ee115c\115C_1_025um_PSPICE_BSIM3.txt"
+
+* Power Supplies
+VDS 2 0 DC -2.5V
+VGS 1 0 DC -1.5V
+
+M1 2 1 0 0 pmos W=4.8u L=0.5u
+
+* calculation of DC Bias point
+.op
+
+.dc VDS 0.5 2.5 0.5 
+
+* transient analysis
+*.Tran 0.0001us 0.2us
+
+.PROBE
+.PRINT DC V(1) V(2)
+
+
+.end

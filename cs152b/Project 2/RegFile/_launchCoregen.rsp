@@ -1,0 +1,3 @@
+SETPROJECT e:/proj2/regfile
+SET OverwriteFiles=true
+LAUNCHXCO buxmux16.xco

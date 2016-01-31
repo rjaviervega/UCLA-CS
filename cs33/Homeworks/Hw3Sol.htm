@@ -1,0 +1,315 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (Win98; U) [Netscape]">
+</head>
+<body>
+
+<center><b><i><font size=+2>HOMEWORK Chapter 3</font></i></b></center>
+<i><font size=+2></font></i>
+<p>3-1.&nbsp;&nbsp;&nbsp; (a) An opcode is a binary number which designates
+a specific machine
+<br>instruction. (p47)
+<p>&nbsp;&nbsp;&nbsp; (b) An address mode is a specific method of calculating
+the location of an
+<br>operand for an instruction by using the address value in the instruction
+and
+<br>registers implied by the mode. (p48)
+<p>&nbsp;&nbsp;&nbsp; (c) A mnemonic is a short character sequence used
+to designate (or
+<br>abbreviate) a machine instruction. (p49)
+<p>&nbsp;&nbsp;&nbsp; (d) An unconditional jump is an instruction which
+specifies that the normal
+<br>control flow which causes instructions to be executed in sequential
+order is to
+<br>be altered so that the next and subsequent instructions are fetched
+from the
+<br>location specified by the address value and addressing mode specified
+in the
+<br>instruction. (p52)
+<p>&nbsp;&nbsp;&nbsp; (e) To set a flag means to set the state of a flag
+register (EQ, LT, OV, or
+<br>IE) to true (=1). (p52)
+<p>&nbsp;&nbsp;&nbsp; (f) Bit masking is the process of selecting a set
+of bits in a word by
+<br>using an AND instruction and a mask word to specify which bits are
+to be
+<br>selected. (p61)
+<p>3-2.&nbsp;&nbsp;&nbsp; (a) Operand instructions have an address which
+is used to determine the
+<br>location of an operand of the instruction.&nbsp; Operate instructions
+specify the
+<br>operand implicitly.
+<p>&nbsp;&nbsp;&nbsp; (b) Direct addressing uses the address value as the
+location of an operand.
+<br>Immediate addressing using the address value as the actual operand
+(extended to
+<br>24 bits, if required).
+<p>&nbsp;&nbsp;&nbsp; (c) Arithmetic instructions perform two's complement
+arithmetic: +, -, *,
+<br>/.&nbsp; Logical instructions perform logical operations:&nbsp; AND,
+OR, NOT.
+<br>&nbsp;
+<p>3-3.&nbsp;&nbsp;&nbsp; (a)
+<br>$000&nbsp;&nbsp;&nbsp; LDA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $002&nbsp;&nbsp;&nbsp;
+$002002
+<br>$001&nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $004&nbsp;&nbsp;&nbsp;
+$042004
+<br>$002&nbsp;&nbsp;&nbsp; ADA#&nbsp;&nbsp;&nbsp; $002&nbsp;&nbsp;&nbsp;
+$100002
+<br>$003&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $100004
+<br>Memory[$004]&nbsp;&nbsp;&nbsp; := $100002
+<br>LT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<br>PC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $004
+<p>&nbsp;&nbsp;&nbsp; (b)
+<br>$000&nbsp;&nbsp;&nbsp; LDA#&nbsp;&nbsp;&nbsp; $003&nbsp;&nbsp;&nbsp;
+$000003
+<br>$001&nbsp;&nbsp;&nbsp; ADA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $004&nbsp;&nbsp;&nbsp;
+$102004
+<br>$002&nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $004&nbsp;&nbsp;&nbsp;
+$042004
+<br>$003&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<br>$004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$7FFFFF
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $800002
+<br>Memory[$004]&nbsp;&nbsp;&nbsp; := $800002
+<br>OV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 1
+<br>EQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<p>&nbsp;&nbsp;&nbsp; (c)
+<br>$000&nbsp;&nbsp;&nbsp; LDA#&nbsp;&nbsp;&nbsp; $005&nbsp;&nbsp;&nbsp;
+$000005
+<br>$001&nbsp;&nbsp;&nbsp; CMA&nbsp;&nbsp;&nbsp;&nbsp; $007&nbsp;&nbsp;&nbsp;
+$202007
+<br>$002&nbsp;&nbsp;&nbsp; JLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $005&nbsp;&nbsp;&nbsp;
+$4A2005
+<br>$003&nbsp;&nbsp;&nbsp; SBA#&nbsp;&nbsp;&nbsp; $0A3&nbsp;&nbsp;&nbsp;
+$1400A3
+<br>$004&nbsp;&nbsp;&nbsp; JMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $006&nbsp;&nbsp;&nbsp;
+$402006
+<br>$005&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<br>$006&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<br>$007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$F0345E
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $FFFF62
+<br>LT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 1
+<br>PC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $007
+<p>&nbsp;&nbsp;&nbsp; (d)
+<br>$000&nbsp;&nbsp;&nbsp; LDA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$000&nbsp;&nbsp;&nbsp; $002000
+<br>$001&nbsp;&nbsp;&nbsp; ADA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$005&nbsp;&nbsp;&nbsp; $102005
+<br>$002&nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$003&nbsp;&nbsp;&nbsp; $042003
+<br>$003&nbsp;&nbsp;&nbsp; ADA#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $05C&nbsp;&nbsp;&nbsp;
+$10005C ----> $002002&nbsp; (LDA $002)
+<br>$004&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<br>$005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$000002
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $042003
+<br>Memory[$003]&nbsp;&nbsp;&nbsp; := $002002
+<br>&nbsp;
+<p>3-4.&nbsp;&nbsp;&nbsp; (a)
+<br>$000&nbsp;&nbsp;&nbsp; LDA#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $003&nbsp;&nbsp;&nbsp;
+$000003
+<br>$001&nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$006&nbsp;&nbsp;&nbsp; $042006
+<br>$002&nbsp;&nbsp;&nbsp; ADA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$003&nbsp;&nbsp;&nbsp; $102003
+<br>$003&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $000002
+<br>Memory[$006]&nbsp;&nbsp;&nbsp; := $000003
+<br>EQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<br>LT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<br>OV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<p>&nbsp;&nbsp;&nbsp; (b)
+<br>$000&nbsp;&nbsp;&nbsp; LDA#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $123&nbsp;&nbsp;&nbsp;
+$000123
+<br>$001&nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$007&nbsp;&nbsp;&nbsp; $042007
+<br>$002&nbsp;&nbsp;&nbsp; INC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$007&nbsp;&nbsp;&nbsp; $1B2007
+<br>$003&nbsp;&nbsp;&nbsp; CMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $008&nbsp;&nbsp;&nbsp;
+$202008
+<br>$004&nbsp;&nbsp;&nbsp; JGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$006&nbsp;&nbsp;&nbsp; $4D2006
+<br>$005&nbsp;&nbsp;&nbsp; DEC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$007&nbsp;&nbsp;&nbsp; $1C2007
+<br>$006&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<br>$007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$040550 ----> $000124
+<br>$008&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$000012
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $000123
+<br>Memory[$007]&nbsp;&nbsp;&nbsp; := $000124
+<br>EQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<br>LT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<br>OV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<p>&nbsp;&nbsp;&nbsp; (c)
+<br>$000&nbsp;&nbsp;&nbsp; LDA&nbsp;&nbsp;&nbsp;&nbsp; $006&nbsp;&nbsp;&nbsp;
+$002006
+<br>$001&nbsp;&nbsp;&nbsp; AND&nbsp;&nbsp;&nbsp;&nbsp; $007&nbsp;&nbsp;&nbsp;
+$302007
+<br>$002&nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;&nbsp; $008&nbsp;&nbsp;&nbsp;
+$042008
+<br>$003&nbsp;&nbsp;&nbsp; COMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFF021
+<br>$004&nbsp;&nbsp;&nbsp; OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $008&nbsp;&nbsp;&nbsp;
+$312008
+<br>$005&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<br>$006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$23F678
+<br>$007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$AAAAAA
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $FFFFFF
+<br>Memory[$008]&nbsp;&nbsp;&nbsp; := $22A228
+<br>EQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<br>LT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 1
+<p>&nbsp;&nbsp;&nbsp; (d)
+<br>$000&nbsp;&nbsp;&nbsp; LDA#&nbsp;&nbsp;&nbsp; $18E&nbsp;&nbsp;&nbsp;
+$00018E
+<br>$001&nbsp;&nbsp;&nbsp; DIV#&nbsp;&nbsp;&nbsp; $002&nbsp;&nbsp;&nbsp;
+$190002
+<br>$002&nbsp;&nbsp;&nbsp; NOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFF038
+<br>$003&nbsp;&nbsp;&nbsp; NEGA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFF020
+<br>$004&nbsp;&nbsp;&nbsp; HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FFFFFF
+<p>ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := $FFFF39
+<br>EQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<br>LT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 1
+<br>OV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; := 0
+<p>3-11.&nbsp;&nbsp; Attached
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 13:36:33 Saturday Apr. 13th, 1996&nbsp;
+Page&nbsp;&nbsp; 1
+<br>&nbsp;Filename: P311.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VAR&nbsp;&nbsp;&nbsp;&nbsp; SUM,
+K, N;
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BEGIN&nbsp;&nbsp; READ N&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+K&nbsp;&nbsp; := 2 ;
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SUM := 0 ;
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+WHILE (K &lt; N) AND (NO OVERFLOW) DO BEGIN
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SUM := SUM + K**2;
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+K&nbsp;&nbsp; := K + 2
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+END {WHILE}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+IF OVERFLOW THEN SUM := 0 ;
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+WRITE SUM
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END.
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp; 000&nbsp;&nbsp; 020E00&nbsp;&nbsp; START:&nbsp;
+LDS#&nbsp;&nbsp;&nbsp; $E00&nbsp;&nbsp;&nbsp; ; INITIALIZE STACK
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp; 001&nbsp;&nbsp; 412E01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; $E01&nbsp;&nbsp;&nbsp; ; READ N
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp; 002&nbsp;&nbsp; 042015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp; 003&nbsp;&nbsp; 000002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; K&nbsp;&nbsp;
+:= 2
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp; 004&nbsp;&nbsp; 042016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp; 005&nbsp;&nbsp; 0A2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLR&nbsp;&nbsp;&nbsp;&nbsp; SUM&nbsp;&nbsp;&nbsp;&nbsp; ; SUM := 0
+<br>&nbsp; 20.
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp; 006&nbsp;&nbsp; 202015&nbsp;&nbsp; LOOP:&nbsp;&nbsp;&nbsp;&nbsp;
+CMA&nbsp;&nbsp;&nbsp;&nbsp; N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; TEST
+FOR K &lt; N
+<br>&nbsp; 22.&nbsp;&nbsp;&nbsp; 007&nbsp;&nbsp; 4B2012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JGE&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp; ; DONE IF K >= N
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 008&nbsp;&nbsp; 182016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MUL&nbsp;&nbsp;&nbsp;&nbsp; K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; SUM
+:= SUM + K**2
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 009&nbsp;&nbsp; 4E2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JOV&nbsp;&nbsp;&nbsp;&nbsp; OFLO&nbsp;&nbsp;&nbsp; ; DONE IF OVERFLOW
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 00A&nbsp;&nbsp; 102017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA&nbsp;&nbsp;&nbsp;&nbsp; SUM&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 00B&nbsp;&nbsp; 042017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; SUM&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 00C&nbsp;&nbsp; 4E2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JOV&nbsp;&nbsp;&nbsp;&nbsp; OFLO&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 00D&nbsp;&nbsp; 002016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; K :=
+K + 2
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 00E&nbsp;&nbsp; 100002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 00F&nbsp;&nbsp; 042016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 010&nbsp;&nbsp; 402006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LOOP&nbsp;&nbsp;&nbsp; ; REPEAT
+<br>&nbsp; 32.
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 011&nbsp;&nbsp; 0A2017&nbsp;&nbsp; OFLO:&nbsp;&nbsp;&nbsp;
+CLR&nbsp;&nbsp;&nbsp;&nbsp; SUM&nbsp;&nbsp;&nbsp;&nbsp; ; SUM := 0
+<br>&nbsp; 34.
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 012&nbsp;&nbsp; 002017&nbsp;&nbsp; DONE:&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; SUM&nbsp;&nbsp;&nbsp;&nbsp; ; WRITE N
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 013&nbsp;&nbsp; 412E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; $E00&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 014&nbsp;&nbsp; FFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; STOP
+<br>&nbsp; 38.
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 015&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; N:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.WORD&nbsp;&nbsp;&nbsp; -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; LIMIT
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 016&nbsp;&nbsp; FFFFFE&nbsp;&nbsp; K:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.WORD&nbsp;&nbsp;&nbsp; -2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; COUNTER
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 017&nbsp;&nbsp; FFFFFD&nbsp;&nbsp; SUM:&nbsp;&nbsp;&nbsp;&nbsp;
+.WORD&nbsp;&nbsp;&nbsp; -3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; SUM
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; START = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+N = 000015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+K = 000016
+<br>&nbsp; SUM = 000017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP = 000006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE = 000012
+<br>&nbsp; OFLO = 000011
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

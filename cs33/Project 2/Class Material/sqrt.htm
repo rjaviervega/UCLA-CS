@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>Sample CUSP Program</title>
+</head>
+<body>
+<div align="right">
+Spring 2003 CS 33 
+</div>
+<div align="center">
+<h2>Sample CUSP Program</h2>
+</div>
+<p>
+If you're suffering from blank page syndrome, here's something to get
+you started.  This program repeatedly prompts the user for some input,
+does some computation, and writes a result.  It doesn't do what Project 2
+is supposed to do, but perhaps you can start with it and gradually mutate
+it until it's a solution to Project 2.
+</p>
+<pre>
+; Compute integer square roots
+;
+;   Repeatedly prompt the user for a number N
+;     and compute the integer k such that
+;       k*k <= N < (k+1)*(k+1)
+;   Terminate when a negative number is input.
+
+        .EQU    PUT_NUM,$E00
+        .EQU    GET_NUM,$E01
+        .EQU    PUT_STR,$E05
+        .EQU    PUT_NL,$E06
+        .EQU    PUT_NUM2,$E07
+
+;========== Main routine
+
+;           Initialize stack
+        LDS#    $E00
+
+;           Prompt for number
+DO_PROMPT:
+        PSH#    PROMPT_LEN
+        PSH#    PROMPT
+        JSR     PUT_STR
+        ADS#    2
+
+;           Read N
+        JSR     GET_NUM
+        STA     N
+
+;           Exit if N < 0
+        CMA#    0
+        JLT     EXIT
+
+;           K = sqrt(N)
+        JSR     SQRT
+        STA     K
+
+;           Write result
+        PSH#    ANSWER1_LEN
+        PSH#    ANSWER1
+        JSR     PUT_STR
+        ADS#    2
+
+        LDA     N
+        JSR     PUT_NUM2
+
+        PSH#    ANSWER2_LEN
+        PSH#    ANSWER2
+        JSR     PUT_STR
+        ADS#    2
+
+        LDA     K
+        JSR     PUT_NUM
+
+;           Go prompt for next number
+        JMP     DO_PROMPT
+
+;           Write farewell message and exit
+EXIT:   PSH#    FAREWELL_LEN
+        PSH#    FAREWELL
+        JSR     PUT_STR
+        ADS#    2
+
+        HLT
+
+;           Data
+N:      .WORD   0
+K:      .WORD   0
+PROMPT: .CHAR   'Enter an integer',PROMPT_LEN
+ANSWER1: .CHAR  'The square root of ',ANSWER1_LEN
+ANSWER2: .CHAR  ' is ',ANSWER2_LEN
+FAREWELL: .CHAR 'See ya later!\CR\LF',FAREWELL_LEN
+
+;========== sqrt
+; Return the integer square root of the argument integer
+;
+; Since the maximum integer is 2^23-1, the maximum sqrt is
+; less than 2^12.  Start by determining whether the answer
+; is >= 2^11, then proceed to determine the setting of each
+; lower-order bit:
+;    int sqrt(int nn)
+;    {
+;       int result = 0;
+;       for (int b = 0x800; b != 0; b >>= 1)
+;       {
+;           int t = result + b;
+;           if (t*t <= nn)
+;               result = t;
+;       }
+;       return result;
+;    }
+
+SQRT:
+;           Save argument
+        STA     NN
+
+;           result = 0
+        CLR     RESULT
+
+;           Try highest-order bit position
+        LDA#    $800
+
+;           Any more bits to try?
+BIT_TO_DO:
+        STA     B
+        CMA#    0
+        JEQ     SQRT_DONE
+
+;           t = b + result
+        ADA     RESULT
+        STA     T
+
+;           If t*t <= nn, result = t
+        MUL     T
+        JOV     NEXT_BIT    ; oflow if t > sqrt(2^23-1)
+        CMA     NN
+        JGT     NEXT_BIT
+        LDA     T
+        STA     RESULT
+
+;           Try next lower order bit
+NEXT_BIT:
+        LDA     B
+        SHRA
+        JMP     BIT_TO_DO
+
+;           Return with answer
+SQRT_DONE:
+        LDA     RESULT
+        RTN
+
+;           Data
+NN:     .WORD   0
+RESULT: .WORD   0
+B:      .WORD   0
+T:      .WORD   0
+
+        .END
+</pre>
+</body>
+</html>

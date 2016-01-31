@@ -1,0 +1,162 @@
+Release 4.1i - Map E.30
+Xilinx Mapping Report File for Design 'alu4'
+
+Design Information
+------------------
+Command Line   : map -p xcv50-pq240-6 -cm area -k 4 -c 100 -tx off alu4.ngd 
+Target Device  : xv50
+Target Package : pq240
+Target Speed   : -6
+Mapper Version : virtex -- $Revision: 1.58 $
+Mapped Date    : Fri Jul 09 10:42:33 2004
+
+Design Summary
+--------------
+   Number of errors:      0
+   Number of warnings:    0
+   Number of Slices:                 25 out of    768    3%
+   Number of Slices containing
+      unrelated logic:                0 out of     25    0%
+   Number of 4 input LUTs:           46 out of  1,536    2%
+   Number of bonded IOBs:            19 out of    166   11%
+   Number of RPM macros:            3
+Total equivalent gate count for design:  336
+Additional JTAG gate count for IOBs:  912
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group Summary
+Section 10 - Modular Design Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:62 - All of the external outputs in this design are using slew rate
+   limited output drivers. The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the schematic.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   9 block(s) removed
+  25 block(s) optimized away
+   7 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "xlxi_124/ofl" is sourceless and has been removed.
+The signal "xlxi_124/N55" is sourceless and has been removed.
+The signal "xlxi_28/gt" is sourceless and has been removed.
+The signal "xlxi_28/gt0_1" is sourceless and has been removed.
+ Sourceless block "xlxi_28/i_36_1" (AND) removed.
+  The signal "xlxi_28/gta" is sourceless and has been removed.
+   Sourceless block "xlxi_28/i_36_12" (OR) removed.
+The signal "xlxi_28/ge0_1" is sourceless and has been removed.
+ Sourceless block "xlxi_28/i_36_18" (OR) removed.
+The signal "xlxi_28/gt_1" is sourceless and has been removed.
+Unused block "xlxi_107/VCC" (ONE) removed.
+Unused block "xlxi_108/VCC" (ONE) removed.
+Unused block "xlxi_124/GND_I" (ZERO) removed.
+Unused block "xlxi_124/i_36_241" (XOR) removed.
+Unused block "xlxi_28/i_36_16" (AND) removed.
+Unused block "xlxi_28/i_36_9" (AND) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		xlxi_107/GND
+GND 		xlxi_108/GND
+AND2b1 		xlxi_29/i_36_7
+GND 		xlxi_37
+VCC 		xlxi_45
+AND2 		xlxi_66/i_36_9
+AND2b1 		xlxi_70/i_36_7
+OR2 		xlxi_70/i_36_8
+AND2 		xlxi_70/i_36_9
+AND2 		xlxi_71/i_36_9
+AND2 		xlxi_73/i_36_9
+AND2b1 		xlxi_74/i_36_7
+OR2 		xlxi_74/i_36_8
+AND2 		xlxi_74/i_36_9
+AND2 		xlxi_75/i_36_9
+AND2 		xlxi_77/i_36_9
+AND2b1 		xlxi_78/i_36_7
+OR2 		xlxi_78/i_36_8
+AND2 		xlxi_78/i_36_9
+AND2 		xlxi_79/i_36_9
+AND2b1 		xlxi_82/i_36_7
+OR2 		xlxi_82/i_36_8
+AND2 		xlxi_82/i_36_9
+AND2 		xlxi_83/i_36_9
+AND2 		xlxi_86/i_36_9
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type    | Direction | IO Standard | Drive    | Slew | Reg (s)  | Resistor | IOB   |
+|                                    |         |           |             | Strength | Rate |          |          | Delay |
++------------------------------------------------------------------------------------------------------------------------+
+| a0_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a1_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a2_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| a3_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| aluctrl0                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| aluctrl1                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| aluctrl2                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b0_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b1_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b2_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| b3_in                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| cin                                | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| cout                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| ovf                                | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s0                                 | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s1                                 | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s2                                 | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| s3                                 | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| zero                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
++------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+xlxi_124/hset                           
+xlxi_108/hset                           
+xlxi_107/hset                           
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group Summary
+------------------------------
+No area groups were found in this design.
+
+Section 10 - Modular Design Summary
+-----------------------------------
+Modular Design not used for this design.

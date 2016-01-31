@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>Project 0 Supplemental Specifications</title>
+</head>
+<body>
+<div align="right">
+Spring 2003 CS 33 
+</div>
+<div align="center">
+<h2>Project 0 Supplemental Specifications</h2>
+</div>
+<p>
+Since you don't have the textbook yet, this supplement describes what you
+need to know about the CUSP display interface.  The description is adapted
+from Appendix A.11.2 (p. 369) of the text.
+</p>
+<p>
+The CUSP display has 14 display lines, each of which has 38 character
+positions.  You can write a character to the display in one of two ways:
+(1) write the character directly to one of the 14*38 character positions on
+the screen, or (2) write the character, which will be placed at the position
+the cursor currently indicates.  The display is initially all blank characters,
+and the cursor is in the upper left position.
+</p>
+<p>
+Here are details about the behavior of the interface functions of the Cuspcrt
+class.  These details match the documented behavior of the CUSP machine's
+display:
+</p>
+<dl>
+<dt>
+<code>void write  (int a, char ch);	// Write character to display</code>
+</dt><dd>
+Place the character <code>ch</code> at position <code>a</code> of the
+display screen.  (Position 0 is the upper left corner, position 1 is just
+to the right of that, ..., position 38 is just below the upper left corner,
+..., and position 14*38-1 is the lower right corner.)  The cursor is not
+affected by this operation.  Writing the special characters mentioned in
+the description of the <code>put</code> function does not do anything
+special; instead, a blank character is placed at position <code>a</code>.</dd>
+<dt>
+<code>char read   (int a);		// Read  character from display</code>
+</dt><dd>Return the character currently at position <code>a</code></dd>
+<dt>
+<code>void put    (char ch);		// Put character at cursor</code>
+</dt><dd>Place the character <code>ch</code> at the position currently
+indicated by the cursor.  Advance the cursor, wrapping to the next line
+and scrolling as required.  Exceptions:  (1) If the cursor is off-screen,
+the <code>put</code> function has no effect.  (2) If the cursor is at a valid
+position and the character is <code>'\r'</code>, <code>'\n'</code>,
+<code>'\b'</code>, or <code>'\a'</code>, something special happens:
+<dl>
+<dt><code>'\r'</code></dt>
+<dd>Return the cursor to the start of its current line.</dd>
+<dt><code>'\n'</code></dt>
+<dd>Move the cursor down one line (scrolling if appropriate)</dd>
+<dt><code>'\b'</code></dt>
+<dd>If the cursor is not at the left of the screen, move it one position to
+the left; otherwise, do nothing.</dd>
+<dt><code>'\a'</code></dt>
+<dd>Make a beep (i.e., write <code>'\a'</code> to standard output).</dd>
+</dl></dd>
+<dt>
+<code>void setrow (int r);		// Set row position</code>
+</dt><dd>Set the cursow row position.  If <code>r</code> is outside the
+range 1 to 14, that's OK -- the cursor is off-screen.</dd>
+<dt>
+<code>void setcol (int c);		// Set col position</code>
+</dt><dd>Set the cursow column position.  If <code>c</code> is outside the
+range 1 to 38, that's OK -- the cursor is off-screen.</dd>
+<dt>
+<code>int  getrow ();			// Get row position</code>
+</dt><dd>Return the cursor row position.</dd>
+<dt>
+<code>int  getcol ();			// Get col position</code>
+</dt><dd>Return the cursor column position.</dd>
+<dt>
+<code>void clear  ();			// Clear screen</code>
+</dt><dd>Clear the display to blanks and move the cursor to the upper left
+position.</dd>
+<dt>
+<code>void down   ();			// Scroll down one line</code>
+</dt><dd>Scroll the display down one line, discarding the last line and
+inserting a blank line at the top.</dd>
+<dt>
+<code>void up     ();			// Scroll up one line</code>
+</dt><dd>Scroll the display up one line, discarding the top line and
+inserting a blank line at the bottom.</dd>
+<dt>
+<code>void home   ();			// Move cursor to home (1,1)</code>
+</dt><dd>Move the cursor to the upper left position.</dd>
+<dt>
+<code>void next   ();			// Move cursor to next line</code>
+</dt><dd>Move the cursor to the start of the next line, scrolling if
+appropriate.</dd>
+<dt>
+<code>void bell   ();			// Ring bell</code>
+</dt><dd>Make a beep.</dd>
+<dt>
+<code>void off    ();			// Turn off the cursor</code>
+</dt><dd>Move the cursor off-screen to position (0,0).</dd>
+<dt>
+<code>void print  ();			// Print the display</code>
+</dt><dd>Print the display.  This is the only function that produces any
+output other than beeping.</dd>
+</dl>
+<p>
+While the following is not a complete test of your Cuspcrt class, you can
+use it to see if you've got the basic idea right.  This code:
+</p>
+<pre>
+#include "Cuspcrt.h"
+
+int main()
+{
+	Cuspcrt crt;
+	crt.put('x');
+	crt.put('y');
+	crt.put('z');
+	crt.next();
+	char ch;
+	for (ch = 'a'; ch &lt;= 'z'; ch++)
+		crt.put(ch);
+	for (ch = 'a'; ch &lt;= 'm'; ch++)
+		crt.put(ch);
+	crt.up();
+	crt.home();
+	crt.write(0,'X');
+	crt.put('A');
+	crt.put('\n');
+	crt.put('N');
+	ch = crt.read(38);
+	crt.put(ch);
+	crt.setrow(999);
+	crt.put('@');
+	crt.setrow(1);
+	crt.print();
+	return 0;
+}
+</pre>
+<p>
+when compiled and linked with your Cuspcrt.cpp file, should produce this
+output:
+</p>
+<pre>
++--------------------------------------+
+|Abcdefghijklmnopqrstuvwxyzabcdefghijkl|  Row  Col
+|mNm                                   |    1    4
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
+|                                      |
++--------------------------------------+
+</pre>
+</body>
+</html>

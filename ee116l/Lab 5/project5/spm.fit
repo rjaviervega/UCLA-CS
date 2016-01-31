@@ -1,0 +1,125 @@
+-- MAX+plus II Compiler Fit File      
+-- Version 10.23 07/09/2003           
+-- Compiled: 11/10/2003 20:30:28      
+
+-- Copyright (C) 1988-2003 Altera Corporation
+-- Any megafunction design, and related net list (encrypted or decrypted),
+-- support information, device programming or simulation file, and any other
+-- associated documentation or information provided by Altera or a partner
+-- under Altera's Megafunction Partnership Program may be used only to
+-- program PLD devices (but not masked PLD devices) from Altera.  Any other
+-- use of such megafunction design, net list, support information, device
+-- programming or simulation file, or any other related documentation or
+-- information is prohibited for any other purpose, including, but not
+-- limited to modification, reverse engineering, de-compiling, or use with
+-- any other silicon devices, unless such use is explicitly licensed under
+-- a separate agreement with Altera or a megafunction partner.  Title to
+-- the intellectual property, including patents, copyrights, trademarks,
+-- trade secrets, or maskworks, embodied in any such megafunction design,
+-- net list, support information, device programming or simulation file, or
+-- any other related documentation or information provided by Altera or a
+-- megafunction partner, remains with Altera, the megafunction partner, or
+-- their respective licensors.  No other licenses, including any licenses
+-- needed under any third party's intellectual property, are provided herein.
+
+CHIP "spm"
+BEGIN
+
+    DEVICE = "EPM7128SLC84-7";
+
+    "AIN0"                         : INPUT_PIN  = 8      ; -- LC11
+    "AIN1"                         : INPUT_PIN  = 6      ; -- LC13
+    "AIN2"                         : INPUT_PIN  = 5      ; -- LC14
+    "AIN3"                         : INPUT_PIN  = 4      ; -- LC16
+    "BIN0"                         : INPUT_PIN  = 11     ; -- LC5
+    "BIN1"                         : INPUT_PIN  = 12     ; -- LC3
+    "BIN2"                         : INPUT_PIN  = 9      ; -- LC8
+    "BIN3"                         : INPUT_PIN  = 10     ; -- LC6
+    "CLK"                          : INPUT_PIN  = 2      ;
+    "RUN"                          : INPUT_PIN  = 1      ;
+    "A0"                           : OUTPUT_PIN = 70     ; -- LC109
+    "A1"                           : OUTPUT_PIN = 56     ; -- LC86
+    "A2"                           : OUTPUT_PIN = 54     ; -- LC83
+    "A3"                           : OUTPUT_PIN = 58     ; -- LC91
+    "DONE"                         : OUTPUT_PIN = 79     ; -- LC125
+    "P0"                           : OUTPUT_PIN = 65     ; -- LC101
+    "P1"                           : OUTPUT_PIN = 67     ; -- LC104
+    "P2"                           : OUTPUT_PIN = 69     ; -- LC107
+    "P3"                           : OUTPUT_PIN = 68     ; -- LC105
+    "|spmcon:44|Q0"                : LOCATION   = LC102  ;
+    "|spmcon:44|Q1"                : LOCATION   = LC110  ;
+    "|spmcon:44|Q2"                : LOCATION   = LC103  ;
+    "|spmcon:44|Q3"                : LOCATION   = LC108  ;
+    "|spmcon:44|~128~1"            : LOCATION   = LC124  ;
+    "|spmcon:44|~128~2"            : LOCATION   = LC99   ; -- PIN 64
+    ":5"                           : LOCATION   = LC128  ; -- PIN 81
+    "|74194:1|~34~1"               : LOCATION   = LC98   ;
+    "|74194:1|~35~1"               : LOCATION   = LC97   ; -- PIN 63
+    "|74194:1|~36~1"               : LOCATION   = LC127  ;
+    "|74194:1|~36~2"               : LOCATION   = LC126  ; -- PIN 80
+    "|74194:1|~36~3"               : LOCATION   = LC106  ;
+    "|74194:1|~36~4"               : LOCATION   = LC100  ;
+    "|74194:1|~62~1"               : LOCATION   = LC112  ; -- PIN 71
+    "|74194:1|~63~1"               : LOCATION   = LC116  ;
+    "|74194:1|~63~2"               : LOCATION   = LC115  ; -- PIN 73
+    "|74194:1|~63~3"               : LOCATION   = LC114  ;
+    "|74194:1|~63~4"               : LOCATION   = LC117  ; -- PIN 74
+    "|74194:1|~63~5"               : LOCATION   = LC118  ; -- PIN 75
+    "|74194:1|~63~6"               : LOCATION   = LC119  ;
+    "|74194:1|~63~7"               : LOCATION   = LC120  ; -- PIN 76
+    "|74194:1|~63~8"               : LOCATION   = LC121  ;
+    "|74194:11|:38"                : LOCATION   = LC123  ; -- PIN 77  -- |74194:11|QD
+    "|74194:11|:39"                : LOCATION   = LC113  ;  -- |74194:11|QC
+    "|74194:11|:40"                : LOCATION   = LC122  ;  -- |74194:11|QB
+    "|74194:11|:41"                : LOCATION   = LC111  ;  -- |74194:11|QA
+
+END;
+
+INTERNAL_INFO "spm"
+BEGIN
+	DEVICE = EPM7128SLC84-7;
+	LC105   : LORAX = "G195R0,PA33R0C7,PA34R0C6";
+	LC125   : LORAX = "G199R0";
+	LC109   : LORAX = "G138R0,PA24R0C7,PA24R0C6";
+	LC86    : LORAX = "G103R0,PA10R0C5,PA12R0C6";
+	LC83    : LORAX = "G47R0,PA2R0C5";
+	LC91    : LORAX = "G136R0,PA21R0C5";
+	LC101   : LORAX = "G49R0,PA4R0C5,PA2R0C7,PA2R0C6";
+	LC104   : LORAX = "G52R0,PA0R0C6,PA0R0C7";
+	LC107   : LORAX = "G197R0,PA27R0C7,PA31R0C6";
+	LC116   : LORAX = "G56R0,PA1R0C6";
+	LC111   : LORAX = "G140R0,PA18R0C6,PA22R0C7";
+	OH4R0P11 : LORAX = "G204R0,PA29R0C6";
+	LC102   : LORAX = "G50R0,PA1R0C5,PA1R0C7,PA6R0C6";
+	OH130R0P1 : LORAX = "G81R0,PA15R0C6";
+	LC110   : LORAX = "G139R0,PA26R0C5,PA26R0C6,PA26R0C7";
+	LC108   : LORAX = "G198R0,PA30R0C5,PA30R0C7,PA30R0C6";
+	LC103   : LORAX = "G51R0,PA7R0C5,PA7R0C6,PA7R0C7";
+	LC122   : LORAX = "G143R0,PA23R0C6,PA23R0C7";
+	OH2R0P12 : LORAX = "G148R0,PA19R0C7";
+	LC113   : LORAX = "G53R0,PA8R0C6,PA8R0C7";
+	OH7R0P9 : LORAX = "G206R0,PA32R0C7";
+	LC123   : LORAX = "G144R0,PA18R0C7";
+	OH5R0P10 : LORAX = "G205R0,PA28R0C7";
+	LC112   : LORAX = "G141R0,PA20R0C6";
+	LC128   : LORAX = "G202R0,PA33R0C6";
+	LC124   : LORAX = "G145R0,PA22R0C6";
+	OH10R0P8 : LORAX = "G1R0,PA3R0C6";
+	OH12R0P6 : LORAX = "G57R0,PA13R0C5";
+	OH13R0P5 : LORAX = "G58R0,PA12R0C5";
+	OH15R0P4 : LORAX = "G59R0,PA11R0C5";
+	LC127   : LORAX = "G201R0,PA27R0C6";
+	LC126   : LORAX = "G200R0,PA32R0C6";
+	LC115   : LORAX = "G55R0,PA4R0C7";
+	LC114   : LORAX = "G54R0,PA6R0C7";
+	LC117   : LORAX = "G110R0,PA16R0C7";
+	LC118   : LORAX = "G111R0,PA14R0C7";
+	LC119   : LORAX = "G112R0,PA13R0C7";
+	LC106   : LORAX = "G196R0,PA28R0C6";
+	LC99    : LORAX = "G108R0,PA16R0C6";
+	LC120   : LORAX = "G113R0,PA10R0C7";
+	LC100   : LORAX = "G109R0,PA9R0C6";
+	LC97    : LORAX = "G106R0,PA11R0C6";
+	LC121   : LORAX = "G142R0,PA25R0C7";
+	LC98    : LORAX = "G107R0,PA10R0C6";
+END;

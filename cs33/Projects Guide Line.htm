@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>C++ Style for CS 33</title>
+</head>
+<body>
+<div align="right">
+Spring 2003 CS 33 
+</div>
+<div align="center">
+<h2>C++ Style for CS 33</h2>
+</div>
+<p>
+Trying to write a program directly in assembly language is difficult.  When
+you discover incorrect program behavior, you don't know whether your algorithm
+is incorrect or whether your expression of it in assembly language is wrong.
+The C++ programs we have you write in CS 33 serve as the bases for your later
+assembly language programs.  If you use a familiar language like C++ to
+get your algorithms correct, you've significantly reduced one of the
+sources of error in your assembly language program.
+</p>
+<p>
+For this technique to be effective, it should be as easy as possible to
+translate your C++ program to assembly language -- you want to minimize
+opportunities to introduce errors during translation.  To that end, you
+should write your C++ programs in a way that facilitates the task of
+translating them.  Here are some guidelines to follow when doing Projects
+1 and 3 that will make it easier for you to do Projects 2 and 4:
+</p>
+<ul>
+<li>
+<p>
+For basic data types, limit yourself to <code>int</code>, <code>char</code>,
+and <code>bool</code>.  (If an <code>int</code> is not 32 bits on your
+machine, use a <code>long</code> instead.)  Since integers in CUSP are 24
+bits long, use only the rightmost 24 bits of an <code>int</code>.  The
+unsigned integral types are also acceptable.
+</p>
+</li><li>
+<p>
+It's all right to use pointers.
+</p>
+</li><li>
+<p>
+Do not use arrays of dimension higher than one.  Represent a two-dimensional
+array, for example, as a one-dimensional array.
+</p>
+</li><li>
+<p>
+If you know the size of an array at compile time, declare it as a named
+variable (e.g., <code>int a[100];</code>).
+</p>
+</li><li>
+<p>
+If you don't know the size of an array at compile time, dynamically allocate
+it.  However, you must deallocate it in the same code block you allocated
+it in: </p>
+<pre>
+	  // This is fine: a is allocated and deallocated in f
+	void f(int n)
+	{
+	    int* a = new int[n];
+	    ...
+	    delete [] a;
+	}
+</pre>
+<pre>
+	  // This will be difficult to translate to assembly language:
+	  // the array is allocated in g, but deallocated in h.
+	int* g(int n)
+	{
+	    return new int[n];
+	}
+
+	void h()
+	{
+	    int* a = g(10);
+	    ....
+	    delete [] a;
+	}
+</pre>
+</li><li>
+<p>
+You may freely use any C++ integer operators
+(<code>+ - * / % &lt;&lt; >> &amp; | ^ ~ ++ --</code>).
+</p>
+</li><li>
+<p>
+You may freely use these control structures:  if statements; loops using
+while, do-while, and for; continue; break; and return.  Switch statements
+are OK, but you'll probably find yourself translating them into equivalent
+if statements.
+</p>
+</li><li>
+<p>
+Since you won't have learned about the CUSP subroutine calling conventions
+until later in the quarter, for Project 1, do not write functions that take
+more than 1 parameter.
+</p>
+</li><li>
+<p>
+Do not use any functions from the standard library, except to do output in the
+following manner:
+</p>
+<ul>
+<li>
+<code>cout &lt;&lt; "a string literal";</code>
+</li><li>
+<code>cout &lt;&lt; endl;</code>
+</li><li>
+<code>cout &lt;&lt; k;  // k is an int</code>
+</li><li>
+<code>cout &lt;&lt; c;  // c is a char</code>
+</li>
+</ul>
+<p>
+It is all right to combine these (e.g., <code>cout &lt;&lt; "k = "
+&lt;&lt; k &lt;&lt; endl;</code>), but do not use manipulators like
+<code>setw(<em>n</em>)</code> or <code>hex</code>.
+</p>
+</li><li>
+<p>
+For input of integers (the only kind of input you'll need for Projects 1 and 3),do not use <code>cin >> k;</code>.  Instead, use the <code>get_num</code>
+routine below (e.g., say <code>k = get_num();</code>), which mimics the
+behavior of the routine you'll use in Projects 2 and 4.
+</p>
+<pre>
+#include &lt;iostream>
+#include &lt;string>   // used only by get_num
+
+// get_num - get an integer from the standard input
+//  get_num mimics the GET_NUM function of the CUSP MINI_OS.  It reads
+//  a line of input and returns the integer at the beginning of that line.
+//  An integer is an optional sequence of blanks, followed by an optional
+//  plus or minus sign, followed by a sequence of one or more digits.
+//  Characters after the last digit are discarded.  If the input is not
+//  an integer in the range -2^23 to 2^23-1 (-8388608 to 8388607), the
+//  user is reprompted until it is.
+
+long get_num()
+{
+    static const long CUSP_INT_LIMIT = 1 &lt;&lt; (24-1);
+
+    for (std::string s; std::getline(std::cin,s) || !s.empty();
+                                                 std::cout &lt;&lt; "Bad Value\n:")
+    {
+        bool isPositive = true;
+        size_t pos = 0;
+
+          // skip leading blanks
+        for ( ; pos != s.size()  &amp;&amp;  s[pos] == ' '; pos++)
+            ;
+
+          // if blank line, go reprompt
+        if (pos == s.size())
+            continue;
+
+          // consume optional sign
+        if (s[pos] == '-')
+        {
+            isPositive = false;
+            pos++;
+        }
+        else if (s[pos] == '+')
+            pos++;
+
+          // process sequence of digits
+        long value = 0;
+        bool good = false;
+        for ( ; pos != s.size()  &amp;&amp;  s[pos] >= '0'  &amp;&amp;  s[pos] &lt;= '9'; pos++)
+        {
+            value = 10 * value + (s[pos] - '0');
+              // To reliably detect an out of range integer, the worst case
+              // 10 * CUSP_INT_LIMIT + 9  must not overflow a long int.  It
+              // doesn't, since  10 * 2^23 + 9  &lt;  2^31 - 1.
+            if (value > CUSP_INT_LIMIT  ||
+                                    (isPositive  &amp;&amp;  value == CUSP_INT_LIMIT))
+            {
+                  // integer out of range
+                good = false;
+                break;
+            }
+              // integer has at least one digit
+            good = true;
+        }
+
+          // must be at least one digit, within range
+        if ( good )
+            return isPositive ? value : -value;
+    }
+
+      // return 0 for end of file; this will never happen with CUSP
+    return 0;
+}
+</pre>
+<p>
+If you are using the library that ships with Visual C++ 6.0, you should know
+about the notorious <code>getline</code> bug.  To get around it, replace the
+call to <code>std::getline</code> in the above code with a call to
+<code>getline_fixed</code>, where <code>getline_fixed</code> is
+</p>
+<pre>
+std::istream&amp; getline_fixed(std::istream&amp; is, std::string&amp; s)
+{
+	s.erase();
+	char ch;
+	while (is.get(ch)  &amp;&amp;  ch != '\n')
+		s += ch;
+	return is;
+}
+</pre>
+</li>
+</ul>
+</body>
+</html>

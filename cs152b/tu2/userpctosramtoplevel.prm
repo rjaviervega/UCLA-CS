@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+promgen -p mcs -x XC1701 -c 0xFF -w -o E:\HingKei\152bs04\tu2\userpctosramtoplevel.mcs -u 0 E:\HingKei\152bs04\tu2\userpctosramtoplevel.bit 
+
+PROM E:\HingKei\152bs04\tu2\userpctosramtoplevel.prm map: Fri Jul 02 11:27:27 2004
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          128K
+PROM start    0000:0000
+PROM end      0001:ffff
+PROM checksum 012a6de4
+
+        Addr1        Addr2 File(s)
+    0000:0000    0001:110b E:/HingKei/152bs04/tu2/userpctosramtoplevel.bit

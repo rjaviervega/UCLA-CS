@@ -1,0 +1,390 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Gautam Bhatia">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (Win98; U) [Netscape]">
+   <title>CS 33 Systems Programming</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+HOMEWORK
+<br>Chapter 8
+<br>&nbsp;
+<p>8-1.(a) An I/O port is a special I/O memory address used to write or
+read one
+<br>byte of data to or from an I/O device, write a control byte to a device
+control
+<br>register, or read a status byte from a device status register. (p189)
+<p>&nbsp;&nbsp;&nbsp; (b) A pixel is a picture element which is one dot
+on a CRT which can be
+<br>individually turned on or off. (p196)
+<p>&nbsp;&nbsp;&nbsp; (c) Direct Memory Access (DMA) is a mechanism for
+transferring data between
+<br>memory and an I/O device automatically without need to program a character-by-
+<br>character transfer. (p209)
+<p>&nbsp;&nbsp;&nbsp; (d) An interrupt is the suspension of an executing
+program to perform
+<br>special processing by means of an interrupt service routine:&nbsp;
+See (l) below.
+<br>(p214)
+<p>&nbsp;&nbsp;&nbsp; (e) Echoing is the process of displaying on the screen
+each character typed
+<br>on the keyboard. (p196)
+<p>&nbsp;&nbsp;&nbsp; (f) Polling is the process of regularly checking
+a status bit to determine
+<br>if a device needs attention. (p193)
+<p>&nbsp;&nbsp;&nbsp; (g) A control register is an I/O port used to receive
+data to control an
+<br>I/O device. (p193)
+<p>&nbsp;&nbsp;&nbsp; (h) A status register is an I/O port used to transmit
+data about the status
+<br>of an I/O device. (p192)
+<p>&nbsp;&nbsp;&nbsp; (i) A video buffer is an area of memory used to hold
+characters being
+<br>actively displayed on a CRT. (p196)
+<p>&nbsp;&nbsp;&nbsp; (j) A machine cycle is the time required to execute
+one step of a machine
+<br>instruction. (p211)
+<p>&nbsp;&nbsp;&nbsp; (k) A queue is a&nbsp; data structure which accepts
+data items and returns them
+<br>in the order received (FIFO). (p220)
+<p>&nbsp;&nbsp;&nbsp; (l) An interrupt service routine (ISR) is a software
+module which contains
+<br>the code to process an interrupt. (p214)
+<br>&nbsp;
+<br>&nbsp;
+<p>8-2.LDA# needs one cycle to fetch an instruction and one to execute
+it.
+<br>&nbsp;&nbsp;&nbsp; LDA&nbsp;&nbsp;&nbsp; needs an additional cycle
+to get the operand.
+<br>&nbsp;&nbsp;&nbsp; LDA* needs an additional cycle to get the operand
+address.
+<p>8-3.Since an interrupt can occur between any two instructions and a
+program
+<br>must operate correctly whether or not an interrupt occurs, all registers
+must
+<br>contain exactly the same data whether or not an interrupt occurs.&nbsp;
+Otherwise,
+<br>the executing program might suddenly have some of its registers change
+between
+<br>instructions.
+<p>8-4.First port is $100.
+<br>&nbsp;&nbsp;&nbsp; There are 38 characters per line.
+<br>&nbsp;&nbsp;&nbsp; Thus the position is 6*38 + 5 = 228 + 5 = 233(10)
+= $E9.
+<br>&nbsp;&nbsp;&nbsp; The offset from $100 is one less = $E8.
+<br>&nbsp;&nbsp;&nbsp; Thus the fifth character on the seventh line is
+in $1E8.
+<p>8-5.&nbsp;&nbsp;&nbsp; FLUSH:&nbsp; INB KBD_STAT&nbsp;&nbsp;&nbsp; ;
+Get status
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INB KBD_DATA&nbsp;&nbsp;&nbsp; ; Else read next character
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP FLUSH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Loop
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DONE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+. . .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Continue processing
+<p>8-6.Initialize to zero.
+<br>&nbsp;&nbsp;&nbsp; Read at the end of the program.
+<br>&nbsp;&nbsp;&nbsp; The difference is the time for the program.
+<br>&nbsp;&nbsp;&nbsp; To handle overflow, count overflows in a counter
+using an ISR.
+<p>8-7.If the flag were not cleared, the interrupt would immediately reoccur,
+<br>resulting in an infinite execution of the implicit INT instruction.
+<p>8-8.Attached.
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 13:28:22 Monday May 6th, 1996&nbsp; Page&nbsp;&nbsp;
+1
+<br>&nbsp;Filename: P88.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA WINTER 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 8-8:&nbsp;
+PRINT KEY CODES
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 10, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; KBD_STAT,$000&nbsp;&nbsp; ; KEYBOARD STATUS
+<br>REGISTER
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; KBD_DATA,$001&nbsp;&nbsp; ; KEYBOARD DATA
+REGISTER
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; CRT_CTRL,$316&nbsp;&nbsp; ; CRT CONTROL REGISTER
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; CRT_DATA,$317&nbsp;&nbsp; ; CRT DATA REGISTER
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; CLEAR_SCREEN,$01; CRT CLEAR-SCREEN CODE
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; HOME,$04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; CRT CURSOR-TO-HOME
+<br>CODE
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NEW_LINE,$05&nbsp;&nbsp;&nbsp; ; CRT NEW-LINE
+CODE
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; ESCAPE,$1B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+ESCAPE CHARACTER VALUE
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; ALT_X,'x'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ALT_X&nbsp; CHARACTER VAULE
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; STACKTOP,$E00&nbsp;&nbsp; ; INITIAL STACK
+TOP
+<br>POINTER
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PROGRAM BASE AS 000
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 22.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 000&nbsp;&nbsp; 020E00&nbsp;&nbsp; START:&nbsp;
+LDS#&nbsp;&nbsp;&nbsp; STACKTOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE STACK
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 001&nbsp;&nbsp; 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; CLEAR_SCREEN&nbsp;&nbsp;&nbsp; ; CLEAR CRT SCREEN
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 002&nbsp;&nbsp; 712316&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OUTB&nbsp;&nbsp;&nbsp; CRT_CTRL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 003&nbsp;&nbsp; 000004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; HOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SCREEN CURSOR TO HOME
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 004&nbsp;&nbsp; 712316&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OUTB&nbsp;&nbsp;&nbsp; CRT_CTRL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 005&nbsp;&nbsp; 702000&nbsp;&nbsp; INLOOP:
+INB&nbsp;&nbsp;&nbsp;&nbsp; KBD_STAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR CHARACTER
+<br>PRESENT
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 006&nbsp;&nbsp; 4B2005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JGE&nbsp;&nbsp;&nbsp;&nbsp; INLOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; LOOP IF NO CHARACTER
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 007&nbsp;&nbsp; 0A2037&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLR&nbsp;&nbsp;&nbsp;&nbsp; SPL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; CLEAR SPECIAL-
+<br>CHARACTER INDICATOR
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 008&nbsp;&nbsp; 702001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INB&nbsp;&nbsp;&nbsp;&nbsp; KBD_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR SPECIAL
+<br>CHARACTER
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 009&nbsp;&nbsp; 20001B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; ESCAPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp; 00A&nbsp;&nbsp; 49200F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JNE&nbsp;&nbsp;&nbsp;&nbsp; SETCOD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF NOT SPECIAL
+<br>CHARACTER
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 00B&nbsp;&nbsp; 1B2037&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INC&nbsp;&nbsp;&nbsp;&nbsp; SPL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SET SPECIAL-CHARACTER
+<br>INDICATOR
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 00C&nbsp;&nbsp; 702001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INB&nbsp;&nbsp;&nbsp;&nbsp; KBD_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET SPECIAL-CHARACTER
+<br>CODE
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 00D&nbsp;&nbsp; 200078&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; ALT_X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR DONE
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 00E&nbsp;&nbsp; 48202E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF DONE
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 00F&nbsp;&nbsp; FFF000&nbsp;&nbsp; SETCOD:
+TAX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE CHARACTER VALUE
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 010&nbsp;&nbsp; 1A0010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MOD#&nbsp;&nbsp;&nbsp; 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET UNITS DIGIT
+<br>CHARACTER VALUE
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 011&nbsp;&nbsp; 100030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA#&nbsp;&nbsp;&nbsp; '0'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 012&nbsp;&nbsp; 200039&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; '9'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 013&nbsp;&nbsp; 4C2015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 014&nbsp;&nbsp; 100007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA#&nbsp;&nbsp;&nbsp; 'A'-'9'-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 015&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE UNITS DIGIT
+<br>CHARACTER
+<br>&nbsp; 47.&nbsp;&nbsp;&nbsp; 016&nbsp;&nbsp; FFF003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TXA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETRIEVE CHARACTER
+<br>VALUE
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 017&nbsp;&nbsp; 190010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DIV#&nbsp;&nbsp;&nbsp; 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET SIXTEENS DIGIT
+<br>CHARACTER VALUE
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 018&nbsp;&nbsp; 100030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA#&nbsp;&nbsp;&nbsp; '0'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 019&nbsp;&nbsp; 200039&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; '9'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 01A&nbsp;&nbsp; 4C201C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp; 01B&nbsp;&nbsp; 100007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA#&nbsp;&nbsp;&nbsp; 'A'-'9'-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp; 53.&nbsp;&nbsp;&nbsp; 01C&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE SIXTEENS DIGIT
+<br>CHARACTER
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 13:28:22 Monday May 6th, 1996&nbsp; Page&nbsp;&nbsp;
+2
+<br>&nbsp;Filename: P88.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 54.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 55.&nbsp;&nbsp;&nbsp; 01D&nbsp;&nbsp; 03002F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDF#&nbsp;&nbsp;&nbsp; SHORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SET REGULAR-CHARACTER
+<br>MESSAGE
+<br>&nbsp; 56.&nbsp;&nbsp;&nbsp; 01E&nbsp;&nbsp; 242037&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TST&nbsp;&nbsp;&nbsp;&nbsp; SPL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR SPECIAL
+<br>CHARACTER
+<br>&nbsp; 57.&nbsp;&nbsp;&nbsp; 01F&nbsp;&nbsp; 482021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 58.&nbsp;&nbsp;&nbsp; 020&nbsp;&nbsp; 030032&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDF#&nbsp;&nbsp;&nbsp; LONG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SET SPECIAL-CHARACTER
+<br>MESSAGE
+<br>&nbsp; 59.&nbsp;&nbsp;&nbsp; 021&nbsp;&nbsp; 010000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE CHARACTER
+<br>POINTER
+<br>&nbsp; 60.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 61.&nbsp;&nbsp;&nbsp; 022&nbsp;&nbsp; 503000&nbsp;&nbsp; TXLOOP:
+LDC&nbsp;&nbsp; ! 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET TEXT CHARACTER
+<br>&nbsp; 62.&nbsp;&nbsp;&nbsp; 023&nbsp;&nbsp; 482027&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; NUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR TEXT DONE
+<br>&nbsp; 63.&nbsp;&nbsp;&nbsp; 024&nbsp;&nbsp; 712317&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OUTB&nbsp;&nbsp;&nbsp; CRT_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; WRITE TEXT CHARACTER
+<br>&nbsp; 64.&nbsp;&nbsp;&nbsp; 025&nbsp;&nbsp; 110001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADX#&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INCREMENT CHARACTER
+<br>POINTER
+<br>&nbsp; 65.&nbsp;&nbsp;&nbsp; 026&nbsp;&nbsp; 402022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; TXLOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP TO PROCESS NEXT
+<br>CHARACTER
+<br>&nbsp; 66.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 67.&nbsp;&nbsp;&nbsp; 027&nbsp;&nbsp; FFF013&nbsp;&nbsp; NUM:&nbsp;&nbsp;&nbsp;
+POPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETRIEVE FIRST VALUE
+<br>CHARACTER
+<br>&nbsp; 68.&nbsp;&nbsp;&nbsp; 028&nbsp;&nbsp; 712317&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OUTB&nbsp;&nbsp;&nbsp; CRT_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; WRITE FIRST VALUE
+<br>CHARACTER
+<br>&nbsp; 69.&nbsp;&nbsp;&nbsp; 029&nbsp;&nbsp; FFF013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETRIEVE SECOND VALUE
+<br>CHARACTER
+<br>&nbsp; 70.&nbsp;&nbsp;&nbsp; 02A&nbsp;&nbsp; 712317&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OUTB&nbsp;&nbsp;&nbsp; CRT_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; WRITE SECOND VALUE
+<br>CHARACTER
+<br>&nbsp; 71.&nbsp;&nbsp;&nbsp; 02B&nbsp;&nbsp; 000005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; NEW_LINE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MOVE CURSOR TO NEXT
+<br>LINE
+<br>&nbsp; 72.&nbsp;&nbsp;&nbsp; 02C&nbsp;&nbsp; 712316&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OUTB&nbsp;&nbsp;&nbsp; CRT_CTRL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 73.&nbsp;&nbsp;&nbsp; 02D&nbsp;&nbsp; 402005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; INLOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP TO GET NEXT
+<br>KEYBOARD CHARACTER
+<br>&nbsp; 74.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 75.&nbsp;&nbsp;&nbsp; 02E&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; DONE:&nbsp;&nbsp;
+HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; STOP
+<br>&nbsp; 76.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 77.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 78.&nbsp;&nbsp;&nbsp; 02F&nbsp;&nbsp; 636F64&nbsp;&nbsp; SHORT:
+.CHAR&nbsp;&nbsp;&nbsp; 'code = $\$00'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; REGULAR-
+<br>CHARACTER MESSAGE
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 030&nbsp;&nbsp; 65203D
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 031&nbsp;&nbsp; 202400
+<br>&nbsp; 79.&nbsp;&nbsp;&nbsp; 032&nbsp;&nbsp; 636F64&nbsp;&nbsp; LONG:&nbsp;
+.CHAR&nbsp;&nbsp;&nbsp; 'codes = $1B, $\$00' ; SPECIAL-
+<br>CHARACTER MESSAGE
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 033&nbsp;&nbsp; 657320
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 034&nbsp;&nbsp; 3D2024
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 035&nbsp;&nbsp; 31422C
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 036&nbsp;&nbsp; 202400
+<br>&nbsp; 80.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 81.&nbsp;&nbsp;&nbsp; 037&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; SPL:&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; 1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SPECIAL-
+<br>CHARACTER INDICATOR
+<br>&nbsp; 82.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 83.
+<br>&nbsp; 84.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; KBD_STAT = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KBD_DATA
+= 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CRT_CTRL = 000316
+<br>&nbsp; CRT_DATA = 000317&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLEAR_SCREEN = 000001&nbsp;&nbsp;&nbsp; HOME = 000004
+<br>&nbsp; NEW_LINE = 000005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ESCAPE = 00001B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ALT_X
+= 000078
+<br>&nbsp; STACKTOP = 000E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+START = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INLOOP = 000005
+<br>&nbsp; SPL = 000037&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SETCOD = 00000F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DONE
+= 00002E
+<br>&nbsp; SHORT = 00002F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LONG = 000032&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TXLOOP = 000022
+<br>&nbsp; NUM = 000027
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<p>
+</body>
+</html>

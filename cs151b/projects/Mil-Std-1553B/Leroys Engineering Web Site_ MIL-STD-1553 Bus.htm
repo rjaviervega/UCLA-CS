@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://www.interfacebus.com/Design_Connector_1553.html -->
+<HTML><HEAD><TITLE>Leroys Engineering Web Site; MIL-STD-1553 Bus</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2726.2500" name=GENERATOR>
+<META content="MIL-STD-1553 Bus Design Information" name=description>
+<META 
+content="Engineering,Digital,Serial,Bus,Pin,Series,Voltage,Interface,Level,Design,Transceiver,Standard,Specification,Military,MIL,STD,Spec,Twinax,Connector,Redundant,1553,1773,DOD,defense,US,NATO,STANAG,STANAG 3910, 3838,STD,aircraft,Space,borne,EFABUS,aerospace,aviation,avionics,aeronautical,aircraft,air,Definition,Description,Tutorial,FAQ,protocol,PHY,Listing,Index,Products" 
+name=keywords>
+<META content="Leroy Davis" name=Author>
+<STYLE type=text/css>A:link {
+	COLOR: #0066ff
+}
+A:visited {
+	COLOR: #6633cc
+}
+#NormalF {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Times New Roman; PublisherStyleName: Normal
+}
+#NormalP {
+	MARGIN-TOP: 0pt; MARGIN-BOTTOM: 0pt; TEXT-ALIGN: left
+}
+#PWeb-body-F {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Times New Roman; PublisherStyleName: [Web body]
+}
+#PWeb-body-P {
+	MARGIN-TOP: 0pt; MARGIN-BOTTOM: 0pt; TEXT-ALIGN: left
+}
+</STYLE>
+</HEAD>
+<BODY text=#000000 vLink=#6633cc link=#0066ff leftMargin=0 
+background="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/graph_paper.gif" 
+topMargin=0><!-- HTML Markup startspan --><A name=topofindex></A><IMG 
+alt="Military-Standard-1553B Design Data" 
+src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/design_info.gif"> 
+<CENTER>
+<H2><FONT size=5><B>MIL-STD-1553 Bus</B></FONT></H2></CENTER>
+<P align=center>Interface Standard for Digital Time Division Command/Response 
+Multiplex Data Bus</P><BR><BR>
+<TABLE align=center>
+  <TBODY>
+  <TR>
+    <TD>
+      <P align=center>[ <A 
+      href="http://www.interfacebus.com/Design_Connector_1553.html#a"><B>Description</B></A> 
+      ] [ <A 
+      href="http://www.interfacebus.com/Design_Connector_1553.html#e"><B>OnLine 
+      Standards </B></A>] <BR>[ <A 
+      href="http://www.interfacebus.com/Design_Connector_1553.html#c"><B>Interface 
+      ICs </B></A>] [ <A 
+      href="http://www.interfacebus.com/Design_Connector_1553.html#f"><B>1553 
+      Connectors </B></A>] <BR>[ <A 
+      href="http://www.interfacebus.com/wire.html"><B>Converters, Adapters, 
+      Cable Assemblies </B></A>] <BR>[ <A 
+      href="http://www.interfacebus.com/COTs_Cards.html"><B>OEM Cards </B></A>] 
+      <BR><BR><BR><FONT color=#ff0000 size=5>[ <A 
+      href="http://www.interfacebus.com/index.html"><B>Home</B></A>]</FONT></P></TD></TR></TBODY></TABLE>
+<DL><BR>
+  <DT>
+  <P>
+  <H3><FONT size=5><A name=a><B>MIL-STD-1553 Description</B></A></FONT></H3>
+  <P></P>
+  <P>MIL-STD-1553 is a DOD Military (MIL) Standard (STD), which defines both the 
+  Mechanical, Electrical, and Functional characteristics. 1553 uses a Balanced 
+  (Differential) interface. The interface is dual redundant with between 2 and 
+  32 interface devices on the bus. <BR>The multiplex data bus system shall 
+  function asynchronously in a command /response mode, and transmission shall 
+  occur in a half-duplex manner. <BR>The information flow on the data bus shall 
+  be comprised of messages which are, in turn, formed by three types of words 
+  (command, data, and status). <BR>The most significant bit shall be transmitted 
+  first with the least significant bits following in descending order of value 
+  in the data word. <BR>The data code shall be Manchester II bi-phase level. A 
+  logic one shall be transmitted as a bipolar coded signal 1/0 (i.e., a positive 
+  pulse followed by a negative pulse). A logic zero shall be a bipolar coded 
+  signal 0/1 (i.e., a negative pulse followed by a positive pulse). A transition 
+  through zero occurs at the midpoint of each bit time.. <BR>The transmission 
+  bit rate on the bus shall be 1.0 megabit per second with a combined accuracy 
+  and long-term stability of ± 0.1 percent (i.e., ±1000 hertz (Hz)). <BR>The 
+  word size shall be 16 bits plus the sync waveform and the parity bit for a 
+  total of 20 bits times.. <BR>The nominal characteristic impedance of the cable 
+  (Z<SUB>0</SUB>) shall be within the range of 70.0 ohms to 85.0 ohms at a 
+  sinusoidal frequency of 1.0 megahertz (MHz). May be Transformer coupled. 
+  <P align=center><A 
+  href="http://ewhdbks.mugu.navy.mil/1553-bus.htm">MIL-STD-1553 and 1773 DATA 
+  BUS </A><BR>{Navy}</P>
+  <P align=center><A href="http://www.1553.com/1553interp.htm">An Interpretation 
+  of MIL-STD-1553 </A><BR>{SBS Technologies}</P>
+  <P align=center><FONT size=3><A 
+  href="http://www.interfacebus.com/Design_Connector_1553.html#topofindex"><B>{Back 
+  to Index}</B></A></FONT></P>
+  <HR width="85%">
+
+  <DT>
+  <P>
+  <H3><FONT size=5><A name=c><B>MIL-1553 Interface ICs</B></A></FONT></H3>
+  <P></P>
+  <P align=center><A href="http://www.aeroflex.com/">Aeroflex </A><BR>{Mil 1553 
+  Controller/Transceiver}</P>
+  <P align=center><A href="http://www.ddc-web.com/">Data Device Corp. 
+  </A><BR>{Mil 1553}</P>
+  <P align=center><A href="http://www.holtic.com/">Holt Integrated Circuits 
+  Inc.</A></P>
+  <P align=center><A href="http://www.nationalhybrid.com/">National Hybrid 
+  Inc.</A></P>
+  <P align=center><A href="http://www.utmc.com/">UTMC</A><BR>{MIL 1553 A/B 
+  Transceiver}</P>
+  <P align=center><A href="http://www.interfacebus.com/Semiconductor.html"><FONT 
+  color=#ff0000 size=3><B>ICs </B></FONT></A>{All other types}<BR><FONT 
+  size=2>{This Site}</FONT></P>
+  <P align=center><FONT size=3><A 
+  href="http://www.interfacebus.com/Design_Connector_1553.html#topofindex"><B>{Back 
+  to Index}</B></A></FONT></P>
+  <HR width="85%">
+
+  <DT>
+  <P>
+  <H3><FONT size=5><A name=e><B>MIL-STD-1553 
+  Standard/Specifications</B></A></FONT></H3>
+  <P></P>
+  <P><A 
+  href="http://home.cfl.rr.com/interfacebus/mil_std_1553b.doc"><B>MIL-STD-1553B 
+  Specification </B></A>{*.doc} <FONT color=#ff0000 size=2>{This Site}</FONT> 
+  ........ <A 
+  href="http://stinet.dtic.mil/str/dodiss4_fields.html"><B>MIL-STD-1553 
+  </B></A><FONT size=2>{stinet}</FONT> ~ [Military-Standard-1553b]</P>
+  <P><FONT size=3><B>MIL-STD-1773 - Fiber Optics mechanization of an Aircraft 
+  Internal Time Division Command/response Multiplex Data Bus</B></FONT> 
+  <EM><FONT color=#20a000 size=3>{Link works on the CD}</FONT></EM></P>
+  <P><FONT size=3><B>MIL-HDBK-1553A - Multiplex Applications 
+  Handbook</B></FONT></P>
+  <P><FONT size=3><B>MIL-STD-1760C - Interface Standard for Aircraft/Store 
+  Electrical Interconnection System</B></FONT> <EM><FONT color=#20a000 
+  size=3>{Link works on the CD}</FONT></EM></P>
+  <P><FONT size=3><B>MIL-STD-1397C - Input/Output Interfaces, Standards Digital 
+  data, Navy Systems</B></FONT> <EM><FONT color=#20a000 size=3>{link works on 
+  the CD}</FONT></EM></P>
+  <P>NATO calls MIL-STD-1553B: <B>STANAG 3838AVS;</B>, the UK calls it <B>DEF 
+  STAN 00-18</B>. Now controlled by the SAE as <B>AS15531</B>, and re-released 
+  by NATO as <B>STANAG 7155</B>. <BR><B>STANAG 3910;</B> A derivation of 
+  MIL-1553 (like MIL-1773 ?) used in NATO / UK. Operates at 100Mb/s over 
+  fiber.<BR><B>ARINC 629;</B> Another derivation of MIL-1553 used by commercial 
+  aircraft. Yet another was ARINC 453.<BR><B>MMSI:</B> Miniature Mission Stores 
+  Interface. 2-wire, 10Mbps 1553 protocol transmitted using RS-485 
+  transceiver(s). Also called Enhanced Bit Rate 1553 (EBR-1553). MMSI / EBR 
+  reference notes from: <A href="http://www.condoreng.com/">Condor Engineering, 
+  Inc.</A></P>
+  <P align=center><FONT size=3><A 
+  href="http://www.interfacebus.com/Design_Connector_1553.html#topofindex"><B>{Back 
+  to Index}</B></A></FONT></P>
+  <HR width="85%">
+
+  <DT>
+  <P>
+  <H3><FONT size=5><A name=f><B>MIL-1553 Connector </B></A></FONT></H3>
+  <P></P>
+  <P>MlL-STD-1553B does not specify the type of connector used to interconnect 
+  cables that make up a network. Notice 2, paragraph 30.10.3, however, specifies 
+  that, for applications that use concentric connectors or inserts for each bus 
+  [Pin Out info]: the center pin of the connector or insert shall be used for 
+  the high (positive) Manchester hi-phase signal. The inner ring shall be used 
+  for the low (negative) Manchester hi-phase signal. There are currently two 
+  types of connectors in general use. 1: a multi-pin connector that comes in 
+  various styles including circular, rectangular, and rack and panel. 2: is the 
+  discrete concentric triaxial design.<BR>
+  <CENTER><A 
+  href="http://www.interfacebus.com/Design_1553_Twinax_Connector.html"><FONT 
+  color=#ff0000 size=3><B>Twinax Drawing (MIL Spec) </B></FONT></A><FONT 
+  size=2>{This Web Site}</FONT></CENTER>
+  <P></P>
+  <P align=center><A href="http://www.adam-tech.com/">Adam Technologies 
+  Inc.</A></P>
+  <P align=center><A href="http://www.tycoelectronics.com/">Amp Electronics 
+  </A>"Tyco Electronics" </P>
+  <P align=center><A href="http://www.amphenol.com/">Amphenol </A></P>
+  <P align=center><A href="http://www.amphenolconnex.com/">Connex </A></P>
+  <P align=center><A href="http://www.methode.com/">Methode Electronics, 
+  Inc.</A></P>
+  <P align=center><A href="http://www.milestek.com/">MilesTek Inc. </A></P>
+  <P align=center><A href="http://www.radiall.com/">Radiall S. A. </A></P>
+  <P align=center><A href="http://www.sabritec.com/">Sabritec</A> </P>
+  <P align=center><A href="http://www.tycoelectronics.com/">Tyco 
+  Electronics</A></P>
+  <P align=center><A href="http://www.interfacebus.com/connectors.html"><FONT 
+  color=#ff0000 size=3><B>Connectors </B></FONT></A>{All other types}<BR><FONT 
+  size=2>{This Site}</FONT></P>
+  <P align=center><FONT size=3><A 
+  href="http://www.interfacebus.com/Design_Connector_1553.html#topofindex"><B>{Back 
+  to Index}</B></A></FONT></P>
+  <HR width="85%">
+  </DT></DL><BR>
+<CENTER><A href="http://www.interfacebus.com/index.html"><IMG height=65 alt=Home 
+src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/Typing_Man.gif" 
+width=86 border=0 Page></A></CENTER><BR><IMG height=1 
+src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/blnk.gif" width=4>
+<P align=center><A 
+href="http://www.interfacebus.com/index.html"><B>Home</B></A></P><BR><BR>
+<TABLE width="95%">
+  <TBODY>
+  <TR>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Parts_Distributors.html"><IMG height=65 
+      alt=Distributors 
+      src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/Index_Distributors.gif" 
+      width=86 border=0></A></P></TD>
+    <TD>
+      <P align=center><A href="http://www.interfacebus.com/Components.html"><IMG 
+      height=65 alt=Hardware 
+      src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/Index_Components.gif" 
+      width=86 border=0 Components></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/OEM_Equipment.html"><IMG height=65 
+      alt=OEM 
+      src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/Index_OEM_Equipment.gif" 
+      width=86 border=0 Equipment></A></P></TD>
+    <TD>
+      <P align=center><A href="http://www.interfacebus.com/Software.html"><IMG 
+      height=65 alt=Software 
+      src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/Index_Software.gif" 
+      width=86 border=0></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Standards_and_Publications.html"><IMG 
+      height=65 alt=Standards 
+      src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/Index_Standard_Pubs.gif" 
+      width=86 border=0 Pubs &></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Reference_and_Information.html"><IMG 
+      height=65 alt=Reference 
+      src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/Index_Ref_Info.gif" 
+      width=86 border=0 Info></A></P></TD></TR>
+  <TR>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Parts_Distributors.html"><B>Distributors</B></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Components.html"><B>Components</B></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/OEM_Equipment.html"><B>OEM 
+      Equipment</B></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Software.html"><B>Software</B></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Standards_and_Publications.html"><B>Standards/Pubs</B></A></P></TD>
+    <TD>
+      <P align=center><A 
+      href="http://www.interfacebus.com/Reference_and_Information.html"><B>Reference 
+      Info</B></A></P></TD></TR></TBODY></TABLE>
+<CENTER></CENTER><BR>
+<CENTER><!-- CQ Counter code start --><FONT size=1>
+<SCRIPT language=javascript type=text/javascript><!-- 
+_d=document; _n=navigator; _t=new Date(); function t() { _d.write( 
+"<img src=\"http://1us.cqcounter.com/cgi-bin/c?_id=altera5&_z=2&_r="+
+_r+"&_c="+_c+"&_j="+_j+"&_t="+(_t.getTimezoneOffset())+"&_k="+_k+
+"&_l="+escape(_d.referrer)+"\" width=70 height=15 "+
+"border=0>");} _c="0"; _r="0"; _j="U"; _k="U"; _d.cookie="_c=y";
+_d.cookie.length>0?_k="Y":_k="N";//--></SCRIPT>
+
+<SCRIPT language=javascript1.2 type=text/javascript><!-- 
+_b=screen; _r=_b.width; _n.appName!="Netscape"?_c=_b.colorDepth : _c=_b.pixelDepth;
+_n.javaEnabled()?_j="Y":_j="N";//--></SCRIPT>
+<A href="http://cqcounter.com/?_id=altera5&amp;_lo=us" target=_top>
+<SCRIPT language=javascript type=text/javascript><!-- 
+t(); //--></SCRIPT>
+</A><NOSCRIPT><A href="http://cqcounter.com/"><IMG height=15 alt="" 
+src="Leroys Engineering Web Site; MIL-STD-1553 Bus_files/c.htm" width=70 
+border=0></A></NOSCRIPT></FONT> <!-- CQ Counter code end --></CENTER><BR>
+<CENTER>
+<SCRIPT language=JavaScript type=text/javascript>
+<!--
+         document.write("Last Modified " + document.lastModified)
+// -->
+</SCRIPT>
+</CENTER>
+<P align=center><FONT size=3>Copyright © 1998 - 2003 All rights reserved Leroy 
+Davis</FONT></P><!--What is the 1553 bus, describe the MIL1553 bus, Who make parts for the MIL-STD-1553 bus, Define the 1553 bus --><!-- NEW PAGE --><!-- HTML Markup endspan --></BODY></HTML>

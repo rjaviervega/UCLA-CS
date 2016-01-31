@@ -1,0 +1,357 @@
+;       UCLA SPRING 2003
+;       CS 33 PROJECT 6:  CONSTRUCTION PROJECT:
+;                         SUPPORT SUBROUTINES 2
+;       JOHN A. ROHR
+;       JANUARY 20, 2003
+;
+        .EQU     N,6                     ; BRICK GRAB LIMIT
+        .EQU     TRYLMT,10               ; MOVE  TRY  LIMIT
+
+        .EQU     TIMBIN,$FF7             ; BINARY TIME LOCATION
+
+        .EQU     DEBUG,0                 ; DEBUG CONTROL
+        .EQU     ROWS,14                 ; DISPLAY ROWS
+        .EQU     COLS,38                 ; DISPLAY COLUMNS
+
+        .EQU     DROWS,3                 ; DATA     ROWS
+        .EQU     BROWS,10                ; BUILDING ROWS
+        .EQU     BCOLS,24                ; BUILDING COLUMNS
+        .EQU     SROWS,10                ; BUILDING ROWS
+        .EQU     SCOLS,12                ; BUILDING COLUMNS
+        .EQU     MAXGRD,8                ; MAXIMUM  GIRDERS
+
+        .EQU     BURPOS,14               ; INITIAL BUILDING ROW
+        .EQU     BUCPOS,1                ; INITIAL BUILDING COLUMN
+        .EQU     SURPOS,14               ; INITIAL SUPPLY   ROW
+        .EQU     SUCPOS,27               ; INITIAL SUPPLY   COLUMN
+        .EQU     CRRPOS,4                ; INITIAL CRANE    ROW
+        .EQU     CRCPOS,27               ; INITIAL CRANE    COLUMN
+        .EQU     CRICHR,'c'              ; INITIAL CRANE    CHAR
+
+;       .EQU     MOVERT,'M'              ; MOVE RIGHT CHARACTER
+;       .EQU     MOVELT,'K'              ; MOVE LEFT  CHARACTER
+;       .EQU     MOVEUP,'H'              ; MOVE UP    CHARACTER
+;       .EQU     MOVEDN,'P'              ; MOVE DOWN  CHARACTER
+
+;       .EQU     ENDPRG,'Q'              ; QUIT               CHAR
+;       .EQU     SHOCON,'C'              ; SHOW CONSTRUCTION  CHAR
+;       .EQU     SHOSOL,'S'              ; SHOW SOLUTION      CHAR
+;       .EQU     GRAB1,'1'               ; GRAB ONE BRICK     CHAR
+;       .EQU     GRABG,'G'               ; GRAB GIRDER INPUT  CHAR
+;       .EQU     GRABGC,'C'              ; GRAB GIRDER DISPLY CHAR
+;       .EQU     RELEAS,'R'              ; RELEASE LOAD       CHAR
+
+        .EQU     TITPOS,0                ; TITLE          POSITION
+        .EQU     STAPOS,TITPOS+COLS      ; STATUS         POSITION
+        .EQU     SEPPOS,TITPOS+2*COLS    ; SEPARATOR      POSITION
+        .EQU     MODPOS,STAPOS           ; MODE           POSITION
+        .EQU     TIMPOS,STAPOS+10        ; TIME           POSITION
+        .EQU     BRKPOS,STAPOS+21        ; BRICKS         POSITION
+        .EQU     BRTPOS,STAPOS+25        ; BRICK TOTAL    POSITION
+        .EQU     GRDPOS,STAPOS+35        ; GIRDERS        POSITION
+        .EQU     GRTPOS,STAPOS+37        ; TOTAL GIRDERS  POSITION
+        .EQU     ERRPOS,STAPOS+9         ; TERMINAL ERROR POSITION
+        .EQU     TRYPOS,STAPOS+16        ; TOO MAY TRIES  POSITION
+        .PAGE                    ;
+        .EQU     CRT_BUF,$100    ; CRT DISPLAY I/O ADDRESS
+        .EQU     CRT_XPOS,$314   ; CRT X POSITION  ADDRESS
+        .EQU     CRT_YPOS,$315   ; CRT Y POSITION  ADDRESS
+        .EQU     CRT_CTRL,$316   ; CRT CONTROL I/O ADDRESS
+
+        .EQU     INIFUN,$FFC     ; I/O INITIALIZATION FUNCTION
+        .EQU     KBDFUN,$FFD     ; I/O KEYBOARD       FUNCTION
+        .EQU     TAPFUN,$FFE     ; I/O TAPE DRIVE     FUNCTION
+        .EQU     CLKFUN,$FFF     ; I/O CLOCK          FUNCTION
+
+
+        .EQU     CLEAR,1         ; CRT   CLEAR SCREEN OPCODE
+        .EQU     BELLOP,6        ; CRT   RING BELL    OPCODE
+
+        .EQU     TAPREW,0        ; TAPE  REWIND       OPCODE
+        .EQU     TAPRD,1         ; TAPE  READ         OPCODE
+
+        .EQU     CLKRES,1        ; CLOCK RESET OPCODE + 1
+        .EQU     CLKGO,2         ; CLOCK START OPCODE + 1
+        .EQU     CLKSTP,0        ; CLOCK STOP  OPCODE + 1
+
+
+        .EQU     TERM,0          ; STRING TERMINATOR
+
+
+        .EQU     ERROR,$B00      ; DISPLAY ERROR       SUBROTUINE
+        .EQU     PUTNUM,$B01     ; DISPLAY NUMBER      SUBROUTINE
+        .EQU     PTOA,$B02       ; POSITION-TO-ADDRESS FUNCTION
+
+
+        .EQU     @,$300          ; SUBROUTINE MODULE CODE ADDRESS
+
+                                 ; TRANSFER TABLE
+         JMP     SCNSOL          ; SCAN SOLUTION  SUBROUTINE
+         JMP     SCNSUP          ; SCAN SUPPLY    SUBROUTINE
+        .PAGE                    ; ****************************
+                                 ; *  SCAN A SOLUTION RECORD  *
+                                 ; ****************************
+                                 ;
+SCNSOL: PSHA                    ; SAVE ACC
+         PSHX                    ; SAVE XR
+
+         LDX#    0               ; I      := 0
+         CLR     SCNLST          ; SCNLST := 0
+
+SSNLP:  CMX#    BCOLS           ; TEST FOR IN SOLUTION AREA
+         JGE     SSNERR          ; JUMP IF OUT OF AREA
+
+         LDC*    BUFADR          ; TEST FOR MORE CHARACTERS
+         CMA#    TERM            ;
+         JEQ     SSNDN           ; JUMP IF END OF LINE
+         CMA#    'b'             ; TEST FOR 'b'
+         JNE     @+3             ; JUNP IF NOT 'b'
+         SBA     'a'-'A'         ; CONVERT TO UPPER CASE
+         STC*    BUFADR          ;
+         CMA#    'B'             ; TEST FOR 'B'
+         JNE     @+3             ; JUNP IF NOT 'B'
+         INC     TBRICK          ; TBRICK  := TBRICK + 1
+         JMP     SSNINC          ;
+         CMA#    'g'             ; TEST FOR 'g'
+         JNE     @+3             ; JUNP IF NOT 'g'
+         SBA     'a'-'A'         ; CONVERT TO UPPER CASE
+         STC*    BUFADR          ;
+         CMA#    'G'             ; TEST FOR 'G'
+         JNE     @+5             ; JUNP IF NOT 'G'
+
+         CMA     SCNLST          ; TEST FOR NOT IN GIRDER
+         JEQ     SSNINC          ; JUMP IF IN GIRDER
+         INC     TGIRD           ; TGIRD := TGIRD + 1
+         JMP     SSNINC          ;
+
+         CMA#    '*'             ; TEST FOR '*'
+         JEQ     SSNINC          ; JUMP IF  '*'
+         CMA#    ' '             ; TEST FOR BLANK
+         JEQ     SSNINC          ; JUMP IF NOT BLANK
+
+         LDA#    111             ; SET ERROR 111
+         JSR     ERROR           ;
+
+SSNINC: ADX#    1               ; I := I + 1
+         STA     SCNLST          ; SCNLST := CHARACTER
+         JMP     SSNLP           ;
+
+SSNERR: LDA#    112             ; SET ERROR 112
+         JSR     ERROR           ;
+
+SSNDN:  POPX                    ; RESTORE XR
+         POPA                    ; RESTORE ACC
+         RTN                     ; RETURN
+        .PAGE                    ; ****************************
+                                 ; *  SCAN A SUPPLY RECORD  *
+                                 ; ****************************
+                                 ;
+SCNSUP: PSHA                    ; SAVE ACC
+         PSHX                    ; SAVE XR
+
+         LDX#    0               ; I      := 0
+         CLR     INTIME          ; INTIME := 0
+         CLR     INCNT           ; INCNT  := 0
+         CLR     INBRIK          ; INBRIK := 0
+         CLR     INGIRD          ; INGIRD := 0
+         CLR     INLEN           ; INLEN  := 0
+
+         LDC*    BUFADR          ; GET THE NEXT CHARACTER
+         CMA#    TERM            ; TEST FOR END OF RECORD
+         JEQ     SSYIVR          ; JUMP IF  END OF RECORD
+         CMA#    '0'             ; TEST FOR DIGIT
+         JLT     @+11            ; JUMP IF NOT DIGIT
+         CMA#    '9'             ;
+         JGT     @+9             ; JUMP IF NOT DIGIT
+
+         SBA#    '0'             ; ACCUMULATE DIGIT
+         STA     DECDIG          ;
+         LDA     INTIME          ;
+         MUL#    10              ;
+         ADA     DECDIG          ;
+         STA     INTIME          ;
+         ADX#    1               ; MOVE TO NEXT POSITION
+         JMP     @-14            ;
+
+         CMA#    '/'             ; TEST FOR TIME SEPARATOR
+         JNE     SSYIVR          ; JUMP IF NOT SEPARATOR
+
+         ADX#    1               ; MOVE TO NEXT POSITION
+         LDC*    BUFADR          ; GET THE NEXT CHARACTER
+         CMA#    TERM            ; TEST FOR END OF RECORD
+         JEQ     SSYIVR          ; JUMP IF  END OF RECORD
+         CMA#    '0'             ; TEST FOR DIGIT
+         JLT     @+10            ; JUMP IF NOT DIGIT
+         CMA#    '9'             ;
+         JGT     @+8             ; JUMP IF NOT DIGIT
+
+         SBA#    '0'             ; ACCUMULATE DIGIT
+         STA     DECDIG          ;
+         LDA     INCNT           ;
+         MUL#    10              ;
+         ADA     DECDIG          ;
+         STA     INCNT           ;
+         JMP     @-14            ;
+
+         TST     INCNT           ; TEST FOR ZERO COUNT
+         JNE     @+2             ; JUMP IF NONZERO COUNT
+         INC     INCNT           ; INCNT := 1
+        .PAGE                    ;
+         CMA#    'B'             ; TEST FOR BRICK SUPPLY
+         JEQ     @+3             ; JUMP IF  BRICK SUPPLY
+         CMA#    'b'             ;
+         JNE     @+8             ; JUMP IF NOT BRICK
+
+         LDA     INCNT           ; INBRIK := INCNT
+         STA     INBRIK          ;
+
+         ADX#    1               ; MOVE TO NEXT POSITION
+         LDC*    BUFADR          ; GET THE NEXT CHARACTER
+         CMA#    TERM            ; TEST FOR END OF RECORD
+         JEQ     SSYTIM          ; JUMP IF  END OF RECORD
+         JMP     SSYIVR          ;
+
+         CMA#    'G'             ; TEST FOR GIRDER SUPPLY
+         JEQ     @+3             ; JUMP IF  GIRDER SUPPLY
+         CMA#    'g'             ;
+         JNE     SSYIVT          ; JUMP IF NOT GIRDER
+
+         LDA     INCNT           ; INGIRD := INCNT
+         STA     INGIRD          ;
+
+         ADX#    1               ; MOVE TO NEXT POSITION
+         LDC*    BUFADR          ; GET THE NEXT CHARACTER
+         CMA#    TERM            ; TEST FOR END OF RECORD
+         JEQ     SSYTIM          ; JUMP IF  END OF RECORD
+         CMA#    '0'             ; TEST FOR DIGIT
+         JLT     @+10            ; JUMP IF NOT DIGIT
+         CMA#    '9'             ;
+         JGT     @+8             ; JUMP IF NOT DIGIT
+
+         SBA#    '0'             ; ACCUMULATE DIGIT
+         STA     DECDIG          ;
+         LDA     INLEN           ;
+         MUL#    10              ;
+         ADA     DECDIG          ;
+         STA     INLEN           ;
+         JMP     @-14            ;
+
+         ADX#    1               ; MOVE TO NEXT POSITION
+         LDC*    BUFADR          ; GET THE NEXT CHARACTER
+         CMA#    TERM            ; TEST FOR END OF RECORD
+         JEQ     @+4             ; JUMP IF  END OF RECORD
+
+         LDA#    121             ; SET ERROR 121
+         JSR     ERROR           ;
+         JMP     SSYTIM          ;
+
+         LDA     INLEN           ; TEST FOR INLEN < 3
+         CMA#    3               ;
+         JGE     SSYTIM          ; JUMP IF INLEN >= 3
+        .PAGE                    ;
+         LDA#    122             ; SET ERROR 122
+         JSR     ERROR           ;
+         JMP     SSYTIM          ;
+
+SSYIVT: LDA#    123             ; SET ERROR 123
+         JSR     ERROR           ;
+         JMP     SSYTIM          ;
+
+SSYIVR: LDA#    124             ; SET ERROR 124
+         JSR     ERROR           ;
+
+SSYTIM: LDA     INTIME          ; TEST FOR TIME IN ORDER
+         CMA     NEXT            ;
+         JLT     @+4             ; JUMP IF OUT OF ORDER
+
+         LDA     INTIME          ; NEXT := INTIME
+         STA     NEXT            ;
+         JMP     SSYDN           ;
+
+         LDA#    125             ; SET ERROR 125
+         JSR     ERROR           ;
+
+SSYDN:  POPX                    ; RESTORE XR
+         POPA                    ; RESTORE ACC
+         RTN                     ; RETURN
+        .PAGE                    ;
+        .EQU     @,$B80           ; CONSTANT DATA BASE
+
+TITLE: .BLKW    13               ;
+        .EQU     TITLE_LENGTH,38  ;
+
+STATUS:.BLKW    13               ;
+        .EQU     STATUS_LENGTH,38 ;
+
+SEPLIN:.BLKW    13               ;
+        .EQU     SEPLIN_LENGTH,38 ;
+
+AGAIN: .BLKW    13               ;
+        .EQU     AGAIN_LENGTH,38  ;
+
+OVER:  .BLKW    13               ;
+        .EQU     OVER_LENGTH,38   ;
+
+RINVST:.BLKW    13               ;
+        .EQU     RINVST_LENGTH,38 ;
+
+SINVST:.BLKW    13               ;
+        .EQU     SINVST_LENGTH,38 ;
+
+ERRMSG:.BLKW    13               ;
+        .EQU     ERRMSG_LENGTH,38 ;
+
+TRYMSG:.BLKW    13               ;
+        .EQU     TRYMSG_LENGTH,38 ;
+
+BLANKS:.BLKW    1                ;
+        .PAGE
+        .EQU     @,$C00          ; VARIABLE DATA BASE
+
+DBGCTL:.BLKW    1               ; DEBUG CONTROL
+TIMER: .BLKW    1               ; LOCAL PROJECT TIME
+PHASE: .BLKW    1               ; PROGRAM PHASE
+ACTION:.BLKW    1               ; ACTION INPUI
+MORE:  .BLKW    1               ; MORE   ANSWER
+ERRIND:.BLKW    1               ; ERROR INDICATOR
+TRIES: .BLKW    1               ; BLOCKED MOVE TRIES
+SLINE: .BLKW    1               ; SOLUTION LINE
+
+GIRDL: .BLKW    1               ; LEFT  GIRDER SEGMENTS
+GIRDR: .BLKW    1               ; RIGHT GRIDER SEGMENTS
+TBRICK:.BLKW    1               ; TOTAL   BRICK  COUNT
+TGIRD: .BLKW    1               ; TOTAL   GIRDER COUNT
+CBRICK:.BLKW    1               ; CURRENT BRICK  COUNT
+CGIRD: .BLKW    1               ; CURRENT GIRDER COUNT
+SBRICK:.BLKW    1               ; SUPPLY  BRICK  COUNT
+SGIRD: .BLKW    1               ; SUPPLY  GIRDER COUNT
+
+NEXT:  .BLKW    1               ; NEXT SUPPLY TIME
+READY: .BLKW    1               ; NEXT SUPPLY READY
+INTYPE:.BLKW    1               ; INPUT TYPE
+INTIME:.BLKW    1               ; INPUT TIME
+INCNT: .BLKW    1               ; INPUT ITEM   COUNT
+INBRIK:.BLKW    1               ; INPUT BRICK  COUNT
+INGIRD:.BLKW    1               ; INPUT GIRDER COUNT
+INLEN: .BLKW    1               ; INPUT GIRDER LENGTH
+
+CRANE: .BLKW    1               ; CRANE CHARACTER
+CRNROW:.BLKW    1               ; CRANE ROW
+CRNCOL:.BLKW    1               ; CRANE COLUMN
+PICKUP:.BLKW    1               ; LOAD PICKUP AREA
+M:     .BLKW    1               ; CRANE BRICK LIFT COUNT
+SCNLST:.BLKW    1               ; LAST INPUT SCAN CHARACTER
+DECDIG:.BLKW    1               ; DECIMAL DIGIT VALUE
+BUFADR:.BLKW    1               ; INPUT BUFFER ADDRESS
+
+SGIRDL:.BLKW    MAXGRD          ; SUPPLY GIRDER LENGTHS
+
+        .BLKW    8               ; FILL
+
+SBUF:  .BLKW    (BROWS*BCOLS+2)/3             ; SOLUTION BUFFER
+
+CBUF:  .BLKW    ((ROWS-DROWS)*(SUCPOS-1)+2)/3 ; CONSTRUCT BUFFER
+
+DATEND:.BLKW    1               ;
+        .PAGE                    ;
+        .END                     ;

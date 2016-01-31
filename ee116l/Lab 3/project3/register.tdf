@@ -1,0 +1,65 @@
+Subdesign REGISTER
+(A, B, C, D, clk, M[2..0]: input;
+ Q[3..0]			     : output;
+)
+
+Variable
+INDFF[3..0]	: DFFE;
+
+Begin
+INDFF[].CLK = clk;
+INDFF[].PRN = VCC;
+INDFF[].CLRN = VCC;
+INDFF[].ENA = VCC;
+
+IF (M2==0 AND M1==0 AND M0==0) THEN
+	INDFF[0].D = A;
+	INDFF[1].D = B;
+	INDFF[2].D = C;
+	INDFF[3].D = D;
+ElSIF (M2==0 AND M1==0 AND M0==1) THEN
+	INDFF[0].D = INDFF[0].Q XOR VCC;
+	INDFF[1].D = INDFF[1].Q XOR (INDFF[0].Q==1);
+	INDFF[2].D = INDFF[2].Q XOR (INDFF[0].Q==1 AND INDFF[1].Q==1);
+	INDFF[3].D = INDFF[3].Q XOR (INDFF[0].Q==1 AND INDFF[1].Q==1 AND INDFF[2].Q==1);
+ElSIF (M2==0 AND M1==1 AND M0==0) THEN
+	INDFF[0].D = INDFF[1].Q;
+	INDFF[1].D = INDFF[2].Q;
+	INDFF[2].D = INDFF[3].Q;
+	INDFF[3].D = INDFF[0].Q;
+ElSIF (M2==0 AND M1==1 AND M0==1) THEN
+	INDFF[0].D = INDFF[1].Q;
+	INDFF[1].D = INDFF[2].Q;
+	INDFF[2].D = INDFF[3].Q;
+	INDFF[3].D = GND;
+ElSIF (M2==1 AND M1==0 AND M0==0) THEN
+	INDFF[0].D = GND;
+	INDFF[1].D = INDFF[0].Q;
+	INDFF[2].D = INDFF[1].Q;
+	INDFF[3].D = INDFF[2].Q;
+ElSIF (M2==1 AND M1==0 AND M0==1) THEN
+	INDFF[0].D = INDFF[3].Q;
+	INDFF[1].D = INDFF[0].Q;
+	INDFF[2].D = INDFF[1].Q;
+	INDFF[3].D = INDFF[2].Q;
+ElSIF (M2==1 AND M1==1 AND M0==0) THEN
+	INDFF[0].D = INDFF[1].Q;
+	INDFF[1].D = INDFF[2].Q;
+	INDFF[2].D = INDFF[3].Q;
+	INDFF[3].D = INDFF[3].Q;
+
+ELSE
+	INDFF[0].D = INDFF[0].Q;
+	INDFF[1].D = INDFF[1].Q;
+	INDFF[2].D = INDFF[2].Q;
+	INDFF[3].D = INDFF[3].Q;
+END IF;
+
+Q[0] = INDFF[0].Q;
+Q[1] = INDFF[1].Q;
+Q[2] = INDFF[2].Q;
+Q[3] = INDFF[3].Q;
+
+END;
+
+

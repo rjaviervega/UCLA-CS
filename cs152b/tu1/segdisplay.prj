@@ -1,0 +1,3 @@
+work const_32.vhd
+work maptoseg.vhd
+work segdisplay.vhf

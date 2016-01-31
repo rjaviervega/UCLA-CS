@@ -1,0 +1,92 @@
+# Xilinx CORE Generator 4.1i
+# User = Student 152B
+# Initializing default project...
+# Loading plug-ins...
+# Initializing GUI...
+SETPROJECT C:\152bs04\tu1
+# lockprojectprops=false
+# busformat=BusFormatAngleBracket
+# designflow=Vhdl
+# expandedprojectpath=C:\152bs04\tu1
+# flowvendor=Foundation_iSE
+# formalverification=None
+# simulationoutputproducts=Verilog VHDL
+# xilinxfamily=Virtex
+# outputoption=DesignFlow
+# overwritefiles=Default
+# expandedprojectpath=C:\152bs04\tu1
+# Set current Project to C:\152bs04\tu1
+SELECT Binary_Counter Virtex Xilinx,_Inc. 4.0
+CSET threshold_1_value = MAX
+CSET threshold_early = true
+CSET threshold_0_value = 2faf080
+CSET synchronous_settings = none
+CSET count_style = count_by_constant
+CSET create_rpm = true
+CSET threshold_options = non_registered
+CSET count_by_value = 1
+CSET load = true
+CSET async_init_value = 0
+CSET sync_init_value = 0
+CSET operation = up
+CSET restrict_count = true
+CSET ce_overrides = sync_controls_override_ce
+CSET set_clear_priority = clear_overrides_set
+CSET ce_override_for_load = false
+CSET output_width = 32
+CSET clock_enable = false
+CSET asynchronous_settings = clear
+CSET threshold_1 = false
+CSET threshold_0 = true
+CSET Component_Name = counter_32
+CSET load_sense = active_high
+CSET count_to_value = 2faf080
+GENERATE
+# Preparing to elaborate core...
+# Elaborating the module...
+# Generating the core .EDN implementation netlist...
+# Generating the .VHO/.VHD simulation support files...
+# Generating the .VEO/.V simulation support files...
+# Generating the .ASY symbol file...
+# Generating iSE symbol file...
+# Executing: C:\Xilinx\bin\nt\coresupt.exe C:\152bs04\tu1\counter_32.asy
+# Execution Complete.  Return code: 0
+# Successfully generated counter_32 (Binary Counter 4.0)
+#  
+CSET threshold_1_value = MAX
+CSET threshold_early = true
+CSET threshold_0_value = MAX
+CSET synchronous_settings = none
+CSET count_style = count_by_constant
+CSET create_rpm = true
+CSET threshold_options = non_registered
+CSET count_by_value = 1
+CSET load = false
+CSET async_init_value = 0
+CSET sync_init_value = 0
+CSET operation = up
+CSET restrict_count = true
+CSET ce_overrides = sync_controls_override_ce
+CSET set_clear_priority = clear_overrides_set
+CSET ce_override_for_load = false
+CSET output_width = 4
+CSET clock_enable = true
+CSET asynchronous_settings = clear
+CSET threshold_1 = false
+CSET threshold_0 = false
+CSET Component_Name = counter_4
+CSET load_sense = active_high
+CSET count_to_value = A
+GENERATE
+# Preparing to elaborate core...
+# Elaborating the module...
+# Generating the core .EDN implementation netlist...
+# Generating the .VHO/.VHD simulation support files...
+# Generating the .VEO/.V simulation support files...
+# Generating the .ASY symbol file...
+# Generating iSE symbol file...
+# Executing: C:\Xilinx\bin\nt\coresupt.exe C:\152bs04\tu1\counter_4.asy
+# Execution Complete.  Return code: 0
+# Successfully generated counter_4 (Binary Counter 4.0)
+#  
+END

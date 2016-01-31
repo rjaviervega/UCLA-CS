@@ -1,0 +1,538 @@
+VERSION 5
+BEGIN SCHEMATIC
+    BEGIN ATTR DeviceFamilyName Virtex
+        DELETE all:0
+        EDITNAME all:0
+        EDITTRAIT all:0
+    End ATTR
+    BEGIN NETLIST
+        SIGNAL A3_in
+        SIGNAL A2_in
+        SIGNAL A1_in
+        SIGNAL A0_in
+        SIGNAL B3_in
+        SIGNAL B2_in
+        SIGNAL B1_in
+        SIGNAL B0_in
+        SIGNAL A3
+        SIGNAL A2
+        SIGNAL A1
+        SIGNAL A0
+        SIGNAL B2
+        SIGNAL B1
+        SIGNAL B0
+        SIGNAL B_or_one(1)
+        SIGNAL B_or_one(0)
+        SIGNAL XLXN_43
+        SIGNAL XLXN_44
+        SIGNAL XLXN_45
+        SIGNAL XLXN_46
+        SIGNAL B3
+        SIGNAL B_or_one(2)
+        SIGNAL B_or_one(3)
+        SIGNAL B_or_one(3:0)
+        SIGNAL and3
+        SIGNAL and2
+        SIGNAL and1
+        SIGNAL and0
+        SIGNAL or3
+        SIGNAL or2
+        SIGNAL or1
+        SIGNAL or0
+        PORT Input A3_in
+        PORT Input A2_in
+        PORT Input A1_in
+        PORT Input A0_in
+        PORT Input B3_in
+        PORT Input B2_in
+        PORT Input B1_in
+        PORT Input B0_in
+        BEGIN BLOCKDEF add4
+            TIMESTAMP 2001 2 2 12 21 59
+            LINE N 112 -832 112 -804 
+            LINE N 64 -832 112 -832 
+            LINE N 0 -832 64 -832 
+            LINE N 0 -192 64 -192 
+            LINE N 448 -352 384 -352 
+            LINE N 448 -416 384 -416 
+            LINE N 448 -480 384 -480 
+            LINE N 448 -544 384 -544 
+            LINE N 0 -256 64 -256 
+            LINE N 0 -320 64 -320 
+            LINE N 0 -384 64 -384 
+            LINE N 0 -512 64 -512 
+            LINE N 0 -576 64 -576 
+            LINE N 0 -640 64 -640 
+            LINE N 0 -704 64 -704 
+            LINE N 240 -64 384 -64 
+            LINE N 240 -124 240 -64 
+            LINE N 336 -128 336 -148 
+            LINE N 384 -128 336 -128 
+            LINE N 384 -736 64 -816 
+            LINE N 384 -160 384 -736 
+            LINE N 64 -80 384 -160 
+            LINE N 64 -416 64 -80 
+            LINE N 144 -448 64 -416 
+            LINE N 64 -480 144 -448 
+            LINE N 64 -816 64 -480 
+            LINE N 448 -64 384 -64 
+            LINE N 448 -128 384 -128 
+        END BLOCKDEF
+        BEGIN BLOCKDEF mux8x4bus
+            TIMESTAMP 2004 7 6 10 45 37
+            RECTANGLE N 32 0 448 1184 
+            BEGIN LINE W 0 48 32 48 
+            END LINE
+            BEGIN LINE W 0 80 32 80 
+            END LINE
+            BEGIN LINE W 0 112 32 112 
+            END LINE
+            BEGIN LINE W 0 144 32 144 
+            END LINE
+            BEGIN LINE W 0 176 32 176 
+            END LINE
+            BEGIN LINE W 0 208 32 208 
+            END LINE
+            BEGIN LINE W 0 240 32 240 
+            END LINE
+            BEGIN LINE W 0 272 32 272 
+            END LINE
+            BEGIN LINE W 0 1072 32 1072 
+            END LINE
+            BEGIN LINE W 448 48 480 48 
+            END LINE
+        END BLOCKDEF
+        BEGIN BLOCKDEF ibuf4
+            TIMESTAMP 2001 2 2 12 24 32
+            LINE N 0 -224 64 -224 
+            LINE N 224 -160 128 -160 
+            LINE N 0 -32 64 -32 
+            LINE N 64 -192 64 -256 
+            LINE N 128 -224 64 -192 
+            LINE N 64 -256 128 -224 
+            LINE N 64 -128 64 -192 
+            LINE N 128 -160 64 -128 
+            LINE N 64 -192 128 -160 
+            LINE N 64 -64 64 -128 
+            LINE N 128 -96 64 -64 
+            LINE N 64 -128 128 -96 
+            LINE N 64 0 64 -64 
+            LINE N 128 -32 64 0 
+            LINE N 64 -64 128 -32 
+            LINE N 224 -32 128 -32 
+            LINE N 0 -96 64 -96 
+            LINE N 0 -160 64 -160 
+            LINE N 224 -224 128 -224 
+            LINE N 224 -96 128 -96 
+        END BLOCKDEF
+        BEGIN BLOCKDEF mux2to1__4bit
+            TIMESTAMP 2004 7 6 11 17 33
+            RECTANGLE N 32 0 448 1184 
+            BEGIN LINE W 0 240 32 240 
+            END LINE
+            BEGIN LINE W 0 272 32 272 
+            END LINE
+            BEGIN LINE W 0 1072 32 1072 
+            END LINE
+            BEGIN LINE W 448 48 480 48 
+            END LINE
+        END BLOCKDEF
+        BEGIN BLOCKDEF and2
+            TIMESTAMP 2001 2 2 12 25 36
+            LINE N 0 -64 64 -64 
+            LINE N 0 -128 64 -128 
+            LINE N 256 -96 192 -96 
+            ARC N 96 -144 192 -48 144 -48 144 -144 
+            LINE N 144 -48 64 -48 
+            LINE N 64 -144 144 -144 
+            LINE N 64 -48 64 -144 
+        END BLOCKDEF
+        BEGIN BLOCKDEF or2
+            TIMESTAMP 2001 2 2 12 25 36
+            LINE N 0 -64 64 -64 
+            LINE N 0 -128 64 -128 
+            LINE N 256 -96 192 -96 
+            ARC N 28 -224 204 -48 112 -48 192 -96 
+            ARC N -40 -152 72 -40 48 -48 48 -144 
+            LINE N 112 -144 48 -144 
+            ARC N 28 -144 204 32 192 -96 112 -144 
+            LINE N 112 -48 48 -48 
+        END BLOCKDEF
+        BEGIN BLOCK adder add4
+            PIN A0 A0
+            PIN A1 A1
+            PIN A2 A2
+            PIN A3 A3
+            PIN B0 B_or_one(0)
+            PIN B1 B_or_one(1)
+            PIN B2 B_or_one(2)
+            PIN B3 B_or_one(3)
+            PIN CI
+            PIN CO
+            PIN OFL
+            PIN S0 XLXN_43
+            PIN S1 XLXN_44
+            PIN S2 XLXN_45
+            PIN S3 XLXN_46
+        END BLOCK
+        BEGIN BLOCK XLXI_5 mux8x4bus
+            PIN MH(3:0)
+            PIN MG(3:0)
+            PIN MF(3:0)
+            PIN ME(3:0)
+            PIN MD(3:0)
+            PIN MC(3:0)
+            PIN MB(3:0)
+            PIN MA(3:0)
+            PIN S(2:0)
+            PIN O(3:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_6 ibuf4
+            PIN I0 A3_in
+            PIN I1 A2_in
+            PIN I2 A1_in
+            PIN I3 A0_in
+            PIN O0 A3
+            PIN O1 A2
+            PIN O2 A1
+            PIN O3 A0
+        END BLOCK
+        BEGIN BLOCK XLXI_7 ibuf4
+            PIN I0 B3_in
+            PIN I1 B2_in
+            PIN I2 B1_in
+            PIN I3 B0_in
+            PIN O0 B3
+            PIN O1 B2
+            PIN O2 B1
+            PIN O3 B0
+        END BLOCK
+        BEGIN BLOCK XLXI_17 mux2to1__4bit
+            PIN MB(3:0)
+            PIN MA(3:0)
+            PIN S(0:0)
+            PIN O(3:0) B_or_one(3:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_19 and2
+            PIN I0 B3
+            PIN I1 A3
+            PIN O and3
+        END BLOCK
+        BEGIN BLOCK XLXI_20 and2
+            PIN I0 B2
+            PIN I1 A2
+            PIN O and2
+        END BLOCK
+        BEGIN BLOCK XLXI_21 and2
+            PIN I0 B1
+            PIN I1 A1
+            PIN O and1
+        END BLOCK
+        BEGIN BLOCK XLXI_22 and2
+            PIN I0 B0
+            PIN I1 A0
+            PIN O and0
+        END BLOCK
+        BEGIN BLOCK XLXI_23 or2
+            PIN I0 B3
+            PIN I1 A3
+            PIN O or3
+        END BLOCK
+        BEGIN BLOCK XLXI_24 or2
+            PIN I0 B2
+            PIN I1 A2
+            PIN O or2
+        END BLOCK
+        BEGIN BLOCK XLXI_25 or2
+            PIN I0 B1
+            PIN I1 A1
+            PIN O or1
+        END BLOCK
+        BEGIN BLOCK XLXI_26 or2
+            PIN I0 B0
+            PIN I1 A0
+            PIN O or0
+        END BLOCK
+    END NETLIST
+    BEGIN SHEET 1 5440 3520
+        BEGIN INSTANCE XLXI_5 2512 1152 R0
+        END INSTANCE
+        BEGIN BRANCH A3_in
+            WIRE 256 528 304 528
+            WIRE 304 528 320 528
+        END BRANCH
+        BEGIN BRANCH A2_in
+            WIRE 256 592 304 592
+            WIRE 304 592 320 592
+        END BRANCH
+        BEGIN BRANCH A1_in
+            WIRE 256 656 304 656
+            WIRE 304 656 320 656
+        END BRANCH
+        BEGIN BRANCH A0_in
+            WIRE 256 720 304 720
+            WIRE 304 720 320 720
+        END BRANCH
+        BEGIN BRANCH B3_in
+            WIRE 256 864 304 864
+            WIRE 304 864 320 864
+        END BRANCH
+        BEGIN BRANCH B2_in
+            WIRE 256 928 304 928
+            WIRE 304 928 320 928
+        END BRANCH
+        BEGIN BRANCH B1_in
+            WIRE 256 992 304 992
+            WIRE 304 992 320 992
+        END BRANCH
+        BEGIN BRANCH B0_in
+            WIRE 256 1056 304 1056
+            WIRE 304 1056 320 1056
+        END BRANCH
+        BEGIN BRANCH A3
+            WIRE 544 528 576 528
+            WIRE 576 528 592 528
+            DISPLAY 592 528 ATTR Name
+        END BRANCH
+        BEGIN BRANCH A2
+            WIRE 544 592 592 592
+            DISPLAY 592 592 ATTR Name
+        END BRANCH
+        BEGIN BRANCH A1
+            WIRE 544 656 592 656
+            DISPLAY 592 656 ATTR Name
+        END BRANCH
+        BEGIN BRANCH A0
+            WIRE 544 720 592 720
+            DISPLAY 592 720 ATTR Name
+        END BRANCH
+        BEGIN BRANCH B3
+            WIRE 544 864 592 864
+            DISPLAY 592 864 ATTR Name
+        END BRANCH
+        BEGIN BRANCH B2
+            WIRE 544 928 592 928
+            DISPLAY 592 928 ATTR Name
+        END BRANCH
+        BEGIN BRANCH B1
+            WIRE 544 992 592 992
+            DISPLAY 592 992 ATTR Name
+        END BRANCH
+        BEGIN BRANCH B0
+            WIRE 544 1056 592 1056
+            DISPLAY 592 1056 ATTR Name
+        END BRANCH
+        INSTANCE adder 1808 1312 R0
+        IOMARKER 256 528 A3_in
+        IOMARKER 256 592 A2_in
+        IOMARKER 256 656 A1_in
+        IOMARKER 256 720 A0_in
+        IOMARKER 256 864 B3_in
+        IOMARKER 256 928 B2_in
+        IOMARKER 256 992 B1_in
+        IOMARKER 256 1056 B0_in
+        INSTANCE XLXI_6 320 752 R0
+        INSTANCE XLXI_7 320 1088 R0
+        BEGIN BRANCH B_or_one(0)
+            WIRE 1760 928 1808 928
+            BEGIN DISPLAY 1760 928 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B_or_one(1)
+            WIRE 1760 992 1808 992
+            BEGIN DISPLAY 1760 992 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B_or_one(2)
+            WIRE 1760 1056 1808 1056
+            BEGIN DISPLAY 1760 1056 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B_or_one(3)
+            WIRE 1760 1120 1808 1120
+            BEGIN DISPLAY 1760 1120 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A3
+            WIRE 1760 800 1808 800
+            BEGIN DISPLAY 1760 800 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A2
+            WIRE 1760 736 1808 736
+            BEGIN DISPLAY 1760 736 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A1
+            WIRE 1760 672 1808 672
+            BEGIN DISPLAY 1760 672 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A0
+            WIRE 1760 608 1808 608
+            BEGIN DISPLAY 1760 608 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH XLXN_43
+            WIRE 2256 768 2288 768
+        END BRANCH
+        BEGIN BRANCH XLXN_44
+            WIRE 2256 832 2288 832
+        END BRANCH
+        BEGIN BRANCH XLXN_45
+            WIRE 2256 896 2288 896
+        END BRANCH
+        BEGIN BRANCH XLXN_46
+            WIRE 2256 960 2288 960
+        END BRANCH
+        BEGIN BRANCH B_or_one(3:0)
+            WIRE 1568 320 1584 320
+        END BRANCH
+        BEGIN INSTANCE XLXI_17 1088 272 R0
+        END INSTANCE
+        INSTANCE XLXI_20 1040 2240 R0
+        INSTANCE XLXI_21 1040 2400 R0
+        INSTANCE XLXI_22 1040 2544 R0
+        INSTANCE XLXI_19 1040 2080 R0
+        INSTANCE XLXI_23 1056 2736 R0
+        INSTANCE XLXI_24 1056 2880 R0
+        INSTANCE XLXI_25 1040 3040 R0
+        INSTANCE XLXI_26 1040 3216 R0
+        BEGIN BRANCH A3
+            WIRE 992 1952 1040 1952
+            BEGIN DISPLAY 992 1952 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A2
+            WIRE 976 2112 1040 2112
+            BEGIN DISPLAY 976 2112 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B2
+            WIRE 976 2176 1040 2176
+            BEGIN DISPLAY 976 2176 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B3
+            WIRE 960 2016 1040 2016
+            BEGIN DISPLAY 960 2016 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A1
+            WIRE 976 2272 1040 2272
+            BEGIN DISPLAY 976 2272 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B1
+            WIRE 976 2336 1040 2336
+            BEGIN DISPLAY 976 2336 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A0
+            WIRE 976 2416 1040 2416
+            BEGIN DISPLAY 976 2416 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B0
+            WIRE 976 2480 1040 2480
+            BEGIN DISPLAY 976 2480 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A3
+            WIRE 992 2608 1056 2608
+            BEGIN DISPLAY 992 2608 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B3
+            WIRE 992 2672 1056 2672
+            BEGIN DISPLAY 992 2672 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A2
+            WIRE 992 2752 1056 2752
+            BEGIN DISPLAY 992 2752 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B2
+            WIRE 992 2816 1056 2816
+            BEGIN DISPLAY 992 2816 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A1
+            WIRE 976 2912 1040 2912
+            BEGIN DISPLAY 976 2912 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B1
+            WIRE 976 2976 1040 2976
+            BEGIN DISPLAY 976 2976 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH A0
+            WIRE 976 3088 1040 3088
+            BEGIN DISPLAY 976 3088 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH B0
+            WIRE 976 3152 1040 3152
+            BEGIN DISPLAY 976 3152 ATTR Name
+                ALIGNMENT RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH and3
+            WIRE 1296 1984 1344 1984
+            DISPLAY 1344 1984 ATTR Name
+        END BRANCH
+        BEGIN BRANCH and2
+            WIRE 1296 2144 1360 2144
+            DISPLAY 1360 2144 ATTR Name
+        END BRANCH
+        BEGIN BRANCH and1
+            WIRE 1296 2304 1360 2304
+            DISPLAY 1360 2304 ATTR Name
+        END BRANCH
+        BEGIN BRANCH and0
+            WIRE 1296 2448 1360 2448
+            DISPLAY 1360 2448 ATTR Name
+        END BRANCH
+        BEGIN BRANCH or3
+            WIRE 1312 2640 1360 2640
+            DISPLAY 1360 2640 ATTR Name
+        END BRANCH
+        BEGIN BRANCH or2
+            WIRE 1312 2784 1360 2784
+            DISPLAY 1360 2784 ATTR Name
+        END BRANCH
+        BEGIN BRANCH or1
+            WIRE 1296 2944 1376 2944
+            DISPLAY 1376 2944 ATTR Name
+        END BRANCH
+        BEGIN BRANCH or0
+            WIRE 1296 3120 1360 3120
+            DISPLAY 1360 3120 ATTR Name
+        END BRANCH
+    END SHEET
+END SCHEMATIC

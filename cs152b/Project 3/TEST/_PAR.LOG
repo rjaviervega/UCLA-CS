@@ -1,0 +1,4 @@
+Place & Route Module project2 . . .
+PAR command line:
+"par -ol 2 -xe 0 -t 1 -c 0 par_temp.ncd -w project2.ncd project2.pcf "
+PAR completed successfully

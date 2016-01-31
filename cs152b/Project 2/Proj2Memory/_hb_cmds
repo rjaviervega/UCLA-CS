@@ -1,0 +1,4 @@
+-proj "e:\hingkei\152bs04\proj2memory"
+-name "memtest.tbw"
+-file "memaccess.vhd"
+-entity "memorymodule"

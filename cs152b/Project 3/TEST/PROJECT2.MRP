@@ -1,0 +1,753 @@
+Release 4.1i - Map E.30
+Xilinx Mapping Report File for Design 'project2'
+
+Design Information
+------------------
+Command Line   : map -p xcv50-pq240-6 -cm area -ir -k 4 -c 100 -tx off
+project2.ngd 
+Target Device  : xv50
+Target Package : pq240
+Target Speed   : -6
+Mapper Version : virtex -- $Revision: 1.58 $
+Mapped Date    : Thu Jul 29 10:18:00 2004
+
+Design Summary
+--------------
+   Number of errors:      0
+   Number of warnings:    3
+   Number of Slices:                192 out of    768   25%
+   Number of Slices containing
+      unrelated logic:                0 out of    192    0%
+   Total Number Slice Registers:    181 out of  1,536   11%
+      Number used as Flip Flops:                  173
+      Number used as Latches:                       8
+   Total Number 4 input LUTs:       270 out of  1,536   17%
+      Number used as LUTs:                        252
+      Number used as a route-thru:                 18
+   Number of bonded IOBs:            52 out of    166   31%
+      IOB Flip Flops:                               1
+   Number of GCLKs:                   1 out of      4   25%
+   Number of GCLKIOBs:                1 out of      4   25%
+Total equivalent gate count for design:  3,298
+Additional JTAG gate count for IOBs:  2,544
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group Summary
+Section 10 - Modular Design Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:MapLib:95 - IBUF symbol "xlxi_16" (output signal=xlxn_1) is promoted to
+   indicate the use of GCLKIOB site.
+WARNING:MapLib:135 - Clock buffer is designated to drive clock loads. BUFG
+   symbol "xlxi_17" (output signal=clk) has a mix of clock and non-clock loads.
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net
+   xlxi_30_pctofpgainterface_pportinterface_N361 is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:62 - All of the external outputs in this design are using slew rate
+   limited output drivers. The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the schematic.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 288 block(s) removed
+   3 block(s) optimized away
+ 286 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "xlxi_3_busamux/N582" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N626" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU5" (MUX) removed.
+  The signal "xlxi_3_busamux/N557" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N627" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N698" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N742" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU12" (MUX) removed.
+  The signal "xlxi_3_busamux/N673" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N743" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N814" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N858" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU19" (MUX) removed.
+  The signal "xlxi_3_busamux/N789" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N859" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N930" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N974" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU26" (MUX) removed.
+  The signal "xlxi_3_busamux/N905" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N975" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1046" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1090" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU33" (MUX) removed.
+  The signal "xlxi_3_busamux/N1021" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1091" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1162" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1206" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU40" (MUX) removed.
+  The signal "xlxi_3_busamux/N1137" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1207" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1278" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1322" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU47" (MUX) removed.
+  The signal "xlxi_3_busamux/N1253" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1323" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1394" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1438" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU54" (MUX) removed.
+  The signal "xlxi_3_busamux/N1369" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1439" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1510" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1554" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU61" (MUX) removed.
+  The signal "xlxi_3_busamux/N1485" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1555" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1626" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1670" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU68" (MUX) removed.
+  The signal "xlxi_3_busamux/N1601" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1671" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1742" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1786" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU75" (MUX) removed.
+  The signal "xlxi_3_busamux/N1717" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1787" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1858" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1902" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU82" (MUX) removed.
+  The signal "xlxi_3_busamux/N1833" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1903" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N1974" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2018" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU89" (MUX) removed.
+  The signal "xlxi_3_busamux/N1949" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2019" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2090" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2134" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU96" (MUX) removed.
+  The signal "xlxi_3_busamux/N2065" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2135" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2206" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2250" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU103" (MUX) removed.
+  The signal "xlxi_3_busamux/N2181" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2251" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2322" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2366" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busamux/BU110" (MUX) removed.
+  The signal "xlxi_3_busamux/N2297" is sourceless and has been removed.
+The signal "xlxi_3_busamux/N2367" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<15>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<14>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<13>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<12>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<11>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<10>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<9>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<8>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<7>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<6>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<5>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<4>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<3>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<2>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<1>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/O<0>" is sourceless and has been removed.
+The signal "xlxi_3_busbmux/N0" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU0" (ROM) removed.
+  The signal "xlxi_3_busbmux/N581" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU2" (MUX) removed.
+    The signal "xlxi_3_busbmux/N555" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU6" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU1" (ROM) removed.
+  The signal "xlxi_3_busbmux/N582" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU3" (ROM) removed.
+  The signal "xlxi_3_busbmux/N626" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU5" (MUX) removed.
+    The signal "xlxi_3_busbmux/N557" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU4" (ROM) removed.
+  The signal "xlxi_3_busbmux/N627" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU7" (ROM) removed.
+  The signal "xlxi_3_busbmux/N697" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU9" (MUX) removed.
+    The signal "xlxi_3_busbmux/N671" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU13" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU8" (ROM) removed.
+  The signal "xlxi_3_busbmux/N698" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU10" (ROM) removed.
+  The signal "xlxi_3_busbmux/N742" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU12" (MUX) removed.
+    The signal "xlxi_3_busbmux/N673" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU11" (ROM) removed.
+  The signal "xlxi_3_busbmux/N743" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU14" (ROM) removed.
+  The signal "xlxi_3_busbmux/N813" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU16" (MUX) removed.
+    The signal "xlxi_3_busbmux/N787" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU20" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU15" (ROM) removed.
+  The signal "xlxi_3_busbmux/N814" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU17" (ROM) removed.
+  The signal "xlxi_3_busbmux/N858" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU19" (MUX) removed.
+    The signal "xlxi_3_busbmux/N789" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU18" (ROM) removed.
+  The signal "xlxi_3_busbmux/N859" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU21" (ROM) removed.
+  The signal "xlxi_3_busbmux/N929" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU23" (MUX) removed.
+    The signal "xlxi_3_busbmux/N903" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU27" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU22" (ROM) removed.
+  The signal "xlxi_3_busbmux/N930" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU24" (ROM) removed.
+  The signal "xlxi_3_busbmux/N974" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU26" (MUX) removed.
+    The signal "xlxi_3_busbmux/N905" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU25" (ROM) removed.
+  The signal "xlxi_3_busbmux/N975" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU28" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1045" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU30" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1019" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU34" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU29" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1046" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU31" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1090" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU33" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1021" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU32" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1091" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU35" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1161" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU37" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1135" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU41" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU36" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1162" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU38" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1206" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU40" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1137" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU39" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1207" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU42" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1277" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU44" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1251" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU48" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU43" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1278" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU45" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1322" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU47" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1253" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU46" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1323" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU49" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1393" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU51" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1367" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU55" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU50" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1394" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU52" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1438" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU54" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1369" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU53" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1439" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU56" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1509" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU58" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1483" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU62" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU57" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1510" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU59" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1554" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU61" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1485" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU60" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1555" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU63" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1625" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU65" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1599" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU69" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU64" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1626" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU66" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1670" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU68" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1601" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU67" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1671" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU70" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1741" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU72" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1715" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU76" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU71" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1742" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU73" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1786" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU75" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1717" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU74" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1787" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU77" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1857" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU79" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1831" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU83" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU78" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1858" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU80" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1902" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU82" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1833" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU81" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1903" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU84" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1973" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU86" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1947" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU90" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU85" (ROM) removed.
+  The signal "xlxi_3_busbmux/N1974" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU87" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2018" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU89" (MUX) removed.
+    The signal "xlxi_3_busbmux/N1949" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU88" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2019" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU91" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2089" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU93" (MUX) removed.
+    The signal "xlxi_3_busbmux/N2063" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU97" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU92" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2090" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU94" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2134" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU96" (MUX) removed.
+    The signal "xlxi_3_busbmux/N2065" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU95" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2135" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU98" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2205" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU100" (MUX) removed.
+    The signal "xlxi_3_busbmux/N2179" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU104" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU99" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2206" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU101" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2250" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU103" (MUX) removed.
+    The signal "xlxi_3_busbmux/N2181" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU102" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2251" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU105" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2321" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU107" (MUX) removed.
+    The signal "xlxi_3_busbmux/N2295" is sourceless and has been removed.
+     Sourceless block "xlxi_3_busbmux/BU111" (MUX) removed.
+ Sourceless block "xlxi_3_busbmux/BU106" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2322" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU108" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2366" is sourceless and has been removed.
+   Sourceless block "xlxi_3_busbmux/BU110" (MUX) removed.
+    The signal "xlxi_3_busbmux/N2297" is sourceless and has been removed.
+ Sourceless block "xlxi_3_busbmux/BU109" (ROM) removed.
+  The signal "xlxi_3_busbmux/N2367" is sourceless and has been removed.
+The signal "xlxi_3_xlxi_7/d0" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "xlxi_3_wren2" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_74" (AND) removed.
+  The signal "xlxi_3_wr2" is unused and has been removed.
+   Unused block "xlxi_3_xlxi_7/i_36_35" (AND) removed.
+The signal "xlxi_3_reg2_0" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q0" (FF) removed.
+The signal "xlxi_3_reg2_10" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q10" (FF) removed.
+The signal "xlxi_3_reg2_11" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q11" (FF) removed.
+The signal "xlxi_3_reg2_12" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q12" (FF) removed.
+The signal "xlxi_3_reg2_13" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q13" (FF) removed.
+The signal "xlxi_3_reg2_14" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q14" (FF) removed.
+The signal "xlxi_3_reg2_15" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q15" (FF) removed.
+The signal "xlxi_3_reg2_1" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q1" (FF) removed.
+The signal "xlxi_3_reg2_2" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q2" (FF) removed.
+The signal "xlxi_3_reg2_3" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q3" (FF) removed.
+The signal "xlxi_3_reg2_4" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q4" (FF) removed.
+The signal "xlxi_3_reg2_5" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q5" (FF) removed.
+The signal "xlxi_3_reg2_6" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q6" (FF) removed.
+The signal "xlxi_3_reg2_7" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q7" (FF) removed.
+The signal "xlxi_3_reg2_8" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q8" (FF) removed.
+The signal "xlxi_3_reg2_9" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_68/i_q9" (FF) removed.
+The signal "xlxi_3_wren3" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_81" (AND) removed.
+  The signal "xlxi_3_wr3" is unused and has been removed.
+   Unused block "xlxi_3_xlxi_7/i_36_34" (AND) removed.
+The signal "xlxi_3_reg3_0" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q0" (FF) removed.
+The signal "xlxi_3_reg3_10" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q10" (FF) removed.
+The signal "xlxi_3_reg3_11" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q11" (FF) removed.
+The signal "xlxi_3_reg3_12" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q12" (FF) removed.
+The signal "xlxi_3_reg3_13" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q13" (FF) removed.
+The signal "xlxi_3_reg3_14" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q14" (FF) removed.
+The signal "xlxi_3_reg3_15" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q15" (FF) removed.
+The signal "xlxi_3_reg3_1" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q1" (FF) removed.
+The signal "xlxi_3_reg3_2" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q2" (FF) removed.
+The signal "xlxi_3_reg3_3" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q3" (FF) removed.
+The signal "xlxi_3_reg3_4" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q4" (FF) removed.
+The signal "xlxi_3_reg3_5" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q5" (FF) removed.
+The signal "xlxi_3_reg3_6" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q6" (FF) removed.
+The signal "xlxi_3_reg3_7" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q7" (FF) removed.
+The signal "xlxi_3_reg3_8" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q8" (FF) removed.
+The signal "xlxi_3_reg3_9" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_66/i_q9" (FF) removed.
+The signal "xlxi_3_wren6" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_84" (AND) removed.
+  The signal "xlxi_3_wr6" is unused and has been removed.
+   Unused block "xlxi_3_xlxi_7/i_36_31" (AND) removed.
+The signal "xlxi_3_reg6_0" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q0" (FF) removed.
+The signal "xlxi_3_reg6_10" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q10" (FF) removed.
+The signal "xlxi_3_reg6_11" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q11" (FF) removed.
+The signal "xlxi_3_reg6_12" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q12" (FF) removed.
+The signal "xlxi_3_reg6_13" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q13" (FF) removed.
+The signal "xlxi_3_reg6_14" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q14" (FF) removed.
+The signal "xlxi_3_reg6_15" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q15" (FF) removed.
+The signal "xlxi_3_reg6_1" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q1" (FF) removed.
+The signal "xlxi_3_reg6_2" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q2" (FF) removed.
+The signal "xlxi_3_reg6_3" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q3" (FF) removed.
+The signal "xlxi_3_reg6_4" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q4" (FF) removed.
+The signal "xlxi_3_reg6_5" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q5" (FF) removed.
+The signal "xlxi_3_reg6_6" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q6" (FF) removed.
+The signal "xlxi_3_reg6_7" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q7" (FF) removed.
+The signal "xlxi_3_reg6_8" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q8" (FF) removed.
+The signal "xlxi_3_reg6_9" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_69/i_q9" (FF) removed.
+The signal "xlxi_3_reg7_15" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q15" (FF) removed.
+  The signal "xlxi_3_wren7" is unused and has been removed.
+   Unused block "xlxi_3_xlxi_85" (AND) removed.
+    The signal "xlxi_3_wr7" is unused and has been removed.
+     Unused block "xlxi_3_xlxi_7/i_36_30" (AND) removed.
+The signal "xlxi_3_reg7_14" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q14" (FF) removed.
+The signal "xlxi_3_reg7_13" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q13" (FF) removed.
+The signal "xlxi_3_reg7_12" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q12" (FF) removed.
+The signal "xlxi_3_reg7_11" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q11" (FF) removed.
+The signal "xlxi_3_reg7_10" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q10" (FF) removed.
+The signal "xlxi_3_reg7_9" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q9" (FF) removed.
+The signal "xlxi_3_reg7_8" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q8" (FF) removed.
+The signal "xlxi_3_reg7_7" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q7" (FF) removed.
+The signal "xlxi_3_reg7_6" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q6" (FF) removed.
+The signal "xlxi_3_reg7_5" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q5" (FF) removed.
+The signal "xlxi_3_reg7_4" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q4" (FF) removed.
+The signal "xlxi_3_reg7_3" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q3" (FF) removed.
+The signal "xlxi_3_reg7_2" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q2" (FF) removed.
+The signal "xlxi_3_reg7_1" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q1" (FF) removed.
+The signal "xlxi_3_reg7_0" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_67/i_q0" (FF) removed.
+The signal "xlxi_3_reg5_15" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q15" (FF) removed.
+  The signal "xlxi_3_wren5" is unused and has been removed.
+   Unused block "xlxi_3_xlxi_83" (AND) removed.
+    The signal "xlxi_3_wr5" is unused and has been removed.
+     Unused block "xlxi_3_xlxi_7/i_36_32" (AND) removed.
+The signal "xlxi_3_reg5_14" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q14" (FF) removed.
+The signal "xlxi_3_reg5_13" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q13" (FF) removed.
+The signal "xlxi_3_reg5_12" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q12" (FF) removed.
+The signal "xlxi_3_reg5_11" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q11" (FF) removed.
+The signal "xlxi_3_reg5_10" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q10" (FF) removed.
+The signal "xlxi_3_reg5_9" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q9" (FF) removed.
+The signal "xlxi_3_reg5_8" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q8" (FF) removed.
+The signal "xlxi_3_reg5_7" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q7" (FF) removed.
+The signal "xlxi_3_reg5_6" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q6" (FF) removed.
+The signal "xlxi_3_reg5_5" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q5" (FF) removed.
+The signal "xlxi_3_reg5_4" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q4" (FF) removed.
+The signal "xlxi_3_reg5_3" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q3" (FF) removed.
+The signal "xlxi_3_reg5_2" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q2" (FF) removed.
+The signal "xlxi_3_reg5_1" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q1" (FF) removed.
+The signal "xlxi_3_reg5_0" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_71/i_q0" (FF) removed.
+The signal "xlxi_3_reg4_15" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q15" (FF) removed.
+  The signal "xlxi_3_wren4" is unused and has been removed.
+   Unused block "xlxi_3_xlxi_82" (AND) removed.
+    The signal "xlxi_3_wr4" is unused and has been removed.
+     Unused block "xlxi_3_xlxi_7/i_36_33" (AND) removed.
+The signal "xlxi_3_reg4_14" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q14" (FF) removed.
+The signal "xlxi_3_reg4_13" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q13" (FF) removed.
+The signal "xlxi_3_reg4_12" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q12" (FF) removed.
+The signal "xlxi_3_reg4_11" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q11" (FF) removed.
+The signal "xlxi_3_reg4_10" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q10" (FF) removed.
+The signal "xlxi_3_reg4_9" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q9" (FF) removed.
+The signal "xlxi_3_reg4_8" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q8" (FF) removed.
+The signal "xlxi_3_reg4_7" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q7" (FF) removed.
+The signal "xlxi_3_reg4_6" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q6" (FF) removed.
+The signal "xlxi_3_reg4_5" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q5" (FF) removed.
+The signal "xlxi_3_reg4_4" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q4" (FF) removed.
+The signal "xlxi_3_reg4_3" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q3" (FF) removed.
+The signal "xlxi_3_reg4_2" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q2" (FF) removed.
+The signal "xlxi_3_reg4_1" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q1" (FF) removed.
+The signal "xlxi_3_reg4_0" is unused and has been removed.
+ Unused block "xlxi_3_xlxi_72/i_q0" (FF) removed.
+Unused block "xlxi_3_busamux/BU1" (ROM) removed.
+Unused block "xlxi_3_busamux/BU10" (ROM) removed.
+Unused block "xlxi_3_busamux/BU101" (ROM) removed.
+Unused block "xlxi_3_busamux/BU102" (ROM) removed.
+Unused block "xlxi_3_busamux/BU106" (ROM) removed.
+Unused block "xlxi_3_busamux/BU108" (ROM) removed.
+Unused block "xlxi_3_busamux/BU109" (ROM) removed.
+Unused block "xlxi_3_busamux/BU11" (ROM) removed.
+Unused block "xlxi_3_busamux/BU15" (ROM) removed.
+Unused block "xlxi_3_busamux/BU17" (ROM) removed.
+Unused block "xlxi_3_busamux/BU18" (ROM) removed.
+Unused block "xlxi_3_busamux/BU22" (ROM) removed.
+Unused block "xlxi_3_busamux/BU24" (ROM) removed.
+Unused block "xlxi_3_busamux/BU25" (ROM) removed.
+Unused block "xlxi_3_busamux/BU29" (ROM) removed.
+Unused block "xlxi_3_busamux/BU3" (ROM) removed.
+Unused block "xlxi_3_busamux/BU31" (ROM) removed.
+Unused block "xlxi_3_busamux/BU32" (ROM) removed.
+Unused block "xlxi_3_busamux/BU36" (ROM) removed.
+Unused block "xlxi_3_busamux/BU38" (ROM) removed.
+Unused block "xlxi_3_busamux/BU39" (ROM) removed.
+Unused block "xlxi_3_busamux/BU4" (ROM) removed.
+Unused block "xlxi_3_busamux/BU43" (ROM) removed.
+Unused block "xlxi_3_busamux/BU45" (ROM) removed.
+Unused block "xlxi_3_busamux/BU46" (ROM) removed.
+Unused block "xlxi_3_busamux/BU50" (ROM) removed.
+Unused block "xlxi_3_busamux/BU52" (ROM) removed.
+Unused block "xlxi_3_busamux/BU53" (ROM) removed.
+Unused block "xlxi_3_busamux/BU57" (ROM) removed.
+Unused block "xlxi_3_busamux/BU59" (ROM) removed.
+Unused block "xlxi_3_busamux/BU60" (ROM) removed.
+Unused block "xlxi_3_busamux/BU64" (ROM) removed.
+Unused block "xlxi_3_busamux/BU66" (ROM) removed.
+Unused block "xlxi_3_busamux/BU67" (ROM) removed.
+Unused block "xlxi_3_busamux/BU71" (ROM) removed.
+Unused block "xlxi_3_busamux/BU73" (ROM) removed.
+Unused block "xlxi_3_busamux/BU74" (ROM) removed.
+Unused block "xlxi_3_busamux/BU78" (ROM) removed.
+Unused block "xlxi_3_busamux/BU8" (ROM) removed.
+Unused block "xlxi_3_busamux/BU80" (ROM) removed.
+Unused block "xlxi_3_busamux/BU81" (ROM) removed.
+Unused block "xlxi_3_busamux/BU85" (ROM) removed.
+Unused block "xlxi_3_busamux/BU87" (ROM) removed.
+Unused block "xlxi_3_busamux/BU88" (ROM) removed.
+Unused block "xlxi_3_busamux/BU92" (ROM) removed.
+Unused block "xlxi_3_busamux/BU94" (ROM) removed.
+Unused block "xlxi_3_busamux/BU95" (ROM) removed.
+Unused block "xlxi_3_busamux/BU99" (ROM) removed.
+Unused block "xlxi_3_busamux/VCC" (ONE) removed.
+Unused block "xlxi_3_busbmux/GND" (ZERO) removed.
+Unused block "xlxi_3_busbmux/VCC" (ONE) removed.
+Unused block "xlxi_3_xlxi_7/i_36_37" (AND) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		GND_I
+VCC 		XST_VCC
+GND 		xlxi_3_busamux/GND
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type    | Direction | IO Standard | Drive    | Slew | Reg (s)  | Resistor | IOB   |
+|                                    |         |           |             | Strength | Rate |          |          | Delay |
++------------------------------------------------------------------------------------------------------------------------+
+| clock                              | GCLKIOB | INPUT     | LVTTL       |          |      |          |          |       |
+| finish                             | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr16                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr17                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr18                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<0>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<10>                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<11>                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<12>                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<13>                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<14>                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<15>                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<1>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<2>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<3>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<4>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<5>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<6>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<7>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<8>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| laddr<9>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lcen                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW | OUTFF    |          |       |
+| ldata<0>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<10>                          | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<11>                          | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<12>                          | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<13>                          | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<14>                          | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<15>                          | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<1>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<2>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<3>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<4>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<5>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<6>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<7>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<8>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| ldata<9>                           | IOB     | BIDIR     | LVTTL       | 12       | SLOW |          |          |       |
+| loen                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lwen                               | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| ppdata<0>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppdata<1>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppdata<2>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppdata<3>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppdata<4>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppdata<5>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppdata<6>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppdata<7>                          | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ppstatus3                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| ppstatus4                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| ppstatus5                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| ppstatus6                          | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| reset                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
++------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+xlxi_3_busbmux/hset                     
+xlxi_3_busamux/hset                     
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group Summary
+------------------------------
+No area groups were found in this design.
+
+Section 10 - Modular Design Summary
+-----------------------------------
+Modular Design not used for this design.

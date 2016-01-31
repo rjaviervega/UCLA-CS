@@ -1,0 +1,24 @@
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+

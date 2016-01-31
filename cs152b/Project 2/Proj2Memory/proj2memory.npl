@@ -1,0 +1,29 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT proj2memory
+DESIGN proj2memory Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+STIMULUS readtest.vhd Normal
+STIMULUS memtest.vhd Normal
+STIMULUS writetest.vhd Normal
+STIMULUS testbench.vhd Normal
+MODULE memaccess.vhd
+MODSTYLE memorymodule Normal
+MODULE memoryread.vhd
+MODSTYLE memoryread Normal
+MODULE memorymultiplexor-sv01.vhd
+MODSTYLE memorymultiplexor Normal
+MODULE sraminterfacewithpport-sv01.vhd
+MODSTYLE sraminterfacewithpport Normal
+MODULE memorywrite.vhd
+MODSTYLE memorywrite Normal
+MODULE pctosraminterface-sv06.vhd
+MODSTYLE pctosraminterface Normal
+MODULE sram512kleft16bit50mhzreadreq-sv05.vhd
+MODSTYLE sraminterface Normal
+[STRATEGY-LIST]
+Normal=True, 1089758265
+[Normal]
+p_ModelSimSimRes=xstvhd, VIRTEX, Module VHDL Test Bench.t_MSimulateBehavioralVhdlModel, 1089997863, 1 ns

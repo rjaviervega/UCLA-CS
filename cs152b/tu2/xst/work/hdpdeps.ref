@@ -1,0 +1,39 @@
+V1 23
+EN work/WRDIPTOSRAM     FL E:/HingKei/152bs04/tu2/wrdiptosram.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+EN work/SRAMINTERFACEWITHPPORT \
+      FL E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd \
+      PB ieee/STD_LOGIC_1164
+EN work/SRAMINTERFACE \
+      FL E:/HingKei/152bs04/tu2/sram512kleft16bit50mhzreadreq-sv05.vhd \
+      PB ieee/STD_LOGIC_1164
+AR work/WRDIPTOSRAM/BEHAVIORAL FL E:/HingKei/152bs04/tu2/wrdiptosram.vhd \
+      EN work/WRDIPTOSRAM
+AR work/SRAMINTERFACEWITHPPORT/SRAMINTERFACEWITHPPORT_ARCH \
+      FL E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd \
+      EN work/SRAMINTERFACEWITHPPORT CP PCTOSRAMINTERFACE CP MEMORYMULTIPLEXOR \
+      CP SRAMINTERFACE
+AR work/USERPCTOSRAMTOPLEVEL/BEHAVIORAL \
+      FL E:/HingKei/152bs04/tu2/userpctosramtoplevel.vhd \
+      EN work/USERPCTOSRAMTOPLEVEL CP WRDIPTOSRAM CP SRAMINTERFACEWITHPPORT
+FL E:/HingKei/152bs04/tu2/sram512kleft16bit50mhzreadreq-sv05.vhd 2001/02/16.13:29:12
+AR work/PCTOSRAMINTERFACE/PCTOSRAMINTERFACE_ARCH \
+      FL E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd \
+      EN work/PCTOSRAMINTERFACE
+AR work/MEMORYMULTIPLEXOR/MEMORYMULTIPLEXOR_ARCH \
+      FL E:/HingKei/152bs04/tu2/memorymultiplexor-sv01.vhd \
+      EN work/MEMORYMULTIPLEXOR
+FL E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd 2002/04/27.10:54:22
+FL E:/HingKei/152bs04/tu2/userpctosramtoplevel.vhd 2002/04/27.12:05:41
+EN work/MEMORYMULTIPLEXOR FL E:/HingKei/152bs04/tu2/memorymultiplexor-sv01.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_UNSIGNED
+FL E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd 2002/04/27.12:06:34
+EN work/USERPCTOSRAMTOPLEVEL FL E:/HingKei/152bs04/tu2/userpctosramtoplevel.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+FL E:/HingKei/152bs04/tu2/memorymultiplexor-sv01.vhd 2001/01/25.11:15:00
+AR work/SRAMINTERFACE/SRAMINTERFACE_ARCH \
+      FL E:/HingKei/152bs04/tu2/sram512kleft16bit50mhzreadreq-sv05.vhd \
+      EN work/SRAMINTERFACE
+FL E:/HingKei/152bs04/tu2/wrdiptosram.vhd 2002/04/27.12:07:05
+EN work/PCTOSRAMINTERFACE FL E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_UNSIGNED

@@ -1,0 +1,779 @@
+;       UCLA SPRING 2003
+;       CS 33 PROJECT 6:  CONSTRUCTION PROJECT:
+;                         SUPPORT SUBROUTINES 3
+;       JOHN A. ROHR
+;       JANUARY 20, 2003
+;
+        .EQU     N,6                     ; BRICK GRAB LIMIT
+        .EQU     TRYLMT,10               ; MOVE  TRY  LIMIT
+
+        .EQU     TIMBIN,$FF7             ; BINARY TIME LOCATION
+
+        .EQU     DEBUG,0                 ; DEBUG CONTROL
+        .EQU     ROWS,14                 ; DISPLAY ROWS
+        .EQU     COLS,38                 ; DISPLAY COLUMNS
+
+        .EQU     DROWS,3                 ; DATA     ROWS
+        .EQU     BROWS,10                ; BUILDING ROWS
+        .EQU     BCOLS,24                ; BUILDING COLUMNS
+        .EQU     SROWS,10                ; BUILDING ROWS
+        .EQU     SCOLS,12                ; BUILDING COLUMNS
+        .EQU     MAXGRD,8                ; MAXIMUM  GIRDERS
+
+        .EQU     BURPOS,14               ; INITIAL BUILDING ROW
+        .EQU     BUCPOS,1                ; INITIAL BUILDING COLUMN
+        .EQU     SURPOS,14               ; INITIAL SUPPLY   ROW
+        .EQU     SUCPOS,27               ; INITIAL SUPPLY   COLUMN
+        .EQU     CRRPOS,4                ; INITIAL CRANE    ROW
+        .EQU     CRCPOS,27               ; INITIAL CRANE    COLUMN
+        .EQU     CRICHR,'c'              ; INITIAL CRANE    CHAR
+
+;       .EQU     MOVERT,'M'              ; MOVE RIGHT CHARACTER
+;       .EQU     MOVELT,'K'              ; MOVE LEFT  CHARACTER
+;       .EQU     MOVEUP,'H'              ; MOVE UP    CHARACTER
+;       .EQU     MOVEDN,'P'              ; MOVE DOWN  CHARACTER
+
+;       .EQU     ENDPRG,'Q'              ; QUIT               CHAR
+;       .EQU     SHOCON,'C'              ; SHOW CONSTRUCTION  CHAR
+;       .EQU     SHOSOL,'S'              ; SHOW SOLUTION      CHAR
+        .EQU     GRAB1,'1'               ; GRAB ONE BRICK     CHAR
+        .EQU     GRABG,'G'               ; GRAB GIRDER INPUT  CHAR
+        .EQU     GRABGC,'C'              ; GRAB GIRDER DISPLY CHAR
+        .EQU     RELEAS,'R'              ; RELEASE LOAD       CHAR
+
+        .EQU     TITPOS,0                ; TITLE          POSITION
+        .EQU     STAPOS,TITPOS+COLS      ; STATUS         POSITION
+;       .EQU     SEPPOS,TITPOS+2*COLS    ; SEPARATOR      POSITION
+;       .EQU     MODPOS,STAPOS           ; MODE           POSITION
+;       .EQU     TIMPOS,STAPOS+10        ; TIME           POSITION
+;       .EQU     BRKPOS,STAPOS+21        ; BRICKS         POSITION
+        .EQU     BRTPOS,STAPOS+25        ; BRICK TOTAL    POSITION
+;       .EQU     GRDPOS,STAPOS+35        ; GIRDERS        POSITION
+        .EQU     GRTPOS,STAPOS+37        ; TOTAL GIRDERS  POSITION
+;       .EQU     ERRPOS,STAPOS+9         ; TERMINAL ERROR POSITION
+;       .EQU     TRYPOS,STAPOS+16        ; TOO MAY TRIES  POSITION
+        .PAGE                    ;
+        .EQU     CRT_BUF,$100    ; CRT DISPLAY I/O ADDRESS
+        .EQU     CRT_XPOS,$314   ; CRT X POSITION  ADDRESS
+        .EQU     CRT_YPOS,$315   ; CRT Y POSITION  ADDRESS
+        .EQU     CRT_CTRL,$316   ; CRT CONTROL I/O ADDRESS
+
+        .EQU     INIFUN,$FFC     ; I/O INITIALIZATION FUNCTION
+        .EQU     KBDFUN,$FFD     ; I/O KEYBOARD       FUNCTION
+        .EQU     TAPFUN,$FFE     ; I/O TAPE DRIVE     FUNCTION
+        .EQU     CLKFUN,$FFF     ; I/O CLOCK          FUNCTION
+
+
+        .EQU     CLEAR,1         ; CRT   CLEAR SCREEN OPCODE
+        .EQU     BELLOP,6        ; CRT   RING BELL    OPCODE
+
+        .EQU     TAPREW,0        ; TAPE  REWIND       OPCODE
+        .EQU     TAPRD,1         ; TAPE  READ         OPCODE
+
+        .EQU     CLKRES,1        ; CLOCK RESET OPCODE + 1
+        .EQU     CLKGO,2         ; CLOCK START OPCODE + 1
+        .EQU     CLKSTP,0        ; CLOCK STOP  OPCODE + 1
+
+
+        .EQU     TERM,0          ; STRING TERMINATOR
+
+
+        .EQU     OFFSET,0        ; LINE OFFSET
+
+        .EQU     R,0             ; ROW
+        .EQU     C,1             ; COLUMN
+        .EQU     B,2             ; BRICK COUNT
+        .EQU     RESULT,2        ; FUNCTION RESULT
+        .EQU     FOUND,3         ; SUPPLY LOCATION FOUND
+        .EQU     G,4             ; GIRDER COUNT
+        .EQU     S,5             ; GIRDER SECTION
+        .EQU     I,5             ; SORT   INDEX
+        .EQU     J,6             ; SORT   INDEX
+        .EQU     HOLD,7          ; SORT   HOLDER
+
+
+        .EQU     ERROR,$B00      ; DISPLAY ERROR       SUBROTUINE
+        .EQU     PUTNUM,$B01     ; DISPLAY NUMBER      SUBROUTINE
+        .EQU     PTOA,$B02       ; POSITION-TO-ADDRESS FUNCTION
+
+        .EQU     @,$400          ; SUBROUTINE MODULE CODE ADDRESS
+
+                                 ; TRANSFER TABLE
+         JMP     PSTSOL          ; POST SOLUTION    SUBROUTINE
+         JMP     PSTSUP          ; POST SUPPLY      SUBROUTINE
+         JMP     PSTBRK          ; POST BRICKS      SUBROUTINE
+         JMP     PSTGRD          ; POST GIRDERS     FUNCTION
+         JMP     RESTAK          ; RESTACK SUPPLIES SUBROUTINE
+        .PAGE                    ; ***************************
+                                 ; * POST A SOLUTION RECORD  *
+                                 ; ***************************
+                                 ;
+PSTSOL: BGN#    1               ; BEGIN SUBROUTINE
+         PSHA                    ; SAVE ACC
+         PSHX                    ; SAVE XR
+
+         TST     ERRIND          ; TEST FOR NO ERROR
+         JNE     PSNUPD+1        ; JUMP IF ERROR
+         LDA     SLINE           ; TEST FOR MORE SOLUTION LINES
+         CMA#    BROWS           ;
+         JGE     PSNUPD+1        ; JUMP IF NO MORE LINES
+
+         LDA     SLINE           ; CALCULATE LINE OFFSET
+         MUL#    BCOLS           ;
+         STA   ! OFFSET          ;
+
+         LDX#    0               ; I := 0
+
+         CMX#    BCOLS           ; TEST FOR MORE COLUMNS
+         JGE     PSNUPD          ; JUMP IF NO MORE
+
+         LDC*    BUFADR          ; TEST FOR END OF RECORD
+         CMA#    TERM            ;
+         JEQ     @+6             ; JUMP IF  END OF RECORD
+
+         ADX   ! OFFSET          ; SAVE SOLUTION CHARACTER
+         STC     SBUF            ;
+         SBX   ! OFFSET
+         ADX#    1               ; MOVE TO NEXT POSITION
+         JMP     @-9             ;
+
+         LDA#    ' '             ; SET UP BLANK
+         CMX#    BCOLS           ; TEST FOR MORE COLUMNS
+         JGE     PSNUPD          ; JUMP IF NO MORE
+         ADX   ! OFFSET          ; CLEAR SOLUTION CHARACTER
+         STC     SBUF            ;
+         SBX   ! OFFSET          ;
+         ADX#    1               ; MOVE TO NEXT POSITION
+         JMP     @-6             ;
+
+PSNUPD: INC     SLINE           ; SLINE := SLINE + 1
+         LDX#    BRTPOS          ; UPDATE TOTAL BRICK COUNT
+         LDA     TBRICK          ;
+         JSR     PUTNUM          ;
+         LDX#    GRTPOS          ; UPDATE TOTAL GIRDER COUNT
+         LDA     TGIRD           ;
+         JSR     PUTNUM          ;
+
+PSNDN:  FIN#    1               ; TERMINATE SUBROUTINE
+         POPX                    ; RESTORE XR
+         POPA                    ; RESTORE ACC
+         RTN                     ; RETURN
+        .PAGE                    ; *************************
+                                 ; * POST A SUPPLY RECORD  *
+                                 ; *************************
+                                 ;
+PSTSUP: PSHA                    ; SAVE ACC
+         PSHX                    ; SAVE XR
+
+         LDA     CRNROW          ; TEST FOR CRANE IN SUPPLY AREA
+         CMA#    SURPOS          ;
+         JGT     CKLFBR          ; JUMP IF NOT IN AREA
+         CMA#    SURPOS-SROWS    ;
+         JLE     CKLFBR          ; JUMP IF NOT IN AREA
+         LDA     CRNCOL          ;
+         CMA#    SUCPOS          ;
+         JLT     CKLFBR          ; JUMP IF NOT IN AREA
+         CMA#    SUCPOS+SCOLS    ;
+         JGE     CKLFBR          ; JUMP IF NOT IN AREA
+
+         LDA     CRANE           ; TEST FOR NOT LIFTING
+         CMA#    CRICHR          ;
+         JEQ     @+4             ; JUMP IF NOT LIFTING
+
+         LDA#    211             ; SET ERROR 211
+         JSR     ERROR           ;
+         JMP     PSYSET          ;
+
+         LDA     CRNROW          ; ERASE THE CRANE
+         LDX     CRNCOL          ;
+         JSR     PTOA            ;
+         LDA#    ' '             ;
+         OUTB+   CRT_BUF         ;
+
+         LDA#    CRRPOS          ; PUT CRANE AT
+         STA     CRNROW          ; INITIAL POSITION
+         LDX#    CRCPOS          ;
+         STX     CRNCOL          ;
+         JSR     PTOA            ;
+         LDA     CRANE           ;
+         OUTB+   CRT_BUF         ;
+         JMP     PSYSET          ;
+        .PAGE                    ;
+CKLFBR: LDA     CRANE           ; TEST FOR LIFTING BRICK(S)
+         CMA#    GRAB1           ;
+         JLT     CKLFGR          ; JUMP IF NOT LIFTING
+         CMA#    GRAB1+N         ;
+         JGE     CKLFGR          ; JUMP IF NOT LIFTING
+
+         LDA     CRNCOL          ; TEST FOR BRICK(S)
+         CMA#    SUCPOS          ; IN SUPPLY AREA
+         JLT     PSYSET          ; JUMP IF NO BRICKS
+         CMA#    SUCPOS+SCOLS    ;
+         JGE     PSYSET          ; JUMP IF NO BRICKS
+         LDA     CRNROW          ;
+         ADA     M               ;
+         CMA#    SURPOS-SROWS    ;
+         JLE     PSYSET          ; JUMP IF NO BRICKS
+
+         LDA#    212             ; SET ERROR 212
+         JSR     ERROR           ;
+         JMP     PSYSET          ;
+
+CKLFGR: CMA#    GRABGC          ; TEST FOR LIFTING A GIRDER
+         JNE     PSYSET          ; JUMP IF NOT LIFTING
+
+         LDA     CRNROW          ; TEST FOR GIRDER
+         CMA#    SURPOS-SROWS    ; IN SUPPLY AREA
+         JLT     PSYSET          ; JUMP IF NO GIRDER
+         CMA#    SURPOS-1        ;
+         JGT     PSYSET          ; JUMP IF NO GIRDER
+         LDA     CRNCOL          ;
+         ADA     GIRDR           ;
+         CMA#    SUCPOS          ;
+         JLT     @+3             ; JUMP IF NO GIRDER
+         CMA#    SUCPOS+SCOLS    ;
+         JLT     @+7             ; JUMP IF GIRDER
+         LDA     CRNCOL          ;
+         SBA     GIRDL           ;
+         CMA#    SUCPOS          ;
+         JLT     PSYSET          ; JUMP IF NO GIRDER
+         CMA#    SUCPOS+SCOLS    ;
+         JGE     PSYSET          ; JUMP IF NO GIRDER
+
+         LDA#    213             ; SET ERROR 213
+         JSR     ERROR           ;
+        .PAGE                    ;
+PSYSET: TST     ERRIND          ; TEST FOR NO ERROR
+         JNE     PSYDN           ; JUMP IF ERROR
+
+         TST     INBRIK          ; TEST FOR BRICK SUPPLY
+         JEQ     @+3             ; JUMP IF NOT BRICKS
+         JSR     PSTBRK          ; POST BRICK SUPPLY
+         JMP     PSYDN           ;
+
+         TST     INGIRD          ; TEST FOR GIRDER SUPPLY
+         JEQ     @+6             ; JUMP IF NOT GIRDER
+         JSR     PSTGRD          ; POST GIRDER SUPPLY
+         CMA#    0               ; TEST FOR SUCCESS
+         JNE     PSYDN           ; JUMP IF SUCCESSFUL
+         JSR     RESTAK          ; RESTACK SUPPLIES
+         JMP     PSYDN           ;
+
+         LDA#    214             ; SET ERROR 214
+         JSR     ERROR           ;
+
+PSYDN:  POPX                    ; RESTORE XR
+         POPA                    ; RESTORE ACC
+         RTN                     ; RETURN
+        .PAGE                    ; ************************
+                                 ; * POST A BRICK RECORD  *
+                                 ; ************************
+                                 ;
+PSTBRK: BGN#    3               ; INITIATE SUBROUTINE
+         PSHA                    ; SAVE ACC
+         PSHX                    ; SAVE XR
+
+         CLR   ! B               ; B := 0
+
+         LDA#    SURPOS          ; FILL EACH ROW
+         STA   ! R               ;
+
+         LDX#    SUCPOS          ; FILL EACH COLUMN
+         STX   ! C               ;
+
+         LDA   ! R               ; READ THE CHARACTER
+         LDX   ! C               ;
+         JSR     PTOA            ;
+         INB+    CRT_BUF         ;
+         CMA#    ' '             ; TEST FOR BLANK
+         JNE     @+5             ; JUMP IF NOT BLANK
+         LDA#    'B'             ; POST THE BRICK
+         OUTB+   CRT_BUF         ;
+         INC   ! B               ; B      := B      + 1
+         INC     SBRICK          ; SBRICK := SBRICK + 1
+
+         LDA   ! B               ; TEST FOR MORE BRICKS
+         CMA     INBRIK          ;
+         JGE     PSTBDN          ; JUMP IF NO MORE BRICKS
+
+         INC   ! C               ; C := C + 1
+
+         LDA   ! C               ; TEST FOR MORE COLUMNS
+         CMA#    SUCPOS+SCOLS    ;
+         JLT     @-16            ; JUMP IF MORE COLUMNS
+
+         DEC   ! R               ; R := R - 1
+
+         LDA   ! C               ; TEST FOR MORE ROWS
+         CMA#    SURPOS+SROWS    ;
+         JGT     @-22            ; JUMP IF MORE COLUMNS
+
+         LDA   ! B               ; TEST FOR MORE BRICKS
+         CMA     INBRIK          ;
+         JGE     PSTBDN          ; JUMP IF NO MORE BRICKS
+
+         LDA#    221             ; SET ERROR 221
+         JSR     ERROR           ;
+
+PSTBDN: FIN#    3               ; TERMINATE SUBROUTINE
+         POPX                    ; RESTORE XR
+         POPA                    ; RESTORE ACC
+         RTN                     ; RETURN
+        .PAGE                    ; ************************
+                                 ; * POST A GIRDER RECORD *
+                                 ; *                      *
+                                 ; * RESULT:  0: NO POST  *
+                                 ; *          1: OK POST  *
+                                 ; *                      *
+                                 ; ************************
+                                 ;
+PSTGRD: BGN#    6               ; INITIATE SUBROUTINE
+         PSHX                    ; SAVE XR
+
+         LDA#    1               ; RESULT := 1
+         STA   ! RESULT          ;
+
+
+         LDA     SGIRD           ; TEST FOR TOO MANY GIRDERS
+         ADA     INGIRD          ;
+         CMA#    MAXGRD          ;
+         JGT     @+3             ; JUMP IF TOO MANY
+         CMA#    SROWS
+         JLE     @+5             ; JUMP IF NOT TOO MANY
+
+         CLR   ! RESULT          ; RESULT := 0
+
+         LDA#    231             ; SET ERROR 231
+         JSR     ERROR           ;
+         JMP     PSTGDN          ;
+
+         LDA     SBRICK          ; TEST FOR NO SUPPLIES
+         ADA     SGIRD           ;
+         JNE     @+6             ; JUMP IF SOME SUPPLIES
+
+         LDA#    SURPOS          ; R := SURPOS
+         STA   ! R               ;
+         LDA#    SUCPOS          ; C := SUCPOS
+         STA   ! C               ;
+         JMP     PSTGDO          ;
+
+        .PAGE                    ; FIND THE STARTING POSITION
+         CLR   ! FOUND           ; FOUND := 0
+
+         LDA#    SURPOS-SROWS+1  ; START AT TOP OF SUPPLY AREA
+         STA   ! R               ; SET STARTING ROW
+
+         LDA   ! R               ; TEST FOR MORE ROWS TO CHECK
+         CMA#    SURPOS          ;
+         JGT     PSTGL1          ; JUMP IF NO MORE TO CHECK
+
+         LDA#    SUCPOS+SCOLS-1  ; START AT THE RIGHT SIDE
+         STA   ! C               ; SET STARTING COLUMN
+
+         LDA   ! C               ; TEST FOR MORE COLUMNS TO CHECK
+         CMA#    SUCPOS          ;
+         JLT     @+11            ; JUMP IF NO MORE TO CHECK
+
+         LDA   ! R               ; GET THE SUPPLY CHARACTER
+         LDX   ! C               ;
+         JSR     PTOA            ;
+         INB+    CRT_BUF         ;
+         CMA#    ' '             ; TEST FOR EMPTY POSITION
+         JEQ     @+3             ; JUMP IF EMPTY
+         INC   ! FOUND           ; FOUND := 1
+         JMP     PSTGL1          ;
+
+         DEC   ! C               ; C := C - 1
+         JMP     @-12            ;
+
+         INC   ! R               ; R := R + 1
+         JMP     @-19            ;
+        .PAGE                    ;
+PSTGL1: TST   ! FOUND           ; TEST FOR POSITION FOUND
+         JNE     @+4             ; JUMP IF FOUND
+
+         LDA#    233             ; SET ERROR 233
+         JSR     ERROR           ;
+         JMP     PSTGDN          ;
+
+         INC   ! C               ; C := C + 1
+
+         LDA   ! C               ; TEST FOR ROW FULL
+         CMA#    SUCPOS+SCOLS    ;
+         JNE     @+8             ; JUMP IF NOT FULL
+
+         DEC   ! R               ; R := R = 1
+
+         LDA   ! R               ; TEST FOR SUPPLY AREA FULL
+         CMA#    SURPOS-SROWS+1  ;
+         JGE     PSTGDO          ; JUMP IF NOT FULL
+
+         LDA#    232             ; SET ERROR 232
+         JSR     ERROR           ;
+         JMP     PSTGDO          ;
+
+         LDA   ! C               ; TEST FOR ROOM IN ROW
+         ADA     INLEN           ;
+         SBA#    1               ;
+         CMA#    SUCPOS+SCOLS    ;
+         JGT     @+5             ; JUMP IF NO ROOM
+
+         LDA   ! R               ; TEST FOR ENOUGH ROWS
+         SBA     INGIRD          ;
+         CMA#    SURPOS-SROWS    ;
+         JGE     PSTGDO          ; JUMP IF ENOUGH ROWS
+
+         CLR   ! RESULT          ; RESULT := 0
+         JMP     PSTGDN          ;
+        .PAGE                    ;
+PSTGDO: TST     ERRIND          ; TEST FOR NO ERROR
+         JNE     PSTGDN          ; JUMP IF ERROR
+         TST   ! RESULT          ;
+         JEQ     PSTGDN          ; JUMP IF ERROR
+
+         CLR   ! G               ; G := 0
+         CLR   ! S               ; S := 0
+
+                                 ; CHECK FOR ADEQUATE SUPPORT
+         LDA#    SUCPOS+SCOLS-1  ; SET STARTING COLUMN
+         STA   ! C               ;
+
+         TST   ! RESULT          ; TEST FOR POSSIBLE SUCCESS
+         JEQ     PSTGDN          ; JUMP IF NO SUCCESS
+
+         LDA   ! R               ; TEST FOR MORE SECTIONS
+         CMA#    SURPOS          ;
+         JGE     @+15            ; JUMP IF NO MORE
+         LDX   ! S               ;
+         CMX     INLEN           ;
+         JGE     @+12            ; JUMP IF NO MORE
+
+         ADA#    1               ; GET SUPPORT CHARACTER
+         LDX   ! C               ;
+         JSR     PTOA            ;
+         INB+    CRT_BUF         ;
+         CMA#    ' '             ; TEST FOR SUPPORT
+         JEQ     @+4             ; JUMP IF NO SUPPORT
+
+         INC   ! S               ; S := S + 1
+         DEC   ! C               ; C := C - 1
+         JMP     @-14            ; JUMP IF SUPPORT
+
+         CLR   ! RESULT          ; RESULT := 0
+         JMP     PSTGDN          ;
+
+        .PAGE                    ; PLACE EACH GIRDER
+         LDA   ! R               ; TEST FOR MORE ROOM
+         CMA#    SURPOS-SROWS    ;
+         JLE     @+22            ; JUMP IF NO MORE ROOM
+         LDA   ! G               ; TEST FOR MORE GIRDERS
+         CMA     INGIRD          ;
+         JGE     @+19            ; JUMP IF NO MORE GIRDERS
+
+                                 ; PLACE ONE GIRDER
+         LDA#    SUCPOS+SCOLS-1  ; SET INITIAL COLUMN
+         STA   ! C               ;
+         CLR   ! S               ; S := 0
+
+         LDA   ! S               ; TEST FOR MORE SECTIONS
+         CMA     INLEN           ;
+         JGE     @+9             ;
+
+         LDA   ! R               ; PLACE ONE GIRDER SECTION
+         LDX   ! C               ;
+         JSR     PTOA            ;
+         LDA#    'G'             ;
+         OUTB+   CRT_BUF         ;
+
+         INC   ! S               ; S := S + 1
+         DEC   ! C               ; C := C - 1
+         JMP     @-10            ;
+
+         INC   ! G               ; G     := G     + 1
+         INC     SGIRD           ; SGIRD := SGIRD + 1
+         DEC   ! R               ; R     := R     - 1
+         JMP     @-23            ;
+
+         LDA   ! S               ; TEST FOR SOME NOT SET
+         CMA     INLEN           ;
+         JGE     PSTGDN          ; JUMP IF ALL SET
+
+         LDA#    234             ; SET ERROR 234
+         JSR     ERROR           ;
+
+PSTGDN: LDA   ! RESULT          ; SET RESULT
+         FIN#    6               ; TERMINATE SUBROUTINE
+         POPX                    ; RESTORE XR
+         RTN                     ; RETURN
+        .PAGE                    ; *************************
+                                 ; * RESTACK THE SUPPLIES  *
+                                 ; *************************
+                                 ;
+RESTAK: BGN#    8               ; INITIATE SUBROUTINE
+         PSHA                    ; SAVE ACC
+         PSHX                    ; SAVE XR
+
+         CLR   ! B               ; B := 0
+         CLR   ! G               ; G := 0
+
+         LDX   ! G               ; TEST FOR MORE GIRDERS
+         CMX     INGIRD          ;
+         JGE     @+6             ; JUMP IF NO MORE
+
+         LDA     INLEN           ; PLACE ONE GIRDER IN SUPPLY
+         STA+    SGIRDL          ;
+         INC   ! G               ; G     := G     + 1
+         INC     SGIRD           ; XGIRD := SGIRD + 1
+         JMP     @-7             ;
+        .PAGE                    ;
+         LDA#    SURPOS          ; R := SURPOS
+         STA   ! R               ;
+
+         LDA   ! R               ; TEST FOR DONE
+         CMA#    SURPOS-SROWS    ;
+         JLE     @+29            ;
+
+         LDX#    SUCPOS+SCOLS-1  ; TEST FOR A GIRDER IN THE ROW
+         STX   ! C               ; R := SUCPOS + SCOLS - 1
+         JSR     PTOA            ;
+         INB+    CRT_BUF         ;
+         CMA#    'G'             ;
+         JNE     @+21            ; JUMP IF NO GIRDER
+
+         LDA   ! G               ; TEST FOR ROOM IN THE STACK
+         CMA#    MAXGRD          ;
+         JLT     @+4             ; JUMP IF ROOM
+
+         LDA#    241             ; SET ERROR 241
+         JSR     ERROR           ;
+         JMP     @+17            ;
+
+         CLR   ! S               ; S := 0
+
+         LDA   ! R               ; SET GIRDER
+         LDX   ! C               ;
+         JSR     PTOA            ;
+         INB+    CRT_BUF         ;
+         CMA#    'G'             ;
+         JNE     @+4             ;
+         INC   ! S               ; S := S + 1
+         DEC   ! C               ; C := C - 1
+         JMP     @-8             ;
+
+         LDX   ! G               ; SGIRDL[G] := S
+         LDA   ! S               ;
+         STA+    SGIRDL          ;
+
+         INC   ! G               ; G := G + 1
+
+         DEC   ! R               ; R := R - 1
+         JMP     @-30            ;
+        .PAGE                    ;
+         LDA#    SURPOS-SROWS+1  ; COUNT THE BRICKS
+         STA   ! R               ; R := SURPOS - SROWS + 1
+
+         LDA   ! R               ; TEST FOR DONE
+         CMA#    SURPOS          ;
+         JGT     @+16            ; JUMP IF DONE
+
+         LDA#    SUCPOS          ; CHECK EACH COLUMN
+         STA   ! C               ; C := SUCPOS
+
+         LDX   ! C               ; TEST FOR DONE
+         CMX#    SUCPOS+SCOLS    ;
+         JGE     @+9             ; JUMP IF DONE
+
+         LDA   ! R               ; CHECK FOR A BRICK
+         JSR     PTOA            ;
+         INB+    CRT_BUF         ;
+         CMA#    'B'             ;
+         JNE     @+2             ; JUMP IF NO BRICK
+         INC   ! B               ; B := B + 1
+
+         INC   ! C               ; C := C + 1
+         JMP     @-10            ;
+
+         INC   ! R               ; R := R + 1
+         JMP     @-17            ;
+
+         LDA   ! G               ; TEST FOR MORE THAN 1 GIRDER
+         CMA#    1               ;
+         JLE     @+23            ; JUMP IF LESS THAN 2 GIRDERS
+
+        .PAGE                    ; SORT THE GIRDERS
+         CLR   ! I               ; I := 0
+
+         LDX   ! G               ; J := G - 2
+         SBX#    2               ;
+         STX   ! J               ;
+
+         LDA+    SGIRDL          ; TEST FOR IN ORDER
+         STA   ! HOLD            ;
+         ADX#    1               ;
+         LDA+    SGIRDL          ;
+         CMA   ! HOLD            ;
+         JGE     @+6             ;
+
+         SBX#    1               ; SWAP
+         STA+    SGIRDL          ;
+         LDA   ! HOLD            ;
+         ADX#    1               ;
+         STA+    SGIRDL          ;
+         SBX#    2               ; RJ := RJ - 1
+         JNO     @-12            ; JUMP IF NOT DONE
+
+         INC   ! I               ; I := + 1
+
+         LDA   ! I               ; TEST FOR MORE
+         ADA#    1               ;
+         CMA   ! G               ;
+         JLT     @-20            ; JUMP IF NORE
+
+         LDA#    SURPOS-SROWS+1  ; CLEAR THE SUPPLY AREA
+         STA   ! R               ; R := SURPOS - SROWS + 1
+
+         LDX#    SUCPOS          ; C := SUCPOS
+
+         LDA   ! R               ; CLEAR THE POSITION
+         STX   ! C               ;
+         JSR     PTOA            ;
+         LDA#    ' '             ;
+         OUTB+   CRT_BUF         ;
+         LDX   ! C               ;
+         AOC#    SUCPOS+SCOLS    ; C := C + 1
+         JLT     @-7             ; JUMP IF NOT DONE
+
+         INC   ! R               ; R := R + 1
+         LDA   ! R               ; TEST FOR MORE
+         CMA#    SURPOS          ;
+         JLE     @-12            ;
+
+         DEC   ! G               ; G := G - 1
+
+         LDA#    SURPOS          ; R := SURPOS
+         STA   ! R               ;
+
+        .PAGE                    ; PLACE THE GIRDERS
+         TST   ! G               ; TEST FOR DONE
+         JLT     @+18            ; JUMP IF  DONE
+
+         LDA#    SUCPOS+SCOLS-1  ; PLACE ONE GIRDER
+         STA   ! C               ; C := SUCPOS + COLS - 1
+
+         LDX   ! G               ; TEST FOR DONE
+         LDA+    SGIRDL          ;
+         ADA   ! C               ;
+         CMA#    SUCPOS+SCOLS-1  ;
+         JLE     @+8             ; JUMP IF DONE
+
+         LDA   ! R               ; PLACE ONE GIRDER SEGMENT
+         LDX   ! C               ;
+         JSR     PTOA            ;
+         LDA#    'G'             ;
+         OUTB+   CRT_BUF         ;
+
+         DEC   ! C               ; C := C - 1
+         JMP     @-11            ;
+
+         DEC   ! G               ; G := G - 1
+
+         DEC   ! R               ; R := R - 1
+         JMP     @-18            ;
+
+                                 ; PLACE THE BRICKS
+         LDA     INBRIK          ; RHOLD := INBRIK
+         STA   ! HOLD            ;
+
+         LDA   ! B               ; INBRIK := B
+         STA     INBRIK          ;
+
+         JSR     PSTBRK          ; PLACE ALL BRICKS
+
+         LDA   ! HOLD            ;
+         STA     INBRIK          ; INBRIK := HOLD
+
+RSTKDN: FIN#    8               ; TERMINATE SUBROUTINE
+         POPX                    ; RESTORE XR
+         POPA                    ; RESTORE ACC
+         RTN                     ; RETURN
+        .PAGE                    ;
+        .EQU     @,$B80           ; CONSTANT DATA BASE
+
+TITLE: .BLKW    13               ;
+        .EQU     TITLE_LENGTH,38  ;
+
+STATUS:.BLKW    13               ;
+        .EQU     STATUS_LENGTH,38 ;
+
+SEPLIN:.BLKW    13               ;
+        .EQU     SEPLIN_LENGTH,38 ;
+
+AGAIN: .BLKW    13               ;
+        .EQU     AGAIN_LENGTH,38  ;
+
+OVER:  .BLKW    13               ;
+        .EQU     OVER_LENGTH,38   ;
+
+RINVST:.BLKW    13               ;
+        .EQU     INVST_LENGTH,38  ;
+
+SINVST:.BLKW    13               ;
+        .EQU     SINVST_LENGTH,38 ;
+
+ERRMSG:.BLKW    13               ;
+        .EQU     ERRMSG_LENGTH,38 ;
+
+TRYMSG:.BLKW    13               ;
+        .EQU     TRYMSG_LENGTH,38 ;
+
+BLANKS:.BLKW    1                ;
+        .PAGE
+        .EQU     @,$C00          ; VARIABLE DATA BASE
+
+DBGCTL:.BLKW    1               ; DEBUG CONTROL
+TIMER: .BLKW    1               ; LOCAL PROJECT TIME
+PHASE: .BLKW    1               ; PROGRAM PHASE
+ACTION:.BLKW    1               ; ACTION INPUI
+MORE:  .BLKW    1               ; MORE   ANSWER
+ERRIND:.BLKW    1               ; ERROR INDICATOR
+TRIES: .BLKW    1               ; BLOCKED MOVE TRIES
+SLINE: .BLKW    1               ; SOLUTION LINE
+
+GIRDL: .BLKW    1               ; LEFT  GIRDER SEGMENTS
+GIRDR: .BLKW    1               ; RIGHT GRIDER SEGMENTS
+TBRICK:.BLKW    1               ; TOTAL   BRICK  COUNT
+TGIRD: .BLKW    1               ; TOTAL   GIRDER COUNT
+CBRICK:.BLKW    1               ; CURRENT BRICK  COUNT
+CGIRD: .BLKW    1               ; CURRENT GIRDER COUNT
+SBRICK:.BLKW    1               ; SUPPLY  BRICK  COUNT
+SGIRD: .BLKW    1               ; SUPPLY  GIRDER COUNT
+
+NEXT:  .BLKW    1               ; NEXT SUPPLY TIME
+READY: .BLKW    1               ; NEXT SUPPLY READY
+INTYPE:.BLKW    1               ; INPUT TYPE
+INTIME:.BLKW    1               ; INPUT TIME
+INCNT: .BLKW    1               ; INPUT ITEM   COUNT
+INBRIK:.BLKW    1               ; INPUT BRICK  COUNT
+INGIRD:.BLKW    1               ; INPUT GIRDER COUNT
+INLEN: .BLKW    1               ; INPUT GIRDER LENGTH
+
+CRANE: .BLKW    1               ; CRANE CHARACTER
+CRNROW:.BLKW    1               ; CRANE ROW
+CRNCOL:.BLKW    1               ; CRANE COLUMN
+PICKUP:.BLKW    1               ; LOAD PICKUP AREA
+M:     .BLKW    1               ; CRANE BRICK LIFT COUNT
+SCNLST:.BLKW    1               ; LAST INPUT SCAN CHARACTER
+DECDIG:.BLKW    1               ; DECIMAL DIGIT VALUE
+BUFADR:.BLKW    1               ; INPUT BUFFER ADDRESS
+
+SGIRDL:.BLKW    MAXGRD          ; SUPPLY GIRDER LENGTHS
+
+        .BLKW    8               ; FILL
+
+SBUF:  .BLKW    (BROWS*BCOLS+2)/3             ; SOLUTION BUFFER
+
+CBUF:  .BLKW    ((ROWS-DROWS)*(SUCPOS-1)+2)/3 ; CONSTRUCT BUFFER
+
+DATEND:.BLKW    1               ;
+        .PAGE                    ;
+        .END                     ;

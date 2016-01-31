@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>CS 33 CUSP Notes</title>
+</head>
+<body>
+<div align="right">
+Spring 2003 CS 33 
+</div>
+<div align="center">
+<h2>CUSP Notes</h2>
+</div>
+<p>
+This is a collection of CUSP and CHASM tips and techniques.  It is under
+development, so check it for changes and additions.  It was last modified
+Wednesday, April 9, at 11:00 PM.
+</p>
+<h3>Function calls</h3>
+<p>
+Programs that will be calling functions (and every one you write surely will)
+must initialize the stack.  To do this, make sure the first instruction
+your program executes is
+</p>
+<pre>
+	LDS#	$E00	; initialize stack pointer
+</pre>
+<p>
+Details about using the stack will be covered later in the quarter.  The
+value $E00 was chosen because that will put the stack as far out of your way
+as possible, given that the MINI_OS routines occupy addresses $E00 through
+$FFF.
+</p>
+<p>
+To call a function whose first instruction is labeled BLAH, say
+</p>
+<pre>
+	JSR	BLAH
+</pre>
+<p>
+The function itself is a sequence of instructions.  The function returns to
+the caller by executing the instruction:
+</p>
+<pre>
+	RTN
+</pre>
+<p>
+As an example, the equivalent of the C++ code
+</p>
+<pre>
+	<em>statements before calling</em> blah
+	blah();
+	<em>statements after calling</em> blah
+	...
+
+	void blah()
+	{
+		<em>statements that make up the body of</em> blah
+	}
+</pre>
+<p>
+is this:
+</p>
+<pre>
+	<em>instructions before calling</em> blah
+	JSR	BLAH
+	<em>instructions after calling</em> blah
+	...
+
+BLAH:	<em>first instruction of the body of</em> blah
+	<em>more instructions in the body of</em> blah
+	RTN	; return to caller of blah
+</pre>
+<p>
+If you want to pass parameters to a function, the general method is to
+pass them on the stack, but we won't talk about that until later in the
+quarter.  Here's a simple way to write a function that accepts a single
+parameter:  pass the argument in the accumulator.  If the function returns
+a value, have it return it in the accumulator.  For example, a translation
+of this:
+</p>
+<pre>
+	y = sqr(x);
+	...
+
+	int sqr(int k)
+	{
+		return k * k;
+	}
+</pre>
+<p>
+would be this:
+</p>
+<pre>
+	LDA	X	; load acc with the value in X
+	JSR	SQR	; acc = sqr(acc);
+	STA	Y	; store acc in Y
+	...
+
+SQR:	STA	TEMP	; temp = acc
+	MUL	TEMP	; acc *= temp
+	RTN
+TEMP:	.WORD	0
+</pre>
+<h3>The MINI_OS</h3>
+<p>
+Page 374 of the book summarizes the functionality of the MINI_OS.  The
+assembler code for the MINI_OS is in the file MISC/MINI_OS.CSP in the
+directory where you installed CUSP.  You might want to copy it into
+the same directory as the program you're writing, for convenience in loading.
+</p><p>
+An easy way to load the MINI_OS is to start the CUSP emulator, select
+F(ile operation), then A(ssemble), and give MINI_OS.CSP as the file name.
+This assembles the MINI_OS into locations $E00 through $FFF of the CUSP
+machine. 
+</p><p>
+The functions you most need to know now are GET_NUM, PUT_CHR, PUT_NL, and
+PUT_STR.  Each starts at a fixed memory location.  PUT_NL, for example, starts
+at $E06.  To put a CR-LF sequence to the display, for example, you could say
+</p>
+<pre>
+	JSR	$E06	; call PUT_NL
+</pre>
+<p>
+but that makes your code hard to read.  Better would be to give the constant
+$E06 the symbolic name PUT_NL, and use the name when you call it:
+</p>
+<pre>
+	.EQU	PUT_NL,$E06	; PUT_NL is synonymous with $E06
+	...
+
+	JSR	PUT_NL
+</pre>
+<h4>GET_NUM</h4>
+<p>
+The loose equivalent of the C++
+</p>
+<pre>
+	cin >> x;	// x is an int
+</pre>
+<p>
+is
+</p>
+<pre>
+	.EQU	GET_NUM,$E01
+	...
+
+	JSR	GET_NUM
+	STA	X
+</pre>
+<h4>PUT_CHR</h4>
+<p>
+The equivalent of the C++
+</p>
+<pre>
+	cout &lt;&lt; ch;	// ch is a char
+	cout &lt;&lt; '%';
+</pre>
+<p>
+is
+</p>
+<pre>
+	.EQU	PUT_CHR,$E08
+	...
+
+	LDA	CH	// low order 8 bits of CH contain the char
+	JSR	PUT_CHR
+	LDA#	'%'	// acc = ASCII code for '%'
+	JSR	PUT_CHR
+</pre>
+<h4>PUT_NL</h4>
+<p>
+The equivalent of the C++
+</p>
+<pre>
+	cout &lt;&lt; '\n';
+</pre>
+<p>
+or
+</p>
+<pre>
+	cout &lt;&lt; endl;
+</pre>
+<p>
+is
+</p>
+<pre>
+	.EQU	PUT_NL,$E06
+	...
+
+	JSR	PUT_NL
+</pre>
+<h4>PUT_STR</h4>
+<p>
+To write a string, the PUT_STR routine needs the length of the string and
+the address of the beginning of the string.  The convention for passing more
+than one argument to a function requires using the stack.  We'll cover details
+later in the quarter, but here's the pattern.  The equivalent to the C++
+</p>
+<pre>
+	cout &lt;&lt; "Are we having fun yet?";
+</pre>
+<p>
+is
+</p>
+<pre>
+	.EQU	PUT_STR,$E05
+	...
+
+	PSH#	FUN_LEN		; push length of string
+	PSH#	FUN_TEXT	; push addr of beginning of text
+	JSR	PUT_STR		; go write the string
+	ADS#	2		; pop the two arguments off the stack
+	...
+
+FUN_TEXT: .CHAR	'Are we having fun yet?',FUN_LEN
+</pre>
+<p>
+The .CHAR directive defines two symbols.  The label (FUN_TEXT in this case) is
+the address of the first word of the text of the string.  Each consecutive
+word contains three characters of the string; the last may have fewer.  The
+assembler makes the identifier after the comma in the directive (FUN_LEN in
+this case) synonymous with the length of the string.
+</p><p>
+In this example, then, FUN_TEXT is synonymous with the address of the location
+where the assembler placed <code>'Are'</code>.  The eight consecutive
+locations starting at that point contain <code>'Are'</code>,
+<code>'&nbsp;we'</code>, <code>'&nbsp;ha'</code>, <code>'vin'</code>,
+<code>'g&nbsp;f'</code>, <code>'un&nbsp;'</code>, <code>'yet'</code>, and
+<code>'?&nbsp;&nbsp;'</code>, and FUN_LEN is made synonymous with 22 (not
+24 -- the blanks inserted after the '?' to fill out the last word don't
+count in the length).
+</p>
+<h3>.EQU vs. .WORD</h3>
+<p>
+So what is the difference between .EQU and .WORD?  You use .EQU to
+make a symbol synonymous with a value.  It does not cause any word of CUSP
+memory to be reserved.  On the other hand, .WORD reserves a word of memory,
+and the label becomes synonymous with the address of that word.
+</p><p>
+Here is one way to put the value 100 into the accumulator:
+</p>
+<pre>
+	.EQU	MAX_SIZE,100	; make MAX_SIZE synonymous with 100
+	...
+	LDA#	MAX_SIZE
+</pre>
+<p>
+Here is another:
+</p>
+<pre>
+	LDA	MAX_SIZE
+	...
+
+MAX_SIZE: .WORD	100
+</pre>
+<p>
+In the latter case, MAX_SIZE is synonymous with whatever address the assembler
+placed the 100 in.
+</p><p>
+Close C++ analogues are
+</p>
+<pre>
+	.EQU	ABC,123		; like   #define ABC 123
+DEF:	.WORD	456		; like   int DEF = 456;
+</pre>
+<h3>C++ Control Structures</h3>
+<p>
+Here are some assembly language equivalents of C++ control structures.
+</p>
+<h4><code>if</code></h4>
+<pre>
+	if (n &lt;= 10)
+		x = 1;
+	else
+	{
+		x = 3;
+		y = 5;
+	}
+</pre>
+<p>
+can be expressed as
+</p>
+<pre>
+	LDA	N	; n &lt;= 10?
+	CMA#	10
+	JGT	ELSE	; If not, skip to else part
+	LDA#	1	; x = 1
+	STA	X
+	JMP	AFTER	; Branch around else part
+ELSE:	LDA#	3	; x = 3
+	STA	X
+	LDA#	5	; y = 5
+	STA	Y
+AFTER:	...		; Both paths continue from here
+</pre>
+<p>
+As a hint for how conditions involving <code>&amp;&amp;</code> and
+<code>||</code> can be implemented, consider that
+</p>
+<pre>
+	if (n >= 5  &amp;&amp;  n &lt;= 10)
+		... do_stuff ...
+</pre>
+<p>
+means
+</p>
+<pre>
+	if n is less than 5, branch around do_stuff
+	if n is greater than 10, branch around do_stuff
+	do_stuff
+</pre>
+<h4><code>switch</code></h4>
+<p>
+A switch statement can be implemented as an if statement with test for each
+case.  For any contiguous range of case constants, you can use a jump table
+(something we can't talk about until we've covered indexing).
+</p>
+<h4><code>while</code> and <code>for</code></h4>
+<pre>
+	n = 1;
+	while (n &lt;= 10)
+	{
+		...
+		n++;
+	}
+</pre>
+<p>
+can be expressed as
+</p>
+<pre>
+	LDA#	1	; n = 1
+	STA	N
+LOOP:	CMA#	10	; n &lt;= 10 ?
+	JGT	OUT	; if not, break
+	...
+	LDA	N	; n++
+	ADA#	1
+	STA	N
+	JMP	LOOP	; go re-test n
+OUT:	...
+</pre>
+<p>
+This assembly code is also the code for the for loop
+</p>
+<pre>
+	for (n = 1; n &lt;= 10; n++)
+	{
+		...
+	}
+</pre>
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Gautam Bhatia">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (Win98; U) [Netscape]">
+   <title>CS 33 Systems Programming</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+&nbsp;
+<center>
+<br><b><i>HOMEWORK</i></b>
+<br><b><i>Chapter 10</i></b></center>
+
+<p><br>
+<p>10-1.(a)&nbsp;&nbsp;&nbsp; Mutual recursion is a condition in which
+two or more functions are
+<br>defined in terms of each other.&nbsp; For example, Function A calls
+Function B as a
+<br>part of its definition and Function B also calls Function A as part
+of its
+<br>definition. (p271)
+<p>&nbsp;&nbsp;&nbsp; (b) The state of a program consists of all information
+which defines the
+<br>progress of the execution of a program up to a specified point. (p274)
+<p>&nbsp;&nbsp;&nbsp; (c) Local variables are variables which are only
+used inside a program and
+<br>are not available outside the program. (p274)
+<p>&nbsp;&nbsp;&nbsp; (d) A reentrant program is a program which can be
+interrupted at any point,
+<br>called again during the interrupt, and then be resumed after the interrupt
+and
+<br>operate correctly. (p303)
+<p>&nbsp;&nbsp;&nbsp; (e) Performance measurement is the process of analyzing
+a program to
+<br>determine its speed and memory requirements and, optionally, its use
+of other
+<br>resources. (p293)
+<p>&nbsp;&nbsp;&nbsp; (f) Tail recursion optimization is the process of
+converting a recursive
+<br>program into an iterative program by changing the self-call to an internal
+<br>loop. (p302)
+<br>&nbsp;
+<br>&nbsp;
+<p>10-2.(a)&nbsp;&nbsp;&nbsp; The only property required to allow the application
+of tail
+<br>recursion optimization is that a recursive call be the last operation
+performed
+<br>by the subroutine other than returning to the calling program.
+<p>&nbsp;&nbsp;&nbsp; (b) The steps to optimize a subroutine to its tail
+recursive solution are
+<br>the following:
+<p>1.&nbsp; Copy the actual arguments of the recursive call into the formal
+argument
+<br>positions of the previous call in the stack.
+<p>2.&nbsp; Remove the ADS instruction which adjusts the stack pointer
+after the
+<br>recursive call.
+<p>3.&nbsp; Change the starting location of the iteration from the first
+instruction in
+<br>the program to the first instruction after the call initialization
+(the BGN
+<br>instruction).
+<p>4.&nbsp; Change the JSR to a JMP to the location which was determined
+in Step 3
+<br>above.
+<br>&nbsp;
+<p>10-3.(a)&nbsp;&nbsp;&nbsp; Recursive subroutines are usually reentrant
+because all local
+<br>storage is usually on the stack and thus will be unique for each call.
+<p>&nbsp;&nbsp;&nbsp; (b) A recursive subroutine will not be reentrant
+if it is not data
+<br>consistent at all times.
+<p>10-4.&nbsp;&nbsp; Show that if the program is interrupted at any place,
+the value of the
+<br>variable for the interrupted program cannot by changed by the interrupting
+<br>program.
+<p>10-5.&nbsp;&nbsp; By creating variables on the stack, each instance
+of a program obtains
+<br>a different set of memory locations (on the stack) for its copy of
+the local
+<br>variables.
+<p>10-10.&nbsp; Attached
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:07 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+1
+<br>&nbsp;Filename: PA10_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA SPRING 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 10-10:&nbsp;
+TEST DRIVER
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 21, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PRTLST,$A02&nbsp;&nbsp;&nbsp;&nbsp; ; LIST
+PRINT
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; ORDLST,$A03&nbsp;&nbsp;&nbsp;&nbsp; ; ORDERED
+LIST ELEMENT
+<br>INSERT
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PNLIST,$100&nbsp;&nbsp;&nbsp;&nbsp; ; LIST
+ELEMENT COUNTER
+<br>&nbsp; 10.
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_NUM,$E00&nbsp;&nbsp;&nbsp; ; WRITE DECIMAL
+NUMBER
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; GET_NUM,$E01&nbsp;&nbsp;&nbsp; ; GET DECIMAL
+NUMBER
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR,$E05&nbsp;&nbsp;&nbsp; ; PRINT STRING
+<br>&nbsp; 14.
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; DATA,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET FOR LIST DATA
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NEXT,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET FOR NEXT CELL
+<br>POINTER
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NIL,$000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NIL POINTER VALUE
+<br>&nbsp; 18.
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; STACKTOP,$E00&nbsp;&nbsp; ; INITIAL STACK
+POINTER
+<br>&nbsp; 20.
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PROGRAM BASE ADDRESS'
+<br>&nbsp; 22.
+<br>&nbsp; 23.
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 000&nbsp;&nbsp; 020E00&nbsp;&nbsp; MAIN:&nbsp;&nbsp;
+LDS#&nbsp;&nbsp;&nbsp; STACKTOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE STACK
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 001&nbsp;&nbsp; 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; NIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INTIALIZE EMPTY LIST
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 002&nbsp;&nbsp; 04205C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SET LIST HEAD NIL
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 003&nbsp;&nbsp; 08001F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; INPMSG_LENGTH&nbsp;&nbsp; ; PRINT INPUT HEADER
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 004&nbsp;&nbsp; 080032&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; INPMSG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 005&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 006&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 31.
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 007&nbsp;&nbsp; 412E01&nbsp;&nbsp; LOOP1:&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; GET_NUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET ELEMENT TO INSERT
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 008&nbsp;&nbsp; 200000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR DONE
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp; 009&nbsp;&nbsp; 48200F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; PRT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF DONE
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 00A&nbsp;&nbsp; 08005C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INSERT ELEMENT INTO
+<br>ORDERED LIST
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 00B&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 00C&nbsp;&nbsp; 412A03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; ORDLST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 00D&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 00E&nbsp;&nbsp; 402007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LOOP1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:07 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+2
+<br>&nbsp;Filename: PA10_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 40.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 00F&nbsp;&nbsp; 08000C&nbsp;&nbsp; PRT:&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PRTMSG_LENGTH&nbsp;&nbsp; ; PRINT COMPLETE LIST
+<br>HEADER
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 010&nbsp;&nbsp; 08003D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PRTMSG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 011&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 012&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 013&nbsp;&nbsp; 00205C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR LIST EMPTY
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 014&nbsp;&nbsp; 200000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; NIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 47.&nbsp;&nbsp;&nbsp; 015&nbsp;&nbsp; 49201B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JNE&nbsp;&nbsp;&nbsp;&nbsp; PRT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF NOT EMPTY
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 016&nbsp;&nbsp; 08000D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; NOLMSG_LENGTH&nbsp;&nbsp; ; PRINT EMPTY LIST
+<br>MESSAGE
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 017&nbsp;&nbsp; 080041&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; NOLMSG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 018&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 019&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp; 01A&nbsp;&nbsp; 40201E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; COUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 53.
+<br>&nbsp; 54.&nbsp;&nbsp;&nbsp; 01B&nbsp;&nbsp; 08205C&nbsp;&nbsp; PRT1:&nbsp;&nbsp;
+PSH&nbsp;&nbsp;&nbsp;&nbsp; HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PRINT COMPLETE LIST
+<br>&nbsp; 55.&nbsp;&nbsp;&nbsp; 01C&nbsp;&nbsp; 412A02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PRTLST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 56.&nbsp;&nbsp;&nbsp; 01D&nbsp;&nbsp; 120001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 57.
+<br>&nbsp; 58.&nbsp;&nbsp;&nbsp; 01E&nbsp;&nbsp; 0A205A&nbsp;&nbsp; COUNT:&nbsp;
+CLR&nbsp;&nbsp;&nbsp;&nbsp; POSCNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; POSCNT := 0
+<br>&nbsp; 59.&nbsp;&nbsp;&nbsp; 01F&nbsp;&nbsp; 0A205B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLR&nbsp;&nbsp;&nbsp;&nbsp; NEGCNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NEGCNT := 0
+<br>&nbsp; 60.&nbsp;&nbsp;&nbsp; 020&nbsp;&nbsp; 08205C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH&nbsp;&nbsp;&nbsp;&nbsp; HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COUNT LIST ELEMENTS
+<br>&nbsp; 61.&nbsp;&nbsp;&nbsp; 021&nbsp;&nbsp; 08005A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; POSCNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 62.&nbsp;&nbsp;&nbsp; 022&nbsp;&nbsp; 08005B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; NEGCNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 63.&nbsp;&nbsp;&nbsp; 023&nbsp;&nbsp; 412100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PNLIST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 64.&nbsp;&nbsp;&nbsp; 024&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 65.&nbsp;&nbsp;&nbsp; 025&nbsp;&nbsp; 08001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; POSMSG_LENGTH&nbsp;&nbsp; ; PRINT POSITIVE COUNT
+<br>&nbsp; 66.&nbsp;&nbsp;&nbsp; 026&nbsp;&nbsp; 080046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; POSMSG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 67.&nbsp;&nbsp;&nbsp; 027&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 68.&nbsp;&nbsp;&nbsp; 028&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 69.&nbsp;&nbsp;&nbsp; 029&nbsp;&nbsp; 00205A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; POSCNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 70.&nbsp;&nbsp;&nbsp; 02A&nbsp;&nbsp; 412E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 71.&nbsp;&nbsp;&nbsp; 02B&nbsp;&nbsp; 08001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; NEGMSG_LENGTH&nbsp;&nbsp; ; PRINT NEGATIVE COUNT
+<br>&nbsp; 72.&nbsp;&nbsp;&nbsp; 02C&nbsp;&nbsp; 080050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; NEGMSG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 73.&nbsp;&nbsp;&nbsp; 02D&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 74.&nbsp;&nbsp;&nbsp; 02E&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 75.&nbsp;&nbsp;&nbsp; 02F&nbsp;&nbsp; 00205B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; NEGCNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 76.&nbsp;&nbsp;&nbsp; 030&nbsp;&nbsp; 412E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 77.
+<br>&nbsp; 78.&nbsp;&nbsp;&nbsp; 031&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; DONE:&nbsp;&nbsp;
+HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; STOP
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:07 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+3
+<br>&nbsp;Filename: PA10_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 79.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 80.&nbsp;&nbsp;&nbsp; 032&nbsp;&nbsp; 4F7264&nbsp;&nbsp; INPMSG:.CHAR&nbsp;&nbsp;&nbsp;
+'Ordered List Input (0 =
+<br>Done)\CR\LF',INPMSG_LENGTH ;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 033&nbsp;&nbsp; 657265
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 034&nbsp;&nbsp; 64204C
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 035&nbsp;&nbsp; 697374
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 036&nbsp;&nbsp; 20496E
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 037&nbsp;&nbsp; 707574
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 038&nbsp;&nbsp; 202830
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 039&nbsp;&nbsp; 203D20
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03A&nbsp;&nbsp; 446F6E
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03B&nbsp;&nbsp; 65290D
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03C&nbsp;&nbsp; 0A202A
+<br>&nbsp; 81.
+<br>&nbsp; 82.&nbsp;&nbsp;&nbsp; 03D&nbsp;&nbsp; 4C6973&nbsp;&nbsp; PRTMSG:.CHAR&nbsp;&nbsp;&nbsp;
+'List Print\CR\LF',PRTMSG_LENGTH
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03E&nbsp;&nbsp; 742050
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03F&nbsp;&nbsp; 72696E
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 040&nbsp;&nbsp; 740D0A
+<br>&nbsp; 83.
+<br>&nbsp; 84.&nbsp;&nbsp;&nbsp; 041&nbsp;&nbsp; 4C4953&nbsp;&nbsp; NOLMSG:.CHAR&nbsp;&nbsp;&nbsp;
+'LIST EMPTY!\CR\LF',NOLMSG_LENGTH
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 042&nbsp;&nbsp; 542045
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 043&nbsp;&nbsp; 4D5054
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 044&nbsp;&nbsp; 59210D
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 045&nbsp;&nbsp; 0A202A
+<br>&nbsp; 85.
+<br>&nbsp; 86.&nbsp;&nbsp;&nbsp; 046&nbsp;&nbsp; 4E756D&nbsp;&nbsp; POSMSG:.CHAR&nbsp;&nbsp;&nbsp;
+'Number of Positive Elements =
+<br>',POSMSG_LENGTH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 047&nbsp;&nbsp; 626572
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 048&nbsp;&nbsp; 206F66
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 049&nbsp;&nbsp; 20506F
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04A&nbsp;&nbsp; 736974
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04B&nbsp;&nbsp; 697665
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04C&nbsp;&nbsp; 20456C
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04D&nbsp;&nbsp; 656D65
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04E&nbsp;&nbsp; 6E7473
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04F&nbsp;&nbsp; 203D20
+<br>&nbsp; 87.
+<br>&nbsp; 88.&nbsp;&nbsp;&nbsp; 050&nbsp;&nbsp; 4E756D&nbsp;&nbsp; NEGMSG:.CHAR&nbsp;&nbsp;&nbsp;
+'Number of Negative Elements =
+<br>',NEGMSG_LENGTH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 051&nbsp;&nbsp; 626572
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 052&nbsp;&nbsp; 206F66
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 053&nbsp;&nbsp; 204E65
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 054&nbsp;&nbsp; 676174
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 055&nbsp;&nbsp; 697665
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 056&nbsp;&nbsp; 20456C
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 057&nbsp;&nbsp; 656D65
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 058&nbsp;&nbsp; 6E7473
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 059&nbsp;&nbsp; 203D20
+<br>&nbsp; 89.
+<br>&nbsp; 90.&nbsp;&nbsp;&nbsp; 05A&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; POSCNT:.BLKW&nbsp;&nbsp;&nbsp;
+1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; POSITIVE ELEMENT COUNT
+<br>&nbsp; 91.&nbsp;&nbsp;&nbsp; 05B&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; NEGCNT:.BLKW&nbsp;&nbsp;&nbsp;
+1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NEGATIVE ELEMENT COUNT
+<br>&nbsp; 92.
+<br>&nbsp; 93.&nbsp;&nbsp;&nbsp; 05C&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; HEAD:&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; 1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; LIST HEADER
+<br>&nbsp; 94.
+<br>&nbsp; 95.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:07 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+4
+<br>&nbsp;Filename: PA10_TST.CSP
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; PRTLST = 000A02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ORDLST = 000A03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PNLIST
+= 000100
+<br>&nbsp; PUT_NUM = 000E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GET_NUM = 000E01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR
+= 000E05
+<br>&nbsp; DATA = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NEXT = 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NIL = 000000
+<br>&nbsp; STACKTOP = 000E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MAIN = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HEAD = 00005C
+<br>&nbsp; INPMSG_LENGTH = 00001F&nbsp;&nbsp; INPMSG = 000032&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP1 = 000007
+<br>&nbsp; PRT = 00000F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PRTMSG_LENGTH = 00000C&nbsp;&nbsp; PRTMSG = 00003D
+<br>&nbsp; PRT1 = 00001B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NOLMSG_LENGTH = 00000D&nbsp;&nbsp; NOLMSG = 000041
+<br>&nbsp; COUNT = 00001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POSCNT = 00005A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NEGCNT
+= 00005B
+<br>&nbsp; POSMSG_LENGTH = 00001E&nbsp;&nbsp; POSMSG = 000046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NEGMSG_LENGTH = 00001E
+<br>&nbsp; NEGMSG = 000050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE = 000031
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:16 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+1
+<br>&nbsp;Filename: PA10_V1.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA SPRING 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 10-10:&nbsp;
+PNLIST
+<br>(RECURSIVE)
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 21, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PROCEDURE PNLIST(HEAD:CELL_PTR;VAR
+<br>NUMPOS,NUMNEG:INTEGER)
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; BEGIN
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp; IF HEAD&lt;>NIL THEN BEGIN
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF HEAD^.DATA>=0 THEN NUMPOS:=NUMPOS+1
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ELSE NUMNEG:=NUMNEG+1
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END{IF};
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PNLIST(HEAD^.NEXT);
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp; END{IF}
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; END{PNLIST}
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; HEAD,4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; FIRST PARAMETER:
+<br>HEAD&nbsp;&nbsp; (CBV)
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NUMPOS,3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SECOND PARAMETER:
+<br>NUMPOS (CBA)
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NUMNEG,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SECOND PARAMETER:
+<br>NUMNEG (CBA)
+<br>&nbsp; 22.
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; DATA,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET FOR LIST DATA
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NEXT,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET FOR NEXT CELL
+<br>POINTER
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NIL,$000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NIL POINTER VALUE
+<br>&nbsp; 26.
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SUBROUTINE BASE
+<br>&nbsp; 28.
+<br>&nbsp; 29.
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 100&nbsp;&nbsp; 680000&nbsp;&nbsp; PNLIST:
+BGN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE CALL
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 101&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE REGISTERS
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 102&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 103&nbsp;&nbsp; 013004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX&nbsp;&nbsp; ! HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET LIST HEAD PINTER
+<br>&nbsp; 34.
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 104&nbsp;&nbsp; 210000&nbsp;&nbsp; LOOP:&nbsp;&nbsp;
+CMX#&nbsp;&nbsp;&nbsp; NIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR DONE
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 105&nbsp;&nbsp; 482110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF DONE
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 106&nbsp;&nbsp; 244000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TST+&nbsp;&nbsp;&nbsp; DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST CELL DATA FOR
+<br>POSITIVE
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 107&nbsp;&nbsp; 4C210A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; @+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 108&nbsp;&nbsp; 1B7003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INC*&nbsp; ! NUMPOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NUMPOS := NUMPOS + 1
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 109&nbsp;&nbsp; 40210B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 10A&nbsp;&nbsp; 1B7002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INC*&nbsp; ! NUMNEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NUMNEG := NUMNEG + 1
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 10B&nbsp;&nbsp; 084001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH+&nbsp;&nbsp;&nbsp; NEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; CALL PNLIST
+<br>RECURSIVELY
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 10C&nbsp;&nbsp; 083003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH&nbsp;&nbsp; ! NUMPOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 10D&nbsp;&nbsp; 083002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH&nbsp;&nbsp; ! NUMNEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 10E&nbsp;&nbsp; 412100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PNLIST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 10F&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 47.
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 110&nbsp;&nbsp; FFF013&nbsp;&nbsp; DONE:&nbsp;&nbsp;
+POPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE REGISTERS
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 111&nbsp;&nbsp; FFF014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 112&nbsp;&nbsp; 690000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FIN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TERMINATE CALL
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 113&nbsp;&nbsp; FFF040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RTN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETURN
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 53.
+<br>&nbsp; 54.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:16 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+2
+<br>&nbsp;Filename: PA10_V1.CSP
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; HEAD = 000004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NUMPOS = 000003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NUMNEG
+= 000002
+<br>&nbsp; DATA = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NEXT = 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NIL = 000000
+<br>&nbsp; PNLIST = 000100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP = 000104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE = 000110
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:26 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+1
+<br>&nbsp;Filename: PA10_V2.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA SPRING 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 10-10:&nbsp;
+PNLIST
+<br>(OPTIMIZED)
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 21, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PROCEDURE PNLIST(HEAD:CELL_PTR;VAR
+<br>NUMPOS,NUMNEG:INTEGER)
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; BEGIN
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp; IF HEAD&lt;>NIL THEN BEGIN
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF HEAD^.DATA>=0 THEN NUMPOS:=NUMPOS+1
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ELSE NUMNEG:=NUMNEG+1
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END{IF};
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PNLIST(HEAD^.NEXT);
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp; END{IF}
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; END{PNLIST}
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; HEAD,4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; FIRST PARAMETER:
+<br>HEAD&nbsp;&nbsp; (CBV)
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NUMPOS,3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SECOND PARAMETER:
+<br>NUMPOS (CBA)
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NUMNEG,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SECOND PARAMETER:
+<br>NUMNEG (CBA)
+<br>&nbsp; 22.
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; DATA,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET FOR LIST DATA
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NEXT,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET FOR NEXT CELL
+<br>POINTER
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; NIL,$000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NIL POINTER VALUE
+<br>&nbsp; 26.
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SUBROUTINE BASE
+<br>&nbsp; 28.
+<br>&nbsp; 29.
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 100&nbsp;&nbsp; 680000&nbsp;&nbsp; PNLIST:
+BGN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE CALL
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 101&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE REGISTERS
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 102&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 103&nbsp;&nbsp; 0A7003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLR*&nbsp; ! NUMPOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; CLEAR NUMPOS
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp; 104&nbsp;&nbsp; 0A7002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLR*&nbsp; ! NUMNEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; CLEAR NUMNEG
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 105&nbsp;&nbsp; 013004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX&nbsp;&nbsp; ! HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET LIST HEAD PINTER
+<br>&nbsp; 36.
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 106&nbsp;&nbsp; 210000&nbsp;&nbsp; LOOP:&nbsp;&nbsp;
+CMX#&nbsp;&nbsp;&nbsp; NIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR DONE
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 107&nbsp;&nbsp; 482110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF DONE
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 108&nbsp;&nbsp; 244000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TST+&nbsp;&nbsp;&nbsp; DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST CELL DATA FOR
+<br>POSITIVE
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 109&nbsp;&nbsp; 4C210C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; @+3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 10A&nbsp;&nbsp; 1B7003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INC*&nbsp; ! NUMPOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NUMPOS := NUMPOS + 1
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 10B&nbsp;&nbsp; 40210D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 10C&nbsp;&nbsp; 1B7002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INC*&nbsp; ! NUMNEG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NUMNEG := NUMNEG + 1
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 10D&nbsp;&nbsp; 014001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX+&nbsp;&nbsp;&nbsp; NEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GET POINTER TO NEXT
+<br>CELL
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 10E&nbsp;&nbsp; 053004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STX&nbsp;&nbsp; ! HEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 10F&nbsp;&nbsp; 402106&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 47.
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 110&nbsp;&nbsp; FFF013&nbsp;&nbsp; DONE:&nbsp;&nbsp;
+POPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE REGISTERS
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 111&nbsp;&nbsp; FFF014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 112&nbsp;&nbsp; 690000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FIN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TERMINATE CALL
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 113&nbsp;&nbsp; FFF040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RTN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETURN
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 53.
+<br>&nbsp; 54.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 12:16:26 Tuesday May 21st, 1996&nbsp; Page&nbsp;&nbsp;
+2
+<br>&nbsp;Filename: PA10_V2.CSP
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; HEAD = 000004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NUMPOS = 000003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NUMNEG
+= 000002
+<br>&nbsp; DATA = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NEXT = 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NIL = 000000
+<br>&nbsp; PNLIST = 000100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP = 000106&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE = 000110
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

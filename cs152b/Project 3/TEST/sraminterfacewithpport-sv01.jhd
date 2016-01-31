@@ -1,0 +1,4 @@
+MODULE sraminterfacewithpport
+   SUBMODULE memorymultiplexor
+   SUBMODULE pctosraminterface
+   SUBMODULE sraminterface

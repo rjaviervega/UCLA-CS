@@ -1,0 +1,18 @@
+# Xilinx CORE Generator 4.1i
+SELECT Bus_Multiplexer Virtex Xilinx,_Inc. 4.0
+CSET input_bus_width = 4
+CSET synchronous_settings = none
+CSET multiplexer_construction = lut_based
+CSET create_rpm = true
+CSET output_enable = false
+CSET async_init_value = 0
+CSET component_name = mux2to1
+CSET sync_init_value = 0
+CSET ce_overrides = sync_controls_override_ce
+CSET set_clear_priority = clear_overrides_set
+CSET clock_enable = false
+CSET asynchronous_settings = none
+CSET output_options = non_registered
+CSET number_of_input_buses = 2
+CSET latency = 0
+GENERATE

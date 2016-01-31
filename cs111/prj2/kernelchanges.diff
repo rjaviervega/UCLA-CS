@@ -1,0 +1,162 @@
+diff -burN -X dontdiff linux-2.4.26/arch/i386/kernel/entry.S linux/arch/i386/kernel/entry.S
+--- linux-2.4.26/arch/i386/kernel/entry.S	2003-06-13 10:51:29.000000000 -0400
++++ linux/arch/i386/kernel/entry.S	2004-05-03 01:50:00.000000000 -0400
+@@ -663,6 +663,7 @@
+ 	.long SYMBOL_NAME(sys_ni_syscall)	/* sys_epoll_wait */
+  	.long SYMBOL_NAME(sys_ni_syscall)	/* sys_remap_file_pages */
+  	.long SYMBOL_NAME(sys_ni_syscall)	/* sys_set_tid_address */
++ 	.long SYMBOL_NAME(sys_cs111)		/* sys_set_tid_address */
+ 
+ 	.rept NR_syscalls-(.-sys_call_table)/4
+ 		.long SYMBOL_NAME(sys_ni_syscall)
+diff -burN -X dontdiff linux-2.4.26/arch/i386/kernel/sys_i386.c linux/arch/i386/kernel/sys_i386.c
+--- linux-2.4.26/arch/i386/kernel/sys_i386.c	2003-08-25 07:44:39.000000000 -0400
++++ linux/arch/i386/kernel/sys_i386.c	2004-05-05 23:24:46.000000000 -0400
+@@ -257,3 +257,134 @@
+ 	return -ERESTARTNOHAND;
+ }
+ 
++
++
++
++
++
++/* Syscall sys_cs111
++
++	This call implements UCLA cs111 project #2 linux
++	kernel projecct.
++
++   R. Javier Vega
++   Eduardo Esquivel
++*/
++
++struct pid_strc {
++	pid_t mfdpid;
++	unsigned int numfd;
++	unsigned int maxfd;
++};
++
++
++asmlinkage int sys_cs111(pid_t * pid_array, struct pid_strc * result )
++{
++	//Misc variables
++	void * addr = NULL;
++	int i, loop = 0, valid = 0;
++	unsigned int fd_count;
++	pid_t current_pid = -1;
++
++	//Procedure variables
++	struct task_struct * task;
++	struct files_struct * files;
++	struct pid_strc result_k;
++
++	//Return Temp variabes
++	pid_t mfdpid = 0;
++	unsigned int numfd = 0;
++	unsigned int maxfd = 0;
++
++	//Check for null parameters
++	if ( pid_array == NULL || result == NULL ) {
++		printk ("cs111: null parameters.\n");
++		return -EINVAL;
++	}
++
++	//Main Loop
++	while ( 1 ) {
++
++		//Get the address where the pid_array is stored
++		addr = pid_array + loop;
++
++		//Check for access ok and if sucessful get the pid from user space
++		if ( access_ok ( VERIFY_READ, pid_array + loop, sizeof(pid_t) ) != 0 ) {
++			copy_from_user ( &current_pid, pid_array + loop, sizeof(pid_t) );
++			//printk ("Loop %d, PID %d.\n", loop, current_pid);
++		}
++		else {
++			printk ("cs111: access_ok fail verify_read.\n");
++			return -EFAULT;
++		}
++
++		//Done at the end of the array
++		if ( current_pid == (int) NULL ) break;
++
++		//In case the pid is invalid
++		if ( current_pid < 0 )  {
++			printk ("cs111: invalid pid value.\n");
++			return -EFAULT;
++		}
++
++		task = find_task_by_pid ( current_pid );
++
++		if ( task != NULL ) {
++
++			//If we got to here there is at least one pid valid
++			//so we set the flag
++			valid = 1;
++
++			files = task->files;
++
++			//Count Files
++			read_lock( &files->file_lock );
++			fd_count = 0;
++			for ( i = 0; i <= files->max_fdset; i++ ) {
++				if ( FD_ISSET ( i, files->open_fds ) ) {
++					fd_count++; //Count number of open fils
++					if ( i > maxfd ) maxfd = i; //Store the hights number found
++				}
++			}
++			read_unlock( &files->file_lock );
++
++			//printk("Open Files: %d\n", fd_count);
++
++			//Store relevant data
++			if ( fd_count > numfd ) {
++				numfd = fd_count;		//Get max num of fds
++				mfdpid = current_pid;		//Get current pid
++			}
++		}
++		else {
++			printk("cs111: task not found: %d\n", current_pid);
++		}
++
++		//Move to next item
++		loop++;
++	}
++
++	//Check if there wasn't any valid calls
++	if ( valid == 0 ) {
++		printk("cs111: failure due to not valid pids.\n");
++		return -EFAULT;
++	}
++
++	//else
++	//Store Result Structure
++	result_k.mfdpid = mfdpid;
++	result_k.numfd  = numfd;
++	result_k.maxfd  = maxfd;
++
++	if ( access_ok ( VERIFY_WRITE, result, sizeof( result_k ) ) != 0 ) {
++		copy_to_user (result, &result_k, sizeof(result_k));
++	}
++	else {
++		printk ("cs111: access_ok failed to verify write.\n");
++		return -EFAULT;
++	}
++	//
++
++	printk ("cs111: succesfull.\n");
++	return 0;
++}
+Files linux-2.4.26/drivers/char/joystick/core.3872 and linux/drivers/char/joystick/core.3872 differ
+diff -burN -X dontdiff linux-2.4.26/include/asm-i386/unistd.h linux/include/asm-i386/unistd.h
+--- linux-2.4.26/include/asm-i386/unistd.h	2002-11-28 18:53:15.000000000 -0500
++++ linux/include/asm-i386/unistd.h	2004-05-03 01:50:00.000000000 -0400
+@@ -257,6 +257,8 @@
+ #define __NR_alloc_hugepages	250
+ #define __NR_free_hugepages	251
+ #define __NR_exit_group		252
++#define __NR_sys_cs111		259
++
+ 
+ /* user-visible error numbers are in the range -1 - -124: see <asm-i386/errno.h> */
+ 

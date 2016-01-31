@@ -1,0 +1,9 @@
+* source PROBLEM 2
+E_U1         N00449 0 VALUE {LIMIT(V(N00420,N00391)*1E6,-12V,+12V)}
+R_R1         N00648 N00391  4.7k  
+R_R2         N00275 N00420  20k  
+R_R3         0 N00420  200k  
+R_R4         N00391 N00449  47k  
+R_R5         0 N00449  47k  
+V_V1         N00648 0 2.5Vdc
+V_V2         N00275 0 3Vdc

@@ -1,0 +1,1007 @@
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   1
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+   1.                   ;**************************************************************************
+   2.                   ;
+   3.                   ; FILE:		P5SUB1.CSP
+   4.                   ;
+   5.                   ; DESCRIPTION:	PROJECT 5 SUBRUTINES 1
+   6.                   ;
+   7.                   ; AUTHOR:	R. JAVIER VEGA
+   8.                   ;
+   9.                   ;**************************************************************************
+  10.                
+  11.                
+  12.                   ;	Functions start at $A00 address
+  13.                
+  14.                   		.EQU	@,		$A00
+  15.                
+  16.    A00   402A07   		JMP	MOV_CELL			; $A00 = MOVE_CELL
+  17.    A01   402A25   		JMP	SET_CELL			; $A01 = SET_CELL
+  18.    A02   402A36   		JMP	BEEP_MSG			; $A02 = BEEP_MSG
+  19.    A03   402A43   		JMP	CLR_BELL			; $A03 = CLEAR_BELL
+  20.    A04   402A4B   		JMP	SW_CURTN			; $A04 = SHOW_CURR_CELL
+  21.    A05   402A5B   		JMP	SW_VALUE			; $A05 = SHOW_CELL_VAL
+  22.    A06   402A79   		JMP	UPD_TOTS			; $A06 = UPDATE_TOTS
+  23.                
+  24.                
+  25.                   ;		// I/O PORTS CONSTANTS
+  26.                   		.EQU	X_POS,		$314
+  27.                   		.EQU	Y_POS,		$315
+  28.                   		.EQU	CRT_CTRL,	$316
+  29.                   		.EQU	CRT_DATA,	$317
+  30.                   		.EQU	KBD_STAT,	$000
+  31.                   		.EQU	KBD_DATA,	$001
+  32.                
+  33.                   ;		// PROGRAM CONSTANTS 
+  34.                   		.EQU	ROWS,		9
+  35.                   		.EQU	COLS,		8
+  36.                   		.EQU	TOT_CELLS,	ROWS * COLS
+  37.                
+  38.                   		.EQU	ZERO,		$000
+  39.                
+  40.                   		.EQU	MAX_R,		8				; MAX RIGHT MOST CELL VALUE
+  41.                   		.EQU	MAX_B,		9				; MAX BOTTOM MOST CELL VALUE
+  42.                   		.EQU	BELL_BEEP,	$07				; BELL CONSTANT FOR IO
+  43.                
+  44.                
+  45.                
+  46.                   ;	// FUNCTION: MOVE_CELL ( X, Y, X_CURRENT, Y_CURRENT )
+  47.                   ;
+  48.                   ;	//	THIS FUNCTION MOVES THE CURRENT CELL X SPACES TO THE RIGHT 
+  49.                   ;	//	AND Y SPACES UP. NEGATIVE VALUES ARE LEFT AND DOWN MOVES. 
+  50.                   ;	//	THIS FUNCTION TAKES AS PARAMETERS THE CURRENT POSSITION OF
+  51.                   ;	//	THE CURSOR AND THEN IT CALCULATES THE NEXT MOVEMENT DEPENDING
+  52.                   ;	//	ON THE PARAMETERS PASSED TO THE FUNCTION.
+  53.                   ;
+  54.                   ;
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   2
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+  55.                   ;	//	LOCAL VARS
+  56.                   		.EQU	X_MOVES, 0
+  57.                   		.EQU	Y_MOVES, 1
+  58.                   		.EQU	NUM_LOCALS, 2
+  59.                
+  60.                   ;	//	PARAMETERS
+  61.                   		.EQU	Y_CURR, NUM_LOCALS + 2
+  62.                   		.EQU	X_CURR, NUM_LOCALS + 3
+  63.                   		.EQU	Y_MOVE,	NUM_LOCALS + 4
+  64.                   		.EQU	X_MOVE, NUM_LOCALS + 5
+  65.                
+  66.    A07   680002   MOV_CELL:	BGN#	NUM_LOCALS
+  67.    A08   FFF010   			PSHA
+  68.    A09   FFF011   			PSHX
+  69.                   			
+  70.    A0A   412A43   			JSR		CLR_BELL			; CLEAR SCREEN IN CASE OF BEING BEEP
+  71.                
+  72.    A0B   007005   			LDA*	!X_CURR				; MOVE THE CURSOR IN THE X PLANE
+  73.    A0C   103007   			ADA		!X_MOVE				;
+  74.    A0D   200008   			CMA#	MAX_R				; CHECK FOR BOUNDRIES ? ZERO
+  75.    A0E   4D2A20   			JGT		BEEP				; PROMPT ERROR BEEP
+  76.    A0F   200000   			CMA#	ZERO				; 
+  77.    A10   4C2A20   			JLE		BEEP				;
+  78.    A11   047005   			STA*	!X_CURR				; UNDO CALCULATION
+  79.    A12   043000   			STA		!X_MOVES			;
+  80.                
+  81.    A13   007004   			LDA*	!Y_CURR				; PROCESS Y PLANE IN SAME WAY
+  82.    A14   103006   			ADA		!Y_MOVE				;
+  83.    A15   200009   			CMA#	MAX_B				; CHECK BOUNDRIES
+  84.    A16   4D2A20   			JGT		BEEP				;
+  85.    A17   200000   			CMA#	ZERO				;
+  86.    A18   4C2A20   			JLE		BEEP				;
+  87.    A19   047004   			STA*	!Y_CURR				;
+  88.    A1A   043001   			STA		!Y_MOVES			;
+  89.                
+  90.    A1B   083000   			PSH		!X_MOVES			; IF SUCCESSFULL 
+  91.    A1C   083001   			PSH		!Y_MOVES			; SET THE POSSITION OF THE CELL
+  92.    A1D   412A25   			JSR		SET_CELL			; WITH THE NEW VALUES 
+  93.    A1E   120002   			ADS#	2
+  94.    A1F   402A21   			JMP		@ + 2
+  95.    A20   412A36   BEEP:		JSR		BEEP_MSG			; IN CASE OF ERROR
+  96.    A21   FFF014               POPX
+  97.    A22   FFF013   			POPA
+  98.    A23   690002   			FIN#	NUM_LOCALS
+  99.    A24   FFF040   			RTN
+ 100.                   ;
+ 101.                   ;
+ 102.                
+ 103.                
+ 104.                
+ 105.                
+ 106.                
+ 107.                
+ 108.                
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   3
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 109.                   ;	// FUNCTION: SET_CELL POSSITION ( INT X, Y ) 
+ 110.                   ;
+ 111.                   ;	//	SETS THE POSSITION OF THE CURSOR ACCORDING THE
+ 112.                   ;	//	SPECIFIED CELL ( X, Y ) VALUE PAIR. THIS FUNCTION
+ 113.                   ;	//	ALSO UPDATES THE INDEX COUNTER FOR POSSITION IN STAT
+ 114.                   ;	//	BAR SCREEN.
+ 115.                   ;	//	THIS FUNCTION IS MAINLY USED BY MOV_CELL.
+ 116.                   ;
+ 117.                   ;	// FUNCTION CONSTANTS
+ 118.                   		.EQU	X_SPACED,		4		; SEPARATION BETWEEN CELLS IN X SPACE
+ 119.                   		.EQU	Y_SPACED,		1		; "				"		"	  Y SPACE
+ 120.                   		.EQU	X_START,		2		; INITIAL X POSITION FROM BORDER
+ 121.                   		.EQU	Y_START,		2		; INITIAL Y POSITION FROM RIGHT TOP BORDER
+ 122.                   		.EQU	ROWS_MAP,		$2E1	; ROW CRT MAP FOR DISPLAY
+ 123.                   		.EQU	COLS_MAP,		$2D7	; COLUMNS CRT MAP FOR DISPLAY INDEX OF CELL
+ 124.                
+ 125.                   ;	// PARAMETERS AND LOCAL VARS
+ 126.                   		.EQU	NUM_LOC1,		0
+ 127.                   		.EQU	Y_CELL_POS,		NUM_LOC1 + 2
+ 128.                   		.EQU	X_CELL_POS,		NUM_LOC1 + 3
+ 129.                
+ 130.    A25   680000   SET_CELL:	BGN#	NUM_LOC1
+ 131.    A26   000004   			LDA#	X_SPACED			;	// SET SPACES
+ 132.    A27   183003   			MUL		!X_CELL_POS
+ 133.    A28   100002   			ADA#	X_START
+ 134.    A29   712314   			OUTB	X_POS
+ 135.    A2A   000001   			LDA#	Y_SPACED
+ 136.    A2B   183002   			MUL		!Y_CELL_POS
+ 137.    A2C   100002   			ADA#	Y_START
+ 138.    A2D   712315   			OUTB	Y_POS
+ 139.    A2E   003003   			LDA		!X_CELL_POS			;	// UPDATE RECORD X CELL POSSITION
+ 140.    A2F   100030   			ADA#	'0'
+ 141.    A30   7122E1   			OUTB	ROWS_MAP
+ 142.    A31   003002   			LDA		!Y_CELL_POS			;	// UPDATE RECORD Y CELL POSSITION
+ 143.    A32   100030   			ADA#	'0'
+ 144.    A33   7122D7   			OUTB	COLS_MAP
+ 145.    A34   690000   			FIN#	NUM_LOC1
+ 146.    A35   FFF040   			RTN
+ 147.                   ;
+ 148.                   ;			
+ 149.                
+ 150.                
+ 151.                
+ 152.                
+ 153.                   			
+ 154.                   			
+ 155.                   ;	// BEEP_MSG	
+ 156.                   ;	//	THIS FUNCTION PRINTS OUT A BEEP MESSAGE AND 
+ 157.                   ;	//	ALSO PRINTS ON THE SCREEN A BELL STRING;
+ 158.                
+ 159.    A36   680000   BEEP_MSG:	BGN#	0
+ 160.                
+ 161.    A37   000042   			LDA#	'B'					; LOAD CHAR
+ 162.    A38   712126   			OUTB	$126				; PUT CHAR
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   4
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 163.    A39   000045   			LDA#	'E'
+ 164.    A3A   712127   			OUTB	$127
+ 165.    A3B   00004C   			LDA#	'L'
+ 166.    A3C   712128   			OUTB	$128
+ 167.    A3D   00004C   			LDA#	'L'
+ 168.    A3E   712129   			OUTB	$129
+ 169.                
+ 170.    A3F   000007   			LDA#	BELL_BEEP			; LOAD BEEP CHAR
+ 171.    A40   712317   			OUTB	CRT_DATA			; OUTPUT BEEP CHAR
+ 172.                   				
+ 173.    A41   690000   			FIN#	0
+ 174.    A42   FFF040   			RTN
+ 175.                
+ 176.                
+ 177.                   ;	// CRL_BELL
+ 178.                   ;	//	THIS FUNCTION CLEARS THE SCREEN FROM THE BEEL
+ 179.                   ;	//	MESSAGE PRINTED WHEN AN ERROR HAS OCCURRED.
+ 180.                   ;	//
+ 181.                
+ 182.    A43   680000   CLR_BELL:	BGN#	0
+ 183.    A44   000020   			LDA#	' '			; LOAD EMPTY CHAR
+ 184.    A45   712126   			OUTB	$126		; OUTPUT CHARS
+ 185.    A46   712127   			OUTB	$127
+ 186.    A47   712128   			OUTB	$128
+ 187.    A48   712129   			OUTB	$129
+ 188.    A49   690000   			FIN#	0
+ 189.    A4A   FFF040   			RTN
+ 190.                
+ 191.                
+ 192.                
+ 193.                
+ 194.                
+ 195.                
+ 196.                   ;	// FUCTION: SW_CURTN
+ 197.                   ;	//	SHOW CURRENT CELL
+ 198.                   ;	//	THIS FUNCTION DISPLAYS THE VALUE JUST ENTERED OF A CELL IN THE 
+ 199.                   ;	//	VALUE BOX. THE PARAMETER PASSED IN THE STACK IS JUST A 
+ 200.                   ;	//	WORD THAT CONTAINS THE CHARCTERS TO BE DISPLAYED.
+ 201.                   ;	//
+ 202.                   ;
+ 203.                
+ 204.                   .EQU	SHOW_CELL,	2			;	PARAM THE WORD TO BE SHOWN
+ 205.                
+ 206.    A4B            SW_CURTN:
+ 207.    A4B   680000   			BGN#	0
+ 208.    A4C   FFF010   			PSHA
+ 209.    A4D   FFF011   			PSHX
+ 210.    A4E   010000   			LDX#	0
+ 211.    A4F   503002   			LDC		!SHOW_CELL		; LOAD THE CHARACTER 
+ 212.    A50   7122EB   			OUTB	$2EB			; OUTPUT THE CHAR
+ 213.    A51   010001   			LDX#	1				; GO NEXT CHAR
+ 214.    A52   503002   			LDC		!SHOW_CELL		; SAME FOR NEXT TWO!
+ 215.    A53   7122EC   			OUTB	$2EC
+ 216.    A54   010002   			LDX#	2
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   5
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 217.    A55   503002   			LDC		!SHOW_CELL
+ 218.    A56   7122ED   			OUTB	$2ED
+ 219.    A57   FFF014   			POPX
+ 220.    A58   FFF013   			POPA
+ 221.    A59   690000   			FIN#	0
+ 222.    A5A   FFF040   			RTN
+ 223.                   ;
+ 224.                   ;
+ 225.                
+ 226.                
+ 227.                
+ 228.                
+ 229.                
+ 230.                
+ 231.                   ;	// FUNCTION SW_VALUE : SHOW_CELL_VALUE
+ 232.                   ;
+ 233.                   ;	//	THIS FUNCTION DISPLAYS THE CONTENT OF ANY CELL INTO THE
+ 234.                   ;	//	VALUE BOX FOR BROWSING AVILITIES IN THE MATRIX CELL.
+ 235.                   ;	//	THE FUNCTION FIRST READS FROM THE SCREEN MAP THE ADDRES
+ 236.                   ;	//	THAT CONTAINS THE CHARACTERS AND THEN IT COPIES ONE BY
+ 237.                   ;	//	ONE DISPLAYING THEN IN THE VALUE BOX.
+ 238.                   ;	//
+ 239.                
+ 240.                   .EQU	TEMP_SCV,		0
+ 241.                   .EQU	NUMLOC_SCV,		1
+ 242.                
+ 243.                   .EQU	X_CURR_SCV,	NUMLOC_SCV + 3
+ 244.                   .EQU	Y_CURR_SCV,	NUMLOC_SCV + 2
+ 245.                
+ 246.                   ;	PARAMS CALL ( X_CURR_CELL, Y_CURR_CELL_ )
+ 247.                
+ 248.    A5B   680001   SW_VALUE:	BGN#	NUMLOC_SCV
+ 249.    A5C   FFF010   			PSHA
+ 250.    A5D   FFF011   			PSHX
+ 251.                   					
+ 252.    A5E   000004   			LDA#	4				; CALCULATE INDEX OF POSSITION
+ 253.    A5F   183004   			MUL		!X_CURR_SCV		;
+ 254.    A60   100025   			ADA#	$25				;
+ 255.    A61   043000   			STA		!TEMP_SCV		; X POSSITION
+ 256.                   			
+ 257.    A62   000026   			LDA#	38				; CALC Y POSSITION
+ 258.    A63   183003   			MUL		!Y_CURR_SCV		;
+ 259.    A64   103000   			ADA		!TEMP_SCV		;
+ 260.    A65   043000   			STA		!TEMP_SCV		; STORE INDEX OF POSSITION
+ 261.                
+ 262.    A66   013000   			LDX		!TEMP_SCV		; READ EACH CHAR AND OUTPUT ITS VALUE
+ 263.    A67   150001   			SBX#	1				;
+ 264.    A68   704100   			INB+	$100			;
+ 265.    A69   7122EA   			OUTB	$2EA			;
+ 266.                
+ 267.    A6A   013000   			LDX		!TEMP_SCV		; READ EACH CHAR AND OUTPUT ITS VALUE
+ 268.    A6B   704100   			INB+	$100			;
+ 269.    A6C   7122EB   			OUTB	$2EB			;
+ 270.                
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   6
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 271.    A6D   013000   			LDX		!TEMP_SCV		; READ EACH CHAR AND OUTPUT ITS VALUE
+ 272.    A6E   110001   			ADX#	1				;
+ 273.    A6F   704100   			INB+	$100			;
+ 274.    A70   7122EC   			OUTB	$2EC			;
+ 275.                
+ 276.    A71   013000   			LDX		!TEMP_SCV		; READ EACH CHAR AND OUTPUT ITS VALUE	
+ 277.    A72   110002   			ADX#	2				;
+ 278.    A73   704100   			INB+	$100			;
+ 279.    A74   7122ED   			OUTB	$2ED			;
+ 280.                
+ 281.    A75   FFF014   			POPX
+ 282.    A76   FFF013   			POPA
+ 283.    A77   690001   			FIN#	NUMLOC_SCV
+ 284.    A78   FFF040   			RTN
+ 285.                   ;
+ 286.                   ;
+ 287.                
+ 288.                
+ 289.                
+ 290.                
+ 291.                
+ 292.                
+ 293.                
+ 294.                
+ 295.                
+ 296.                
+ 297.                
+ 298.                
+ 299.                
+ 300.                   ;	// FUNCTION UPDATE_TOTS
+ 301.                   ;	//	THIS FUNCTION UPDATES THE TOTAL LIST OF THE CELL
+ 302.                   ;	//	ARRAY AND DISPLAY THE PROPER VALUES ( ***, -, + ).
+ 303.                   ;	//	DEPENDING THE TOTAL CALCULATED.
+ 304.                   ;	//	THIS FUNCTION FIRST CALCULATES THE TOTAL TO BE DISPLAYED AND 
+ 305.                   ;	//	THEN IT CALCULATED THE INDEX POSSITION IN THE CRT BUFFER
+ 306.                   ;	//	TO FINALLY CONVERT THE NUMBERS INTO CHARACTERS AND DISPLAY 
+ 307.                   ;	//	THEM TO THE SCREEN.
+ 308.                   ;
+ 309.                
+ 310.                   ;	//	LOCAL VARIABLE DEFINITIONS
+ 311.                   ;
+ 312.                   .EQU	TEMP,				0
+ 313.                   .EQU	TEMP_INDEX,			1
+ 314.                   .EQU	TEMP_NUM,			2
+ 315.                   .EQU	NEGATIVE,			3
+ 316.                   .EQU	MAX_NEGATIVE,		4
+ 317.                   .EQU	DISPLAY_INDEX,		5
+ 318.                   .EQU	CELL_VALUE,			6
+ 319.                   .EQU	NUM_LOCALS_UPDATE,	7
+ 320.                
+ 321.                
+ 322.                
+ 323.                   ;	PARAMS CALL ( X_CURR_CELL, Y_CURR_CELL_ CELL_ARRAY )
+ 324.                   ;
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   7
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 325.                   .EQU	X_CURR_CELL, NUM_LOCALS_UPDATE + 4
+ 326.                   .EQU	Y_CURR_CELL, NUM_LOCALS_UPDATE + 3
+ 327.                   .EQU	CELL_ARRAY,	 NUM_LOCALS_UPDATE + 2
+ 328.                
+ 329.                
+ 330.    A79            UPD_TOTS:
+ 331.    A79   680007   			BGN#	NUM_LOCALS_UPDATE
+ 332.    A7A   FFF010   			PSHA						; SAVE REGISTERS
+ 333.    A7B   FFF011   			PSHX
+ 334.                
+ 335.    A7C   FFF010   			PSHA						; CHECK IF NUMBER IS NEGATIVE
+ 336.    A7D   0003E7   			LDA#	999
+ 337.    A7E   FFF021   			COMA
+ 338.    A7F   100001   			ADA#	1
+ 339.    A80   043004   			STA		!MAX_NEGATIVE		; MAX NEGATIVE VALUE
+ 340.    A81   FFF013   			POPA
+ 341.                   											
+ 342.    A82   00300A   			LDA		!Y_CURR_CELL		; CALCULATE THE TOTAL OF THE CURRENT ROW
+ 343.    A83   140001   			SBA#	1
+ 344.    A84   180008   			MUL#	8
+ 345.    A85   043001   			STA		!TEMP_INDEX
+ 346.    A86   013001   			LDX		!TEMP_INDEX
+ 347.    A87   100008   			ADA#	8
+ 348.    A88   043000   			STA		!TEMP
+ 349.    A89   000000   			LDA#	0
+ 350.    A8A   213000   CHECK:		CMX		!TEMP
+ 351.    A8B   4B2A96   			JGE		DONE_ROWS
+ 352.                   	
+ 353.    A8C   043006   			STA		!CELL_VALUE			; TEMP SAVE REGISTER
+ 354.                
+ 355.    A8D   009009   			LDA&	!CELL_ARRAY			; IF ANY VALUE IS OVER BOUNDRY
+ 356.    A8E   2003E7   			CMA#	999
+ 357.    A8F   4D2A9B   			JGT		SET_STARTS			; SET ROW TOTAL TO STARTS
+ 358.                
+ 359.    A90   203004   			CMA		!MAX_NEGATIVE		; NEGATIVE BOUNDRY
+ 360.    A91   4A2A9B   			JLT		SET_STARTS
+ 361.                
+ 362.    A92   003006   			LDA		!CELL_VALUE			; TEMP RESTORE REGISTER
+ 363.                
+ 364.    A93   109009   			ADA&	!CELL_ARRAY			; IF NOT CONTINUE CALCULATE ROWS
+ 365.    A94   110001   			ADX#	1
+ 366.    A95   402A8A   			JMP		CHECK
+ 367.    A96            DONE_ROWS:								; ACC = TOTAL OF ROWS IN Y CURRENT CELL
+ 368.    A96   2003E7   			CMA#	999
+ 369.    A97   4D2A9B   			JGT		SET_STARTS			; CHECK IF THE TOTAL ADDED IS OUT BOUNDRIES
+ 370.                
+ 371.    A98   203004   			CMA		!MAX_NEGATIVE		; NEGATIVE CHECK
+ 372.    A99   4A2A9B   			JLT		SET_STARTS
+ 373.                
+ 374.    A9A   402AA8   			JMP		SHOW_ROW_TOT		; ELSE DISPLAY THE TOTAL
+ 375.                   			
+ 376.                   ; // THIS CODE SETS THE CHARS TO STARTS 
+ 377.    A9B   FFF010   SET_STARTS:	PSHA
+ 378.    A9C   00300A   			LDA		!Y_CURR_CELL
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   8
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 379.    A9D   140001   			SBA#	1
+ 380.    A9E   180026   			MUL#	38
+ 381.    A9F   FFF000   			TAX
+ 382.    AA0   FFF013   			POPA
+ 383.    AA1   000020   			LDA#	' '
+ 384.    AA2   71416E   			OUTB+	$16E
+ 385.    AA3   00002A   			LDA#	'*'
+ 386.    AA4   714171   			OUTB+	$171
+ 387.    AA5   714170   			OUTB+	$170
+ 388.    AA6   71416F   			OUTB+	$16F
+ 389.    AA7   402B09   			JMP		CALCULATE_COLS
+ 390.                
+ 391.                   ; // ELSE SHOW THE TOTAL ROW
+ 392.    AA8            SHOW_ROW_TOT:
+ 393.                   ;CHECK: IN CASE THE TOTAL IS NEGATIVE
+ 394.    AA8   FFF010   			PSHA
+ 395.    AA9   000000   			LDA#	0
+ 396.    AAA   043003   			STA		!NEGATIVE	; SET NEGATIVE FLAG ON
+ 397.    AAB   FFF013   			POPA
+ 398.                
+ 399.    AAC   200000   			CMA#	0			; MAKE THE JUMP IF NEGATIE ELSE ASSUME POSSITIVE
+ 400.    AAD   4A2AAF   			JLT	IS_NEG			;
+ 401.    AAE   402AB5   			JMP	POS				;
+ 402.                
+ 403.                   ; // IF THE NUMBER IS NEGATIVE, SET FLAG TO DISPLAY NEG SYMBOL AND TREAT 
+ 404.                   ; // NUMBER AS POSSITIVE FOR DISPLAY
+ 405.    AAF   FFF021   IS_NEG:		COMA
+ 406.    AB0   100001   			ADA#	1			; CONVERT VALUE TO POSITIVE FOR DISPLAY
+ 407.    AB1   FFF010   			PSHA
+ 408.    AB2   000001   			LDA#	1
+ 409.    AB3   043003   			STA		!NEGATIVE	; SET TEMP IDEX TO 1 ( INDICATES DISPLAY - SIMBOL )
+ 410.    AB4   FFF013   			POPA						
+ 411.                   								; ACCUMULATOR HAS THE VALUE TO BE DISPLAYED ON SCREEN 
+ 412.                   								; AS DECIMAL NUMBER AT THIS POINT
+ 413.    AB5            POS:
+ 414.                   								; SET THE INDEX TO DISPLAY THE PROPER IO PORT
+ 415.    AB5   FFF010   			PSHA
+ 416.    AB6   00300A   			LDA		!Y_CURR_CELL
+ 417.    AB7   140001   			SBA#	1
+ 418.    AB8   180026   			MUL#	38
+ 419.    AB9   FFF000   			TAX
+ 420.    ABA   053005   			STX		!DISPLAY_INDEX
+ 421.    ABB   FFF013   			POPA
+ 422.                
+ 423.                   								; COMBERT NUMBER INTO CHARACTER DIGITS
+ 424.    ABC   FFF010   			PSHA				; CONVERT FIRST DIGIT TO DECIMAL VALUE CHAR
+ 425.    ABD   1A0064   			MOD#	100
+ 426.    ABE   1A000A   			MOD#	10
+ 427.    ABF   043002   			STA		!TEMP_NUM			
+ 428.    AC0   100030   			ADA#	'0'	
+ 429.    AC1   013005   			LDX		!DISPLAY_INDEX
+ 430.    AC2   714171   			OUTB+	$171
+ 431.    AC3   010002   			LDX#	2
+ 432.    AC4   513006   			STC		!CELL_VALUE		; STORE CHAR INTO CELL LAST POSSITION
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page   9
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 433.    AC5   FFF013   			POPA
+ 434.                   			
+ 435.    AC6   143002   			SBA		!TEMP_NUM		; SUBS FROM NUMBER PREVIOUS DISPLAYED ONE
+ 436.                   			
+ 437.    AC7   200064   			CMA#	100				; PROCESS NEXT NUMBER
+ 438.    AC8   4A2AD5   			JLT		NEXT_NUM		;
+ 439.    AC9   FFF010   			PSHA					;
+ 440.    ACA   1A0064   			MOD#	100				;
+ 441.    ACB   200000   			CMA#	0				;
+ 442.    ACC   4D2AD4   			JGT		POPN_NUM		;
+ 443.    ACD   000030   			LDA#	'0'				;
+ 444.    ACE   013005   			LDX		!DISPLAY_INDEX	;
+ 445.    ACF   714170   			OUTB+	$170			;
+ 446.    AD0   010001   			LDX#	1				;
+ 447.    AD1   513006   			STC		!CELL_VALUE		;
+ 448.    AD2   FFF013   			POPA					;
+ 449.    AD3   402AE3   			JMP		LAST_NUM		; IF DONE PROCESS NEXT NUMBER
+ 450.                   			
+ 451.    AD4   FFF013   POPN_NUM:	POPA
+ 452.    AD5   FFF010   NEXT_NUM:	PSHA
+ 453.    AD6   1A0064   			MOD#	100				; IN CASE THE NUMBER DOES NOT HAVE MORE DIGITS
+ 454.    AD7   19000A   			DIV#	10				; LOAD THE BLANK CHARS AND BE DONE.
+ 455.    AD8   100030   			ADA#	'0'				;
+ 456.    AD9   200030   			CMA#	'0'				;
+ 457.    ADA   492ADC   			JNE		@ + 2			;
+ 458.    ADB   000020   			LDA#	' '				;
+ 459.    ADC   013005   			LDX		!DISPLAY_INDEX	;	
+ 460.    ADD   714170   			OUTB+	$170
+ 461.    ADE   010001   			LDX#	1
+ 462.    ADF   513006   			STC		!CELL_VALUE
+ 463.    AE0   140030   			SBA#	'0'
+ 464.    AE1   043002   			STA		!TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 465.    AE2   FFF013   			POPA
+ 466.                   			
+ 467.    AE3   FFF010   LAST_NUM:	PSHA					; PROCESS LAST DECIMAL VALUE INTO TEMP_CELL
+ 468.    AE4   190064   			DIV#	100				; SAME STEPS AS PREVIOUS CHARS
+ 469.    AE5   100030   			ADA#	'0'				;
+ 470.    AE6   200030   			CMA#	'0'				;
+ 471.    AE7   492AE9   			JNE		@ + 2			;
+ 472.    AE8   000020   			LDA#	' '				;	
+ 473.    AE9   013005   			LDX		!DISPLAY_INDEX
+ 474.    AEA   71416F   			OUTB+	$16F
+ 475.    AEB   010000   			LDX#	0
+ 476.    AEC   513006   			STC		!CELL_VALUE
+ 477.    AED   140030   			SBA#	'0'
+ 478.    AEE   043002   			STA		!TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 479.    AEF   FFF013   			POPA
+ 480.                
+ 481.                   ; DISPLAY THE NEGATIVE SIMBOL IN CASE OF NEGATIVE NUMBER
+ 482.                
+ 483.                   									; DISPLAY THE SIGN - IF NECESSARY
+ 484.                
+ 485.    AF0   000020   			LDA#	' '
+ 486.    AF1   013005   			LDX	!DISPLAY_INDEX
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  10
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 487.    AF2   71416E   			OUTB+	$16E
+ 488.                
+ 489.    AF3   003003   			LDA	!NEGATIVE
+ 490.    AF4   200000   			CMA#	0				; IF NEGATIVE PROCCEDDE TO SHOW SYMBOL 
+ 491.    AF5   482B09   			JEQ	DONE_ROW_TOTALS		; GO TO POPX
+ 492.                
+ 493.    AF6   010001   			LDX#	1				; CHECK WHERE TO PUT THE NEGATIVE SYMBOL
+ 494.    AF7   503006   			LDC		!CELL_VALUE		;
+ 495.    AF8   200020   			CMA#	' '				;
+ 496.    AF9   492AFE   			JNE		@ + 5			;
+ 497.    AFA   00002D   			LDA#	'-'				;
+ 498.    AFB   013005   			LDX		!DISPLAY_INDEX	;
+ 499.    AFC   714170   			OUTB+	$170			;
+ 500.    AFD   402B09   			JMP		DONE_ROW_TOTALS	;
+ 501.                   			
+ 502.    AFE   010000   			LDX#	0				;
+ 503.    AFF   503006   			LDC		!CELL_VALUE		;
+ 504.    B00   200020   			CMA#	' '				;
+ 505.    B01   492B06   			JNE	@ + 5				;
+ 506.    B02   00002D   			LDA#	'-'				;
+ 507.    B03   013005   			LDX	!DISPLAY_INDEX		;
+ 508.    B04   71416F   			OUTB+	$16F			;
+ 509.    B05   402B09   			JMP	DONE_ROW_TOTALS		;
+ 510.                
+ 511.    B06   00002D   			LDA#	'-'				; ELSE USE NEXT DEFAULT POSSITION
+ 512.    B07   013005   			LDX		!DISPLAY_INDEX	;
+ 513.    B08   71416E   			OUTB+	$16E			;
+ 514.    B09            DONE_ROW_TOTALS:					; ROW TOTALS DONE
+ 515.                
+ 516.    B09            CALCULATE_COLS:						; GET COLS TOTAL
+ 517.    B09   00300B   			LDA		!X_CURR_CELL	; THIS CODE USES THE SAME LOGIC THAN THE PREVIOUS
+ 518.    B0A   140001   			SBA#	1				; BUT WITH DIFFERENT INDICES AND VALUES
+ 519.    B0B   043001   			STA		!TEMP_INDEX		;
+ 520.    B0C   013001   			LDX		!TEMP_INDEX		;
+ 521.    B0D   100040   			ADA#	64				;
+ 522.    B0E   043000   			STA		!TEMP			;
+ 523.    B0F   000000   			LDA#	0				;
+ 524.    B10   213000   CCHECK:		CMX		!TEMP			;
+ 525.    B11   4D2B1C   			JGT		CDONE			;
+ 526.                
+ 527.                   	
+ 528.    B12   043006   			STA		!CELL_VALUE		; TEMP SAVE REGISTER
+ 529.                
+ 530.    B13   009009   			LDA&	!CELL_ARRAY		;
+ 531.    B14   2003E7   			CMA#	999				;
+ 532.    B15   4D2B21   			JGT		CSET_STARTS		; CHECK FOR BOUNDRIES
+ 533.                
+ 534.    B16   203004   			CMA		!MAX_NEGATIVE	; NEGATIVE FLAG SET
+ 535.    B17   4A2B21   			JLT		CSET_STARTS		;
+ 536.                
+ 537.    B18   003006   			LDA		!CELL_VALUE		; TEMP RESTORE REGISTER
+ 538.                
+ 539.    B19   109009   			ADA&	!CELL_ARRAY		; CONTINUE ADDING THE VALUES
+ 540.    B1A   110008   			ADX#	8				;
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  11
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 541.    B1B   402B10   			JMP		CCHECK			; LOOP BACK
+ 542.                
+ 543.    B1C            CDONE:								; COLUMNS ADDING TOTAL DONE
+ 544.    B1C   2003E7   			CMA#	999				; CHECK BOUNDRIS FOR PRINTING STARS
+ 545.    B1D   4D2B21   			JGT		CSET_STARTS		;
+ 546.                
+ 547.    B1E   203004   			CMA		!MAX_NEGATIVE	;
+ 548.    B1F   4A2B21   			JLT		CSET_STARTS		;
+ 549.                
+ 550.    B20   402B2E   			JMP		SHOW_COL_TOT	; DISPLAY THE TOTAL 
+ 551.                
+ 552.    B21            CSET_STARTS:						; OUTPUT STARTS
+ 553.    B21   FFF010   			PSHA
+ 554.    B22   00300B   			LDA		!X_CURR_CELL	;
+ 555.    B23   180004   			MUL#	4				;
+ 556.    B24   100002   			ADA#	2				;
+ 557.    B25   FFF000   			TAX						; LOAD INDEX FOR POSSITION OF OUTPUT
+ 558.    B26   FFF013   			POPA					;
+ 559.    B27   00002A   			LDA#	'*'				; START DISPLAYING STARTS
+ 560.    B28   7142A1   			OUTB+	$2A1
+ 561.    B29   7142A0   			OUTB+	$2A0
+ 562.    B2A   71429F   			OUTB+	$29F
+ 563.    B2B   000020   			LDA#	' '
+ 564.    B2C   71429E   			OUTB+	$29E
+ 565.    B2D   402B90   			JMP		FINAL_TOTAL		; DONE STARS
+ 566.                
+ 567.                   		
+ 568.    B2E            SHOW_COL_TOT:		
+ 569.    B2E   FFF010   			PSHA					; CHECK: IN CASE THE TOTAL IS NEGATIVE
+ 570.    B2F   000000   			LDA#	0
+ 571.    B30   043003   			STA	!NEGATIVE
+ 572.    B31   FFF013   			POPA
+ 573.                
+ 574.    B32   200000   			CMA#	0
+ 575.    B33   4A2B35   			JLT		COL_TOT_NEGATIVE	; IF NEGATIVE
+ 576.    B34   402B3B   			JMP		COL_TOT_POSITIVE	; ELSE ASSUME POSSITIVE
+ 577.                
+ 578.    B35            COL_TOT_NEGATIVE:	
+ 579.    B35   FFF021   			COMA
+ 580.    B36   100001   			ADA#	1			; CONVERT VALUE TO POSITIVE FOR DISPLAY
+ 581.    B37   FFF010   			PSHA
+ 582.    B38   000001   			LDA#	1
+ 583.    B39   043003   			STA	!NEGATIVE		; SET TEMP IDEX TO 1 ( INDICATES DISPLAY - SIMBOL )
+ 584.    B3A   FFF013   			POPA						
+ 585.                   								
+ 586.                   								; ACCUMULATOR HAS THE VALUE TO BE DISPLAYED ON SCREEN 
+ 587.                   								; AS DECIMAL NUMBER AT THIS POINT
+ 588.                
+ 589.    B3B            COL_TOT_POSITIVE:
+ 590.    B3B   043006   			STA	!CELL_VALUE
+ 591.                   								; SET THE INDEX TO DISPLAY THE PROPER IO PORT
+ 592.    B3C   FFF010   			PSHA
+ 593.    B3D   00300B   			LDA		!X_CURR_CELL
+ 594.    B3E   180004   			MUL#	4
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  12
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 595.    B3F   100002   			ADA#	2
+ 596.    B40   FFF000   			TAX
+ 597.    B41   053005   			STX		!DISPLAY_INDEX			
+ 598.    B42   FFF013   			POPA
+ 599.                
+ 600.                   			; COMBERT NUMBER INTO CHARACTER DIGITS
+ 601.                   			; SAME LOGIN AS IN ROW TOTAL
+ 602.    B43   FFF010   			PSHA
+ 603.    B44   1A0064   			MOD#	100
+ 604.    B45   1A000A   			MOD#	10
+ 605.    B46   043002   			STA		!TEMP_NUM			
+ 606.    B47   100030   			ADA#	'0'	
+ 607.    B48   013005   			LDX	!DISPLAY_INDEX
+ 608.    B49   7142A1   			OUTB+	$2A1
+ 609.    B4A   010002   			LDX#	2
+ 610.    B4B   513006   			STC	!CELL_VALUE
+ 611.    B4C   FFF013   			POPA
+ 612.                   			
+ 613.    B4D   143002   			SBA		!TEMP_NUM
+ 614.                   			
+ 615.    B4E   200064   			CMA#	100
+ 616.    B4F   4A2B5C   			JLT		CNEXT_NUM
+ 617.    B50   FFF010   			PSHA
+ 618.    B51   1A0064   			MOD#	100
+ 619.    B52   200000   			CMA#	0
+ 620.    B53   4D2B5B   			JGT		CPOPN_NUM
+ 621.    B54   000030   			LDA#	'0'
+ 622.    B55   013005   			LDX	!DISPLAY_INDEX
+ 623.    B56   7142A0   			OUTB+	$2A0
+ 624.    B57   010001   			LDX#	1
+ 625.    B58   513006   			STC	!CELL_VALUE
+ 626.    B59   FFF013   			POPA
+ 627.    B5A   402B6A   			JMP		CLAST_NUM
+ 628.                   			
+ 629.    B5B   FFF013   CPOPN_NUM:	POPA
+ 630.    B5C   FFF010   CNEXT_NUM:	PSHA
+ 631.    B5D   1A0064   			MOD#	100
+ 632.    B5E   19000A   			DIV#	10
+ 633.    B5F   100030   			ADA#	'0'	
+ 634.    B60   200030   			CMA#	'0'
+ 635.    B61   492B63   			JNE		@ + 2
+ 636.    B62   000020   			LDA#	' '			
+ 637.    B63   013005   			LDX	!DISPLAY_INDEX
+ 638.    B64   7142A0   			OUTB+	$2A0
+ 639.    B65   010001   			LDX#	1
+ 640.    B66   513006   			STC	!CELL_VALUE
+ 641.    B67   140030   			SBA#	'0'
+ 642.    B68   043002   			STA		!TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 643.    B69   FFF013   			POPA
+ 644.                   			
+ 645.    B6A   FFF010   CLAST_NUM:	PSHA
+ 646.    B6B   190064   			DIV#	100
+ 647.    B6C   100030   			ADA#	'0'
+ 648.    B6D   200030   			CMA#	'0'
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  13
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 649.    B6E   492B70   			JNE		@ + 2	
+ 650.    B6F   000020   			LDA#	' '
+ 651.    B70   013005   			LDX	!DISPLAY_INDEX
+ 652.    B71   71429F   			OUTB+	$29F
+ 653.    B72   010000   			LDX#	0
+ 654.    B73   513006   			STC	!CELL_VALUE
+ 655.    B74   140030   			SBA#	'0'
+ 656.    B75   043002   			STA		!TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 657.    B76   FFF013   			POPA
+ 658.                   									
+ 659.    B77   000020   			LDA#	' '				; DISPLAY THE NEGATIVE SIMBOL IN CASE OF NEGATIVE NUMBER
+ 660.    B78   013005   			LDX	!DISPLAY_INDEX
+ 661.    B79   71429E   			OUTB+	$29E
+ 662.                
+ 663.    B7A   003003   			LDA		!NEGATIVE
+ 664.    B7B   200000   			CMA#	0				; IF NEGATIVE PROCCEDDE TO SHOW SYMBOL 
+ 665.    B7C   482B90   			JEQ		DONE_COL_TOTALS	; GO TO POPX
+ 666.                
+ 667.    B7D   010001   			LDX#	1
+ 668.    B7E   503006   			LDC		!CELL_VALUE
+ 669.    B7F   200020   			CMA#	' '
+ 670.    B80   492B85   			JNE	@ + 5
+ 671.    B81   00002D   			LDA#	'-'
+ 672.    B82   013005   			LDX		!DISPLAY_INDEX
+ 673.    B83   7142A0   			OUTB+	$2A0
+ 674.    B84   402B90   			JMP		DONE_COL_TOTALS
+ 675.                   			
+ 676.    B85   010000   			LDX#	0
+ 677.    B86   503006   			LDC		!CELL_VALUE
+ 678.    B87   200020   			CMA#	' '
+ 679.    B88   492B8D   			JNE	@ + 5
+ 680.    B89   00002D   			LDA#	'-'
+ 681.    B8A   013005   			LDX		!DISPLAY_INDEX
+ 682.    B8B   71429F   			OUTB+	$29F
+ 683.    B8C   402B90   			JMP		DONE_COL_TOTALS
+ 684.                
+ 685.    B8D   00002D   			LDA#	'-'
+ 686.    B8E   013005   			LDX		!DISPLAY_INDEX
+ 687.    B8F   71429E   			OUTB+	$29E
+ 688.    B90            DONE_COL_TOTALS:					; ROW TOTALS DONE
+ 689.                   ;	// END COLUMN TOTALS CALCULATION AND DISPLAY
+ 690.                
+ 691.                   ;	// SHOW ROWS AND COLS TOTALS SUM
+ 692.    B90            FINAL_TOTAL:
+ 693.                   			; USE THE INDEX CALCULATED FROM THE PREVIUOS
+ 694.                   			; COL CALCULATION
+ 695.    B90   000000   			LDA#	0
+ 696.    B91   010000   			LDX#	0
+ 697.    B92   210048   TOT_LOOP:	CMX#	TOT_CELLS
+ 698.    B93   4B2B9E   			JGE		TOT_LOOP_DONE
+ 699.                   	
+ 700.    B94   043006   			STA	!CELL_VALUE			; TEMP SAVE REGISTER
+ 701.                
+ 702.    B95   009009   			LDA&	!CELL_ARRAY
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  14
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 703.    B96   2003E7   			CMA#	999
+ 704.    B97   4D2BA4   			JGT		TSET_STARTS
+ 705.                
+ 706.    B98   203004   			CMA		!MAX_NEGATIVE
+ 707.    B99   4A2BA4   			JLT		TSET_STARTS
+ 708.                
+ 709.    B9A   003006   			LDA		!CELL_VALUE		; TEMP RESTORE REGISTER
+ 710.                
+ 711.    B9B   109009   			ADA&	!CELL_ARRAY
+ 712.    B9C   110001   			ADX#	1
+ 713.    B9D   402B92   			JMP		TOT_LOOP
+ 714.                   			
+ 715.    B9E            TOT_LOOP_DONE:
+ 716.    B9E   053005   			STX		!DISPLAY_INDEX
+ 717.                
+ 718.    B9F   2003E7   			CMA#	999
+ 719.    BA0   4D2BA4   			JGT		TSET_STARTS
+ 720.                
+ 721.    BA1   203004   			CMA		!MAX_NEGATIVE
+ 722.    BA2   4A2BA4   			JLT		TSET_STARTS
+ 723.                
+ 724.    BA3   402BAB   			JMP		SHOW_TOT_TOT
+ 725.                   			
+ 726.    BA4            TSET_STARTS:
+ 727.    BA4   000020   			LDA#	' '
+ 728.    BA5   71427C   			OUTB+	$27C
+ 729.    BA6   00002A   			LDA#	'*'
+ 730.    BA7   71427F   			OUTB+	$27F
+ 731.    BA8   71427E   			OUTB+	$27E
+ 732.    BA9   71427D   			OUTB+	$27D
+ 733.    BAA   402C05   			JMP		DONE_TOTALS
+ 734.    BAB            SHOW_TOT_TOT:		
+ 735.                   ;CHECK: IN CASE THE TOTAL IS NEGATIVE
+ 736.    BAB   FFF010   			PSHA
+ 737.    BAC   000000   			LDA#	0
+ 738.    BAD   043003   			STA	!NEGATIVE
+ 739.    BAE   FFF013   			POPA
+ 740.                
+ 741.    BAF   200000   			CMA#	0
+ 742.    BB0   4A2BB2   			JLT	NEGATIVE_TOTAL
+ 743.    BB1   402BB8   			JMP	POSITIVE_TOTAL
+ 744.    BB2   FFF021   NEGATIVE_TOTAL:		COMA
+ 745.    BB3   100001   			ADA#	1			; CONVERT VALUE TO POSITIVE FOR DISPLAY
+ 746.    BB4   FFF010   			PSHA
+ 747.    BB5   000001   			LDA#	1
+ 748.    BB6   043003   			STA	!NEGATIVE		; SET TEMP IDEX TO 1 ( INDICATES DISPLAY - SIMBOL )
+ 749.    BB7   FFF013   			POPA						
+ 750.                   								; ACCUMULATOR HAS THE VALUE TO BE DISPLAYED ON SCREEN 
+ 751.                   								; AS DECIMAL NUMBER AT THIS POINT
+ 752.    BB8            POSITIVE_TOTAL:
+ 753.    BB8   FFF010   			PSHA
+ 754.    BB9   1A0064   			MOD#	100
+ 755.    BBA   1A000A   			MOD#	10
+ 756.    BBB   043002   			STA		!TEMP_NUM			
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  15
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 757.    BBC   100030   			ADA#	'0'	
+ 758.    BBD   013005   			LDX	!DISPLAY_INDEX
+ 759.    BBE   71427F   			OUTB+	$27F
+ 760.    BBF   010002   			LDX#	2
+ 761.    BC0   513006   			STC	!CELL_VALUE
+ 762.    BC1   FFF013   			POPA
+ 763.                   			
+ 764.    BC2   143002   			SBA		!TEMP_NUM
+ 765.                   			
+ 766.    BC3   200064   			CMA#	100
+ 767.    BC4   4A2BD1   			JLT		TNEXT_NUM
+ 768.    BC5   FFF010   			PSHA
+ 769.    BC6   1A0064   			MOD#	100
+ 770.    BC7   200000   			CMA#	0
+ 771.    BC8   4D2BD0   			JGT		TPOPN_NUM
+ 772.    BC9   000030   			LDA#	'0'
+ 773.    BCA   013005   			LDX	!DISPLAY_INDEX
+ 774.    BCB   71427E   			OUTB+	$27E
+ 775.    BCC   010001   			LDX#	1
+ 776.    BCD   513006   			STC		!CELL_VALUE
+ 777.    BCE   FFF013   			POPA
+ 778.    BCF   402BDF   			JMP		TLAST_NUM
+ 779.                   			
+ 780.    BD0   FFF013   TPOPN_NUM:	POPA
+ 781.    BD1   FFF010   TNEXT_NUM:	PSHA
+ 782.    BD2   1A0064   			MOD#	100
+ 783.    BD3   19000A   			DIV#	10
+ 784.    BD4   100030   			ADA#	'0'	
+ 785.    BD5   200030   			CMA#	'0'
+ 786.    BD6   492BD8   			JNE		@ + 2
+ 787.    BD7   000020   			LDA#	' '		
+ 788.    BD8   013005   			LDX		!DISPLAY_INDEX
+ 789.    BD9   71427E   			OUTB+	$27E
+ 790.    BDA   010001   			LDX#	1
+ 791.    BDB   513006   			STC		!CELL_VALUE
+ 792.    BDC   140030   			SBA#	'0'
+ 793.    BDD   043002   			STA		!TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 794.    BDE   FFF013   			POPA
+ 795.                   			
+ 796.    BDF   FFF010   TLAST_NUM:	PSHA
+ 797.    BE0   190064   			DIV#	100
+ 798.    BE1   100030   			ADA#	'0'
+ 799.    BE2   200030   			CMA#	'0'
+ 800.    BE3   492BE5   			JNE		@ + 2	
+ 801.    BE4   000020   			LDA#	' '
+ 802.    BE5   013005   			LDX		!DISPLAY_INDEX
+ 803.    BE6   71427D   			OUTB+	$27D
+ 804.    BE7   010000   			LDX#	0
+ 805.    BE8   513006   			STC		!CELL_VALUE
+ 806.    BE9   140030   			SBA#	'0'
+ 807.    BEA   043002   			STA		!TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 808.    BEB   FFF013   			POPA
+ 809.                   ;	// TOTALS DISPLAY
+ 810.                   			
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  16
+ Filename: P5SUB1.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 811.                   ; DISPLAY THE NEGATIVE SIMBOL IN CASE OF NEGATIVE NUMBER
+ 812.                   			; DISPLAY THE SIGN - IF NECESSARY
+ 813.    BEC   000020   			LDA#	' '
+ 814.    BED   013005   			LDX	!DISPLAY_INDEX
+ 815.    BEE   71427C   			OUTB+	$27C
+ 816.                
+ 817.    BEF   003003   			LDA		!NEGATIVE
+ 818.    BF0   200000   			CMA#	0			; IF NEGATIVE PROCCEDDE TO SHOW SYMBOL 
+ 819.    BF1   482C05   			JEQ		DONE_TOTALS	; GO TO POPX
+ 820.                
+ 821.    BF2   010001   			LDX#	1
+ 822.    BF3   503006   			LDC		!CELL_VALUE
+ 823.    BF4   200020   			CMA#	' '
+ 824.    BF5   492BFA   			JNE	@ + 5
+ 825.    BF6   00002D   			LDA#	'-'
+ 826.    BF7   013005   			LDX		!DISPLAY_INDEX
+ 827.    BF8   71427E   			OUTB+	$27E
+ 828.    BF9   402C05   			JMP		DONE_TOTALS
+ 829.                   			
+ 830.    BFA   010000   			LDX#	0
+ 831.    BFB   503006   			LDC		!CELL_VALUE
+ 832.    BFC   200020   			CMA#	' '
+ 833.    BFD   492C02   			JNE	@ + 5
+ 834.    BFE   00002D   			LDA#	'-'
+ 835.    BFF   013005   			LDX		!DISPLAY_INDEX
+ 836.    C00   71427D   			OUTB+	$27D
+ 837.    C01   402C05   			JMP		DONE_TOTALS
+ 838.                
+ 839.    C02   00002D   			LDA#	'-'
+ 840.    C03   013005   			LDX		!DISPLAY_INDEX
+ 841.    C04   71427C   			OUTB+	$27C
+ 842.    C05            DONE_TOTALS:
+ 843.    C05   FFF014   			POPX
+ 844.    C06   FFF013   			POPA
+ 845.    C07   690007   			FIN#	NUM_LOCALS_UPDATE
+ 846.    C08   FFF040   			RTN
+ 847.                   ;
+ 848.                   ;
+ 849.                
+ 850.                
+
+                          SYMBOL TABLE CONTENTS
+
+  MOV_CELL = 000A07        SET_CELL = 000A25        BEEP_MSG = 000A36
+  CLR_BELL = 000A43        SW_CURTN = 000A4B        SW_VALUE = 000A5B
+  UPD_TOTS = 000A79        X_POS = 000314           Y_POS = 000315
+  CRT_CTRL = 000316        CRT_DATA = 000317        KBD_STAT = 000000
+  KBD_DATA = 000001        ROWS = 000009            COLS = 000008
+  TOT_CELLS = 000048       ZERO = 000000            MAX_R = 000008
+  MAX_B = 000009           BELL_BEEP = 000007       X_MOVES = 000000
+  Y_MOVES = 000001         NUM_LOCALS = 000002      Y_CURR = 000004
+  X_CURR = 000005          Y_MOVE = 000006          X_MOVE = 000007
+  BEEP = 000A20            X_SPACED = 000004        Y_SPACED = 000001
+  X_START = 000002         Y_START = 000002         ROWS_MAP = 0002E1
+
+
+ CHASM - CUSP Assembler 22:24:44 Friday May 16th, 2003  Page  17
+ Filename: P5SUB1.CSP
+
+                          SYMBOL TABLE CONTENTS
+
+  COLS_MAP = 0002D7        NUM_LOC1 = 000000        Y_CELL_POS = 000002
+  X_CELL_POS = 000003      SHOW_CELL = 000002       TEMP_SCV = 000000
+  NUMLOC_SCV = 000001      X_CURR_SCV = 000004      Y_CURR_SCV = 000003
+  TEMP = 000000            TEMP_INDEX = 000001      TEMP_NUM = 000002
+  NEGATIVE = 000003        MAX_NEGATIVE = 000004    DISPLAY_INDEX = 000005
+  CELL_VALUE = 000006      NUM_LOCALS_UPDATE = 000007
+  X_CURR_CELL = 00000B     Y_CURR_CELL = 00000A     CELL_ARRAY = 000009
+  CHECK = 000A8A           DONE_ROWS = 000A96       SET_STARTS = 000A9B
+  SHOW_ROW_TOT = 000AA8    CALCULATE_COLS = 000B09  IS_NEG = 000AAF
+  POS = 000AB5             NEXT_NUM = 000AD5        POPN_NUM = 000AD4
+  LAST_NUM = 000AE3        DONE_ROW_TOTALS = 000B09
+  CCHECK = 000B10          CDONE = 000B1C           CSET_STARTS = 000B21
+  SHOW_COL_TOT = 000B2E    FINAL_TOTAL = 000B90     COL_TOT_NEGATIVE = 000B35
+  COL_TOT_POSITIVE = 000B3B                         CNEXT_NUM = 000B5C
+  CPOPN_NUM = 000B5B       CLAST_NUM = 000B6A       DONE_COL_TOTALS = 000B90
+  TOT_LOOP = 000B92        TOT_LOOP_DONE = 000B9E   TSET_STARTS = 000BA4
+  SHOW_TOT_TOT = 000BAB    DONE_TOTALS = 000C05     NEGATIVE_TOTAL = 000BB2
+  POSITIVE_TOTAL = 000BB8  TNEXT_NUM = 000BD1       TPOPN_NUM = 000BD0
+  TLAST_NUM = 000BDF
+
+  Number of Warning Lines:   0
+  Number of Error Lines:   0
+
+  <<<  End of Program Listing   >>>

@@ -1,0 +1,2 @@
+plslib 
+pls    zeroBus.vhd OF_detect.vhd negative_detect.vhd one_bus.vhd add.vhf logical.vhd shift.vhd control_module.vhd OF_enable.vhd zero_detect.vhd alu.vhf memoryread.vhd memorywrite.vhd memorymultiplexor-sv01.vhd pctosraminterface-sv06.vhd sram512kleft16bit50mhzreadreq-sv05.vhd sraminterfacewithpport-sv01.vhd memaccess.vhd regfile.vhf SimModule.vhd project2.vhf 

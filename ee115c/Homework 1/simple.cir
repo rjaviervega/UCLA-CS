@@ -1,0 +1,31 @@
+Simple Inverter Tree
+.include "z:\ee115c\115C_1_025um_PSPICE_BSIM3.txt"
+
+.subckt xinv vdd in out
+mp out in vdd vdd PMOS L=0.25u W=10u
+mn out in 0 0 NMOS L=0.25u W=5u
+.ends
+
+.subckt xinv2 vdd in out1 out2
+x_inv_1 vdd in out1 xinv
+x_inv_2 vdd in out2 xinv
+.ends
+
+x_inv_3 vdd vin 1 xinv
+x_inv2_1 vdd 1 vout1 vout2 xinv2
+x_inv2_2 vdd 1 vout3 vout4 xinv2
+
+c1 vout1 0 1pf
+c2 vout2 0 1pf
+c3 vout2 0 1pf
+c4 vout2 0 1pf
+
+v1 vin 0 ac 1 pulse 0 2.4 2n 1n 1n 10n 20n
+vdd vdd 0 2.4
+
+.tran 10p 250n
+.op
+* .probe (vout1)
+
+.probe
+.end

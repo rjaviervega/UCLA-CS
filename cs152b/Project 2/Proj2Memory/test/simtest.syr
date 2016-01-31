@@ -1,0 +1,259 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : simtest.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : simtest
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : simtest
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/proj2/Proj2Memory/test/simtest.vhd in Library work.
+Entity <simtest> (Architecture <behavioral>) compiled.
+
+Analyzing Entity <simtest> (Architecture <behavioral>).
+WARNING:Xst:819 - E:/proj2/Proj2Memory/test/simtest.vhd (Line 57). The following signals are missing in the process sensitivity list:
+   rddone, dout.
+Entity <simtest> analyzed. Unit <simtest> generated.
+
+
+Synthesizing Unit <simtest>.
+    Related source file is E:/proj2/Proj2Memory/test/simtest.vhd.
+    Found finite state machine <FSM_0> for signal <prestate>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 15                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 10                                             |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <resetl>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 D-type flip-flop(s).
+Unit <simtest> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# FSMs                             : 1
+# Registers                        : 1
+  1-bit register                   : 1
+
+=========================================================================
+
+Optimizing FSM <FSM_0> with One-Hot encoding and D flip-flops.
+
+Starting low level synthesis...
+Optimizing unit <simtest> ...
+
+Building and optimizing final netlist ...
+
+FlipFlop prestate_FFD1 has been replicated 1 time(s) to handle iob=true attribute.
+=========================================================================
+Final Results
+Top Level Output File Name         : simtest
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Macro Statistics
+# FSMs                             : 1
+# Registers                        : 1
+  1-bit register                   : 1
+
+Design Statistics
+# IOs                              : 80
+
+Cell Usage :
+# BELS                             : 23
+#      GND                         : 1
+#      LUT1                        : 1
+#      LUT2                        : 1
+#      LUT2_L                      : 3
+#      LUT3                        : 4
+#      LUT3_D                      : 3
+#      LUT3_L                      : 2
+#      LUT4                        : 7
+#      VCC                         : 1
+# FlipFlops/Latches                : 12
+#      FDC                         : 10
+#      FDP                         : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 79
+#      IBUF                        : 19
+#      OBUF                        : 60
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 12    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: 3.546ns (Maximum Frequency: 282.008MHz)
+   Minimum input arrival time before clock: 7.713ns
+   Maximum output required time after clock: 10.634ns
+   Maximum combinational path delay: 13.193ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default period analysis for Clock 'clk'
+Delay:               3.546ns (Levels of Logic = 1)
+  Source:            prestate_FFD6
+  Destination:       prestate_FFD6
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: prestate_FFD6 to prestate_FFD6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q               5   1.065   1.566  prestate_FFD6 (prestate_FFD6)
+    LUT3_D:I1->LO          1   0.573   0.000  I_prestate_XX_FFD6 (N523)
+    FDC:D                      0.342          prestate_FFD6
+    ----------------------------------------
+    Total                      3.546ns (1.980ns logic, 1.566ns route)
+                                       (55.8% logic, 44.2% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+Offset:              7.713ns (Levels of Logic = 5)
+  Source:            dout_9
+  Destination:       prestate_FFD10
+  Destination Clock: clk rising
+
+  Data Path: dout_9 to prestate_FFD10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O              1   0.768   1.035  dout_9_IBUF (dout_9_IBUF)
+    LUT3:I0->O             1   0.573   1.035  I_7_LUT_17 (N183)
+    LUT3:I0->O             1   0.573   1.035  I_6_LUT_13 (N189)
+    LUT4:I3->O             2   0.573   1.206  I_XXL_112 (N191)
+    LUT3_D:I2->LO          1   0.573   0.000  I_prestate_XX_FFD10 (N528)
+    FDC:D                      0.342          prestate_FFD10
+    ----------------------------------------
+    Total                      7.713ns (3.402ns logic, 4.311ns route)
+                                       (44.1% logic, 55.9% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+Offset:              10.634ns (Levels of Logic = 3)
+  Source:            prestate_FFD6
+  Destination:       din_0
+  Source Clock:      clk rising
+
+  Data Path: prestate_FFD6 to din_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q               5   1.065   1.566  prestate_FFD6 (prestate_FFD6)
+    LUT2:I0->O             1   0.573   1.035  I_0_LUT_8 (N116)
+    LUT4:I3->O             1   0.573   1.035  I_din_0 (din_0_OBUF)
+    OBUF:I->O                  4.787          din_0_OBUF (din_0)
+    ----------------------------------------
+    Total                     10.634ns (6.998ns logic, 3.636ns route)
+                                       (65.8% logic, 34.2% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Delay:               13.193ns (Levels of Logic = 6)
+  Source:            dout_9
+  Destination:       rdaddr_1
+
+  Data Path: dout_9 to rdaddr_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O              1   0.768   1.035  dout_9_IBUF (dout_9_IBUF)
+    LUT3:I0->O             1   0.573   1.035  I_7_LUT_17 (N183)
+    LUT3:I0->O             1   0.573   1.035  I_6_LUT_13 (N189)
+    LUT4:I3->O             2   0.573   1.206  I_XXL_112 (N191)
+    LUT3_D:I2->O           1   0.573   1.035  I_prestate_XX_FFD10 (rdaddr_1_OBUF)
+    OBUF:I->O                  4.787          rdaddr_1_OBUF (rdaddr_1)
+    ----------------------------------------
+    Total                     13.193ns (7.847ns logic, 5.346ns route)
+                                       (59.5% logic, 40.5% route)
+
+=========================================================================
+CPU : 2.25 / 2.30 s | Elapsed : 2.00 / 2.00 s
+ 
+--> 

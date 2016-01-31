@@ -1,0 +1,7 @@
+MODULE project2
+	SUBMODULE memorymodule
+		INSTANCE XLXI_30
+	SUBMODULE regfile
+		INSTANCE XLXI_3
+	SUBMODULE ctrlunit
+		INSTANCE XLXI_31

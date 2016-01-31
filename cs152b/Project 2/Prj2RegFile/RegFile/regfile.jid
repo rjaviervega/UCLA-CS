@@ -1,0 +1,3 @@
+. regfile RegFile.sch e:\hingkei\152bs04\prj2regfile\regfile\RegFile.sch
+BusAMux buxmux16 buxmux16.xco e:\hingkei\152bs04\prj2regfile\regfile\buxmux16.xco
+BusBMux buxmux16 buxmux16.xco e:\hingkei\152bs04\prj2regfile\regfile\buxmux16.xco

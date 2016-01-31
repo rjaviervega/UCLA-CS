@@ -1,0 +1,6 @@
+[alu4]
+Design Entry Utilities=true
+Place & Route=true
+Implement Design=true
+[mux2to1]
+Coregen=true

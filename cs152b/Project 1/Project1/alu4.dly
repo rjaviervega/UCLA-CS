@@ -1,0 +1,365 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Thu Jul 08 12:14:27 2004
+
+File: alu4.dly
+
+ The 20 Worst Net Delays are:
+-------------------------------
+| Max Delay (ns)  | Netname   |
+-------------------------------
+   2.277            ctrl_1
+   2.071            xlxi_29/m1
+   1.955            b_1
+   1.921            ctrl_0
+   1.839            b_3
+   1.746            a2
+   1.678            b_0
+   1.615            a1
+   1.556            a3
+   1.551            ctrl_2
+   1.500            a0
+   1.496            carryout
+   1.434            output_0
+   1.402            add_3
+   1.330            add_2
+   1.294            add_1
+   1.286            xlxi_64/m1
+   1.213            b_2
+   1.189            xlxi_28/ltb
+   1.161            ls_2
+---------------------------------
+
+-------------------------------------------------------------------------------
+                               Net Delays
+-------------------------------------------------------------------------------
+
+a0
+   a0_in.I
+         1.214  xlxi_108/N147.F4
+         1.052  add_0.F1
+         1.086  xlxi_71/m0.F2
+         1.306  xlxi_71/m0.G2
+         1.500  xlxi_28/lt0_1.G1
+         1.498  xlxi_75/m0.F1
+         1.429  xlxi_75/m0.G2
+         1.453  xlxn_135.G2
+
+a1
+   a1_in.I
+         1.364  xlxi_108/N263.F3
+         1.326  add_0.G1
+         1.453  xlxn_200.F2
+         1.259  xlxi_71/m0.F4
+         1.201  xlxi_71/m0.G4
+         1.324  xlxi_28/lt0_1.G3
+         1.300  xlxi_75/m0.G3
+         1.615  xlxn_135.F1
+
+a2
+   a2_in.I
+         0.458  xlxi_108/N379.F3
+         1.746  add_2.F1
+         1.111  xlxn_200.F3
+         1.410  xlxi_83/m0.F3
+         1.191  xlxi_83/m0.G2
+         1.042  xlxi_79/m0.G4
+         1.326  xlxi_28/ge2_3.G1
+         1.181  xlxi_28/le2_3.F2
+         1.717  xlxn_135.F2
+
+a3
+   a3_in.I
+         1.011  xlxi_108/N495.F3
+         1.556  add_2.G1
+         1.460  xlxn_200.G1
+         1.357  xlxi_83/m0.F2
+         1.501  xlxi_83/m0.G1
+         1.355  xlxi_79/m0.F4
+         1.233  xlxi_79/m0.G3
+         1.203  xlxi_28/ge2_3.G4
+         1.373  xlxi_28/gtb.F3
+         1.235  xlxi_28/le2_3.F4
+         1.325  xlxi_28/le2_3.G2
+
+add_0
+   add_0.X
+         0.807  output_0.G4
+         0.986  xlxi_108/N147.G2
+
+add_1
+   add_0.Y
+         1.294  output_1.G1
+         1.266  xlxi_108/N263.G1
+
+add_2
+   add_2.X
+         1.330  output_2.G1
+         1.027  xlxi_108/N379.G3
+
+add_3
+   add_2.Y
+         1.402  output_3.G1
+         1.386  xlxi_108/N495.G1
+
+adder/i_36_55/O
+   add_0.COUT
+         0.000  add_2.CIN
+
+b_0
+   b0_in.I
+         1.454  xlxi_108/N147.F1
+         1.235  borone_1.G1
+         1.650  xlxn_200.F1
+         1.577  xlxn_200.G2
+         1.225  xlxi_71/m0.F3
+         1.190  xlxi_71/m0.G3
+         1.288  xlxi_83/m0.F4
+         1.386  xlxi_83/m0.G3
+         1.352  xlxi_28/lt0_1.G2
+         1.623  xlxi_79/m0.F1
+         1.336  xlxi_79/m0.G2
+         1.371  xlxi_75/m0.F2
+         1.515  xlxi_75/m0.G1
+         1.283  xlxn_135.F3
+         1.678  xlxn_135.G1
+
+b_1
+   b1_in.I
+         1.673  xlxi_108/N263.F4
+         0.943  borone_1.F1
+         1.137  xlxn_200.G3
+         1.511  xlxi_71/m0.F1
+         1.507  xlxi_71/m0.G1
+         1.922  xlxi_83/m0.F1
+         1.716  xlxi_83/m0.G4
+         1.521  xlxi_28/lt0_1.G4
+         1.803  xlxi_79/m0.F3
+         1.955  xlxi_79/m0.G1
+         1.691  xlxi_75/m0.F4
+         1.633  xlxi_75/m0.G4
+         1.221  xlxn_135.G3
+
+b_2
+   b2_in.I
+         0.885  xlxi_108/N379.F4
+         1.197  borone_3.G3
+         1.138  xlxi_28/ge2_3.G3
+         1.213  xlxi_28/le2_3.F3
+
+b_3
+   b3_in.I
+         1.713  xlxi_108/N495.F1
+         1.502  borone_3.F1
+         1.339  xlxi_28/ge2_3.G2
+         1.839  xlxi_28/gtb.F4
+         1.608  xlxi_28/le2_3.F1
+         1.833  xlxi_28/le2_3.G3
+
+b_or_one_0
+   b_or_one_1.Y
+         0.516  add_0.F2
+
+b_or_one_1
+   b_or_one_1.X
+         0.805  add_0.G2
+
+b_or_one_2
+   b_or_one_3.Y
+         0.516  add_2.F2
+
+b_or_one_3
+   b_or_one_3.X
+         0.765  add_2.G2
+
+borone_0
+   borone_1.Y
+         0.647  b_or_one_1.G1
+
+borone_1
+   borone_1.X
+         0.516  b_or_one_1.F2
+
+borone_2
+   borone_3.Y
+         0.647  b_or_one_3.G1
+
+borone_3
+   borone_3.X
+         0.516  b_or_one_3.F2
+
+carry
+   carry.Y
+         0.602  add_0.BX
+
+carry_in
+   cin.I
+         0.695  carry.G3
+
+carryout
+   add_2.COUT
+         1.496  xlxn_299.F4
+
+ctrl_0
+   aluctrl0.I
+         1.722  output_3.F4
+         1.921  xlxi_108/N495.F2
+         1.591  output_2.F3
+         1.683  xlxi_108/N379.F2
+         1.615  output_1.F3
+         1.538  xlxi_108/N263.F2
+         1.417  output_0.F4
+         1.538  xlxi_108/N147.F2
+         1.046  b_or_one_1.G3
+         1.083  b_or_one_1.F3
+         1.538  b_or_one_3.G2
+         1.653  b_or_one_3.F1
+         1.428  carry.G1
+         1.785  xlxn_299.F3
+         1.618  xlxn_299.G4
+
+ctrl_1
+   aluctrl1.I
+         1.683  output_3.BX
+         1.155  xlxi_108/N495.BX
+         1.065  output_2.BX
+         1.137  xlxi_108/N379.BX
+         1.020  output_1.BX
+         0.931  xlxi_108/N263.BX
+         1.112  output_0.BX
+         1.049  xlxi_108/N147.BX
+         2.277  xlxn_299.F1
+         2.273  xlxn_299.G1
+
+ctrl_2
+   aluctrl2.I
+         1.551  output_3.BY
+         1.476  output_2.BY
+         1.379  output_1.BY
+         1.476  output_0.BY
+         0.702  borone_1.G3
+         0.718  borone_1.F4
+         1.297  borone_3.G2
+         1.305  borone_3.F2
+
+ls_2
+   xlxn_135.Y
+         1.161  output_2.F2
+
+output_0
+   output_0.Y
+         1.434  xlxn_282.G2
+         1.006  s0.O
+
+output_1
+   output_1.Y
+         1.105  xlxn_282.G3
+         1.120  s1.O
+
+output_2
+   output_2.Y
+         0.786  xlxn_282.G4
+         0.872  s2.O
+
+output_3
+   output_3.Y
+         0.942  xlxn_282.G1
+         0.859  s3.O
+
+rs_1
+   xlxn_200.Y
+         0.945  output_1.F2
+
+xlxi_108/N147
+   xlxi_108/N147.F5
+         0.000  output_0.F5IN
+
+xlxi_108/N263
+   xlxi_108/N263.F5
+         0.000  output_1.F5IN
+
+xlxi_108/N379
+   xlxi_108/N379.F5
+         0.000  output_2.F5IN
+
+xlxi_108/N495
+   xlxi_108/N495.F5
+         0.000  output_3.F5IN
+
+xlxi_28/ge2_3
+   xlxi_28/ge2_3.Y
+         1.063  xlxi_28/gtb.F1
+
+xlxi_28/gtb
+   xlxi_28/gtb.X
+         0.025  xlxi_28/gtb.G4
+
+xlxi_28/le2_3
+   xlxi_28/le2_3.X
+         0.025  xlxi_28/le2_3.G4
+
+xlxi_28/lt0_1
+   xlxi_28/lt0_1.Y
+         1.113  xlxi_28/gtb.G3
+
+xlxi_28/ltb
+   xlxi_28/le2_3.Y
+         1.189  xlxi_28/gtb.G1
+
+xlxi_29/m1
+   xlxi_28/gtb.Y
+         2.071  ovf.O
+
+xlxi_64/m0
+   xlxi_79/m0.Y
+         0.885  output_3.F3
+
+xlxi_64/m1
+   xlxi_75/m0.Y
+         1.286  output_3.F1
+
+xlxi_71/m0
+   xlxi_71/m0.X
+         1.112  output_1.F1
+
+xlxi_75/m0
+   xlxi_75/m0.X
+         0.991  output_0.F2
+
+xlxi_79/m0
+   xlxi_79/m0.X
+         0.964  output_3.F2
+
+xlxi_83/m0
+   xlxi_83/m0.X
+         1.112  output_2.F1
+
+xlxi_91/m0
+   xlxi_71/m0.Y
+         0.424  output_0.F3
+
+xlxi_91/m1
+   xlxi_83/m0.Y
+         1.122  output_0.F1
+
+xlxn_103
+   xlxn_299.Y
+         0.825  xlxi_28/gtb.G2
+
+xlxn_135
+   xlxn_135.X
+         0.025  xlxn_135.G4
+
+xlxn_200
+   xlxn_200.X
+         0.025  xlxn_200.G4
+
+xlxn_282
+   xlxn_282.Y
+         0.395  zero.O
+
+xlxn_299
+   xlxn_299.X
+         0.873  cout.O
+

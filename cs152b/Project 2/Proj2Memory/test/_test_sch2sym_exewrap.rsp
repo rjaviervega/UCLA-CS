@@ -1,0 +1,1 @@
+-tapkeep -show normal -mode pipe -command sch2sym -family=virtex test.sch test.sym

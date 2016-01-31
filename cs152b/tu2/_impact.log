@@ -1,0 +1,25 @@
+iMPACT log file Started on 2004/07/02 11:26:46
+AutoDetecting cable. Please wait.
+CB_PROGRESS_START - Starting Operation.
+Connecting to cable (USB Port).
+Cable connection failed.
+Connecting to cable (Parallel Port - LPT1).
+Cable connection failed.
+Connecting to cable (Parallel Port - LPT2).
+Cable connection failed.
+Connecting to cable (Parallel Port - LPT3).
+Cable connection failed.
+Connecting to cable (COM1 Port).
+Cable connection failed.
+Connecting to cable (COM2 Port).
+Cable connection failed.
+Connecting to cable (COM3 Port).
+Cable connection failed.
+Connecting to cable (COM4 Port).
+Cable connection failed.
+Elapsed time =     25 sec.
+Cable autodetection failed.
+'1': Loading file 'userpctosramtoplevel.bit' ...done.
+ERROR:iMPACT:499 - The bit file 'userpctosramtoplevel.bit' does not have the   startup clock set to 'JtagClk'. Please re-generate the bitfile with the   startup clock option  set to 'JtagClk'.
+------------------------------------------------------------------------------------
+*****   Closing iMPACT program.   *****

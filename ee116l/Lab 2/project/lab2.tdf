@@ -1,0 +1,55 @@
+Subdesign Lab2
+(Xin , Clock :input;
+ Z,outq2,outq1,outq0        :output;
+)
+
+VARIABLE
+
+sm: MACHINE OF BITS (q2, q1 , q0) 
+    WITH STATES (s0 = B"000",
+	      		 s1 = B"001",
+			     s2 = B"010",
+				 s3 = B"011",
+    			 s4 = B"100",
+				 s5 = B"101",
+				 s6 = B"110");
+BEGIN
+
+sm.clk = Clock;
+
+Table
+
+SM, Xin => SM;
+s0, 0   => s1;
+s0, 1   => s0;
+s1, 0   => s2;
+s1, 1   => s0;
+s2, 0   => s1;
+s2, 1   => s3;
+s3, 0   => s1;
+s3, 1   => s4;
+s4, 0   => s5;
+s4, 1   => s0;
+s5, 0   => s6;
+s5, 1   => s0;
+s6, 0   => s5;
+s6, 1   => s3;
+
+End Table;
+
+Z = q2 & q0;
+outq2=q2;
+outq1=q1;
+outq0=q0;
+
+END;
+
+
+
+
+
+
+
+
+
+

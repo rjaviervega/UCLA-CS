@@ -1,0 +1,39 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+Thu Jul 22 14:24:50 2004
+
+par -f _par.rsp
+
+
+Constraints file: simmodule.pcf
+
+Loading design for application par from file par_temp.ncd.
+   "simmodule" is an NCD, version 2.36, device xcv50, package pq240, speed -6
+Loading device for application par from file 'v50.nph' in environment C:/Xilinx.
+Device speed data version:  FINAL 1.115 2001-06-20.
+
+
+Device utilization summary:
+
+   Number of External GCLKIOBs         1 out of 4      25%
+   Number of External IOBs           184 out of 166   110%
+      Number of LOCed External IOBs    0 out of 184     0%
+
+   Number of SLICEs                   60 out of 768     7%
+
+   Number of GCLKs                     1 out of 4      25%
+
+
+
+Overall effort level (-ol):   2 (set by user)
+Placer effort level (-pl):    2 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    2 (set by user)
+Extra effort level (-xe):     0 (set by user)
+
+ERROR:Par:107 - Design uses over 100 percent of one of the resources.  Design
+   will not fit in the specified device.  However, an NCD file has still been
+   created to assist in analysis of the overmapped resources.
+

@@ -1,0 +1,30 @@
+.menu {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 9pt; VISIBILITY: hidden; PADDING-BOTTOM: 4px; WIDTH: 105px; COLOR: #003399; LINE-HEIGHT: 14px; PADDING-TOP: 4px; FONT-FAMILY: "Arial", "Helvetica"; POSITION: absolute; BACKGROUND-COLOR: #ffffcc
+}
+.menu A:hover {
+	COLOR: #003399
+}
+A:link {
+	COLOR: #003399
+}
+.menu A {
+	COLOR: black; TEXT-DECORATION: none
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+P {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+LI {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+TD {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.footer {
+	FONT-SIZE: 8pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.small {
+	FONT-SIZE: 8pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}

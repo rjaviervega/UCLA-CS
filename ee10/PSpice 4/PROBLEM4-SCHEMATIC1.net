@@ -1,0 +1,10 @@
+* source PROBLEM4
+V_V1         N00375 0 3Vdc
+X_U2         N00760 N00405 Sw_tClose PARAMS: tClose=200us ttran=1u Rclosed=0.01
++  Ropen=1E9
+E_U1         N00475 0 VALUE {LIMIT(V(N00405,N00278)*1E6,-10V,+10V)}
+R_R1         0 N00278  5k  
+R_R2         N00278 N00475  20k  
+R_R3         N00375 N00760  125k  
+R_R4         0 N00475  12k  
+C_C1         0 N00405  8n  

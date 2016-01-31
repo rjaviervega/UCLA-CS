@@ -1,0 +1,7 @@
+[Inputs]
+=A[15:0]=
+=B[15:0]=
+=func[3:0]=
+[Outputs]
+=S[15:0]=
+[BiDir]

@@ -1,0 +1,390 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Fri Jul 23 13:12:19 2004
+
+Xilinx PAD Specification File
+*****************************
+
+Input file:       par_temp.ncd
+Output file:      alu.ncd
+Part type:        xcv50
+Speed grade:      -6
+Package:          pq240
+
+Pinout by Signal Name:
+--------------------------|-----------------|--------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+       Signal Name        |    Pin Name     | Pin    | Direction | IO Standard |IO Bank # |Drive (mA)| Slew | Pullup   | IOB Delay | Voltage |Constraint |
+                          |                 | Number |           |             |          |          | Rate | Pulldown |           |         |           |
+--------------------------|-----------------|--------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+ a<0>                     |                 | P216   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<10>                    |                 | P223   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<11>                    |                 | P6     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<12>                    | VREF            | P9     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<13>                    |                 | P228   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<14>                    |                 | P7     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<15>                    |                 | P224   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<1>                     |                 | P215   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<2>                     |                 | P229   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<3>                     | VREF            | P218   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<4>                     |                 | P208   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<5>                     |                 | P209   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<6>                     |                 | P221   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<7>                     | DOUT_BUSY       | P178   | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<8>                     |                 | P206   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ a<9>                     |                 | P207   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<0>                     |                 | P85    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<10>                    |                 | P33    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<11>                    |                 | P34    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<12>                    |                 | P24    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<13>                    |                 | P26    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<14>                    |                 | P17    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<15>                    | VREF            | P23    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<1>                     |                 | P93    | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<2>                     | VREF            | P84    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<3>                     |                 | P94    | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<4>                     |                 | P154   | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<5>                     |                 | P87    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<6>                     |                 | P220   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<7>                     |                 | P217   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<8>                     | TRDY            | P31    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ b<9>                     |                 | P78    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ control<0>               |                 | P95    | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ control<1>               | VREF            | P205   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ control<2>               |                 | P86    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ control<3>               |                 | P5     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ overflow                 |                 | P222   | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<0>                     |                 | P38    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<10>                    |                 | P48    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<11>                    |                 | P40    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<12>                    |                 | P39    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<13>                    |                 | P46    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<14>                    |                 | P42    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<15>                    |                 | P41    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<1>                     |                 | P47    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<2>                     |                 | P79    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<3>                     |                 | P81    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<4>                     |                 | P82    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<5>                     |                 | P80    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<6>                     |                 | P27    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<7>                     |                 | P25    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<8>                     | IRDY            | P28    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ s<9>                     | VREF            | P36    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ zero                     |                 | P35    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+--------------------------|-----------------|--------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+
+Pinout by Pin Number:
+--------|--------------------------|-----------------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+ Pin    |       Signal Name        |    Pin Name     | Direction | IO Standard |IO Bank # |Drive (mA)| Slew | Pullup   | IOB Delay | Voltage |Constraint |
+ Number |                          |                 |           |             |          |          | Rate | Pulldown |           |         |           |
+--------|--------------------------|-----------------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+ P1     |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P2     |                          | TMS             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P3     |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P4     |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P5     | control<3>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P6     | a<11>                    |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P7     | a<14>                    |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P8     |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P9     | a<12>                    | VREF            | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P10    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P11    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P12    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P13    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P14    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P15    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P16    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P17    | b<14>                    |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P18    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P19    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P20    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P21    |                          |                 | UNUSED    | LVTTL*      | 7        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P22    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P23    | b<15>                    | VREF            | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P24    | b<12>                    |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P25    | s<7>                     |                 | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P26    | b<13>                    |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P27    | s<6>                     |                 | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P28    | s<8>                     | IRDY            | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P29    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P30    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P31    | b<8>                     | TRDY            | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P32    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P33    | b<10>                    |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P34    | b<11>                    |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P35    | zero                     |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P36    | s<9>                     | VREF            | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P37    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P38    | s<0>                     |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P39    | s<12>                    |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P40    | s<11>                    |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P41    | s<15>                    |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P42    | s<14>                    |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P43    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P44    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P45    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P46    | s<13>                    |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P47    | s<1>                     |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P48    | s<10>                    |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P49    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P50    |                          | VREF            |           | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P51    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P52    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P53    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P54    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P55    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P56    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P57    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P58    |                          | M1              |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P59    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P60    |                          | M0              |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P61    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P62    |                          | M2              |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P63    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P64    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P65    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P66    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P67    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P68    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P69    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P70    |                          | VREF            |           | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P71    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P72    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P73    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P74    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P75    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P76    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P77    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P78    | b<9>                     |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P79    | s<2>                     |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P80    | s<5>                     |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P81    | s<3>                     |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P82    | s<4>                     |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P83    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P84    | b<2>                     | VREF            | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P85    | b<0>                     |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P86    | control<2>               |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P87    | b<5>                     |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P88    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P89    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P90    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P91    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P92    |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P93    | b<1>                     |                 | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P94    | b<3>                     |                 | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P95    | control<0>               |                 | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P96    |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P97    |                          | VREF            |           | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P98    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P99    |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P100   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P101   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P102   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P103   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P104   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P105   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P106   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P107   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P108   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P109   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P110   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P111   |                          | VREF            |           | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P112   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P113   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P114   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P115   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P116   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P117   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P118   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P119   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P120   |                          | DONE            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P121   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P122   |                          | PROGRAM         |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P123   |                          | INIT            |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P124   |                          | D7              |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P125   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P126   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P127   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P128   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P129   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P130   |                          | VREF            |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P131   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P132   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P133   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P134   |                          | D6              |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P135   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P136   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P137   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P138   |                          | D5              |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P139   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P140   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P141   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P142   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P143   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P144   |                          | VREF            |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P145   |                          | D4              |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P146   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P147   |                          |                 | UNUSED    | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P148   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P149   |                          | TRDY            |           | LVTTL*      | 3        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P150   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P151   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P152   |                          | IRDY            |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P153   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P154   | b<4>                     |                 | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P155   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P156   |                          | D3              |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P157   |                          | VREF            |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P158   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P159   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P160   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P161   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P162   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P163   |                          | D2              |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P164   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P165   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P166   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P167   |                          | D1              |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P168   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P169   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P170   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P171   |                          | VREF            |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P172   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P173   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P174   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P175   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P176   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P177   |                          | DIN_D0          |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P178   | a<7>                     | DOUT_BUSY       | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P179   |                          | CCLK            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P180   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P181   |                          | TDO             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P182   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P183   |                          | TDI             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P184   |                          | CS              |           | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P185   |                          | WRITE           |           | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P186   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P187   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P188   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P189   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P190   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P191   |                          | VREF            |           | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P192   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P193   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P194   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P195   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P196   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P197   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P198   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P199   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P200   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P201   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P202   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P203   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P204   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P205   | control<1>               | VREF            | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P206   | a<8>                     |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P207   | a<9>                     |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P208   | a<4>                     |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P209   | a<5>                     |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P210   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P211   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P212   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P213   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P214   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P215   | a<1>                     |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P216   | a<0>                     |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P217   | b<7>                     |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P218   | a<3>                     | VREF            | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P219   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P220   | b<6>                     |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P221   | a<6>                     |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P222   | overflow                 |                 | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ P223   | a<10>                    |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P224   | a<15>                    |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P225   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P226   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P227   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P228   | a<13>                    |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P229   | a<2>                     |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P230   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P231   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P232   |                          | VREF            |           | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P233   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P234   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P235   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P236   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P237   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P238   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P239   |                          | TCK             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P240   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+--------|--------------------------|-----------------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+
+* Default value.
+** This default Pullup/Pulldown value can be overridden in Bitgen.
+*** The default IOB Delay is determined by how the IOB is used.
+
+
+#
+# To preserve the pinout above for future design iterations,
+# simply invoke PIN2UCF from the command line or issue this command in the GUI.
+# For Foundation ISE/Project Navigator - Run the process "Implement Design" -> "Place-and-Route" -> "Back-annotate Pin Locations"
+# For Design Manager - In the Design menu select "Lock Pins...
+# The location constraints above will be written into your specified UCF file. (The constraints
+# listed below are in PCF format and cannot be directly used in the UCF file).
+#
+COMP "a<0>" LOCATE = SITE "P216" ; 
+COMP "a<10>" LOCATE = SITE "P223" ; 
+COMP "a<11>" LOCATE = SITE "P6" ; 
+COMP "a<12>" LOCATE = SITE "P9" ; 
+COMP "a<13>" LOCATE = SITE "P228" ; 
+COMP "a<14>" LOCATE = SITE "P7" ; 
+COMP "a<15>" LOCATE = SITE "P224" ; 
+COMP "a<1>" LOCATE = SITE "P215" ; 
+COMP "a<2>" LOCATE = SITE "P229" ; 
+COMP "a<3>" LOCATE = SITE "P218" ; 
+COMP "a<4>" LOCATE = SITE "P208" ; 
+COMP "a<5>" LOCATE = SITE "P209" ; 
+COMP "a<6>" LOCATE = SITE "P221" ; 
+COMP "a<7>" LOCATE = SITE "P178" ; 
+COMP "a<8>" LOCATE = SITE "P206" ; 
+COMP "a<9>" LOCATE = SITE "P207" ; 
+COMP "b<0>" LOCATE = SITE "P85" ; 
+COMP "b<10>" LOCATE = SITE "P33" ; 
+COMP "b<11>" LOCATE = SITE "P34" ; 
+COMP "b<12>" LOCATE = SITE "P24" ; 
+COMP "b<13>" LOCATE = SITE "P26" ; 
+COMP "b<14>" LOCATE = SITE "P17" ; 
+COMP "b<15>" LOCATE = SITE "P23" ; 
+COMP "b<1>" LOCATE = SITE "P93" ; 
+COMP "b<2>" LOCATE = SITE "P84" ; 
+COMP "b<3>" LOCATE = SITE "P94" ; 
+COMP "b<4>" LOCATE = SITE "P154" ; 
+COMP "b<5>" LOCATE = SITE "P87" ; 
+COMP "b<6>" LOCATE = SITE "P220" ; 
+COMP "b<7>" LOCATE = SITE "P217" ; 
+COMP "b<8>" LOCATE = SITE "P31" ; 
+COMP "b<9>" LOCATE = SITE "P78" ; 
+COMP "control<0>" LOCATE = SITE "P95" ; 
+COMP "control<1>" LOCATE = SITE "P205" ; 
+COMP "control<2>" LOCATE = SITE "P86" ; 
+COMP "control<3>" LOCATE = SITE "P5" ; 
+COMP "overflow" LOCATE = SITE "P222" ; 
+COMP "s<0>" LOCATE = SITE "P38" ; 
+COMP "s<10>" LOCATE = SITE "P48" ; 
+COMP "s<11>" LOCATE = SITE "P40" ; 
+COMP "s<12>" LOCATE = SITE "P39" ; 
+COMP "s<13>" LOCATE = SITE "P46" ; 
+COMP "s<14>" LOCATE = SITE "P42" ; 
+COMP "s<15>" LOCATE = SITE "P41" ; 
+COMP "s<1>" LOCATE = SITE "P47" ; 
+COMP "s<2>" LOCATE = SITE "P79" ; 
+COMP "s<3>" LOCATE = SITE "P81" ; 
+COMP "s<4>" LOCATE = SITE "P82" ; 
+COMP "s<5>" LOCATE = SITE "P80" ; 
+COMP "s<6>" LOCATE = SITE "P27" ; 
+COMP "s<7>" LOCATE = SITE "P25" ; 
+COMP "s<8>" LOCATE = SITE "P28" ; 
+COMP "s<9>" LOCATE = SITE "P36" ; 
+COMP "zero" LOCATE = SITE "P35" ; 
+#

@@ -1,0 +1,114 @@
+
+**** 03/10/03 01:27:37 ************** PSpice Lite (Mar 2000) *****************
+
+ ** Profile: "SCHEMATIC1-Bias"  [ C:\Documents and Settings\Javier\My Documents\EE10\PSpice 4\problem4-SCHEMATIC1-Bias.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "problem4-SCHEMATIC1-Bias.sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Program Files\OrcadLite\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ms 0 
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+.INC ".\problem4-SCHEMATIC1.net" 
+
+
+
+**** INCLUDING problem4-SCHEMATIC1.net ****
+* source PROBLEM4
+V_V1         N00375 0 3Vdc
+R_R5         0 N00405  1G  
+X_U2         N00760 N00405 Sw_tClose PARAMS: tClose=200us ttran=1u Rclosed=0.01
++  Ropen=1E9
+E_U1         N00475 0 VALUE {LIMIT(V(N00405,N00278)*1E6,-10V,+10V)}
+R_R1         0 N00278  5k  
+R_R2         N00278 N00475  20k  
+R_R3         N00375 N00760  125k  
+R_R4         0 N00475  12k  
+C_C1         0 N00405  8n  
+
+**** RESUMING problem4-SCHEMATIC1-Bias.sim.cir ****
+.END
+
+**** 03/10/03 01:27:37 ************** PSpice Lite (Mar 2000) *****************
+
+ ** Profile: "SCHEMATIC1-Bias"  [ C:\Documents and Settings\Javier\My Documents\EE10\PSpice 4\problem4-SCHEMATIC1-Bias.sim ] 
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U2.Smod       
+         RON     .01         
+        ROFF    1.000000E+09 
+         VON    1            
+        VOFF    0            
+
+
+**** 03/10/03 01:27:37 ************** PSpice Lite (Mar 2000) *****************
+
+ ** Profile: "SCHEMATIC1-Bias"  [ C:\Documents and Settings\Javier\My Documents\EE10\PSpice 4\problem4-SCHEMATIC1-Bias.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00278)    1.4999 (N00375)    3.0000 (N00405)    1.4999 (N00475)    7.4995     
+
+(N00760)    2.9998 (X_U2.3)    0.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.500E-09
+    X_U2.V1      0.000E+00
+
+    TOTAL POWER DISSIPATION   4.50E-09  WATTS
+
+
+ERROR -- Convergence problem in transient analysis at Time =  512.6E-06
+         Time step =  373.8E-15, minimum allowable step size =  1.000E-12
+
+  These devices failed to converge:
+    E_U1      
+
+ERROR -- Discontinuing simulation due to convergence problem
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00278)    1.9022 (N00375)    3.0000 (N00405)    1.9022 (N00475)    9.5109     
+
+(N00760)    1.9022 (X_U2.3)    1.0000 
+

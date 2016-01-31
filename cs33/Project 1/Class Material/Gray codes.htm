@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0038)http://web.usna.navy.mil/~wdj/gray.htm -->
+<HTML><HEAD><TITLE>Gray codes</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<H1>
+<CENTER>Gray codes </CENTER></H1>
+<H3>
+<CENTER>by David Joyner and Jim McShea, Math Dept, USNA </CENTER></H3>
+<P>Gray codes have several applications: 
+<UL>
+  <LI>solving puzzles such as the Tower of Hanoi and the Brain [G], 
+  <LI>analog-digital-converters (goniometers) [S], 
+  <LI>Hamiltonian circuits in hypercubes [Gil] and Cayley graphs of Coxeter 
+  groups [CSW], 
+  <LI>capanology (the study of bell-ringing) [W], 
+  <LI>continuous space-filling curves [Gi], 
+  <LI>classification of Venn diagrams [R], 
+  <LI>design of <A 
+  href="http://www.cecm.sfu.ca/people/Luis_Goddyn/">communication codes</A>, 
+  <LI>increase the resolution of the CODACON spectrometer being constructed at 
+  L.A.S.P., Univ. of Colorado for a <A 
+  href="http://www.cecm.sfu.ca/people/Luis_Goddyn/">satellite application</A>. 
+  </LI></UL>This worksheet and the text file <A 
+href="http://web.usna.navy.mil/~wdj/gray.mpl">gray.mpl</A> contains four 
+algorithms for generating a binary Gray code (essentially the "reflected" binary 
+Gray code) of length n. One is the binary-to-reflected Gray code conversion [G]. 
+Another takes advantage of the periodicity of the reflected Gray code in each 
+coordinate. The third uses a relationship between the i-th codeword and the 
+2i-th codeword, which as far as we know is new. The third one is perhaps the 
+fastest of these three but requires that the table of previous codewords be 
+placed in memory. This package also contains some plotting commands for 
+visualizing the "size" of each codeword in the code. 
+<P></P>
+<P>The fourth algorithm to produce Gray codes will actually produce an m-ary 
+(not just binary) Gray code of length n. It is compact and relatively fast. 
+Though discovered independently, this appears to be the same as the first 
+algorithm of M. C. Er [E]. </P>
+<P>The <B>gray</B> package contains routines to 
+<UL>
+  <LI>solve the <B>Brain</B> puzzle: 
+  <P>For example, the coordinate (x,2<SUP>y+1</SUP>) of the plot below signifies 
+  that the y-th peg should be moved at the x-th step of the Brain puzzle: </P>
+  <CENTER><IMG height=365 alt="Brain puzzle" src="Gray codes_files/brain.jpg" 
+  width=346 align=center border=0> </CENTER>
+  <LI>give the binary representation and then the reflected binary Gray codeword 
+  associated to the decimal number, 
+  <LI>An m-ary Gray code of length n. </LI></UL>
+<P></P>
+<P>There is a <A href="http://web.usna.navy.mil/~wdj/gray0.mws">example 
+worksheet</A> which may be downloaded as well. 
+<CENTER><B>REFERENCES </B></CENTER>
+<P>[CSW] J. Conway, N. Sloane, and A. Wilks, "Gray codes and reflection groups", 
+Graphs and combinatorics 5(1989)315-325 </P>
+<P>[E] M. C. Er, "On generating the N-ary reflected Gray codes", IEEE 
+transactions on computers, 33(1984)739-741 </P>
+<P>[G] M. Gardner, "The binary Gray code", in Knotted donuts and other 
+mathematical entertainments, F. H. Freeman and Co., NY, 1986 </P>
+<P>[Gi] W. Gilbert, "A cube-filling Hilbert curve", Math Intell 6 (1984)78 </P>
+<P>[Gil] E. Gilbert, "Gray codes and paths on the n-cube", Bell System Technical 
+Journal 37 (1958)815-826 </P>
+<P>[R] F. Ruskey, <A 
+href="http://www.combinatorics.org/Journal/Surveys/ds5/VennEJC.html">"A Survey 
+of Venn Diagrams"</A>, Elec. J. of Comb.(1997) </P>
+<P>[S] Web page of <A 
+href="http://www.mathematik.uni-bielefeld.de/~sillke/RESULTS/gray">T. Sillke</A> 
+</P>
+<P>[W] A. White, "Ringing the cosets", Amer. Math. Monthly 94(1987)721-746 </P>
+<HR SIZE=8>
+Last updated 6-13-97. </BODY></HTML>

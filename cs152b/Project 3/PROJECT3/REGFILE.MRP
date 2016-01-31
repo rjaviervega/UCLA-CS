@@ -1,0 +1,167 @@
+Release 4.1i - Map E.30
+Xilinx Mapping Report File for Design 'regfile'
+
+Design Information
+------------------
+Command Line   : map -p xcv50-pq240-6 -cm area -ir -k 4 -c 100 -tx off
+regfile.ngd 
+Target Device  : xv50
+Target Package : pq240
+Target Speed   : -6
+Mapper Version : virtex -- $Revision: 1.58 $
+Mapped Date    : Fri Jul 23 13:26:58 2004
+
+Design Summary
+--------------
+   Number of errors:      0
+   Number of warnings:    0
+   Number of Slices:                124 out of    768   16%
+   Number of Slices containing
+      unrelated logic:                0 out of    124    0%
+   Number of Slice Flip Flops:      112 out of  1,536    7%
+   Number of 4 input LUTs:          135 out of  1,536    8%
+   Number of bonded IOBs:            58 out of    166   34%
+   Number of GCLKs:                   1 out of      4   25%
+   Number of GCLKIOBs:                1 out of      4   25%
+Total equivalent gate count for design:  1,994
+Additional JTAG gate count for IOBs:  2,832
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group Summary
+Section 10 - Modular Design Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:62 - All of the external outputs in this design are using slew rate
+   limited output drivers. The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the schematic.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   3 block(s) removed
+   3 block(s) optimized away
+   1 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "xlxi_7/d0" is sourceless and has been removed.
+Unused block "busamux/VCC" (ONE) removed.
+Unused block "busbmux/VCC" (ONE) removed.
+Unused block "xlxi_7/i_36_37" (AND) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		busamux/GND
+GND 		busbmux/GND
+GND 		xlxi_48
+
+Section 6 - IOB Properties
+--------------------------
+
++------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type    | Direction | IO Standard | Drive    | Slew | Reg (s)  | Resistor | IOB   |
+|                                    |         |           |             | Strength | Rate |          |          | Delay |
++------------------------------------------------------------------------------------------------------------------------+
+| clock                              | GCLKIOB | INPUT     | LVTTL       |          |      |          |          |       |
+| busa<0>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<10>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<11>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<12>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<13>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<14>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<15>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<1>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<2>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<3>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<4>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<5>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<6>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<7>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<8>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busa<9>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<0>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<10>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<11>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<12>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<13>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<14>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<15>                           | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<1>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<2>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<3>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<4>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<5>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<6>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<7>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<8>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busb<9>                            | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| busw<0>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<10>                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<11>                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<12>                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<13>                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<14>                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<15>                           | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<1>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<2>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<3>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<4>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<5>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<6>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<7>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<8>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| busw<9>                            | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ra<0>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ra<1>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| ra<2>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| rb<0>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| rb<1>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| rb<2>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| rw<0>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| rw<1>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| rw<2>                              | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| wren                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
++------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+busbmux/hset                            
+busamux/hset                            
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group Summary
+------------------------------
+No area groups were found in this design.
+
+Section 10 - Modular Design Summary
+-----------------------------------
+Modular Design not used for this design.

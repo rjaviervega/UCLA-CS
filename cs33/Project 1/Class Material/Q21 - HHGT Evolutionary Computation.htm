@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0067)http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q21.htm -->
+<HTML><HEAD><TITLE>Q21 - HHGT Evolutionary Computation</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY>
+<P>
+<H1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q21.htm">Q21</A>: 
+What are Gray codes, and why are they used?</H1>
+<P>
+<P>The correct spelling is "Gray"---not "gray", "Grey", or "grey"--- since Gray 
+codes are named after the Frank Gray who patented their use for shaft encoders 
+in 1953 [1]. Gray codes actually have a longer history, and the inquisitive 
+reader may want to look up the August, 1972, issue of Scientific American, which 
+contains two articles of interest: one on the origin of binary codes [2], and 
+another by Martin Gardner on some entertaining aspects of Gray codes [3]. Other 
+references containing descriptions of Gray codes and more modern, non-GA, 
+applications include the second edition of Numerical Recipes [4], Horowitz and 
+Hill [5], Kozen [6], and Reingold [7]. 
+<P>A Gray code represents each number in the sequence of integers {0...2^N-1} as 
+a binary string of length N in an order such that adjacent integers have Gray 
+code representations that differ in only one bit position. Marching through the 
+integer sequence therefore requires flipping just one bit at a time. Some call 
+this defining property of Gray codes the "adjacency property" [8]. 
+<P>Example (N=3): The binary coding of {0...7} is {000, 001, 010, 011, 100, 101, 
+110, 111}, while one Gray coding is {000, 001, 011, 010, 110, 111, 101, 100}. In 
+essence, a Gray code takes a binary sequence and shuffles it to form some new 
+sequence with the adjacency property. There exist, therefore, multiple Gray 
+codings for any given N. The example shown here belongs to a class of Gray codes 
+that goes by the fancy name "binary-reflected Gray codes". These are the most 
+commonly seen Gray codes, and one simple scheme for generationg such a Gray code 
+sequence says, "start with all bits zero and successively flip the right-most 
+bit that produces a new string." 
+<P>Hollstien [9] investigated the use of <FONT size=-1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q99_G.htm#GA">GA</A>s</FONT> 
+for optimizing functions of two variables and claimed that a Gray code 
+representation worked slightly better than the binary representation. He 
+attributed this difference to the adjacency property of Gray codes. Notice in 
+the above example that the step from three to four requires the flipping of all 
+the bits in the binary representation. In general, adjacent integers in the 
+binary representaion often lie many bit flips apart. This fact makes it less 
+likely that a <FONT size=-1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q99_M.htm#MUTATION">MUTATION</A></FONT> 
+operator can effect small changes for a binary-coded <FONT size=-1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q99_I.htm#INDIVIDUAL">INDIVIDUAL</A>.</FONT> 
+
+<P>A Gray code representation seems to improve a mutation operator's chances of 
+making incremental improvements, and a close examination suggests why. In a 
+binary-coded string of length N, a single mutation in the most significant bit 
+(MSB) alters the number by 2^(N-1). In a Gray-coded string, fewer mutations lead 
+to a change this large. The user of Gray codes does, however, pay a price for 
+this feature: those "fewer mutations" lead to much larger changes. In the Gray 
+code illustrated above, for example, a single mutation of the left-most bit 
+changes a zero to a seven and vice-versa, while the largest change a single 
+mutation can make to a corresponding binary-coded individual is always four. One 
+might still view this aspect of Gray codes with some favor: most mutations will 
+make only small changes, while the occasional mutation that effects a truly big 
+change may initiate <FONT size=-1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q99_E.htm#EXPLORATION">EXPLORATION</A></FONT> 
+of an entirely new region in the space of <FONT size=-1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q99_C.htm#CHROMOSOME">CHROMOSOME</A>s.</FONT> 
+
+<P>The algorithm for converting between the binary-reflected Gray code described 
+above and the standard binary code turns out to be surprisingly simple to state. 
+First label the bits of a binary-coded string B[i], where larger i's represent 
+more significant bits, and similarly label the corresponding Gray-coded string 
+G[i]. We convert one to the other as follows: Copy the most significant bit. 
+Then for each smaller i do either G[i] = XOR(B[i+1], B[i])---to convert binary 
+to Gray---or B[i] = XOR(B[i+1], G[i])---to convert Gray to binary. 
+<P>One may easily implement the above algorithm in C. Imagine you do something 
+like 
+<P><B>typedef unsigned short</B> <FONT size=-1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q99_A.htm#ALLELE">ALLELE</A>;</FONT> 
+
+<P>and then use type "allele" for each bit in your chromosome, then the 
+following two functions will convert between binary and Gray code 
+representations. You must pass them the address of the high-order bits for each 
+of the two strings as well as the length of each string. (See the comment 
+statements for examples.) NB: These functions assume a chromosome arranged as 
+shown in the following illustration. 
+<P><PRE>
+index:    C[9]                                                    C[0]
+	  *-----------------------------------------------------------*
+Char C:   |  1  |  1  |  0  |  0  |  1  |  0  |  1  |  0  |  0  |  0  |
+	  *-----------------------------------------------------------*
+	  ^^^^^                                                 ^^^^^
+	  high-order bit                                  low-order bit
+</PRE>
+<P>
+<H2><A name="C CODE">C CODE</A></H2>
+<P><PRE>
+<I>/* Gray &lt;==&gt; binary conversion routines */</I>
+<I>/* written by Dan T. Abell, 7 October 1993 */</I>
+<I>/* please send any comments or suggestions */</I>
+<I>/* to dabell@quark.umd.edu */</I>
+
+<B>void</B> gray_to_binary (Cg, Cb, n)
+<I>/* convert chromosome of length n+1 */</I>
+<I>/*      from    Gray code Cg[0...n] */</I>
+<I>/*        to  binary code Cb[0...n] */</I>
+
+allele    *Cg,*Cb;
+<B>int</B>     n;
+{
+     <B>int</B> j;
+<P>
+     *Cb = *Cg;               <I>/* copy the high-order bit */</I>
+     <B>for</B> (j = 0; j &lt; n; j++) {
+	  Cb--; Cg--;         <I>/* for the remaining bits */</I>
+	  *Cb= *(Cb+1)^*Cg;   <I>/* do the appropriate XOR */</I>
+     }
+}
+
+<B>void</B> binary_to_gray(Cb, Cg, n)
+<I>/* convert chromosome of length n+1 */</I>
+<I>/*      from  binary code Cb[0...n] */</I>
+<I>/*        to    Gray code Cg[0...n] */</I>
+
+allele    *Cb, *Cg;
+<B>int</B>     n;
+{
+     <B>int</B> j;
+<P>
+     *Cg = *Cb;               <I>/* copy the high-order bit */</I>
+     <B>for</B> (j = 0; j &lt; n; j++) {
+	  Cg--; Cb--;         <I>/* for the remaining bits */</I>
+	  *Cg= *(Cb+1)^*Cb;   <I>/* do the appropriate XOR */</I>
+     }
+}
+</P></PRE>
+<P><B>References</B> 
+<P>[1] F. Gray, "Pulse Code Communication", U. S. Patent 2 632 058, March 17, 
+1953. 
+<P>[2] F. G. Heath, "Origins of the Binary Code", Scientific American v.227,n.2 
+(August, 1972) p.76. 
+<P>[3] Martin Gardner, "Mathematical Games", Scientific American v.227,n.2 
+(August, 1972) p.106. 
+<P>[4] William H. Press, et al., Numerical Recipes in C, Second Edition 
+(Cambridge University Press, 1992). 
+<P>[5] Paul Horowitz and Winfield Hill, The Art of Electronics, Second Edition 
+(Cambridge University Press, 1989). 
+<P>[6] Dexter Kozen, The Design and Analysis of Algorithms (Springer-Verlag, New 
+York, NY, 1992). 
+<P>[7] Edward M. Reingold, et al., Combinatorial Algorithms (Prentice Hall, 
+Englewood Cliffs, NJ, 1977). 
+<P>[8] David E. Goldberg, Genetic Algorithms in Search, Optimization, and 
+Machine Learning (Addison-Wesley, Reading, MA, 1989). 
+<P>[9] R. B. Hollstien, Artificial Genetic Adaptation in Computer Control 
+Systems (PhD thesis, University of Michigan, 1971). 
+<P>[10] Albert Nijenhuis and Herbert S. Wilf, Combinatorial Algorithms, 
+(Academic Press, Inc., New York, San Francisco, London 1975). 
+<HR>
+
+<P>
+<CENTER><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q20_3.htm">[Previous 
+question]</A> <A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q22.htm">[Next 
+question]</A> <A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/top.htm">[HHGTEC 
+main contents page]</A> 
+<P><I><FONT size=-1><A 
+href="http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/mistakes.htm">Mistakes 
+in this page?</A><BR>Hitch Hiker's Guide to Evolutionary Computation, Issue 8.1, 
+released 29 March 2000 <BR>Copyright © 1993-2000 by J. Heitkötter and D. 
+Beasley, all rights reserved. </I></CENTER></FONT></P></BODY></HTML>

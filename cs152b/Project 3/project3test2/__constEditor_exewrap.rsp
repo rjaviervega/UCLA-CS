@@ -1,0 +1,1 @@
+-tapkeep -mode pipe -tcl -command C:/Xilinx/data/projnav/constEditor.tcl project2 project2.ucf C:/Xilinx/data/ucf.tft C:/Xilinx/bin/nt 

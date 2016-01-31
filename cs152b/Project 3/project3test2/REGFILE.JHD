@@ -1,0 +1,5 @@
+MODULE regfile
+	SUBMODULE buxmux16
+		INSTANCE BusAMux
+	SUBMODULE buxmux16
+		INSTANCE BusBMux

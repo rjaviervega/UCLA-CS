@@ -1,0 +1,62 @@
+* Four Bit Adder Test
+
+*.include "adder4bit.sp"
+.include "adder4bit2.sp"
+.include "inv_1x.sp"
+.include "4bd2a.sp"
+
+.include "0.25um_PSPICE_BSIM3.txt"
+
+xadder A0_B A1_B A2_B A3_B 
++ B0_B B1_B B2_B B3_B 
++ CI_B S0 S1 S2 S3 COUT
++ VDD VSS adder4bit
+
+vdd Vdd 0 2.5V
+vss VSS 0 0
+
+* Functional Test for Average power measurement
+VA0 A0 0 pulse 0 2.5 1n   10p 10p 10n  20n
+VB0 B0 0 pulse 0 2.5 161n 10p 10p 10n  20n
+VA1 A1 0 pulse 0 2.5 1n   10p 10p 20n  40n
+VB1 B1 0 pulse 0 2.5 161n 10p 10p 20n  40n
+VA2 A2 0 pulse 0 2.5 1n   10p 10p 40n  80n
+VB2 B2 0 pulse 0 2.5 161n 10p 10p 40n  80n
+VA3 A3 0 pulse 0 2.5 1n   10p 10p 80n  160n
+VB3 B3 0 pulse 0 2.5 161n 10p 10p 80n  160n
+VCI CI 0 pulse 0 2.5 1n   10p 10p 160n 320n
+
+XA0 A0 A0_B Vdd VSS inv_1x
+XB0 B0 B0_B Vdd VSS inv_1x
+XA1 A1 A1_B Vdd VSS inv_1x
+XB1 B1 B1_B Vdd VSS inv_1x
+XA2 A2 A2_B Vdd VSS inv_1x
+XB2 B2 B2_B Vdd VSS inv_1x
+XA3 A3 A3_B Vdd VSS inv_1x
+XB3 B3 B3_B Vdd VSS inv_1x
+XCI CI CI_B Vdd VSS inv_1x
+
+C1 S0 0 100F
+C2 S1 0 100F
+C3 S2 0 100F
+C4 S3 0 100F
+C5 COUT 0 100F
+
+XD2AA A0_B A1_B A2_B A3_B AIN 4BD2A
+XD2AB B0_B B1_B B2_B B3_B BIN 4BD2A
+XSUMM AIN BIN CI_B SUM_IN SUMMER
+XD2AS S0 S1 S2 S3 COUT SUM 5BD2A
+
+.tran 10n 480n
+.print tran V([SUM]) V([SUM_IN])
+.probe
+.options DEFW=0.375U DEFL=0.25U DEFAD=0.11P DEFAS=0.11P 
+.end
+
+
+
+
+
+
+
+

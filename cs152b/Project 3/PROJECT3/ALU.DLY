@@ -1,0 +1,2379 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Fri Jul 23 13:12:19 2004
+
+File: alu.dly
+
+ The 20 Worst Net Delays are:
+-------------------------------
+| Max Delay (ns)  | Netname   |
+-------------------------------
+   5.198            b_1_IBUF
+   5.179            b_2_IBUF
+   4.716            control_0_IBUF
+   4.491            b_0_IBUF
+   4.416            a_12_IBUF
+   4.367            b_3_IBUF
+   3.952            control_1_IBUF
+   3.927            control_2_IBUF
+   3.513            a_7_IBUF
+   3.457            control_3_IBUF
+   3.163            xlxn_2_0
+   2.977            a_8_IBUF
+   2.954            a_15_IBUF
+   2.866            a_3_IBUF
+   2.723            a_11_IBUF
+   2.698            a_14_IBUF
+   2.574            xlxi_17_N189
+   2.557            xlxi_17_N804
+   2.556            a_13_IBUF
+   2.478            a_9_IBUF
+---------------------------------
+
+-------------------------------------------------------------------------------
+                               Net Delays
+-------------------------------------------------------------------------------
+
+a_0_IBUF
+   a<0>.I
+         2.199  xlxn_23_0.F1
+         1.756  xlxn_5_1.G3
+         1.340  xlxi_17_N740.F3
+         1.285  xlxi_17_N740.G3
+         1.352  xlxi_17_N272.F3
+         2.040  xlxi_15_xlxn_64_0.G3
+         1.893  xlxi_15_xlxn_74_1.G4
+         1.255  xlxi_17_N572.G3
+         1.417  xlxi_17_Mmux__n0016_xstmacro_int_tempname2.G1
+         1.502  xlxi_15_xlxi_24_N155.F4
+         1.542  xlxi_15_xlxi_24_N155.G1
+
+a_10_IBUF
+   a<10>.I
+         2.070  xlxn_5_11.G3
+         1.254  xlxi_17_N558.F3
+         1.560  xlxi_17_N558.G1
+         1.668  xlxi_17_N814.F3
+         1.346  xlxi_17_N592.F2
+         1.622  xlxi_17_N254.F2
+         1.293  xlxi_15_xlxn_74_11.G3
+         2.063  xlxi_15_xlxn_64_10.G4
+         1.734  xlxi_17_Mmux__n0016_xstmacro_int_tempname9.F2
+         1.629  xlxi_15_xlxi_24_N155.F2
+         1.663  xlxi_15_xlxi_24_N155.G2
+
+a_11_IBUF
+   a<11>.I
+         0.388  xlxi_17_N410.G4
+         2.013  xlxn_5_11.F4
+         1.756  xlxi_17_N760.F3
+         1.657  xlxi_17_N239.F3
+         2.418  xlxi_15_xlxn_74_11.F2
+         1.035  xlxi_17_N533.F4
+         2.723  xlxi_17_N129.F2
+         2.191  xlxi_15_xlxn_64_11.G4
+         1.582  xlxi_15_xlxi_24_N132.G3
+         2.415  xlxi_17_N497.F4
+         2.629  xlxi_17_Mmux__n0016_xstmacro_int_tempname9.F3
+         2.600  xlxi_15_xlxi_24_N155.G3
+
+a_12_IBUF
+   a<12>.I
+         2.535  xlxi_17_N436.F1
+         1.111  xlxi_17_N436.G2
+         1.423  xlxn_5_13.G4
+         3.681  xlxi_17_N470.F4
+         3.862  xlxi_17_N470.G3
+         4.416  xlxi_17_N111.F2
+         3.962  xlxi_15_xlxn_74_13.G1
+         2.771  xlxi_17_N680.F2
+         1.606  xlxi_15_xlxn_64_12.G3
+         4.281  xlxi_15_xlxi_24_N132.G1
+         3.993  xlxi_15_xlxi_24_N155.G4
+         4.156  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.G4
+
+a_13_IBUF
+   a<13>.I
+         1.884  xlxi_17_N392.F1
+         1.651  xlxi_17_N392.G3
+         1.843  xlxi_17_N410.F3
+         2.512  xlxn_5_13.F4
+         1.771  xlxi_17_N161.F4
+         2.054  xlxi_17_N694.G4
+         1.409  xlxi_15_xlxn_74_13.F1
+         1.380  xlxi_17_N619.F4
+         2.556  xlxi_15_xlxn_64_13.G3
+         2.388  xlxi_15_xlxi_24_N98.F1
+         1.931  xlxi_15_xlxi_24_N132.G2
+         1.738  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.G3
+
+a_14_IBUF
+   a<14>.I
+         1.935  xlxi_17_N313.F3
+         1.815  xlxi_17_N313.G2
+         2.698  xlxi_17_N633.G1
+         2.023  xlxi_17_N558.F2
+         2.364  xlxn_5_15.G2
+         0.737  xlxi_17_N354.F3
+         1.630  xlxi_15_xlxn_64_14.G2
+         0.953  xlxi_17_N315.F2
+         1.961  xlxi_15_xlxn_74_15.G2
+         2.644  xlxi_15_xlxi_24_N98.F3
+         2.042  xlxi_15_xlxi_24_N132.G4
+         2.421  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.F4
+
+a_15_IBUF
+   a<15>.I
+         1.382  xlxi_17_N313.F2
+         1.445  xlxi_17_N392.G2
+         1.648  xlxi_17_N436.G3
+         1.872  xlxi_17_N410.F1
+         1.337  xlxi_17_N410.G3
+         2.690  xlxn_5_15.F3
+         1.595  xlxi_17_N758.F2
+         1.372  xlxi_17_N470.F1
+         1.399  xlxi_17_N714.F2
+         1.256  xlxi_17_N653.F4
+         1.290  xlxi_17_N592.F3
+         1.950  xlxi_17_N292.G2
+         2.703  xlxi_15_xlxn_64_15.G2
+         1.996  xlxi_17_N533.F1
+         1.738  xlxi_17_N315.F4
+         1.747  xlxi_17_N315.G2
+         2.544  xlxi_15_xlxi_24_N157.F1
+         2.077  xlxi_15_xlxi_24_N124.F3
+         1.476  xlxi_15_xlxn_74_15.F1
+         1.656  xlxi_17_N220.F2
+         2.954  xlxi_15_xlxi_25_N46.G1
+         1.880  xlxi_17_N477.G1
+         1.397  xlxi_17_N497.F2
+         1.431  xlxi_17_N497.G1
+         1.278  xlxi_17_N417.F2
+         2.057  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.F2
+         1.952  xlxi_15_xlxi_24_N71.F3
+         2.305  xlxi_15_xlxi_24_N71.G1
+         2.867  xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.F2
+
+a_1_IBUF
+   a<1>.I
+         1.740  xlxn_5_1.F3
+         1.366  xlxi_17_N694.F3
+         1.298  xlxi_17_N286.F2
+         1.963  xlxi_15_xlxn_64_1.G1
+         1.722  xlxi_15_xlxn_74_1.F3
+         1.428  xlxi_15_xlxi_24_N98.F4
+         1.428  xlxi_15_xlxi_24_N138.F4
+         1.427  xlxi_17_N906.F2
+         1.901  xlxi_17_N868.G3
+         1.108  xlxi_17_Mmux__n0016_xstmacro_int_tempname2.G3
+
+a_2_IBUF
+   a<2>.I
+         2.244  xlxn_5_3.G1
+         2.345  xlxi_17_N633.F2
+         1.084  xlxi_17_N558.G4
+         2.192  xlxi_17_N254.F1
+         2.267  xlxi_17_N852.F3
+         1.955  xlxi_15_xlxn_64_2.G2
+         1.890  xlxi_15_xlxn_74_3.G4
+         2.262  xlxi_15_xlxi_24_N98.F2
+         2.397  xlxi_15_xlxi_24_N138.F1
+         2.110  xlxi_17_Mmux__n0016_xstmacro_int_tempname2.F3
+
+a_3_IBUF
+   a<3>.I
+         2.354  xlxn_5_3.F2
+         1.782  xlxi_15_xlxi_24_N106.G4
+         1.206  xlxi_17_N239.F4
+         2.015  xlxi_17_N798.F1
+         2.866  xlxi_15_xlxn_64_3.G1
+         1.252  xlxi_17_N129.F4
+         2.181  xlxi_15_xlxn_74_3.F3
+         1.582  xlxi_15_xlxi_24_N138.F2
+         1.485  xlxi_17_N572.F1
+         1.367  xlxi_17_Mmux__n0016_xstmacro_int_tempname2.F4
+
+a_4_IBUF
+   a<4>.I
+         1.853  xlxn_5_5.G4
+         1.636  xlxi_17_N470.G1
+         1.568  xlxi_17_N740.F4
+         1.686  xlxi_17_N111.F1
+         1.289  xlxi_15_xlxi_24_N106.G2
+         1.983  xlxi_17_N272.G1
+         2.273  xlxi_15_xlxn_74_5.G1
+         2.003  xlxi_15_xlxn_64_4.G2
+         1.395  xlxi_15_xlxi_24_N138.F3
+         1.329  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.G4
+
+a_5_IBUF
+   a<5>.I
+         1.807  xlxn_5_5.F4
+         1.888  xlxi_17_N161.F2
+         1.562  xlxi_17_N694.F1
+         1.558  xlxi_17_N694.G1
+         1.711  xlxi_17_N286.G2
+         2.063  xlxi_15_xlxn_74_5.F3
+         2.169  xlxi_15_xlxn_64_5.G2
+         1.149  xlxi_15_xlxi_24_N112.F3
+         1.289  xlxi_15_xlxi_24_N112.G2
+         1.712  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.G2
+
+a_6_IBUF
+   a<6>.I
+         1.330  xlxi_17_N313.G3
+         2.091  xlxn_5_7.G1
+         1.693  xlxi_17_N633.F1
+         2.157  xlxi_17_N633.G3
+         1.225  xlxi_17_N254.G2
+         1.651  xlxi_15_xlxn_64_6.G1
+         1.956  xlxi_15_xlxn_74_7.G2
+         2.235  xlxi_15_xlxi_24_N112.F4
+         2.274  xlxi_15_xlxi_24_N112.G3
+         1.368  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.F1
+
+a_7_IBUF
+   a<7>.I
+         3.513  xlxn_5_7.F1
+         2.731  xlxi_15_xlxi_24_N118.G2
+         2.712  xlxi_17_N758.F1
+         3.113  xlxi_17_N335.F1
+         3.346  xlxi_15_xlxn_64_7.G3
+         3.464  xlxi_15_xlxn_74_7.F2
+         3.263  xlxi_17_N572.F3
+         3.292  xlxi_17_N572.G2
+         3.069  xlxi_17_N497.G4
+         2.877  xlxi_15_xlxi_24_N112.G1
+         2.687  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.F2
+
+a_8_IBUF
+   a<8>.I
+         2.671  xlxn_5_8.F1
+         1.166  xlxi_15_xlxi_24_N118.G3
+         2.842  xlxi_17_N740.G2
+         2.977  xlxi_17_N111.G1
+         2.857  xlxi_17_N714.F3
+         2.761  xlxi_17_N272.F4
+         2.667  xlxi_15_xlxn_64_8.G1
+         2.366  xlxi_17_N680.F4
+         2.521  xlxi_15_xlxn_74_9.G1
+         1.172  xlxi_15_xlxi_24_N112.G4
+         2.945  xlxi_17_Mmux__n0016_xstmacro_int_tempname9.G2
+
+a_9_IBUF
+   a<9>.I
+         2.478  xlxn_5_9.G2
+         1.920  xlxi_17_N653.F1
+         1.420  xlxi_17_N286.F3
+         2.293  xlxi_17_N619.F1
+         1.572  xlxi_15_xlxn_74_9.F3
+         1.531  xlxi_15_xlxi_24_N157.F4
+         2.089  xlxi_15_xlxn_64_9.G4
+         1.189  xlxi_15_xlxi_24_N124.F4
+         2.087  xlxi_17_N868.F3
+         2.113  xlxi_17_N868.G2
+         1.780  xlxi_17_Mmux__n0016_xstmacro_int_tempname9.G1
+
+add_overflow
+   add_overflow.X
+         0.025  add_overflow.G4
+
+b_0_IBUF
+   b<0>.I
+         2.518  xlxn_5_1.G1
+         3.803  xlxi_17_N975.F2
+         3.799  xlxi_17_N975.G2
+         4.351  xlxi_17_N831.G1
+         2.948  xlxi_17_N939.G3
+         4.077  xlxi_17_N924.F2
+         3.955  xlxi_17_N814.G3
+         3.616  xlxi_17_N870.F1
+         4.060  xlxi_17_N760.G1
+         3.267  xlxi_17_N575.F1
+         4.209  xlxi_17_N718.F1
+         3.937  xlxi_17_N514.F2
+         3.674  xlxi_17_N657.F2
+         3.845  xlxi_17_N453.F3
+         4.430  xlxi_17_N474.F1
+         3.384  xlxi_17_N335.G2
+         3.259  xlxi_17_N274.G3
+         2.966  xlxi_17_N288.G2
+         3.975  xlxi_17_N327.F3
+         3.136  xlxi_17_N256.G3
+         4.106  xlxi_17_N239.G2
+         2.986  xlxi_17_N801.F2
+         3.360  xlxi_17_N743.F1
+         2.857  xlxi_17_N798.G3
+         2.779  xlxi_17_N697.F3
+         2.770  xlxi_17_N636.F2
+         3.544  xlxi_17_N680.G2
+         3.345  xlxi_17_N619.G2
+         3.128  xlxi_17_N852.G2
+         4.491  xlxi_17_N533.G1
+         4.420  xlxi_17_N354.G1
+         4.062  xlxi_17_N992.F1
+         4.114  xlxi_17_N182.G3
+         4.021  xlxi_17_N1009.F4
+         4.199  xlxi_17_N1019.F4
+         2.512  xlxi_15_xlxn_64_0.G1
+         3.831  xlxi_17_N887.F4
+         3.710  xlxi_17_N560.F1
+         3.929  xlxi_17_N499.F2
+         4.264  xlxi_17_N438.F2
+         4.316  xlxi_17_N414.F2
+         4.072  xlxi_17_N394.F4
+         4.187  xlxi_17_N315.G3
+         3.833  xlxi_17_N906.G3
+         4.164  xlxi_17_N220.G3
+         4.201  xlxi_17_N396.F3
+         4.299  xlxi_17_N396.G1
+         3.189  xlxi_17_N133.BX
+         3.111  xlxi_17_Mmux__n0016_xstmacro_int_tempname2.F2
+         3.107  xlxi_17_Mmux__n0016_xstmacro_int_tempname2.G2
+         3.019  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.F3
+         2.982  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.G3
+         2.730  xlxi_17_Mmux__n0016_xstmacro_int_tempname9.F4
+         2.751  xlxi_17_Mmux__n0016_xstmacro_int_tempname9.G4
+         2.961  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.F1
+         2.957  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.G1
+         4.220  xlxi_17_N596.F2
+         4.424  xlxi_17_N596.G1
+
+b_10_IBUF
+   b<10>.I
+         1.137  xlxn_5_11.G4
+         1.447  xlxi_15_xlxn_64_10.G2
+
+b_11_IBUF
+   b<11>.I
+         1.280  xlxn_5_11.F2
+         1.395  xlxi_15_xlxn_64_11.G2
+
+b_12_IBUF
+   b<12>.I
+         1.328  xlxn_5_13.G3
+         1.243  xlxi_15_xlxn_64_12.G1
+
+b_13_IBUF
+   b<13>.I
+         0.897  xlxn_5_13.F3
+         1.057  xlxi_15_xlxn_64_13.G1
+
+b_14_IBUF
+   b<14>.I
+         2.158  xlxn_5_15.G1
+         0.799  xlxi_15_xlxn_64_14.G4
+
+b_15_IBUF
+   b<15>.I
+         1.796  xlxn_5_15.F1
+         0.681  xlxi_15_xlxn_64_15.G1
+         1.724  xlxi_15_xlxi_25_N46.G2
+         1.122  xlxi_15_xlxi_24_N71.F2
+         1.026  xlxi_15_xlxi_24_N71.G3
+         1.856  xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.F4
+
+b_1_IBUF
+   b<1>.I
+         2.190  xlxn_5_1.F2
+         4.776  xlxn_23_14.F2
+         4.920  xlxi_17_N441.F1
+         4.916  xlxi_17_N441.G1
+         4.058  xlxi_17_N975.G1
+         2.755  xlxi_17_N943.F3
+         4.765  xlxi_17_N924.G1
+         2.708  xlxi_17_N889.F2
+         4.517  xlxi_17_N870.G2
+         4.438  xlxi_17_N835.F3
+         4.597  xlxi_17_N781.F3
+         2.249  xlxi_17_N575.G3
+         4.769  xlxi_17_N718.G3
+         3.998  xlxi_17_N514.G2
+         5.026  xlxi_17_N657.G1
+         4.154  xlxi_17_N453.G2
+         4.618  xlxi_17_N474.G3
+         4.501  xlxi_17_N517.F3
+         4.737  xlxi_17_N456.F4
+         4.800  xlxi_17_N382.F1
+         4.328  xlxi_17_N327.F2
+         4.514  xlxi_17_N327.G1
+         4.901  xlxi_17_N292.F1
+         4.357  xlxi_17_N256.G1
+         2.073  xlxi_17_N801.G3
+         2.305  xlxi_17_N743.G1
+         2.190  xlxi_17_N697.G3
+         2.347  xlxi_17_N636.G1
+         4.066  xlxi_17_N992.G3
+         2.186  xlxi_15_xlxn_64_1.G2
+         4.216  xlxi_17_N1009.F2
+         4.890  xlxi_17_N1019.G1
+         4.158  xlxi_17_N887.G3
+         5.009  xlxi_17_N560.G2
+         4.949  xlxi_17_N499.G1
+         4.797  xlxi_17_N438.G2
+         4.849  xlxi_17_N414.G3
+         4.651  xlxi_17_N394.G2
+         4.907  xlxi_17_N220.G1
+         5.198  xlxi_17_N477.F1
+         4.880  xlxi_17_N477.G3
+         4.099  shift_overflow.G3
+         3.354  xlxi_17_N964.F4
+         3.296  xlxi_17_N964.G4
+         4.640  xlxi_17_N396.F2
+         4.521  xlxi_17_N764.F4
+         4.652  xlxi_17_N764.G1
+         4.164  xlxi_17_N1054.F3
+         4.821  xlxi_17_N1054.G2
+         4.163  xlxi_17_N1035.F4
+         3.915  xlxi_17_N1035.G3
+         3.416  xlxi_17_N133.F4
+         3.652  xlxi_17_N133.G1
+         3.403  xlxi_17_Mmux__n0016_xstmacro_int_tempname2.BX
+         4.680  xlxi_17_N417.F4
+         3.341  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.BX
+         3.248  xlxi_17_Mmux__n0016_xstmacro_int_tempname9.BX
+         3.242  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.BX
+
+b_2_IBUF
+   b<2>.I
+         2.368  xlxn_23_0.F4
+         1.629  xlxn_5_3.G2
+         3.858  xlxi_17_N392.F2
+         4.165  xlxi_17_N392.G1
+         3.804  xlxi_17_N436.F4
+         4.118  xlxi_17_N436.G1
+         4.828  xlxi_17_N633.F3
+         4.942  xlxi_17_N633.G4
+         3.829  xlxi_17_N558.F4
+         3.767  xlxi_17_N558.G3
+         3.784  xlxi_17_N831.F4
+         3.574  xlxi_17_N758.G3
+         4.560  xlxi_17_N470.G2
+         3.268  xlxi_17_N939.F4
+         3.081  xlxi_17_N161.G3
+         5.096  xlxi_17_N694.F2
+         4.885  xlxi_17_N694.G3
+         3.883  xlxi_17_N814.F1
+         4.684  xlxi_17_N740.F1
+         4.680  xlxi_17_N740.G1
+         4.613  xlxi_17_N111.G3
+         2.926  xlxi_17_N714.G3
+         3.192  xlxi_17_N760.F4
+         3.111  xlxi_17_N653.G3
+         3.920  xlxi_17_N592.G2
+         4.661  xlxi_17_N272.G2
+         4.646  xlxi_17_N286.G3
+         4.477  xlxi_17_N254.G3
+         3.365  xlxi_17_N335.F4
+         3.548  xlxi_17_N274.F1
+         4.775  xlxi_17_N288.F2
+         3.236  xlxi_17_N256.F3
+         3.332  xlxi_17_N239.G3
+         4.471  xlxi_17_N798.F2
+         2.691  xlxi_17_N680.F1
+         2.487  xlxi_17_N619.F3
+         4.565  xlxi_17_N852.F4
+         4.029  xlxi_17_N533.F2
+         1.458  xlxi_15_xlxn_64_2.G3
+         3.931  xlxi_17_N354.F2
+         3.051  xlxi_17_N129.G2
+         3.858  xlxi_17_N182.F2
+         4.173  xlxi_17_N315.F1
+         4.522  xlxi_17_N906.F1
+         3.657  xlxi_17_N220.F4
+         4.675  xlxi_17_N572.F4
+         5.076  xlxi_17_N572.G1
+         3.665  xlxi_17_N396.G3
+         3.162  xlxi_17_N497.F1
+         3.148  xlxi_17_N497.G2
+         3.405  xlxi_17_N868.F1
+         3.401  xlxi_17_N868.G1
+         3.210  xlxi_17_N133.F2
+         3.251  xlxi_17_N133.G3
+         5.179  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.BY
+         4.408  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.BY
+
+b_3_IBUF
+   b<3>.I
+         2.481  xlxn_23_0.F2
+         3.955  xlxi_17_N313.F1
+         4.012  xlxi_17_N313.G1
+         1.426  xlxn_5_3.F3
+         3.894  xlxi_17_N392.F4
+         3.836  xlxi_17_N392.G4
+         3.810  xlxi_17_N436.F3
+         3.891  xlxi_17_N436.G4
+         3.790  xlxi_17_N410.F4
+         4.092  xlxi_17_N410.G1
+         3.965  xlxi_17_N633.F4
+         4.105  xlxi_17_N633.G2
+         3.896  xlxi_17_N558.F1
+         3.877  xlxi_17_N558.G2
+         3.783  xlxi_17_N758.F3
+         3.090  xlxi_17_N470.F3
+         2.877  xlxi_17_N470.G4
+         2.956  xlxi_17_N161.F3
+         4.013  xlxi_17_N694.F4
+         3.414  xlxi_17_N694.G2
+         2.865  xlxi_17_N814.F2
+         4.177  xlxi_17_N740.F2
+         4.048  xlxi_17_N740.G4
+         3.090  xlxi_17_N111.F3
+         3.872  xlxi_17_N111.G2
+         2.740  xlxi_17_N714.F4
+         3.761  xlxi_17_N760.F2
+         2.737  xlxi_17_N653.F2
+         3.724  xlxi_17_N592.F4
+         4.220  xlxi_17_N272.F2
+         4.131  xlxi_17_N272.G3
+         3.182  xlxi_17_N286.F4
+         3.601  xlxi_17_N286.G1
+         3.024  xlxi_17_N254.F4
+         3.181  xlxi_17_N254.G1
+         3.119  xlxi_17_N335.F3
+         2.897  xlxi_17_N239.F2
+         3.940  xlxi_17_N798.F3
+         2.261  xlxi_15_xlxn_64_3.G4
+         3.486  xlxi_17_N680.F3
+         3.477  xlxi_17_N619.F2
+         4.367  xlxi_17_N852.F1
+         3.803  xlxi_17_N533.F3
+         4.021  xlxi_17_N354.F1
+         2.816  xlxi_17_N129.F1
+         3.861  xlxi_17_N315.F3
+         2.979  xlxi_17_N906.F3
+         3.874  xlxi_17_N220.F3
+         4.061  xlxi_17_N572.F2
+         3.867  xlxi_17_N572.G4
+         2.966  xlxi_17_N193.G4
+         2.645  xlxi_17_N497.F3
+         2.608  xlxi_17_N497.G3
+         3.615  xlxi_17_N868.F2
+         3.289  xlxi_17_N868.G4
+
+b_4_IBUF
+   b<4>.I
+         2.329  xlxn_5_5.G2
+         2.382  xlxi_15_xlxn_64_4.G4
+
+b_5_IBUF
+   b<5>.I
+         1.531  xlxn_5_5.F3
+         1.645  xlxi_15_xlxn_64_5.G3
+
+b_6_IBUF
+   b<6>.I
+         1.970  xlxn_5_7.G2
+         1.711  xlxi_15_xlxn_64_6.G2
+
+b_7_IBUF
+   b<7>.I
+         2.067  xlxn_5_7.F2
+         1.467  xlxi_15_xlxn_64_7.G4
+
+b_8_IBUF
+   b<8>.I
+         1.557  xlxn_5_8.F3
+         1.599  xlxi_15_xlxn_64_8.G2
+
+b_9_IBUF
+   b<9>.I
+         1.303  xlxn_5_9.G3
+         1.525  xlxi_15_xlxn_64_9.G2
+
+control_0_IBUF
+   control<0>.I
+         2.984  xlxn_23_4.G1
+         4.287  xlxn_23_5.G3
+         2.990  xlxn_23_6.G2
+         2.899  xlxn_23_7.G3
+         2.868  xlxn_23_8.G3
+         3.350  xlxn_23_9.G3
+         2.805  xlxn_5_1.F4
+         2.862  xlxn_5_1.G2
+         3.586  xlxn_5_3.F1
+         3.450  xlxn_5_3.G3
+         3.177  xlxn_5_5.F1
+         2.737  xlxn_5_5.G3
+         3.842  xlxn_5_7.F4
+         4.290  xlxn_5_7.G3
+         3.240  xlxn_5_9.G1
+         2.831  xlxn_5_8.F4
+         2.773  xlxn_5_8.G4
+         4.071  xlxn_23_10.G3
+         4.638  xlxn_23_11.G1
+         3.854  xlxn_23_12.G3
+         4.308  xlxn_23_13.G1
+         4.398  xlxn_23_15.G1
+         3.232  xlxn_5_11.F1
+         3.228  xlxn_5_11.G1
+         3.092  xlxn_5_13.F2
+         3.088  xlxn_5_13.G2
+         2.910  xlxn_5_15.F2
+         2.813  xlxn_5_15.G4
+         2.849  xlxi_15_selectb_1.G2
+         3.292  xlxn_2_1.F3
+         3.566  xlxn_2_1.G1
+         4.315  xlxi_15_alu_out_8.F3
+         4.278  xlxi_15_alu_out_8.G3
+         4.294  xlxi_15_alu_out_6.F3
+         4.235  xlxi_15_alu_out_6.G4
+         4.316  xlxi_15_alu_out_4.F4
+         4.258  xlxi_15_alu_out_4.G4
+         2.987  xlxi_15_alu_out_2.F4
+         2.929  xlxi_15_alu_out_2.G4
+         3.158  xlxi_15_alu_out_0.F2
+         2.343  xlxi_15_alu_out_0.G4
+         4.677  xlxi_15_alu_out_14.F4
+         4.619  xlxi_15_alu_out_14.G4
+         4.609  xlxi_15_alu_out_12.F3
+         4.296  xlxi_15_alu_out_12.G3
+         4.651  xlxi_15_alu_out_10.F4
+         4.312  xlxi_15_alu_out_10.G2
+         2.696  xlxi_15_xlxi_24_N124.F2
+         3.131  xlxi_15_xlxi_25_N46.F2
+         3.441  xlxi_17_N580.G2
+         3.609  xlxi_17_N702.G1
+         3.507  xlxi_17_N346.F2
+         4.236  xlxi_17_N346.G4
+         4.160  xlxi_15_xlxi_24_N77.G4
+         4.263  xlxn_23_3.F3
+         3.112  xlxn_23_3.G4
+         4.387  xlxn_23_2.F2
+         4.716  xlxn_23_2.G1
+         4.230  xlxn_23_1.F2
+         4.226  xlxn_23_1.G2
+         3.461  xlxi_15_xlxi_24_N155.F1
+         3.316  xlxi_15_xlxi_24_N71.F4
+         3.258  xlxi_15_xlxi_24_N71.G4
+
+control_1_IBUF
+   control<1>.I
+         3.047  xlxn_23_4.F4
+         3.201  xlxn_23_5.F1
+         3.498  xlxn_23_6.F1
+         3.000  xlxn_23_7.F3
+         3.073  xlxn_23_8.F2
+         2.638  xlxn_23_9.F4
+         3.066  xlxn_5_9.F2
+         2.534  xlxn_23_10.F3
+         2.418  xlxn_23_11.F4
+         2.434  xlxn_23_12.F4
+         2.318  xlxn_23_13.F2
+         2.407  xlxn_23_14.F4
+         2.374  xlxn_23_15.F4
+         2.534  xlxi_17_N441.F3
+         2.406  xlxi_17_N441.G4
+         2.748  xlxi_15_selectb_1.F3
+         2.711  xlxi_15_selectb_1.G3
+         3.049  xlxn_2_1.F4
+         2.957  xlxn_2_1.G4
+         2.346  xlxi_17_N975.G3
+         3.656  xlxi_17_N943.G2
+         3.097  xlxi_17_N889.G1
+         2.942  xlxi_17_N835.G3
+         2.896  xlxi_17_N781.G1
+         2.556  xlxi_17_N718.G2
+         2.488  xlxi_17_N657.G3
+         2.399  xlxi_17_N474.G2
+         2.645  xlxi_17_N517.G1
+         2.586  xlxi_17_N456.G3
+         2.199  xlxi_17_N382.G3
+         2.582  xlxi_17_N292.G3
+         2.017  xlxi_15_xlxn_74_13.F2
+         1.902  xlxi_15_xlxn_74_13.G4
+         2.191  xlxi_15_xlxn_74_11.F1
+         2.396  xlxi_15_xlxn_74_11.G2
+         2.417  xlxi_17_N992.G2
+         2.505  xlxi_15_xlxn_74_9.F2
+         2.501  xlxi_15_xlxn_74_9.G2
+         2.075  xlxi_17_N1009.G2
+         2.547  xlxi_17_N1019.G2
+         2.327  xlxi_15_xlxn_74_7.F4
+         3.387  xlxi_15_xlxn_74_7.G4
+         2.338  xlxi_17_N887.G2
+         2.749  xlxi_17_N560.G1
+         2.622  xlxi_17_N499.G2
+         3.952  xlxi_15_xlxn_74_5.F1
+         3.182  xlxi_15_xlxn_74_5.G2
+         1.992  xlxi_17_N438.G3
+         2.626  xlxi_17_N414.G1
+         3.816  xlxi_15_xlxn_74_3.F1
+         3.812  xlxi_15_xlxn_74_3.G1
+         2.534  xlxi_17_N394.G1
+         3.893  xlxi_15_xlxn_74_1.F2
+         3.228  xlxi_15_xlxn_74_1.G2
+         2.524  xlxi_15_xlxn_74_15.F4
+         2.466  xlxi_15_xlxn_74_15.G4
+         1.753  xlxi_17_N220.G2
+         3.160  xlxi_15_xlxi_25_N46.F1
+         2.588  xlxi_17_N580.F4
+         2.530  xlxi_17_N580.G4
+         2.191  xlxi_17_N477.F3
+         2.303  xlxi_17_N477.G4
+         2.492  xlxi_17_N702.F3
+         2.412  xlxi_17_N702.G3
+         2.414  xlxi_17_N964.F1
+         2.324  xlxi_17_N964.G2
+         2.122  xlxi_17_N193.G2
+         2.530  xlxi_17_N342.F4
+         2.472  xlxi_17_N342.G4
+         2.400  xlxi_17_N1054.F4
+         2.342  xlxi_17_N1054.G4
+         2.180  xlxi_17_N1035.F1
+         2.176  xlxi_17_N1035.G1
+         3.786  xlxi_15_xlxi_24_N77.F3
+         3.701  xlxi_15_xlxi_24_N77.G2
+         1.872  xlxi_17_N417.F1
+         1.628  xlxi_17_N417.G3
+
+control_2_IBUF
+   control<2>.I
+         2.458  xlxn_23_4.F3
+         2.968  xlxn_23_5.F3
+         2.683  xlxn_23_6.F3
+         2.656  xlxn_23_7.F4
+         3.522  xlxn_23_8.F1
+         3.295  xlxn_23_9.F3
+         2.896  xlxn_5_9.F4
+         3.722  xlxn_23_10.F1
+         3.566  xlxn_23_11.F2
+         3.782  xlxn_23_12.F3
+         3.691  xlxn_23_13.F4
+         3.733  xlxn_23_14.G2
+         3.782  xlxn_23_15.F3
+         2.713  xlxi_15_selectb_1.F1
+         2.709  xlxi_15_selectb_1.G1
+         3.270  xlxn_2_1.F2
+         3.163  xlxn_2_1.G3
+         2.906  xlxi_17_N943.G1
+         3.310  xlxi_17_N889.G2
+         2.515  xlxi_17_N835.G2
+         2.885  xlxi_17_N781.G3
+         3.437  xlxi_17_N517.G3
+         3.814  xlxi_17_N456.G1
+         3.777  xlxi_17_N382.G1
+         3.869  xlxi_17_N292.G1
+         3.006  xlxi_15_xlxn_64_8.G4
+         3.224  xlxi_15_xlxn_64_3.G3
+         3.257  xlxi_15_xlxn_64_15.G3
+         2.438  xlxi_15_xlxn_64_7.G2
+         2.825  xlxi_15_xlxn_64_2.G1
+         3.802  xlxi_15_xlxn_64_14.G1
+         2.403  xlxi_15_xlxn_64_6.G4
+         1.925  xlxi_15_xlxn_64_1.G3
+         3.288  xlxi_15_xlxn_64_13.G2
+         2.254  xlxi_15_xlxn_64_0.F4
+         2.196  xlxi_15_xlxn_64_0.G4
+         3.232  xlxi_15_xlxn_64_12.G4
+         2.390  xlxi_15_xlxn_64_11.G3
+         2.485  xlxi_15_xlxn_64_10.G3
+         2.102  xlxi_15_xlxn_64_5.G4
+         2.859  add_overflow.F3
+         1.747  xlxi_15_xlxn_64_9.G3
+         2.245  xlxi_15_xlxn_64_4.G1
+         2.509  xlxi_15_xlxi_25_N46.F3
+         3.927  xlxi_17_N580.F3
+         3.670  xlxi_17_N580.G3
+         3.491  xlxi_17_N702.F1
+         3.625  xlxi_17_N702.G4
+         3.711  xlxi_17_N342.F2
+         3.707  xlxi_17_N342.G2
+         2.725  xlxi_15_xlxi_24_N77.G1
+         2.928  xlxn_23_3.BX
+         3.112  xlxn_23_2.BX
+         2.750  xlxn_23_1.BX
+         3.490  xlxi_15_xlxi_24_N71.F1
+         3.352  xlxi_15_xlxi_24_N71.G2
+
+control_3_IBUF
+   control<3>.I
+         2.633  xlxn_23_4.G3
+         3.389  xlxn_23_5.G1
+         3.457  xlxn_23_6.G1
+         3.455  xlxn_23_7.G1
+         2.208  xlxn_23_8.G2
+         2.343  xlxn_23_9.G1
+         3.161  xlxn_5_9.F1
+         2.907  xlxn_5_8.G2
+         2.077  xlxn_23_10.G2
+         1.588  xlxn_23_11.G3
+         1.570  xlxn_23_12.G1
+         1.160  xlxn_23_13.G3
+         1.563  xlxn_23_15.G3
+         2.463  xlxi_15_selectb_1.G4
+         2.499  xlxn_2_1.F1
+         2.251  xlxn_2_1.G2
+         2.478  xlxi_15_xlxi_25_N46.F4
+         1.902  xlxi_17_N580.G1
+         2.324  xlxi_17_N702.G2
+         1.734  xlxi_17_N346.F4
+         1.815  xlxi_17_N346.G2
+         3.105  xlxi_15_xlxi_24_N77.F1
+         3.041  xlxi_15_xlxi_24_N77.G3
+         2.584  xlxn_23_3.F1
+         2.580  xlxn_23_3.G1
+         1.689  xlxn_23_2.F3
+         1.698  xlxn_23_2.G4
+         2.357  xlxn_23_1.F4
+         2.299  xlxn_23_1.G4
+
+overflow_OBUF
+   add_overflow.Y
+         1.363  overflow.O
+
+s_dummy_0
+   s_dummy_0.X
+         1.738  xlxi_16_N25.G1
+         1.722  s<0>.O
+
+s_dummy_1
+   s_dummy_1.X
+         1.357  xlxi_16_N35.G2
+         2.204  s<1>.O
+
+s_dummy_10
+   s_dummy_10.X
+         0.840  xlxi_16_N25.G4
+         1.299  s<10>.O
+
+s_dummy_11
+   s_dummy_11.X
+         1.415  xlxi_16_N25.G2
+         1.374  s<11>.O
+
+s_dummy_12
+   s_dummy_12.X
+         1.087  xlxi_16_N25.G3
+         1.350  s<12>.O
+
+s_dummy_13
+   s_dummy_13.X
+         1.356  xlxi_16_N35.G1
+         1.480  s<13>.O
+
+s_dummy_14
+   s_dummy_14.X
+         0.666  xlxi_16_N35.G4
+         1.087  s<14>.O
+
+s_dummy_15
+   s_dummy_15.X
+         1.087  xlxi_16_N35.G3
+         1.607  s<15>.O
+
+s_dummy_2
+   s_dummy_2.X
+         1.015  xlxi_16_N45.G3
+         1.452  s<2>.O
+
+s_dummy_3
+   s_dummy_3.X
+         0.975  xlxi_16_N45.G2
+         1.513  s<3>.O
+
+s_dummy_4
+   s_dummy_4.X
+         0.659  xlxi_16_N45.G1
+         1.452  s<4>.O
+
+s_dummy_5
+   s_dummy_5.X
+         0.870  xlxi_16_N45.G4
+         1.664  s<5>.O
+
+s_dummy_6
+   s_dummy_6.X
+         1.579  xlxi_16_N55.F4
+         1.013  s<6>.O
+
+s_dummy_7
+   s_dummy_7.X
+         1.294  xlxi_16_N55.F2
+         1.194  s<7>.O
+
+s_dummy_8
+   s_dummy_8.X
+         1.562  xlxi_16_N55.F1
+         0.977  s<8>.O
+
+s_dummy_9
+   s_dummy_9.X
+         0.865  xlxi_16_N55.F3
+         0.977  s<9>.O
+
+shift_overflow
+   shift_overflow.Y
+         0.968  add_overflow.G1
+
+xlxi_10_N25
+   xlxi_17_N580.Y
+         1.225  xlxn_2_1.CLK
+
+xlxi_15_alu_out_0
+   xlxi_15_alu_out_0.X
+         1.015  xlxi_15_xlxi_25_N46.G3
+         1.074  xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.F3
+
+xlxi_15_alu_out_1
+   xlxi_15_alu_out_0.Y
+         0.179  s_dummy_1.F2
+
+xlxi_15_alu_out_10
+   xlxi_15_alu_out_10.X
+         1.940  s_dummy_10.F1
+
+xlxi_15_alu_out_11
+   xlxi_15_alu_out_10.Y
+         1.249  s_dummy_11.F3
+
+xlxi_15_alu_out_12
+   xlxi_15_alu_out_12.X
+         1.710  s_dummy_12.F2
+
+xlxi_15_alu_out_13
+   xlxi_15_alu_out_12.Y
+         1.733  s_dummy_13.F4
+
+xlxi_15_alu_out_14
+   xlxi_15_alu_out_14.X
+         1.831  s_dummy_14.F3
+
+xlxi_15_alu_out_15
+   xlxi_15_alu_out_14.Y
+         1.997  s_dummy_15.F1
+         1.421  xlxi_15_xlxi_24_N71.BX
+         1.623  xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.G3
+
+xlxi_15_alu_out_151
+   xlxi_15_xlxi_25_N46.Y
+         0.175  xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.G2
+
+xlxi_15_alu_out_2
+   xlxi_15_alu_out_2.X
+         0.314  s_dummy_2.F1
+
+xlxi_15_alu_out_3
+   xlxi_15_alu_out_2.Y
+         1.135  s_dummy_3.F2
+
+xlxi_15_alu_out_4
+   xlxi_15_alu_out_4.X
+         0.981  s_dummy_4.F4
+
+xlxi_15_alu_out_5
+   xlxi_15_alu_out_4.Y
+         1.014  s_dummy_5.F1
+
+xlxi_15_alu_out_6
+   xlxi_15_alu_out_6.X
+         0.516  s_dummy_6.F2
+
+xlxi_15_alu_out_7
+   xlxi_15_alu_out_6.Y
+         0.997  s_dummy_7.F1
+
+xlxi_15_alu_out_8
+   xlxi_15_alu_out_8.X
+         1.327  s_dummy_8.F1
+
+xlxi_15_alu_out_9
+   xlxi_15_alu_out_8.Y
+         1.519  s_dummy_9.F3
+
+xlxi_15_selectb_1
+   xlxi_15_selectb_1.X
+         0.968  xlxi_15_xlxn_64_8.BX
+         1.322  xlxi_15_xlxn_64_3.BX
+         1.676  xlxi_15_xlxn_64_15.BX
+         1.985  xlxi_15_xlxn_64_7.BX
+         0.948  xlxi_15_xlxn_64_2.BX
+         1.811  xlxi_15_xlxn_64_14.BX
+         1.939  xlxi_15_xlxn_64_6.BX
+         1.980  xlxi_15_xlxn_64_1.BX
+         1.611  xlxi_15_xlxn_64_13.BX
+         1.429  xlxi_15_xlxn_64_0.BX
+         1.616  xlxi_15_xlxn_64_12.BX
+         0.836  xlxi_15_xlxn_64_11.BX
+         0.940  xlxi_15_xlxn_64_10.BX
+         1.795  xlxi_15_xlxn_64_5.BX
+         1.202  xlxi_15_xlxn_64_9.BX
+         1.597  xlxi_15_xlxn_64_4.BX
+
+xlxi_15_xlxi_23/i_36_110/O
+   xlxi_15_alu_out_12.COUT
+         0.000  xlxi_15_alu_out_14.CIN
+
+xlxi_15_xlxi_23/i_36_248/O
+   xlxi_15_alu_out_6.COUT
+         0.000  xlxi_15_alu_out_8.CIN
+
+xlxi_15_xlxi_23/i_36_250/O
+   xlxi_15_alu_out_4.COUT
+         0.000  xlxi_15_alu_out_6.CIN
+
+xlxi_15_xlxi_23/i_36_252/O
+   xlxi_15_alu_out_2.COUT
+         0.000  xlxi_15_alu_out_4.CIN
+
+xlxi_15_xlxi_23/i_36_254/O
+   xlxi_15_alu_out_0.COUT
+         0.000  xlxi_15_alu_out_2.CIN
+
+xlxi_15_xlxi_23/i_36_55/O
+   xlxi_15_alu_out_8.COUT
+         0.000  xlxi_15_alu_out_10.CIN
+
+xlxi_15_xlxi_23/i_36_58/O
+   xlxi_15_alu_out_10.COUT
+         0.000  xlxi_15_alu_out_12.CIN
+
+xlxi_15_xlxi_24_N100
+   xlxi_15_xlxi_24_N98.Y
+         0.175  xlxi_15_xlxi_24_N157.G2
+
+xlxi_15_xlxi_24_N106
+   xlxi_15_xlxi_24_N106.Y
+         0.792  xlxi_15_xlxi_24_N124.G2
+
+xlxi_15_xlxi_24_N112
+   xlxi_15_xlxi_24_N112.X
+         0.647  xlxi_15_xlxi_24_N124.G1
+
+xlxi_15_xlxi_24_N118
+   xlxi_15_xlxi_24_N118.Y
+         0.387  xlxi_15_xlxi_24_N124.G3
+
+xlxi_15_xlxi_24_N124
+   xlxi_15_xlxi_24_N124.X
+         0.025  xlxi_15_xlxi_24_N124.G4
+
+xlxi_15_xlxi_24_N126
+   xlxi_15_xlxi_24_N124.Y
+         0.896  xlxi_15_xlxi_24_N157.G3
+
+xlxi_15_xlxi_24_N132
+   xlxi_15_xlxi_24_N132.Y
+         1.025  xlxi_15_xlxi_24_N138.G3
+
+xlxi_15_xlxi_24_N138
+   xlxi_15_xlxi_24_N138.X
+         0.025  xlxi_15_xlxi_24_N138.G4
+
+xlxi_15_xlxi_24_N140
+   xlxi_15_xlxi_24_N138.Y
+         0.922  xlxi_15_xlxi_24_N157.G1
+
+xlxi_15_xlxi_24_N146
+   xlxi_15_xlxi_24_N112.Y
+         0.435  xlxi_15_xlxi_24_N157.F3
+
+xlxi_15_xlxi_24_N155
+   xlxi_15_xlxi_24_N155.X
+         1.127  xlxi_15_xlxi_24_N157.F2
+
+xlxi_15_xlxi_24_N157
+   xlxi_15_xlxi_24_N157.X
+         0.025  xlxi_15_xlxi_24_N157.G4
+
+xlxi_15_xlxi_24_N159
+   xlxi_15_xlxi_24_N157.Y
+         1.611  add_overflow.F4
+
+xlxi_15_xlxi_24_N71
+   xlxi_15_xlxi_24_N71.X
+         1.388  add_overflow.F2
+
+xlxi_15_xlxi_24_N77
+   xlxi_15_xlxi_24_N77.X
+         0.314  add_overflow.F1
+
+xlxi_15_xlxi_24_N88
+   xlxi_15_xlxi_24_N155.Y
+         1.133  xlxi_15_xlxi_24_N98.G2
+
+xlxi_15_xlxi_24_N98
+   xlxi_15_xlxi_24_N98.X
+         0.025  xlxi_15_xlxi_24_N98.G4
+
+xlxi_15_xlxi_25_I_0_LUT_69_SW1/O
+   xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.X
+         0.025  xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.G4
+
+xlxi_15_xlxi_25_N46
+   xlxi_15_xlxi_25_N46.X
+         0.578  s_dummy_14.F2
+         1.408  s_dummy_6.F3
+         1.959  s_dummy_3.F3
+         1.263  s_dummy_13.F3
+         1.080  s_dummy_2.F4
+         1.398  s_dummy_12.F1
+         1.084  s_dummy_1.F3
+         1.443  s_dummy_11.F1
+         1.331  s_dummy_10.F2
+         0.778  s_dummy_9.F4
+         1.384  s_dummy_8.F3
+         2.142  s_dummy_5.F2
+         0.910  s_dummy_15.F3
+         1.384  s_dummy_7.F3
+         1.972  s_dummy_4.F3
+         0.112  xlxi_15_xlxi_25_N46.G4
+         0.401  xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.F1
+
+xlxi_15_xlxn_64_0
+   xlxi_15_xlxn_64_0.X
+         1.183  xlxi_15_alu_out_0.F3
+
+xlxi_15_xlxn_64_1
+   xlxi_15_xlxn_64_1.X
+         1.483  xlxi_15_alu_out_0.G2
+
+xlxi_15_xlxn_64_10
+   xlxi_15_xlxn_64_10.X
+         1.247  xlxi_15_alu_out_10.F2
+
+xlxi_15_xlxn_64_11
+   xlxi_15_xlxn_64_11.X
+         1.416  xlxi_15_alu_out_10.G4
+
+xlxi_15_xlxn_64_12
+   xlxi_15_xlxn_64_12.X
+         1.702  xlxi_15_alu_out_12.F4
+
+xlxi_15_xlxn_64_13
+   xlxi_15_xlxn_64_13.X
+         1.514  xlxi_15_alu_out_12.G4
+
+xlxi_15_xlxn_64_14
+   xlxi_15_xlxn_64_14.X
+         1.258  xlxi_15_alu_out_14.F3
+
+xlxi_15_xlxn_64_15
+   xlxi_15_xlxn_64_15.X
+         1.386  xlxi_15_alu_out_14.G3
+
+xlxi_15_xlxn_64_2
+   xlxi_15_xlxn_64_2.X
+         0.885  xlxi_15_alu_out_2.F3
+
+xlxi_15_xlxn_64_3
+   xlxi_15_xlxn_64_3.X
+         1.094  xlxi_15_alu_out_2.G3
+
+xlxi_15_xlxn_64_4
+   xlxi_15_xlxn_64_4.X
+         1.140  xlxi_15_alu_out_4.F2
+
+xlxi_15_xlxn_64_5
+   xlxi_15_xlxn_64_5.X
+         1.318  xlxi_15_alu_out_4.G2
+
+xlxi_15_xlxn_64_6
+   xlxi_15_xlxn_64_6.X
+         1.113  xlxi_15_alu_out_6.F2
+
+xlxi_15_xlxn_64_7
+   xlxi_15_xlxn_64_7.X
+         1.281  xlxi_15_alu_out_6.G2
+
+xlxi_15_xlxn_64_8
+   xlxi_15_xlxn_64_8.X
+         0.899  xlxi_15_alu_out_8.F4
+
+xlxi_15_xlxn_64_9
+   xlxi_15_xlxn_64_9.X
+         1.463  xlxi_15_alu_out_8.G4
+
+xlxi_15_xlxn_74_0
+   xlxi_15_xlxn_74_1.Y
+         1.773  xlxi_15_alu_out_0.F1
+
+xlxi_15_xlxn_74_1
+   xlxi_15_xlxn_74_1.X
+         1.850  xlxi_15_alu_out_0.G1
+
+xlxi_15_xlxn_74_10
+   xlxi_15_xlxn_74_11.Y
+         0.924  xlxi_15_alu_out_10.F1
+
+xlxi_15_xlxn_74_11
+   xlxi_15_xlxn_74_11.X
+         0.310  xlxi_15_alu_out_10.G1
+
+xlxi_15_xlxn_74_12
+   xlxi_15_xlxn_74_13.Y
+         0.924  xlxi_15_alu_out_12.F1
+
+xlxi_15_xlxn_74_13
+   xlxi_15_xlxn_74_13.X
+         0.310  xlxi_15_alu_out_12.G1
+
+xlxi_15_xlxn_74_14
+   xlxi_15_xlxn_74_15.Y
+         0.954  xlxi_15_alu_out_14.F1
+
+xlxi_15_xlxn_74_15
+   xlxi_15_xlxn_74_15.X
+         0.310  xlxi_15_alu_out_14.G1
+
+xlxi_15_xlxn_74_2
+   xlxi_15_xlxn_74_3.Y
+         1.047  xlxi_15_alu_out_2.F1
+
+xlxi_15_xlxn_74_3
+   xlxi_15_xlxn_74_3.X
+         1.035  xlxi_15_alu_out_2.G1
+
+xlxi_15_xlxn_74_4
+   xlxi_15_xlxn_74_5.Y
+         1.265  xlxi_15_alu_out_4.F1
+
+xlxi_15_xlxn_74_5
+   xlxi_15_xlxn_74_5.X
+         1.314  xlxi_15_alu_out_4.G1
+
+xlxi_15_xlxn_74_6
+   xlxi_15_xlxn_74_7.Y
+         0.911  xlxi_15_alu_out_6.F1
+
+xlxi_15_xlxn_74_7
+   xlxi_15_xlxn_74_7.X
+         0.310  xlxi_15_alu_out_6.G1
+
+xlxi_15_xlxn_74_8
+   xlxi_15_xlxn_74_9.Y
+         1.075  xlxi_15_alu_out_8.F1
+
+xlxi_15_xlxn_74_9
+   xlxi_15_xlxn_74_9.X
+         1.108  xlxi_15_alu_out_8.G1
+
+xlxi_15_xlxn_78
+   xlxi_15_selectb_1.Y
+         0.595  xlxi_15_alu_out_0.BX
+
+xlxi_16_N25
+   xlxi_16_N25.Y
+         0.943  xlxi_16_N55.G1
+
+xlxi_16_N35
+   xlxi_16_N35.Y
+         1.157  xlxi_16_N55.G2
+
+xlxi_16_N45
+   xlxi_16_N45.Y
+         1.210  xlxi_16_N55.G3
+
+xlxi_16_N55
+   xlxi_16_N55.X
+         0.025  xlxi_16_N55.G4
+
+xlxi_17_Mmux__n0016_xstmacro_int_tempname13
+   xlxi_17_Mmux__n0016_xstmacro_int_tempname13.Y
+         0.919  xlxi_17_N193.G1
+
+xlxi_17_Mmux__n0016_xstmacro_int_tempname2
+   xlxi_17_Mmux__n0016_xstmacro_int_tempname2.F5
+         0.000  xlxi_17_Mmux__n0016_xstmacro_int_tempname6.F5IN
+
+xlxi_17_Mmux__n0016_xstmacro_int_tempname6
+   xlxi_17_Mmux__n0016_xstmacro_int_tempname6.Y
+         0.760  xlxi_17_N193.G3
+
+xlxi_17_Mmux__n0016_xstmacro_int_tempname9
+   xlxi_17_Mmux__n0016_xstmacro_int_tempname9.F5
+         0.000  xlxi_17_Mmux__n0016_xstmacro_int_tempname13.F5IN
+
+xlxi_17_N1009
+   xlxi_17_N1009.X
+         0.039  xlxi_17_N1009.G4
+         1.351  xlxi_17_N417.G2
+
+xlxi_17_N101
+   xlxi_17_N740.Y
+         0.885  xlxi_17_N133.F3
+
+xlxi_17_N1012
+   xlxi_17_N417.Y
+         1.391  xlxn_23_2.F4
+
+xlxi_17_N1019
+   xlxi_17_N1019.X
+         0.039  xlxi_17_N1019.G4
+         0.802  xlxi_17_N1035.F2
+
+xlxi_17_N1022
+   xlxi_17_N1019.Y
+         0.923  xlxn_23_2.F1
+
+xlxi_17_N1029
+   xlxi_17_N1009.Y
+         0.512  xlxn_23_2.G2
+
+xlxi_17_N1035
+   xlxi_17_N1035.X
+         0.814  xlxn_23_2.G3
+
+xlxi_17_N1048
+   xlxi_17_N1035.Y
+         0.706  xlxn_23_1.F3
+
+xlxi_17_N1054
+   xlxi_17_N1054.X
+         0.314  xlxn_23_1.F1
+
+xlxi_17_N1062
+   xlxi_17_N441.Y
+         1.020  xlxn_23_1.G3
+
+xlxi_17_N1068
+   xlxi_17_N992.Y
+         1.298  xlxn_23_1.G1
+
+xlxi_17_N111
+   xlxi_17_N111.X
+         0.329  xlxi_17_N939.F1
+         0.040  xlxi_17_N111.G4
+         0.935  xlxi_17_N133.F1
+
+xlxi_17_N121
+   xlxi_17_N572.Y
+         0.783  xlxi_17_N133.G4
+
+xlxi_17_N129
+   xlxi_17_N129.X
+         0.039  xlxi_17_N129.G4
+         0.512  xlxi_17_N133.G2
+
+xlxi_17_N133
+   xlxi_17_N133.X
+         1.352  shift_overflow.G1
+
+xlxi_17_N143
+   xlxi_17_N702.Y
+         1.319  shift_overflow.G2
+
+xlxi_17_N153
+   xlxi_17_N868.Y
+         1.157  xlxi_17_N396.G2
+
+xlxi_17_N161
+   xlxi_17_N161.X
+         0.053  xlxi_17_N161.G4
+         1.540  xlxi_17_N396.G4
+         1.165  xlxi_17_N868.F4
+
+xlxi_17_N163
+   xlxi_17_N396.Y
+         1.142  xlxi_17_N182.G1
+
+xlxi_17_N172
+   xlxi_17_N558.Y
+         0.724  xlxi_17_N182.F4
+
+xlxi_17_N180
+   xlxi_17_N313.Y
+         0.540  xlxi_17_N831.F2
+         1.165  xlxi_17_N814.F4
+         1.090  xlxi_17_N182.F1
+
+xlxi_17_N182
+   xlxi_17_N182.X
+         0.025  xlxi_17_N182.G4
+         0.314  xlxi_17_N1019.F1
+
+xlxi_17_N184
+   xlxi_17_N182.Y
+         1.501  xlxi_17_N992.G1
+         1.435  shift_overflow.G4
+         1.094  xlxi_17_N1054.F1
+
+xlxi_17_N189
+   xlxn_5_8.Y
+         1.236  xlxn_23_0.CLK
+         0.697  xlxn_23_4.CLK
+         1.098  xlxn_23_5.CLK
+         0.896  xlxn_23_6.CLK
+         0.733  xlxn_23_7.CLK
+         1.148  xlxn_23_8.CLK
+         1.547  xlxn_23_9.CLK
+         1.771  xlxn_23_10.CLK
+         2.505  xlxn_23_11.CLK
+         1.788  xlxn_23_12.CLK
+         2.574  xlxn_23_13.CLK
+         1.411  xlxn_23_14.CLK
+         2.483  xlxn_23_15.CLK
+         1.271  xlxn_23_3.CLK
+         2.268  xlxn_23_2.CLK
+         1.067  xlxn_23_1.CLK
+
+xlxi_17_N193
+   xlxi_17_N193.Y
+         1.585  xlxn_23_0.G2
+
+xlxi_17_N197
+   xlxi_17_N346.Y
+         1.537  xlxn_23_0.G1
+
+xlxi_17_N202
+   xlxi_17_N975.Y
+         0.669  xlxn_23_0.G3
+
+xlxi_17_N207
+   xlxn_23_0.X
+         0.053  xlxn_23_0.G4
+         1.519  xlxi_17_N1009.F1
+         1.571  xlxi_17_N906.G1
+
+xlxi_17_N220
+   xlxi_17_N220.X
+         0.974  xlxi_17_N354.G3
+         0.053  xlxi_17_N220.G4
+         1.128  xlxi_17_N396.F4
+
+xlxi_17_N224
+   xlxi_17_N220.Y
+         1.238  xlxn_23_15.F2
+
+xlxi_17_N233
+   xlxi_17_N497.Y
+         1.237  xlxi_17_N239.G1
+
+xlxi_17_N239
+   xlxi_17_N239.X
+         0.516  xlxi_17_N335.F2
+         0.039  xlxi_17_N239.G4
+
+xlxi_17_N241
+   xlxi_17_N239.Y
+         0.766  xlxi_17_N256.G2
+
+xlxi_17_N248
+   xlxi_17_N633.Y
+         1.242  xlxi_17_N256.F1
+
+xlxi_17_N254
+   xlxi_17_N254.X
+         0.039  xlxi_17_N254.G4
+         0.420  xlxi_17_N256.F4
+
+xlxi_17_N256
+   xlxi_17_N256.X
+         0.314  xlxi_17_N327.F1
+         0.025  xlxi_17_N256.G4
+
+xlxi_17_N258
+   xlxi_17_N256.Y
+         1.351  xlxi_17_N292.F2
+
+xlxi_17_N266
+   xlxi_17_N470.Y
+         0.420  xlxi_17_N274.F4
+
+xlxi_17_N272
+   xlxi_17_N272.X
+         0.039  xlxi_17_N272.G4
+         0.927  xlxi_17_N274.F2
+
+xlxi_17_N274
+   xlxi_17_N274.X
+         0.039  xlxi_17_N274.G4
+         0.647  xlxi_17_N288.G1
+
+xlxi_17_N280
+   xlxi_17_N694.Y
+         0.424  xlxi_17_N288.F3
+
+xlxi_17_N286
+   xlxi_17_N286.X
+         0.025  xlxi_17_N286.G4
+         0.314  xlxi_17_N288.F1
+
+xlxi_17_N288
+   xlxi_17_N288.X
+         0.039  xlxi_17_N288.G4
+         1.081  xlxi_17_N327.F4
+
+xlxi_17_N290
+   xlxi_17_N288.Y
+         1.557  xlxi_17_N382.F4
+         1.673  xlxi_17_N292.F3
+
+xlxi_17_N292
+   xlxi_17_N292.X
+         0.314  xlxn_23_15.F1
+         0.025  xlxi_17_N292.G4
+
+xlxi_17_N294
+   xlxn_23_15.X
+         0.025  xlxn_23_15.G4
+
+xlxi_17_N300
+   xlxi_17_N292.Y
+         0.175  xlxn_23_15.G2
+
+xlxi_17_N313
+   xlxi_17_N313.X
+         0.310  xlxi_17_N592.G1
+
+xlxi_17_N315
+   xlxi_17_N315.X
+         0.314  xlxi_17_N414.F1
+         0.025  xlxi_17_N315.G4
+
+xlxi_17_N317
+   xlxi_17_N315.Y
+         0.526  xlxi_17_N477.F2
+         0.522  xlxi_17_N477.G2
+
+xlxi_17_N320
+   xlxi_17_N477.Y
+         1.138  xlxi_17_N342.F1
+
+xlxi_17_N327
+   xlxi_17_N327.X
+         0.025  xlxi_17_N327.G4
+
+xlxi_17_N335
+   xlxi_17_N335.X
+         0.025  xlxi_17_N335.G4
+         0.310  xlxi_17_N274.G1
+
+xlxi_17_N338
+   xlxi_17_N274.Y
+         1.482  xlxi_17_N456.F1
+         0.849  xlxi_17_N327.G3
+
+xlxi_17_N340
+   xlxi_17_N327.Y
+         1.414  xlxn_23_14.F3
+         1.399  xlxi_17_N342.F3
+
+xlxi_17_N342
+   xlxi_17_N342.X
+         0.920  xlxn_23_14.G1
+
+xlxi_17_N346
+   xlxi_17_N346.X
+         0.387  xlxn_23_14.G3
+
+xlxi_17_N354
+   xlxi_17_N354.X
+         0.039  xlxi_17_N354.G4
+         1.063  xlxi_17_N394.F3
+
+xlxi_17_N356
+   xlxi_17_N354.Y
+         1.865  xlxn_23_14.F1
+         1.508  xlxi_17_N441.F4
+
+xlxi_17_N361
+   xlxn_23_14.X
+         0.025  xlxn_23_14.G4
+
+xlxi_17_N376
+   xlxi_17_N254.Y
+         0.957  xlxi_17_N453.F2
+         0.933  xlxi_17_N335.G1
+
+xlxi_17_N379
+   xlxi_17_N335.Y
+         1.856  xlxi_17_N517.F2
+         1.805  xlxi_17_N382.F3
+
+xlxi_17_N382
+   xlxi_17_N382.X
+         0.651  xlxn_23_13.F1
+         0.039  xlxi_17_N382.G4
+
+xlxi_17_N392
+   xlxi_17_N392.X
+         1.158  xlxi_17_N438.F3
+         1.493  xlxi_17_N394.F1
+
+xlxi_17_N394
+   xlxi_17_N394.X
+         0.025  xlxi_17_N394.G4
+         0.314  xlxi_17_N396.F1
+
+xlxi_17_N396
+   xlxi_17_N396.X
+         1.136  xlxn_23_13.F3
+
+xlxi_17_N398
+   xlxn_23_13.X
+         0.025  xlxn_23_13.G4
+
+xlxi_17_N410
+   xlxi_17_N410.X
+         1.573  xlxi_17_N653.G2
+
+xlxi_17_N412
+   xlxi_17_N392.Y
+         1.390  xlxi_17_N474.F4
+         0.851  xlxi_17_N414.F4
+
+xlxi_17_N414
+   xlxi_17_N414.X
+         0.039  xlxi_17_N414.G4
+         1.281  xlxi_17_N417.F3
+
+xlxi_17_N417
+   xlxi_17_N417.X
+         1.017  xlxi_17_N382.G2
+
+xlxi_17_N421
+   xlxi_17_N382.Y
+         0.512  xlxn_23_13.G2
+
+xlxi_17_N436
+   xlxi_17_N436.X
+         0.846  xlxi_17_N499.F4
+         1.324  xlxi_17_N438.F1
+
+xlxi_17_N438
+   xlxi_17_N438.X
+         1.182  xlxi_17_N441.F2
+         0.039  xlxi_17_N438.G4
+
+xlxi_17_N441
+   xlxi_17_N441.X
+         0.936  xlxn_23_12.F2
+
+xlxi_17_N450
+   xlxi_17_N286.Y
+         1.042  xlxi_17_N514.F4
+         1.311  xlxi_17_N453.F1
+
+xlxi_17_N453
+   xlxi_17_N453.X
+         0.039  xlxi_17_N453.G4
+         1.334  xlxi_17_N456.F2
+
+xlxi_17_N456
+   xlxi_17_N456.X
+         0.314  xlxn_23_12.F1
+         0.025  xlxi_17_N456.G4
+
+xlxi_17_N458
+   xlxn_23_12.X
+         0.025  xlxn_23_12.G4
+
+xlxi_17_N470
+   xlxi_17_N470.X
+         0.951  xlxi_17_N714.G2
+
+xlxi_17_N472
+   xlxi_17_N436.Y
+         0.193  xlxi_17_N474.F2
+         0.512  xlxi_17_N533.G2
+
+xlxi_17_N474
+   xlxi_17_N474.X
+         0.039  xlxi_17_N474.G4
+         0.420  xlxi_17_N477.F4
+
+xlxi_17_N477
+   xlxi_17_N477.X
+         0.794  xlxi_17_N456.G2
+
+xlxi_17_N481
+   xlxi_17_N456.Y
+         0.175  xlxn_23_12.G2
+
+xlxi_17_N497
+   xlxi_17_N497.X
+         1.731  xlxi_17_N560.F2
+         1.537  xlxi_17_N499.F3
+
+xlxi_17_N499
+   xlxi_17_N499.X
+         0.039  xlxi_17_N499.G4
+         1.053  xlxi_17_N394.G3
+
+xlxi_17_N502
+   xlxi_17_N394.Y
+         0.678  xlxn_23_11.F3
+
+xlxi_17_N511
+   xlxi_17_N272.Y
+         0.432  xlxi_17_N575.F4
+         1.314  xlxi_17_N514.F1
+
+xlxi_17_N514
+   xlxi_17_N514.X
+         0.039  xlxi_17_N514.G4
+         1.038  xlxi_17_N517.F4
+
+xlxi_17_N517
+   xlxi_17_N517.X
+         0.314  xlxn_23_11.F1
+         0.025  xlxi_17_N517.G4
+
+xlxi_17_N519
+   xlxn_23_11.X
+         0.025  xlxn_23_11.G4
+
+xlxi_17_N531
+   xlxi_17_N410.Y
+         1.109  xlxi_17_N758.G2
+
+xlxi_17_N533
+   xlxi_17_N533.X
+         0.039  xlxi_17_N533.G4
+         0.870  xlxi_17_N596.F3
+
+xlxi_17_N535
+   xlxi_17_N533.Y
+         1.401  xlxi_17_N657.G2
+         0.524  xlxi_17_N414.G2
+
+xlxi_17_N538
+   xlxi_17_N414.Y
+         1.136  xlxi_17_N517.G2
+
+xlxi_17_N542
+   xlxi_17_N517.Y
+         0.175  xlxn_23_11.G2
+
+xlxi_17_N558
+   xlxi_17_N558.X
+         1.270  xlxi_17_N619.G3
+         1.490  xlxi_17_N560.F3
+
+xlxi_17_N560
+   xlxi_17_N560.X
+         0.039  xlxi_17_N560.G4
+         1.522  xlxi_17_N438.G1
+
+xlxi_17_N563
+   xlxi_17_N438.Y
+         0.801  xlxi_17_N580.F2
+
+xlxi_17_N572
+   xlxi_17_N572.X
+         0.819  xlxi_17_N575.F2
+         0.328  xlxi_17_N636.F1
+
+xlxi_17_N575
+   xlxi_17_N575.X
+         0.039  xlxi_17_N575.G4
+         1.233  xlxi_17_N453.G3
+
+xlxi_17_N578
+   xlxi_17_N453.Y
+         1.739  xlxn_23_10.F2
+         1.740  xlxi_17_N580.F1
+
+xlxi_17_N580
+   xlxi_17_N580.X
+         0.647  xlxn_23_10.G1
+
+xlxi_17_N592
+   xlxi_17_N592.X
+         0.651  xlxi_17_N831.F1
+         0.039  xlxi_17_N592.G4
+
+xlxi_17_N594
+   xlxi_17_N592.Y
+         1.582  xlxi_17_N657.F3
+         1.009  xlxi_17_N596.F1
+
+xlxi_17_N596
+   xlxi_17_N596.X
+         1.567  xlxi_17_N718.G1
+         0.981  xlxi_17_N474.G1
+
+xlxi_17_N599
+   xlxi_17_N474.Y
+         1.030  xlxn_23_10.F4
+
+xlxi_17_N603
+   xlxn_23_10.X
+         0.025  xlxn_23_10.G4
+
+xlxi_17_N619
+   xlxi_17_N619.X
+         0.647  xlxi_17_N680.G1
+         0.039  xlxi_17_N619.G4
+
+xlxi_17_N621
+   xlxi_17_N619.Y
+         1.234  xlxi_17_N499.G3
+         1.127  xlxi_17_N764.F1
+
+xlxi_17_N624
+   xlxi_17_N499.Y
+         0.647  xlxi_17_N342.G1
+
+xlxi_17_N633
+   xlxi_17_N633.X
+         0.928  xlxi_17_N697.F4
+         0.736  xlxi_17_N636.F4
+
+xlxi_17_N636
+   xlxi_17_N636.X
+         1.478  xlxi_17_N514.G1
+         0.039  xlxi_17_N636.G4
+
+xlxi_17_N639
+   xlxi_17_N514.Y
+         1.858  xlxn_23_9.F1
+         1.522  xlxi_17_N342.G3
+
+xlxi_17_N641
+   xlxi_17_N342.Y
+         1.213  xlxn_23_9.G2
+
+xlxi_17_N653
+   xlxi_17_N653.X
+         1.077  xlxi_17_N161.G1
+         0.039  xlxi_17_N653.G4
+
+xlxi_17_N655
+   xlxi_17_N653.Y
+         1.196  xlxi_17_N718.F3
+         1.731  xlxi_17_N657.F1
+
+xlxi_17_N657
+   xlxi_17_N657.X
+         1.114  xlxi_17_N781.F4
+         0.039  xlxi_17_N657.G4
+
+xlxi_17_N660
+   xlxi_17_N657.Y
+         0.179  xlxn_23_9.F2
+
+xlxi_17_N664
+   xlxn_23_9.X
+         0.025  xlxn_23_9.G4
+
+xlxi_17_N680
+   xlxi_17_N680.X
+         0.780  xlxi_17_N760.G3
+         0.039  xlxi_17_N680.G4
+
+xlxi_17_N682
+   xlxi_17_N680.Y
+         0.399  xlxi_17_N560.G3
+         0.648  xlxi_17_N764.G4
+
+xlxi_17_N685
+   xlxi_17_N560.Y
+         0.179  xlxi_17_N702.F2
+
+xlxi_17_N694
+   xlxi_17_N694.X
+         1.143  xlxi_17_N743.F4
+         1.358  xlxi_17_N697.F1
+
+xlxi_17_N697
+   xlxi_17_N697.X
+         1.058  xlxi_17_N575.G1
+         0.039  xlxi_17_N697.G4
+
+xlxi_17_N700
+   xlxi_17_N575.Y
+         1.951  xlxn_23_8.F3
+         2.090  xlxi_17_N702.F4
+
+xlxi_17_N702
+   xlxi_17_N702.X
+         1.144  xlxn_23_8.G1
+
+xlxi_17_N714
+   xlxi_17_N714.X
+         0.864  xlxi_17_N939.F3
+         0.039  xlxi_17_N714.G4
+
+xlxi_17_N716
+   xlxi_17_N714.Y
+         1.382  xlxi_17_N718.F4
+         1.507  xlxi_17_N596.G3
+
+xlxi_17_N718
+   xlxi_17_N718.X
+         1.397  xlxi_17_N835.F2
+         0.039  xlxi_17_N718.G4
+
+xlxi_17_N721
+   xlxi_17_N718.Y
+         1.134  xlxn_23_8.F4
+
+xlxi_17_N725
+   xlxn_23_8.X
+         0.025  xlxn_23_8.G4
+
+xlxi_17_N740
+   xlxi_17_N740.X
+         1.100  xlxi_17_N801.F4
+         1.009  xlxi_17_N743.F3
+
+xlxi_17_N743
+   xlxi_17_N743.X
+         0.039  xlxi_17_N743.G4
+         0.512  xlxi_17_N636.G2
+
+xlxi_17_N746
+   xlxi_17_N636.Y
+         1.883  xlxn_23_7.F1
+         2.198  xlxi_17_N781.G2
+
+xlxi_17_N758
+   xlxi_17_N758.X
+         0.053  xlxi_17_N758.G4
+         1.362  xlxi_17_N760.F1
+         1.655  xlxi_17_N129.G1
+
+xlxi_17_N760
+   xlxi_17_N760.X
+         0.310  xlxi_17_N814.G1
+         0.025  xlxi_17_N760.G4
+
+xlxi_17_N762
+   xlxi_17_N760.Y
+         1.384  xlxi_17_N870.G1
+         1.140  xlxi_17_N764.F3
+
+xlxi_17_N764
+   xlxi_17_N764.X
+         0.819  xlxn_23_7.F2
+
+xlxi_17_N766
+   xlxn_23_7.X
+         0.025  xlxn_23_7.G4
+
+xlxi_17_N777
+   xlxi_17_N758.Y
+         0.189  xlxi_17_N831.G2
+         0.512  xlxi_17_N596.G2
+
+xlxi_17_N779
+   xlxi_17_N596.Y
+         1.876  xlxi_17_N889.F1
+         1.288  xlxi_17_N781.F2
+
+xlxi_17_N781
+   xlxi_17_N781.X
+         0.025  xlxi_17_N781.G4
+
+xlxi_17_N784
+   xlxi_17_N781.Y
+         0.802  xlxn_23_7.G2
+
+xlxi_17_N798
+   xlxi_17_N798.X
+         0.314  xlxi_17_N801.F1
+         0.025  xlxi_17_N798.G4
+
+xlxi_17_N801
+   xlxi_17_N801.X
+         0.039  xlxi_17_N801.G4
+         0.823  xlxi_17_N697.G2
+
+xlxi_17_N804
+   xlxi_17_N697.Y
+         2.352  xlxn_23_6.F4
+         2.557  xlxi_17_N835.G1
+
+xlxi_17_N814
+   xlxi_17_N814.X
+         0.039  xlxi_17_N814.G4
+         1.137  xlxi_17_N870.F3
+
+xlxi_17_N816
+   xlxi_17_N814.Y
+         0.807  xlxi_17_N924.G2
+         1.131  xlxi_17_N764.G3
+
+xlxi_17_N818
+   xlxi_17_N764.Y
+         0.967  xlxn_23_6.F2
+
+xlxi_17_N820
+   xlxn_23_6.X
+         0.025  xlxn_23_6.G4
+
+xlxi_17_N831
+   xlxi_17_N831.X
+         0.039  xlxi_17_N831.G4
+         1.711  xlxi_17_N887.F2
+
+xlxi_17_N833
+   xlxi_17_N831.Y
+         1.619  xlxi_17_N943.F4
+         1.803  xlxi_17_N835.F1
+
+xlxi_17_N835
+   xlxi_17_N835.X
+         0.025  xlxi_17_N835.G4
+
+xlxi_17_N838
+   xlxi_17_N835.Y
+         0.690  xlxn_23_6.G3
+
+xlxi_17_N852
+   xlxi_17_N852.X
+         1.123  xlxi_17_N798.G1
+         0.039  xlxi_17_N852.G4
+
+xlxi_17_N855
+   xlxi_17_N798.Y
+         0.531  xlxi_17_N743.G2
+         1.084  xlxi_17_N964.F3
+         1.047  xlxi_17_N964.G3
+
+xlxi_17_N858
+   xlxi_17_N743.Y
+         1.879  xlxn_23_5.F2
+         1.750  xlxi_17_N889.G3
+
+xlxi_17_N868
+   xlxi_17_N868.X
+         1.135  xlxi_17_N924.F1
+         1.253  xlxi_17_N870.F2
+
+xlxi_17_N870
+   xlxi_17_N870.X
+         0.039  xlxi_17_N870.G4
+         1.081  xlxi_17_N1054.G1
+
+xlxi_17_N872
+   xlxi_17_N870.Y
+         1.103  xlxn_23_5.F4
+
+xlxi_17_N874
+   xlxn_23_5.X
+         0.025  xlxn_23_5.G4
+
+xlxi_17_N885
+   xlxi_17_N161.Y
+         1.031  xlxi_17_N939.G1
+         0.927  xlxi_17_N887.F3
+
+xlxi_17_N887
+   xlxi_17_N887.X
+         1.150  xlxi_17_N889.F4
+         0.039  xlxi_17_N887.G4
+
+xlxi_17_N889
+   xlxi_17_N889.X
+         0.025  xlxi_17_N889.G4
+
+xlxi_17_N892
+   xlxi_17_N889.Y
+         0.175  xlxn_23_5.G2
+
+xlxi_17_N906
+   xlxi_17_N906.X
+         1.237  xlxi_17_N852.G3
+         0.039  xlxi_17_N906.G4
+
+xlxi_17_N909
+   xlxi_17_N852.Y
+         0.963  xlxi_17_N801.G2
+         1.079  xlxi_17_N1009.F3
+
+xlxi_17_N912
+   xlxi_17_N801.Y
+         2.293  xlxn_23_4.F2
+         1.917  xlxi_17_N943.G3
+
+xlxi_17_N922
+   xlxi_17_N111.Y
+         0.860  xlxi_17_N975.F4
+         1.271  xlxi_17_N924.F3
+
+xlxi_17_N924
+   xlxi_17_N924.X
+         0.039  xlxi_17_N924.G4
+         1.053  xlxi_17_N1019.G3
+
+xlxi_17_N926
+   xlxi_17_N924.Y
+         1.525  xlxn_23_4.F1
+
+xlxi_17_N928
+   xlxn_23_4.X
+         0.025  xlxn_23_4.G4
+
+xlxi_17_N939
+   xlxi_17_N939.X
+         0.039  xlxi_17_N939.G4
+         0.424  xlxi_17_N992.F3
+
+xlxi_17_N941
+   xlxi_17_N939.Y
+         1.882  xlxi_17_N943.F1
+         1.277  xlxi_17_N1035.F3
+
+xlxi_17_N943
+   xlxi_17_N943.X
+         0.025  xlxi_17_N943.G4
+
+xlxi_17_N946
+   xlxi_17_N943.Y
+         0.175  xlxn_23_4.G2
+
+xlxi_17_N958
+   xlxi_17_N906.Y
+         1.407  xlxi_17_N441.G3
+         1.680  xlxi_17_N964.F2
+         1.834  xlxi_17_N964.G1
+         1.234  xlxi_17_N1035.G4
+
+xlxi_17_N964
+   xlxi_17_N964.X
+         1.011  xlxn_23_3.F4
+
+xlxi_17_N973
+   xlxi_17_N129.Y
+         1.139  xlxi_17_N975.F1
+         0.766  xlxi_17_N992.F4
+         1.177  xlxi_17_N1019.F2
+
+xlxi_17_N975
+   xlxi_17_N975.X
+         0.957  xlxi_17_N1054.F2
+         0.868  xlxi_17_N1054.G3
+
+xlxi_17_N978
+   xlxi_17_N1054.Y
+         0.903  xlxn_23_3.F2
+
+xlxi_17_N985
+   xlxi_17_N964.Y
+         0.984  xlxn_23_3.G3
+
+xlxi_17_N992
+   xlxi_17_N992.X
+         0.025  xlxi_17_N992.G4
+         0.310  xlxi_17_N887.G1
+
+xlxi_17_N995
+   xlxi_17_N887.Y
+         0.512  xlxn_23_3.G2
+
+xlxi_5_N107
+   xlxn_5_9.X
+         1.248  xlxn_5_1.CLK
+         2.188  xlxn_5_1.F1
+         1.912  xlxn_5_1.G4
+         0.873  xlxn_5_3.CLK
+         0.598  xlxn_5_3.F4
+         0.540  xlxn_5_3.G4
+         1.248  xlxn_5_5.CLK
+         2.117  xlxn_5_5.F2
+         2.197  xlxn_5_5.G1
+         0.961  xlxn_5_7.CLK
+         0.929  xlxn_5_7.F3
+         1.154  xlxn_5_7.G4
+         0.746  xlxn_5_9.CLK
+         0.096  xlxn_5_9.G4
+         1.669  xlxn_5_8.CLK
+         1.312  xlxn_5_8.F2
+         1.820  xlxn_5_11.CLK
+         1.541  xlxn_5_11.F3
+         1.514  xlxn_5_11.G2
+         1.452  xlxn_5_13.CLK
+         1.772  xlxn_5_13.F1
+         1.768  xlxn_5_13.G1
+         1.633  xlxn_5_15.CLK
+         1.576  xlxn_5_15.F4
+         1.603  xlxn_5_15.G3
+
+xlxn_18
+   xlxi_15_xlxi_24_N77.Y
+         0.175  add_overflow.G2
+
+xlxn_21_0
+   xlxi_15_xlxi_25_I_0_LUT_69_SW1/O.Y
+         1.331  s_dummy_0.F2
+
+xlxn_23_0
+   xlxn_23_0.YQ
+         1.442  s_dummy_0.G3
+
+xlxn_23_1
+   xlxn_23_1.XQ
+         1.512  s_dummy_1.G3
+
+xlxn_23_10
+   xlxn_23_10.YQ
+         1.503  s_dummy_10.G3
+
+xlxn_23_11
+   xlxn_23_11.YQ
+         1.693  s_dummy_11.G2
+
+xlxn_23_12
+   xlxn_23_12.YQ
+         1.473  s_dummy_12.G3
+
+xlxn_23_13
+   xlxn_23_13.YQ
+         1.334  s_dummy_13.G4
+
+xlxn_23_14
+   xlxn_23_14.YQ
+         1.483  s_dummy_14.G4
+
+xlxn_23_15
+   xlxn_23_15.YQ
+         1.274  s_dummy_15.G4
+
+xlxn_23_2
+   xlxn_23_2.XQ
+         1.480  s_dummy_2.G4
+
+xlxn_23_3
+   xlxn_23_3.XQ
+         1.291  s_dummy_3.G3
+
+xlxn_23_4
+   xlxn_23_4.YQ
+         1.194  s_dummy_4.G3
+
+xlxn_23_5
+   xlxn_23_5.YQ
+         0.579  s_dummy_5.G3
+
+xlxn_23_6
+   xlxn_23_6.YQ
+         1.260  s_dummy_6.G4
+
+xlxn_23_7
+   xlxn_23_7.YQ
+         1.129  s_dummy_7.G1
+
+xlxn_23_8
+   xlxn_23_8.YQ
+         0.839  s_dummy_8.G1
+
+xlxn_23_9
+   xlxn_23_9.YQ
+         1.289  s_dummy_9.G3
+
+xlxn_2_0
+   xlxn_2_1.YQ
+         2.518  s_dummy_14.F1
+         2.110  s_dummy_14.G2
+         2.377  s_dummy_6.F4
+         2.675  s_dummy_6.G2
+         2.849  s_dummy_3.F1
+         2.845  s_dummy_3.G1
+         2.404  s_dummy_13.F1
+         2.091  s_dummy_13.G1
+         2.798  s_dummy_2.F3
+         2.677  s_dummy_2.G3
+         1.828  s_dummy_12.F3
+         2.115  s_dummy_12.G4
+         2.462  s_dummy_1.F4
+         2.563  s_dummy_1.G1
+         1.937  s_dummy_11.F4
+         2.508  s_dummy_11.G1
+         2.907  s_dummy_0.F4
+         2.849  s_dummy_0.G4
+         1.856  s_dummy_10.F3
+         2.118  s_dummy_10.G4
+         2.168  s_dummy_9.F1
+         2.368  s_dummy_9.G2
+         1.624  s_dummy_8.F4
+         1.617  s_dummy_8.G3
+         2.618  s_dummy_5.F4
+         2.560  s_dummy_5.G4
+         2.155  s_dummy_15.F2
+         2.349  s_dummy_15.G3
+         1.773  s_dummy_7.F2
+         2.289  s_dummy_7.G2
+         2.790  s_dummy_4.F1
+         3.163  s_dummy_4.G1
+
+xlxn_2_1
+   xlxn_2_1.XQ
+         1.840  s_dummy_14.BX
+         1.918  s_dummy_6.BX
+         2.191  s_dummy_3.BX
+         1.443  s_dummy_13.BX
+         2.473  s_dummy_2.BX
+         1.527  s_dummy_12.BX
+         2.209  s_dummy_1.BX
+         1.746  s_dummy_11.BX
+         2.225  s_dummy_0.BX
+         1.550  s_dummy_10.BX
+         1.697  s_dummy_9.BX
+         1.568  s_dummy_8.BX
+         2.356  s_dummy_5.BX
+         1.793  s_dummy_15.BX
+         1.414  s_dummy_7.BX
+         2.211  s_dummy_4.BX
+
+xlxn_5_0
+   xlxn_5_1.YQ
+         1.712  s_dummy_0.F3
+
+xlxn_5_1
+   xlxn_5_1.XQ
+         1.788  s_dummy_1.F1
+
+xlxn_5_10
+   xlxn_5_11.YQ
+         1.091  s_dummy_10.F4
+
+xlxn_5_11
+   xlxn_5_11.XQ
+         0.708  s_dummy_11.F2
+
+xlxn_5_12
+   xlxn_5_13.YQ
+         0.612  s_dummy_12.F4
+
+xlxn_5_13
+   xlxn_5_13.XQ
+         0.708  s_dummy_13.F2
+
+xlxn_5_14
+   xlxn_5_15.YQ
+         0.887  s_dummy_14.F4
+
+xlxn_5_15
+   xlxn_5_15.XQ
+         0.612  s_dummy_15.F4
+
+xlxn_5_2
+   xlxn_5_3.YQ
+         1.177  s_dummy_2.F2
+
+xlxn_5_3
+   xlxn_5_3.XQ
+         0.910  s_dummy_3.F4
+
+xlxn_5_4
+   xlxn_5_5.YQ
+         1.297  s_dummy_4.F2
+
+xlxn_5_5
+   xlxn_5_5.XQ
+         1.236  s_dummy_5.F3
+
+xlxn_5_6
+   xlxn_5_7.YQ
+         1.264  s_dummy_6.F1
+
+xlxn_5_7
+   xlxn_5_7.XQ
+         1.261  s_dummy_7.F4
+
+xlxn_5_8
+   xlxn_5_8.XQ
+         1.444  s_dummy_8.F2
+
+xlxn_5_9
+   xlxn_5_9.YQ
+         1.514  s_dummy_9.F2
+
+zero_OBUF
+   xlxi_16_N55.Y
+         0.395  zero.O
+

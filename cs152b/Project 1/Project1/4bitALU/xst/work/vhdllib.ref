@@ -1,0 +1,8 @@
+	m2_1_mxilinx	NULL	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl00
+	m2_1_mxilinx	schematic	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl01
+	compm4_mxilinx	NULL	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl02
+	compm4_mxilinx	schematic	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl03
+	ibuf4_mxilinx	NULL	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl04
+	ibuf4_mxilinx	schematic	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl05
+	add4_mxilinx	NULL	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl06
+	add4_mxilinx	schematic	E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf	sub00/vhpl07

@@ -1,0 +1,15 @@
+V1 17
+FL C:/152B/152bs04/tu1/maptoseg.vhd 2004/06/29.11:51:28
+AR work/MAPTOSEG/BEHAVIORAL FL C:/152B/152bs04/tu1/maptoseg.vhd EN work/MAPTOSEG
+EN work/CONST_32        FL C:/152B/152bs04/tu1/const_32.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+AR work/CONST_32/BEHAVIORAL FL C:/152B/152bs04/tu1/const_32.vhd EN work/CONST_32
+FL C:/152B/152bs04/tu1/segdisplay.vhf 2004/07/01.11:20:44
+AR work/SEGDISPLAY/SCHEMATIC FL C:/152B/152bs04/tu1/segdisplay.vhf \
+      EN work/SEGDISPLAY CP BUFG          CP CONST_32       CP COUNTER_32 \
+      CP COUNTER_4      CP IBUF           CP INV            CP MAPTOSEG       CP OBUF
+FL C:/152B/152bs04/tu1/const_32.vhd 2004/06/29.11:10:32
+EN work/MAPTOSEG        FL C:/152B/152bs04/tu1/maptoseg.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+EN work/SEGDISPLAY      FL C:/152B/152bs04/tu1/segdisplay.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS

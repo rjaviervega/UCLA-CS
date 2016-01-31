@@ -1,0 +1,59 @@
+////////////////////////////////////////////Shell Project 
+Report////////////////////////////////////////////
+
+Our project implements a shell that is very similar in operation to bash. 
+Some of the special feature of our shell is that it does process 
+backgrounding, logical operations(&&, ||), and input/output redirection.
+
+Implementation of Execute function
+
+It is passed a pointer to a string that contains the block of data that 
+needs to be executed. The other pointer that is passed is a pointer to an 
+int that indicates whether or not the command must run in the background. 
+The first function that is called is the paths function which is passed a 
+struct path. Then the parse function is called and it is passed a struct 
+command along with the original string pointer(the one that is passed into 
+Execute). After path and parse return you have a command and a path struct 
+that contains all of the vital information of the command. What follows is a 
+strcmp of User.command with exit and cd. If the command parsed matches 
+either of these then the appropriate action is taken(ie. you change to the 
+appropriate command or you exit). The next thing Execute does is to check 
+whether or not you have access to the command that is supposed to run. It 
+does this by calling the access function with the different paths(the ones 
+that are found in the path struct), until it finds the command or in the 
+case that the command is invalid fails. After deciding whether or not the 
+command was valid, if valid, a fork() system call is executed. The child 
+process then checks to see whether or not input/output redirection was 
+involved and if so behaves appropriately. It then executes the command by 
+passing Current.name and Current.argv to excev. The parent process, 
+meanwhile, either waits for the process or doesn't depending on whether the 
+command specified for it to run in the background.
+
+Implementation of Path function(Execute helper function)
+
+The path function is implemented to parse the PATH variable into the 
+different paths and putting them into the Path struct. It accomplishes this 
+by scanning the input from the PATH variable until it sees a ':' or an end 
+of line character and places the parsed segment into an individual character 
+array that is pointed to by one pointer from an array of pointers.
+
+Implementation of Parse function(Exectue helper function)
+
+The parse function works by scanning the input line. It places the actual 
+command in Current.name and into the first argument of the Current.argv 
+array. All subsequent arguments are placed in the following Current.argv 
+slots. If I/O redirection is involved then the file name is placed in either 
+Current.inputfile or Current.output.file.
+
+Implementation of Process function
+It is a recursive function that reads the input and splits it up into the 
+different sections. For example if you have a command followed by && and 
+then another command, the process function will get the first command call 
+execute and then get the second command and call execute
+
+
+Compiling and Running
+
+Go to the working directory of the myshell.c file. type gcc myshell.c, then 
+type ./a.out and your running the shell!
+

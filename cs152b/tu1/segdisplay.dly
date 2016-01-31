@@ -1,0 +1,762 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Thu Jul 01 12:13:40 2004
+
+File: segdisplay.dly
+
+ The 20 Worst Net Delays are:
+-------------------------------
+| Max Delay (ns)  | Netname   |
+-------------------------------
+   4.569            xlxn_5
+   3.834            xlxn_38
+   3.289            xlxi_1/N561
+   2.917            xlxn_41
+   2.584            qout_0
+   2.505            xlxi_1/N35
+   2.299            qout_3
+   2.230            qout_2
+   2.068            qout_1
+   1.697            xlxi_1/N17
+   1.641            xlxi_1/N776
+   1.594            lhex_6
+   1.531            xlxi_1/N357
+   1.503            xlxi_1/N29
+   1.415            xlxi_1/N25
+   1.407            xlxi_1/N32
+   1.400            xlxi_1/N9
+   1.396            xlxi_1/N16
+   1.393            xlxi_1/Q<29>
+   1.303            xlxi_1/N18
+---------------------------------
+
+-------------------------------------------------------------------------------
+                               Net Delays
+-------------------------------------------------------------------------------
+
+lhex_0
+   lhex_0.X
+         1.125  lhex0.O
+
+lhex_1
+   lhex_1.X
+         0.395  lhex1.O
+
+lhex_2
+   lhex_0.Y
+         0.843  lhex2.O
+
+lhex_3
+   xlxi_2/N5.Y
+         0.395  lhex3.O
+
+lhex_4
+   lhex_4.X
+         0.395  lhex4.O
+
+lhex_5
+   lhex_4.Y
+         1.059  lhex5.O
+
+lhex_6
+   lhex_1.Y
+         1.594  lhex6.O
+
+qout_0
+   qout_0.YQ
+         1.835  xlxi_2/N2.F1
+         2.584  outq0.O
+         2.201  lhex_0.F1
+         2.473  lhex_0.G3
+         1.612  xlxi_2/N5.G2
+         1.773  lhex_4.F3
+         1.709  lhex_4.G3
+         2.515  lhex_1.F4
+         2.502  lhex_1.G3
+
+qout_1
+   qout_2.YQ
+         1.351  xlxi_2/N3.F1
+         1.939  outq1.O
+         1.917  lhex_0.F2
+         2.006  lhex_0.G1
+         1.062  xlxi_2/N5.G4
+         1.348  lhex_4.F4
+         1.281  lhex_4.G4
+         2.068  lhex_1.F1
+         2.064  lhex_1.G1
+
+qout_2
+   qout_2.XQ
+         1.522  xlxi_2/N3.G1
+         1.928  outq2.O
+         2.138  lhex_0.F3
+         1.975  lhex_0.G4
+         1.530  xlxi_2/N5.G1
+         1.763  lhex_4.F2
+         1.847  lhex_4.G1
+         2.230  lhex_1.F2
+         2.226  lhex_1.G2
+
+qout_3
+   qout_3.YQ
+         2.063  outq3.O
+         2.134  lhex_0.F4
+         2.299  lhex_0.G2
+         1.663  xlxi_2/N5.F4
+         1.631  xlxi_2/N5.G3
+         1.739  lhex_4.F1
+         1.642  lhex_4.G2
+         2.208  lhex_1.F3
+         2.153  lhex_1.G4
+
+xlxi_1/N10
+   xlxi_1/N9.Y
+         0.443  xlxi_1/N250.F4
+         0.674  xlxi_1/N480.F1
+         0.193  xlxi_1/Q<8>.F2
+
+xlxi_1/N11
+   xlxi_1/N11.X
+         1.129  xlxi_1/N250.F2
+         0.324  xlxi_1/Q<10>.G1
+         1.064  xlxi_1/N480.F2
+
+xlxi_1/N12
+   xlxi_1/N11.Y
+         1.173  xlxi_1/N250.F1
+         0.207  xlxi_1/Q<10>.F2
+         0.923  xlxi_1/N480.F3
+
+xlxi_1/N125
+   xlxi_1/N125.Y
+         1.213  xlxi_1/N34.G3
+
+xlxi_1/N13
+   xlxi_1/N13.X
+         1.235  xlxi_1/N250.F3
+         0.342  xlxi_1/Q<11>.F1
+         1.112  xlxi_1/N480.F4
+
+xlxi_1/N14
+   xlxi_1/N13.Y
+         1.156  xlxi_1/N250.G4
+         0.203  xlxi_1/Q<11>.G2
+         1.140  xlxi_1/N480.G3
+
+xlxi_1/N142
+   xlxi_1/N34.X
+         0.025  xlxi_1/N34.G4
+
+xlxi_1/N15
+   xlxi_1/N15.X
+         1.149  xlxi_1/N250.G3
+         1.159  xlxi_1/N480.G4
+         0.342  xlxi_1/Q<13>.F1
+
+xlxi_1/N16
+   xlxi_1/N15.Y
+         1.396  xlxi_1/N250.G1
+         1.280  xlxi_1/N480.G2
+         0.203  xlxi_1/Q<13>.G2
+
+xlxi_1/N17
+   xlxi_1/N17.X
+         1.575  xlxi_1/N250.G2
+         1.697  xlxi_1/N480.G1
+         0.328  xlxi_1/Q<15>.F1
+
+xlxi_1/N178
+   xlxi_1/N179.Y
+         0.641  xlxi_1/N125.G3
+
+xlxi_1/N179
+   xlxi_1/N179.X
+         0.797  xlxi_1/N125.G2
+
+xlxi_1/N18
+   xlxi_1/N17.Y
+         1.066  xlxi_1/N181.F3
+         1.303  xlxi_1/N411.F2
+         0.203  xlxi_1/Q<15>.G2
+
+xlxi_1/N180
+   xlxi_1/N181.Y
+         0.932  xlxi_1/N125.G1
+
+xlxi_1/N181
+   xlxi_1/N181.X
+         0.644  xlxi_1/N125.G4
+
+xlxi_1/N19
+   xlxi_1/N19.X
+         1.243  xlxi_1/N181.F1
+         0.324  xlxi_1/Q<18>.G1
+         1.009  xlxi_1/N411.F3
+
+xlxi_1/N2
+   xlxi_1/N2.X
+         1.078  xlxi_1/N482.F3
+         0.847  xlxi_1/Q<0>.G4
+         1.179  xlxi_1/N252.F3
+
+xlxi_1/N20
+   xlxi_1/N19.Y
+         1.023  xlxi_1/N181.F2
+         0.207  xlxi_1/Q<18>.F2
+         0.950  xlxi_1/N411.F4
+
+xlxi_1/N21
+   xlxi_1/N21.X
+         0.443  xlxi_1/N181.F4
+         0.324  xlxi_1/Q<20>.G1
+         0.674  xlxi_1/N411.F1
+
+xlxi_1/N22
+   xlxi_1/N21.Y
+         0.410  xlxi_1/N181.G3
+         0.193  xlxi_1/Q<20>.F2
+         0.535  xlxi_1/N411.G2
+
+xlxi_1/N23
+   xlxi_1/N23.X
+         0.328  xlxi_1/Q<21>.F1
+         1.269  xlxi_1/N181.G1
+         0.968  xlxi_1/N411.G4
+
+xlxi_1/N24
+   xlxi_1/N23.Y
+         0.203  xlxi_1/Q<21>.G2
+         0.881  xlxi_1/N181.G4
+         0.842  xlxi_1/N411.G3
+
+xlxi_1/N249
+   xlxi_1/N250.Y
+         0.943  xlxi_1/N34.F1
+
+xlxi_1/N25
+   xlxi_1/N25.X
+         0.342  xlxi_1/Q<23>.F1
+         1.260  xlxi_1/N181.G2
+         1.415  xlxi_1/N411.G1
+
+xlxi_1/N250
+   xlxi_1/N250.X
+         0.706  xlxi_1/N34.F3
+
+xlxi_1/N251
+   xlxi_1/N252.Y
+         0.694  xlxi_1/N34.F4
+
+xlxi_1/N252
+   xlxi_1/N252.X
+         0.819  xlxi_1/N34.F2
+
+xlxi_1/N26
+   xlxi_1/N25.Y
+         0.203  xlxi_1/Q<23>.G2
+         0.448  xlxi_1/N179.F3
+         0.675  xlxi_1/N409.F1
+
+xlxi_1/N27
+   xlxi_1/N27.X
+         0.456  xlxi_1/Q<25>.F4
+         0.931  xlxi_1/N179.F4
+         0.891  xlxi_1/N409.F3
+
+xlxi_1/N28
+   xlxi_1/N27.Y
+         0.423  xlxi_1/Q<25>.G3
+         1.027  xlxi_1/N179.F2
+         0.961  xlxi_1/N409.F4
+
+xlxi_1/N29
+   xlxi_1/N29.X
+         1.503  xlxi_1/N179.F1
+         1.424  xlxi_1/N409.F2
+         0.324  xlxi_1/Q<28>.G1
+
+xlxi_1/N3
+   xlxi_1/N3.X
+         1.170  xlxi_1/N482.F1
+         0.342  xlxi_1/Q<1>.F1
+         0.960  xlxi_1/N252.F4
+
+xlxi_1/N30
+   xlxi_1/N29.Y
+         1.222  xlxi_1/N179.G2
+         1.054  xlxi_1/N409.G4
+         0.207  xlxi_1/Q<28>.F2
+
+xlxi_1/N31
+   xlxi_1/N31.X
+         1.161  xlxi_1/N179.G3
+         1.137  xlxi_1/N409.G3
+         0.845  xlxi_1/Q<30>.G3
+
+xlxi_1/N32
+   xlxi_1/N31.Y
+         1.407  xlxi_1/N179.G1
+         1.291  xlxi_1/N409.G2
+         1.128  xlxi_1/Q<30>.F1
+
+xlxi_1/N33
+   xlxi_1/N33.X
+         0.685  xlxi_1/N179.G4
+         0.671  xlxi_1/Q<31>.G1
+         0.967  xlxi_1/N409.G1
+
+xlxi_1/N34
+   xlxi_1/N34.YQ
+         0.981  xlxi_1/N35.G4
+
+xlxi_1/N35
+   xlxi_1/N35.Y
+         2.505  xlxi_1/Q<25>.F1
+         2.501  xlxi_1/Q<25>.G1
+         2.451  xlxi_1/Q<23>.F3
+         2.253  xlxi_1/Q<23>.G4
+         1.838  xlxi_1/Q<11>.F2
+         2.012  xlxi_1/Q<11>.G4
+         2.342  xlxi_1/Q<21>.F2
+         2.287  xlxi_1/Q<21>.G3
+         1.627  xlxi_1/Q<10>.F1
+         1.684  xlxi_1/Q<10>.G2
+         2.177  xlxi_1/Q<20>.F3
+         2.140  xlxi_1/Q<20>.G3
+         1.533  xlxi_1/Q<8>.F3
+         1.496  xlxi_1/Q<8>.G3
+         2.242  xlxi_1/Q<18>.F3
+         2.160  xlxi_1/Q<18>.G2
+         1.680  xlxi_1/Q<5>.F4
+         1.422  xlxi_1/Q<5>.G3
+         2.191  xlxi_1/Q<31>.G2
+         1.775  xlxi_1/Q<15>.F3
+         1.738  xlxi_1/Q<15>.G3
+         0.973  xlxi_1/Q<3>.F3
+         0.960  xlxi_1/Q<3>.G4
+         2.360  xlxi_1/Q<30>.F4
+         2.178  xlxi_1/Q<30>.G4
+         1.754  xlxi_1/Q<13>.F2
+         1.685  xlxi_1/Q<13>.G4
+         0.516  xlxi_1/Q<1>.F3
+         0.479  xlxi_1/Q<1>.G3
+         2.382  xlxi_1/Q<28>.F3
+         2.345  xlxi_1/Q<28>.G3
+         0.260  xlxi_1/Q<0>.G2
+
+xlxi_1/N357
+   xlxi_1/N357.Y
+         1.531  xlxi_1/N374.G1
+
+xlxi_1/N374
+   xlxi_1/N374.X
+         0.025  xlxi_1/N374.G4
+
+xlxi_1/N4
+   xlxi_1/N3.Y
+         1.010  xlxi_1/N482.F2
+         0.203  xlxi_1/Q<1>.G2
+         0.999  xlxi_1/N252.F2
+
+xlxi_1/N408
+   xlxi_1/N409.Y
+         1.034  xlxi_1/N357.G3
+
+xlxi_1/N409
+   xlxi_1/N409.X
+         1.054  xlxi_1/N357.G4
+
+xlxi_1/N410
+   xlxi_1/N411.Y
+         0.647  xlxi_1/N357.G1
+
+xlxi_1/N411
+   xlxi_1/N411.X
+         0.512  xlxi_1/N357.G2
+
+xlxi_1/N479
+   xlxi_1/N480.Y
+         0.709  xlxi_1/N374.F3
+
+xlxi_1/N480
+   xlxi_1/N480.X
+         0.948  xlxi_1/N374.F1
+
+xlxi_1/N481
+   xlxi_1/N482.Y
+         0.809  xlxi_1/N374.F2
+
+xlxi_1/N482
+   xlxi_1/N482.X
+         0.716  xlxi_1/N374.F4
+
+xlxi_1/N5
+   xlxi_1/N5.X
+         0.443  xlxi_1/N482.F4
+         0.328  xlxi_1/Q<3>.F1
+         0.674  xlxi_1/N252.F1
+
+xlxi_1/N561
+   xlxi_1/N2.Y
+         2.983  xlxi_1/N27.F1
+         2.979  xlxi_1/N27.G1
+         2.756  xlxi_1/N25.F1
+         2.752  xlxi_1/N25.G1
+         1.600  xlxi_1/N13.F1
+         1.596  xlxi_1/N13.G1
+         2.888  xlxi_1/N23.F1
+         3.289  xlxi_1/N23.G1
+         1.811  xlxi_1/N11.F1
+         1.751  xlxi_1/N11.G1
+         2.802  xlxi_1/N21.F1
+         2.798  xlxi_1/N21.G1
+         1.707  xlxi_1/N9.F1
+         1.657  xlxi_1/N9.G1
+         2.754  xlxi_1/N19.F1
+         2.750  xlxi_1/N19.G1
+         1.634  xlxi_1/N7.F1
+         1.630  xlxi_1/N7.G1
+         3.172  xlxi_1/N33.F1
+         2.775  xlxi_1/N17.F1
+         2.636  xlxi_1/N17.G1
+         1.109  xlxi_1/N5.F1
+         1.197  xlxi_1/N5.G1
+         3.079  xlxi_1/N31.F1
+         3.075  xlxi_1/N31.G1
+         1.755  xlxi_1/N15.F1
+         1.808  xlxi_1/N15.G1
+         1.095  xlxi_1/N3.F1
+         1.086  xlxi_1/N3.G1
+         3.034  xlxi_1/N29.F1
+         3.030  xlxi_1/N29.G1
+         1.088  xlxi_1/N2.F1
+
+xlxi_1/N566
+   xlxi_1/N2.COUT
+         0.000  xlxi_1/N3.CIN
+
+xlxi_1/N580
+   xlxi_1/N3.COUT
+         0.000  xlxi_1/N5.CIN
+
+xlxi_1/N594
+   xlxi_1/N5.COUT
+         0.000  xlxi_1/N7.CIN
+
+xlxi_1/N6
+   xlxi_1/N5.Y
+         0.410  xlxi_1/N482.G3
+         0.189  xlxi_1/Q<3>.G2
+         0.535  xlxi_1/N252.G2
+
+xlxi_1/N608
+   xlxi_1/N7.COUT
+         0.000  xlxi_1/N9.CIN
+
+xlxi_1/N622
+   xlxi_1/N9.COUT
+         0.000  xlxi_1/N11.CIN
+
+xlxi_1/N636
+   xlxi_1/N11.COUT
+         0.000  xlxi_1/N13.CIN
+
+xlxi_1/N650
+   xlxi_1/N13.COUT
+         0.000  xlxi_1/N15.CIN
+
+xlxi_1/N664
+   xlxi_1/N15.COUT
+         0.000  xlxi_1/N17.CIN
+
+xlxi_1/N678
+   xlxi_1/N17.COUT
+         0.000  xlxi_1/N19.CIN
+
+xlxi_1/N692
+   xlxi_1/N19.COUT
+         0.000  xlxi_1/N21.CIN
+
+xlxi_1/N7
+   xlxi_1/N7.X
+         1.023  xlxi_1/N482.G2
+         0.540  xlxi_1/Q<5>.F2
+         0.854  xlxi_1/N252.G3
+
+xlxi_1/N706
+   xlxi_1/N21.COUT
+         0.000  xlxi_1/N23.CIN
+
+xlxi_1/N720
+   xlxi_1/N23.COUT
+         0.000  xlxi_1/N25.CIN
+
+xlxi_1/N734
+   xlxi_1/N25.COUT
+         0.000  xlxi_1/N27.CIN
+
+xlxi_1/N748
+   xlxi_1/N27.COUT
+         0.000  xlxi_1/N29.CIN
+
+xlxi_1/N762
+   xlxi_1/N29.COUT
+         0.000  xlxi_1/N31.CIN
+
+xlxi_1/N776
+   xlxi_1/N31.COUT
+         1.641  xlxi_1/N33.BX
+
+xlxi_1/N8
+   xlxi_1/N7.Y
+         0.933  xlxi_1/N482.G4
+         0.671  xlxi_1/Q<5>.G1
+         0.896  xlxi_1/N252.G4
+
+xlxi_1/N9
+   xlxi_1/N9.X
+         1.350  xlxi_1/N482.G1
+         0.338  xlxi_1/Q<8>.G1
+         1.400  xlxi_1/N252.G1
+
+xlxi_1/Q<0>
+   xlxi_1/Q<0>.YQ
+         1.255  xlxi_1/N2.F2
+
+xlxi_1/Q<10>
+   xlxi_1/Q<10>.XQ
+         0.959  xlxi_1/N11.G2
+
+xlxi_1/Q<11>
+   xlxi_1/Q<11>.XQ
+         0.963  xlxi_1/N13.F2
+
+xlxi_1/Q<12>
+   xlxi_1/Q<11>.YQ
+         0.979  xlxi_1/N13.G2
+
+xlxi_1/Q<13>
+   xlxi_1/Q<13>.XQ
+         0.963  xlxi_1/N15.F2
+
+xlxi_1/Q<14>
+   xlxi_1/Q<13>.YQ
+         0.979  xlxi_1/N15.G2
+
+xlxi_1/Q<15>
+   xlxi_1/Q<15>.XQ
+         0.963  xlxi_1/N17.F2
+
+xlxi_1/Q<16>
+   xlxi_1/Q<15>.YQ
+         0.979  xlxi_1/N17.G2
+
+xlxi_1/Q<17>
+   xlxi_1/Q<18>.YQ
+         1.011  xlxi_1/N19.F2
+
+xlxi_1/Q<18>
+   xlxi_1/Q<18>.XQ
+         0.959  xlxi_1/N19.G2
+
+xlxi_1/Q<19>
+   xlxi_1/Q<20>.YQ
+         0.983  xlxi_1/N21.F2
+
+xlxi_1/Q<1>
+   xlxi_1/Q<1>.XQ
+         0.963  xlxi_1/N3.F2
+
+xlxi_1/Q<20>
+   xlxi_1/Q<20>.XQ
+         0.959  xlxi_1/N21.G2
+
+xlxi_1/Q<21>
+   xlxi_1/Q<21>.XQ
+         0.963  xlxi_1/N23.F2
+
+xlxi_1/Q<22>
+   xlxi_1/Q<21>.YQ
+         0.979  xlxi_1/N23.G2
+
+xlxi_1/Q<23>
+   xlxi_1/Q<23>.XQ
+         0.963  xlxi_1/N25.F2
+
+xlxi_1/Q<24>
+   xlxi_1/Q<23>.YQ
+         0.979  xlxi_1/N25.G2
+
+xlxi_1/Q<25>
+   xlxi_1/Q<25>.XQ
+         1.016  xlxi_1/N27.F2
+
+xlxi_1/Q<26>
+   xlxi_1/Q<25>.YQ
+         0.715  xlxi_1/N27.G2
+
+xlxi_1/Q<27>
+   xlxi_1/Q<28>.YQ
+         0.963  xlxi_1/N29.F2
+
+xlxi_1/Q<28>
+   xlxi_1/Q<28>.XQ
+         0.982  xlxi_1/N29.G2
+
+xlxi_1/Q<29>
+   xlxi_1/Q<30>.YQ
+         1.393  xlxi_1/N31.F2
+
+xlxi_1/Q<2>
+   xlxi_1/Q<1>.YQ
+         0.979  xlxi_1/N3.G2
+
+xlxi_1/Q<30>
+   xlxi_1/Q<30>.XQ
+         1.131  xlxi_1/N31.G2
+
+xlxi_1/Q<31>
+   xlxi_1/Q<31>.YQ
+         0.708  xlxi_1/N33.F2
+
+xlxi_1/Q<3>
+   xlxi_1/Q<3>.XQ
+         0.963  xlxi_1/N5.F2
+
+xlxi_1/Q<4>
+   xlxi_1/Q<3>.YQ
+         0.979  xlxi_1/N5.G2
+
+xlxi_1/Q<5>
+   xlxi_1/Q<5>.XQ
+         0.998  xlxi_1/N7.F2
+
+xlxi_1/Q<6>
+   xlxi_1/Q<5>.YQ
+         0.979  xlxi_1/N7.G2
+
+xlxi_1/Q<7>
+   xlxi_1/Q<8>.YQ
+         1.011  xlxi_1/N9.F2
+
+xlxi_1/Q<8>
+   xlxi_1/Q<8>.XQ
+         0.959  xlxi_1/N9.G2
+
+xlxi_1/Q<9>
+   xlxi_1/Q<10>.YQ
+         1.011  xlxi_1/N11.F2
+
+xlxi_2/N2
+   xlxi_2/N2.X
+         1.187  qout_0.G1
+         1.077  xlxi_2/N6.F2
+
+xlxi_2/N3
+   xlxi_2/N3.X
+         0.324  qout_2.G1
+         0.420  xlxi_2/N6.F4
+
+xlxi_2/N4
+   xlxi_2/N3.Y
+         0.193  qout_2.F2
+         0.424  xlxi_2/N6.F3
+
+xlxi_2/N5
+   xlxi_2/N5.X
+         1.127  xlxi_2/N6.F1
+         0.791  qout_3.G3
+
+xlxi_2/N6
+   xlxi_2/N6.XQ
+         0.979  xlxi_2/N6.G2
+
+xlxi_2/N62
+   xlxi_2/N2.Y
+         0.668  qout_2.CE
+         0.834  qout_0.CE
+         0.614  qout_3.CE
+
+xlxi_2/N65
+   xlxi_2/N2.COUT
+         0.000  xlxi_2/N3.CIN
+
+xlxi_2/N7
+   xlxi_2/N6.Y
+         0.457  qout_2.F4
+         0.424  qout_2.G3
+         0.232  qout_0.G2
+         1.036  xlxi_2/N2.G2
+         0.872  qout_3.G4
+
+xlxi_2/N75
+   xlxi_2/N3.COUT
+         0.000  xlxi_2/N5.CIN
+
+xlxn_37
+   xlxi_8.OUT
+         0.353  xlxi_1/Q<25>.CLK
+         0.298  qout_2.CLK
+         0.353  xlxi_1/Q<23>.CLK
+         0.300  qout_0.CLK
+         0.353  xlxi_1/Q<11>.CLK
+         0.353  xlxi_1/Q<21>.CLK
+         0.300  xlxi_2/N6.CLK
+         0.353  xlxi_1/Q<10>.CLK
+         0.353  xlxi_1/Q<20>.CLK
+         0.353  xlxi_1/Q<8>.CLK
+         0.353  xlxi_1/Q<18>.CLK
+         0.355  xlxi_1/Q<5>.CLK
+         0.355  xlxi_1/Q<31>.CLK
+         0.353  xlxi_1/Q<15>.CLK
+         0.353  xlxi_1/Q<3>.CLK
+         0.353  xlxi_1/Q<30>.CLK
+         0.353  xlxi_1/Q<13>.CLK
+         0.353  xlxi_1/Q<1>.CLK
+         0.353  xlxi_1/N34.CLK
+         0.353  xlxi_1/Q<28>.CLK
+         0.341  qout_3.CLK
+         0.353  xlxi_1/Q<0>.CLK
+
+xlxn_38
+   load.I
+         3.834  xlxi_1/N2.G1
+         3.209  xlxi_1/N35.G3
+
+xlxn_4
+   clk.GCLKOUT
+         0.006  xlxi_8.IN
+
+xlxn_41
+   xlxi_1/N374.Y
+         2.461  xlxi_2/N2.G1
+         2.467  xlxi_2/N6.CE
+         2.917  xlxi_2/N6.G1
+
+xlxn_5
+   resetn.I
+         3.238  xlxi_1/Q<25>.SR
+         1.895  qout_2.SR
+         3.334  xlxi_1/Q<23>.SR
+         1.931  qout_0.SR
+         4.001  xlxi_1/Q<11>.SR
+         3.543  xlxi_1/Q<21>.SR
+         1.931  xlxi_2/N6.SR
+         4.041  xlxi_1/Q<10>.SR
+         3.563  xlxi_1/Q<20>.SR
+         4.270  xlxi_1/Q<8>.SR
+         3.906  xlxi_1/Q<18>.SR
+         4.290  xlxi_1/Q<5>.SR
+         3.384  xlxi_1/Q<31>.SR
+         3.697  xlxi_1/Q<15>.SR
+         4.305  xlxi_1/Q<3>.SR
+         3.295  xlxi_1/Q<30>.SR
+         3.854  xlxi_1/Q<13>.SR
+         4.338  xlxi_1/Q<1>.SR
+         4.569  xlxi_1/N34.SR
+         2.849  xlxi_1/Q<28>.SR
+         1.914  qout_3.SR
+         4.469  xlxi_1/Q<0>.SR
+

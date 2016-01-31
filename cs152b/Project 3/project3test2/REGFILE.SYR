@@ -1,0 +1,305 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : regfile.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : regfile
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : regfile
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/proj2/project2/regfile.vhf in Library work.
+Architecture Schematic of Entity D3_8e_mxilinx is up to date.
+Architecture Schematic of Entity Fd16ce_mxilinx is up to date.
+Architecture Schematic of Entity Regfile is up to date.
+
+Analyzing Entity <regfile> (Architecture <Schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:766 - E:/proj2/project2/regfile.vhf (Line 362). Generating a Black Box for component <buxmux16>.
+WARNING:Xst:766 - E:/proj2/project2/regfile.vhf (Line 401). Generating a Black Box for component <buxmux16>.
+WARNING:Xst:753 - E:/proj2/project2/regfile.vhf (Line 440). Unconnected output port 'd0' of component 'd3_8e_mxilinx'.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_7> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_67> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_70> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_68> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_66> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_72> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_71> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_69> in unit <regfile>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <regfile> analyzed. Unit <regfile> generated.
+
+Analyzing Entity <d3_8e_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <d3_8e_mxilinx> analyzed. Unit <d3_8e_mxilinx> generated.
+
+Analyzing Entity <fd16ce_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q0> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q5> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q1> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q2> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q3> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q4> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q6> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q7> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q8> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q9> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q10> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q11> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q12> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q13> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q14> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q15> in unit <fd16ce_mxilinx>.
+Entity <fd16ce_mxilinx> analyzed. Unit <fd16ce_mxilinx> generated.
+
+
+Synthesizing Unit <fd16ce_mxilinx>.
+    Related source file is E:/proj2/project2/regfile.vhf.
+Unit <fd16ce_mxilinx> synthesized.
+
+
+Synthesizing Unit <d3_8e_mxilinx>.
+    Related source file is E:/proj2/project2/regfile.vhf.
+Unit <d3_8e_mxilinx> synthesized.
+
+
+Synthesizing Unit <regfile>.
+    Related source file is E:/proj2/project2/regfile.vhf.
+Unit <regfile> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+
+Starting low level synthesis...
+Optimizing unit <fd16ce_mxilinx> ...
+
+Optimizing unit <d3_8e_mxilinx> ...
+
+Optimizing unit <regfile> ...
+
+Building and optimizing final netlist ...
+
+=========================================================================
+Final Results
+Top Level Output File Name         : regfile
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Design Statistics
+# IOs                              : 59
+
+Cell Usage :
+# BELS                             : 1
+#      GND                         : 1
+# FlipFlops/Latches                : 112
+#      FDCE                        : 112
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 58
+#      IBUF                        : 26
+#      OBUF                        : 32
+# Logical                          : 15
+#      AND2                        : 7
+#      AND4                        : 1
+#      AND4b1                      : 3
+#      AND4b2                      : 3
+#      AND4b3                      : 1
+# Others                           : 2
+#      buxmux16                    : 2
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clock                              | BUFGP                  | 7     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 8.635ns
+   Maximum output required time after clock: 1.065ns
+   Maximum combinational path delay: 5.822ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
+Offset:              8.635ns (Levels of Logic = 3)
+  Source:            wren
+  Destination:       xlxi_67/i_q12
+  Destination Clock: clock rising
+
+  Data Path: wren to xlxi_67/i_q12
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O             15   0.768   2.430  wren_IBUF (wren_IBUF)
+     begin scope: 'xlxi_7'
+    AND4:I3->O             1   0.573   1.035  i_36_30 (d7)
+     end scope: 'xlxi_7'
+    AND2:I0->O            16   0.573   2.520  xlxi_85 (wren7)
+     begin scope: 'xlxi_67'
+    FDCE:CE                    0.736          i_q12
+    ----------------------------------------
+    Total                      8.635ns (2.650ns logic, 5.985ns route)
+                                       (30.7% logic, 69.3% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
+Offset:              1.065ns (Levels of Logic = 0)
+  Source:            xlxi_70/i_q6
+  Destination:       busamux
+  Source Clock:      clock rising
+
+  Data Path: xlxi_70/i_q6 to busamux
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDCE:C->Q              0   1.065   0.000  i_q6 (q_6)
+     end scope: 'xlxi_70'
+    buxmux16:mb_6              0.000          busamux
+    ----------------------------------------
+    Total                      1.065ns (1.065ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Offset:              5.822ns (Levels of Logic = 1)
+  Source:            busamux
+  Destination:       busa_0
+
+  Data Path: busamux to busa_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    buxmux16:o_0           1   0.000   1.035  busamux (busa_0_OBUF)
+    OBUF:I->O                  4.787          busa_0_OBUF (busa_0)
+    ----------------------------------------
+    Total                      5.822ns (4.787ns logic, 1.035ns route)
+                                       (82.2% logic, 17.8% route)
+
+=========================================================================
+CPU : 3.92 / 3.95 s | Elapsed : 4.00 / 4.00 s
+ 
+--> 

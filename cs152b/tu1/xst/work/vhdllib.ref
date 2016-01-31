@@ -1,0 +1,6 @@
+	Const_32	NULL	C:/152B/152bs04/tu1/const_32.vhd	sub00/vhpl00
+	Const_32	Behavioral	C:/152B/152bs04/tu1/const_32.vhd	sub00/vhpl01
+	Maptoseg	NULL	C:/152B/152bs04/tu1/maptoseg.vhd	sub00/vhpl02
+	Maptoseg	Behavioral	C:/152B/152bs04/tu1/maptoseg.vhd	sub00/vhpl03
+	segdisplay	NULL	C:/152B/152bs04/tu1/segdisplay.vhf	sub00/vhpl04
+	segdisplay	schematic	C:/152B/152bs04/tu1/segdisplay.vhf	sub00/vhpl05

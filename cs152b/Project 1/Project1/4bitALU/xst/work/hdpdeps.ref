@@ -1,0 +1,29 @@
+V1 36
+AR work/BITALU/SCHEMATIC FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      EN work/BITALU    CP ADD4_MXILINX   CP AND2           CP AND3           CP AND4 \
+      CP COMPM4_MXILINX CP GND            CP IBUF           CP IBUF4_MXILINX \
+      CP INV            CP M2_1_MXILINX   CP MUX2TO1        CP MUX8X4BUS      CP OBUF \
+      CP OR2            CP VCC
+EN work/BITALU          FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+EN work/ADD4_MXILINX    FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+AR work/ADD4_MXILINX/SCHEMATIC FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      EN work/ADD4_MXILINX CP FMAP        CP MUXCY          CP MUXCY_D        CP MUXCY_L \
+      CP XOR2           CP XORCY
+EN work/IBUF4_MXILINX   FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf 2004/07/08.09:59:31
+EN work/COMPM4_MXILINX  FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+AR work/COMPM4_MXILINX/SCHEMATIC \
+      FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf EN work/COMPM4_MXILINX \
+      CP AND2           CP AND2B1         CP AND3B1         CP NOR2           CP OR2 \
+      CP XNOR2
+AR work/IBUF4_MXILINX/SCHEMATIC \
+      FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf EN work/IBUF4_MXILINX \
+      CP IBUF
+AR work/M2_1_MXILINX/SCHEMATIC FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      EN work/M2_1_MXILINX CP AND2        CP AND2B1         CP OR2
+EN work/M2_1_MXILINX    FL E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS

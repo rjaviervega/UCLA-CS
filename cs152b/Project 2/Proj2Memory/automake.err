@@ -1,0 +1,8 @@
+JHDPARSE - VHDL/Verilog Parser.
+ISE 4.1i Copyright(c) 1999-2001 Xilinx, Inc.  All rights reserved. 
+
+Scanning    memtest.vhd
+Scanning    memtest.vhd
+Writing memtest.jhd.
+
+JHDPARSE complete -    0 errors,    0 warnings.

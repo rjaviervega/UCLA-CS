@@ -1,0 +1,94 @@
+# Reading c:/Modeltech_xe/win32xoem/../tcl/vsim/pref.tcl 
+# do regfile.ldo 
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity buxmux16
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture buxmux16_a of buxmux16
+# -- Loading package std_logic_1164
+# -- Loading entity buxmux16
+# -- Loading package prims_utils_v4_0
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package prims_constants_v4_0
+# -- Loading package c_reg_fd_v4_0_comp
+# -- Loading entity c_mux_bus_v4_0
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Compiling entity d3_8e_mxilinx
+# -- Compiling entity fd16ce_mxilinx
+# -- Compiling entity regfile
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture schematic of d3_8e_mxilinx
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Loading entity d3_8e_mxilinx
+# -- Loading entity and4
+# -- Loading entity and4b1
+# -- Loading entity and4b2
+# -- Loading entity and4b3
+# -- Compiling architecture schematic of fd16ce_mxilinx
+# -- Loading package vcomponents
+# -- Loading entity fd16ce_mxilinx
+# -- Loading entity fdce
+# -- Compiling architecture schematic of regfile
+# -- Loading package vcomponents
+# -- Loading entity regfile
+# -- Loading entity and2
+# -- Loading entity buxmux16
+# -- Loading entity d3_8e_mxilinx
+# -- Loading entity fd16ce_mxilinx
+# -- Loading entity gnd
+# -- Loading package standard
+# vsim -t 1ns -L xilinxcorelib regfile 
+# Loading c:/Modeltech_xe/win32xoem/../std.standard
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_1164(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.numeric_std(body)
+# Loading c:/Modeltech_xe/win32xoem/../std.textio(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.vital_timing(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.vcomponents
+# Loading work.regfile(schematic)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.vital_primitives(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.vpkg(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and2(and2_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.prims_constants_v4_0
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.prims_utils_v4_0(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_reg_fd_v4_0_comp
+# Loading work.buxmux16(buxmux16_a)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_mux_bus_v4_0(behavioral)
+# Loading work.d3_8e_mxilinx(schematic)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and4(and4_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and4b1(and4b1_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and4b2(and4b2_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and4b3(and4b3_v)
+# Loading work.fd16ce_mxilinx(schematic)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.fdce(fdce_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.gnd(gnd_v)
+# WARNING: Design size of 5259 statements exceeds ModelSim XE-Starter recommended capacity.
+# Expect performance to be adversely affected.
+# .wave
+# .structure
+# .signals
+force -freeze sim:/regfile/clock 1 0, 0 {50 ns} -r 100
+force -freeze sim:/regfile/ra 001 0
+force -freeze sim:/regfile/rb 111 0
+force -freeze sim:/regfile/rw 010 0
+force -freeze sim:/regfile/wren 0 0
+force -freeze sim:/regfile/busw 0000000011111111 0
+run
+force -freeze sim:/regfile/wren 1 0
+run
+force -freeze sim:/regfile/wren 0 0
+run
+run
+force -freeze sim:/regfile/ra 010 0
+run

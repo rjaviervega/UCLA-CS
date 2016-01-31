@@ -1,0 +1,62 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT project2
+DESIGN project2 Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+MODULE sram512kleft16bit50mhzreadreq-sv05.vhd
+MODSTYLE sraminterface Normal
+MODULE alu.sch
+MODSTYLE alu Normal
+MODULE shift.vhd
+MODSTYLE shift Normal
+MODULE pctosraminterface-sv06.vhd
+MODSTYLE pctosraminterface Normal
+MODULE zero_detect.vhd
+MODSTYLE zero_detect Normal
+MODULE memaccess.vhd
+MODSTYLE memorymodule Normal
+MODULE memoryread.vhd
+MODSTYLE memoryread Normal
+MODULE zeroBus.vhd
+MODSTYLE zerobus Normal
+MODULE logical.vhd
+MODSTYLE logical Normal
+MODULE memorywrite.vhd
+MODSTYLE memorywrite Normal
+MODULE mux4_16bits_new.xco
+MODSTYLE mux4_16bits_new Normal
+MODULE OF_enable.vhd
+MODSTYLE of_enable Normal
+MODULE regfile.sch
+MODSTYLE regfile Normal
+MODULE one_bus.vhd
+MODSTYLE one_bus Normal
+MODULE project2.sch
+MODSTYLE project2 Normal
+MODULE ctrlunit.vhd
+MODSTYLE ctrlunit Normal
+MODULE buxmux16.xco
+MODSTYLE buxmux16 Normal
+MODULE mux2_16bits.xco
+MODSTYLE mux2_16bits Normal
+MODULE OF_detect.vhd
+MODSTYLE of_detect Normal
+MODULE sraminterfacewithpport-sv01.vhd
+MODSTYLE sraminterfacewithpport Normal
+MODULE mux_four.xco
+MODSTYLE mux_four Normal
+MODULE memorymultiplexor-sv01.vhd
+MODSTYLE memorymultiplexor Normal
+MODULE add.sch
+MODSTYLE add Normal
+MODULE negative_detect.vhd
+MODSTYLE negative_detect Normal
+MODULE control_module.vhd
+MODSTYLE control_unit Normal
+[STRATEGY-LIST]
+Normal=True, 1090343415
+[Normal]
+p_ModelSimSimRes=xstvhd, VIRTEX, VHDL.t_launchModelSimSimulator, 1090370356, 1 ns
+xilxMapIgnoreRLOC=xstvhd, VIRTEX, Implementation.t_placeAndRouteDes, 1090439590, True

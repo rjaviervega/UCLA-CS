@@ -1,0 +1,241 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : segdisplay.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : segdisplay
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : segdisplay
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file C:/152B/152bs04/tu1/const_32.vhd in Library work.
+Entity <const_32> (Architecture <behavioral>) compiled.
+Compiling vhdl file C:/152B/152bs04/tu1/maptoseg.vhd in Library work.
+Entity <maptoseg> (Architecture <behavioral>) compiled.
+Compiling vhdl file C:/152B/152bs04/tu1/segdisplay.vhf in Library work.
+Entity <segdisplay> (Architecture <schematic>) compiled.
+
+Analyzing Entity <segdisplay> (Architecture <Schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:766 - C:/152B/152bs04/tu1/segdisplay.vhf (Line 105). Generating a Black Box for component <counter_32>.
+WARNING:Xst:766 - C:/152B/152bs04/tu1/segdisplay.vhf (Line 128). Generating a Black Box for component <counter_4>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <segdisplay> analyzed. Unit <segdisplay> generated.
+
+Analyzing Entity <const_32> (Architecture <behavioral>).
+Entity <const_32> analyzed. Unit <const_32> generated.
+
+Analyzing Entity <maptoseg> (Architecture <behavioral>).
+Entity <maptoseg> analyzed. Unit <maptoseg> generated.
+
+
+Synthesizing Unit <maptoseg>.
+    Related source file is C:/152B/152bs04/tu1/maptoseg.vhd.
+    Found 16x7-bit ROM for signal <lhex>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <maptoseg> synthesized.
+
+
+Synthesizing Unit <const_32>.
+    Related source file is C:/152B/152bs04/tu1/const_32.vhd.
+Unit <const_32> synthesized.
+
+
+Synthesizing Unit <segdisplay>.
+    Related source file is C:/152B/152bs04/tu1/segdisplay.vhf.
+WARNING:Xst:646 - Signal <xlxn_43<31>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<30>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<29>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<28>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<27>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<26>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<25>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<24>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<23>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<22>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<21>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<20>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<19>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<18>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<17>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<16>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<15>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<14>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<13>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<12>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<11>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<10>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<9>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<8>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<7>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<6>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<5>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<4>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<3>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<2>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<1>> is assigned but never used.
+WARNING:Xst:646 - Signal <xlxn_43<0>> is assigned but never used.
+Unit <segdisplay> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                             : 1
+  16x7-bit ROM                     : 1
+
+=========================================================================
+
+
+Starting low level synthesis...
+Optimizing unit <segdisplay> ...
+
+Building and optimizing final netlist ...
+
+=========================================================================
+Final Results
+Top Level Output File Name         : segdisplay
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Macro Statistics
+# ROMs                             : 1
+  16x7-bit ROM                     : 1
+
+Design Statistics
+# IOs                              : 14
+
+Cell Usage :
+# BELS                             : 10
+#      GND                         : 1
+#      INV                         : 1
+#      LUT4                        : 7
+#      VCC                         : 1
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 14
+#      IBUF                        : 3
+#      OBUF                        : 11
+# Others                           : 2
+#      counter_32                  : 1
+#      counter_4                   : 1
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 8.240ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Offset:              8.240ns (Levels of Logic = 2)
+  Source:            xlxi_2
+  Destination:       lhex0
+
+  Data Path: xlxi_2 to lhex0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    counter_4:q_0          8   0.000   1.845  xlxi_2 (qout_0)
+    LUT4:I0->O             1   0.573   1.035  xlxi_4_Mrom_lhex_inst_lut4_0 (lhex_0)
+    OBUF:I->O                  4.787          xlxi_10 (lhex0)
+    ----------------------------------------
+    Total                      8.240ns (5.360ns logic, 2.880ns route)
+                                       (65.0% logic, 35.0% route)
+
+=========================================================================
+CPU : 2.44 / 2.47 s | Elapsed : 2.00 / 2.00 s
+ 
+--> 

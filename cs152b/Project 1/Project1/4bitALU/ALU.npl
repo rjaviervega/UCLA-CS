@@ -1,0 +1,17 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT 4bitALU
+DESIGN alu Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+MODULE 4bitalu.sch
+MODSTYLE 4bitalu Normal
+MODULE E:\HingKei\152bs04\Project1\alu4.sch
+MODSTYLE alu4 Normal
+MODULE mux2to1_4bits.xco
+MODSTYLE mux2to1_4bits Normal
+MODULE mux8x4bus.xco
+MODSTYLE mux8x4bus Normal
+[STRATEGY-LIST]
+Normal=True, 1089134723

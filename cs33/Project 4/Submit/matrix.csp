@@ -1,0 +1,336 @@
+;	MATRIX FUNCTION
+;	FILE : MATRIX
+;// Matrix display function
+;//  This fucntion displays the matrix to the screen
+;//  with the sums of the columns and the rows, also
+;//  the sum of both of them.
+;//
+;
+;
+;//	Note: this function uses a suplementary function
+;//		  called outnum, that is encharge of formating
+;//		  the output of the field to be printed.
+;//
+
+;	START FUNCTIONS AT ADDRESS $900
+.EQU	@,	$900
+
+; MINI_OS FUNCTIONS
+.EQU	PUT_NUM,	$E00
+.EQU	GET_NUM,	$E01
+.EQU	PUT_STR,	$E05
+.EQU	PUT_NL,		$E06
+.EQU	PUT_NUM2,	$E07
+.EQU	TO_STR,		$E02
+
+
+; LOCAL VARS
+.EQU	I,			0
+.EQU	I2,			1
+.EQU	SUM_1,		2
+.EQU	SUM_2,		3
+.EQU	SUM_3,		4
+.EQU	ACT_LEN,	5
+.EQU	NUM_LOCALS, 6 
+
+; PARAMS
+.EQU	SUM,	NUM_LOCALS + 2
+.EQU	PCS,	NUM_LOCALS + 3
+.EQU	PRS,	NUM_LOCALS + 4
+.EQU	IND,	NUM_LOCALS + 5
+.EQU	COLS,	NUM_LOCALS + 6
+.EQU	ROWS,	NUM_LOCALS + 7
+.EQU	PMAT,	NUM_LOCALS + 8
+
+MATRIX:	BGN#	NUM_LOCALS
+		PSHA
+		PSHX
+		LDA#	0						; ACC = 0
+		CMA		!IND					; RM ? 0,1
+		JNE		ROW_MAJOR				; RM = -1
+		JMP		COL_MAJOR				; RM = 0
+ROW_MAJOR:
+		LDX#	0
+		PSH#	PRT_ROW_L	; OUTPUT MESSAGE
+		PSH#	PRT_ROW		
+		JSR		PUT_STR					
+		ADS#	2				
+		JSR		PUT_NL
+LOOP_R1:CMX		!ROWS					; for ( int i = 0; i < rows; i++ )
+		JGE		DONE_R1
+		STX		!I						; I = I
+		LDX#	0
+		LOOP_R2:	CMX		!COLS		; for ( int i2 = 0; i2 < cols; i2++)
+					JGE		DONE_R2
+					STX		!I2
+					LDA		!I			; COUT << PMAT [ COLS * I + I2 ]
+					MUL		!COLS
+					ADA		!I2
+					TAX
+					LDA&	!PMAT
+					PSHA
+					JSR		OUT_NUM
+					POPA
+					LDX		!I2			; ACC = I2
+					ADX#	1			; I2++
+					JMP		LOOP_R2
+		DONE_R2:
+		LDX		!I						
+		LDA&	!PRS
+		PSHA
+		JSR		OUT_NUM
+		POPA
+		JSR		PUT_NL		
+		ADX#	1
+		JMP		LOOP_R1
+DONE_R1:
+		LDX#	0						; PRINT THE COLUMNS
+LOOP_C1:CMX		!COLS					; FOR ( int i = 0; i < cols; i++ )
+		JGE		DONE_C1
+		LDA&	!PCS
+		PSHA
+		JSR		OUT_NUM
+		POPA
+		ADX#	1
+		JMP		LOOP_C1
+DONE_C1:
+		LDA		!SUM
+		PSHA
+		JSR		OUT_NUM
+		POPA
+		JSR		PUT_NL		
+		JMP		DONE
+COL_MAJOR:
+		LDX#	0
+		PSH#	PRT_COL_L				; OUTPUT MESSAGE
+		PSH#	PRT_COL	
+		JSR		PUT_STR					
+		ADS#	2				
+		JSR		PUT_NL		
+LOOP_CR1:
+		CMX		!ROWS					; for ( int i = 0; i < rows; i++ )
+		JGE		DONE_CR1
+		STX		!I						
+		LDX#	0
+		LOOP_CR2:	CMX		!COLS		; for ( int i2 = 0; i2 < cols; i2++)
+					JGE		DONE_CR2
+					STX		!I2			 
+					LDA		!I2			 
+					MUL		!ROWS		
+					ADA		!I	
+					TAX		
+					LDA&	!PMAT	
+					PSHA
+					JSR		OUT_NUM
+					POPA
+					LDX		!I2			; INDEX = I2
+					ADX#	1			; I2++
+					JMP		LOOP_CR2
+		DONE_CR2:
+		LDX		!I						; RESULT = RESULT + PRS [ I ]
+		LDA&	!PRS
+		PSHA
+		JSR		OUT_NUM		
+		POPA
+		JSR		PUT_NL
+		ADX#	1
+		JMP		LOOP_CR1
+DONE_CR1:
+		LDX#	0
+
+LOOP_CC1:
+		CMX		!COLS					; FOR ( int i = 0; i < cols; i++ )
+		JGE		DONE_CC1
+		LDA&	!PCS
+		PSHA
+		JSR		OUT_NUM
+		POPA
+		ADX#	1
+		JMP		LOOP_CC1
+DONE_CC1:
+		LDA		!SUM
+		PSHA
+		JSR		OUT_NUM
+		POPA
+		JSR		PUT_NL
+		LDX#	0
+DONE:	
+		JSR		PUT_NL		
+		POPX					
+		POPA
+		FIN#	NUM_LOCALS
+		RTN
+
+;	FUNCTION OUT_NUM ( NUM : W )
+;
+;		THIS FUNCTION OUTPUTS A NUMBER PASSED IN THE STACK
+;		IN THE FORMAT OF ( XXXX1234 ). 8 CHARACTERS WITH 
+;		LEADING BLANK SPACES.
+;
+;		TO PERFORM THIS OPERATION THE FUNCTION COMPARES THE
+;		VALUE PASSED (ARG) TO NUMBERS COMPARED TO 9, 99, 999,
+;		9999, 99999 AND 999999. THIS WAY THE FUNCTION CAN DETERMINE
+;		THE NUMBER OF BLANK SPACES NEDDED TO ALING THE FIELD.
+;
+;		THE PARAMETER PASSED IS THE ACC AND THE VALUE RETURNED
+;		IS STORED IN THE ACCUMULATOR ALSO.
+;
+;
+;
+
+
+; LOCAL VARS
+.EQU	NUM_LOCALS2, 0 
+
+; PARAMS
+.EQU	NUM_OUT,	NUM_LOCALS2 + 2
+
+OUT_NUM:BGN#	NUM_LOCALS2
+		PSHA
+		PSHX
+		LDA		!NUM_OUT
+									; FORMAT OUTPUT
+		CMA#	0					; IF NUM IS POSITIVE OR NEGATIVE
+		JGE		POS_1				; PROCESS AS POSITIVE NUMBER
+		JMP		NEG_1				; PROCESS AS NEGATIVE NUMBER WITH SIMBOL (-)
+					
+POS_1:	CMA		NINE_6				; A ? 999999
+		JLE		POS_2				; IF LESS OR EQUAL JMP POS_2
+		PSH#	PRT_SPC_L			; IF NOT PRINT ONE SPACE
+		PSH#	PRT_SPC				; PROCEDE WITH ALL THE NUMBER UNTIL
+		JSR		PUT_STR				; THERE ONCE ONE CHARACTER.
+		ADS#	2	
+		JMP		PRINT_NUM
+			
+POS_2:	CMA		NINE_5				; A ? 99999
+		JLE		POS_3				; JUMP IF LESS OR EQUAL
+		PSH#	PRT_SPC2_L			; ELSE PRINT 2 SPACES.
+		PSH#	PRT_SPC2
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+			
+POS_3:	CMA		NINE_4				; SAME AS PREVIOUS BLOCK BUT A ? 9999
+		JLE		POS_4
+		PSH#	PRT_SPC3_L
+		PSH#	PRT_SPC3
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+POS_4:	CMA#	999					; A ? 999
+		JLE		POS_5
+		PSH#	PRT_SPC4_L
+		PSH#	PRT_SPC4
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+POS_5:	CMA#	99					; A ? 99
+		JLE		POS_6
+		PSH#	PRT_SPC5_L
+		PSH#	PRT_SPC5
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+POS_6:	CMA#	9					; A ? 9
+		JLE		POS_7
+		PSH#	PRT_SPC6_L
+		PSH#	PRT_SPC6
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+POS_7:	PSH#	PRT_SPC7_L
+		PSH#	PRT_SPC7
+		JSR		PUT_STR
+		ADS#	2
+		JMP		PRINT_NUM
+		
+; ACC = NEGATIVE NUMBER
+; THIS BLOCK CONVERTS THE NUMBER TO ITS POSITIVE REPRESENTATION 
+; AND THEN DECIDES THE NUMBER OF SPACES TO PRINT OUT 
+; IN THE SCREEN. WHICH ARE THE POSITIVE EQUIVALENT PLUS ONE FOR
+; THE MINUS SING.
+;
+; CONVERT ACC TO ITS POSSITVE VALUE REPRESENTATION
+NEG_1:	COMA								
+		ADA#	1
+		CMA		NINE_6	
+		JLE		NEG_2
+		JMP		PRINT_NUM
+			
+NEG_2:	CMA		NINE_5					
+		JLE		NEG_3
+		PSH#	PRT_SPC_L
+		PSH#	PRT_SPC
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+			
+NEG_3:	CMA		NINE_4				
+		JLE		NEG_4
+		PSH#	PRT_SPC2_L
+		PSH#	PRT_SPC2
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+NEG_4:	CMA#	999				
+		JLE		NEG_5
+		PSH#	PRT_SPC3_L
+		PSH#	PRT_SPC3
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+NEG_5:	CMA#	99
+		JLE		NEG_6
+		PSH#	PRT_SPC4_L
+		PSH#	PRT_SPC4
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+NEG_6:	CMA#	9
+		JLE		NEG_7
+		PSH#	PRT_SPC5_L
+		PSH#	PRT_SPC5
+		JSR		PUT_STR
+		ADS#	2	
+		JMP		PRINT_NUM
+
+NEG_7:	PSH#	PRT_SPC6_L
+		PSH#	PRT_SPC6
+		JSR		PUT_STR
+		ADS#	2
+		JMP		PRINT_NUM
+		
+PRINT_NUM:
+		LDA		!NUM_OUT
+		PSHA
+		JSR		PUT_NUM2
+		POPA
+
+OUT_NUM_DONE:
+		POPX
+		POPA
+		FIN#	NUM_LOCALS2
+		RTN
+
+; CHAR VARS
+PRT_ROW:		.CHAR		'Matrix (Row major order):',	PRT_ROW_L
+PRT_COL:		.CHAR		'Matrix (Column major order):', PRT_COL_L
+PRT_SPC:		.CHAR		' ',							PRT_SPC_L
+PRT_SPC2:		.CHAR		'  ',							PRT_SPC2_L
+PRT_SPC3:		.CHAR		'   ',							PRT_SPC3_L
+PRT_SPC4:		.CHAR		'    ',							PRT_SPC4_L
+PRT_SPC5:		.CHAR		'     ',						PRT_SPC5_L
+PRT_SPC6:		.CHAR		'      ',						PRT_SPC6_L
+PRT_SPC7:		.CHAR		'       ',						PRT_SPC7_L
+
+; NUM VARS
+NINE_6:			.WORD		999999
+NINE_5:			.WORD		99999
+NINE_4:			.WORD		9999

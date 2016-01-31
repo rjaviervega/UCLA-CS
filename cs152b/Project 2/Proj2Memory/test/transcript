@@ -1,0 +1,24 @@
+# Reading c:/Modeltech_xe/win32xoem/../tcl/vsim/pref.tcl 
+# do simtest.ldo 
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity simtest
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture behavioral of simtest
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading entity simtest
+# vsim -t 1ns -L xilinxcorelib simtest 
+# Loading c:/Modeltech_xe/win32xoem/../std.standard
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_1164(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_arith(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_unsigned(body)
+# Loading work.simtest(behavioral)
+# .wave
+# .structure
+# .signals

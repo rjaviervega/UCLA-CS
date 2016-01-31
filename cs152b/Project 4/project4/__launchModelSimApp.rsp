@@ -1,0 +1,1 @@
+-mode pipe -tapkeep -check warn -tcl -command C:/Xilinx/data

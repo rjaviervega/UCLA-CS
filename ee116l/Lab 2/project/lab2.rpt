@@ -1,0 +1,406 @@
+Project Information                       c:\my documents\ee116l\lab2\lab2.rpt
+
+MAX+plus II Compiler Report File
+Version 7.21 Student Edition
+Compiled: 10/15/03 14:34:50
+
+Copyright (C) 1991-1997 Altera Corporation
+Any megafunction design, and related net list (encrypted or decrypted),
+support information, device programming or simulation file, and any other
+associated documentation or information provided by Altera or a partner
+under Altera's Megafunction Partnership Program may be used only to
+program PLD devices (but not masked PLD devices) from Altera.  Any other
+use of such megafunction design, net list, support information, device
+programming or simulation file, or any other related documentation or
+information is prohibited for any other purpose, including, but not
+limited to modification, reverse engineering, de-compiling, or use with
+any other silicon devices, unless such use is explicitly licensed under
+a separate agreement with Altera or a megafunction partner.  Title to
+the intellectual property, including patents, copyrights, trademarks,
+trade secrets, or maskworks, embodied in any such megafunction design,
+net list, support information, device programming or simulation file, or
+any other related documentation or information provided by Altera or a
+megafunction partner, remains with Altera, the megafunction partner, or
+their respective licensors.  No other licenses, including any licenses
+needed under any third party's intellectual property, are provided herein.
+
+
+
+***** Project compilation was successful
+
+
+Untitled
+
+
+** DEVICE SUMMARY **
+
+Chip/                     Input   Output   Bidir         Shareable
+POF       Device          Pins    Pins     Pins     LCs  Expanders  % Utilized
+
+lab2      EPM7128SLC84-7   2        4        0      4       0           3  %
+
+User Pins:                 2        4        0  
+
+
+
+Project Information                       c:\my documents\ee116l\lab2\lab2.rpt
+
+** AUTO GLOBAL SIGNALS **
+
+
+
+INFO: Signal 'Clock' chosen for auto global Clock
+
+
+Project Information                       c:\my documents\ee116l\lab2\lab2.rpt
+
+** PIN/LOCATION/CHIP ASSIGNMENTS **
+
+                  Actual                  
+    User       Assignments                
+Assignments   (if different)     Node Name
+
+lab2@2                            Clock
+
+
+Project Information                       c:\my documents\ee116l\lab2\lab2.rpt
+
+** STATE MACHINE ASSIGNMENTS **
+
+
+sm: MACHINE
+        OF BITS (
+           q2,
+           q1,
+           q0
+        )
+        WITH STATES (
+                              s0 = B"000", 
+                              s1 = B"001", 
+                              s2 = B"010", 
+                              s3 = B"011", 
+                              s4 = B"100", 
+                              s5 = B"101", 
+                              s6 = B"110"
+);
+
+
+
+Device-Specific Information:              c:\my documents\ee116l\lab2\lab2.rpt
+lab2
+
+***** Logic for device 'lab2' compiled without errors.
+
+
+
+
+Device: EPM7128SLC84-7
+Turbo: ON
+Security: OFF
+
+Device Options:
+    Enable JTAG Support                        = ON
+    JTAG User Code                             = ffff
+              R  R  R  R     R  R  R                    R  R  R     R        
+              E  E  E  E     E  E  E                    E  E  E     E        
+              S  S  S  S     S  S  S  V                 S  S  S     S        
+              E  E  E  E     E  E  E  C  C              E  E  E  V  E     o  
+              R  R  R  R     R  R  R  C  l              R  R  R  C  R     u  
+              V  V  V  V  G  V  V  V  I  o  G  G  G  G  V  V  V  C  V     t  
+              E  E  E  E  N  E  E  E  N  c  N  N  N  N  E  E  E  I  E     q  
+              D  D  D  D  D  D  D  D  T  k  D  D  D  D  D  D  D  O  D  Z  0  
+            -----------------------------------------------------------------_ 
+          /  11 10  9  8  7  6  5  4  3  2  1 84 83 82 81 80 79 78 77 76 75   | 
+     Xin | 12                                                              74 | outq1 
+   VCCIO | 13                                                              73 | outq2 
+    #TDI | 14                                                              72 | GND 
+RESERVED | 15                                                              71 | #TDO 
+RESERVED | 16                                                              70 | RESERVED 
+RESERVED | 17                                                              69 | RESERVED 
+RESERVED | 18                                                              68 | RESERVED 
+     GND | 19                                                              67 | RESERVED 
+RESERVED | 20                                                              66 | VCCIO 
+RESERVED | 21                                                              65 | RESERVED 
+RESERVED | 22                        EPM7128SLC84-7                        64 | RESERVED 
+    #TMS | 23                                                              63 | RESERVED 
+RESERVED | 24                                                              62 | #TCK 
+RESERVED | 25                                                              61 | RESERVED 
+   VCCIO | 26                                                              60 | RESERVED 
+RESERVED | 27                                                              59 | GND 
+RESERVED | 28                                                              58 | RESERVED 
+RESERVED | 29                                                              57 | RESERVED 
+RESERVED | 30                                                              56 | RESERVED 
+RESERVED | 31                                                              55 | RESERVED 
+     GND | 32                                                              54 | RESERVED 
+         |_  33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53  _| 
+           ------------------------------------------------------------------ 
+              R  R  R  R  R  V  R  R  R  G  V  R  R  R  G  R  R  R  R  R  V  
+              E  E  E  E  E  C  E  E  E  N  C  E  E  E  N  E  E  E  E  E  C  
+              S  S  S  S  S  C  S  S  S  D  C  S  S  S  D  S  S  S  S  S  C  
+              E  E  E  E  E  I  E  E  E     I  E  E  E     E  E  E  E  E  I  
+              R  R  R  R  R  O  R  R  R     N  R  R  R     R  R  R  R  R  O  
+              V  V  V  V  V     V  V  V     T  V  V  V     V  V  V  V  V     
+              E  E  E  E  E     E  E  E        E  E  E     E  E  E  E  E     
+              D  D  D  D  D     D  D  D        D  D  D     D  D  D  D  D     
+
+
+N.C. = Not Connected.
+VCCINT = Dedicated power pin, which MUST be connected to VCC (5.0 volts).
+VCCIO = Dedicated power pin, which MUST be connected to VCC (3.3 or 5.0 volts).
+GND = Dedicated ground pin or unused dedicated input, which MUST be connected to GND.
+RESERVED = Unused I/O pin, which MUST be left unconnected.
+
+^ = Dedicated configuration pin.
++ = Reserved configuration pin, which will be tri-stated during user mode.
+* = Reserved configuration pin, which drives out in user mode.
+PDn = Power Down pin. 
+@ = Special-purpose pin. 
+# = JTAG Boundary Scan Testing Pin.
+
+
+Device-Specific Information:              c:\my documents\ee116l\lab2\lab2.rpt
+lab2
+
+** RESOURCE USAGE **
+
+                                                Shareable     External
+Logic Array Block     Logic Cells   I/O Pins    Expanders   Interconnect
+
+A:     LC1 - LC16     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+B:    LC17 - LC32     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+C:    LC33 - LC48     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+D:    LC49 - LC64     0/16(  0%)   0/ 8(  0%)   0/16(  0%)   0/36(  0%) 
+E:    LC65 - LC80     0/16(  0%)   0/ 8(  0%)   0/16(  0%)   0/36(  0%) 
+F:    LC81 - LC96     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+G:   LC97 - LC112     0/16(  0%)   1/ 8( 12%)   0/16(  0%)   0/36(  0%) 
+H:  LC113 - LC128     4/16( 25%)   4/ 8( 50%)   0/16(  0%)   4/36( 11%) 
+
+
+Total dedicated input pins used:                 1/4      ( 25%)
+Total I/O pins used:                             9/64     ( 14%)
+Total logic cells used:                          4/128    (  3%)
+Total shareable expanders used:                  0/128    (  0%)
+Total Turbo logic cells used:                    4/128    (  3%)
+Total shareable expanders not available (n/a):   0/128    (  0%)
+Average fan-in:                                  4.00
+Total fan-in:                                    16
+
+Total input pins required:                       2
+Total input registers required:                  0
+Total output pins required:                      4
+Total bidirectional pins required:               0
+Total reserved pins required                     4
+Total logic cells required:                      4
+Total flipflops required:                        3
+Total pterms required:                           8
+Total logic cells lending parallel expanders:    0
+Total shareable expanders in database:           0
+
+Synthesized logic cells:                         0/ 128   (  0%)
+
+
+
+Device-Specific Information:              c:\my documents\ee116l\lab2\lab2.rpt
+lab2
+
+** INPUTS **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+   2      -   -       INPUT              0      0   0    0    0    0    0  Clock
+  12    (3)  (A)      INPUT              0      0   0    0    0    3    0  Xin
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+/ = Slow slew-rate output
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:              c:\my documents\ee116l\lab2\lab2.rpt
+lab2
+
+** OUTPUTS **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+  75    118    H         FF  +  t        0      0   0    1    3    4    0  outq0
+  74    117    H         FF  +  t        0      0   0    1    2    3    0  outq1
+  73    115    H         FF  +  t        0      0   0    1    3    3    0  outq2
+  76    120    H     OUTPUT     t        0      0   0    0    2    0    0  Z
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+/ = Slow slew-rate output
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:              c:\my documents\ee116l\lab2\lab2.rpt
+lab2
+
+** LOGIC CELL INTERCONNECTIONS **
+
+Logic Array Block 'H':
+
+                 Logic cells placed in LAB 'H'
+        +------- LC118 outq0
+        | +----- LC117 outq1
+        | | +--- LC115 outq2
+        | | | +- LC120 Z
+        | | | | 
+        | | | |   Other LABs fed by signals
+        | | | |   that feed LAB 'H'
+LC      | | | | | A B C D E F G H |     Logic cells that feed LAB 'H':
+LC118-> * * * * | - - - - - - - * | <-- outq0
+LC117-> * * * - | - - - - - - - * | <-- outq1
+LC115-> * - * * | - - - - - - - * | <-- outq2
+
+Pin
+2    -> - - - - | - - - - - - - - | <-- Clock
+12   -> * * * - | - - - - - - - * | <-- Xin
+
+
+* = The logic cell or pin is an input to the logic cell (or LAB) through the PIA.
+- = The logic cell or pin is not an input to the logic cell (or LAB).
+
+
+Device-Specific Information:              c:\my documents\ee116l\lab2\lab2.rpt
+lab2
+
+** EQUATIONS **
+
+Clock    : INPUT;
+Xin      : INPUT;
+
+-- Node name is 'outq0' = 'q0' from file "lab2.tdf" line 8, column 31
+-- Equation name is 'outq0', location is LC118, type is output.
+ outq0   = DFFE( _EQ001 $  outq1, GLOBAL( Clock),  VCC,  VCC,  VCC);
+  _EQ001 =  outq0 &  outq1 & !outq2 &  Xin
+         # !outq0 & !outq1 & !Xin;
+
+-- Node name is 'outq1' = 'q1' from file "lab2.tdf" line 8, column 26
+-- Equation name is 'outq1', location is LC117, type is output.
+ outq1   = DFFE( _EQ002 $  GND, GLOBAL( Clock),  VCC,  VCC,  VCC);
+  _EQ002 = !outq0 &  outq1 &  Xin
+         #  outq0 & !outq1 & !Xin;
+
+-- Node name is 'outq2' = 'q2' from file "lab2.tdf" line 8, column 22
+-- Equation name is 'outq2', location is LC115, type is output.
+ outq2   = DFFE( _EQ003 $  GND, GLOBAL( Clock),  VCC,  VCC,  VCC);
+  _EQ003 =  outq0 &  outq1 &  Xin
+         #  outq2 & !Xin;
+
+-- Node name is 'Z' 
+-- Equation name is 'Z', location is LC120, type is output.
+ Z       = LCELL( _EQ004 $  GND);
+  _EQ004 =  outq0 &  outq2;
+
+
+
+--     Shareable expanders that are duplicated in multiple LABs:
+--     (none)
+
+
+
+
+Project Information                       c:\my documents\ee116l\lab2\lab2.rpt
+
+** COMPILATION SETTINGS & TIMES **
+
+Processing Menu Commands
+------------------------
+
+Design Doctor                             = off
+
+Logic Synthesis:
+
+   Synthesis Type Used                    = Standard
+
+   Default Synthesis Style                = NORMAL
+
+      Logic option settings in 'NORMAL' style for 'MAX7000S' family
+
+      DECOMPOSE_GATES                     = on
+      DUPLICATE_LOGIC_EXTRACTION          = on
+      MINIMIZATION                        = full
+      MULTI_LEVEL_FACTORING               = on
+      NOT_GATE_PUSH_BACK                  = on
+      PARALLEL_EXPANDERS                  = off
+      REDUCE_LOGIC                        = on
+      REFACTORIZATION                     = on
+      REGISTER_OPTIMIZATION               = on
+      RESYNTHESIZE_NETWORK                = on
+      SLOW_SLEW_RATE                      = off
+      SOFT_BUFFER_INSERTION               = on
+      SUBFACTOR_EXTRACTION                = on
+      TURBO_BIT                           = on
+      XOR_SYNTHESIS                       = on
+      IGNORE_SOFT_BUFFERS                 = off
+      USE_LPM_FOR_AHDL_OPERATORS          = off
+
+   Other logic synthesis settings:
+
+      Automatic Global Clock              = on
+      Automatic Global Clear              = on
+      Automatic Global Preset             = on
+      Automatic Global Output Enable      = on
+      Automatic I/O Cell Registers        = off
+      Automatic Register Packing          = off
+      Automatic Open-Drain Pins           = on
+      Automatic Implement in EAB          = off
+      One-Hot State Machine Encoding      = off
+      Optimize                            = 5
+
+Default Timing Specifications: None
+
+Cut All Bidir Feedback Timing Paths       = on
+Cut All Clear & Preset Timing Paths       = on
+
+Ignore Timing Assignments                 = on
+
+Functional SNF Extractor                  = off
+
+Linked SNF Extractor                      = off
+Timing SNF Extractor                      = on
+Optimize Timing SNF                       = off
+Generate AHDL TDO File                    = off
+Fitter Settings                           = NORMAL
+Smart Recompile                           = off
+Total Recompile                           = off
+
+Interface Menu Commands
+-----------------------
+
+EDIF Netlist Writer                       = off
+Verilog Netlist Writer                    = off
+VHDL Netlist Writer                       = off
+
+Compilation Times
+-----------------
+
+   Compiler Netlist Extractor             00:00:00
+   Database Builder                       00:00:00
+   Logic Synthesizer                      00:00:00
+   Partitioner                            00:00:00
+   Fitter                                 00:00:01
+   Timing SNF Extractor                   00:00:00
+   Assembler                              00:00:00
+   --------------------------             --------
+   Total Time                             00:00:01
+
+
+Memory Allocated
+-----------------
+
+Peak memory allocated during compilation  = 2,458K

@@ -1,0 +1,542 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : test.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : test
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : test
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/proj2/Proj2Memory/test/pctosraminterface-sv06.vhd in Library work.
+Architecture Pctosraminterface_arch of Entity Pctosraminterface is up to date.
+Compiling vhdl file E:/proj2/Proj2Memory/test/memorymultiplexor-sv01.vhd in Library work.
+Architecture Memorymultiplexor_arch of Entity Memorymultiplexor is up to date.
+Compiling vhdl file E:/proj2/Proj2Memory/test/sram512kleft16bit50mhzreadreq-sv05.vhd in Library work.
+Architecture Sraminterface_arch of Entity Sraminterface is up to date.
+Compiling vhdl file E:/proj2/Proj2Memory/test/memoryread.vhd in Library work.
+Architecture Behavioral of Entity Memoryread is up to date.
+Compiling vhdl file E:/proj2/Proj2Memory/test/memorywrite.vhd in Library work.
+Architecture Behavioral of Entity Memorywrite is up to date.
+Compiling vhdl file E:/proj2/Proj2Memory/test/sraminterfacewithpport-sv01.vhd in Library work.
+Architecture Sraminterfacewithpport_arch of Entity Sraminterfacewithpport is up to date.
+Compiling vhdl file E:/proj2/Proj2Memory/test/memaccess.vhd in Library work.
+Architecture Behavioral of Entity Memorymodule is up to date.
+Compiling vhdl file E:/proj2/Proj2Memory/test/simtest.vhd in Library work.
+Entity <simtest> (Architecture <behavioral>) compiled.
+Compiling vhdl file E:/proj2/Proj2Memory/test/test.vhf in Library work.
+Entity <obuf16_mxilinx> (Architecture <schematic>) compiled.
+Entity <test> (Architecture <schematic>) compiled.
+
+Analyzing Entity <test> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_22> in unit <test>.
+Entity <test> analyzed. Unit <test> generated.
+
+Analyzing Entity <memorymodule> (Architecture <behavioral>).
+Entity <memorymodule> analyzed. Unit <memorymodule> generated.
+
+Analyzing Entity <obuf16_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <obuf16_mxilinx> analyzed. Unit <obuf16_mxilinx> generated.
+
+Analyzing Entity <simtest> (Architecture <behavioral>).
+WARNING:Xst:819 - E:/proj2/Proj2Memory/test/simtest.vhd (Line 57). The following signals are missing in the process sensitivity list:
+   rddone, dout.
+Entity <simtest> analyzed. Unit <simtest> generated.
+
+Analyzing Entity <memoryread> (Architecture <behavioral>).
+Entity <memoryread> analyzed. Unit <memoryread> generated.
+
+Analyzing Entity <memorywrite> (Architecture <behavioral>).
+Entity <memorywrite> analyzed. Unit <memorywrite> generated.
+
+Analyzing Entity <sraminterfacewithpport> (Architecture <sraminterfacewithpport_arch>).
+WARNING:Xst:753 - E:/proj2/Proj2Memory/test/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portinslicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/proj2/Proj2Memory/test/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portoutslicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/proj2/Proj2Memory/test/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'stateoutput' of component 'pctosraminterface'.
+Entity <sraminterfacewithpport> analyzed. Unit <sraminterfacewithpport> generated.
+
+Analyzing Entity <pctosraminterface> (Architecture <pctosraminterface_arch>).
+WARNING:Xst:819 - E:/proj2/Proj2Memory/test/pctosraminterface-sv06.vhd (Line 193). The following signals are missing in the process sensitivity list:
+   asyncinputs, syncinputs1, syncinputs2.
+WARNING:Xst:819 - E:/proj2/Proj2Memory/test/pctosraminterface-sv06.vhd (Line 211). The following signals are missing in the process sensitivity list:
+   softreset.
+Entity <pctosraminterface> analyzed. Unit <pctosraminterface> generated.
+
+Analyzing Entity <memorymultiplexor> (Architecture <memorymultiplexor_arch>).
+Entity <memorymultiplexor> analyzed. Unit <memorymultiplexor> generated.
+
+Analyzing Entity <sraminterface> (Architecture <sraminterface_arch>).
+Entity <sraminterface> analyzed. Unit <sraminterface> generated.
+
+
+Synthesizing Unit <sraminterface>.
+    Related source file is E:/proj2/Proj2Memory/test/sram512kleft16bit50mhzreadreq-sv05.vhd.
+    Found finite state machine <FSM_0> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 8                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 19-bit register for signal <addrreg>.
+    Found 1-bit register for signal <cen>.
+    Found 1-bit register for signal <doingwrite1>.
+    Found 1-bit register for signal <doingwrite2>.
+    Found 1-bit register for signal <oen>.
+    Found 16-bit tristate buffer for signal <sramdata>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  39 D-type flip-flop(s).
+	inferred  19 Multiplexer(s).
+	inferred  16 Tristate(s).
+Unit <sraminterface> synthesized.
+
+
+Synthesizing Unit <memorymultiplexor>.
+    Related source file is E:/proj2/Proj2Memory/test/memorymultiplexor-sv01.vhd.
+    Found 1-bit register for signal <presstate>.
+    Found 57 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred  57 Multiplexer(s).
+Unit <memorymultiplexor> synthesized.
+
+
+Synthesizing Unit <pctosraminterface>.
+    Related source file is E:/proj2/Proj2Memory/test/pctosraminterface-sv06.vhd.
+WARNING:Xst:646 - Signal <regdatain> is assigned but never used.
+    Found finite state machine <FSM_1> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 45                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 12                                             |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 8-bit latch for signal <mysyncdata>.
+    Found 4-bit 4-to-1 multiplexer for signal <dataout>.
+    Found 19-bit adder for signal <$n0000> created at line 261.
+    Found 8-bit comparator equal for signal <$n0098> created at line 200.
+    Found 8-bit comparator equal for signal <$n0099> created at line 200.
+    Found 8-bit comparator equal for signal <$n0100> created at line 250.
+    Found 8-bit comparator equal for signal <$n0101> created at line 250.
+    Found 19-bit register for signal <curaddrreg>.
+    Found 5-bit register for signal <datainreg>.
+    Found 2-bit up counter for signal <inslicenum>.
+    Found 2-bit up counter for signal <outslicenum>.
+    Found 1-bit register for signal <pccontrolenabled>.
+    Found 16-bit register for signal <readdatareg>.
+    Found 8-bit register for signal <syncinputs1>.
+    Found 8-bit register for signal <syncinputs2>.
+    Found 8-bit register for signal <syncinputs3>.
+    Found 1-bit register for signal <syncnextslice>.
+    Found 1-bit register for signal <syncread>.
+    Found 1-bit register for signal <syncwrite>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred  84 D-type flip-flop(s).
+	inferred   8 Latch(s).
+	inferred   1 Adder/Subtracter(s).
+	inferred   4 Comparator(s).
+	inferred  23 Multiplexer(s).
+Unit <pctosraminterface> synthesized.
+
+
+Synthesizing Unit <sraminterfacewithpport>.
+    Related source file is E:/proj2/Proj2Memory/test/sraminterfacewithpport-sv01.vhd.
+Unit <sraminterfacewithpport> synthesized.
+
+
+Synthesizing Unit <memorywrite>.
+    Related source file is E:/proj2/Proj2Memory/test/memorywrite.vhd.
+    Found finite state machine <FSM_2> for signal <prestate>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <memorywrite> synthesized.
+
+
+Synthesizing Unit <memoryread>.
+    Related source file is E:/proj2/Proj2Memory/test/memoryread.vhd.
+    Found finite state machine <FSM_3> for signal <prestate>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <memoryread> synthesized.
+
+
+Synthesizing Unit <simtest>.
+    Related source file is E:/proj2/Proj2Memory/test/simtest.vhd.
+    Found finite state machine <FSM_4> for signal <prestate>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 15                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 10                                             |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <resetl>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 D-type flip-flop(s).
+Unit <simtest> synthesized.
+
+
+Synthesizing Unit <obuf16_mxilinx>.
+    Related source file is E:/proj2/Proj2Memory/test/test.vhf.
+Unit <obuf16_mxilinx> synthesized.
+
+
+Synthesizing Unit <memorymodule>.
+    Related source file is E:/proj2/Proj2Memory/test/memaccess.vhd.
+Unit <memorymodule> synthesized.
+
+
+Synthesizing Unit <test>.
+    Related source file is E:/proj2/Proj2Memory/test/test.vhf.
+Unit <test> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# FSMs                             : 5
+# Registers                        : 52
+  19-bit register                  : 1
+  8-bit register                   : 3
+  1-bit register                   : 45
+  5-bit register                   : 1
+  16-bit register                  : 2
+# Latches                          : 1
+  8-bit latch                      : 1
+# Counters                         : 2
+  2-bit up counter                 : 2
+# Multiplexers                     : 27
+  2-to-1 multiplexer               : 26
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 1
+  19-bit adder                     : 1
+# Comparators                      : 4
+  8-bit comparator equal           : 4
+
+=========================================================================
+
+Optimizing FSM <FSM_0> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_1> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_2> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_3> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_4> with One-Hot encoding and D flip-flops.
+
+Starting low level synthesis...
+Optimizing unit <memoryread> ...
+
+Optimizing unit <memorywrite> ...
+
+Optimizing unit <pctosraminterface> ...
+
+Optimizing unit <memorymultiplexor> ...
+
+Optimizing unit <simtest> ...
+
+Optimizing unit <obuf16_mxilinx> ...
+
+Optimizing unit <test> ...
+
+Building and optimizing final netlist ...
+
+Register xlxi_1_pctofpgainterface_fpgatosraminterface_presstate_FFD2 equivalent to xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite1 has been removed
+Register xlxi_1_pctofpgainterface_fpgatosraminterface_presstate_FFD3 equivalent to xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2 has been removed
+FlipFlop xlxi_1_pctofpgainterface_thememmultiplexor_presstate has been replicated 3 time(s)
+FlipFlop xlxi_1_pctofpgainterface_pportinterface_syncnextslice has been replicated 1 time(s)
+FlipFlop xlxi_1_pctofpgainterface_pportinterface_syncread has been replicated 1 time(s)
+FlipFlop xlxi_1_pctofpgainterface_pportinterface_inslicenum_0 has been replicated 1 time(s)
+FlipFlop xlxi_1_pctofpgainterface_pportinterface_inslicenum_1 has been replicated 1 time(s)
+FlipFlop xlxi_1_pctofpgainterface_pportinterface_syncwrite has been replicated 1 time(s)
+FlipFlop xlxi_31_prestate_FFD1 has been replicated 1 time(s) to handle iob=true attribute.
+=========================================================================
+Final Results
+Top Level Output File Name         : test
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Macro Statistics
+# FSMs                             : 5
+# Registers                        : 54
+  19-bit register                  : 1
+  8-bit register                   : 3
+  1-bit register                   : 45
+  5-bit register                   : 1
+  16-bit register                  : 2
+  2-bit register                   : 2
+# Multiplexers                     : 1
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 1
+  19-bit adder                     : 1
+# Comparators                      : 4
+  8-bit comparator equal           : 4
+
+Design Statistics
+# IOs                              : 57
+
+Cell Usage :
+# BELS                             : 383
+#      GND                         : 1
+#      LUT1                        : 23
+#      LUT2                        : 72
+#      LUT2_L                      : 1
+#      LUT3                        : 51
+#      LUT3_D                      : 2
+#      LUT3_L                      : 19
+#      LUT4                        : 131
+#      LUT4_D                      : 2
+#      LUT4_L                      : 4
+#      MUXCY                       : 34
+#      MUXF5                       : 24
+#      VCC                         : 1
+#      XORCY                       : 18
+# FlipFlops/Latches                : 175
+#      FDC                         : 56
+#      FDCE                        : 104
+#      FDP                         : 7
+#      LD                          : 8
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 57
+#      IBUF                        : 10
+#      IOBUF                       : 16
+#      OBUF                        : 31
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | IBUF                   | 1     |
+xlxi_1_pctofpgainterface_pportinterface_I__n0037:O| NONE(*)(xlxi_1_pctofpgainterface_pportinterface_mysyncdata_1)| 8     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: 11.902ns (Maximum Frequency: 84.019MHz)
+   Minimum input arrival time before clock: 5.187ns
+   Maximum output required time after clock: 11.597ns
+   Maximum combinational path delay: 17.874ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default period analysis for Clock 'clk'
+Delay:               11.902ns (Levels of Logic = 5)
+  Source:            xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2
+  Destination:       xlxi_1_pctofpgainterface_fpgatosraminterface_addrreg_1
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2 to xlxi_1_pctofpgainterface_fpgatosraminterface_addrreg_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              16   1.065   2.520  xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2 (xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2)
+    LUT4:I1->O             1   0.573   0.000  xlxi_1_pctofpgainterface_thememmultiplexor_I_memdowrite_F (N7125)
+    MUXF5:I0->O            3   0.436   1.332  xlxi_1_pctofpgainterface_thememmultiplexor_I_memdowrite (N500)
+    LUT3_D:I0->O          20   0.573   2.880  I_xlxi_1_pctofpgainterface_fpgatosraminterface_presstate_XX_FFD4 (N514)
+    LUT4:I0->O             1   0.573   1.035  xlxi_1_pctofpgainterface_thememmultiplexor_I_memreadaddr_1_SW2 (N6771)
+    LUT3_L:I1->LO          1   0.573   0.000  I_xlxi_1_pctofpgainterface_fpgatosraminterface_Mmux__n0008_I17_Result (N592)
+    FDCE:D                     0.342          xlxi_1_pctofpgainterface_fpgatosraminterface_addrreg_1
+    ----------------------------------------
+    Total                     11.902ns (4.135ns logic, 7.767ns route)
+                                       (34.7% logic, 65.3% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+Offset:              5.187ns (Levels of Logic = 2)
+  Source:            reset
+  Destination:       xlxi_31_prestate_FFD3
+  Destination Clock: clk rising
+
+  Data Path: reset to xlxi_31_prestate_FFD3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O              1   0.768   1.035  xlxi_4 (xlxn_72)
+    LUT1:I0->O            12   0.573   2.160  xlxi_31_I_INV_reset (xlxi_31_N105)
+    FDC:CLR                    0.651          xlxi_31_prestate_FFD3
+    ----------------------------------------
+    Total                      5.187ns (1.992ns logic, 3.195ns route)
+                                       (38.4% logic, 61.6% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+Offset:              11.597ns (Levels of Logic = 2)
+  Source:            xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2
+  Destination:       ldata_0
+  Source Clock:      clk rising
+
+  Data Path: xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2 to ldata_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              16   1.065   2.520  xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2 (xlxi_1_pctofpgainterface_fpgatosraminterface_doingwrite2)
+    LUT3:I0->O            16   0.573   2.520  I_xlxi_1_pctofpgainterface_fpgatosraminterface_I7_EnableTr_INV (N499)
+    IOBUF:T->IO                4.919          ldata_0_IOBUF (ldata_0)
+    ----------------------------------------
+    Total                     11.597ns (6.557ns logic, 5.040ns route)
+                                       (56.5% logic, 43.5% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Delay:               17.874ns (Levels of Logic = 4)
+  Source:            clk
+  Destination:       ldata_0
+
+  Data Path: clk to ldata_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O              1   0.768   1.035  xlxi_3 (xlxn_70)
+    BUFG:I->O            169   0.679   7.380  xlxi_30 (damnclk)
+    LUT3:I1->O            16   0.573   2.520  I_xlxi_1_pctofpgainterface_fpgatosraminterface_I7_EnableTr_INV (N499)
+    IOBUF:T->IO                4.919          ldata_0_IOBUF (ldata_0)
+    ----------------------------------------
+    Total                     17.874ns (6.939ns logic, 10.935ns route)
+                                       (38.8% logic, 61.2% route)
+
+=========================================================================
+CPU : 11.73 / 11.77 s | Elapsed : 12.00 / 12.00 s
+ 
+--> 

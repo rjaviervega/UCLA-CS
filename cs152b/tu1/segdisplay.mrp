@@ -1,0 +1,134 @@
+Release 4.1i - Map E.30
+Xilinx Mapping Report File for Design 'segdisplay'
+
+Design Information
+------------------
+Command Line   : map -p xcv50-pq240-6 -cm area -ir -k 4 -c 100 -tx off
+segdisplay.ngd 
+Target Device  : xv50
+Target Package : pq240
+Target Speed   : -6
+Mapper Version : virtex -- $Revision: 1.58 $
+Mapped Date    : Thu Jul 01 12:13:38 2004
+
+Design Summary
+--------------
+   Number of errors:      0
+   Number of warnings:    3
+   Number of Slices:                 57 out of    768    7%
+   Number of Slices containing
+      unrelated logic:                0 out of     57    0%
+   Number of Slice Flip Flops:       38 out of  1,536    2%
+   Number of 4 input LUTs:          106 out of  1,536    6%
+   Number of bonded IOBs:            13 out of    166    7%
+   Number of GCLKs:                   1 out of      4   25%
+   Number of GCLKIOBs:                1 out of      4   25%
+Total equivalent gate count for design:  1,212
+Additional JTAG gate count for IOBs:  672
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group Summary
+Section 10 - Modular Design Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:MapLib:95 - IBUF symbol "xlxi_7" (output signal=xlxn_4) is promoted to
+   indicate the use of GCLKIOB site.
+WARNING:Pack:249 - The following adjacent carry multiplexers occupy different
+   slice components.  The resulting carry chain will have suboptimal timing.
+   	xlxi_2/BU5
+   	xlxi_2/BU10
+WARNING:Pack:249 - The following adjacent carry multiplexers occupy different
+   slice components.  The resulting carry chain will have suboptimal timing.
+   	xlxi_1/BU27
+   	xlxi_1/BU33
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:62 - All of the external outputs in this design are using slew rate
+   limited output drivers. The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the schematic.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   2 block(s) removed
+   5 block(s) optimized away
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "xlxi_1/BU212" (AND) removed.
+Unused block "xlxi_2/VCC" (ONE) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		GND_I
+VCC 		VCC_I
+GND 		xlxi_1/GND
+VCC 		xlxi_1/VCC
+GND 		xlxi_2/GND
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type    | Direction | IO Standard | Drive    | Slew | Reg (s)  | Resistor | IOB   |
+|                                    |         |           |             | Strength | Rate |          |          | Delay |
++------------------------------------------------------------------------------------------------------------------------+
+| clk                                | GCLKIOB | INPUT     | LVTTL       |          |      |          |          |       |
+| lhex0                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lhex1                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lhex2                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lhex3                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lhex4                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lhex5                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| lhex6                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| load                               | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
+| outq0                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| outq1                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| outq2                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| outq3                              | IOB     | OUTPUT    | LVTTL       | 12       | SLOW |          |          |       |
+| resetn                             | IOB     | INPUT     | LVTTL       |          |      |          |          |       |
++------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+xlxi_2/hset                             
+xlxi_1/hset                             
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group Summary
+------------------------------
+No area groups were found in this design.
+
+Section 10 - Modular Design Summary
+-----------------------------------
+Modular Design not used for this design.

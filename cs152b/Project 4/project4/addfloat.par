@@ -1,0 +1,86 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+Fri Aug 13 11:37:51 2004
+
+par -f _par.rsp
+
+
+Constraints file: addfloat.pcf
+
+Loading design for application par from file par_temp.ncd.
+   "addfloat" is an NCD, version 2.36, device xcv50, package pq240, speed -6
+Loading device for application par from file 'v50.nph' in environment C:/Xilinx.
+Device speed data version:  FINAL 1.115 2001-06-20.
+
+
+Device utilization summary:
+
+   Number of External IOBs            16 out of 166     9%
+      Number of LOCed External IOBs    0 out of 16      0%
+
+
+
+
+
+Overall effort level (-ol):   2 (set by user)
+Placer effort level (-pl):    2 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    2 (set by user)
+Extra effort level (-xe):     0 (set by user)
+
+Starting initial Placement phase. REAL time: 0 secs 
+Finished initial Placement phase. REAL time: 0 secs 
+Starting the placer. REAL time: 0 secs 
+Placement pass 1 .
+Placer score = 0
+Placement pass 2 .
+Placer score = 0
+Optimizing ... 
+Placer score = 0
+Placer score = 0
+Placer completed in real time: 0 secs 
+
+Dumping design to file addfloat.ncd.
+
+Total REAL time to Placer completion: 0 secs 
+Total CPU time to Placer completion: 0 secs 
+
+ERROR:Route:10 - There are no connections to route.  If this is incorrect,
+   please check the mapper report file (.mrp) to verify why any specific net or
+   component may have been trimmed out of the design. 
+Total REAL time to Router completion: 0 secs 
+Total CPU time to Router completion: 0 secs 
+
+Generating PAR statistics.
+
+   The Delay Summary Report
+
+   The Score for this design is: 0
+
+
+The Number of signals not completely routed for this design is: 0
+
+   The Average Connection Delay for this design is:        0.000 ns
+   The Maximum Pin Delay is:                               0.000 ns
+   The Average Connection Delay on the 10 Worst Nets is:   0.000 ns
+
+   Listing Pin Delays by value: (ns)
+
+    d < 1.00   < d < 2.00  < d < 3.00  < d < 4.00  < d < 5.00  d >= 5.00
+   ---------   ---------   ---------   ---------   ---------   ---------
+           0           0           0           0           0           0
+
+Dumping design to file addfloat.ncd.
+
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 0 secs 
+Total CPU time to PAR completion: 0 secs 
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+PAR done.

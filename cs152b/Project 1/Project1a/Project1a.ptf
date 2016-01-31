@@ -1,0 +1,7 @@
+[xcv50-6pq240-XST VHDL]
+Design Entry Utilities=true
+[alu4]
+Design Entry Utilities=true
+Place & Route=true
+Synthesize=false
+Implement Design=true

@@ -1,0 +1,6 @@
+work memorymultiplexor-sv01.vhd
+work pctosraminterface-sv06.vhd
+work sram512kleft16bit50mhzreadreq-sv05.vhd
+work sraminterfacewithpport-sv01.vhd
+work wrdiptosram.vhd
+work userpctosramtoplevel.vhd

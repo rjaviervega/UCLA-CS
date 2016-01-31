@@ -1,0 +1,7 @@
+SETPROJECT e:/hingkei/152bs04/project1/4bitalu
+SET BusFormat = BusFormatAngleBracket
+SET XilinxFamily = Virtex
+SET FlowVendor = Foundation_iSE
+SET DesignFlow = Vhdl
+SET SimulationOutputProducts = Verilog VHDL
+SET LockProjectProps = false

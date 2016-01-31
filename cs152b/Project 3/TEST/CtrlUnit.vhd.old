@@ -1,0 +1,129 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity CtrlUnit is
+    Port ( S : in std_logic_vector(15 downto 0);
+           A : in std_logic_vector(15 downto 0);
+           B : in std_logic_vector(15 downto 0);
+           Dout : in std_logic_vector(15 downto 0);
+           CLK : in std_logic;
+           Reset : in std_logic;
+           WrDone : in std_logic;
+           RdDone : in std_logic;
+           Start : in std_logic;
+           RdAddr : out std_logic_vector(17 downto 0);
+           WrAddr : out std_logic_vector(17 downto 0);
+           RegBusW : out std_logic_vector(15 downto 0);
+           AluA : out std_logic_vector(15 downto 0);
+           AluB : out std_logic_vector(15 downto 0);
+           Din : out std_logic_vector(15 downto 0);
+           ctrl : out std_logic_vector(3 downto 0);
+           RegA : out std_logic_vector(2 downto 0);
+           RegB : out std_logic_vector(2 downto 0);
+           RegW : out std_logic_vector(2 downto 0);
+           RegWrEn : out std_logic;
+           MemRd : out std_logic;
+           MemWr : out std_logic;
+           ResetL : out std_logic;
+           finish : out std_logic);
+end CtrlUnit;
+
+architecture Behavioral of CtrlUnit is
+
+		type	 typeStateType is (  stIdle, 
+											stStart 
+											);
+
+		signal preState, nextState	:	typeStateType;
+		signal PC						:	std_logic_vector (17 downto 0);
+		signal AddrRd					:	std_logic_vector (17 downto 0);
+		signal Rd						:	std_logic;
+
+begin
+
+	resetORset: process (CLK, Reset)
+	begin
+
+		if Reset = '0' then
+			preState <= stIdle;
+			RdPreSt	<= RdStIdle;
+			ResetL 	<= '0';
+		elsif CLK' event and CLK = '1' then
+			preState <= nextState;
+			RdPreSt	<=	RdNextSt;
+			ResetL 	<= '1';
+		end if;
+
+	end process resetorset;
+
+	ControlUnit:	process (preState, Start, S, WrDone,RdDone)
+	begin
+
+		RegWrEn		<= '0';
+      RegBusW		<= (others => '0');
+      RegA			<= (others => '0');
+      RegB			<= (others => '0');
+      RegW			<= (others => '0');
+      AluA			<= (others => '0');
+      AluB			<= (others => '0');
+      ctrl 			<= (others => '0');
+      Din			<= (others => '0');
+		nextState 	<= stIdle;
+		finish 		<= '0';
+		PC				<= (others => '0');
+
+		case preState is
+			when stIdle =>
+				
+				if Start = '0' then
+					nextState		<= stIdle;
+				else
+					nextState		<= stStart;
+				end if;
+
+			when stStart =>
+				PC 		<= "000000000000010000";
+				AddrRd 	<= PC;
+				Rd			<= '1';
+
+
+
+	Read:	process (preState, Rd, RdDone)
+	begin
+	
+		RdNextSt		<= RdStIdle;
+		DoneRd		<= '0';
+		MemRd			<= '0';
+		RdAddr		<= (others => '0');
+
+		case RdPreSt is
+			when RdStIdle =>
+				
+				if Rd = '1' then
+					RdNextSt		<= RdSt1;
+				else
+					RdNextSt		<= RdStIdle;
+				end if;
+
+			when RdSt1 =>
+				MemRd		<= '1';
+				RdAddr	<= AddrRd;
+				RdNextSt	<= RdSt2;
+
+			when RdSt2 => 
+			
+				if RdDone <= '1' then
+					DoneRd		<= '1';
+					nextState	<= RdstIdle;
+				else
+					Rdaddr 		<= AddrRd;
+					nextState	<= RdSt2;
+				end if;
+
+		end case;
+
+	end process Read;
+
+end Behavioral;

@@ -1,0 +1,23 @@
+Release 4.1i - ngdbuild E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -dd e:/proj2/proj2memory/test/_ngo -nt timestamp -p
+xcv50-pq240-6 test.ngc test.ngd 
+
+Reading NGO file "E:/proj2/Proj2Memory/test/test.ngc" ...
+Reading component libraries for design expansion...
+
+Annotating constraints to design from file "test.ucf" ...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:477 - clock net 'damnclk' has non-clock connections
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Writing NGD file "test.ngd" ...
+
+Writing NGDBUILD log file "test.bld"...

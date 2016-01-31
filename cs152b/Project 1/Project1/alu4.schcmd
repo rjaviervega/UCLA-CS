@@ -1,0 +1,80 @@
+select figure at 1362 1923 9 -branches -sn=1
+select figure at 1371 2361 9 -branches -sn=1
+select figure at 1371 2361 9 -branches -sn=1
+select figure at 1348 2102 9 -branches -sn=1
+select figure at 1499 2109 9 -branches -sn=1
+select figure at 1504 2112 9 -sn=1
+select figure at 1440 2096 9 -sn=1
+select figure at 1467 2109 9 -branches -sn=1
+select figure at 2236 2030 9 -branches -sn=1
+delete selection -sn=1
+select figure at 2276 1712 9 -branches -sn=1
+select figure at 2116 1724 9 -branches -sn=1
+select figure at 2116 1724 9 -branches -sn=1
+add autowire 2320 2032 2320 1760 9 -sn=1
+add autowire 2320 1760 2896 1760 9 -sn=1
+add autowire 2896 1760 2624 1696 9 -sn=1
+select figure at 2482 1733 9 -branches -sn=1
+select figure at 2408 1689 9 -branches -sn=1
+select figure at 2408 1689 9 -branches -sn=1
+select figure at 2399 1756 9 -branches -sn=1
+delete selection -sn=1
+add autowire 2320 2032 2512 1744 9 -sn=1
+select figure at 2264 1677 9 -branches -sn=1
+select figure at 2287 1619 9 -branches -sn=1
+select figure at 2287 1619 9 -branches -sn=1
+name branch at 2384 1744 9 Complement(3:0) -sn=1
+select figure at 2292 1626 9 -branches -sn=1
+select figure at 2225 1573 9 -branches -sn=1
+select figure at 2225 1573 9 -branches -sn=1
+add autowire 2192 2048 2288 2432 9 -sn=1
+select figure at 2176 2357 9 -branches -sn=1
+select figure at 2215 2176 9 -branches -sn=1
+select figure at 2215 2176 9 -branches -sn=1
+select figure at 2290 2166 9 -branches -sn=1
+move wire at 2288 2048 2288 2432 to 2192 2048 2192 2432 -keepConn -sn=1
+select figure at 2253 2347 9 -branches -sn=1
+select figure at 2253 2347 9 -branches -sn=1
+select figure at 2190 2384 9 -branches -sn=1
+delete selection -sn=1
+select figure at 2333 1747 9 -branches -sn=1
+delete selection -sn=1
+select figure at 2067 1833 9 -branches -sn=1
+delete selection -sn=1
+add autowire 2320 2016 2144 1936 9 -sn=1
+select figure at 2120 1805 9 -branches -sn=1
+select figure at 1958 1791 9 -branches -sn=1
+select figure at 1956 1791 9 -branches -sn=1
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo

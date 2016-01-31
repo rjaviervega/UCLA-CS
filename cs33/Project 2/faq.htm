@@ -1,0 +1,150 @@
+<html>
+<head>
+</head>
+<body bgcolor="#FFFFFF">
+
+<br>
+      <font size=+2 color="darkblue">
+<html>
+<head>
+</head>
+<body bgcolor="#FFFFFF">
+
+      <font size=+2 color="darkblue">
+        CS33 FAQ Spring 2003
+	<br><br>
+      <font>
+<form action="faq.cgi" name=f method="post">
+<table border=0>
+
+<tr>
+<td colspan=2 align="center">
+<b>
+<font color="darkblue">
+Name: <input maxLength=256 size=25 name="name" value=""> &nbsp; &nbsp; SID#: <input maxLength=256 size=10 name="sid" value=""> &nbsp; &nbsp; Email: <input maxLength=256 size=25 name="email" value="">
+</font></b>
+<td>
+</tr>
+
+<tr><td align="center"><font color="darkblue"><b><i>Your Section: </i></b></td><td align="center"><font color="darkblue"><i><b>Your Question:</b></i>&nbsp;&nbsp;</font></td></tr>
+<tr> 
+<td><font color="darkblue">
+1<input type="radio" name="section" value="1" checked>&nbsp;&nbsp;&nbsp;2<input type="radio" name="section" value="2"><br>
+3<input type="radio" name="section" value="3">&nbsp;&nbsp;&nbsp;4<input type="radio" name="section" value="4">&nbsp;&nbsp;</font>
+</td>
+
+<td><font color="darkblue">
+ <input maxLength=256 size=55 name="question" value="">
+<input type=submit value="Submit Question" name="blag"></font></td></tr>
+
+<tr><td colspan=2 align=center>
+<font color="darkblue" size=-2>
+(Note: Name, SID# and email are optional, but will enable an indivdual answer to a question which isn't considered appropriate for FAQ posting)</font>
+</td>
+</tr>
+</table>
+</form>
+<hr>
+<br>
+<!--begin-->
+
+<b>What does the term "subprogram" mean?</b><br>
+A subprogram is either a function or a subroutine.  In C++ terminology, that means either a typed function (such as int) or a void function.  In CUSP, as in C++, each function must be defined separately:  subprograms cannot be defined within other subprograms.  Multiple CUSP modules (main program and subprograms) may be combined in one file or placed in separate files.  If more than one module is contained in a file, all symbols  for all modules in the file must be unique.  If the modules are in separate files, .EQU statements will be required in each module to specify all external addresses used which are not in the module.<br><br>
+
+
+<b>Can we use global variables to pass parameters to functions?</b><br>
+In general, you should not use global variables to pass parameters to functions.  Also, for Project 2, you should not need any functions with more than one parameter and one return result.  However, since we will not study the parameter passing mechanisms until Chapter 6, you may use global variables to pass parameters to functions ONLY FOR PROJECT 2!  Be aware that you may still be downgraded on the project for doing this if your program is inefficient or otherwise not designed well.<br><br>
+
+
+<b>Why do the E (Edit File) and A (Assemble File) in the F (File Operation) menu not work when I run CUSP?</b><br>
+These options must be properly set up to work.  It is often easiest to just exit CUSP, do the edits and/or assemblies from the DOS command line, and the restart CUSP.<br><br>
+
+
+<b>How do I (quoting from Exercise 2) "Include the directory with CUSP and
+CHASM in the PATH statement on your PC."?</b><br>
+You don't have to if, whenever you want to launch CUSP from a command window,
+you're willing to type a full path name like
+<code>c:\CS33\CUSP\CUSP.EXE</code>.  If you'd rather just type
+<code>CUSP</code> to launch the program, do something like the following:  
+From the taskbar, select Start / Settings / Control Panel / System.  Select
+the Advanced tab, and click on Environment Variables.  Under System Variables,
+scroll down to Path, select it, and click Edit....  Then, if you installed
+CUSP.EXE in c:\CS33\CUSP, say, you should add exactly these characters to
+the end of the variable value:
+<ul>
+<li>
+If the current value ends in a semicolon, add
+<code><strong>C:\CS33\CUSP;</strong></code>
+</li><li>
+If it does not, add <code><strong>;C:\CS33\CUSP</strong></code>
+</li>
+</ul>
+Alternatively, every time you open a command window to work in for a few hours,
+start off by typing
+<pre>
+	<strong>path = %path%;c:\cs33\cusp</strong>
+</pre>
+
+<b>Do C++ programs have to run multiple times without reloading as specified in the Programming Project Requirements?</b><br>
+No.  This requirement is meant for CUSP programs only.  C++ programs are automatically reloaded when they are restarted.  A C++ program may have a loop which continues to execute until some specified condition occurs, such as a terminal input value, but once the C++ program terminates, it will be automatically reloaded if it is run again and the user has no control over this. <br><br>
+
+
+<b>Will reference parameters such as f(int& a) translate well into assembly?</b><br>
+Not for Project 2.  We need to study Chapter 6 before you can use reference parameters.<br><br>
+
+
+<b>In the general project requirements, a cover sheet and a narrative description are mentioned but nothing like that is in the Project 1 Submission Requirements. Do I need these things?</b><br>
+The submission requirements list items which must be included in the report.  The list is not everything that must be in the the report, just a subset of the items which must be in the report.  You must also follow the Progrmming Project Requirements passed out in class and posted on the class web site.<br><br>
+
+
+<b>What has to be included in the algorithm description for a project?</b><br>
+Pseudocode (or equivalent), definitions of all data for the entire program, and interfaces to subprograms must be included.  The detail must be language-independent and must be sufficient that another programmer could code the same program in another language such as Java or PL/1 and get identical results to your program.<br><br>
+
+
+<b>Can we use a C++ statement like  <code>cout << hex << n;</code>  to output hexadecimal numbers?</b><br>
+Absolutely not!!! See the C++ programming guidelines.<br><br>
+
+
+<b>Can we use unsigned integers in our C++ programs?</b><br>
+Yes.  In fact, a 32-bit unsigned interger is the best way to hold a 24-bit computer word.  Be sure that the 24 bits are right-justified and that the top eight bits are always zero.<br><br>
+
+
+<b>Do the C++ operators translate easily to assembly language?</b><br>
+All of the C++ integer operators (<code>+ - * / % &lt;&lt; >> &amp; | ^ ~ ++
+--</code>) translate easily to assembly language, so you may use them freely.
+<br><br>
+
+<b>In the Project 1 writeup, why is the output in the third example
+what it is?</b><br>
+See the <a href="projects/project1_example.html">explanation of the
+example</a>.
+<br><br>
+
+<b>In Project 1, what should the program do in the case that ...</b><br>
+Do whatever <a href="projects/Proj1.exe">this sample executable</a> does
+in that case.
+<br><br>
+
+<b>For Project 0, what is the initial position of the cursor?</b><br>
+The initial position of the cursor is Row 1, Column 1, which is the upper left corner of the screen.  The cursor is also set here when the screen is cleared.<br><br>
+
+
+<b>For Project 0, what happens to the cursor in the put function if the cursor is in the last row?</b><br>
+If the cursor is at the last position in the last row, the character is output, the screen scrolls up one line, and the cursor is at the beginning of the new (blank) bottom line of the screen.<br><br>
+
+
+<b>Do we need to check in Project 1 for a data value which will not fit in the specified field width?</b><br>
+Yes!  If a value entered will not fit in the field specified, display 
+"Invalid value" and prompt again for input.<br><br>
+
+
+<b>What is the purpose of the FAQ page?</b><br>
+The FAQ page is for answers to questions about projects, homework, and other class topics
+which may be of interest to all students in all sections.  Questions of general interest 
+posted for the FAQ page will be answered there.  Specific questions which are not general 
+in nature may be answered by E-mail, so be sure to always include your E-mail address 
+when submitting a question.<br><br>
+
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+[xcv50-6pq240-XST VHDL]
+Design Entry Utilities=true
+[testbench]
+Generate Programming File=false
+Design Entry Utilities=true
+User Constraints=true
+Synthesize=false
+Implement Design=false
+[testbench.vhd]
+ModelSim Simulator=true

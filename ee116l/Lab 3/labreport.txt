@@ -1,0 +1,17 @@
+Javier,
+
+source files  : reglab3.gdf, register.tdf
+waveform files: reglab3.snf, register.snf (please print using "landscape" 
+instead of
+					   "portrait," and set the range of ns if
+					    possible)
+document      : tableofcontent in the doc folder
+please write also
+1) brief description of this lab and
+2) explanation of the design,
+if you not sure how the design works, please call meeee, cause when i call 
+you, u never
+pick up the phone. i will make those explanation up if i have time
+3)cover page
+
+Kei

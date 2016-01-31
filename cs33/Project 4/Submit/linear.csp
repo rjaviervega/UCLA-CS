@@ -1,0 +1,86 @@
+;	LINEAR FUNCTION
+;
+;// Linear memory display function
+;//  This fucntion outputs the matrix elements to the
+;//  screen in the order that they are stored.
+; MINI_OS FUNCTIONS
+		.EQU	PUT_NUM,	$E00
+		.EQU	GET_NUM,	$E01
+		.EQU	PUT_STR,	$E05
+		.EQU	PUT_NL,		$E06
+		.EQU	PUT_NUM2,	$E07
+		
+;	START FUNCTIONS AT ADDRESS $750
+.EQU	@,	$750
+
+; LOCAL VARS
+.EQU	MxN, 0
+.EQU	NUM_LOCALS, 1
+
+; PARAMS
+.EQU	IND,	NUM_LOCALS + 2
+.EQU	COLS,	NUM_LOCALS + 3
+.EQU	ROWS,	NUM_LOCALS + 4
+.EQU	PMAT,	NUM_LOCALS + 5
+
+LINEAR:	BGN#	NUM_LOCALS
+		PSHA					; SAVE VALUES
+		PSHX
+
+;	// output greating		
+		PSH#	PRT_MSG_L		; OUTPUT MESSAGE
+		PSH#	PRT_MSG		
+		JSR		PUT_STR					
+		ADS#	2				
+		JSR		PUT_NL
+
+;	// if row-major order
+		LDA#	0
+		CMA		!IND
+		JNE		ROW_MAJOR		; CONDITIONAL JUMP
+		JMP		COL_MAJOR		; UNCONDITIONAL JUMP
+		
+ROW_MAJOR:
+;		// output title
+		PSH#	PRT_ROW_L		; OUTPUT MESSAGE
+		PSH#	PRT_ROW		
+		JSR		PUT_STR					
+		ADS#	2				
+		JSR		PUT_NL		
+		JMP		NEXT
+
+COL_MAJOR:
+;		// output title
+		PSH#	PRT_COL_L		; OUTPUT MESSAGE
+		PSH#	PRT_COL		
+		JSR		PUT_STR					
+		ADS#	2				
+		JSR		PUT_NL
+		JMP		NEXT
+
+;	// output each element in the array
+NEXT:
+		LDA		!ROWS			; ACC = ROWS * COLS
+		MUL		!COLS
+		STA		!MxN
+		LDX#	0
+LOOP:	CMX		!MxN		; X ? ROWS * COLS
+		JGE		DONE		; X >= DONE
+		LDA&	!PMAT
+		JSR		PUT_NUM		; COUT << PMAT [ X ]
+		ADX#	1
+		JMP		LOOP
+
+DONE:	JSR		PUT_NL	
+		POPX					; RESTORE VALUES
+		POPA
+		FIN#	NUM_LOCALS
+		RTN
+		
+;	STRING VARS		
+PRT_MSG	:	.CHAR		'Matrix element storage:',		PRT_MSG_L
+PRT_ROW :	.CHAR		'Row major order',	PRT_ROW_L
+PRT_COL :	.CHAR		'Column major order', PRT_COL_L
+
+
+

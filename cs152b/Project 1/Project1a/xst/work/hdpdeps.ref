@@ -1,0 +1,31 @@
+V1 40
+AR work/INV4_MXILINX/SCHEMATIC FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      EN work/INV4_MXILINX CP INV
+EN work/IBUF4_MXILINX   FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+EN work/ALU4            FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+EN work/COMPM4_MXILINX  FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+AR work/COMPM4_MXILINX/SCHEMATIC FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      EN work/COMPM4_MXILINX CP AND2      CP AND2B1         CP AND3B1         CP NOR2 \
+      CP OR2            CP XNOR2
+AR work/IBUF4_MXILINX/SCHEMATIC FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      EN work/IBUF4_MXILINX CP IBUF
+EN work/ADSU4_MXILINX   FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+EN work/INV4_MXILINX    FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+AR work/M2_1_MXILINX/SCHEMATIC FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      EN work/M2_1_MXILINX CP AND2        CP AND2B1         CP OR2
+AR work/ALU4/SCHEMATIC  FL E:/HingKei/152bs04/Project1a/alu4.vhf EN work/ALU4 \
+      CP ADSU4_MXILINX  CP AND2           CP AND3           CP AND4 \
+      CP COMPM4_MXILINX CP GND            CP IBUF           CP IBUF4_MXILINX \
+      CP INV            CP INV4_MXILINX   CP M2_1_MXILINX   CP MUX2TO1        CP MUX8TO1 \
+      CP OBUF           CP OR2            CP VCC
+EN work/M2_1_MXILINX    FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      PB ieee/STD_LOGIC_1164 PB ieee/NUMERIC_STD PH unisim/VCOMPONENTS
+FL E:/HingKei/152bs04/Project1a/alu4.vhf 2004/07/09.10:42:25
+AR work/ADSU4_MXILINX/SCHEMATIC FL E:/HingKei/152bs04/Project1a/alu4.vhf \
+      EN work/ADSU4_MXILINX CP FMAP       CP INV            CP MUXCY          CP MUXCY_D \
+      CP MUXCY_L        CP XOR2           CP XOR3           CP XORCY

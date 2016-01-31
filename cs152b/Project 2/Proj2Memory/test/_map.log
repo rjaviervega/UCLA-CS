@@ -1,0 +1,4 @@
+Mapping Module test . . .
+MAP command line:
+"map -p xcv50-pq240-6 -cm area -k 4 -c 100 -tx off test.ngd "
+Mapping Module test: DONE

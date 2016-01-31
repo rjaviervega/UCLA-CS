@@ -1,0 +1,391 @@
+59  xlxi_3_reg4_9.BY
+         1.845  xlxi_3_reg3_9.BY
+         1.895  xlxi_3_reg7_9.BY
+         1.544  xlxi_3_reg2_9.BY
+         1.163  xlxi_3_reg6_9.BY
+
+N842
+   xlxi_3_reg1_7.X
+         1.523  xlxi_3_reg5_7.BX
+         1.386  xlxi_3_reg4_7.BX
+         0.984  xlxi_3_reg3_7.BX
+         0.764  xlxi_3_reg7_7.BX
+         1.334  xlxi_3_reg2_7.BX
+         1.441  xlxi_3_reg6_7.BX
+
+N843
+   xlxi_3_reg1_6.X
+         2.035  xlxi_3_reg5_7.BY
+         1.755  xlxi_3_reg4_7.BY
+         1.375  xlxi_3_reg3_7.BY
+         0.978  xlxi_3_reg7_7.BY
+         1.652  xlxi_3_reg2_7.BY
+         1.877  xlxi_3_reg6_7.BY
+
+N844
+   xlxi_3_reg1_5.X
+         1.382  xlxi_3_reg5_5.BX
+         0.864  xlxi_3_reg4_5.BX
+         1.762  xlxi_3_reg3_5.BX
+         1.060  xlxi_3_reg7_5.BX
+         1.913  xlxi_3_reg2_5.BX
+         1.108  xlxi_3_reg6_5.BX
+
+N845
+   xlxi_3_reg1_4.X
+         1.340  xlxi_3_reg5_5.BY
+         1.012  xlxi_3_reg4_5.BY
+         1.380  xlxi_3_reg3_5.BY
+         0.651  xlxi_3_reg7_5.BY
+         0.991  xlxi_3_reg2_5.BY
+         0.626  xlxi_3_reg6_5.BY
+
+N846
+   xlxi_3_reg1_3.X
+         1.375  xlxi_3_reg5_3.BX
+         1.527  xlxi_3_reg4_3.BX
+         1.446  xlxi_3_reg3_3.BX
+         1.344  xlxi_3_reg7_3.BX
+         1.163  xlxi_3_reg2_3.BX
+         1.178  xlxi_3_reg6_3.BX
+
+N847
+   xlxi_3_reg1_2.X
+         1.119  xlxi_3_reg5_3.BY
+         1.326  xlxi_3_reg4_3.BY
+         1.198  xlxi_3_reg3_3.BY
+         0.970  xlxi_3_reg7_3.BY
+         1.256  xlxi_3_reg2_3.BY
+         1.272  xlxi_3_reg6_3.BY
+
+N848
+   xlxi_3_reg1_1.X
+         1.287  xlxi_3_reg5_1.BX
+         1.555  xlxi_3_reg4_1.BX
+         1.497  xlxi_3_reg3_1.BX
+         1.475  xlxi_3_reg7_1.BX
+         1.423  xlxi_3_reg2_1.BX
+         1.498  xlxi_3_reg6_1.BX
+
+N849
+   xlxi_3_reg1_0.X
+         1.855  xlxi_3_reg5_1.BY
+         0.999  xlxi_3_reg4_1.BY
+         1.852  xlxi_3_reg3_1.BY
+         1.895  xlxi_3_reg7_1.BY
+         1.958  xlxi_3_reg2_1.BY
+         1.044  xlxi_3_reg6_1.BY
+
+N850
+   N851.Y
+         3.964  N862.BY
+         3.019  N871.BY
+         4.160  N863.BY
+         4.059  N872.BY
+         4.583  N864.BY
+         3.034  N873.BY
+         4.292  N865.BY
+         3.143  N874.BY
+         2.568  N866.BY
+         3.607  N859.BY
+         1.400  N867.BY
+         3.597  N860.BY
+         1.875  N868.BY
+         1.888  N869.BY
+         4.047  N861.BY
+         1.010  N870.BY
+
+N851
+   N851.X
+         2.670  N862.BX
+         3.476  xlxi_3_busamux/N1947.BX
+         3.202  N871.BX
+         2.776  xlxi_3_busamux/N903.BX
+         4.092  N863.BX
+         3.740  xlxi_3_busamux/N1831.BX
+         3.334  N872.BX
+         1.949  xlxi_3_busamux/N787.BX
+         3.473  N864.BX
+         4.440  xlxi_3_busamux/N1715.BX
+         3.532  N873.BX
+         3.437  xlxi_3_busamux/N671.BX
+         3.865  N865.BX
+         3.644  xlxi_3_busamux/N1599.BX
+         2.487  N874.BX
+         2.995  xlxi_3_busamux/N555.BX
+         2.632  N866.BX
+         2.522  xlxi_3_busamux/N1483.BX
+         4.200  N859.BX
+         3.678  xlxi_3_busamux/N2295.BX
+         3.460  N867.BX
+         2.716  xlxi_3_busamux/N1367.BX
+         4.216  N860.BX
+         3.649  xlxi_3_busamux/N2179.BX
+         1.983  N868.BX
+         2.001  N869.BX
+         1.904  xlxi_3_busamux/N1135.BX
+         1.925  xlxi_3_busamux/N1251.BX
+         3.632  N861.BX
+         3.587  xlxi_3_busamux/N2063.BX
+         1.580  N870.BX
+         1.452  xlxi_3_busamux/N1019.BX
+
+N852
+   xlxi_31_N1710.Y
+         2.654  N862.F4
+         2.596  N862.G4
+         2.978  xlxi_3_busamux/N1947.F3
+         2.896  xlxi_3_busamux/N1947.G1
+         3.106  N871.F4
+         3.048  N871.G4
+         3.337  xlxi_3_busamux/N903.F1
+         3.333  xlxi_3_busamux/N903.G1
+         3.192  N863.F2
+         3.188  N863.G2
+         3.100  xlxi_3_busamux/N1831.F3
+         3.063  xlxi_3_busamux/N1831.G3
+         3.545  N872.F3
+         3.737  N872.G2
+         3.081  xlxi_3_busamux/N787.F3
+         3.352  xlxi_3_busamux/N787.G2
+         3.951  N864.F2
+         3.947  N864.G2
+         3.859  xlxi_3_busamux/N1715.F3
+         3.822  xlxi_3_busamux/N1715.G3
+         4.087  N873.F2
+         3.471  N873.G2
+         3.995  xlxi_3_busamux/N671.F3
+         3.958  xlxi_3_busamux/N671.G3
+         3.858  N865.F3
+         3.189  N865.G2
+         3.101  xlxi_3_busamux/N1599.F3
+         3.064  xlxi_3_busamux/N1599.G3
+         4.390  N874.F1
+         4.182  N874.G2
+         4.094  xlxi_3_busamux/N555.F3
+         3.604  xlxi_3_busamux/N555.G2
+         3.247  N866.F4
+         3.189  N866.G4
+         3.478  xlxi_3_busamux/N1483.F1
+         3.325  xlxi_3_busamux/N1483.G3
+         3.800  N859.F4
+         3.771  N859.G3
+         3.858  xlxi_3_busamux/N2295.F4
+         3.896  xlxi_3_busamux/N2295.G2
+         4.458  N867.F1
+         3.256  N867.G3
+         4.228  xlxi_3_busamux/N1367.F3
+         4.191  xlxi_3_busamux/N1367.G3
+         4.085  N860.F1
+         3.508  N860.G3
+         4.008  xlxi_3_busamux/N2179.F1
+         3.633  xlxi_3_busamux/N2179.G2
+         3.445  N868.F3
+         3.408  N868.G3
+         3.481  N869.F3
+         3.194  N869.G1
+         3.573  xlxi_3_busamux/N1135.F2
+         3.569  xlxi_3_busamux/N1135.G2
+         3.537  xlxi_3_busamux/N1251.F2
+         2.944  xlxi_3_busamux/N1251.G4
+         2.707  N861.F3
+         2.852  N861.G2
+         2.764  xlxi_3_busamux/N2063.F3
+         2.795  xlxi_3_busamux/N2063.G2
+         2.828  N870.F2
+         3.380  N870.G1
+         3.153  xlxi_3_busamux/N1019.F4
+         3.095  xlxi_3_busamux/N1019.G4
+
+N853
+   N853.Y
+         1.974  N886.BY
+         2.577  N882.BY
+         1.261  N887.BY
+         1.972  N875.BY
+         2.462  N883.BY
+         1.406  N888.BY
+         1.823  N876.BY
+         2.624  N884.BY
+         2.376  N889.BY
+         1.035  N877.BY
+         2.453  N890.BY
+         1.371  N878.BY
+         1.841  N879.BY
+         1.955  N880.BY
+         2.100  N885.BY
+         1.811  N881.BY
+
+N854
+   xlxi_31_N972.Y
+         2.159  N886.BX
+         1.878  xlxi_3_busbmux/N1019.BX
+         2.938  N882.BX
+         3.657  xlxi_3_busbmux/N1483.BX
+         2.285  N887.BX
+         2.913  xlxi_3_busbmux/N903.BX
+         3.360  N875.BX
+         3.762  xlxi_3_busbmux/N2295.BX
+         3.036  N883.BX
+         2.503  xlxi_3_busbmux/N1367.BX
+         3.142  N888.BX
+         2.379  xlxi_3_busbmux/N787.BX
+         3.439  N876.BX
+         3.768  xlxi_3_busbmux/N2179.BX
+         3.353  N884.BX
+         2.913  xlxi_3_busbmux/N1251.BX
+         3.402  N889.BX
+         3.306  xlxi_3_busbmux/N671.BX
+         2.945  N877.BX
+         2.948  xlxi_3_busbmux/N2063.BX
+         2.874  N890.BX
+         3.075  xlxi_3_busbmux/N555.BX
+         3.588  N878.BX
+         3.751  xlxi_3_busbmux/N1947.BX
+         3.663  N879.BX
+         2.971  xlxi_3_busbmux/N1831.BX
+         2.859  N880.BX
+         3.726  xlxi_3_busbmux/N1715.BX
+         2.895  N885.BX
+         2.565  xlxi_3_busbmux/N1135.BX
+         3.597  N881.BX
+         3.785  xlxi_3_busbmux/N1599.BX
+
+N855
+   xlxi_31_N1727.Y
+         4.037  N886.F1
+         4.033  N886.G1
+         3.806  xlxi_3_busbmux/N1019.F4
+         4.264  xlxi_3_busbmux/N1019.G3
+         4.629  N882.F3
+         4.418  N882.G2
+         3.463  xlxi_3_busbmux/N1483.F2
+         3.459  xlxi_3_busbmux/N1483.G2
+         1.938  N887.F3
+         1.901  N887.G3
+         2.030  xlxi_3_busbmux/N903.F2
+         1.901  xlxi_3_busbmux/N903.G3
+         4.006  N875.F4
+         3.948  N875.G4
+         4.237  xlxi_3_busbmux/N2295.F1
+         4.233  xlxi_3_busbmux/N2295.G1
+         4.105  N883.F1
+         3.669  N883.G3
+         4.195  xlxi_3_busbmux/N1367.F1
+         3.816  xlxi_3_busbmux/N1367.G4
+         4.202  N888.F2
+         3.149  N888.G3
+         3.278  xlxi_3_busbmux/N787.F2
+         3.274  xlxi_3_busbmux/N787.G2
+         3.864  N876.F3
+         3.827  N876.G3
+         3.922  xlxi_3_busbmux/N2179.F4
+         3.952  xlxi_3_busbmux/N2179.G2
+         3.626  N884.F1
+         3.656  N884.G1
+         3.395  xlxi_3_busbmux/N1251.F4
+         3.337  xlxi_3_busbmux/N1251.G4
+         3.861  N889.F1
+         4.076  N889.G1
+         3.630  xlxi_3_busbmux/N671.F4
+         4.192  xlxi_3_busbmux/N671.G1
+         1.972  N877.F3
+         2.125  N877.G2
+         2.274  xlxi_3_busbmux/N2063.F1
+         2.060  xlxi_3_busbmux/N2063.G2
+         3.771  N890.F3
+         3.745  N890.G2
+         3.863  xlxi_3_busbmux/N555.F2
+         3.859  xlxi_3_busbmux/N555.G2
+         2.067  N878.F3
+         2.278  N878.G1
+         2.159  xlxi_3_busbmux/N1947.F2
+         2.155  xlxi_3_busbmux/N1947.G2
+         1.998  N879.F3
+         3.829  N879.G1
+         2.090  xlxi_3_busbmux/N1831.F2
+         3.544  xlxi_3_busbmux/N1831.G4
+         3.927  N880.F3
+         3.838  N880.G4
+         4.127  xlxi_3_busbmux/N1715.F1
+         4.123  xlxi_3_busbmux/N1715.G1
+         4.640  N885.F1
+         3.492  N885.G2
+         4.164  xlxi_3_busbmux/N1135.F4
+         3.779  xlxi_3_busbmux/N1135.G1
+         3.825  N881.F2
+         3.947  N881.G1
+         3.720  xlxi_3_busbmux/N1599.F4
+         3.662  xlxi_3_busbmux/N1599.G4
+
+N856
+   N856.X
+         0.042  N856.G4
+         0.788  xlxi_3_wren3.F3
+         0.751  xlxi_3_wren3.G3
+         0.331  xlxi_3_wren4.F1
+         0.327  xlxi_3_wren4.G1
+         0.880  xlxi_3_wren7.F2
+         0.876  xlxi_3_wren7.G2
+
+N857
+   xlxi_31_I_XXL_681_1.Y
+         1.856  N856.G2
+         2.153  xlxi_3_wren3.F2
+         2.149  xlxi_3_wren3.G2
+         1.768  xlxi_3_wren4.F3
+         2.129  xlxi_3_wren4.G2
+         2.061  xlxi_3_wren7.F3
+         2.024  xlxi_3_wren7.G3
+
+N858
+   xlxi_31_I_XXL_681_2.Y
+         2.443  N856.G1
+         2.455  xlxi_3_wren3.F4
+         2.196  xlxi_3_wren3.G4
+         2.216  xlxi_3_wren4.F4
+         2.158  xlxi_3_wren4.G4
+         2.622  xlxi_3_wren7.F1
+         2.136  xlxi_3_wren7.G4
+
+N859
+   N859.Y
+         2.324  xlxi_31_N1537.F2
+         2.520  xlxi_31_N2128.F2
+         2.693  N919.F3
+         2.662  N919.G4
+         2.043  xlxi_31_N1829.G1
+         1.783  xlxi_31_N1539.F1
+         2.182  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_15.F1
+
+N860
+   N860.Y
+         3.009  N920.F1
+         2.298  xlxi_31_N1523.F1
+         2.571  xlxi_31_N2117.F1
+         2.025  xlxi_31_N1829.F1
+         1.766  xlxi_31_N1511.G1
+         2.005  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_14.F2
+
+N861
+   N861.Y
+         1.943  xlxi_31_N1495.G1
+         1.050  xlxi_31_N2095.G3
+         1.766  xlxi_31_N1795.G1
+         1.688  xlxi_31_N1511.F3
+         1.883  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_13.F4
+         1.631  N921.F3
+
+N862
+   N862.Y
+         2.671  N922.F3
+         2.638  xlxi_31_N1495.F1
+         1.645  xlxi_31_N2095.F3
+         1.325  xlxi_31_N1795.F1
+         1.607  xlxi_31_N1482.G2
+         1.811  xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_12.F2
+
+N863
+   N863.Y
+         2.112  xlxi_31_N1480.F1
+         1.719  xlxi_31

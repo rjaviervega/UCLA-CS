@@ -1,0 +1,116 @@
+m255
+o
+cModel Technology
+dE:\HingKei\152bs04\Project1\4bitALU
+Eadd4_mxilinx
+DP ieee vital_timing OBWK>;kUYmkG<OChK2lhV1
+DP unisim vcomponents jL`^J5In<MOQ=5<i7XAX93
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1089306870
+F4bitalu.vhf
+l0
+L220
+V4;@b;TLb]Z8PNYo9jz3gd3
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Ecompm4_mxilinx
+DP ieee vital_timing OBWK>;kUYmkG<OChK2lhV1
+DP unisim vcomponents jL`^J5In<MOQ=5<i7XAX93
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1089306870
+F4bitalu.vhf
+l0
+L49
+VG6ZFEonN9nl7[OLPXZFf50
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Eibuf4_mxilinx
+DP ieee vital_timing OBWK>;kUYmkG<OChK2lhV1
+DP unisim vcomponents jL`^J5In<MOQ=5<i7XAX93
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1089306870
+F4bitalu.vhf
+l0
+L174
+VoHKAm>dKUlm=K?6G27Em92
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Em2_1_mxilinx
+DP ieee vital_timing OBWK>;kUYmkG<OChK2lhV1
+DP unisim vcomponents jL`^J5In<MOQ=5<i7XAX93
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1089306870
+F4bitalu.vhf
+l0
+L9
+V^XUiOP`9oJ2Z??4c@j=9G2
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Emux2to1_4bits
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1089306816
+Fmux2to1_4bits.vhd
+l0
+L29
+VQiRJjV1ck;kPRmF6RITFe2
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Amux2to1_4bits_a
+DP xilinxcorelib c_reg_fd_v4_0_comp ??ezfL<i9ETbKkV[;7O992
+DP xilinxcorelib prims_constants_v4_0 cQm>=oC^m5Io^aHbPLN?j1
+DP std textio K]Z^fghZ6B=BjnK5NomDT3
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP xilinxcorelib prims_utils_v4_0 nzB`[]agXVViPXLB^HZ[[2
+DE xilinxcorelib c_mux_bus_v4_0 EMSKoe2EkM3n>?f:W_`hH1
+DE work mux2to1_4bits QiRJjV1ck;kPRmF6RITFe2
+l70
+L37
+VY9YAc3A<N0e<43L]b=7^O2
+OX;C;5.5b;15
+31
+M6 ieee std_logic_1164
+M5 xilinxcorelib prims_utils_v4_0
+M4 ieee numeric_std
+M3 std textio
+M2 xilinxcorelib prims_constants_v4_0
+M1 xilinxcorelib c_reg_fd_v4_0_comp
+o-skip e -93 -explicit -O0
+Emux8x4bus
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1089135937
+Fmux8x4bus.vhd
+l0
+L29
+VWAElSBKg^^3VFh7=8ejC81
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Amux8x4bus_a
+DP xilinxcorelib c_reg_fd_v4_0_comp ??ezfL<i9ETbKkV[;7O992
+DP xilinxcorelib prims_constants_v4_0 cQm>=oC^m5Io^aHbPLN?j1
+DP std textio K]Z^fghZ6B=BjnK5NomDT3
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP xilinxcorelib prims_utils_v4_0 nzB`[]agXVViPXLB^HZ[[2
+DE xilinxcorelib c_mux_bus_v4_0 EMSKoe2EkM3n>?f:W_`hH1
+DE work mux8x4bus WAElSBKg^^3VFh7=8ejC81
+l82
+L43
+VoPV>CF@YN8D=iShP3FFGg1
+OX;C;5.5b;15
+31
+M6 ieee std_logic_1164
+M5 xilinxcorelib prims_utils_v4_0
+M4 ieee numeric_std
+M3 std textio
+M2 xilinxcorelib prims_constants_v4_0
+M1 xilinxcorelib c_reg_fd_v4_0_comp
+o-skip e -93 -explicit -O0

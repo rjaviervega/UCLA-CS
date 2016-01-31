@@ -1,0 +1,100 @@
+;	RMTOCM FUNCTION
+;
+;// Row-major to column-major conversion function
+;//  This function convers the storage of a matrix
+;//  into an array from row major order form to 
+;//  column order form.
+;//
+;	START FUNCTIONS AT ADDRESS $BA0
+.EQU	@,	$BA0
+
+; LOCAL VARS
+.EQU	MxN,		0
+.EQU	CI,			1
+.EQU	RI,			2
+.EQU	TEMP_1,		3
+.EQU	TEMP_2,		4
+.EQU	TEMP_ARR,	5
+.EQU	NUM_LOCALS,	6 
+
+; PARAMS
+.EQU	COLS,	NUM_LOCALS + 2
+.EQU	ROWS,	NUM_LOCALS + 3
+.EQU	PMAT,	NUM_LOCALS + 4
+
+RMTOCM:	BGN#	NUM_LOCALS
+		PSHA
+		PSHX
+		
+		LDA		!ROWS					; ACC = ROWS * COLS
+		MUL		!COLS
+		STA		!MxN
+
+;    // Allocate the new matrix storage		
+		SBS		!MxN					; MAKE SPACE FOR NEW ARRAY	
+		STS		!TEMP_ARR
+
+
+;	//copy the elements from the row-order matrix		
+		LDX#	0
+LOOP_L1:CMX		!COLS
+		JGE		DONE_L1
+		STX		!CI						; CI = COLS INDEX
+		LDX#	0
+		LOOP_L2:	
+					CMX		!ROWS
+					JGE		DONE_L2
+					STX		!RI			; RI = ROWS INDEX					
+					
+										; TEMP_1 = PMAT [ RI * COLS + CI ]
+					LDA		!RI			; ACC = RI * COLS + CI
+					MUL		!COLS		;
+					ADA		!CI			;
+					TAX					; INDEX = RI * COLS + CI
+					LDA&	!PMAT		; ACC = PMAT [ RI * COLS + CI ]
+					STA		!TEMP_1		; TEMP_1 = PMAT [ RI * COLS + CI]
+					
+										; TEMP_ARR [ RI + CI * COLS ] = TEMP_1
+					LDA		!CI
+					MUL		!ROWS
+					ADA		!RI
+					TAX
+					LDA		!TEMP_1
+					STA&	!TEMP_ARR	; TEMP_ARR [ RI + CI * ROWS ] = TEMP_1 (DONE)
+					
+					LDX		!RI
+					ADX#	1
+					JMP		LOOP_L2
+		DONE_L2:
+					LDX		!CI
+					ADX#	1
+					JMP		LOOP_L1
+DONE_L1:
+										
+;	//Copy the new matrix into the original
+		LDX#	0						; for ( int i = 0; i < (rows*cols); i++ )
+LOOP_L3:CMX		!MxN
+		JGE		DONE_L3
+		
+		LDA&	!TEMP_ARR				; PMAT [ I ] = TEMP_ARR [ I ]
+		STA&	!PMAT
+		
+		ADX#	1
+		JMP		LOOP_L3
+		
+DONE_L3:	
+;	//Release memory used by temporary matrix
+		ADS		!MxN					; DELETE [] TEMP_ARR
+		POPX					
+		POPA
+		FIN#	NUM_LOCALS
+		RTN
+
+
+
+
+
+
+
+
+

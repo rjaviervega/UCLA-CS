@@ -1,0 +1,26 @@
+Eduardo Jose Esquivel:
+	Discuss implementation of project with partner		4 hours
+	Divide work with partner				.5 hour
+	Work on building the basic structure with partner	.5 hour
+	Research on compiling kernel and syscalls		10 hours
+	Work on kernel compiles 				5  hours
+	Work on test program 					6  hours
+	Work on sys call basics					4  hours
+	Type up of report					2  hours
+							Total:	33 hours
+
+
+
+Roberto Javier Vega:
+	Discuss implementation of project with partner		4  hours
+	Divide work with partner				.5 hour
+	Work on building the basic structure with partner	.5 hour
+	Work on sycalls access_ok, locking files, copy from
+	to user							10  hours
+	Implementing syscall and testing it 			12 hours
+	Debugging syscall 					5  hours
+	Implementing stub function and others			5  hours
+	Working on returning properly errno			3  hours
+							Total:	42 hours
+
+

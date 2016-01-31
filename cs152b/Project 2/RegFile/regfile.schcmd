@@ -1,0 +1,15 @@
+select figure at 1221 76 9 -branches -sn=1
+select all in 1221 76 2559 651 -branches -sn=1
+select figure at 1341 125 9 -branches -sn=1
+select all in 1341 125 3238 1489 -branches -sn=1
+select figure at 3317 1479 9 -branches -sn=1
+select all in 1297 -13 3317 1479 -branches -sn=1
+select figure at 3317 1530 9 -branches -sn=1
+select figure at 3317 1530 9 -branches -sn=1
+select figure at 1329 102 9 -branches -sn=1
+select all in 1329 102 3451 1447 -branches -sn=1
+select figure at 3476 1438 9 -branches -sn=1
+select figure at 3476 1438 9 -branches -sn=1
+select figure at 136 955 18 -branches -sn=1
+select all in 136 955 1994 3228 -branches -sn=1
+move selection by 16 560 -keepConn -sn=1

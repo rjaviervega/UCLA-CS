@@ -1,0 +1,255 @@
+<!--?xml version='1.0' encoding='US-ASCII'?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Homework 3. Java web crawler</title>
+<link rel="copyright" href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">
+<link rev="made" href="mailto:eggert@cs.ucla.edu">
+</head>
+
+<body>
+
+<h1>Homework 3. Java web crawler</h1>
+
+<h2>The problem</h2>
+
+<p>In this homework, you will write a simple web crawler in Java. As
+will be seen below, it is so simple that it is not a well-behaved
+crawler and so it should be used only in controlled environments.
+<strong>It is not suitable for production use on the
+Internet</strong>.</p>
+
+<h2>Definitions</h2>
+
+<p>A <dfn>Restricted URL (RURL)</dfn> is a URI (see <a href="http://ftp.rfc-editor.org/in-notes/rfc2396.txt">Internet RFC
+2396</a>) that satisfies the following constraints.</p>
+
+<ul>
+ <li>
+   The URI must be absolute. For example,
+   <samp>cs131/index.html</samp> is not an RURL.</li>
+
+ <li>
+    The URI most not contain a fragment. For example,
+    <samp>http://www.cs.ucla.edu/index.html#financial_aid</samp> is
+    not an RURL.</li>
+
+ <li>
+    The scheme must be <samp>http</samp>. For example,
+    <samp>ftp://ftp.cs.ucla.edu/pub/</samp> is not an RURL.</li>
+
+ <li>
+    The URI must contain an authority that is a server without any
+    userinfo. For example,
+    <samp>http://cs131ta@www.cs.ucla.edu/</samp> is not an RURL.
+    Also, <samp>http:/root/classes/cs131</samp> is not an RURL.</li>
+
+ <li>
+    The URI must not contain a query. For example,
+    <samp>http://www.cs.ucla.edu/search.html?q=homework2</samp> is not
+    an RURL.</li>
+
+ <li>
+    Segments within the URL must not contain parameters. For example,
+    <samp>http://www.cs.ucla.edu/cs131;fall2003/index.html</samp> is
+    not an RURL.</li>
+
+ <li>
+    The URI must not contain any opaque components. For example,
+    <samp>http:cs131/index.html</samp> is not an RURL.</li>
+
+ <li>
+    The URI must not contain apostrophe characters
+    (<samp>'</samp>). For example,
+    <samp>http://www.cs.ucla.edu/3_o'clock.html</samp> is not an
+    RURL.</li>
+</ul>
+
+<p>Every RURL is a URL. However, many URLs are not RURLs. Please see
+<a href="http://ftp.rfc-editor.org/in-notes/rfc2396.txt">Internet RFC
+2396</a> for the difference between URIs and URLs.</p>
+
+<h2>Assignment</h2>
+
+<p>Write a web crawler program <samp>GetRURLs</samp> that takes two
+arguments. The first argument is required, and is an RURL
+<var>ROOT</var>; the second is optional, and is a nonnegative integer
+<var>N</var> specifying the depth, with the default depth being
+1. Your web crawler should output (to standard output) a text file
+listing all RURLs reachable from <var>ROOT</var> via <var>N</var> or
+fewer links. The output should contain each RURL on a separate line,
+and should not contain any textual duplicates; order is not
+important. If <var>N</var> is zero, your web crawler should not
+retrieve any resources and should simply output <var>ROOT</var>. If
+the first argument is not an RURL, or if the second argument is given
+and is not a nonnegative integer that is less than 5, your web crawler
+should print a diagnostic and should exit with a nonzero status
+without doing any other work.</p>
+
+<p>Your web crawler should use simple text comparison to test whether
+two URLs are duplicates. For example, it should not assume that
+<samp>http://www.cs.ucla.edu/index.html</samp> and
+<samp>http://www.cs.ucla.edu/./index.html</samp> are duplicates, even
+though they happen to identify the same web page.</p>
+
+<p>If two RURLs overlap in the input, you should output only the RURL
+that starts first; if they start at the same location, you should
+output only the longer of the two.</p>
+
+<p>Several of the above examples of non-RURLs contain initial prefixes
+that are RURLs. In such cases, the initial prefixes should be
+output. For example, your web crawler should output the RURL
+<samp>http://www.cs.ucla.edu/index.html</samp> even when it is an
+initial prefix of the non-RURL
+<samp>http://www.cs.ucla.edu/index.html#financial_aid</samp>.</p>
+
+<p>An RURL <var>B</var> is reachable via one link from another RURL
+<var>A</var> if <var>A</var> identifies a resource that, when
+considered as a text file, contains an instance of <var>B</var>. Your
+web crawler should not parse resources as HTML, XML, or anything else:
+it should merely treat each resource as a text file and look for
+instances of RURLs in that text file as described above.</p>
+
+<p>If your web crawler cannot successfully retrieve a resource, it
+should print a diagnostic "cannot retrieve <var>U</var>" on standard
+error, where <var>U</var> is the resource's RURL, and it should
+otherwise behave as if the corresponding resource is empty (for
+example, your web crawler should not exit with nonzero status merely
+because of this problem). Only one such diagnostic should be printed
+per non-retrievable RURL. Diagnostics may be printed in any order, but
+may not be interleaved.</p>
+
+<p>Your web crawler may accept additional optional arguments that are of
+use to you during debugging.</p>
+
+<p>Your web crawler need not obey <a href="http://www.robotstxt.org/wc/norobots.html">A Standard for Robot
+Exclusion</a>; however, you should be very careful when using your web
+crawler to avoid excess use of network resources.</p>
+
+<p>Your web crawler should not have arbitrary restrictions on the
+length of input lines. Also, it should not assume that the last input
+line ends in a newline character.</p>
+
+<p>To turn in your assignment, <a href="http://www.cs.ucla.edu/classes/fall03/cs131/seasnet.html">submit</a> a
+file <samp>GetRURLs.java</samp> containing your class definitions. The
+first line of <samp>GetRURLs.java</samp> should be a comment
+containing your name and student ID.</p>
+
+<p>Make sure that your code works with the Java 1.4.2 installation on
+SEASnet. The command <samp>java -version</samp> should output the
+following text:</p>
+
+<pre><samp>java version "1.4.2"
+Java(TM) 2 Runtime Environment, Standard Edition (build 1.4.2-b28)
+Java HotSpot(TM) Client VM (build 1.4.2-b28, mixed mode)
+</samp></pre>
+
+<h2>Examples</h2>
+
+<p>Here is a shell transcript to illustrate the usage. Note that the
+order of the output lines may differ in your implementation. This
+transcript assumes that you are running <a href="http://www.gnu.org/software/bash/"><samp>bash</samp></a>, which
+is a more standard shell than the usual <samp>csh</samp> that SEASnet
+defaults to. The trailing <samp>; echo $?</samp> causes
+<samp>bash</samp> to print the exit status of the previous
+command.</p>
+
+<pre><samp>&gt; bash
+$ java GetRURLs ftp://www.cs.ucla.edu/index.html; echo $?
+GetRURLs: error: root is not an RURL
+1
+$ java GetRURLs http://www.cs.ucla.edu/index.html 5; echo $?
+GetRURLs: error: depth out of range
+1
+$ java GetRURLs http://www.cs.ucla.edu/index.html ouch; echo $?
+GetRURLs: error: depth is not an integer
+1
+$ java GetRURLs http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3.html; echo $?
+http://cs131ta
+http://ftp.rfc-editor.org/in-notes/rfc2396.txt
+http://www.cs.ucla.edu/3_o
+http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3-answer.html
+http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3.html
+http<samp>:</samp>//www.cs.ucla.edu/classes/winter03/cs131/midterm/2a.txt
+http<samp>:</samp>//www.cs.ucla.edu/classes/winter03/cs131/midterm/2q.txt
+http://www.cs.ucla.edu/cs131
+http://www.cs.ucla.edu/./index.html
+http://www.cs.ucla.edu/index.html
+http://www.cs.ucla.edu/search.html
+http://www.gnu.org/software/bash/
+http://www.robotstxt.org/wc/norobots.html
+http://www.w3.org/1999/xhtml
+0
+$ java GetRURLs http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3.html 2; echo $?
+cannot retrieve http://cs131ta
+cannot retrieve http://www.cs.ucla.edu/3_o
+cannot retrieve http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3-answer.html
+cannot retrieve http://www.cs.ucla.edu/cs131
+cannot retrieve http://www.cs.ucla.edu/search.html
+http://cs131ta
+http://ftp.rfc-editor.org/in-notes/rfc2396.txt
+http://www.cs.ucla.edu/3_o
+http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3-answer.html
+http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3.html
+http<samp>:</samp>//www.cs.ucla.edu/classes/winter03/cs131/midterm/2a.txt
+http<samp>:</samp>//www.cs.ucla.edu/classes/winter03/cs131/midterm/2q.txt
+http://www.cs.ucla.edu/cs131
+http://www.cs.ucla.edu/./index.html
+http://www.cs.ucla.edu/index.html
+http://www.cs.ucla.edu/search.html
+http://www.gnu.org/software/bash/
+http://www.robotstxt.org/wc/norobots.html
+http://www.w3.org/1999/xhtml
+http<samp>:</samp>//www.chr.ucla.edu/chr/tabs/frameset_main_jobs.html
+http<samp>:</samp>//www.cs.ucla.edu/classes/ta/faq.html
+http<samp>:</samp>//www.cs.ucla.edu/csd/CS_handbook/tofc.html
+http<samp>:</samp>//www.cs.ucla.edu/grad
+http<samp>:</samp>//www.cs.ucla.edu/ugrad
+http<samp>:</samp>//www.registrar.ucla.edu/schedule/
+http<samp>:</samp>//www.seasoasa.ucla.edu/adm_ugrad.html
+http<samp>:</samp>//www.seasoasa.ucla.edu/curric.html
+… <em>[Standard output truncated in the interest of brevity.]</em>
+0
+$ #
+$ #
+$ # The following test cases were added on 2003-11-06.
+$ #
+$ java GetRURLs http<samp>:</samp>//www.cs.ucla.0rg/index.html; echo $?
+GetRURLs: error: root is not an RURL
+1
+$ java GetRURLs http<samp>:</samp>//10.0.0.0.0/index.html; echo $?
+GetRURLs: error: root is not an RURL
+1
+$ java GetRURLs http<samp>:</samp>//www.cs.ucla.edu/classes/winter03/cs131/midterm/1a.txt 1; echo $?
+http<samp>:</samp>//www.cs.ucla.edu/classes/winter03/cs131/midterm/1a.txt
+0
+$ java GetRURLs http<samp>:</samp>//131.179.128.22:/classes/winter03/cs131/midterm/1a.txt 1; echo $?
+http<samp>:</samp>//131.179.128.22:/classes/winter03/cs131/midterm/1a.txt
+0
+$ java GetRURLs http<samp>:</samp>//www.cs.ucla.edu.:080/classes/winter03/cs131/midterm/1a.txt 1; echo $?
+http<samp>:</samp>//www.cs.ucla.edu.:080/classes/winter03/cs131/midterm/1a.txt
+0
+$ java GetRURLs http<samp>:</samp>//www.cs.ucla.edu:4294967376/classes/winter03/cs131/midterm/1a.txt 1; echo $?
+cannot retrieve http<samp>:</samp>//www.cs.ucla.edu:4294967376/classes/winter03/cs131/midterm/1a.txt
+http<samp>:</samp>//www.cs.ucla.edu:4294967376/classes/winter03/cs131/midterm/1a.txt
+0
+$ java GetRURLs http<samp>:</samp>//131.179.128.22:18446744073709551696/classes/winter03/cs131/midterm/1a.txt 1; echo $?
+cannot retrieve http<samp>:</samp>//131.179.128.22:18446744073709551696/classes/winter03/cs131/midterm/1a.txt
+http<samp>:</samp>//131.179.128.22:18446744073709551696/classes/winter03/cs131/midterm/1a.txt
+0
+</samp></pre>
+
+<!-- Just for fun: have 2 RURLs on the same line ahhchoohttp://www.cs.ucla.edu/classes/winter03/cs131/midterm/2a.txt gesundheithttp://www.cs.ucla.edu/classes/winter03/cs131/midterm/2q.txt -->
+
+<hr>
+<address>
+ © 2003 <a href="http://www.cs.ucla.edu/classes/fall03/cs131/mail-eggert.html">Paul Eggert</a>.
+ See <a href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">copying rules</a>.<br>
+
+ $Id: hw3.html,v 1.6 2003/11/09 07:55:50 eggert Exp $
+
+</address>
+
+
+
+</body></html>

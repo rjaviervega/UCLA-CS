@@ -1,0 +1,5 @@
+. segdisplay segdisplay.sch e:\hingkei\152bs04\tu1\segdisplay.sch
+XLXI_1 counter_32 counter_32.xco e:\hingkei\152bs04\tu1\counter_32.xco
+XLXI_2 counter_4 counter_4.xco e:\hingkei\152bs04\tu1\counter_4.xco
+XLXI_3 const_32 const_32.vhd e:\hingkei\152bs04\tu1\const_32.vhd
+XLXI_4 maptoseg maptoseg.vhd e:\hingkei\152bs04\tu1\maptoseg.vhd

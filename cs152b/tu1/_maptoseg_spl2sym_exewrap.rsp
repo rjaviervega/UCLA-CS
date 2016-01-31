@@ -1,0 +1,1 @@
+-tapkeep -show normal -mode pipe -command spl2sym -family=virtex maptoseg.spl maptoseg.sym

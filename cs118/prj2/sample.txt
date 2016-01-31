@@ -1,0 +1,154 @@
+USER       PID %CPU %MEM   SZ  RSS TT       S    START  TIME COMMAND
+cs131xx  25237 98.7  1.26400022944 ?        O   Nov 23 2837:40 java GetRURLs http
+root         3  0.3  0.0    0    0 ?        S   Aug 08 739:11 fsflush
+root     23260  0.1  0.2 4392 3224 ?        S   Nov 22  1:33 /usr/sbin/sshd
+root     19658  0.1  0.1 1688 1272 pts/27   O 05:49:44  0:00 ps -aux
+cs118urv 17031  0.1  0.1 2480 1976 pts/27   S   Nov 23  0:04 bash
+root        68  0.0  0.1 3048 1304 ?        S   Aug 08 29:47 /usr/lib/picl/picl
+root         0  0.0  0.0    0    0 ?        T   Aug 08  0:01 sched
+root         1  0.0  0.0  840  240 ?        S   Aug 08  0:52 /etc/init -
+root         2  0.0  0.0    0    0 ?        S   Aug 08  0:03 pageout
+root        49  0.0  0.1 1664  712 ?        S   Aug 08  0:00 /usr/lib/sysevent/
+root        55  0.0  0.1 2704  904 ?        S   Aug 08  0:00 devfsadmd
+root       177  0.0  0.1 2472 1296 ?        S   Aug 08  0:05 /usr/sbin/rpcbind
+root       208  0.0  0.1 2032  896 ?        S   Aug 08  0:00 /usr/lib/nfs/lockd
+root       209  0.0  0.1 2208 1256 ?        S   Aug 08  1:41 /usr/sbin/inetd -s
+daemon     210  0.0  0.1 3208 1576 ?        S   Aug 08  0:00 /usr/lib/nfs/statd
+root       246  0.0  0.1 4024 1808 ?        S   Aug 08  0:56 /usr/sbin/syslogd
+root       247  0.0  0.1 2040 1184 ?        S   Aug 08  0:00 /usr/sbin/cron
+root       267  0.0  0.1 3160  656 ?        S   Aug 08  0:00 /usr/lib/lpsched
+root       280  0.0  0.1 1464  616 ?        S   Aug 08  0:00 /usr/lib/power/pow
+root       288  0.0  0.1 1056  616 ?        S   Aug 08  0:08 /usr/lib/utmpd
+root       303  0.0  0.1 2752 1464 ?        S   Aug 08  0:00 /usr/sbin/vold
+root       313  0.0  0.0 1016    8 ?        S   Aug 08  0:00 /usr/lib/efcode/sp
+root       337  0.0  0.1 4328 1200 ?        S   Aug 08  0:00 /usr/lib/sendmail 
+root       349  0.0  0.1 3032 1120 ?        S   Aug 08  0:33 /usr/sbin/sshd
+root       355  0.0  0.1 1744 1040 ?        S   Aug 08  1:02 /usr/sbin/loadr -u
+root       361  0.0  0.1 4032 1648 ?        S   Aug 08  0:02 /usr/openwin/bin/x
+root       371  0.0  0.1 2264 1088 ?        S   Aug 08  0:13 /usr/lib/snmp/snmp
+root       376  0.0  0.1 1832  880 ?        S   Aug 08  0:00 /usr/lib/saf/sac -
+root       377  0.0  0.1 1864  776 ?        S   Aug 08  0:00 /usr/lib/saf/ttymo
+root       380  0.0  0.1 1840  904 ?        S   Aug 08  0:00 /usr/lib/saf/ttymo
+root       424  0.0  0.1 2200 1200 ?        S   Aug 08  0:02 /usr/lib/inet/xntp
+root       425  0.0  0.2 5152 2416 ?        S   Aug 08  3:52 mibiisa -r -p 3283
+cs118urv  4926  0.0  0.1 1456 1184 ?        S 00:18:24  0:00 /bin/csh -c /usr/l
+cs118urv  4927  0.0  0.1 2376 1560 ?        S 00:18:24  0:42 /usr/local/ssh-3.2
+cs143vta  5287  0.0  2.18611240984 ?        S   Nov 19  0:01 db2sysc
+root      5633  0.0  0.2 4080 2696 ?        S   Nov 19  0:32 /usr/sbin/sshd
+cs143ymw  5636  0.0  0.1 1664 1160 pts/13   S   Nov 19  0:00 -csh
+cs143ymw  5698  0.0  0.1 1664 1096 pts/12   S   Nov 19  0:00 -csh
+cs143vta  5751  0.0  0.84796016240 ?        S 00:33:18  0:00 db2sysc
+cs143ymw  5774  0.0  0.1 1680 1232 pts/14   S   Nov 19  0:00 -csh
+cs143vta  6217  0.0  2.18374441592 ?        S   Nov 19  0:00 db2sysc
+cs143vta  6218  0.0  2.07431239936 ?        S   Nov 19  0:00 db2sysc
+cs143vta  6219  0.0  2.17431240440 ?        S   Nov 19  0:00 db2sysc
+cs143vta  6220  0.0  2.17431240448 ?        S   Nov 19  0:00 db2sysc
+cs143vta  6221  0.0  2.07432039824 ?        S   Nov 19  0:00 db2sysc
+cs143vta  6222  0.0  2.07435239856 ?        S   Nov 19  0:00 db2sysc
+cs143ymw  6254  0.0  0.318032 5360 pts/12   S   Nov 19  0:00 /u/cs/class/cs143v
+cs143vta  6260  0.0  2.58483250088 ?        S   Nov 19  0:00 db2sysc
+root      6992  0.0  0.2 3888 2920 ?        S 11:22:38  0:31 /usr/sbin/sshd
+cs118ufd  6995  0.0  0.1 1528 1192 pts/5    S 11:22:42  0:00 -csh
+cs118ufd  6997  0.0  0.1 1528 1208 pts/7    S 11:22:42  0:00 -csh
+cs143ymw  7033  0.0  0.418032 6392 pts/14   S   Nov 19  0:00 /u/cs/class/cs143v
+cs118ufd  7042  0.0  0.1 2392 1888 pts/5    S 11:23:26  0:01 bash
+root      7163  0.0  0.1 2504 2016 ?        S 01:02:23  0:00 in.telnetd
+cs118ums  7166  0.0  0.1 2296 1784 pts/44   S 01:02:23  0:00 -csh
+root      7541  0.0  0.1 2504 2016 ?        S 11:51:03  0:00 in.telnetd
+cs118ubr  7544  0.0  0.1 2256 1680 pts/24   S 11:51:03  0:00 -csh
+cs118ubr  7556  0.0  0.1 1608 1440 pts/24   S 11:51:11  0:09 pico
+root      7571  0.0  0.1 2504 2016 ?        S 11:51:40  0:00 in.telnetd
+cs118ubr  7574  0.0  0.1 2256 1680 pts/22   S 11:51:40  0:00 -csh
+cs118ubr  7593  0.0  0.1 1608 1440 pts/22   S 11:51:47  0:09 pico
+root      8194  0.0  0.1 2504 2016 ?        S 12:12:05  0:00 in.telnetd
+cs118ual  8197  0.0  0.1 2288 1776 pts/29   S 12:12:05  0:00 -csh
+cs118utd  8395  0.0  0.1 1696 1112 ?        S 01:30:22  0:00 server
+cs118utd  8539  0.0  0.1 1640 1072 ?        S 12:20:00  0:00 server
+cs131xx  10178  0.0  0.1 1072  888 ?        S   Nov 23  0:00 sh -c java GetRURL
+cs131xx  10179  0.0  0.85688015632 ?        S   Nov 23  0:08 java GetRURLs http
+root     11414  0.0  0.1 2504 2016 ?        S 02:45:06  0:00 in.telnetd
+cs118umo 11417  0.0  0.1 2256 1680 pts/39   S 02:45:07  0:00 -csh
+root     11433  0.0  0.1 2504 2016 ?        S 02:45:47  0:00 in.telnetd
+cs118umo 11457  0.0  0.1 2256 1680 pts/30   S 02:45:48  0:00 -csh
+root     11733  0.0  0.2 4264 3440 ?        S 02:54:03  0:01 /usr/sbin/sshd
+cs118utc 11785  0.0  0.1 1528 1192 pts/20   S 02:55:02  0:00 -csh
+cs118utc 11800  0.0  0.1 2384 1872 pts/20   S 02:55:07  0:00 bash
+root     12152  0.0  0.437448 6744 ?        S   Nov 14  0:00 db2sysc
+cs143vta 12153  0.0  0.547376 8448 ?        S   Nov 14  0:00 db2sysc
+root     12154  0.0  0.437448 6344 ?        S   Nov 14  0:12 db2sysc
+cs143vta 12155  0.0  0.437520 6832 ?        S   Nov 14  0:00 db2sysc
+cs143vta 12156  0.0  0.447376 6920 ?        S   Nov 14  0:08 db2sysc
+cs143vta 12157  0.0  0.437448 6392 ?        S   Nov 14  0:00 db2sysc
+cs143vta 12158  0.0  0.337448 6240 ?        S   Nov 14  0:00 db2sysc
+cs143vta 12160  0.0  0.213216 3736 ?        S   Nov 14  0:08 db2jd
+cs143vta 12411  0.0  2.28374443576 ?        S 03:11:25  0:00 db2sysc
+cs143vta 12412  0.0  2.17431240888 ?        S 03:11:25  0:00 db2sysc
+cs143vta 12413  0.0  2.17431240696 ?        S 03:11:25  0:00 db2sysc
+cs143vta 12414  0.0  2.17431240696 ?        S 03:11:25  0:00 db2sysc
+cs143vta 12415  0.0  2.17432040696 ?        S 03:11:25  0:00 db2sysc
+cs143vta 12416  0.0  2.17435241112 ?        S 03:11:26  0:00 db2sysc
+root     12527  0.0  0.1 2504 2016 ?        S 03:13:57  0:00 in.telnetd
+dzuy     12530  0.0  0.1 2280 1760 pts/15   S 03:13:58  0:00 -csh
+root     12650  0.0  0.1 2504 2016 ?        S 03:15:41  0:00 in.telnetd
+cs118uzm 12653  0.0  0.1 2256 1680 pts/16   S 03:15:41  0:00 -csh
+root     12655  0.0  0.1 2504 2016 ?        S 14:53:16  0:00 in.telnetd
+cs118udr 12658  0.0  0.1 2272 1696 pts/38   S 14:53:16  0:00 -csh
+root     13618  0.0  0.1 3952 1864 ?        S   Nov 11  0:11 /usr/sbin/sshd
+root     14388  0.0  0.1 4112 1112 ?        S   Oct 13  0:00 /usr/sbin/sshd
+cs118uka 14530  0.0  0.1 1984 1424 ?        S 15:52:10  0:00 ./FTWI_daemon -p 8
+root     14548  0.0  0.2 3744 2872 ?        S 03:52:14  0:00 /usr/sbin/sshd
+cs118udn 14551  0.0  0.1 1528 1192 pts/33   S 03:52:17  0:00 -csh
+cs118utc 14739  0.0  0.1 1456 1184 ?        S 03:56:45  0:00 /bin/csh -c /usr/l
+cs118utc 14740  0.0  0.1 2368 1464 ?        S 03:56:45  0:19 /usr/local/ssh-3.2
+root     15254  0.0  0.1 2504 2016 ?        S 04:12:29  0:00 in.telnetd
+cs118uzm 15257  0.0  0.1 2256 1680 pts/41   S 04:12:29  0:00 -csh
+cs143vt3 16247  0.0  0.217112 3824 ?        S   Nov 14  0:00 db2dari 1,f00c,2,0
+cs118umo 16500  0.0  0.1 1584 1312 pts/40   S 04:37:54  0:00 pico gserver.c
+cs118urv 16700  0.0  0.1 1528 1192 pts/27   S   Nov 23  0:00 -csh
+cs118umo 17777  0.0  0.1 1592 1320 pts/3    S 05:06:08  0:00 pico gclient.c
+root     17879  0.0  0.1 2504 2016 ?        S 05:09:35  0:00 in.telnetd
+dzuy     17882  0.0  0.1 2272 1688 pts/19   S 05:09:37  0:00 -csh
+root     18045  0.0  0.1 2504 2016 ?        S 05:15:24  0:00 in.telnetd
+cs118uho 18048  0.0  0.1 2256 1680 pts/2    S 05:15:24  0:00 -csh
+cs118uho 18060  0.0  0.1 2416 1904 pts/2    S 05:15:36  0:00 bash
+cs143vt3 18212  0.0  0.217112 3936 ?        S   Nov 14  0:00 db2dari 1,f00c,2,0
+root     18649  0.0  0.1 2504 2016 ?        S 05:26:46  0:00 in.telnetd
+arballo  18652  0.0  0.1 2248 1672 pts/25   S 05:26:47  0:00 -csh
+chuchua  18818  0.0  0.1 2728 2096 ?        S   Nov 21  0:12 /var/tmp/autofs /a
+cs118ufd 19132  0.0  0.1 2392 1888 pts/7    S 18:00:52  0:01 bash
+cs118uho 19186  0.0  0.1 1568 1304 pts/2    S 05:37:40  0:00 pico ftwi.c
+cs118ums 19285  0.0  0.4 9672 7592 pts/44   T 05:41:19  0:00 emacs FEC.c
+cs118utc 19380  0.0  0.1 1528 1192 pts/11   S 05:44:24  0:00 -csh
+cs118utc 19392  0.0  0.1 2368 1856 pts/11   S 05:44:27  0:00 bash
+cs118utc 19420  0.0  0.1 1528 1192 pts/4    S 05:46:14  0:00 -csh
+cs118utc 19433  0.0  0.1 2368 1856 pts/4    S 05:46:16  0:00 bash
+cs118ufd 19559  0.0  0.1 1680 1104 pts/7    S 05:47:48  0:00 ./server.out 12067
+cs118uka 20060  0.0  0.1 1976 1240 ?        S   Nov 22  0:00 ./FTWI_daemon -p 9
+cs143ymw 20734  0.0  1.87595235848 pts/13   S 18:57:42  0:05 /u/cs/class/cs143v
+root     21112  0.0  0.2 4184 2736 ?        S   Nov 21  0:16 /usr/sbin/sshd
+cs161vxx 21165  0.0  0.1 1456 1048 ?        S   Nov 21  0:00 /bin/csh -c /usr/l
+cs161vxx 21166  0.0  0.1 2512 1128 ?        S   Nov 21  0:00 /usr/local/ssh-3.2
+cs143vta 22233  0.0  0.84796016304 ?        S 19:32:14  0:00 db2sysc
+cs143vta 22743  0.0  2.68636852032 ?        S 19:43:17  0:04 db2sysc
+cs143ymw 22923  0.0  0.1 1680 1320 pts/32   S   Nov 23  0:00 -csh
+root     23903  0.0  0.1 2504 2016 ?        S 20:17:14  0:00 in.telnetd
+cs118umo 23906  0.0  0.1 2264 1752 pts/3    S 20:17:14  0:00 -csh
+root     24081  0.0  0.1 2504 2016 ?        S 20:20:47  0:00 in.telnetd
+cs118umo 24084  0.0  0.1 2264 1688 pts/40   S 20:20:47  0:00 -csh
+cs143vta 24115  0.0  2.68482451272 ?        S   Nov 23  0:00 db2sysc
+cs143vt3 24327  0.0  0.217112 3752 ?        S   Nov 15  0:00 db2dari 1,f00c,2,0
+cs131xx  25236  0.0  0.1 1072  896 ?        S   Nov 23  0:00 sh -c java GetRURL
+cs118urv 25272  0.0  0.1 1528 1032 pts/26   S   Nov 22  0:00 -csh
+cs118urv 25296  0.0  0.1 2384 1328 pts/26   S   Nov 22  0:00 bash
+cs118uan 26970  0.0  0.1 1648 1136 ?        S   Nov 23  0:00 udpserver.exe land
+cs118urv 27060  0.0  0.2 3704 2624 pts/26   S   Nov 22  0:30 ssh kelton
+root     27346  0.0  0.2 3760 2768 ?        S   Nov 24  0:17 /usr/sbin/sshd
+cs118urv 27351  0.0  0.1 1528 1192 pts/10   S   Nov 24  0:00 -csh
+cs118urv 27363  0.0  0.1 2392 1888 pts/10   S   Nov 24  0:02 bash
+cs143vta 27806  0.0  0.94924816728 ?        S 21:58:40  0:02 db2sysc
+cs143vt3 28233  0.0  0.217112 4000 ?        S   Nov 17  0:00 db2dari 1,f00c,2,0
+cs143vt3 28412  0.0  0.217112 4008 ?        S   Nov 17  0:00 db2dari 1,f00c,2,0
+cs143vt3 28675  0.0  0.217112 3944 ?        S   Nov 17  0:00 db2dari 1,f00c,2,0
+root     28913  0.0  0.1 2504 2016 ?        S 22:15:19  0:00 in.telnetd
+cs143yej 28916  0.0  0.1 2360 1816 pts/23   S 22:15:19  0:00 -csh
+cs143ymw 29656  0.0  0.417776 7200 pts/32   S   Nov 23  0:00 /u/cs/class/cs143v

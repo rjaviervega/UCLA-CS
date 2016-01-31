@@ -1,0 +1,21 @@
+A:link {
+	COLOR: #0000ff
+}
+A:visited {
+	COLOR: #0000ff
+}
+A:hover {
+	COLOR: #ff0000
+}
+SPAN {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Arial
+}
+SPAN.small {
+	FONT-SIZE: 10px
+}
+SPAN.med {
+	FONT-SIZE: 14px
+}
+SPAN.big {
+	FONT-SIZE: 24px
+}

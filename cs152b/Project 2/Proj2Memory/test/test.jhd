@@ -1,0 +1,5 @@
+MODULE test
+	SUBMODULE memorymodule
+		INSTANCE XLXI_1
+	SUBMODULE simtest
+		INSTANCE XLXI_31

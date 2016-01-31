@@ -1,0 +1,10 @@
+work memoryread.vhd
+work memorywrite.vhd
+work memorymultiplexor-sv01.vhd
+work pctosraminterface-sv06.vhd
+work sram512kleft16bit50mhzreadreq-sv05.vhd
+work sraminterfacewithpport-sv01.vhd
+work memaccess.vhd
+work regfile.vhf
+work CtrlUnit.vhd
+work project2.vhf

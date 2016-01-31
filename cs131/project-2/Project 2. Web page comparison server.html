@@ -1,0 +1,263 @@
+<!--?xml version='1.0' encoding='US-ASCII'?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Project 2. Web page comparison server</title>
+<link rel="copyright" href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">
+<link rev="made" href="mailto:eggert@cs.ucla.edu">
+</head>
+
+<body>
+
+<h1>Project 2. Web page comparison server</h1>
+
+<h2>Background</h2>
+
+<p>Your boss at Jerry-built Computer Networks Corp. (JCN) complains
+that JCN is maintaining millions of web pages, many of which are
+nearly copies, and that JCN should attempt to find the web pages that
+are nearly copies and work to unify them. Your overall job will be to
+write an application that looks through JCN's web pages, and finds
+pages that are similar. Your initial assignment is to write a simple
+comparison server that looks for RURLs (as defined in <a href="http://www.cs.ucla.edu/classes/fall03/cs131/hw/hw3.html">Homework 3</a>) common to two web pages. Your boss
+also wants you to think of ways to improve your server so that it is
+useful even to nontechnical users.</p>
+
+<h2>Assignment</h2>
+
+<p>Write a web server that repeatedly does the following:</p>
+
+<ol>
+ <li>Accept a query that uses a URL of the form
+  <samp>&lt;http://</samp><var>host</var><samp>:</samp><var>port</var><samp>/compare-rurls.rpy?old=</samp><var>OLDURL</var><samp>&amp;new=</samp><var>NEWURL</var><samp>&gt;</samp>.</li>
+ <li>For each such query, fetch the resources <var>OLDRESOURCE</var> and
+  <var>NEWRESOURCE</var> located by <var>OLDURL</var> and
+  <var>NEWURL</var>.</li>
+ <li>Generate a <samp>text/plain</samp>
+  (<em>not</em> <samp>text/html</samp>) response that contains the
+  following three output sections, separated by empty lines:
+
+   <ul>
+   <li>RURLs that appear only in <var>OLDRESOURCE</var>.</li>
+   <li>RURLs that appear only in <var>NEWRESOURCE</var>.</li>
+   <li>RURLs that appear in both resources.</li>
+   </ul>
+
+  The response should contain exactly two empty lines, to separate the
+  three output sections. Each section should be free of duplicate
+  lines, and each section's lines should be sorted in ascending ASCII
+  order. If a resource cannot be retrieved, the corresponding section
+  should be a single line containing a decimal integer indicating the
+  HTTP status code (e.g., <samp>404</samp> for resource not found),
+  and the last section should be empty.
+ </li>
+</ol>
+
+<p>Implement your web server with <a href="http://www.twistedmatrix.com/products/twisted">Twisted</a>, an
+event-driven networking framework written in Python. <a href="http://twisted.sourceforge.net/TwistedDocs-1.1.0/">Twisted
+documentation</a> is available. You can find a copy of the Twisted
+1.1.0 source code and documentation in
+<samp>~cs131ta/src/Twisted-1.1.0</samp> on SEASnet. A compressed tar
+image is also available in
+<samp>~cs131ta/src/tarpit/Twisted-1.1.0.tar.gz</samp> and <a href="http://www.twistedmatrix.com/products/download">at
+Twisted Matrix Laboratories</a>.</p>
+
+<p>You may find it necessary to modify Twisted. If so, minimize the
+number of changes to the existing source code. For example, instead of
+modifying an existing class, use a new subclass of your own instead,
+whenever possible.</p>
+
+<p>An <samp>.rpy</samp> file is a <dfn>resource script</dfn>: it is
+like a normal Python <samp>.py</samp> file, except that there is one
+extra restriction: an <samp>.rpy</samp> file must define a global
+variable <samp>resource</samp> whose value is an instance of a
+subclass of <a href="http://twisted.sourceforge.net/TwistedDocs-1.1.0/api/twisted.web.resource.Resource.html"><samp>twisted.web.resource.Resource</samp></a>. By
+default, the Twisted web server renders the resource in response to a
+URL naming the resource script. Please see the <a href="http://twisted.sourceforge.net/TwistedDocs-1.1.0/api/twisted.web.resource.Resource.html#render"><samp>twisted.web.resource.Resource.render
+API</samp></a> for a few more details, but the full story is best
+discovered by reading the Twisted source code mentioned below. A
+simple example <samp>.rpy</samp> file can be found in
+<samp>~cs131ta/twisted/public-html/test.rpy</samp> on SEASnet.</p>
+
+<p><var>OLDURL</var> and <var>NEWURL</var> may need to be escaped so
+that the overall query is a valid URI. For example, if either URL
+contains <samp>#</samp> it must be represented using the
+standard escape sequence <samp>%23</samp> since any <samp>#</samp>
+would be interpreted as the start of a fragment after the overall
+query. Please see <a href="http://ftp.rfc-editor.org/in-notes/rfc1808.txt">Internet RFC
+1808</a> §2.2 for details.</p>
+
+<p>Escapes can also be used to represent arbitrary characters within
+URLs. For example, to compare <samp>http://www.cs.ucla.edu/</samp> to
+<samp>http://www.seas.ucla.edu/seasnet/</samp>, you might use either
+of the following queries:</p>
+
+<pre><samp>http://</samp><var>host</var><samp>:</samp><var>port</var><samp>/compare-rurls.rpy?old=http://www.cs.ucla.edu/&amp;new=http://www.seas.ucla.edu/seasnet/
+http://</samp><var>host</var><samp>:</samp><var>port</var><samp>/compare-rurls.rpy?old=http%3a%2f%2Fwww.cs.ucla.edu%2f&amp;new=%68ttp%3A/%2fwww.seas.ucla.edu%2fseasnet%2f
+</samp></pre>
+
+<h2>Suggestions for testing</h2>
+
+<p>Make sure that your web server outputs exactly the correct text,
+with no leading or trailing white space on any line, as your server
+will be tested by a persnickety script that considers spaces to be
+important.</p>
+
+<p>To figure out which SEASnet host you're running on, type the shell
+command <samp>hostname</samp>. If it outputs the string
+<samp>landfair</samp>, you are running on
+<samp>landfair.seas.ucla.edu</samp>. To simplify exposition the rest
+of this section assumes that you're running on
+<samp>landfair</samp>.</p>
+
+<p>To avoid clashes with other people's web servers, use a port number
+that is 14000 greater than your student ID modulo 424. For example, if
+your student ID is 123456789, then use port 14285 (because 14285 is
+14000 + 123456789%424, as you can easily confirm by typing that
+expression into an interactive Python session) by using the
+<samp>--port=14285</samp> option when generating your web server with
+<samp>mktap</samp> as described below.</p>
+
+<p>Here's a recipe for getting started with Twisted. Execute the
+following shell commands:</p>
+
+<pre><samp>   # Set environment variables appropriately.
+   setenv PYTHONPATH /u/cs/class/cs131/cs131ta/src/Twisted-1.1.0
+   setenv PATH /u/cs/class/cs131/cs131ta/src/Twisted-1.1.0/bin:$PATH
+
+   # Make a new directory and build a web server that will run in it.
+   mkdir twisted
+   cd twisted
+   mktap web --path=public-html --port=14285
+
+   # Put your web pages in this directory.  Here is a sample:
+   mkdir public-html
+   cp ~cs131ta/twisted/public-html/test.rpy public-html/test.rpy
+
+   # Run your web server.  Always use "-n", for debug mode.
+   twistd -n -f web.tap
+   # You should see some log messages starting with "Log opened"
+   # and ending with "set uid/gid".
+
+   # Now you can test your web server.
+   # You should see more log messages as you test.
+
+   # Type Control-C to exit your web server.
+</samp></pre>
+
+<p>To test whether your server is working with the sample web pages
+mentioned above, use a browser to visit
+<samp>&lt;http://landfair.seas.ucla.edu:14285/test.rpy?old=http://www.cs.ucla.edu/&amp;new=http://www.seas.ucla.edu/seasnet/&gt;</samp>.
+You should get a Test Web Page that lists its URL, URI, and query
+arguments, among other things.</p>
+
+<h2>Submitting your work</h2>
+
+<p><a href="http://www.cs.ucla.edu/classes/fall03/cs131/seasnet.html">Submit</a> a file named
+<samp>pr2.tgz</samp>. It should be a <a href="http://www.gzip.org/">gzipped</a> <a href="http://www.gnu.org/software/tar/">tar</a> file containing all
+the source files that are needed to build and run your project. One
+of these files must be called <samp>written-by.txt</samp> and must
+contain your name and student ID. For example, you might use the
+following command to create <samp>pr2.tgz</samp>:</p>
+
+<pre><samp>   cd $HOME/twisted
+   tar cf - written-by.txt *.py public-html | gzip -9 &gt;pr2.tgz
+</samp></pre>
+
+<p>This
+causes <samp>tar</samp> to generate a single output stream containing
+the named files; the <samp>|</samp> is the Unix pipe symbol, which causes
+<samp>tar</samp>'s output to be sent as input to
+<samp>gzip</samp>. Don't forget the <samp>-</samp> (separated by spaces)
+after the <samp>cf</samp>.</p>
+
+<p>Before submitting <samp>pr2.tgz</samp>, test it by running the
+following commands:</p>
+
+<pre><samp>   setenv PATH /u/cs/class/cs131/cs131ta/src/Twisted-1.1.0/bin:$PATH
+
+   mkdir testdirectory
+   cd testdirectory
+   # Substitute your own port for "14285".
+   mktap web --path=public-html --port=14285
+   gunzip &lt;../pr2.tgz | tar xf -
+   setenv PYTHONPATH `pwd`:/u/cs/class/cs131/cs131ta/src/Twisted-1.1.0
+   twistd -n -f web.tap
+
+   # [Test your web server here.]
+
+   # When testing is done, clean up as follows.
+   # First, type Control-C.
+   # Then, remove your test copy as follows:
+   cd ..
+   rm -fr testdirectory
+</samp></pre>
+
+<h2>Optional extra work</h2>
+
+<p>For extra credit, you can do some extra work for this project. If
+you'd like to do this, please send email to Michael proposing the
+extra work that you'd like to do. Your proposal should be in the form
+of ASCII text (not HTML or PostScript or anything fancy; just ASCII)
+and should be in Michael's mailbox by noon Friday, 2003-11-21. Your
+proposal should be succinct but should have enough detail so that
+we'll know how to test your extension. Michael will respond with his
+estimate of how many extra points your proposal will be worth. You may
+submit up to three proposals and may implement any combination of the
+accepted proposals, so long as their combined value is at least 20
+points extra.</p>
+
+<p>If you submit nontrivial work for extra credit, you may work
+together with one other person in this class (from either
+section). This is an exception to the ordinary class rule that all
+work submitted must be your own. The extra work is defined to be
+"nontrivial" if we evaluate your extra-work proposal(s) to be worth at
+least 25 points extra.</p>
+
+<p>In your joint submission you must identify which part each coworker
+was primarily responsible for; one way to do this is to split your
+work by source files, and to put a comment "<samp># Written by
+</samp><var>YOUR NAME</var><samp>.</samp>" near the start of each
+source file. The file <samp>written-by.txt</samp> should list both
+coworkers' names and student IDs.</p>
+
+<p>Here are some sketches of ideas for extra work, along with our
+guess of how many extra points will be awarded for each idea, over
+and above the 100 points awarded for the base implementation (your
+mileage may vary depending on your exact proposal):</p>
+
+<ul>
+ <li>(approximately 10 points extra) Use a form for the query, and
+  report the result using a nice HTML format rather than as plain
+  text.</li>
+
+ <li>(approximately 20 points extra) Parse any HTML resources as HTML
+  instead of as text, and report URIs found, not RURLs. For example,
+  if an HTML resource contains an A element that has an HREF
+  attribute, report the contents of that attribute.</li>
+
+ <li>(approximately 30 points extra) Instead of comparing two
+  resources, use the <a href="http://www.google.com/apis/">Google Web
+  API</a> to compare one resource to its Google cache counterpart. Use
+  <a href="http://pywebsvcs.sourceforge.net/">SOAPpy</a> to access the
+  Google Web API.</li>
+
+ <li>(approximately 50 points extra) Compare the two resources'
+  contents instead of just their links, using a general-purpose
+  comparison function, and output a summary that looks like the
+  originals, but with annotations describing where they differ, much
+  as Homework 1 output a description of where its two inputs
+  differed.</li> </ul>
+
+<hr>
+<address>
+ © 2003 <a href="http://www.cs.ucla.edu/classes/fall03/cs131/mail-eggert.html">Paul Eggert</a>.
+ See <a href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">copying rules</a>.<br>
+
+ $Id: pr2.html,v 1.11 2003/11/18 19:32:57 eggert Exp $
+
+</address>
+
+
+
+</body></html>

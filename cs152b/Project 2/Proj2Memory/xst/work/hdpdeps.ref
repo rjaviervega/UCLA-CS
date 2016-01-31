@@ -1,0 +1,46 @@
+V1 27
+EN work/SRAMINTERFACEWITHPPORT \
+      FL E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd \
+      PB ieee/STD_LOGIC_1164
+EN work/SRAMINTERFACE \
+      FL E:/HingKei/152bs04/Proj2Memory/sram512kleft16bit50mhzreadreq-sv05.vhd \
+      PB ieee/STD_LOGIC_1164
+EN work/MEMORYREAD      FL E:/HingKei/152bs04/Proj2Memory/memoryread.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+AR work/MEMORYREAD/BEHAVIORAL FL E:/HingKei/152bs04/Proj2Memory/memoryread.vhd \
+      EN work/MEMORYREAD
+AR work/SRAMINTERFACEWITHPPORT/SRAMINTERFACEWITHPPORT_ARCH \
+      FL E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd \
+      EN work/SRAMINTERFACEWITHPPORT CP PCTOSRAMINTERFACE CP MEMORYMULTIPLEXOR \
+      CP SRAMINTERFACE
+FL E:/HingKei/152bs04/Proj2Memory/memorywrite.vhd 2004/07/15.13:11:41
+AR work/MEMORYMODULE/BEHAVIORAL FL E:/HingKei/152bs04/Proj2Memory/memaccess.vhd \
+      EN work/MEMORYMODULE CP MEMORYREAD  CP MEMORYWRITE \
+      CP SRAMINTERFACEWITHPPORT
+FL E:/HingKei/152bs04/Proj2Memory/sraminterfacewithpport-sv01.vhd 2002/04/27.12:06:34
+EN work/MEMORYWRITE     FL E:/HingKei/152bs04/Proj2Memory/memorywrite.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+FL E:/HingKei/152bs04/Proj2Memory/memorymultiplexor-sv01.vhd 2001/01/25.11:15:00
+AR work/PCTOSRAMINTERFACE/PCTOSRAMINTERFACE_ARCH \
+      FL E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd \
+      EN work/PCTOSRAMINTERFACE
+FL E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd 2002/04/27.10:54:22
+AR work/MEMORYMULTIPLEXOR/MEMORYMULTIPLEXOR_ARCH \
+      FL E:/HingKei/152bs04/Proj2Memory/memorymultiplexor-sv01.vhd \
+      EN work/MEMORYMULTIPLEXOR
+EN work/MEMORYMODULE    FL E:/HingKei/152bs04/Proj2Memory/memaccess.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_ARITH PB ieee/STD_LOGIC_UNSIGNED
+EN work/MEMORYMULTIPLEXOR \
+      FL E:/HingKei/152bs04/Proj2Memory/memorymultiplexor-sv01.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_UNSIGNED
+FL E:/HingKei/152bs04/Proj2Memory/sram512kleft16bit50mhzreadreq-sv05.vhd 2001/02/16.13:29:12
+AR work/SRAMINTERFACE/SRAMINTERFACE_ARCH \
+      FL E:/HingKei/152bs04/Proj2Memory/sram512kleft16bit50mhzreadreq-sv05.vhd \
+      EN work/SRAMINTERFACE
+AR work/MEMORYWRITE/BEHAVIORAL FL E:/HingKei/152bs04/Proj2Memory/memorywrite.vhd \
+      EN work/MEMORYWRITE
+EN work/PCTOSRAMINTERFACE \
+      FL E:/HingKei/152bs04/Proj2Memory/pctosraminterface-sv06.vhd \
+      PB ieee/STD_LOGIC_1164 PB ieee/STD_LOGIC_UNSIGNED
+FL E:/HingKei/152bs04/Proj2Memory/memaccess.vhd 2004/07/15.13:14:52
+FL E:/HingKei/152bs04/Proj2Memory/memoryread.vhd 2004/07/16.11:54:52

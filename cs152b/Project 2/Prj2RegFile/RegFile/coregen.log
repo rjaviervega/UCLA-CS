@@ -1,0 +1,52 @@
+# Xilinx CORE Generator 4.1i
+# User = Student 152B
+# Initializing default project...
+# Loading plug-ins...
+# lockprojectprops=false
+# busformat=BusFormatAngleBracket
+# designflow=Vhdl
+# expandedprojectpath=E:\HingKei\152bs04\Prj2RegFile\RegFile
+# flowvendor=Foundation_iSE
+# formalverification=None
+# simulationoutputproducts=Verilog VHDL
+# xilinxfamily=Virtex
+# outputoption=DesignFlow
+# overwritefiles=Default
+# expandedprojectpath=E:\HingKei\152bs04\Prj2RegFile\RegFile
+SETPROJECT e:/hingkei/152bs04/prj2regfile/regfile
+# Set current Project to E:\HingKei\152bs04\Prj2RegFile\RegFile
+SET OverwriteFiles=true
+LAUNCHXCO buxmux16.xco
+SET BusFormat = BusFormatAngleBracket
+SET SimulationOutputProducts = Verilog VHDL
+SET XilinxFamily = Virtex
+SET OutputOption = DesignFlow
+SET DesignFlow = Vhdl
+SET FlowVendor = Foundation_iSE
+SET FormalVerification = None
+SELECT Bus_Multiplexer Virtex Xilinx,_Inc. 4.0
+CSET input_bus_width = 16
+CSET synchronous_settings = none
+CSET multiplexer_construction = lut_based
+CSET create_rpm = true
+CSET output_enable = false
+CSET async_init_value = 0
+CSET component_name = buxmux16
+CSET sync_init_value = 0
+CSET ce_overrides = sync_controls_override_ce
+CSET set_clear_priority = clear_overrides_set
+CSET clock_enable = false
+CSET asynchronous_settings = none
+CSET output_options = non_registered
+CSET number_of_input_buses = 8
+CSET latency = 0
+SET busformat = BusFormatAngleBracket
+SET designflow = Vhdl
+SET expandedprojectpath = E:\HingKei\152bs04\Prj2RegFile\RegFile
+SET flowvendor = Foundation_iSE
+SET formalverification = None
+SET simulationoutputproducts = Verilog VHDL
+SET xilinxfamily = Virtex
+SET outputoption = DesignFlow
+SET overwritefiles = true
+SET expandedprojectpath = E:\HingKei\152bs04\Prj2RegFile\RegFile

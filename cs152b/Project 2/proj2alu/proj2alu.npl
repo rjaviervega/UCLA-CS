@@ -1,0 +1,42 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT proj2alu
+DESIGN proj2alu Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+MODULE zeroBus.vhd
+MODSTYLE zerobus Normal
+MODULE logical.vhd
+MODSTYLE logical Normal
+MODULE mux4_16bits_new.xco
+MODSTYLE mux4_16bits_new Normal
+MODULE OF_enable.vhd
+MODSTYLE of_enable Normal
+MODULE one_bus.vhd
+MODSTYLE one_bus Normal
+MODULE alu.sch
+MODSTYLE alu Normal
+MODULE shift.vhd
+MODSTYLE shift Normal
+MODULE mux2_16bits.xco
+MODSTYLE mux2_16bits Normal
+MODULE mux4_16bits.xco
+MODSTYLE mux4_16bits Normal
+MODULE OF_detect.vhd
+MODSTYLE of_detect Normal
+MODULE mux_four.xco
+MODSTYLE mux_four Normal
+MODULE add.sch
+MODSTYLE add Normal
+MODULE zero_detect.vhd
+MODSTYLE zero_detect Normal
+MODULE control_module.vhd
+MODSTYLE control_unit Normal
+MODULE negative_detect.vhd
+MODSTYLE negative_detect Normal
+[STRATEGY-LIST]
+Normal=True, 1089912476
+[Normal]
+_OverwriteSym=xstvhd, VIRTEX, Schematic.t_schSymbol, 1089948761, True
+p_ModelSimSimRes=xstvhd, VIRTEX, VHDL.t_launchModelSimSimulator, 1090005653, 1 ns

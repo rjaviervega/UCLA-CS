@@ -1,0 +1,24 @@
+# Xilinx CORE Generator 4.1i
+# User = Student 152B
+# Initializing default project...
+# Loading plug-ins...
+# Initializing GUI...
+SETPROJECT E:\HingKei\152bs04\Project1
+# lockprojectprops=false
+# busformat=BusFormatAngleBracket
+# designflow=Vhdl
+# expandedprojectpath=E:\HingKei\152bs04\Project1
+# flowvendor=Foundation_iSE
+# formalverification=None
+# simulationoutputproducts=Verilog VHDL
+# xilinxfamily=Virtex
+# outputoption=DesignFlow
+# overwritefiles=true
+# expandedprojectpath=E:\HingKei\152bs04\Project1
+# Set current Project to E:\HingKei\152bs04\Project1
+SELECT Multiplexer_Slice_BUFE Virtex Xilinx,_Inc. 4.0
+SELECT Bit_Multiplexer Virtex Xilinx,_Inc. 4.0
+# Xilinx CORE Generator 4.1i.  Copyright (C) 2001  Xilinx, Inc.  All rights reserved.
+# Xilinx CORE Generator 4.1i.  Copyright (C) 2001  Xilinx, Inc.  All rights reserved.
+SELECT Bus_Multiplexer Virtex Xilinx,_Inc. 4.0
+END

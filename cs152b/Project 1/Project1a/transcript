@@ -1,0 +1,152 @@
+# Reading c:/Modeltech_xe/win32xoem/../tcl/vsim/pref.tcl 
+# do alu4.ldo 
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2to1
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture mux2to1_a of mux2to1
+# -- Loading package std_logic_1164
+# -- Loading entity mux2to1
+# -- Loading package prims_utils_v4_0
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package prims_constants_v4_0
+# -- Loading package c_reg_fd_v4_0_comp
+# -- Loading entity c_mux_bus_v4_0
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity mux8to1
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture mux8to1_a of mux8to1
+# -- Loading package std_logic_1164
+# -- Loading entity mux8to1
+# -- Loading package prims_utils_v4_0
+# -- Loading package numeric_std
+# -- Loading package textio
+# -- Loading package prims_constants_v4_0
+# -- Loading package c_reg_fd_v4_0_comp
+# -- Loading entity c_mux_bus_v4_0
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Compiling entity m2_1_mxilinx
+# -- Compiling entity adsu4_mxilinx
+# -- Compiling entity inv4_mxilinx
+# -- Compiling entity compm4_mxilinx
+# -- Compiling entity ibuf4_mxilinx
+# -- Compiling entity alu4
+# Model Technology ModelSim XE vcom 5.5b Compiler 2001.05 May 23 2001
+# -- Loading package standard
+# -- Compiling architecture schematic of m2_1_mxilinx
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Loading entity m2_1_mxilinx
+# -- Loading entity and2
+# -- Loading entity and2b1
+# -- Loading entity or2
+# -- Compiling architecture schematic of adsu4_mxilinx
+# -- Loading package vcomponents
+# -- Loading entity adsu4_mxilinx
+# -- Loading entity fmap
+# -- Loading entity inv
+# -- Loading entity muxcy
+# -- Loading entity muxcy_d
+# -- Loading entity muxcy_l
+# -- Loading entity xor2
+# -- Loading entity xor3
+# -- Loading entity xorcy
+# -- Compiling architecture schematic of inv4_mxilinx
+# -- Loading package vcomponents
+# -- Loading entity inv4_mxilinx
+# -- Loading package standard
+# -- Compiling architecture schematic of compm4_mxilinx
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package vital_timing
+# -- Loading package vcomponents
+# -- Loading entity compm4_mxilinx
+# -- Loading entity and2
+# -- Loading entity and2b1
+# -- Loading entity and3b1
+# -- Loading entity nor2
+# -- Loading entity or2
+# -- Loading entity xnor2
+# -- Compiling architecture schematic of ibuf4_mxilinx
+# -- Loading package vcomponents
+# -- Loading entity ibuf4_mxilinx
+# -- Loading entity ibuf
+# -- Compiling architecture schematic of alu4
+# -- Loading package vcomponents
+# -- Loading entity alu4
+# -- Loading entity adsu4_mxilinx
+# -- Loading entity and3
+# -- Loading entity and4
+# -- Loading entity compm4_mxilinx
+# -- Loading entity gnd
+# -- Loading entity ibuf4_mxilinx
+# -- Loading entity inv
+# -- Loading entity inv4_mxilinx
+# -- Loading entity m2_1_mxilinx
+# -- Loading entity mux2to1
+# -- Loading entity mux8to1
+# -- Loading entity obuf
+# -- Loading entity vcc
+# -- Loading package standard
+# vsim -t 1ns -L xilinxcorelib alu4 
+# Loading c:/Modeltech_xe/win32xoem/../std.standard
+# Loading c:/Modeltech_xe/win32xoem/../ieee.std_logic_1164(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.numeric_std(body)
+# Loading c:/Modeltech_xe/win32xoem/../std.textio(body)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.vital_timing(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.vcomponents
+# Loading work.alu4(schematic)
+# Loading work.adsu4_mxilinx(schematic)
+# Loading c:/Modeltech_xe/win32xoem/../ieee.vital_primitives(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.vpkg(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.fmap(fmap_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.inv(inv_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.muxcy(muxcy_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.muxcy_d(muxcy_d_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.muxcy_l(muxcy_l_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.xor2(xor2_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.xor3(xor3_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.xorcy(xorcy_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and2(and2_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and3(and3_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and4(and4_v)
+# Loading work.compm4_mxilinx(schematic)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and2b1(and2b1_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.and3b1(and3b1_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.nor2(nor2_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.or2(or2_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.xnor2(xnor2_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.gnd(gnd_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.ibuf(ibuf_v)
+# Loading work.ibuf4_mxilinx(schematic)
+# Loading work.inv4_mxilinx(schematic)
+# Loading work.m2_1_mxilinx(schematic)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.prims_constants_v4_0
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.prims_utils_v4_0(body)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_reg_fd_v4_0_comp
+# Loading work.mux2to1(mux2to1_a)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/xilinxcorelib.c_mux_bus_v4_0(behavioral)
+# Loading work.mux8to1(mux8to1_a)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.obuf(obuf_v)
+# Loading c:/Modeltech_xe/win32xoem/../xilinx/vhdl/unisim.vcc(vcc_v)
+# WARNING: Design size of 3234 statements exceeds ModelSim XE-Starter recommended capacity.
+# Expect performance to be adversely affected.
+# .wave
+# .structure
+# .signals
+do E:/HingKei/152bs04/Project1a/testcases.do
+# WARNING: Design size of 3234 statements exceeds ModelSim XE-Starter recommended capacity.
+# Expect performance to be adversely affected.

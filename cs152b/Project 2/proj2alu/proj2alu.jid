@@ -1,0 +1,2 @@
+. alu alu.sch e:\cs152b\proj2alu\alu.sch
+XLXI_2 mux_four mux_four.xco e:\cs152b\proj2alu\mux_four.xco

@@ -1,0 +1,4 @@
+Place & Route Module userpctosramtoplevel . . .
+PAR command line:
+"par -ol 2 -xe 0 -t 1 -c 0 par_temp.ncd -w userpctosramtoplevel.ncd userpctosramtoplevel.pcf "
+PAR completed successfully

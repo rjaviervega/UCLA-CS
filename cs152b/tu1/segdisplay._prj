@@ -1,0 +1,2 @@
+plslib 
+pls    const_32.vhd maptoseg.vhd segdisplay.vhf 

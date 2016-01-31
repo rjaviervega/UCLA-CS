@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<da_list><da><ds><vendor>UNKNOWN</vendor></ds><le leid="1"><type>net</type><name>memorymodule/clk_BUFGP</name></le><msg type="WARNING"><num>477</num><ltext>clock net </ltext><ltext lref="1">'clk_BUFGP'</ltext><ltext> has non-clock connections</ltext></msg></da></da_list>

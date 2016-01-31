@@ -1,0 +1,28 @@
+////////////////////////////////////////////Journal////////////////////////////////////////////
+
+Journal Eduardo Jose Esquivel:
+	Discuss implementation of project with partner		3 hours
+	Divide work with partner				1 hour
+	Work on building the basic structure with partner	1 hour
+	Research execv, access, fork, I/O redirection		7 hours
+	Work on Execute function				10 hours
+	Work on paths function					4 hours
+	Work on parse function					15 hours
+	Type up of report					2 hours
+							Total:	43 hours
+
+
+
+Journal for Roberto Javier Vega:
+	Discuss implementation of project with partner		3 hours
+	Divide work with partner				1 hour
+	Work on building the basic structure with partner	1 hour
+	Work on laying out the recursive nature of process func 8 hours
+	Implementing recursive process function and
+		GetRemoveCommand				15 hours
+	Debugging recursive function				7 hours
+	researching backgrounding				3 hours
+	implementing signals to work with backgrounding		4 hours
+							Total:	47 hours
+
+

@@ -1,0 +1,22 @@
+Eduardo Jose Esquivel:
+	Discuss implementation of project with partner		4  hours
+	Divide work with partner				1  hour
+	Work on figuring out the looks and pthread library	10 hours
+	Work on implementine routines for lock			5  hours
+	Work on test program 					6  hours
+	Work on fixing race condition and other issues		4  hours
+	Type up of report					2  hours
+							Total:	32 hours
+
+
+
+Roberto Javier Vega:
+	Discuss implementation of project with partner		4  hours
+	Divide work with partner				1  hour
+	Working on round robin scheduler details		10 hours
+	Implementing round robin  and testing it 		12 hours
+	Debugging round robin 					3  hours
+	Working on race condition and merging			3  hours
+							Total:	33 hours
+
+

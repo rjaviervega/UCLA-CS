@@ -1,0 +1,17 @@
+force -freeze sim:/alu4/a0_in 0 0
+force -freeze sim:/alu4/a1_in 0 0
+force -freeze sim:/alu4/a2_in 0 0
+force -freeze sim:/alu4/a3_in 0 0
+force -freeze sim:/alu4/aluctrl0 0 0
+force -freeze sim:/alu4/aluctrl1 0 0
+force -freeze sim:/alu4/aluctrl2 0 0
+force -freeze sim:/alu4/b0_in 0 0
+force -freeze sim:/alu4/b1_in 0 0
+force -freeze sim:/alu4/b2_in 0 0
+force -freeze sim:/alu4/b3_in 0 0
+force -freeze sim:/alu4/cin 0 0
+force -freeze sim:/alu4/cout 0 0
+force -freeze sim:/alu4/s0 0 0
+force -freeze sim:/alu4/s1 0 0
+force -freeze sim:/alu4/s2 0 0
+force -freeze sim:/alu4/s3 0 0

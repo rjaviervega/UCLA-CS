@@ -1,0 +1,27 @@
+# Xilinx CORE Generator 4.1i
+# Username = Student 152B
+# COREGenPath = C:\Xilinx\coregen
+# ProjectPath = E:\HingKei\152bs04\Prj2RegFile\RegFile
+# ExpandedProjectPath = E:\HingKei\152bs04\Prj2RegFile\RegFile
+# OverwriteFiles = Default
+SET BusFormat = BusFormatAngleBracket
+SET SimulationOutputProducts = Verilog VHDL
+SET XilinxFamily = Virtex
+SET OutputOption = DesignFlow
+SET DesignFlow = Vhdl
+SET FlowVendor = Foundation_iSE
+SET FormalVerification = None
+SELECT Binary_Decoder Virtex Xilinx,_Inc. 4.0
+CSET number_of_outputs = 8
+CSET create_rpm = true
+CSET decoder_enable = false
+CSET async_init_value = 0
+CSET component_name = busdec16
+CSET sync_init_value = 0
+CSET ce_overrides = sync_controls_override_ce
+CSET set_clear_priority = clear_overrides_set
+CSET clock_enable = false
+CSET asynchronous_settings = none
+CSET output_options = non_registered
+CSET output_sense = active_high
+GENERATE

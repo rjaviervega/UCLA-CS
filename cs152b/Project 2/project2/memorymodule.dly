@@ -1,0 +1,2613 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Tue Jul 27 01:02:10 2004
+
+File: memorymodule.dly
+
+ The 20 Worst Net Delays are:
+-------------------------------
+| Max Delay (ns)  | Netname   |
+-------------------------------
+   7.037            resetl_IBUF
+   4.418            pctofpgainterface_thememmultiplexor_presstate
+   3.860            pctofpgainterface_pportinterface_I__n0030_1
+   3.363            N458
+   3.291            pctofpgainterface_pportinterface_outslicenum_1
+   3.261            pctofpgainterface_pportinterface_datainreg_2
+   3.234            pctofpgainterface_pportinterface_N384
+   3.190            pctofpgainterface_pportinterface_syncwrite
+   3.179            pctofpgainterface_pportinterface_syncread_1
+   3.131            pctofpgainterface_pportinterface_datainreg_0
+   3.088            N473
+   3.063            pctofpgainterface_pportinterface_N682
+   3.034            pctofpgainterface_pportinterface_presstate_FFD1
+   2.984            pctofpgainterface_pportinterface_datainreg_3
+   2.923            pctofpgainterface_pportinterface_outslicenum_0
+   2.818            pctofpgainterface_pportinterface_syncnextslice_1
+   2.816            pctofpgainterface_pportinterface_presstate_FFD3
+   2.727            pctofpgainterface_pportinterface_datainreg_4
+   2.713            pctofpgainterface_pportinterface_syncnextslice
+   2.696            pctofpgainterface_fpgatosraminterface_presstate_FFD5
+---------------------------------
+
+-------------------------------------------------------------------------------
+                               Net Delays
+-------------------------------------------------------------------------------
+
+GLOBAL_LOGIC0
+   PWR_GND_0.Y
+         0.647  pctofpgainterface_pportinterface_N497.G1
+
+GLOBAL_LOGIC1
+   PWR_VCC_0.X
+         0.314  pctofpgainterface_pportinterface_N497.F1
+
+N453
+   pctofpgainterface_fpgatosraminterface_presstate_FFD4.X
+         0.071  pctofpgainterface_fpgatosraminterface_presstate_FFD4.G4
+         1.972  pctofpgainterface_thememmultiplexor_presstate_2.G2
+         1.319  pctofpgainterface_pportinterface_presstate_FFD6.F2
+         1.486  pctofpgainterface_pportinterface_presstate_FFD6.G2
+         1.293  alureadsram_prestate_FFD2.F4
+         1.250  alureadsram_prestate_FFD2.G3
+         1.299  aluwritesram_prestate_FFD2.F3
+         1.262  aluwritesram_prestate_FFD2.G3
+         1.584  aluwritesram_prestate_FFD3.G1
+         2.068  pctofpgainterface_pportinterface_presstate_FFD4.F1
+         1.754  pctofpgainterface_pportinterface_presstate_FFD4.G3
+         0.360  pctofpgainterface_fpgatosraminterface_presstate_FFD1.F1
+         0.356  pctofpgainterface_fpgatosraminterface_presstate_FFD1.G1
+         1.342  pctofpgainterface_fpgatosraminterface_oen.F2
+         1.260  pctofpgainterface_fpgatosraminterface_oen.G3
+         1.065  alureadsram_prestate_FFD3.F4
+         1.175  alureadsram_prestate_FFD3.G3
+
+N458
+   N458.X
+         2.369  ldata<0>.T
+         2.369  ldata<1>.T
+         2.369  ldata<2>.T
+         2.783  ldata<3>.T
+         2.815  ldata<4>.T
+         2.815  ldata<5>.T
+         2.991  ldata<6>.T
+         2.991  ldata<7>.T
+         3.168  ldata<8>.T
+         2.699  ldata<9>.T
+         3.191  ldata<10>.T
+         3.268  ldata<11>.T
+         3.191  ldata<12>.T
+         3.285  ldata<13>.T
+         3.363  ldata<14>.T
+         3.107  ldata<15>.T
+
+N459
+   N459.X
+         1.078  pctofpgainterface_fpgatosraminterface_presstate_FFD4.G1
+         0.948  pctofpgainterface_fpgatosraminterface_presstate_FFD1.F3
+         0.870  pctofpgainterface_fpgatosraminterface_presstate_FFD1.G3
+         0.809  pctofpgainterface_fpgatosraminterface_oen.F4
+
+N462
+   pctofpgainterface_fpgatosraminterface_doingwrite1.X
+         1.576  pctofpgainterface_fpgatosraminterface_writedatareg_11.CE
+         1.854  pctofpgainterface_fpgatosraminterface_writedatareg_13.CE
+         1.854  pctofpgainterface_fpgatosraminterface_writedatareg_15.CE
+         1.967  pctofpgainterface_fpgatosraminterface_writedatareg_1.CE
+         1.875  pctofpgainterface_fpgatosraminterface_writedatareg_3.CE
+         1.702  pctofpgainterface_fpgatosraminterface_writedatareg_5.CE
+         1.336  pctofpgainterface_fpgatosraminterface_writedatareg_7.CE
+         1.481  pctofpgainterface_fpgatosraminterface_writedatareg_9.CE
+
+N470
+   N470.X
+         0.524  pctofpgainterface_fpgatosraminterface_presstate_FFD4.G2
+         0.443  pctofpgainterface_fpgatosraminterface_presstate_FFD1.F4
+         0.385  pctofpgainterface_fpgatosraminterface_presstate_FFD1.G4
+
+N473
+   pctofpgainterface_fpgatosraminterface_presstate_FFD4.Y
+         2.837  pctofpgainterface_fpgatosraminterface_addrreg_10.G1
+         2.458  pctofpgainterface_fpgatosraminterface_addrreg_11.G3
+         2.596  pctofpgainterface_fpgatosraminterface_addrreg_12.G3
+         2.539  pctofpgainterface_fpgatosraminterface_addrreg_13.G2
+         2.721  pctofpgainterface_fpgatosraminterface_addrreg_14.G2
+         2.674  pctofpgainterface_fpgatosraminterface_addrreg_15.G1
+         2.702  pctofpgainterface_fpgatosraminterface_addrreg_16.G2
+         2.722  pctofpgainterface_fpgatosraminterface_addrreg_17.G2
+         2.190  pctofpgainterface_fpgatosraminterface_addrreg_0.G3
+         2.375  pctofpgainterface_fpgatosraminterface_addrreg_1.G3
+         2.395  pctofpgainterface_fpgatosraminterface_addrreg_2.G2
+         2.899  pctofpgainterface_fpgatosraminterface_addrreg_3.G2
+         2.505  pctofpgainterface_fpgatosraminterface_addrreg_4.G3
+         2.341  pctofpgainterface_fpgatosraminterface_addrreg_5.G3
+         2.190  pctofpgainterface_fpgatosraminterface_addrreg_6.G3
+         2.626  pctofpgainterface_fpgatosraminterface_addrreg_7.G1
+         3.088  pctofpgainterface_fpgatosraminterface_addrreg_8.G1
+         2.513  pctofpgainterface_fpgatosraminterface_addrreg_9.G1
+         2.385  pctofpgainterface_fpgatosraminterface_addrreg_18.F4
+
+N475
+   pctofpgainterface_fpgatosraminterface_presstate_FFD1.Y
+         2.306  pctofpgainterface_fpgatosraminterface_addrreg_10.CE
+         2.288  pctofpgainterface_fpgatosraminterface_addrreg_11.CE
+         2.411  pctofpgainterface_fpgatosraminterface_addrreg_12.CE
+         2.250  pctofpgainterface_fpgatosraminterface_addrreg_13.CE
+         2.411  pctofpgainterface_fpgatosraminterface_addrreg_14.CE
+         2.288  pctofpgainterface_fpgatosraminterface_addrreg_15.CE
+         2.383  pctofpgainterface_fpgatosraminterface_addrreg_16.CE
+         2.306  pctofpgainterface_fpgatosraminterface_addrreg_17.CE
+         2.400  pctofpgainterface_fpgatosraminterface_addrreg_0.CE
+         2.496  pctofpgainterface_fpgatosraminterface_addrreg_1.CE
+         2.466  pctofpgainterface_fpgatosraminterface_addrreg_2.CE
+         2.468  pctofpgainterface_fpgatosraminterface_addrreg_3.CE
+         2.278  pctofpgainterface_fpgatosraminterface_addrreg_4.CE
+         2.463  pctofpgainterface_fpgatosraminterface_addrreg_5.CE
+         1.313  pctofpgainterface_fpgatosraminterface_addrreg_6.CE
+         2.463  pctofpgainterface_fpgatosraminterface_addrreg_7.CE
+         2.604  pctofpgainterface_fpgatosraminterface_addrreg_8.CE
+         2.185  pctofpgainterface_fpgatosraminterface_addrreg_9.CE
+         2.185  pctofpgainterface_fpgatosraminterface_addrreg_18.CE
+
+N483
+   N483.X
+         0.310  pctofpgainterface_fpgatosraminterface_addrreg_13.G1
+
+N485
+   pctofpgainterface_fpgatosraminterface_addrreg_13.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_13.G4
+
+N489
+   N489.X
+         0.647  pctofpgainterface_fpgatosraminterface_addrreg_12.G1
+
+N491
+   pctofpgainterface_fpgatosraminterface_addrreg_12.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_12.G4
+
+N495
+   N495.X
+         0.310  pctofpgainterface_fpgatosraminterface_addrreg_11.G1
+
+N497
+   pctofpgainterface_fpgatosraminterface_addrreg_11.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_11.G4
+
+N501
+   N501.X
+         0.768  pctofpgainterface_fpgatosraminterface_addrreg_10.G3
+
+N503
+   pctofpgainterface_fpgatosraminterface_addrreg_10.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_10.G4
+
+N507
+   pctofpgainterface_fpgatosraminterface_addrreg_18.Y
+         0.175  pctofpgainterface_fpgatosraminterface_addrreg_9.G2
+
+N509
+   pctofpgainterface_fpgatosraminterface_addrreg_9.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_9.G4
+
+N513
+   N513.X
+         0.774  pctofpgainterface_fpgatosraminterface_addrreg_15.G3
+
+N515
+   pctofpgainterface_fpgatosraminterface_addrreg_15.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_15.G4
+
+N519
+   N525.Y
+         0.955  pctofpgainterface_fpgatosraminterface_addrreg_17.G1
+
+N521
+   pctofpgainterface_fpgatosraminterface_addrreg_17.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_17.G4
+
+N525
+   N525.X
+         0.310  pctofpgainterface_fpgatosraminterface_addrreg_16.G1
+
+N527
+   pctofpgainterface_fpgatosraminterface_addrreg_16.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_16.G4
+
+N531
+   N531.X
+         0.641  pctofpgainterface_fpgatosraminterface_addrreg_14.G3
+
+N533
+   pctofpgainterface_fpgatosraminterface_addrreg_14.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_14.G4
+
+N541
+   N541.X
+         1.132  pctofpgainterface_fpgatosraminterface_addrreg_0.G1
+
+N543
+   pctofpgainterface_fpgatosraminterface_addrreg_0.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_0.G4
+
+N547
+   N541.Y
+         0.175  pctofpgainterface_fpgatosraminterface_addrreg_1.G2
+
+N549
+   pctofpgainterface_fpgatosraminterface_addrreg_1.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_1.G4
+
+N553
+   N513.Y
+         1.561  pctofpgainterface_fpgatosraminterface_addrreg_2.G1
+
+N555
+   pctofpgainterface_fpgatosraminterface_addrreg_2.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_2.G4
+
+N559
+   N531.Y
+         1.348  pctofpgainterface_fpgatosraminterface_addrreg_3.G1
+
+N561
+   pctofpgainterface_fpgatosraminterface_addrreg_3.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_3.G4
+
+N565
+   N483.Y
+         0.647  pctofpgainterface_fpgatosraminterface_addrreg_4.G1
+
+N567
+   pctofpgainterface_fpgatosraminterface_addrreg_4.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_4.G4
+
+N571
+   N489.Y
+         1.391  pctofpgainterface_fpgatosraminterface_addrreg_5.G1
+
+N573
+   pctofpgainterface_fpgatosraminterface_addrreg_5.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_5.G4
+
+N577
+   N495.Y
+         1.143  pctofpgainterface_fpgatosraminterface_addrreg_6.G1
+
+N579
+   pctofpgainterface_fpgatosraminterface_addrreg_6.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_6.G4
+
+N583
+   N501.Y
+         0.964  pctofpgainterface_fpgatosraminterface_addrreg_7.G2
+
+N585
+   pctofpgainterface_fpgatosraminterface_addrreg_7.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_7.G4
+
+N589
+   N589.Y
+         0.175  pctofpgainterface_fpgatosraminterface_addrreg_8.G2
+
+N591
+   pctofpgainterface_fpgatosraminterface_addrreg_8.X
+         0.025  pctofpgainterface_fpgatosraminterface_addrreg_8.G4
+
+N6022
+   pctofpgainterface_pportinterface_presstate_FFD1.X
+         0.025  pctofpgainterface_pportinterface_presstate_FFD1.G4
+
+N6030
+   N6030.X
+         1.211  pctofpgainterface_pportinterface_outslicenum_0.G2
+
+N6037
+   N6037.X
+         0.025  N6037.G4
+
+N6045
+   N6045.X
+         0.025  N6045.G4
+
+N6049
+   N6049.X
+         0.025  N6049.G4
+
+N6075
+   N667.X
+         0.025  N667.G4
+
+N6078
+   N6078.X
+         0.025  N6078.G4
+
+N6082
+   N6082.X
+         1.057  pctofpgainterface_pportinterface_presstate_FFD4.G1
+
+N6085
+   N6148.Y
+         1.159  pctofpgainterface_pportinterface_inslicenum_1_1.G1
+
+N6089
+   N6110.Y
+         1.027  pctofpgainterface_pportinterface_N413.G3
+
+N6110
+   N6110.X
+         0.854  pctofpgainterface_pportinterface_curaddrreg_18.F4
+
+N6125
+   N6125.X
+         0.025  N6125.G4
+
+N6135
+   N6135.X
+         0.025  N6135.G4
+
+N6141
+   N6141.X
+         1.081  N666.F1
+
+N6148
+   N6148.X
+         1.040  N665.F1
+
+N626
+   N626.X
+         2.013  pctofpgainterface_pportinterface_N6481.G3
+         0.053  N626.G4
+         1.823  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.F3
+         2.132  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.F2
+         1.268  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.F2
+         2.148  N672.F4
+         2.109  N672.G2
+         2.569  N670.F1
+         2.565  N670.G1
+         1.714  N668.G4
+         1.840  N665.F3
+         1.513  pctofpgainterface_pportinterface_curaddrreg_0.F4
+         1.774  pctofpgainterface_pportinterface_curaddrreg_0.G1
+         1.158  N680.F3
+         2.360  N674.F2
+         1.686  N6045.G3
+
+N665
+   N665.YQ
+         1.166  pctofpgainterface_pportinterface_N6481.G4
+         2.068  pctofpgainterface_pportinterface_N634.G3
+         2.025  pctofpgainterface_fpgatosraminterface_addrreg_17.F3
+         2.128  N525.G2
+         1.757  N6148.F2
+
+N666
+   N666.YQ
+         1.676  pctofpgainterface_pportinterface_N6341.G3
+         2.382  pctofpgainterface_pportinterface_N634.F2
+         2.496  pctofpgainterface_fpgatosraminterface_addrreg_16.F1
+         2.221  N525.F3
+         1.885  N6141.F3
+
+N667
+   N667.YQ
+         1.695  pctofpgainterface_pportinterface_N604.G1
+         1.919  pctofpgainterface_fpgatosraminterface_addrreg_15.F2
+         1.273  N667.F4
+         1.745  N513.F4
+
+N668
+   N668.YQ
+         1.423  pctofpgainterface_pportinterface_N604.F4
+         1.945  pctofpgainterface_fpgatosraminterface_addrreg_14.F2
+         1.849  N531.F4
+
+N669
+   N670.YQ
+         1.086  pctofpgainterface_pportinterface_N592.G3
+         1.522  pctofpgainterface_fpgatosraminterface_addrreg_13.F4
+         1.735  N483.F1
+
+N670
+   N670.XQ
+         1.112  pctofpgainterface_pportinterface_N592.F4
+         1.737  pctofpgainterface_fpgatosraminterface_addrreg_12.F3
+         1.576  N489.F3
+
+N671
+   N672.YQ
+         0.858  pctofpgainterface_pportinterface_N580.G4
+         1.635  pctofpgainterface_fpgatosraminterface_addrreg_11.F1
+         1.400  N495.F4
+
+N672
+   N672.XQ
+         1.534  pctofpgainterface_pportinterface_N580.F1
+         1.829  pctofpgainterface_fpgatosraminterface_addrreg_10.F2
+         1.880  N501.F4
+
+N673
+   N674.YQ
+         1.112  pctofpgainterface_pportinterface_N560.G2
+         1.116  pctofpgainterface_fpgatosraminterface_addrreg_9.F2
+         0.962  pctofpgainterface_fpgatosraminterface_addrreg_18.G4
+
+N674
+   N674.XQ
+         1.047  pctofpgainterface_pportinterface_N560.F1
+         1.980  pctofpgainterface_fpgatosraminterface_addrreg_8.F1
+         1.946  N589.G1
+
+N675
+   N676.YQ
+         1.183  pctofpgainterface_pportinterface_N548.G2
+         2.026  pctofpgainterface_fpgatosraminterface_addrreg_7.F3
+         2.146  N501.G2
+
+N676
+   N676.XQ
+         1.320  pctofpgainterface_pportinterface_N548.F1
+         1.746  pctofpgainterface_fpgatosraminterface_addrreg_6.F1
+         1.637  N495.G2
+
+N677
+   N677.YQ
+         0.711  pctofpgainterface_pportinterface_N528.G2
+         1.281  pctofpgainterface_fpgatosraminterface_addrreg_5.F3
+         1.978  N489.G2
+
+N678
+   N678.YQ
+         1.481  pctofpgainterface_pportinterface_N528.F3
+         1.873  pctofpgainterface_fpgatosraminterface_addrreg_4.F3
+         1.876  N483.G2
+
+N679
+   N680.YQ
+         1.038  pctofpgainterface_pportinterface_N507.G4
+         2.080  pctofpgainterface_fpgatosraminterface_addrreg_3.F1
+         1.851  N531.G3
+
+N680
+   N680.XQ
+         1.322  pctofpgainterface_pportinterface_N507.F1
+         1.932  pctofpgainterface_fpgatosraminterface_addrreg_2.F3
+         2.507  N513.G2
+
+N681
+   pctofpgainterface_pportinterface_curaddrreg_0.YQ
+         1.450  pctofpgainterface_pportinterface_N497.G4
+         2.108  pctofpgainterface_fpgatosraminterface_addrreg_1.F3
+         2.000  N541.G3
+
+N688
+   pctofpgainterface_pportinterface_presstate_FFD9.Y
+         1.197  pctofpgainterface_pportinterface_I_21_LUT_37/O.G3
+
+alureadsram_prestate_FFD1
+   alureadsram_prestate_FFD2.YQ
+         1.095  alureadsram_prestate_FFD2.F3
+         1.021  alureadsram_prestate_FFD2.G4
+
+alureadsram_prestate_FFD2
+   alureadsram_prestate_FFD2.XQ
+         1.530  N470.G1
+         1.526  alureadsram_prestate_FFD2.F1
+         1.406  alureadsram_prestate_FFD3.F2
+
+alureadsram_prestate_FFD3
+   alureadsram_prestate_FFD3.XQ
+         1.392  alureadsram_prestate_FFD2.G1
+         1.065  alureadsram_prestate_FFD3.F3
+         1.085  alureadsram_prestate_FFD3.G4
+
+aluwritesram_prestate_FFD1
+   aluwritesram_prestate_FFD2.YQ
+         1.119  aluwritesram_prestate_FFD2.F4
+         1.198  aluwritesram_prestate_FFD2.G2
+
+aluwritesram_prestate_FFD2
+   aluwritesram_prestate_FFD2.XQ
+         1.651  N459.G4
+         1.765  pctofpgainterface_fpgatosraminterface_doingwrite1.G2
+         1.606  aluwritesram_prestate_FFD2.F2
+         1.166  aluwritesram_prestate_FFD3.G4
+
+aluwritesram_prestate_FFD3
+   aluwritesram_prestate_FFD3.YQ
+         0.790  aluwritesram_prestate_FFD2.G4
+         1.067  aluwritesram_prestate_FFD3.G3
+         1.061  pctofpgainterface_fpgatosraminterface_oen.G4
+
+clk_BUFGP
+   clk_BUFGP/BUFG.OUT
+         0.359  lcen.CLK
+         0.321  pctofpgainterface_pportinterface_presstate_FFD2.CLK
+         0.314  pctofpgainterface_pportinterface_presstate_FFD3.CLK
+         0.316  pctofpgainterface_pportinterface_presstate_FFD8.CLK
+         0.318  pctofpgainterface_pportinterface_presstate_FFD10.CLK
+         0.316  pctofpgainterface_fpgatosraminterface_doingwrite1.CLK
+         0.319  pctofpgainterface_fpgatosraminterface_presstate_FFD4.CLK
+         0.309  pctofpgainterface_fpgatosraminterface_addrreg_10.CLK
+         0.312  pctofpgainterface_fpgatosraminterface_addrreg_11.CLK
+         0.303  pctofpgainterface_fpgatosraminterface_addrreg_12.CLK
+         0.307  pctofpgainterface_fpgatosraminterface_addrreg_13.CLK
+         0.303  pctofpgainterface_fpgatosraminterface_addrreg_14.CLK
+         0.305  pctofpgainterface_fpgatosraminterface_addrreg_15.CLK
+         0.306  pctofpgainterface_fpgatosraminterface_addrreg_16.CLK
+         0.309  pctofpgainterface_fpgatosraminterface_addrreg_17.CLK
+         0.308  pctofpgainterface_fpgatosraminterface_addrreg_0.CLK
+         0.304  pctofpgainterface_fpgatosraminterface_addrreg_1.CLK
+         0.306  pctofpgainterface_fpgatosraminterface_addrreg_2.CLK
+         0.310  pctofpgainterface_fpgatosraminterface_addrreg_3.CLK
+         0.306  pctofpgainterface_fpgatosraminterface_addrreg_4.CLK
+         0.306  pctofpgainterface_fpgatosraminterface_addrreg_5.CLK
+         0.310  pctofpgainterface_fpgatosraminterface_addrreg_6.CLK
+         0.306  pctofpgainterface_fpgatosraminterface_addrreg_7.CLK
+         0.308  pctofpgainterface_fpgatosraminterface_addrreg_8.CLK
+         0.313  pctofpgainterface_fpgatosraminterface_addrreg_9.CLK
+         0.319  pctofpgainterface_fpgatosraminterface_writedatareg_11.CLK
+         0.319  pctofpgainterface_fpgatosraminterface_writedatareg_13.CLK
+         0.319  pctofpgainterface_fpgatosraminterface_writedatareg_15.CLK
+         0.316  pctofpgainterface_pportinterface_outslicenum_0.CLK
+         0.316  pctofpgainterface_pportinterface_outslicenum_1.CLK
+         0.312  pctofpgainterface_thememmultiplexor_presstate_2.CLK
+         0.315  pctofpgainterface_pportinterface_inslicenum_0_1.CLK
+         0.315  pctofpgainterface_pportinterface_inslicenum_1_1.CLK
+         0.318  pctofpgainterface_fpgatosraminterface_writedatareg_1.CLK
+         0.320  pctofpgainterface_fpgatosraminterface_writedatareg_3.CLK
+         0.320  pctofpgainterface_fpgatosraminterface_writedatareg_5.CLK
+         0.358  pctofpgainterface_fpgatosraminterface_writedatareg_7.CLK
+         0.316  pctofpgainterface_fpgatosraminterface_writedatareg_9.CLK
+         0.316  pctofpgainterface_pportinterface_presstate_FFD1.CLK
+         0.318  pctofpgainterface_pportinterface_writedatareg_13.CLK
+         0.319  pctofpgainterface_pportinterface_writedatareg_15.CLK
+         0.356  pctofpgainterface_pportinterface_presstate_FFD6.CLK
+         0.321  pctofpgainterface_pportinterface_presstate_FFD7.CLK
+         0.315  N672.CLK
+         0.310  N670.CLK
+         0.317  N668.CLK
+         0.324  N667.CLK
+         0.317  N666.CLK
+         0.323  N665.CLK
+         0.323  pctofpgainterface_pportinterface_curaddrreg_18.CLK
+         0.320  alureadsram_prestate_FFD2.CLK
+         0.312  pctofpgainterface_pportinterface_curaddrreg_0.CLK
+         0.311  N680.CLK
+         0.309  N678.CLK
+         0.312  N677.CLK
+         0.309  N676.CLK
+         0.314  N674.CLK
+         0.316  aluwritesram_prestate_FFD2.CLK
+         0.318  aluwritesram_prestate_FFD3.CLK
+         0.314  pctofpgainterface_pportinterface_presstate_FFD4.CLK
+         0.319  pctofpgainterface_fpgatosraminterface_presstate_FFD5.CLK
+         0.321  pctofpgainterface_pportinterface_syncread.CLK
+         0.316  pctofpgainterface_pportinterface_presstate_FFD9.CLK
+         0.321  pctofpgainterface_pportinterface_syncnextslice.CLK
+         0.358  pctofpgainterface_pportinterface_pccontrolenabled.CLK
+         0.318  pctofpgainterface_pportinterface_datainreg_1.CLK
+         0.323  pctofpgainterface_pportinterface_datainreg_3.CLK
+         0.319  pctofpgainterface_pportinterface_datainreg_4.CLK
+         0.325  pctofpgainterface_pportinterface_readdatareg_11.CLK
+         0.305  pctofpgainterface_pportinterface_readdatareg_13.CLK
+         0.325  pctofpgainterface_pportinterface_readdatareg_14.CLK
+         0.325  pctofpgainterface_pportinterface_readdatareg_15.CLK
+         0.319  pctofpgainterface_fpgatosraminterface_presstate_FFD1.CLK
+         0.323  pctofpgainterface_pportinterface_syncwrite_1.CLK
+         0.318  pctofpgainterface_fpgatosraminterface_oen.CLK
+         0.311  pctofpgainterface_pportinterface_syncinputs1_1.CLK
+         0.311  pctofpgainterface_pportinterface_syncinputs1_3.CLK
+         0.320  alureadsram_prestate_FFD3.CLK
+         0.317  pctofpgainterface_pportinterface_syncinputs2_1.CLK
+         0.304  pctofpgainterface_pportinterface_syncinputs1_4.CLK
+         0.305  pctofpgainterface_pportinterface_syncinputs1_5.CLK
+         0.346  pctofpgainterface_pportinterface_syncinputs2_3.CLK
+         0.305  pctofpgainterface_pportinterface_syncinputs1_7.CLK
+         0.316  pctofpgainterface_pportinterface_syncinputs3_1.CLK
+         0.359  pctofpgainterface_pportinterface_syncinputs2_5.CLK
+         0.317  pctofpgainterface_pportinterface_syncinputs3_3.CLK
+         0.358  pctofpgainterface_pportinterface_syncinputs2_7.CLK
+         0.323  pctofpgainterface_pportinterface_syncinputs3_5.CLK
+         0.319  pctofpgainterface_pportinterface_syncinputs3_6.CLK
+         0.322  pctofpgainterface_pportinterface_syncinputs3_7.CLK
+         1.321  N458.F1
+         1.317  N458.G1
+         0.324  pctofpgainterface_pportinterface_writedatareg_11.CLK
+         0.322  pctofpgainterface_pportinterface_syncwrite.CLK
+         0.311  pctofpgainterface_thememmultiplexor_presstate.CLK
+         0.316  pctofpgainterface_pportinterface_syncread_1.CLK
+         0.313  pctofpgainterface_fpgatosraminterface_addrreg_18.CLK
+         0.322  pctofpgainterface_pportinterface_syncnextslice_1.CLK
+         0.305  pctofpgainterface_pportinterface_readdatareg_1.CLK
+         0.305  pctofpgainterface_pportinterface_readdatareg_3.CLK
+         0.304  pctofpgainterface_pportinterface_readdatareg_5.CLK
+         0.305  pctofpgainterface_pportinterface_readdatareg_7.CLK
+         0.305  pctofpgainterface_pportinterface_readdatareg_9.CLK
+         0.318  pctofpgainterface_pportinterface_writedatareg_1.CLK
+         0.320  pctofpgainterface_pportinterface_writedatareg_3.CLK
+         0.320  pctofpgainterface_pportinterface_writedatareg_5.CLK
+         0.324  pctofpgainterface_pportinterface_writedatareg_7.CLK
+         0.318  pctofpgainterface_pportinterface_writedatareg_9.CLK
+
+clk_BUFGP/IBUFG
+   clk.GCLKOUT
+         0.006  clk_BUFGP/BUFG.IN
+
+din_0_IBUF
+   din<0>.I
+         1.333  pctofpgainterface_fpgatosraminterface_writedatareg_1.G4
+
+din_10_IBUF
+   din<10>.I
+         1.156  pctofpgainterface_fpgatosraminterface_writedatareg_11.G1
+
+din_11_IBUF
+   din<11>.I
+         1.213  pctofpgainterface_fpgatosraminterface_writedatareg_11.F2
+
+din_12_IBUF
+   din<12>.I
+         1.218  pctofpgainterface_fpgatosraminterface_writedatareg_13.G2
+
+din_13_IBUF
+   din<13>.I
+         1.055  pctofpgainterface_fpgatosraminterface_writedatareg_13.F1
+
+din_14_IBUF
+   din<14>.I
+         0.779  pctofpgainterface_fpgatosraminterface_writedatareg_15.G2
+
+din_15_IBUF
+   din<15>.I
+         1.210  pctofpgainterface_fpgatosraminterface_writedatareg_15.F1
+
+din_1_IBUF
+   din<1>.I
+         1.473  pctofpgainterface_fpgatosraminterface_writedatareg_1.F4
+
+din_2_IBUF
+   din<2>.I
+         1.382  pctofpgainterface_fpgatosraminterface_writedatareg_3.G2
+
+din_3_IBUF
+   din<3>.I
+         1.622  pctofpgainterface_fpgatosraminterface_writedatareg_3.F1
+
+din_4_IBUF
+   din<4>.I
+         1.894  pctofpgainterface_fpgatosraminterface_writedatareg_5.G2
+
+din_5_IBUF
+   din<5>.I
+         1.807  pctofpgainterface_fpgatosraminterface_writedatareg_5.F4
+
+din_6_IBUF
+   din<6>.I
+         1.599  pctofpgainterface_fpgatosraminterface_writedatareg_7.G2
+
+din_7_IBUF
+   din<7>.I
+         1.337  pctofpgainterface_fpgatosraminterface_writedatareg_7.F4
+
+din_8_IBUF
+   din<8>.I
+         0.906  pctofpgainterface_fpgatosraminterface_writedatareg_9.G1
+
+din_9_IBUF
+   din<9>.I
+         0.933  pctofpgainterface_fpgatosraminterface_writedatareg_9.F1
+
+dout_0_OBUF
+   ldata<0>.I
+         1.461  dout<0>.O
+         1.983  pctofpgainterface_pportinterface_readdatareg_1.BY
+
+dout_10_OBUF
+   ldata<10>.I
+         1.299  dout<10>.O
+         1.407  pctofpgainterface_pportinterface_readdatareg_11.BY
+
+dout_11_OBUF
+   ldata<11>.I
+         1.443  dout<11>.O
+         1.403  pctofpgainterface_pportinterface_readdatareg_11.BX
+
+dout_12_OBUF
+   ldata<12>.I
+         1.313  dout<12>.O
+         1.244  pctofpgainterface_pportinterface_readdatareg_13.BY
+
+dout_13_OBUF
+   ldata<13>.I
+         1.307  dout<13>.O
+         1.673  pctofpgainterface_pportinterface_readdatareg_13.BX
+
+dout_14_OBUF
+   ldata<14>.I
+         1.113  dout<14>.O
+         1.262  pctofpgainterface_pportinterface_readdatareg_14.BY
+
+dout_15_OBUF
+   ldata<15>.I
+         1.589  dout<15>.O
+         1.084  pctofpgainterface_pportinterface_readdatareg_15.BY
+
+dout_1_OBUF
+   ldata<1>.I
+         2.382  dout<1>.O
+         1.999  pctofpgainterface_pportinterface_readdatareg_1.BX
+
+dout_2_OBUF
+   ldata<2>.I
+         1.779  dout<2>.O
+         1.992  pctofpgainterface_pportinterface_readdatareg_3.BY
+
+dout_3_OBUF
+   ldata<3>.I
+         1.759  dout<3>.O
+         2.421  pctofpgainterface_pportinterface_readdatareg_3.BX
+
+dout_4_OBUF
+   ldata<4>.I
+         1.958  dout<4>.O
+         1.175  pctofpgainterface_pportinterface_readdatareg_5.BY
+
+dout_5_OBUF
+   ldata<5>.I
+         1.039  dout<5>.O
+         1.469  pctofpgainterface_pportinterface_readdatareg_5.BX
+
+dout_6_OBUF
+   ldata<6>.I
+         0.996  dout<6>.O
+         1.595  pctofpgainterface_pportinterface_readdatareg_7.BY
+
+dout_7_OBUF
+   ldata<7>.I
+         1.307  dout<7>.O
+         1.290  pctofpgainterface_pportinterface_readdatareg_7.BX
+
+dout_8_OBUF
+   ldata<8>.I
+         1.099  dout<8>.O
+         2.360  pctofpgainterface_pportinterface_readdatareg_9.BY
+
+dout_9_OBUF
+   ldata<9>.I
+         1.646  dout<9>.O
+         1.374  pctofpgainterface_pportinterface_readdatareg_9.BX
+
+lwen_OBUF
+   N458.Y
+         1.210  lwen.O
+
+memrd_IBUF
+   memrd.I
+         1.240  alureadsram_prestate_FFD2.F2
+         1.231  alureadsram_prestate_FFD2.G2
+
+memwr_IBUF
+   memwr.I
+         1.786  aluwritesram_prestate_FFD2.F1
+         1.782  aluwritesram_prestate_FFD2.G1
+
+pctofpgainterface_fpgatosraminterface_addrreg_0
+   pctofpgainterface_fpgatosraminterface_addrreg_0.YQ
+         1.539  laddr<0>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_1
+   pctofpgainterface_fpgatosraminterface_addrreg_1.YQ
+         1.348  laddr<1>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_10
+   pctofpgainterface_fpgatosraminterface_addrreg_10.YQ
+         1.339  laddr<10>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_11
+   pctofpgainterface_fpgatosraminterface_addrreg_11.YQ
+         2.127  laddr<11>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_12
+   pctofpgainterface_fpgatosraminterface_addrreg_12.YQ
+         1.065  laddr<12>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_13
+   pctofpgainterface_fpgatosraminterface_addrreg_13.YQ
+         1.339  laddr<13>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_14
+   pctofpgainterface_fpgatosraminterface_addrreg_14.YQ
+         1.413  laddr<14>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_15
+   pctofpgainterface_fpgatosraminterface_addrreg_15.YQ
+         1.413  laddr<15>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_16
+   pctofpgainterface_fpgatosraminterface_addrreg_16.YQ
+         1.522  laddr<16>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_17
+   pctofpgainterface_fpgatosraminterface_addrreg_17.YQ
+         1.685  laddr<17>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_18
+   pctofpgainterface_fpgatosraminterface_addrreg_18.XQ
+         1.157  laddr<18>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_2
+   pctofpgainterface_fpgatosraminterface_addrreg_2.YQ
+         0.587  laddr<2>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_3
+   pctofpgainterface_fpgatosraminterface_addrreg_3.YQ
+         1.480  laddr<3>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_4
+   pctofpgainterface_fpgatosraminterface_addrreg_4.YQ
+         1.073  laddr<4>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_5
+   pctofpgainterface_fpgatosraminterface_addrreg_5.YQ
+         1.595  laddr<5>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_6
+   pctofpgainterface_fpgatosraminterface_addrreg_6.YQ
+         1.157  laddr<6>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_7
+   pctofpgainterface_fpgatosraminterface_addrreg_7.YQ
+         1.512  laddr<7>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_8
+   pctofpgainterface_fpgatosraminterface_addrreg_8.YQ
+         1.076  laddr<8>.O
+
+pctofpgainterface_fpgatosraminterface_addrreg_9
+   pctofpgainterface_fpgatosraminterface_addrreg_9.YQ
+         1.531  laddr<9>.O
+
+pctofpgainterface_fpgatosraminterface_doingwrite1
+   pctofpgainterface_fpgatosraminterface_doingwrite1.XQ
+         1.021  pctofpgainterface_fpgatosraminterface_doingwrite1.BY
+         1.344  pctofpgainterface_fpgatosraminterface_oen.F3
+         1.612  N458.F4
+         1.454  N458.G4
+
+pctofpgainterface_fpgatosraminterface_doingwrite2
+   pctofpgainterface_fpgatosraminterface_doingwrite1.YQ
+         1.357  N459.F3
+         1.272  N459.G3
+         1.054  N470.F3
+         1.017  N470.G3
+         1.305  pctofpgainterface_fpgatosraminterface_doingwrite1.F4
+         1.239  pctofpgainterface_fpgatosraminterface_doingwrite1.G4
+         1.643  pctofpgainterface_pportinterface_I_dosramwrite_1.F3
+         1.612  N626.F3
+         1.662  pctofpgainterface_fpgatosraminterface_presstate_FFD4.F1
+         1.567  N458.F3
+         1.609  N458.G3
+         1.580  pctofpgainterface_pportinterface_N708.G1
+
+pctofpgainterface_fpgatosraminterface_oen
+   pctofpgainterface_fpgatosraminterface_oen.XQ
+         1.402  loen.O
+
+pctofpgainterface_fpgatosraminterface_presstate_FFD1
+   pctofpgainterface_fpgatosraminterface_presstate_FFD1.XQ
+         1.591  N459.F2
+         1.587  N459.G2
+         1.096  N470.F2
+         1.092  N470.G2
+         1.499  pctofpgainterface_fpgatosraminterface_doingwrite1.F3
+         1.672  pctofpgainterface_fpgatosraminterface_doingwrite1.G1
+         1.680  pctofpgainterface_pportinterface_I_dosramwrite_1.F1
+         1.472  N626.F4
+         1.465  pctofpgainterface_fpgatosraminterface_presstate_FFD4.F2
+         1.448  pctofpgainterface_pportinterface_N708.G4
+
+pctofpgainterface_fpgatosraminterface_presstate_FFD4
+   pctofpgainterface_fpgatosraminterface_presstate_FFD4.YQ
+         0.791  pctofpgainterface_fpgatosraminterface_presstate_FFD5.BY
+
+pctofpgainterface_fpgatosraminterface_presstate_FFD5
+   pctofpgainterface_fpgatosraminterface_presstate_FFD5.YQ
+         2.696  N459.F1
+         2.677  N459.G1
+         2.063  N470.F4
+         2.013  N470.G4
+         2.529  pctofpgainterface_fpgatosraminterface_doingwrite1.F1
+         2.263  pctofpgainterface_fpgatosraminterface_doingwrite1.G3
+         1.916  pctofpgainterface_pportinterface_I_dosramwrite_1.F4
+         2.009  N626.F2
+         1.633  pctofpgainterface_fpgatosraminterface_presstate_FFD4.F4
+         2.390  pctofpgainterface_pportinterface_N708.G2
+
+pctofpgainterface_fpgatosraminterface_writedatareg_0
+   pctofpgainterface_fpgatosraminterface_writedatareg_1.YQ
+         2.310  ldata<0>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_1
+   pctofpgainterface_fpgatosraminterface_writedatareg_1.XQ
+         1.923  ldata<1>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_10
+   pctofpgainterface_fpgatosraminterface_writedatareg_11.YQ
+         1.238  ldata<10>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_11
+   pctofpgainterface_fpgatosraminterface_writedatareg_11.XQ
+         0.901  ldata<11>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_12
+   pctofpgainterface_fpgatosraminterface_writedatareg_13.YQ
+         1.243  ldata<12>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_13
+   pctofpgainterface_fpgatosraminterface_writedatareg_13.XQ
+         1.276  ldata<13>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_14
+   pctofpgainterface_fpgatosraminterface_writedatareg_15.YQ
+         1.222  ldata<14>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_15
+   pctofpgainterface_fpgatosraminterface_writedatareg_15.XQ
+         0.913  ldata<15>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_2
+   pctofpgainterface_fpgatosraminterface_writedatareg_3.YQ
+         1.865  ldata<2>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_3
+   pctofpgainterface_fpgatosraminterface_writedatareg_3.XQ
+         1.658  ldata<3>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_4
+   pctofpgainterface_fpgatosraminterface_writedatareg_5.YQ
+         1.774  ldata<4>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_5
+   pctofpgainterface_fpgatosraminterface_writedatareg_5.XQ
+         2.017  ldata<5>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_6
+   pctofpgainterface_fpgatosraminterface_writedatareg_7.YQ
+         1.477  ldata<6>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_7
+   pctofpgainterface_fpgatosraminterface_writedatareg_7.XQ
+         1.622  ldata<7>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_8
+   pctofpgainterface_fpgatosraminterface_writedatareg_9.YQ
+         2.328  ldata<8>.O
+
+pctofpgainterface_fpgatosraminterface_writedatareg_9
+   pctofpgainterface_fpgatosraminterface_writedatareg_9.XQ
+         1.648  ldata<9>.O
+
+pctofpgainterface_pportinterface_I_17_LUT_68/O
+   pctofpgainterface_pportinterface_I_17_LUT_68/O.X
+         0.025  pctofpgainterface_pportinterface_I_17_LUT_68/O.G4
+
+pctofpgainterface_pportinterface_I_21_LUT_37/O
+   pctofpgainterface_pportinterface_I_21_LUT_37/O.X
+         0.025  pctofpgainterface_pportinterface_I_21_LUT_37/O.G4
+
+pctofpgainterface_pportinterface_I_XXL_337_1
+   pctofpgainterface_pportinterface_I_XXL_337_1.X
+         2.014  pctofpgainterface_pportinterface_N6481.BX
+         1.821  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.G2
+         1.937  N672.F1
+         2.338  N672.G4
+         2.411  N670.F4
+         2.488  N670.G2
+         2.535  N668.G2
+         2.283  N666.F2
+         1.888  pctofpgainterface_pportinterface_curaddrreg_0.F1
+         1.653  pctofpgainterface_pportinterface_curaddrreg_0.G3
+         1.432  N680.F4
+         1.624  N680.G3
+         2.120  N6049.G3
+         2.319  N6045.G1
+         2.339  N6037.G2
+         0.917  N6078.G2
+
+pctofpgainterface_pportinterface_I__n0030_1
+   pctofpgainterface_pportinterface_N382.Y
+         2.430  pctofpgainterface_pportinterface_writedatareg_13.SR
+         2.300  pctofpgainterface_pportinterface_writedatareg_15.SR
+         3.617  N672.SR
+         3.405  N670.SR
+         3.609  N668.SR
+         3.651  N667.SR
+         3.684  N666.SR
+         3.719  N665.SR
+         3.723  pctofpgainterface_pportinterface_curaddrreg_18.SR
+         3.860  pctofpgainterface_pportinterface_curaddrreg_0.SR
+         3.551  N680.SR
+         3.700  N678.SR
+         3.741  N677.SR
+         3.823  N676.SR
+         3.501  N674.SR
+         2.292  pctofpgainterface_pportinterface_syncread.SR
+         2.292  pctofpgainterface_pportinterface_syncnextslice.SR
+         3.455  pctofpgainterface_pportinterface_pccontrolenabled.SR
+         1.555  pctofpgainterface_pportinterface_datainreg_4.SR
+         2.169  pctofpgainterface_pportinterface_readdatareg_15.SR
+         1.110  pctofpgainterface_pportinterface_syncinputs1_1.SR
+         1.493  pctofpgainterface_pportinterface_syncinputs1_3.SR
+         1.589  pctofpgainterface_pportinterface_syncinputs1_4.SR
+         0.681  pctofpgainterface_pportinterface_syncinputs2_5.SR
+         0.699  pctofpgainterface_pportinterface_syncinputs2_7.SR
+         1.039  pctofpgainterface_pportinterface_syncinputs3_7.SR
+         2.187  pctofpgainterface_pportinterface_writedatareg_11.SR
+         1.742  pctofpgainterface_pportinterface_syncwrite.SR
+         2.215  pctofpgainterface_pportinterface_writedatareg_1.SR
+         1.696  pctofpgainterface_pportinterface_writedatareg_3.SR
+         2.242  pctofpgainterface_pportinterface_writedatareg_5.SR
+         1.853  pctofpgainterface_pportinterface_writedatareg_7.SR
+         2.142  pctofpgainterface_pportinterface_writedatareg_9.SR
+
+pctofpgainterface_pportinterface_I_dosramwrite_1
+   pctofpgainterface_pportinterface_I_dosramwrite_1.X
+         1.638  pctofpgainterface_pportinterface_N6341.G1
+         1.672  pctofpgainterface_pportinterface_N6621.G1
+         0.846  pctofpgainterface_pportinterface_N612.BX
+         0.082  pctofpgainterface_pportinterface_I_dosramwrite_1.G4
+         1.271  pctofpgainterface_pportinterface_N450.G1
+         1.496  N667.G3
+         1.417  N666.F4
+         1.676  pctofpgainterface_pportinterface_curaddrreg_18.F1
+         1.056  N680.G4
+         1.705  N678.G2
+         1.555  N677.G4
+         1.407  N676.F3
+         1.370  N676.G3
+         1.870  N674.G3
+         1.554  N6049.G2
+         1.754  N6037.G1
+
+pctofpgainterface_pportinterface_I_regcuraddr_SW1/O
+   pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.X
+         0.025  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.G4
+
+pctofpgainterface_pportinterface_I_regcuraddr_SW3/O
+   pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.X
+         0.025  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.G4
+
+pctofpgainterface_pportinterface_I_regcuraddr_SW5/O
+   pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.X
+         0.025  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.G4
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_11
+   pctofpgainterface_pportinterface_N548.COUT
+         0.000  pctofpgainterface_pportinterface_N560.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_13
+   pctofpgainterface_pportinterface_N560.COUT
+         0.000  pctofpgainterface_pportinterface_N580.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_15
+   pctofpgainterface_pportinterface_N580.COUT
+         0.000  pctofpgainterface_pportinterface_N592.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_17
+   pctofpgainterface_pportinterface_N592.COUT
+         0.000  pctofpgainterface_pportinterface_N604.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_19
+   pctofpgainterface_pportinterface_N604.COUT
+         0.000  pctofpgainterface_pportinterface_N634.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_21
+   pctofpgainterface_pportinterface_N634.COUT
+         0.000  pctofpgainterface_pportinterface_N662.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_5
+   pctofpgainterface_pportinterface_N497.COUT
+         0.000  pctofpgainterface_pportinterface_N507.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_7
+   pctofpgainterface_pportinterface_N507.COUT
+         0.000  pctofpgainterface_pportinterface_N528.CIN
+
+pctofpgainterface_pportinterface_Madd__n0000_inst_cy_9
+   pctofpgainterface_pportinterface_N528.COUT
+         0.000  pctofpgainterface_pportinterface_N548.CIN
+
+pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1
+   pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.COUT
+         0.000  pctofpgainterface_pportinterface_N357.CIN
+
+pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1
+   pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.COUT
+         0.000  pctofpgainterface_pportinterface_N359.CIN
+
+pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1
+   pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.COUT
+         0.000  pctofpgainterface_pportinterface_N674.CIN
+
+pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1
+   pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.COUT
+         0.000  pctofpgainterface_pportinterface_N676.CIN
+
+pctofpgainterface_pportinterface_N357
+   pctofpgainterface_pportinterface_N357.COUT
+         1.227  pctofpgainterface_pportinterface_N361.G3
+
+pctofpgainterface_pportinterface_N359
+   pctofpgainterface_pportinterface_N359.COUT
+         1.295  pctofpgainterface_pportinterface_N361.G2
+
+pctofpgainterface_pportinterface_N361
+   pctofpgainterface_pportinterface_N361.Y
+         1.898  pctofpgainterface_pportinterface_mysyncdata_1.CLK
+         1.926  pctofpgainterface_pportinterface_mysyncdata_3.CLK
+         0.966  pctofpgainterface_pportinterface_mysyncdata_5.CLK
+         1.841  pctofpgainterface_pportinterface_mysyncdata_7.CLK
+
+pctofpgainterface_pportinterface_N372
+   pctofpgainterface_pportinterface_N372.Y
+         0.657  pctofpgainterface_pportinterface_N382.G1
+         0.372  pctofpgainterface_pportinterface_N384.G4
+
+pctofpgainterface_pportinterface_N382
+   pctofpgainterface_pportinterface_N382.X
+         0.025  pctofpgainterface_pportinterface_N382.G4
+         0.310  pctofpgainterface_pportinterface_N384.G1
+
+pctofpgainterface_pportinterface_N384
+   pctofpgainterface_pportinterface_N384.Y
+         2.866  pctofpgainterface_pportinterface_presstate_FFD2.SR
+         2.862  pctofpgainterface_pportinterface_presstate_FFD3.SR
+         3.228  pctofpgainterface_pportinterface_presstate_FFD8.SR
+         3.185  pctofpgainterface_pportinterface_presstate_FFD10.SR
+         3.234  pctofpgainterface_pportinterface_outslicenum_0.SR
+         2.876  pctofpgainterface_pportinterface_outslicenum_1.SR
+         2.861  pctofpgainterface_pportinterface_inslicenum_0_1.SR
+         2.861  pctofpgainterface_pportinterface_inslicenum_1_1.SR
+         2.846  pctofpgainterface_pportinterface_presstate_FFD1.SR
+         3.013  pctofpgainterface_pportinterface_presstate_FFD6.SR
+         3.153  pctofpgainterface_pportinterface_presstate_FFD7.SR
+         3.021  pctofpgainterface_pportinterface_presstate_FFD4.SR
+         3.228  pctofpgainterface_pportinterface_presstate_FFD9.SR
+         1.963  pctofpgainterface_pportinterface_datainreg_1.SR
+         1.996  pctofpgainterface_pportinterface_datainreg_3.SR
+         2.426  pctofpgainterface_pportinterface_readdatareg_11.SR
+         2.037  pctofpgainterface_pportinterface_readdatareg_13.SR
+         2.426  pctofpgainterface_pportinterface_readdatareg_14.SR
+         1.455  pctofpgainterface_pportinterface_syncwrite_1.SR
+         1.654  pctofpgainterface_pportinterface_syncinputs2_1.SR
+         1.250  pctofpgainterface_pportinterface_syncinputs1_5.SR
+         1.366  pctofpgainterface_pportinterface_syncinputs2_3.SR
+         1.293  pctofpgainterface_pportinterface_syncinputs1_7.SR
+         1.654  pctofpgainterface_pportinterface_syncinputs3_1.SR
+         1.609  pctofpgainterface_pportinterface_syncinputs3_3.SR
+         0.753  pctofpgainterface_pportinterface_syncinputs3_5.SR
+         0.962  pctofpgainterface_pportinterface_syncinputs3_6.SR
+         1.736  pctofpgainterface_pportinterface_syncread_1.SR
+         2.047  pctofpgainterface_pportinterface_syncnextslice_1.SR
+         2.493  pctofpgainterface_pportinterface_readdatareg_1.SR
+         3.102  pctofpgainterface_pportinterface_readdatareg_3.SR
+         3.104  pctofpgainterface_pportinterface_readdatareg_5.SR
+         2.458  pctofpgainterface_pportinterface_readdatareg_7.SR
+         3.063  pctofpgainterface_pportinterface_readdatareg_9.SR
+
+pctofpgainterface_pportinterface_N392
+   N6030.Y
+         0.796  pctofpgainterface_pportinterface_I_17_LUT_68/O.F2
+
+pctofpgainterface_pportinterface_N397
+   pctofpgainterface_pportinterface_N397.X
+         0.324  pctofpgainterface_pportinterface_N405.G1
+         0.933  pctofpgainterface_pportinterface_N413.G1
+
+pctofpgainterface_pportinterface_N405
+   pctofpgainterface_pportinterface_N405.X
+         0.039  pctofpgainterface_pportinterface_N405.G4
+         0.661  pctofpgainterface_pportinterface_N413.G4
+
+pctofpgainterface_pportinterface_N407
+   pctofpgainterface_pportinterface_N405.Y
+         1.358  pctofpgainterface_pportinterface_writedatareg_13.CE
+         1.219  pctofpgainterface_pportinterface_writedatareg_15.CE
+
+pctofpgainterface_pportinterface_N409
+   N6135.Y
+         1.099  pctofpgainterface_pportinterface_writedatareg_1.CE
+         0.994  pctofpgainterface_pportinterface_writedatareg_3.CE
+
+pctofpgainterface_pportinterface_N413
+   pctofpgainterface_pportinterface_N413.Y
+         1.249  pctofpgainterface_pportinterface_writedatareg_5.CE
+         1.690  pctofpgainterface_pportinterface_writedatareg_7.CE
+
+pctofpgainterface_pportinterface_N417
+   N6125.Y
+         1.536  pctofpgainterface_pportinterface_writedatareg_11.CE
+         0.976  pctofpgainterface_pportinterface_writedatareg_9.CE
+
+pctofpgainterface_pportinterface_N444
+   pctofpgainterface_pportinterface_N444.Y
+         0.862  pctofpgainterface_pportinterface_N450.G3
+         0.708  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.F4
+
+pctofpgainterface_pportinterface_N450
+   pctofpgainterface_pportinterface_N450.X
+         0.422  pctofpgainterface_pportinterface_N612.G4
+         1.255  pctofpgainterface_pportinterface_I_dosramwrite_1.G3
+         1.249  N626.G2
+         0.096  pctofpgainterface_pportinterface_N450.G4
+         1.465  pctofpgainterface_pportinterface_I_17_LUT_68/O.F1
+         0.995  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.F2
+         1.129  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.F1
+         0.711  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.F1
+
+pctofpgainterface_pportinterface_N457
+   pctofpgainterface_pportinterface_N825.Y
+         0.424  pctofpgainterface_pportinterface_I_17_LUT_68/O.F3
+
+pctofpgainterface_pportinterface_N464
+   pctofpgainterface_pportinterface_N464.X
+         0.039  pctofpgainterface_pportinterface_N464.G4
+         1.524  pctofpgainterface_pportinterface_presstate_FFD9.F3
+
+pctofpgainterface_pportinterface_N466
+   pctofpgainterface_pportinterface_N466.X
+         0.839  pctofpgainterface_pportinterface_N612.G3
+         1.084  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.G3
+         1.322  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.G1
+         1.001  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.G1
+
+pctofpgainterface_pportinterface_N4661
+   pctofpgainterface_pportinterface_I_dosramwrite_1.Y
+         1.282  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.G1
+
+pctofpgainterface_pportinterface_N46611
+   N626.Y
+         1.015  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.G3
+
+pctofpgainterface_pportinterface_N46612
+   pctofpgainterface_pportinterface_N450.Y
+         0.512  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.G2
+
+pctofpgainterface_pportinterface_N479
+   pctofpgainterface_pportinterface_N479.X
+         1.849  pctofpgainterface_pportinterface_N6341.BX
+         1.853  pctofpgainterface_pportinterface_N6621.BX
+         2.231  pctofpgainterface_pportinterface_N612.G2
+         1.494  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.F4
+         1.458  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.F4
+         2.480  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.G2
+         2.143  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.F3
+         2.106  pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.G3
+         2.023  N667.G2
+         2.560  N665.F2
+         1.713  pctofpgainterface_pportinterface_curaddrreg_18.F2
+         2.362  N678.G4
+         2.280  N677.G3
+         2.432  N676.F2
+         2.230  N676.G4
+         2.460  N674.F4
+         2.624  N674.G2
+
+pctofpgainterface_pportinterface_N481
+   pctofpgainterface_pportinterface_I_regcuraddr_SW5/O.Y
+         0.988  pctofpgainterface_pportinterface_curaddrreg_0.CE
+         0.895  N680.CE
+         1.179  N678.CE
+
+pctofpgainterface_pportinterface_N497
+   pctofpgainterface_pportinterface_N497.Y
+         0.988  pctofpgainterface_pportinterface_curaddrreg_0.G2
+
+pctofpgainterface_pportinterface_N507
+   pctofpgainterface_pportinterface_N507.X
+         0.314  N680.F1
+
+pctofpgainterface_pportinterface_N517
+   pctofpgainterface_pportinterface_N507.Y
+         0.175  N680.G2
+
+pctofpgainterface_pportinterface_N528
+   pctofpgainterface_pportinterface_N528.X
+         0.775  N678.G3
+
+pctofpgainterface_pportinterface_N535
+   N6141.Y
+         1.121  N626.G3
+         0.886  pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.F3
+
+pctofpgainterface_pportinterface_N540
+   pctofpgainterface_pportinterface_I_regcuraddr_SW3/O.Y
+         0.982  N677.CE
+         0.858  N676.CE
+         1.339  N674.CE
+
+pctofpgainterface_pportinterface_N542
+   pctofpgainterface_pportinterface_N528.Y
+         0.918  N677.G1
+
+pctofpgainterface_pportinterface_N548
+   pctofpgainterface_pportinterface_N548.X
+         0.314  N676.F1
+
+pctofpgainterface_pportinterface_N554
+   pctofpgainterface_pportinterface_N548.Y
+         0.175  N676.G2
+
+pctofpgainterface_pportinterface_N560
+   pctofpgainterface_pportinterface_N560.X
+         0.424  N674.F3
+
+pctofpgainterface_pportinterface_N566
+   pctofpgainterface_pportinterface_N560.Y
+         0.362  N674.G4
+
+pctofpgainterface_pportinterface_N573
+   pctofpgainterface_pportinterface_N785.Y
+         1.520  pctofpgainterface_pportinterface_I_dosramwrite_1.G1
+         1.254  pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.F1
+
+pctofpgainterface_pportinterface_N578
+   pctofpgainterface_pportinterface_I_regcuraddr_SW1/O.Y
+         1.018  N672.CE
+         1.155  N670.CE
+         0.929  N668.CE
+
+pctofpgainterface_pportinterface_N580
+   pctofpgainterface_pportinterface_N580.X
+         0.801  N672.F2
+
+pctofpgainterface_pportinterface_N586
+   pctofpgainterface_pportinterface_N580.Y
+         0.920  N672.G1
+
+pctofpgainterface_pportinterface_N592
+   pctofpgainterface_pportinterface_N592.X
+         0.678  N670.F3
+
+pctofpgainterface_pportinterface_N598
+   pctofpgainterface_pportinterface_N592.Y
+         0.666  N670.G4
+
+pctofpgainterface_pportinterface_N604
+   pctofpgainterface_pportinterface_N604.X
+         1.144  N668.G3
+
+pctofpgainterface_pportinterface_N612
+   pctofpgainterface_pportinterface_N612.X
+         1.443  N667.CE
+         1.003  N666.CE
+         1.046  N665.CE
+         1.031  pctofpgainterface_pportinterface_curaddrreg_18.CE
+
+pctofpgainterface_pportinterface_N620
+   pctofpgainterface_pportinterface_N604.Y
+         1.076  N667.G1
+
+pctofpgainterface_pportinterface_N634
+   pctofpgainterface_pportinterface_N634.X
+         1.458  N666.G1
+
+pctofpgainterface_pportinterface_N6340
+   N666.X
+         0.025  N666.G4
+
+pctofpgainterface_pportinterface_N6341
+   pctofpgainterface_pportinterface_N6341.X
+         0.669  N666.G3
+
+pctofpgainterface_pportinterface_N643
+   N6037.Y
+         0.175  N666.G2
+
+pctofpgainterface_pportinterface_N648
+   pctofpgainterface_pportinterface_N634.Y
+         1.446  N665.G3
+
+pctofpgainterface_pportinterface_N6480
+   N665.X
+         0.025  N665.G4
+
+pctofpgainterface_pportinterface_N6481
+   pctofpgainterface_pportinterface_N6481.X
+         0.512  N665.G2
+
+pctofpgainterface_pportinterface_N657
+   N6045.Y
+         0.647  N665.G1
+
+pctofpgainterface_pportinterface_N662
+   pctofpgainterface_pportinterface_N662.X
+         1.477  pctofpgainterface_pportinterface_curaddrreg_18.G1
+
+pctofpgainterface_pportinterface_N6620
+   pctofpgainterface_pportinterface_curaddrreg_18.X
+         0.025  pctofpgainterface_pportinterface_curaddrreg_18.G4
+
+pctofpgainterface_pportinterface_N6621
+   pctofpgainterface_pportinterface_N6621.X
+         0.512  pctofpgainterface_pportinterface_curaddrreg_18.G2
+
+pctofpgainterface_pportinterface_N671
+   N6049.Y
+         0.848  pctofpgainterface_pportinterface_curaddrreg_18.G3
+
+pctofpgainterface_pportinterface_N674
+   pctofpgainterface_pportinterface_N674.COUT
+         1.617  pctofpgainterface_pportinterface_N678.G1
+
+pctofpgainterface_pportinterface_N676
+   pctofpgainterface_pportinterface_N676.COUT
+         0.871  pctofpgainterface_pportinterface_N678.G2
+
+pctofpgainterface_pportinterface_N678
+   pctofpgainterface_pportinterface_N678.Y
+         1.232  pctofpgainterface_pportinterface_syncread.CE
+         1.232  pctofpgainterface_pportinterface_syncnextslice.CE
+         1.103  pctofpgainterface_pportinterface_datainreg_1.CE
+         1.177  pctofpgainterface_pportinterface_datainreg_3.CE
+         0.851  pctofpgainterface_pportinterface_datainreg_4.CE
+         1.024  pctofpgainterface_pportinterface_syncwrite_1.CE
+         1.208  pctofpgainterface_pportinterface_syncwrite.CE
+         1.173  pctofpgainterface_pportinterface_syncread_1.CE
+         1.208  pctofpgainterface_pportinterface_syncnextslice_1.CE
+
+pctofpgainterface_pportinterface_N682
+   pctofpgainterface_pportinterface_N708.Y
+         2.212  pctofpgainterface_pportinterface_outslicenum_0.G3
+         2.379  pctofpgainterface_pportinterface_outslicenum_1.F2
+         2.024  pctofpgainterface_pportinterface_presstate_FFD7.G1
+         1.132  N6078.G3
+         2.814  pctofpgainterface_pportinterface_readdatareg_11.CE
+         3.042  pctofpgainterface_pportinterface_readdatareg_13.CE
+         2.813  pctofpgainterface_pportinterface_readdatareg_14.CE
+         1.920  pctofpgainterface_pportinterface_readdatareg_15.CE
+         3.063  pctofpgainterface_pportinterface_readdatareg_1.CE
+         2.203  pctofpgainterface_pportinterface_readdatareg_3.CE
+         2.281  pctofpgainterface_pportinterface_readdatareg_5.CE
+         3.009  pctofpgainterface_pportinterface_readdatareg_7.CE
+         2.229  pctofpgainterface_pportinterface_readdatareg_9.CE
+
+pctofpgainterface_pportinterface_N685
+   N6082.Y
+         0.934  pctofpgainterface_pportinterface_pccontrolenabled.CE
+
+pctofpgainterface_pportinterface_N688
+   pctofpgainterface_pportinterface_N688.X
+         0.881  pctofpgainterface_pportinterface_I_17_LUT_68/O.F4
+
+pctofpgainterface_pportinterface_N698
+   pctofpgainterface_pportinterface_N688.Y
+         0.175  pctofpgainterface_pportinterface_I_21_LUT_37/O.G2
+
+pctofpgainterface_pportinterface_N708
+   pctofpgainterface_pportinterface_N708.X
+         0.921  pctofpgainterface_pportinterface_I_21_LUT_37/O.G1
+
+pctofpgainterface_pportinterface_N711
+   pctofpgainterface_pportinterface_I_21_LUT_37/O.Y
+         1.105  pctofpgainterface_pportinterface_I_17_LUT_68/O.G1
+         1.181  pctofpgainterface_pportinterface_inslicenum_0_1.G2
+         0.965  pctofpgainterface_pportinterface_inslicenum_1_1.G4
+
+pctofpgainterface_pportinterface_N717
+   pctofpgainterface_pportinterface_N464.Y
+         0.837  pctofpgainterface_pportinterface_I_17_LUT_68/O.G2
+         0.840  pctofpgainterface_pportinterface_inslicenum_0_1.G3
+         1.047  pctofpgainterface_pportinterface_inslicenum_1_1.G2
+
+pctofpgainterface_pportinterface_N727
+   pctofpgainterface_pportinterface_N727.X
+         0.861  pctofpgainterface_pportinterface_I_17_LUT_68/O.G3
+         1.011  pctofpgainterface_pportinterface_inslicenum_0_1.G1
+         0.715  pctofpgainterface_pportinterface_inslicenum_1_1.G3
+
+pctofpgainterface_pportinterface_N731
+   pctofpgainterface_pportinterface_I_17_LUT_68/O.Y
+         0.827  pctofpgainterface_pportinterface_inslicenum_0_1.CE
+         0.839  pctofpgainterface_pportinterface_inslicenum_1_1.CE
+
+pctofpgainterface_pportinterface_N734
+   pctofpgainterface_pportinterface_inslicenum_0_1.Y
+         0.634  pctofpgainterface_pportinterface_inslicenum_0_1.BX
+
+pctofpgainterface_pportinterface_N761
+   pctofpgainterface_pportinterface_presstate_FFD7.X
+         0.025  pctofpgainterface_pportinterface_presstate_FFD7.G4
+
+pctofpgainterface_pportinterface_N772
+   pctofpgainterface_pportinterface_outslicenum_0.X
+         0.040  pctofpgainterface_pportinterface_outslicenum_0.G4
+         0.329  pctofpgainterface_pportinterface_outslicenum_1.F1
+         1.516  pctofpgainterface_pportinterface_presstate_FFD6.G1
+
+pctofpgainterface_pportinterface_N785
+   pctofpgainterface_pportinterface_N785.X
+         0.960  pctofpgainterface_pportinterface_presstate_FFD4.F2
+
+pctofpgainterface_pportinterface_N790
+   pctofpgainterface_pportinterface_N790.X
+         0.766  pctofpgainterface_pportinterface_presstate_FFD2.F4
+         1.060  pctofpgainterface_pportinterface_presstate_FFD1.F3
+         1.126  pctofpgainterface_pportinterface_presstate_FFD4.F3
+
+pctofpgainterface_pportinterface_N811
+   pctofpgainterface_pportinterface_N790.Y
+         0.709  pctofpgainterface_pportinterface_presstate_FFD2.F3
+
+pctofpgainterface_pportinterface_N820
+   pctofpgainterface_pportinterface_inslicenum_1_1.Y
+         0.586  pctofpgainterface_pportinterface_inslicenum_1_1.BX
+
+pctofpgainterface_pportinterface_N825
+   pctofpgainterface_pportinterface_N825.X
+         0.310  N6078.G1
+
+pctofpgainterface_pportinterface_N832
+   pctofpgainterface_pportinterface_outslicenum_1.X
+         0.025  pctofpgainterface_pportinterface_outslicenum_1.G4
+
+pctofpgainterface_pportinterface_N834
+   N6078.Y
+         0.849  pctofpgainterface_pportinterface_outslicenum_0.CE
+         0.888  pctofpgainterface_pportinterface_outslicenum_1.CE
+
+pctofpgainterface_pportinterface_N842
+   pctofpgainterface_pportinterface_N397.Y
+         0.431  pctofpgainterface_pportinterface_presstate_FFD1.F4
+
+pctofpgainterface_pportinterface_N848
+   pctofpgainterface_pportinterface_N848.X
+         1.050  pctofpgainterface_pportinterface_presstate_FFD1.G1
+
+pctofpgainterface_pportinterface_N853
+   pctofpgainterface_pportinterface_N853.X
+         0.314  pctofpgainterface_pportinterface_presstate_FFD1.F1
+
+pctofpgainterface_pportinterface_N859
+   pctofpgainterface_pportinterface_N853.Y
+         0.179  pctofpgainterface_pportinterface_presstate_FFD1.F2
+
+pctofpgainterface_pportinterface_N868
+   pctofpgainterface_pportinterface_N868.X
+         0.992  pctofpgainterface_pportinterface_presstate_FFD1.G2
+
+pctofpgainterface_pportinterface_N877
+   pctofpgainterface_pportinterface_presstate_FFD4.Y
+         1.111  pctofpgainterface_pportinterface_presstate_FFD1.G3
+
+pctofpgainterface_pportinterface_curaddrreg_0
+   pctofpgainterface_pportinterface_curaddrreg_0.XQ
+         1.297  pctofpgainterface_pportinterface_N497.F3
+         1.707  pctofpgainterface_fpgatosraminterface_addrreg_0.F4
+         1.182  pctofpgainterface_pportinterface_curaddrreg_0.F3
+         1.570  N541.F3
+
+pctofpgainterface_pportinterface_curaddrreg_18
+   pctofpgainterface_pportinterface_curaddrreg_18.YQ
+         1.316  pctofpgainterface_pportinterface_N6621.G2
+         2.330  pctofpgainterface_pportinterface_N662.F1
+         2.354  pctofpgainterface_fpgatosraminterface_addrreg_18.F1
+         1.686  N6110.F3
+
+pctofpgainterface_pportinterface_datainreg_0
+   pctofpgainterface_pportinterface_datainreg_1.YQ
+         1.798  pctofpgainterface_pportinterface_writedatareg_13.G4
+         2.962  N672.F3
+         1.982  N667.F2
+         3.079  pctofpgainterface_pportinterface_curaddrreg_0.F2
+         3.131  N677.G2
+         2.445  pctofpgainterface_pportinterface_pccontrolenabled.BY
+         1.638  pctofpgainterface_pportinterface_writedatareg_1.BY
+         1.778  pctofpgainterface_pportinterface_writedatareg_5.BY
+         1.994  pctofpgainterface_pportinterface_writedatareg_9.BY
+
+pctofpgainterface_pportinterface_datainreg_1
+   pctofpgainterface_pportinterface_datainreg_1.XQ
+         1.733  pctofpgainterface_pportinterface_writedatareg_13.F2
+         2.470  N672.G3
+         2.414  pctofpgainterface_pportinterface_curaddrreg_0.G4
+         2.503  N676.F4
+         1.863  N6037.F2
+         2.147  N6141.F2
+         1.392  pctofpgainterface_pportinterface_writedatareg_1.BX
+         1.560  pctofpgainterface_pportinterface_writedatareg_5.BX
+         1.621  pctofpgainterface_pportinterface_writedatareg_9.BX
+
+pctofpgainterface_pportinterface_datainreg_2
+   pctofpgainterface_pportinterface_datainreg_3.YQ
+         1.683  pctofpgainterface_pportinterface_writedatareg_15.G4
+         2.986  N670.F2
+         3.065  N680.F2
+         3.261  N676.G1
+         3.133  N6045.F1
+         1.842  pctofpgainterface_pportinterface_writedatareg_11.BY
+         1.934  N6148.F4
+         1.363  pctofpgainterface_pportinterface_writedatareg_3.BY
+         2.014  pctofpgainterface_pportinterface_writedatareg_7.BY
+
+pctofpgainterface_pportinterface_datainreg_3
+   pctofpgainterface_pportinterface_datainreg_3.XQ
+         1.615  pctofpgainterface_pportinterface_writedatareg_15.F3
+         2.141  N670.G3
+         2.878  N680.G1
+         2.984  N674.F1
+         2.043  N6049.F3
+         1.749  pctofpgainterface_pportinterface_writedatareg_11.BX
+         2.135  N6110.F2
+         1.374  pctofpgainterface_pportinterface_writedatareg_3.BX
+         1.581  pctofpgainterface_pportinterface_writedatareg_7.BX
+
+pctofpgainterface_pportinterface_datainreg_4
+   pctofpgainterface_pportinterface_datainreg_4.YQ
+         2.013  N668.G1
+         2.557  N678.G1
+         2.727  N674.G1
+
+pctofpgainterface_pportinterface_inslicenum_0
+   pctofpgainterface_pportinterface_inslicenum_0_1.YQ
+         2.117  pctofpgainterface_pportinterface_presstate_FFD3.G1
+         2.085  pctofpgainterface_pportinterface_N848.G1
+         1.620  pctofpgainterface_pportinterface_N466.G2
+         1.866  pctofpgainterface_pportinterface_N6341.G4
+         2.173  pctofpgainterface_pportinterface_N6621.G4
+         1.715  pctofpgainterface_pportinterface_N727.F2
+         1.767  pctofpgainterface_pportinterface_N727.G1
+         2.282  pctofpgainterface_pportinterface_writedatareg_13.F3
+         2.518  pctofpgainterface_pportinterface_writedatareg_13.G1
+         2.358  pctofpgainterface_pportinterface_writedatareg_15.F4
+         2.305  pctofpgainterface_pportinterface_writedatareg_15.G3
+         2.461  N667.F1
+         1.980  pctofpgainterface_pportinterface_N405.F3
+         2.300  N6135.G2
+         1.717  pctofpgainterface_pportinterface_N444.G3
+         1.996  pctofpgainterface_pportinterface_N825.G1
+         1.735  N6110.F4
+         2.067  N6110.G1
+
+pctofpgainterface_pportinterface_inslicenum_0_1
+   pctofpgainterface_pportinterface_inslicenum_0_1.XQ
+         2.233  pctofpgainterface_pportinterface_N848.F4
+         1.853  pctofpgainterface_pportinterface_N466.F4
+         1.865  pctofpgainterface_pportinterface_N6481.G2
+         2.460  pctofpgainterface_pportinterface_N464.G1
+         1.975  pctofpgainterface_pportinterface_inslicenum_0_1.G4
+         2.524  N6049.F2
+         2.138  N6045.F3
+         2.541  N6037.F4
+         1.908  N6125.G3
+         1.833  N6141.F1
+         1.846  N6141.G3
+         2.262  N6148.F3
+         2.169  N6148.G2
+         1.344  pctofpgainterface_pportinterface_N785.F4
+         1.430  pctofpgainterface_pportinterface_N785.G2
+         2.108  pctofpgainterface_pportinterface_N790.F4
+         2.050  pctofpgainterface_pportinterface_N790.G4
+
+pctofpgainterface_pportinterface_inslicenum_1
+   pctofpgainterface_pportinterface_inslicenum_1_1.YQ
+         1.997  pctofpgainterface_pportinterface_presstate_FFD3.G2
+         1.538  pctofpgainterface_pportinterface_N848.F3
+         1.501  pctofpgainterface_pportinterface_N848.G3
+         2.027  pctofpgainterface_pportinterface_N6341.G2
+         2.004  pctofpgainterface_pportinterface_N6621.G3
+         1.757  pctofpgainterface_pportinterface_N727.G2
+         2.459  pctofpgainterface_pportinterface_writedatareg_13.F1
+         2.243  pctofpgainterface_pportinterface_writedatareg_13.G3
+         2.498  pctofpgainterface_pportinterface_writedatareg_15.F1
+         2.618  pctofpgainterface_pportinterface_writedatareg_15.G1
+         2.133  N667.F3
+         1.874  pctofpgainterface_pportinterface_N405.F2
+         2.106  N6135.G3
+         1.370  pctofpgainterface_pportinterface_N444.G4
+         1.588  pctofpgainterface_pportinterface_N825.G3
+         2.032  N6110.F1
+         1.910  N6110.G4
+
+pctofpgainterface_pportinterface_inslicenum_1_1
+   pctofpgainterface_pportinterface_inslicenum_1_1.XQ
+         1.475  pctofpgainterface_pportinterface_N466.BX
+         2.382  pctofpgainterface_pportinterface_N6481.G1
+         1.812  pctofpgainterface_pportinterface_N727.F4
+         2.247  pctofpgainterface_pportinterface_N464.G2
+         2.255  N6049.G1
+         1.860  N6045.G2
+         2.326  N6037.G3
+         1.860  N6125.G1
+         1.901  N6141.F4
+         2.100  N6141.G1
+         1.919  N6148.F1
+         2.309  N6148.G1
+         1.729  pctofpgainterface_pportinterface_N785.F2
+         1.732  pctofpgainterface_pportinterface_N785.G1
+         2.126  pctofpgainterface_pportinterface_N790.F1
+         2.122  pctofpgainterface_pportinterface_N790.G1
+
+pctofpgainterface_pportinterface_mysyncdata_0
+   pctofpgainterface_pportinterface_mysyncdata_1.YQ
+         0.984  pctofpgainterface_pportinterface_N372.G2
+
+pctofpgainterface_pportinterface_mysyncdata_1
+   pctofpgainterface_pportinterface_mysyncdata_1.XQ
+         1.122  pctofpgainterface_pportinterface_N372.G1
+
+pctofpgainterface_pportinterface_mysyncdata_2
+   pctofpgainterface_pportinterface_mysyncdata_3.YQ
+         0.834  pctofpgainterface_pportinterface_N372.G4
+
+pctofpgainterface_pportinterface_mysyncdata_3
+   pctofpgainterface_pportinterface_mysyncdata_3.XQ
+         0.862  pctofpgainterface_pportinterface_N372.G3
+
+pctofpgainterface_pportinterface_mysyncdata_4
+   pctofpgainterface_pportinterface_mysyncdata_5.YQ
+         0.616  pctofpgainterface_pportinterface_N382.F3
+
+pctofpgainterface_pportinterface_mysyncdata_5
+   pctofpgainterface_pportinterface_mysyncdata_5.XQ
+         1.148  pctofpgainterface_pportinterface_N382.F2
+
+pctofpgainterface_pportinterface_mysyncdata_6
+   pctofpgainterface_pportinterface_mysyncdata_7.YQ
+         0.910  pctofpgainterface_pportinterface_N382.F4
+
+pctofpgainterface_pportinterface_mysyncdata_7
+   pctofpgainterface_pportinterface_mysyncdata_7.XQ
+         1.318  pctofpgainterface_pportinterface_N382.F1
+
+pctofpgainterface_pportinterface_outslicenum_0
+   pctofpgainterface_pportinterface_outslicenum_0.YQ
+         1.968  pctofpgainterface_pportinterface_N479.F1
+         1.645  pctofpgainterface_pportinterface_I_XXL_337_1.F4
+         2.452  ppstatus_3_OBUF.F3
+         2.415  ppstatus_3_OBUF.G3
+         2.421  ppstatus_4_OBUF.F4
+         2.429  ppstatus_4_OBUF.G3
+         2.587  ppstatus_5_OBUF.F2
+         2.923  ppstatus_5_OBUF.G1
+         2.215  ppstatus_6_OBUF.F3
+         2.105  ppstatus_6_OBUF.G3
+         1.512  pctofpgainterface_pportinterface_N868.BX
+         1.817  pctofpgainterface_pportinterface_outslicenum_0.G1
+         1.830  pctofpgainterface_pportinterface_outslicenum_1.G1
+         1.827  pctofpgainterface_pportinterface_presstate_FFD7.F4
+         1.039  pctofpgainterface_pportinterface_N825.F4
+
+pctofpgainterface_pportinterface_outslicenum_1
+   pctofpgainterface_pportinterface_outslicenum_1.YQ
+         1.729  pctofpgainterface_pportinterface_N479.F3
+         1.908  pctofpgainterface_pportinterface_I_XXL_337_1.F3
+         3.078  ppstatus_3_OBUF.BX
+         3.141  ppstatus_4_OBUF.BX
+         3.291  ppstatus_5_OBUF.BX
+         2.178  ppstatus_6_OBUF.BX
+         1.268  pctofpgainterface_pportinterface_N868.G4
+         1.696  pctofpgainterface_pportinterface_outslicenum_1.G2
+         1.940  pctofpgainterface_pportinterface_presstate_FFD7.F2
+         1.240  pctofpgainterface_pportinterface_N825.F3
+
+pctofpgainterface_pportinterface_pccontrolenabled
+   pctofpgainterface_pportinterface_pccontrolenabled.YQ
+         1.312  pctofpgainterface_thememmultiplexor_presstate_2.G4
+
+pctofpgainterface_pportinterface_presstate_FFD1
+   pctofpgainterface_pportinterface_presstate_FFD1.YQ
+         2.688  pctofpgainterface_pportinterface_presstate_FFD2.G1
+         2.462  pctofpgainterface_pportinterface_presstate_FFD3.F3
+         2.600  pctofpgainterface_pportinterface_presstate_FFD8.F1
+         3.034  pctofpgainterface_pportinterface_N450.F3
+         2.230  pctofpgainterface_pportinterface_outslicenum_0.F2
+         2.653  N6125.F4
+         2.435  N6135.F2
+         2.635  N6078.F1
+         2.377  pctofpgainterface_pportinterface_presstate_FFD9.G4
+         1.878  pctofpgainterface_pportinterface_N397.F4
+         2.832  N6030.G3
+         2.169  pctofpgainterface_pportinterface_N853.G3
+
+pctofpgainterface_pportinterface_presstate_FFD10
+   pctofpgainterface_pportinterface_presstate_FFD10.XQ
+         1.682  pctofpgainterface_pportinterface_presstate_FFD10.F4
+         1.395  pctofpgainterface_pportinterface_presstate_FFD9.G3
+         2.347  pctofpgainterface_pportinterface_N853.G1
+         2.393  N6082.F1
+         1.855  N6082.G3
+
+pctofpgainterface_pportinterface_presstate_FFD2
+   pctofpgainterface_pportinterface_presstate_FFD2.XQ
+         1.512  pctofpgainterface_pportinterface_presstate_FFD2.BX
+         1.563  pctofpgainterface_pportinterface_N848.F1
+         1.335  pctofpgainterface_pportinterface_N848.G2
+         1.653  pctofpgainterface_pportinterface_N727.F3
+         1.464  pctofpgainterface_pportinterface_N727.G3
+         2.289  pctofpgainterface_pportinterface_N612.G1
+         2.443  pctofpgainterface_pportinterface_I_dosramwrite_1.G2
+         2.548  N626.G1
+         2.094  pctofpgainterface_pportinterface_N450.G2
+         2.035  pctofpgainterface_pportinterface_I_21_LUT_37/O.F4
+         1.210  pctofpgainterface_pportinterface_N464.G3
+         1.929  pctofpgainterface_pportinterface_N397.G1
+         2.166  pctofpgainterface_pportinterface_N688.F2
+
+pctofpgainterface_pportinterface_presstate_FFD3
+   pctofpgainterface_pportinterface_presstate_FFD3.XQ
+         1.993  pctofpgainterface_pportinterface_presstate_FFD3.F2
+         1.872  pctofpgainterface_pportinterface_presstate_FFD3.G3
+         1.860  pctofpgainterface_pportinterface_N848.G4
+         2.034  pctofpgainterface_pportinterface_N727.G4
+         2.816  pctofpgainterface_pportinterface_I_21_LUT_37/O.F1
+         2.040  pctofpgainterface_pportinterface_N405.G3
+         2.587  N6125.F2
+         2.585  pctofpgainterface_pportinterface_N688.F4
+         2.471  pctofpgainterface_pportinterface_N688.G3
+         2.399  pctofpgainterface_pportinterface_N785.F3
+         1.757  pctofpgainterface_pportinterface_N413.G2
+
+pctofpgainterface_pportinterface_presstate_FFD4
+   pctofpgainterface_pportinterface_presstate_FFD4.XQ
+         2.002  N459.F4
+         2.000  pctofpgainterface_fpgatosraminterface_doingwrite1.F2
+         2.302  pctofpgainterface_pportinterface_I_dosramwrite_1.F2
+         2.438  N626.F1
+         1.536  pctofpgainterface_pportinterface_I_21_LUT_37/O.F2
+         1.334  pctofpgainterface_pportinterface_presstate_FFD4.F4
+         1.314  pctofpgainterface_pportinterface_presstate_FFD4.G4
+
+pctofpgainterface_pportinterface_presstate_FFD5
+   pctofpgainterface_pportinterface_presstate_FFD6.YQ
+         1.551  N470.F1
+         1.135  pctofpgainterface_pportinterface_presstate_FFD6.F4
+         1.096  pctofpgainterface_pportinterface_presstate_FFD6.G4
+         1.393  pctofpgainterface_pportinterface_N708.F1
+
+pctofpgainterface_pportinterface_presstate_FFD6
+   pctofpgainterface_pportinterface_presstate_FFD6.XQ
+         1.303  pctofpgainterface_pportinterface_presstate_FFD6.F3
+         1.391  pctofpgainterface_pportinterface_N708.F2
+         1.260  pctofpgainterface_pportinterface_N708.G3
+
+pctofpgainterface_pportinterface_presstate_FFD7
+   pctofpgainterface_pportinterface_presstate_FFD7.YQ
+         2.043  pctofpgainterface_pportinterface_N479.BX
+         2.002  pctofpgainterface_pportinterface_I_XXL_337_1.BX
+         2.000  pctofpgainterface_pportinterface_N868.F2
+         2.076  pctofpgainterface_pportinterface_N868.G1
+         2.128  pctofpgainterface_pportinterface_I_21_LUT_37/O.F3
+         1.803  pctofpgainterface_pportinterface_presstate_FFD7.G3
+         2.374  pctofpgainterface_pportinterface_N825.F2
+
+pctofpgainterface_pportinterface_presstate_FFD8
+   pctofpgainterface_pportinterface_presstate_FFD8.XQ
+         1.323  pctofpgainterface_pportinterface_presstate_FFD8.F4
+         1.610  pctofpgainterface_pportinterface_presstate_FFD9.F1
+         1.405  pctofpgainterface_pportinterface_presstate_FFD9.G2
+         1.739  pctofpgainterface_pportinterface_N853.F1
+
+pctofpgainterface_pportinterface_presstate_FFD9
+   pctofpgainterface_pportinterface_presstate_FFD9.XQ
+         1.251  pctofpgainterface_pportinterface_presstate_FFD10.F1
+         1.433  pctofpgainterface_pportinterface_presstate_FFD9.F2
+         1.578  pctofpgainterface_pportinterface_presstate_FFD9.G1
+         1.036  N6082.F3
+
+pctofpgainterface_pportinterface_readdatareg_0
+   pctofpgainterface_pportinterface_readdatareg_1.YQ
+         1.135  ppstatus_3_OBUF.G1
+
+pctofpgainterface_pportinterface_readdatareg_1
+   pctofpgainterface_pportinterface_readdatareg_1.XQ
+         0.993  ppstatus_4_OBUF.G4
+
+pctofpgainterface_pportinterface_readdatareg_10
+   pctofpgainterface_pportinterface_readdatareg_11.YQ
+         0.612  ppstatus_5_OBUF.F4
+
+pctofpgainterface_pportinterface_readdatareg_11
+   pctofpgainterface_pportinterface_readdatareg_11.XQ
+         0.708  ppstatus_6_OBUF.F2
+
+pctofpgainterface_pportinterface_readdatareg_12
+   pctofpgainterface_pportinterface_readdatareg_13.YQ
+         0.612  ppstatus_3_OBUF.F4
+
+pctofpgainterface_pportinterface_readdatareg_13
+   pctofpgainterface_pportinterface_readdatareg_13.XQ
+         1.119  ppstatus_4_OBUF.F1
+
+pctofpgainterface_pportinterface_readdatareg_14
+   pctofpgainterface_pportinterface_readdatareg_14.YQ
+         0.616  ppstatus_5_OBUF.F3
+
+pctofpgainterface_pportinterface_readdatareg_15
+   pctofpgainterface_pportinterface_readdatareg_15.YQ
+         0.908  ppstatus_6_OBUF.F4
+
+pctofpgainterface_pportinterface_readdatareg_2
+   pctofpgainterface_pportinterface_readdatareg_3.YQ
+         0.704  ppstatus_5_OBUF.G2
+
+pctofpgainterface_pportinterface_readdatareg_3
+   pctofpgainterface_pportinterface_readdatareg_3.XQ
+         1.195  ppstatus_6_OBUF.G4
+
+pctofpgainterface_pportinterface_readdatareg_4
+   pctofpgainterface_pportinterface_readdatareg_5.YQ
+         0.704  ppstatus_3_OBUF.G2
+
+pctofpgainterface_pportinterface_readdatareg_5
+   pctofpgainterface_pportinterface_readdatareg_5.XQ
+         1.133  ppstatus_4_OBUF.G2
+
+pctofpgainterface_pportinterface_readdatareg_6
+   pctofpgainterface_pportinterface_readdatareg_7.YQ
+         0.817  ppstatus_5_OBUF.G4
+
+pctofpgainterface_pportinterface_readdatareg_7
+   pctofpgainterface_pportinterface_readdatareg_7.XQ
+         1.260  ppstatus_6_OBUF.G1
+
+pctofpgainterface_pportinterface_readdatareg_8
+   pctofpgainterface_pportinterface_readdatareg_9.YQ
+         1.006  ppstatus_3_OBUF.F2
+
+pctofpgainterface_pportinterface_readdatareg_9
+   pctofpgainterface_pportinterface_readdatareg_9.XQ
+         0.616  ppstatus_4_OBUF.F3
+
+pctofpgainterface_pportinterface_syncinputs1_0
+   pctofpgainterface_pportinterface_syncinputs1_1.YQ
+         1.421  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.F4
+         1.545  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.F1
+         1.657  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.F3
+         1.589  pctofpgainterface_pportinterface_syncinputs2_1.BY
+
+pctofpgainterface_pportinterface_syncinputs1_1
+   pctofpgainterface_pportinterface_syncinputs1_1.XQ
+         1.437  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.F3
+         1.413  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.F4
+         1.675  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.F1
+         1.663  pctofpgainterface_pportinterface_syncinputs2_1.BX
+
+pctofpgainterface_pportinterface_syncinputs1_2
+   pctofpgainterface_pportinterface_syncinputs1_3.YQ
+         2.062  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.G1
+         1.166  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.G4
+         1.827  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.G4
+         1.792  pctofpgainterface_pportinterface_syncinputs2_3.BY
+
+pctofpgainterface_pportinterface_syncinputs1_3
+   pctofpgainterface_pportinterface_syncinputs1_3.XQ
+         1.671  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.G2
+         0.987  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.G3
+         1.747  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.G3
+         1.473  pctofpgainterface_pportinterface_syncinputs2_3.BX
+
+pctofpgainterface_pportinterface_syncinputs1_4
+   pctofpgainterface_pportinterface_syncinputs1_4.YQ
+         1.908  pctofpgainterface_pportinterface_N674.F2
+         1.645  pctofpgainterface_pportinterface_N357.F4
+         1.834  pctofpgainterface_pportinterface_N359.F4
+         1.795  pctofpgainterface_pportinterface_syncinputs2_5.BY
+
+pctofpgainterface_pportinterface_syncinputs1_5
+   pctofpgainterface_pportinterface_syncinputs1_5.YQ
+         1.437  pctofpgainterface_pportinterface_N674.F3
+         1.456  pctofpgainterface_pportinterface_N357.F2
+         1.513  pctofpgainterface_pportinterface_N359.F3
+         1.331  pctofpgainterface_pportinterface_syncinputs2_5.BX
+
+pctofpgainterface_pportinterface_syncinputs1_6
+   pctofpgainterface_pportinterface_syncinputs1_7.YQ
+         1.382  pctofpgainterface_pportinterface_N674.G3
+         0.783  pctofpgainterface_pportinterface_N357.G3
+         1.507  pctofpgainterface_pportinterface_N359.G2
+         1.421  pctofpgainterface_pportinterface_syncinputs2_7.BY
+
+pctofpgainterface_pportinterface_syncinputs1_7
+   pctofpgainterface_pportinterface_syncinputs1_7.XQ
+         1.577  pctofpgainterface_pportinterface_N674.G4
+         0.962  pctofpgainterface_pportinterface_N357.G4
+         1.866  pctofpgainterface_pportinterface_N359.G1
+         1.625  pctofpgainterface_pportinterface_syncinputs2_7.BX
+
+pctofpgainterface_pportinterface_syncinputs2_0
+   pctofpgainterface_pportinterface_syncinputs2_1.YQ
+         1.655  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.F2
+         1.224  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.F4
+         1.623  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.F2
+         2.099  pctofpgainterface_pportinterface_mysyncdata_1.BY
+         1.553  pctofpgainterface_pportinterface_syncinputs3_1.BY
+
+pctofpgainterface_pportinterface_syncinputs2_1
+   pctofpgainterface_pportinterface_syncinputs2_1.XQ
+         1.639  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.F1
+         1.024  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.F3
+         1.409  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.F4
+         1.733  pctofpgainterface_pportinterface_mysyncdata_1.BX
+         1.416  pctofpgainterface_pportinterface_syncinputs3_1.BX
+
+pctofpgainterface_pportinterface_syncinputs2_2
+   pctofpgainterface_pportinterface_syncinputs2_3.YQ
+         1.177  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.G4
+         2.112  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.G1
+         1.462  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.G1
+         2.241  pctofpgainterface_pportinterface_mysyncdata_3.BY
+         1.844  pctofpgainterface_pportinterface_syncinputs3_3.BY
+
+pctofpgainterface_pportinterface_syncinputs2_3
+   pctofpgainterface_pportinterface_syncinputs2_3.XQ
+         1.202  pctofpgainterface_pportinterface_Mcompar__n0100_inst_cy_1.G3
+         1.811  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.G4
+         1.327  pctofpgainterface_pportinterface_Mcompar__n0099_inst_cy_1.G2
+         2.165  pctofpgainterface_pportinterface_mysyncdata_3.BX
+         1.839  pctofpgainterface_pportinterface_syncinputs3_3.BX
+
+pctofpgainterface_pportinterface_syncinputs2_4
+   pctofpgainterface_pportinterface_syncinputs2_5.YQ
+         1.624  pctofpgainterface_pportinterface_N674.F1
+         1.473  pctofpgainterface_pportinterface_N676.F4
+         1.317  pctofpgainterface_pportinterface_N359.F2
+         1.399  pctofpgainterface_pportinterface_mysyncdata_5.BY
+         1.494  pctofpgainterface_pportinterface_syncinputs3_5.BY
+
+pctofpgainterface_pportinterface_syncinputs2_5
+   pctofpgainterface_pportinterface_syncinputs2_5.XQ
+         1.540  pctofpgainterface_pportinterface_N674.F4
+         2.147  pctofpgainterface_pportinterface_N676.F1
+         1.766  pctofpgainterface_pportinterface_N359.F1
+         1.383  pctofpgainterface_pportinterface_mysyncdata_5.BX
+         1.836  pctofpgainterface_pportinterface_syncinputs3_5.BX
+
+pctofpgainterface_pportinterface_syncinputs2_6
+   pctofpgainterface_pportinterface_syncinputs2_7.YQ
+         1.095  pctofpgainterface_pportinterface_N674.G1
+         1.095  pctofpgainterface_pportinterface_N676.G4
+         0.810  pctofpgainterface_pportinterface_N359.G4
+         1.009  pctofpgainterface_pportinterface_mysyncdata_7.BY
+         1.497  pctofpgainterface_pportinterface_syncinputs3_6.BY
+
+pctofpgainterface_pportinterface_syncinputs2_7
+   pctofpgainterface_pportinterface_syncinputs2_7.XQ
+         1.123  pctofpgainterface_pportinterface_N674.G2
+         1.551  pctofpgainterface_pportinterface_N676.G1
+         0.998  pctofpgainterface_pportinterface_N359.G3
+         1.274  pctofpgainterface_pportinterface_mysyncdata_7.BX
+         1.395  pctofpgainterface_pportinterface_syncinputs3_7.BY
+
+pctofpgainterface_pportinterface_syncinputs3_0
+   pctofpgainterface_pportinterface_syncinputs3_1.YQ
+         0.912  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.F2
+         1.151  pctofpgainterface_pportinterface_datainreg_1.BY
+
+pctofpgainterface_pportinterface_syncinputs3_1
+   pctofpgainterface_pportinterface_syncinputs3_1.XQ
+         1.047  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.F1
+         1.151  pctofpgainterface_pportinterface_datainreg_1.BX
+
+pctofpgainterface_pportinterface_syncinputs3_2
+   pctofpgainterface_pportinterface_syncinputs3_3.YQ
+         1.137  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.G2
+         1.385  pctofpgainterface_pportinterface_datainreg_3.BY
+
+pctofpgainterface_pportinterface_syncinputs3_3
+   pctofpgainterface_pportinterface_syncinputs3_3.XQ
+         1.055  pctofpgainterface_pportinterface_Mcompar__n0101_inst_cy_1.G3
+         1.375  pctofpgainterface_pportinterface_datainreg_3.BX
+
+pctofpgainterface_pportinterface_syncinputs3_4
+   pctofpgainterface_pportinterface_syncinputs3_5.YQ
+         1.168  pctofpgainterface_pportinterface_N676.F2
+         1.428  pctofpgainterface_pportinterface_datainreg_4.BY
+
+pctofpgainterface_pportinterface_syncinputs3_5
+   pctofpgainterface_pportinterface_syncinputs3_5.XQ
+         1.103  pctofpgainterface_pportinterface_N676.F3
+         1.543  pctofpgainterface_pportinterface_syncwrite_1.BY
+         1.563  pctofpgainterface_pportinterface_syncwrite.BY
+
+pctofpgainterface_pportinterface_syncinputs3_6
+   pctofpgainterface_pportinterface_syncinputs3_6.YQ
+         1.463  pctofpgainterface_pportinterface_N676.G3
+         1.555  pctofpgainterface_pportinterface_syncread.BY
+         1.584  pctofpgainterface_pportinterface_syncread_1.BY
+
+pctofpgainterface_pportinterface_syncinputs3_7
+   pctofpgainterface_pportinterface_syncinputs3_7.YQ
+         1.112  pctofpgainterface_pportinterface_N676.G2
+         1.783  pctofpgainterface_pportinterface_syncnextslice.BY
+         1.642  pctofpgainterface_pportinterface_syncnextslice_1.BY
+
+pctofpgainterface_pportinterface_syncnextslice
+   pctofpgainterface_pportinterface_syncnextslice.YQ
+         2.292  pctofpgainterface_pportinterface_presstate_FFD2.G3
+         2.032  pctofpgainterface_pportinterface_presstate_FFD3.F4
+         1.830  pctofpgainterface_pportinterface_presstate_FFD3.G4
+         2.419  pctofpgainterface_pportinterface_N466.F2
+         2.654  pctofpgainterface_pportinterface_N466.G1
+         2.526  pctofpgainterface_pportinterface_N479.F2
+         2.713  pctofpgainterface_pportinterface_I_XXL_337_1.F1
+         1.991  pctofpgainterface_pportinterface_presstate_FFD10.F3
+         1.775  pctofpgainterface_pportinterface_N868.G2
+         2.519  N6125.G2
+         2.431  N6078.F4
+         1.635  pctofpgainterface_pportinterface_N853.G4
+         2.117  N6082.F4
+         2.361  N6082.G4
+
+pctofpgainterface_pportinterface_syncnextslice_1
+   pctofpgainterface_pportinterface_syncnextslice_1.YQ
+         2.078  pctofpgainterface_pportinterface_presstate_FFD8.BX
+         2.439  pctofpgainterface_pportinterface_N450.F4
+         2.504  pctofpgainterface_pportinterface_N464.F1
+         2.085  pctofpgainterface_pportinterface_outslicenum_0.F4
+         2.427  pctofpgainterface_pportinterface_presstate_FFD7.F1
+         2.198  pctofpgainterface_pportinterface_N405.F4
+         1.571  N6135.F4
+         2.060  pctofpgainterface_pportinterface_N397.F2
+         2.818  pctofpgainterface_pportinterface_N688.G1
+         2.631  N6030.G2
+         2.450  pctofpgainterface_pportinterface_N825.F1
+         2.512  pctofpgainterface_pportinterface_N825.G2
+         2.213  pctofpgainterface_pportinterface_N790.F3
+
+pctofpgainterface_pportinterface_syncread
+   pctofpgainterface_pportinterface_syncread.YQ
+         2.096  pctofpgainterface_pportinterface_presstate_FFD2.G4
+         2.248  pctofpgainterface_pportinterface_presstate_FFD3.F1
+         1.947  pctofpgainterface_pportinterface_N848.F2
+         2.436  pctofpgainterface_pportinterface_N466.F3
+         2.450  pctofpgainterface_pportinterface_N479.F4
+         2.575  pctofpgainterface_pportinterface_I_XXL_337_1.F2
+         1.835  pctofpgainterface_pportinterface_N868.F3
+         1.592  pctofpgainterface_pportinterface_N868.G3
+         2.385  pctofpgainterface_pportinterface_N727.F1
+         2.454  N6125.F3
+         2.468  N6078.F2
+         1.770  pctofpgainterface_pportinterface_N853.F2
+         2.515  N6082.G2
+
+pctofpgainterface_pportinterface_syncread_1
+   pctofpgainterface_pportinterface_syncread_1.YQ
+         2.782  pctofpgainterface_pportinterface_presstate_FFD2.F1
+         2.771  pctofpgainterface_pportinterface_presstate_FFD8.F3
+         2.638  pctofpgainterface_pportinterface_presstate_FFD10.F2
+         3.179  pctofpgainterface_pportinterface_N450.F1
+         2.598  pctofpgainterface_pportinterface_N464.F2
+         2.917  pctofpgainterface_pportinterface_outslicenum_0.F1
+         2.460  pctofpgainterface_pportinterface_outslicenum_1.F4
+         2.567  pctofpgainterface_pportinterface_presstate_FFD7.F3
+         2.328  N6135.F1
+         2.895  pctofpgainterface_pportinterface_N397.F1
+         2.640  pctofpgainterface_pportinterface_N397.G4
+         2.803  N6030.F3
+         2.916  N6082.F2
+
+pctofpgainterface_pportinterface_syncwrite
+   pctofpgainterface_pportinterface_syncwrite.YQ
+         3.144  pctofpgainterface_pportinterface_presstate_FFD2.G2
+         2.663  pctofpgainterface_pportinterface_presstate_FFD3.BX
+         3.190  pctofpgainterface_pportinterface_N466.F1
+         1.873  pctofpgainterface_pportinterface_presstate_FFD10.BX
+         2.947  pctofpgainterface_pportinterface_N727.BX
+         2.117  pctofpgainterface_pportinterface_outslicenum_1.F3
+         3.164  N6125.F1
+         2.698  N6078.F3
+         1.959  pctofpgainterface_pportinterface_N397.F3
+         2.755  pctofpgainterface_pportinterface_N397.G2
+         1.839  pctofpgainterface_pportinterface_N853.F4
+         1.875  pctofpgainterface_pportinterface_N853.G2
+         2.587  N6082.G1
+
+pctofpgainterface_pportinterface_syncwrite_1
+   pctofpgainterface_pportinterface_syncwrite_1.YQ
+         2.142  pctofpgainterface_pportinterface_presstate_FFD2.F2
+         2.400  pctofpgainterface_pportinterface_presstate_FFD8.F2
+         2.024  pctofpgainterface_pportinterface_N848.BX
+         2.368  pctofpgainterface_pportinterface_N450.F2
+         2.118  pctofpgainterface_pportinterface_N464.F4
+         2.265  pctofpgainterface_pportinterface_outslicenum_0.F3
+         2.677  pctofpgainterface_pportinterface_N405.F1
+         2.040  N6135.G1
+         2.395  pctofpgainterface_pportinterface_N688.G4
+         2.412  N6030.F4
+         2.354  N6030.G4
+         2.503  pctofpgainterface_pportinterface_N785.F1
+
+pctofpgainterface_pportinterface_writedatareg_0
+   pctofpgainterface_pportinterface_writedatareg_1.YQ
+         0.979  pctofpgainterface_fpgatosraminterface_writedatareg_1.G2
+
+pctofpgainterface_pportinterface_writedatareg_1
+   pctofpgainterface_pportinterface_writedatareg_1.XQ
+         1.119  pctofpgainterface_fpgatosraminterface_writedatareg_1.F1
+
+pctofpgainterface_pportinterface_writedatareg_10
+   pctofpgainterface_pportinterface_writedatareg_11.YQ
+         1.651  pctofpgainterface_fpgatosraminterface_writedatareg_11.G3
+
+pctofpgainterface_pportinterface_writedatareg_11
+   pctofpgainterface_pportinterface_writedatareg_11.XQ
+         1.626  pctofpgainterface_fpgatosraminterface_writedatareg_11.F3
+
+pctofpgainterface_pportinterface_writedatareg_12
+   pctofpgainterface_pportinterface_writedatareg_13.YQ
+         1.860  pctofpgainterface_fpgatosraminterface_writedatareg_13.G4
+         1.137  pctofpgainterface_pportinterface_writedatareg_13.G2
+
+pctofpgainterface_pportinterface_writedatareg_13
+   pctofpgainterface_pportinterface_writedatareg_13.XQ
+         2.021  pctofpgainterface_fpgatosraminterface_writedatareg_13.F2
+         1.091  pctofpgainterface_pportinterface_writedatareg_13.F4
+
+pctofpgainterface_pportinterface_writedatareg_14
+   pctofpgainterface_pportinterface_writedatareg_15.YQ
+         1.487  pctofpgainterface_fpgatosraminterface_writedatareg_15.G4
+         1.198  pctofpgainterface_pportinterface_writedatareg_15.G2
+
+pctofpgainterface_pportinterface_writedatareg_15
+   pctofpgainterface_pportinterface_writedatareg_15.XQ
+         1.647  pctofpgainterface_fpgatosraminterface_writedatareg_15.F3
+         1.211  pctofpgainterface_pportinterface_writedatareg_15.F2
+
+pctofpgainterface_pportinterface_writedatareg_2
+   pctofpgainterface_pportinterface_writedatareg_3.YQ
+         0.851  pctofpgainterface_fpgatosraminterface_writedatareg_3.G3
+
+pctofpgainterface_pportinterface_writedatareg_3
+   pctofpgainterface_pportinterface_writedatareg_3.XQ
+         0.890  pctofpgainterface_fpgatosraminterface_writedatareg_3.F3
+
+pctofpgainterface_pportinterface_writedatareg_4
+   pctofpgainterface_pportinterface_writedatareg_5.YQ
+         0.835  pctofpgainterface_fpgatosraminterface_writedatareg_5.G4
+
+pctofpgainterface_pportinterface_writedatareg_5
+   pctofpgainterface_pportinterface_writedatareg_5.XQ
+         0.907  pctofpgainterface_fpgatosraminterface_writedatareg_5.F3
+
+pctofpgainterface_pportinterface_writedatareg_6
+   pctofpgainterface_pportinterface_writedatareg_7.YQ
+         0.968  pctofpgainterface_fpgatosraminterface_writedatareg_7.G4
+
+pctofpgainterface_pportinterface_writedatareg_7
+   pctofpgainterface_pportinterface_writedatareg_7.XQ
+         1.141  pctofpgainterface_fpgatosraminterface_writedatareg_7.F2
+
+pctofpgainterface_pportinterface_writedatareg_8
+   pctofpgainterface_pportinterface_writedatareg_9.YQ
+         1.481  pctofpgainterface_fpgatosraminterface_writedatareg_9.G2
+
+pctofpgainterface_pportinterface_writedatareg_9
+   pctofpgainterface_pportinterface_writedatareg_9.XQ
+         1.356  pctofpgainterface_fpgatosraminterface_writedatareg_9.F4
+
+pctofpgainterface_thememmultiplexor_N591
+   pctofpgainterface_thememmultiplexor_presstate_2.Y
+         0.626  pctofpgainterface_thememmultiplexor_presstate_2.BX
+         0.658  pctofpgainterface_thememmultiplexor_presstate.BY
+
+pctofpgainterface_thememmultiplexor_presstate
+   pctofpgainterface_thememmultiplexor_presstate.YQ
+         2.443  N459.BX
+         2.586  N470.BX
+         2.203  pctofpgainterface_fpgatosraminterface_addrreg_8.F2
+         1.751  pctofpgainterface_fpgatosraminterface_addrreg_9.F3
+         3.660  pctofpgainterface_fpgatosraminterface_writedatareg_11.F4
+         3.982  pctofpgainterface_fpgatosraminterface_writedatareg_11.G4
+         4.059  pctofpgainterface_fpgatosraminterface_writedatareg_13.F4
+         4.418  pctofpgainterface_fpgatosraminterface_writedatareg_13.G1
+         4.312  pctofpgainterface_fpgatosraminterface_writedatareg_15.F2
+         4.286  pctofpgainterface_fpgatosraminterface_writedatareg_15.G1
+         3.161  pctofpgainterface_fpgatosraminterface_writedatareg_1.F3
+         3.217  pctofpgainterface_fpgatosraminterface_writedatareg_1.G3
+         3.278  pctofpgainterface_fpgatosraminterface_writedatareg_3.F4
+         3.220  pctofpgainterface_fpgatosraminterface_writedatareg_3.G4
+         3.545  pctofpgainterface_fpgatosraminterface_writedatareg_5.F1
+         3.125  pctofpgainterface_fpgatosraminterface_writedatareg_5.G3
+         4.192  pctofpgainterface_fpgatosraminterface_writedatareg_7.F1
+         3.453  pctofpgainterface_fpgatosraminterface_writedatareg_7.G1
+         4.079  pctofpgainterface_fpgatosraminterface_writedatareg_9.F3
+         4.059  pctofpgainterface_fpgatosraminterface_writedatareg_9.G3
+
+pctofpgainterface_thememmultiplexor_presstate_1
+   pctofpgainterface_thememmultiplexor_presstate_2.YQ
+         2.214  pctofpgainterface_fpgatosraminterface_doingwrite1.BX
+         2.051  pctofpgainterface_thememmultiplexor_presstate_2.G1
+         2.422  N525.F2
+         1.825  N525.G4
+         1.964  N541.F2
+         2.065  N541.G4
+         2.648  N513.F2
+         2.576  N513.G3
+         2.422  N531.F1
+         2.418  N531.G1
+         2.287  N483.F3
+         1.852  N483.G3
+         2.587  N489.F2
+         2.411  N489.G3
+         2.140  N495.F2
+         2.369  N495.G1
+         2.674  N501.F1
+         2.309  N501.G3
+         2.096  pctofpgainterface_fpgatosraminterface_addrreg_18.F2
+
+pctofpgainterface_thememmultiplexor_presstate_2
+   pctofpgainterface_thememmultiplexor_presstate_2.XQ
+         2.362  pctofpgainterface_fpgatosraminterface_addrreg_10.F1
+         2.424  pctofpgainterface_fpgatosraminterface_addrreg_11.F2
+         2.361  pctofpgainterface_fpgatosraminterface_addrreg_12.F2
+         2.419  pctofpgainterface_fpgatosraminterface_addrreg_13.F1
+         2.073  pctofpgainterface_fpgatosraminterface_addrreg_14.F3
+         2.576  pctofpgainterface_fpgatosraminterface_addrreg_15.F1
+         2.369  pctofpgainterface_fpgatosraminterface_addrreg_16.F2
+         1.887  pctofpgainterface_fpgatosraminterface_addrreg_17.F1
+         2.258  pctofpgainterface_fpgatosraminterface_addrreg_0.F1
+         2.207  pctofpgainterface_fpgatosraminterface_addrreg_1.F2
+         1.984  pctofpgainterface_fpgatosraminterface_addrreg_2.F2
+         2.144  pctofpgainterface_fpgatosraminterface_addrreg_3.F2
+         2.300  pctofpgainterface_fpgatosraminterface_addrreg_4.F1
+         2.289  pctofpgainterface_fpgatosraminterface_addrreg_5.F1
+         1.297  pctofpgainterface_fpgatosraminterface_addrreg_6.F3
+         2.123  pctofpgainterface_fpgatosraminterface_addrreg_7.F2
+         2.228  N589.G2
+         1.502  pctofpgainterface_fpgatosraminterface_addrreg_18.F3
+         2.227  pctofpgainterface_fpgatosraminterface_addrreg_18.G3
+
+ppdata_0_IBUF
+   ppdata<0>.I
+         1.207  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.F2
+         1.209  pctofpgainterface_pportinterface_syncinputs1_1.BY
+
+ppdata_1_IBUF
+   ppdata<1>.I
+         1.230  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.F3
+         0.975  pctofpgainterface_pportinterface_syncinputs1_1.BX
+
+ppdata_2_IBUF
+   ppdata<2>.I
+         1.520  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.G2
+         1.380  pctofpgainterface_pportinterface_syncinputs1_3.BY
+
+ppdata_3_IBUF
+   ppdata<3>.I
+         1.424  pctofpgainterface_pportinterface_Mcompar__n0098_inst_cy_1.G1
+         1.258  pctofpgainterface_pportinterface_syncinputs1_3.BX
+
+ppdata_4_IBUF
+   ppdata<4>.I
+         1.291  pctofpgainterface_pportinterface_N357.F3
+         0.749  pctofpgainterface_pportinterface_syncinputs1_4.BY
+
+ppdata_5_IBUF
+   ppdata<5>.I
+         1.536  pctofpgainterface_pportinterface_N357.F1
+         1.227  pctofpgainterface_pportinterface_syncinputs1_5.BY
+
+ppdata_6_IBUF
+   ppdata<6>.I
+         1.524  pctofpgainterface_pportinterface_N357.G1
+         1.360  pctofpgainterface_pportinterface_syncinputs1_7.BY
+
+ppdata_7_IBUF
+   ppdata<7>.I
+         1.203  pctofpgainterface_pportinterface_N357.G2
+         1.066  pctofpgainterface_pportinterface_syncinputs1_7.BX
+
+ppstatus_3_OBUF
+   ppstatus_3_OBUF.X
+         1.777  ppstatus<3>.O
+
+ppstatus_4_OBUF
+   ppstatus_4_OBUF.X
+         1.000  ppstatus<4>.O
+
+ppstatus_5_OBUF
+   ppstatus_5_OBUF.X
+         1.000  ppstatus<5>.O
+
+ppstatus_6_OBUF
+   ppstatus_6_OBUF.X
+         1.790  ppstatus<6>.O
+
+rdaddr_0_IBUF
+   rdaddr<0>.I
+         0.660  N541.F1
+
+rdaddr_10_IBUF
+   rdaddr<10>.I
+         1.892  N501.F2
+
+rdaddr_11_IBUF
+   rdaddr<11>.I
+         2.014  N495.F1
+
+rdaddr_12_IBUF
+   rdaddr<12>.I
+         1.126  N489.F4
+
+rdaddr_13_IBUF
+   rdaddr<13>.I
+         2.049  N483.F4
+
+rdaddr_14_IBUF
+   rdaddr<14>.I
+         0.899  N531.F2
+
+rdaddr_15_IBUF
+   rdaddr<15>.I
+         0.990  N513.F3
+
+rdaddr_16_IBUF
+   rdaddr<16>.I
+         1.787  N525.F1
+
+rdaddr_17_IBUF
+   rdaddr<17>.I
+         1.408  N525.G3
+
+rdaddr_1_IBUF
+   rdaddr<1>.I
+         0.521  N541.G2
+
+rdaddr_2_IBUF
+   rdaddr<2>.I
+         1.539  N513.G4
+
+rdaddr_3_IBUF
+   rdaddr<3>.I
+         0.729  N531.G4
+
+rdaddr_4_IBUF
+   rdaddr<4>.I
+         1.815  N483.G4
+
+rdaddr_5_IBUF
+   rdaddr<5>.I
+         1.851  N489.G1
+
+rdaddr_6_IBUF
+   rdaddr<6>.I
+         1.985  N495.G3
+
+rdaddr_7_IBUF
+   rdaddr<7>.I
+         1.532  N501.G4
+
+rdaddr_8_IBUF
+   rdaddr<8>.I
+         0.396  N589.G3
+
+rdaddr_9_IBUF
+   rdaddr<9>.I
+         1.037  pctofpgainterface_fpgatosraminterface_addrreg_18.G2
+
+rddone_OBUF
+   alureadsram_prestate_FFD3.Y
+         1.207  rddone.O
+
+resetl_IBUF
+   resetl.I
+         1.263  lcen.SR
+         3.362  pctofpgainterface_fpgatosraminterface_doingwrite1.SR
+         3.508  pctofpgainterface_fpgatosraminterface_presstate_FFD4.SR
+         5.656  pctofpgainterface_fpgatosraminterface_addrreg_10.SR
+         5.459  pctofpgainterface_fpgatosraminterface_addrreg_11.SR
+         6.888  pctofpgainterface_fpgatosraminterface_addrreg_12.SR
+         6.885  pctofpgainterface_fpgatosraminterface_addrreg_13.SR
+         6.888  pctofpgainterface_fpgatosraminterface_addrreg_14.SR
+         7.037  pctofpgainterface_fpgatosraminterface_addrreg_15.SR
+         5.699  pctofpgainterface_fpgatosraminterface_addrreg_16.SR
+         5.430  pctofpgainterface_fpgatosraminterface_addrreg_17.SR
+         6.191  pctofpgainterface_fpgatosraminterface_addrreg_0.SR
+         6.780  pctofpgainterface_fpgatosraminterface_addrreg_1.SR
+         6.284  pctofpgainterface_fpgatosraminterface_addrreg_2.SR
+         6.619  pctofpgainterface_fpgatosraminterface_addrreg_3.SR
+         6.645  pctofpgainterface_fpgatosraminterface_addrreg_4.SR
+         6.685  pctofpgainterface_fpgatosraminterface_addrreg_5.SR
+         6.111  pctofpgainterface_fpgatosraminterface_addrreg_6.SR
+         6.042  pctofpgainterface_fpgatosraminterface_addrreg_7.SR
+         6.720  pctofpgainterface_fpgatosraminterface_addrreg_8.SR
+         5.391  pctofpgainterface_fpgatosraminterface_addrreg_9.SR
+         3.698  pctofpgainterface_fpgatosraminterface_writedatareg_11.SR
+         3.730  pctofpgainterface_fpgatosraminterface_writedatareg_13.SR
+         3.735  pctofpgainterface_fpgatosraminterface_writedatareg_15.SR
+         4.477  pctofpgainterface_thememmultiplexor_presstate_2.SR
+         2.305  pctofpgainterface_fpgatosraminterface_writedatareg_1.SR
+         2.195  pctofpgainterface_fpgatosraminterface_writedatareg_3.SR
+         2.236  pctofpgainterface_fpgatosraminterface_writedatareg_5.SR
+         2.948  pctofpgainterface_fpgatosraminterface_writedatareg_7.SR
+         3.605  pctofpgainterface_fpgatosraminterface_writedatareg_9.SR
+         3.503  alureadsram_prestate_FFD2.SR
+         3.118  aluwritesram_prestate_FFD2.SR
+         3.188  aluwritesram_prestate_FFD3.SR
+         1.070  pctofpgainterface_pportinterface_N382.G3
+         3.779  pctofpgainterface_fpgatosraminterface_presstate_FFD5.SR
+         3.719  pctofpgainterface_fpgatosraminterface_presstate_FFD1.SR
+         3.188  pctofpgainterface_fpgatosraminterface_oen.SR
+         3.185  alureadsram_prestate_FFD3.SR
+         3.864  pctofpgainterface_thememmultiplexor_presstate.SR
+         5.594  pctofpgainterface_fpgatosraminterface_addrreg_18.SR
+         1.360  pctofpgainterface_pportinterface_N384.G3
+
+wraddr_0_IBUF
+   wraddr<0>.I
+         1.109  pctofpgainterface_fpgatosraminterface_addrreg_0.F2
+
+wraddr_10_IBUF
+   wraddr<10>.I
+         1.566  pctofpgainterface_fpgatosraminterface_addrreg_10.F4
+
+wraddr_11_IBUF
+   wraddr<11>.I
+         1.629  pctofpgainterface_fpgatosraminterface_addrreg_11.F3
+
+wraddr_12_IBUF
+   wraddr<12>.I
+         0.787  pctofpgainterface_fpgatosraminterface_addrreg_12.F4
+
+wraddr_13_IBUF
+   wraddr<13>.I
+         1.017  pctofpgainterface_fpgatosraminterface_addrreg_13.F3
+
+wraddr_14_IBUF
+   wraddr<14>.I
+         0.846  pctofpgainterface_fpgatosraminterface_addrreg_14.F4
+
+wraddr_15_IBUF
+   wraddr<15>.I
+         1.466  pctofpgainterface_fpgatosraminterface_addrreg_15.F4
+
+wraddr_16_IBUF
+   wraddr<16>.I
+         1.359  pctofpgainterface_fpgatosraminterface_addrreg_16.F3
+
+wraddr_17_IBUF
+   wraddr<17>.I
+         1.485  pctofpgainterface_fpgatosraminterface_addrreg_17.F4
+
+wraddr_1_IBUF
+   wraddr<1>.I
+         1.682  pctofpgainterface_fpgatosraminterface_addrreg_1.F1
+
+wraddr_2_IBUF
+   wraddr<2>.I
+         1.881  pctofpgainterface_fpgatosraminterface_addrreg_2.F1
+
+wraddr_3_IBUF
+   wraddr<3>.I
+         2.074  pctofpgainterface_fpgatosraminterface_addrreg_3.F4
+
+wraddr_4_IBUF
+   wraddr<4>.I
+         1.246  pctofpgainterface_fpgatosraminterface_addrreg_4.F2
+
+wraddr_5_IBUF
+   wraddr<5>.I
+         1.846  pctofpgainterface_fpgatosraminterface_addrreg_5.F4
+
+wraddr_6_IBUF
+   wraddr<6>.I
+         1.932  pctofpgainterface_fpgatosraminterface_addrreg_6.F2
+
+wraddr_7_IBUF
+   wraddr<7>.I
+         2.105  pctofpgainterface_fpgatosraminterface_addrreg_7.F1
+
+wraddr_8_IBUF
+   wraddr<8>.I
+         1.605  pctofpgainterface_fpgatosraminterface_addrreg_8.F3
+
+wraddr_9_IBUF
+   wraddr<9>.I
+         1.680  pctofpgainterface_fpgatosraminterface_addrreg_9.F4
+
+wrdone_OBUF
+   pctofpgainterface_fpgatosraminterface_oen.Y
+         1.210  wrdone.O
+

@@ -1,0 +1,530 @@
+Release 4.1i - Par E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Fri Jul 16 11:57:33 2004
+
+Xilinx PAD Specification File
+*****************************
+
+Input file:       par_temp.ncd
+Output file:      memorymodule.ncd
+Part type:        xcv50
+Speed grade:      -6
+Package:          pq240
+
+Pinout by Signal Name:
+--------------------------|-----------------|--------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+       Signal Name        |    Pin Name     | Pin    | Direction | IO Standard |IO Bank # |Drive (mA)| Slew | Pullup   | IOB Delay | Voltage |Constraint |
+                          |                 | Number |           |             |          |          | Rate | Pulldown |           |         |           |
+--------------------------|-----------------|--------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+ clk                      |                 | P89    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ din<0>                   |                 | P208   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<10>                  |                 | P95    | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<11>                  |                 | P100   | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<12>                  |                 | P96    | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<13>                  | VREF            | P97    | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<14>                  |                 | P86    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<15>                  |                 | P87    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<1>                   |                 | P207   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<2>                   |                 | P203   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<3>                   |                 | P209   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<4>                   |                 | P206   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<5>                   | VREF            | P205   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<6>                   |                 | P202   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<7>                   | D4              | P145   | INPUT     | LVTTL       | 3        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<8>                   | VREF            | P84    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ din<9>                   |                 | P94    | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ dout<0>                  | D6              | P134   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<10>                 |                 | P128   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<11>                 |                 | P126   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<12>                 | INIT            | P123   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<13>                 | D7              | P124   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<14>                 |                 | P125   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<15>                 |                 | P118   | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<1>                  |                 | P116   | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<2>                  |                 | P117   | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<3>                  |                 | P114   | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<4>                  |                 | P133   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<5>                  |                 | P115   | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<6>                  |                 | P132   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<7>                  |                 | P131   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<8>                  | VREF            | P130   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ dout<9>                  |                 | P127   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<0>                 |                 | P39    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<10>                | VREF            | P232   | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<11>                |                 | P72    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<12>                | VREF            | P50    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<13>                |                 | P25    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<14>                | IRDY            | P28    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<15>                |                 | P231   | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<16>                |                 | P13    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<17>                |                 | P12    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<18>                |                 | P235   | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<1>                 |                 | P18    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<2>                 |                 | P38    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<3>                 |                 | P42    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<4>                 |                 | P41    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<5>                 |                 | P40    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<6>                 |                 | P35    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<7>                 |                 | P71    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<8>                 |                 | P34    | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ laddr<9>                 |                 | P17    | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ lcen                     | DIN_D0          | P177   | OUTPUT    | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<0>                 | VREF            | P144   | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<10>                |                 | P101   | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<11>                |                 | P99    | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<12>                |                 | P102   | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<13>                |                 | P108   | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<14>                |                 | P103   | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<15>                |                 | P93    | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<1>                 |                 | P140   | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<2>                 | TRDY            | P149   | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<3>                 |                 | P147   | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<4>                 |                 | P153   | BIDIR     | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<5>                 |                 | P154   | BIDIR     | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<6>                 |                 | P141   | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<7>                 |                 | P139   | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<8>                 | VREF            | P111   | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ldata<9>                 |                 | P109   | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ loen                     |                 | P85    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ lwen                     |                 | P80    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ memrd                    |                 | P82    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ memwr                    |                 | P146   | INPUT     | LVTTL       | 3        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<0>                |                 | P195   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<1>                |                 | P193   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<2>                |                 | P168   | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<3>                |                 | P169   | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<4>                | VREF            | P171   | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<5>                |                 | P194   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<6>                | VREF            | P191   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppdata<7>                |                 | P192   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ ppstatus<3>              |                 | P110   | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ppstatus<4>              |                 | P142   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ ppstatus<5>              |                 | P107   | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ ppstatus<6>              | D5              | P138   | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ rdaddr<0>                |                 | P33    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<10>               |                 | P4     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<11>               |                 | P52    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<12>               |                 | P65    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<13>               |                 | P3     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<14>               |                 | P238   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<15>               |                 | P7     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<16>               |                 | P6     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<17>               |                 | P21    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<1>                |                 | P20    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<2>                |                 | P5     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<3>                |                 | P237   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<4>                |                 | P27    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<5>                |                 | P236   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<6>                |                 | P66    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<7>                |                 | P74    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<8>                |                 | P10    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rdaddr<9>                | VREF            | P9     | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ rddone                   |                 | P81    | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ resetl                   | CS              | P184   | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<0>                |                 | P49    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<10>               |                 | P228   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<11>               |                 | P73    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<12>               |                 | P68    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<13>               |                 | P24    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<14>               |                 | P26    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<15>               |                 | P230   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<16>               |                 | P234   | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<17>               |                 | P19    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<1>                | VREF            | P23    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<2>                |                 | P67    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<3>                | TRDY            | P31    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<4>                |                 | P48    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<5>                |                 | P47    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<6>                | VREF            | P36    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<7>                | VREF            | P70    | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<8>                |                 | P46    | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wraddr<9>                |                 | P11    | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ wrdone                   | DOUT_BUSY       | P178   | OUTPUT    | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+--------------------------|-----------------|--------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+
+Pinout by Pin Number:
+--------|--------------------------|-----------------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+ Pin    |       Signal Name        |    Pin Name     | Direction | IO Standard |IO Bank # |Drive (mA)| Slew | Pullup   | IOB Delay | Voltage |Constraint |
+ Number |                          |                 |           |             |          |          | Rate | Pulldown |           |         |           |
+--------|--------------------------|-----------------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+ P1     |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P2     |                          | TMS             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P3     | rdaddr<13>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P4     | rdaddr<10>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P5     | rdaddr<2>                |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P6     | rdaddr<16>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P7     | rdaddr<15>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P8     |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P9     | rdaddr<9>                | VREF            | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P10    | rdaddr<8>                |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P11    | wraddr<9>                |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P12    | laddr<17>                |                 | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P13    | laddr<16>                |                 | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P14    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P15    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P16    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P17    | laddr<9>                 |                 | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P18    | laddr<1>                 |                 | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P19    | wraddr<17>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P20    | rdaddr<1>                |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P21    | rdaddr<17>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P22    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P23    | wraddr<1>                | VREF            | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P24    | wraddr<13>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P25    | laddr<13>                |                 | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P26    | wraddr<14>               |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P27    | rdaddr<4>                |                 | INPUT     | LVTTL       | 7        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P28    | laddr<14>                | IRDY            | OUTPUT    | LVTTL       | 7        | 12       | SLOW | NONE**   | ***       |         |           |
+ P29    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P30    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P31    | wraddr<3>                | TRDY            | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P32    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P33    | rdaddr<0>                |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P34    | laddr<8>                 |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P35    | laddr<6>                 |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P36    | wraddr<6>                | VREF            | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P37    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P38    | laddr<2>                 |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P39    | laddr<0>                 |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P40    | laddr<5>                 |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P41    | laddr<4>                 |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P42    | laddr<3>                 |                 | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P43    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P44    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P45    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P46    | wraddr<8>                |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P47    | wraddr<5>                |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P48    | wraddr<4>                |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P49    | wraddr<0>                |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P50    | laddr<12>                | VREF            | OUTPUT    | LVTTL       | 6        | 12       | SLOW | NONE**   | ***       |         |           |
+ P51    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P52    | rdaddr<11>               |                 | INPUT     | LVTTL       | 6        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P53    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P54    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P55    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P56    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P57    |                          |                 | UNUSED    | LVTTL*      | 6        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P58    |                          | M1              |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P59    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P60    |                          | M0              |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P61    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P62    |                          | M2              |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P63    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P64    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P65    | rdaddr<12>               |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P66    | rdaddr<6>                |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P67    | wraddr<2>                |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P68    | wraddr<12>               |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P69    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P70    | wraddr<7>                | VREF            | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P71    | laddr<7>                 |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P72    | laddr<11>                |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P73    | wraddr<11>               |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P74    | rdaddr<7>                |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P75    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P76    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P77    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P78    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P79    |                          |                 | UNUSED    | LVTTL*      | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P80    | lwen                     |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P81    | rddone                   |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P82    | memrd                    |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P83    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P84    | din<8>                   | VREF            | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P85    | loen                     |                 | OUTPUT    | LVTTL       | 5        | 12       | SLOW | NONE**   | ***       |         |           |
+ P86    | din<14>                  |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P87    | din<15>                  |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P88    |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P89    | clk                      |                 | INPUT     | LVTTL       | 5        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P90    |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P91    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P92    |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P93    | ldata<15>                |                 | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P94    | din<9>                   |                 | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P95    | din<10>                  |                 | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P96    | din<12>                  |                 | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P97    | din<13>                  | VREF            | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P98    |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P99    | ldata<11>                |                 | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P100   | din<11>                  |                 | INPUT     | LVTTL       | 4        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P101   | ldata<10>                |                 | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P102   | ldata<12>                |                 | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P103   | ldata<14>                |                 | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P104   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P105   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P106   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P107   | ppstatus<5>              |                 | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P108   | ldata<13>                |                 | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P109   | ldata<9>                 |                 | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P110   | ppstatus<3>              |                 | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P111   | ldata<8>                 | VREF            | BIDIR     | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P112   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P113   |                          |                 | UNUSED    | LVTTL*      | 4        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P114   | dout<3>                  |                 | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P115   | dout<5>                  |                 | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P116   | dout<1>                  |                 | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P117   | dout<2>                  |                 | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P118   | dout<15>                 |                 | OUTPUT    | LVTTL       | 4        | 12       | SLOW | NONE**   | ***       |         |           |
+ P119   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P120   |                          | DONE            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P121   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P122   |                          | PROGRAM         |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P123   | dout<12>                 | INIT            | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P124   | dout<13>                 | D7              | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P125   | dout<14>                 |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P126   | dout<11>                 |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P127   | dout<9>                  |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P128   | dout<10>                 |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P129   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P130   | dout<8>                  | VREF            | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P131   | dout<7>                  |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P132   | dout<6>                  |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P133   | dout<4>                  |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P134   | dout<0>                  | D6              | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P135   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P136   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P137   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P138   | ppstatus<6>              | D5              | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P139   | ldata<7>                 |                 | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P140   | ldata<1>                 |                 | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P141   | ldata<6>                 |                 | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P142   | ppstatus<4>              |                 | OUTPUT    | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P143   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P144   | ldata<0>                 | VREF            | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P145   | din<7>                   | D4              | INPUT     | LVTTL       | 3        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P146   | memwr                    |                 | INPUT     | LVTTL       | 3        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P147   | ldata<3>                 |                 | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P148   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P149   | ldata<2>                 | TRDY            | BIDIR     | LVTTL       | 3        | 12       | SLOW | NONE**   | ***       |         |           |
+ P150   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P151   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P152   |                          | IRDY            |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P153   | ldata<4>                 |                 | BIDIR     | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+ P154   | ldata<5>                 |                 | BIDIR     | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+ P155   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P156   |                          | D3              |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P157   |                          | VREF            |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P158   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P159   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P160   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P161   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P162   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P163   |                          | D2              |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P164   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P165   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P166   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P167   |                          | D1              |           | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P168   | ppdata<2>                |                 | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P169   | ppdata<3>                |                 | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P170   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P171   | ppdata<4>                | VREF            | INPUT     | LVTTL       | 2        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P172   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P173   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P174   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P175   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P176   |                          |                 | UNUSED    | LVTTL*      | 2        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P177   | lcen                     | DIN_D0          | OUTPUT    | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+ P178   | wrdone                   | DOUT_BUSY       | OUTPUT    | LVTTL       | 2        | 12       | SLOW | NONE**   | ***       |         |           |
+ P179   |                          | CCLK            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P180   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P181   |                          | TDO             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P182   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P183   |                          | TDI             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P184   | resetl                   | CS              | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P185   |                          | WRITE           |           | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P186   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P187   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P188   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P189   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P190   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P191   | ppdata<6>                | VREF            | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P192   | ppdata<7>                |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P193   | ppdata<1>                |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P194   | ppdata<5>                |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P195   | ppdata<0>                |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P196   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P197   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P198   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P199   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P200   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P201   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P202   | din<6>                   |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P203   | din<2>                   |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P204   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P205   | din<5>                   | VREF            | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P206   | din<4>                   |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P207   | din<1>                   |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P208   | din<0>                   |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P209   | din<3>                   |                 | INPUT     | LVTTL       | 1        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P210   |                          |                 | UNUSED    | LVTTL*      | 1        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P211   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P212   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P213   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P214   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P215   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P216   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P217   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P218   |                          | VREF            |           | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P219   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P220   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P221   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P222   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P223   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P224   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P225   |                          | VCCINT          |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       | 2.5     |           |
+ P226   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P227   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P228   | wraddr<10>               |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P229   |                          |                 | UNUSED    | LVTTL*      | 0        | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P230   | wraddr<15>               |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P231   | laddr<15>                |                 | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ P232   | laddr<10>                | VREF            | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ P233   |                          | GND             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P234   | wraddr<16>               |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P235   | laddr<18>                |                 | OUTPUT    | LVTTL       | 0        | 12       | SLOW | NONE**   | ***       |         |           |
+ P236   | rdaddr<5>                |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P237   | rdaddr<3>                |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P238   | rdaddr<14>               |                 | INPUT     | LVTTL       | 0        | 12*      | SLOW*| NONE**   | NONE      |         |           |
+ P239   |                          | TCK             |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+ P240   |                          | VCCO            |           | LVTTL*      |          | 12*      | SLOW*| NONE**   | ***       |         |           |
+--------|--------------------------|-----------------|-----------|-------------|----------|----------|------|----------|-----------|---------|-----------|
+
+* Default value.
+** This default Pullup/Pulldown value can be overridden in Bitgen.
+*** The default IOB Delay is determined by how the IOB is used.
+
+
+#
+# To preserve the pinout above for future design iterations,
+# simply invoke PIN2UCF from the command line or issue this command in the GUI.
+# For Foundation ISE/Project Navigator - Run the process "Implement Design" -> "Place-and-Route" -> "Back-annotate Pin Locations"
+# For Design Manager - In the Design menu select "Lock Pins...
+# The location constraints above will be written into your specified UCF file. (The constraints
+# listed below are in PCF format and cannot be directly used in the UCF file).
+#
+COMP "clk" LOCATE = SITE "P89" ; 
+COMP "din<0>" LOCATE = SITE "P208" ; 
+COMP "din<10>" LOCATE = SITE "P95" ; 
+COMP "din<11>" LOCATE = SITE "P100" ; 
+COMP "din<12>" LOCATE = SITE "P96" ; 
+COMP "din<13>" LOCATE = SITE "P97" ; 
+COMP "din<14>" LOCATE = SITE "P86" ; 
+COMP "din<15>" LOCATE = SITE "P87" ; 
+COMP "din<1>" LOCATE = SITE "P207" ; 
+COMP "din<2>" LOCATE = SITE "P203" ; 
+COMP "din<3>" LOCATE = SITE "P209" ; 
+COMP "din<4>" LOCATE = SITE "P206" ; 
+COMP "din<5>" LOCATE = SITE "P205" ; 
+COMP "din<6>" LOCATE = SITE "P202" ; 
+COMP "din<7>" LOCATE = SITE "P145" ; 
+COMP "din<8>" LOCATE = SITE "P84" ; 
+COMP "din<9>" LOCATE = SITE "P94" ; 
+COMP "dout<0>" LOCATE = SITE "P134" ; 
+COMP "dout<10>" LOCATE = SITE "P128" ; 
+COMP "dout<11>" LOCATE = SITE "P126" ; 
+COMP "dout<12>" LOCATE = SITE "P123" ; 
+COMP "dout<13>" LOCATE = SITE "P124" ; 
+COMP "dout<14>" LOCATE = SITE "P125" ; 
+COMP "dout<15>" LOCATE = SITE "P118" ; 
+COMP "dout<1>" LOCATE = SITE "P116" ; 
+COMP "dout<2>" LOCATE = SITE "P117" ; 
+COMP "dout<3>" LOCATE = SITE "P114" ; 
+COMP "dout<4>" LOCATE = SITE "P133" ; 
+COMP "dout<5>" LOCATE = SITE "P115" ; 
+COMP "dout<6>" LOCATE = SITE "P132" ; 
+COMP "dout<7>" LOCATE = SITE "P131" ; 
+COMP "dout<8>" LOCATE = SITE "P130" ; 
+COMP "dout<9>" LOCATE = SITE "P127" ; 
+COMP "laddr<0>" LOCATE = SITE "P39" ; 
+COMP "laddr<10>" LOCATE = SITE "P232" ; 
+COMP "laddr<11>" LOCATE = SITE "P72" ; 
+COMP "laddr<12>" LOCATE = SITE "P50" ; 
+COMP "laddr<13>" LOCATE = SITE "P25" ; 
+COMP "laddr<14>" LOCATE = SITE "P28" ; 
+COMP "laddr<15>" LOCATE = SITE "P231" ; 
+COMP "laddr<16>" LOCATE = SITE "P13" ; 
+COMP "laddr<17>" LOCATE = SITE "P12" ; 
+COMP "laddr<18>" LOCATE = SITE "P235" ; 
+COMP "laddr<1>" LOCATE = SITE "P18" ; 
+COMP "laddr<2>" LOCATE = SITE "P38" ; 
+COMP "laddr<3>" LOCATE = SITE "P42" ; 
+COMP "laddr<4>" LOCATE = SITE "P41" ; 
+COMP "laddr<5>" LOCATE = SITE "P40" ; 
+COMP "laddr<6>" LOCATE = SITE "P35" ; 
+COMP "laddr<7>" LOCATE = SITE "P71" ; 
+COMP "laddr<8>" LOCATE = SITE "P34" ; 
+COMP "laddr<9>" LOCATE = SITE "P17" ; 
+COMP "lcen" LOCATE = SITE "P177" ; 
+COMP "ldata<0>" LOCATE = SITE "P144" ; 
+COMP "ldata<10>" LOCATE = SITE "P101" ; 
+COMP "ldata<11>" LOCATE = SITE "P99" ; 
+COMP "ldata<12>" LOCATE = SITE "P102" ; 
+COMP "ldata<13>" LOCATE = SITE "P108" ; 
+COMP "ldata<14>" LOCATE = SITE "P103" ; 
+COMP "ldata<15>" LOCATE = SITE "P93" ; 
+COMP "ldata<1>" LOCATE = SITE "P140" ; 
+COMP "ldata<2>" LOCATE = SITE "P149" ; 
+COMP "ldata<3>" LOCATE = SITE "P147" ; 
+COMP "ldata<4>" LOCATE = SITE "P153" ; 
+COMP "ldata<5>" LOCATE = SITE "P154" ; 
+COMP "ldata<6>" LOCATE = SITE "P141" ; 
+COMP "ldata<7>" LOCATE = SITE "P139" ; 
+COMP "ldata<8>" LOCATE = SITE "P111" ; 
+COMP "ldata<9>" LOCATE = SITE "P109" ; 
+COMP "loen" LOCATE = SITE "P85" ; 
+COMP "lwen" LOCATE = SITE "P80" ; 
+COMP "memrd" LOCATE = SITE "P82" ; 
+COMP "memwr" LOCATE = SITE "P146" ; 
+COMP "ppdata<0>" LOCATE = SITE "P195" ; 
+COMP "ppdata<1>" LOCATE = SITE "P193" ; 
+COMP "ppdata<2>" LOCATE = SITE "P168" ; 
+COMP "ppdata<3>" LOCATE = SITE "P169" ; 
+COMP "ppdata<4>" LOCATE = SITE "P171" ; 
+COMP "ppdata<5>" LOCATE = SITE "P194" ; 
+COMP "ppdata<6>" LOCATE = SITE "P191" ; 
+COMP "ppdata<7>" LOCATE = SITE "P192" ; 
+COMP "ppstatus<3>" LOCATE = SITE "P110" ; 
+COMP "ppstatus<4>" LOCATE = SITE "P142" ; 
+COMP "ppstatus<5>" LOCATE = SITE "P107" ; 
+COMP "ppstatus<6>" LOCATE = SITE "P138" ; 
+COMP "rdaddr<0>" LOCATE = SITE "P33" ; 
+COMP "rdaddr<10>" LOCATE = SITE "P4" ; 
+COMP "rdaddr<11>" LOCATE = SITE "P52" ; 
+COMP "rdaddr<12>" LOCATE = SITE "P65" ; 
+COMP "rdaddr<13>" LOCATE = SITE "P3" ; 
+COMP "rdaddr<14>" LOCATE = SITE "P238" ; 
+COMP "rdaddr<15>" LOCATE = SITE "P7" ; 
+COMP "rdaddr<16>" LOCATE = SITE "P6" ; 
+COMP "rdaddr<17>" LOCATE = SITE "P21" ; 
+COMP "rdaddr<1>" LOCATE = SITE "P20" ; 
+COMP "rdaddr<2>" LOCATE = SITE "P5" ; 
+COMP "rdaddr<3>" LOCATE = SITE "P237" ; 
+COMP "rdaddr<4>" LOCATE = SITE "P27" ; 
+COMP "rdaddr<5>" LOCATE = SITE "P236" ; 
+COMP "rdaddr<6>" LOCATE = SITE "P66" ; 
+COMP "rdaddr<7>" LOCATE = SITE "P74" ; 
+COMP "rdaddr<8>" LOCATE = SITE "P10" ; 
+COMP "rdaddr<9>" LOCATE = SITE "P9" ; 
+COMP "rddone" LOCATE = SITE "P81" ; 
+COMP "resetl" LOCATE = SITE "P184" ; 
+COMP "wraddr<0>" LOCATE = SITE "P49" ; 
+COMP "wraddr<10>" LOCATE = SITE "P228" ; 
+COMP "wraddr<11>" LOCATE = SITE "P73" ; 
+COMP "wraddr<12>" LOCATE = SITE "P68" ; 
+COMP "wraddr<13>" LOCATE = SITE "P24" ; 
+COMP "wraddr<14>" LOCATE = SITE "P26" ; 
+COMP "wraddr<15>" LOCATE = SITE "P230" ; 
+COMP "wraddr<16>" LOCATE = SITE "P234" ; 
+COMP "wraddr<17>" LOCATE = SITE "P19" ; 
+COMP "wraddr<1>" LOCATE = SITE "P23" ; 
+COMP "wraddr<2>" LOCATE = SITE "P67" ; 
+COMP "wraddr<3>" LOCATE = SITE "P31" ; 
+COMP "wraddr<4>" LOCATE = SITE "P48" ; 
+COMP "wraddr<5>" LOCATE = SITE "P47" ; 
+COMP "wraddr<6>" LOCATE = SITE "P36" ; 
+COMP "wraddr<7>" LOCATE = SITE "P70" ; 
+COMP "wraddr<8>" LOCATE = SITE "P46" ; 
+COMP "wraddr<9>" LOCATE = SITE "P11" ; 
+COMP "wrdone" LOCATE = SITE "P178" ; 
+#

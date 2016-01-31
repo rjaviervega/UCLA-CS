@@ -1,0 +1,25 @@
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Create Schematic Symbol
+
+Starting: 'exewrap @_memorymodule_exewrap.rsp'
+
+
+Analyzing VHDL source files...
+Elaborating design unit memorymodule...
+vhdtdtfi completed without error...
+
+Done: completed successfully.
+
+Starting: 'exewrap @_memorymodule_spl2sym_exewrap.rsp'
+
+
+Starting: 'spl2sym -family=virtex memorymodule.spl memorymodule.sym '
+
+
+Release 4.1i - spl2sym E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+EXEWRAP detected that program 'spl2sym' completed successfully.
+
+Done: completed successfully.

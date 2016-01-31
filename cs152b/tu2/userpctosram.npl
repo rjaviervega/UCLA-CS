@@ -1,0 +1,26 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT userpctosram
+DESIGN userpctosram Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+STIMULUS testbench.vhd Normal
+MODULE memorymultiplexor-sv01.vhd
+MODSTYLE memorymultiplexor Normal
+MODULE sraminterfacewithpport-sv01.vhd
+MODSTYLE sraminterfacewithpport Normal
+MODULE newtest.vhd
+MODSTYLE testbench Normal
+MODULE userpctosramtoplevel.vhd
+MODSTYLE userpctosramtoplevel Normal
+MODULE pctosraminterface-sv06.vhd
+MODSTYLE pctosraminterface Normal
+MODULE sram512kleft16bit50mhzreadreq-sv05.vhd
+MODSTYLE sraminterface Normal
+MODULE wrdiptosram.vhd
+MODSTYLE wrdiptosram Normal
+[STRATEGY-LIST]
+Normal=True, 1088789575
+[Normal]
+p_ModelSimSimRes=xstvhd, VIRTEX, Module VHDL Test Bench.t_MSimulateBehavioralVhdlModel, 1088790724, 1 ns

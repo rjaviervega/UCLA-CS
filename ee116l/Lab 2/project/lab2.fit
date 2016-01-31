@@ -1,0 +1,47 @@
+-- MAX+plus II Compiler Fit File      
+-- Version 7.21 Student Edition       
+-- Compiled: 10/15/03 14:34:50        
+
+-- Copyright (C) 1991-1997 Altera Corporation
+-- Any megafunction design, and related net list (encrypted or decrypted),
+-- support information, device programming or simulation file, and any other
+-- associated documentation or information provided by Altera or a partner
+-- under Altera's Megafunction Partnership Program may be used only to
+-- program PLD devices (but not masked PLD devices) from Altera.  Any other
+-- use of such megafunction design, net list, support information, device
+-- programming or simulation file, or any other related documentation or
+-- information is prohibited for any other purpose, including, but not
+-- limited to modification, reverse engineering, de-compiling, or use with
+-- any other silicon devices, unless such use is explicitly licensed under
+-- a separate agreement with Altera or a megafunction partner.  Title to
+-- the intellectual property, including patents, copyrights, trademarks,
+-- trade secrets, or maskworks, embodied in any such megafunction design,
+-- net list, support information, device programming or simulation file, or
+-- any other related documentation or information provided by Altera or a
+-- megafunction partner, remains with Altera, the megafunction partner, or
+-- their respective licensors.  No other licenses, including any licenses
+-- needed under any third party's intellectual property, are provided herein.
+
+CHIP "lab2"
+BEGIN
+
+    DEVICE = "EPM7128SLC84-7";
+
+    "Clock"                        : INPUT_PIN  = 2      ;
+    "Xin"                          : INPUT_PIN  = 12     ; -- LC3
+    "outq0"                        : OUTPUT_PIN = 75     ; -- LC118
+    "outq1"                        : OUTPUT_PIN = 74     ; -- LC117
+    "outq2"                        : OUTPUT_PIN = 73     ; -- LC115
+    "Z"                            : OUTPUT_PIN = 76     ; -- LC120
+
+END;
+
+INTERNAL_INFO "lab2"
+BEGIN
+	DEVICE = EPM7128SLC84-7;
+	LC120   : LORAX = "G113R0";
+	LC115   : LORAX = "G55R0";
+	LC117   : LORAX = "G110R0";
+	LC118   : LORAX = "G111R0";
+	OH2R0   : LORAX = "G148R0";
+END;

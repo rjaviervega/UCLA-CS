@@ -1,0 +1,125 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Gautam Bhatia">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (Win98; U) [Netscape]">
+   <title>CS 33 Systems Programming</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<center><b><i>HOMEWORK</i></b>
+<br><b><i>Chapter 11</i></b></center>
+
+<p><br>
+<p>11-1.(a)&nbsp;&nbsp;&nbsp; Relative addressing is the calculation of
+an address by using an
+<br>offset from the current value of the instruction pointer. (p320)
+<p>&nbsp;&nbsp;&nbsp; (b) A far pointer is a pointer which consists of
+an offset value in one
+<br>word and a segment address in the next word. (p330)
+<p>&nbsp;&nbsp;&nbsp; (c) An external reference is the use of a symbol
+which references a
+<br>definition in another module. (p333)
+<p>&nbsp;&nbsp;&nbsp; (d) A public declaration is the publication of a
+symbol name and value by a
+<br>module so that they may be used as an external reference in other modules.
+<br>(p333)
+<p>&nbsp;&nbsp;&nbsp; (e) Position-independent code is code which contains
+no absolute address
+<br>references but only references to the instruction pointer - either
+implicitly
+<br>or explicitly. (p321)
+<p>&nbsp;&nbsp;&nbsp; (f) A segment override prefix is a single byte preceding
+an instruction
+<br>which identifies a specific segment register which is to be used to
+override
+<br>(replace) the implied segment register which would otherwise be used
+by the
+<br>instruction. (p329)
+<p>&nbsp;&nbsp;&nbsp; (g) Memory-mapped I/O is the use of normal memory
+addresses (where there is
+<br>no actual memory) rather than I/O ports to accomplish I/O. (pp347-348)
+<p>&nbsp;&nbsp;&nbsp; (h) Multiple-precision arithmetic is the use of multiple-word
+values for
+<br>numerical quantities and arithmetic to obtain extended precision beyond
+that
+<br>available with single words. (p350)
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>11-2.&nbsp;&nbsp; (a) ADD AH,AL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$00E0 or $02E0
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (b) MOV AL,4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$B004
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (c) DEC WORD PTR [SI]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FF0C
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (d) INC AH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$FEC4
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (e) INC BYTE PTR DS:0030h&nbsp;&nbsp;
+$FE063000
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (f) MOV AX,DS:5678h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$8B067856 or $A17856
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (g) SUB BX,[DI+6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$2B5D06
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (h) MOV ES,[BP+SI+1000h]&nbsp;&nbsp;&nbsp;
+$8E820010
+<p>11-3.&nbsp;&nbsp; (a) $C6440644&nbsp;&nbsp; MOV BYTEPTR [SI+6],44h
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (b) $FF0A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DEC [BP+SI]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (c) $2BD2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SUB DX,DX
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (d) $8E986610&nbsp;&nbsp;
+MOV DS,[BX+SI+1066h]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (e) $FE4505&nbsp;&nbsp;&nbsp;&nbsp;
+INC [DI+5]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (f) $030E0004&nbsp;&nbsp;
+ADD CX,0400h
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (g) $A03412&nbsp;&nbsp;&nbsp;&nbsp;
+MOV AL,1234h
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (h) $050600&nbsp;&nbsp;&nbsp;&nbsp;
+ADD AX,OOO6h
+<p>11-4.&nbsp;&nbsp; (a) 1000:0010&nbsp;&nbsp; 1001:0000
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (b) 3456:1234&nbsp;&nbsp;
+3579:0004
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (c) AB45:1201&nbsp;&nbsp;
+AC65:0001
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (d) 8FFF:FFFF&nbsp;&nbsp;
+9FFE:000F
+<p>11-5.&nbsp;&nbsp; Reassign the DOS timer interrupt to $80 and invoke
+the interrupt from
+<br>within the custom interrupt routine.
+<p>11-6.&nbsp;&nbsp; The advantage is the ability to address 16 times as
+much memory.&nbsp; The
+<br>disadvantage is that segments would begin on 256-word boundaries rather
+than 16-
+<br>word boundaries resulting in an average number of unused words in a
+segment of
+<br>128 rather than 8.
+<p>11-7.&nbsp;&nbsp; If the address calculation involves the BP register,
+then the SS is
+<br>used as the segment register.
+<p>11-8.&nbsp;&nbsp; With displacement $FE, the 2-byte unconditional jump
+instruction jumps
+<br>to itself (2 bytes back from the instruction pointer incremented by
+2).&nbsp; With
+<br>displacement $00, the 2-byte unconditional jump instruction jumps to
+the next
+<br>instruction (no offset from the instruction pointer incremented by
+2) which
+<br>makes the jump effectively a NOP (No Operation) instruction.
+<p>11-9.&nbsp;&nbsp; Single-byte displacements can be used resulting in
+instructions only
+<br>two bytes long.
+<p>11-13. If one of the two words (offset/segment) were loaded without
+the other
+<br>and an interrupt occurred, the interrupt vector address would be meaningless
+<br>because it would have one word from one interrupt vector and the other
+word
+<br>from a different interrupt vector.
+<p>11-14. 32/3 = 10 Remainder 2 =>&nbsp; AX = 10&nbsp; ($000A) and DX =
+2&nbsp; ($0002).
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,12 @@
+	Pctosraminterface	NULL	E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd	sub00/vhpl00
+	Pctosraminterface	Pctosraminterface_arch	E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd	sub00/vhpl01
+	Memorymultiplexor	NULL	E:/HingKei/152bs04/tu2/memorymultiplexor-sv01.vhd	sub00/vhpl02
+	Memorymultiplexor	Memorymultiplexor_arch	E:/HingKei/152bs04/tu2/memorymultiplexor-sv01.vhd	sub00/vhpl03
+	Sraminterface	NULL	E:/HingKei/152bs04/tu2/sram512kleft16bit50mhzreadreq-sv05.vhd	sub00/vhpl04
+	Sraminterface	Sraminterface_arch	E:/HingKei/152bs04/tu2/sram512kleft16bit50mhzreadreq-sv05.vhd	sub00/vhpl05
+	Wrdiptosram	NULL	E:/HingKei/152bs04/tu2/wrdiptosram.vhd	sub00/vhpl06
+	Wrdiptosram	Behavioral	E:/HingKei/152bs04/tu2/wrdiptosram.vhd	sub00/vhpl07
+	Sraminterfacewithpport	NULL	E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd	sub00/vhpl08
+	Sraminterfacewithpport	Sraminterfacewithpport_arch	E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd	sub00/vhpl09
+	userpctosramtoplevel	NULL	E:/HingKei/152bs04/tu2/userpctosramtoplevel.vhd	sub00/vhpl10
+	userpctosramtoplevel	behavioral	E:/HingKei/152bs04/tu2/userpctosramtoplevel.vhd	sub00/vhpl11

@@ -1,0 +1,752 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.22 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.22 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.22 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : project2.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : project2
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : project2
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+WARNING:HDLParsers:3215 - Unit work/IBUF8_MXILINX is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/IBUF8_MXILINX/SCHEMATIC is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/OBUF16_MXILINX is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/OBUF16_MXILINX/SCHEMATIC is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/OBUF4_MXILINX is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/OBUF4_MXILINX/SCHEMATIC is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/PROJECT2 is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/PROJECT2/SCHEMATIC is now defined in a different file: was E:/proj3/project3test/project2.vhf, now is E:/proj3/project3test1/project2.vhf
+WARNING:HDLParsers:3215 - Unit work/CTRLUNIT is now defined in a different file: was E:/proj3/project3test/CtrlUnit.vhd, now is E:/proj3/project3test1/CtrlUnit.vhd
+WARNING:HDLParsers:3215 - Unit work/CTRLUNIT/BEHAVIORAL is now defined in a different file: was E:/proj3/project3test/CtrlUnit.vhd, now is E:/proj3/project3test1/CtrlUnit.vhd
+WARNING:HDLParsers:3215 - Unit work/D3_8E_MXILINX is now defined in a different file: was E:/proj3/project3test/regfile.vhf, now is E:/proj3/project3test1/regfile.vhf
+WARNING:HDLParsers:3215 - Unit work/D3_8E_MXILINX/SCHEMATIC is now defined in a different file: was E:/proj3/project3test/regfile.vhf, now is E:/proj3/project3test1/regfile.vhf
+WARNING:HDLParsers:3215 - Unit work/FD16CE_MXILINX is now defined in a different file: was E:/proj3/project3test/regfile.vhf, now is E:/proj3/project3test1/regfile.vhf
+WARNING:HDLParsers:3215 - Unit work/FD16CE_MXILINX/SCHEMATIC is now defined in a different file: was E:/proj3/project3test/regfile.vhf, now is E:/proj3/project3test1/regfile.vhf
+WARNING:HDLParsers:3215 - Unit work/REGFILE is now defined in a different file: was E:/proj3/project3test/regfile.vhf, now is E:/proj3/project3test1/regfile.vhf
+WARNING:HDLParsers:3215 - Unit work/REGFILE/SCHEMATIC is now defined in a different file: was E:/proj3/project3test/regfile.vhf, now is E:/proj3/project3test1/regfile.vhf
+WARNING:HDLParsers:3215 - Unit work/MEMORYMODULE is now defined in a different file: was E:/proj3/project3test/memaccess.vhd, now is E:/proj3/project3test1/memaccess.vhd
+WARNING:HDLParsers:3215 - Unit work/MEMORYMODULE/BEHAVIORAL is now defined in a different file: was E:/proj3/project3test/memaccess.vhd, now is E:/proj3/project3test1/memaccess.vhd
+WARNING:HDLParsers:3215 - Unit work/SRAMINTERFACEWITHPPORT is now defined in a different file: was E:/proj3/project3test/sraminterfacewithpport-sv01.vhd, now is E:/proj3/project3test1/sraminterfacewithpport-sv01.vhd
+WARNING:HDLParsers:3215 - Unit work/SRAMINTERFACEWITHPPORT/SRAMINTERFACEWITHPPORT_ARCH is now defined in a different file: was E:/proj3/project3test/sraminterfacewithpport-sv01.vhd, now is E:/proj3/project3test1/sraminterfacewithpport-sv01.vhd
+WARNING:HDLParsers:3215 - Unit work/SRAMINTERFACE is now defined in a different file: was E:/proj3/project3test/sram512kleft16bit50mhzreadreq-sv05.vhd, now is E:/proj3/project3test1/sram512kleft16bit50mhzreadreq-sv05.vhd
+WARNING:HDLParsers:3215 - Unit work/SRAMINTERFACE/SRAMINTERFACE_ARCH is now defined in a different file: was E:/proj3/project3test/sram512kleft16bit50mhzreadreq-sv05.vhd, now is E:/proj3/project3test1/sram512kleft16bit50mhzreadreq-sv05.vhd
+WARNING:HDLParsers:3215 - Unit work/PCTOSRAMINTERFACE is now defined in a different file: was E:/proj3/project3test/pctosraminterface-sv06.vhd, now is E:/proj3/project3test1/pctosraminterface-sv06.vhd
+WARNING:HDLParsers:3215 - Unit work/PCTOSRAMINTERFACE/PCTOSRAMINTERFACE_ARCH is now defined in a different file: was E:/proj3/project3test/pctosraminterface-sv06.vhd, now is E:/proj3/project3test1/pctosraminterface-sv06.vhd
+WARNING:HDLParsers:3215 - Unit work/MEMORYMULTIPLEXOR is now defined in a different file: was E:/proj3/project3test/memorymultiplexor-sv01.vhd, now is E:/proj3/project3test1/memorymultiplexor-sv01.vhd
+WARNING:HDLParsers:3215 - Unit work/MEMORYMULTIPLEXOR/MEMORYMULTIPLEXOR_ARCH is now defined in a different file: was E:/proj3/project3test/memorymultiplexor-sv01.vhd, now is E:/proj3/project3test1/memorymultiplexor-sv01.vhd
+WARNING:HDLParsers:3215 - Unit work/MEMORYWRITE is now defined in a different file: was E:/proj3/project3test/memorywrite.vhd, now is E:/proj3/project3test1/memorywrite.vhd
+WARNING:HDLParsers:3215 - Unit work/MEMORYWRITE/BEHAVIORAL is now defined in a different file: was E:/proj3/project3test/memorywrite.vhd, now is E:/proj3/project3test1/memorywrite.vhd
+WARNING:HDLParsers:3215 - Unit work/MEMORYREAD is now defined in a different file: was E:/proj3/project3test/memoryread.vhd, now is E:/proj3/project3test1/memoryread.vhd
+WARNING:HDLParsers:3215 - Unit work/MEMORYREAD/BEHAVIORAL is now defined in a different file: was E:/proj3/project3test/memoryread.vhd, now is E:/proj3/project3test1/memoryread.vhd
+Compiling vhdl file E:/proj3/project3test1/pctosraminterface-sv06.vhd in Library work.
+Architecture Pctosraminterface_arch of Entity Pctosraminterface is up to date.
+Compiling vhdl file E:/proj3/project3test1/memorymultiplexor-sv01.vhd in Library work.
+Architecture Memorymultiplexor_arch of Entity Memorymultiplexor is up to date.
+Compiling vhdl file E:/proj3/project3test1/sram512kleft16bit50mhzreadreq-sv05.vhd in Library work.
+Architecture Sraminterface_arch of Entity Sraminterface is up to date.
+Compiling vhdl file E:/proj3/project3test1/memoryread.vhd in Library work.
+Architecture Behavioral of Entity Memoryread is up to date.
+Compiling vhdl file E:/proj3/project3test1/memorywrite.vhd in Library work.
+Architecture Behavioral of Entity Memorywrite is up to date.
+Compiling vhdl file E:/proj3/project3test1/sraminterfacewithpport-sv01.vhd in Library work.
+Architecture Sraminterfacewithpport_arch of Entity Sraminterfacewithpport is up to date.
+Compiling vhdl file E:/proj3/project3test1/CtrlUnit.vhd in Library work.
+Entity <Ctrlunit> (Architecture <Behavioral>) compiled.
+Compiling vhdl file E:/proj3/project3test1/memaccess.vhd in Library work.
+Architecture Behavioral of Entity Memorymodule is up to date.
+Compiling vhdl file E:/proj3/project3test1/regfile.vhf in Library work.
+Architecture Schematic of Entity D3_8e_mxilinx is up to date.
+Architecture Schematic of Entity Fd16ce_mxilinx is up to date.
+Architecture Schematic of Entity Regfile is up to date.
+Compiling vhdl file E:/proj3/project3test1/project2.vhf in Library work.
+Entity <ibuf8_mxilinx> (Architecture <schematic>) compiled.
+Entity <obuf16_mxilinx> (Architecture <schematic>) compiled.
+Entity <obuf4_mxilinx> (Architecture <schematic>) compiled.
+Entity <project2> (Architecture <schematic>) compiled.
+
+Analyzing Entity <project2> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_28> in unit <project2>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_19> in unit <project2>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_18> in unit <project2>.
+WARNING:Xst:753 - E:/proj3/project3test1/project2.vhf (Line 474). Unconnected output port 'busb' of component 'regfile'.
+Entity <project2> analyzed. Unit <project2> generated.
+
+Analyzing Entity <ctrlunit> (Architecture <behavioral>).
+WARNING:Xst:819 - E:/proj3/project3test1/CtrlUnit.vhd (Line 51). The following signals are missing in the process sensitivity list:
+   a.
+Entity <ctrlunit> analyzed. Unit <ctrlunit> generated.
+
+Analyzing Entity <ibuf8_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <ibuf8_mxilinx> analyzed. Unit <ibuf8_mxilinx> generated.
+
+Analyzing Entity <memorymodule> (Architecture <behavioral>).
+Entity <memorymodule> analyzed. Unit <memorymodule> generated.
+
+Analyzing Entity <obuf16_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <obuf16_mxilinx> analyzed. Unit <obuf16_mxilinx> generated.
+
+Analyzing Entity <obuf4_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <obuf4_mxilinx> analyzed. Unit <obuf4_mxilinx> generated.
+
+Analyzing Entity <regfile> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:766 - E:/proj3/project3test1/regfile.vhf (Line 362). Generating a Black Box for component <buxmux16>.
+WARNING:Xst:766 - E:/proj3/project3test1/regfile.vhf (Line 401). Generating a Black Box for component <buxmux16>.
+WARNING:Xst:753 - E:/proj3/project3test1/regfile.vhf (Line 440). Unconnected output port 'd0' of component 'd3_8e_mxilinx'.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_7> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_67> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_70> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_68> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_66> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_72> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_71> in unit <regfile>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_69> in unit <regfile>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <regfile> analyzed. Unit <regfile> generated.
+
+Analyzing Entity <memoryread> (Architecture <behavioral>).
+Entity <memoryread> analyzed. Unit <memoryread> generated.
+
+Analyzing Entity <memorywrite> (Architecture <behavioral>).
+Entity <memorywrite> analyzed. Unit <memorywrite> generated.
+
+Analyzing Entity <sraminterfacewithpport> (Architecture <sraminterfacewithpport_arch>).
+WARNING:Xst:753 - E:/proj3/project3test1/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portinslicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/proj3/project3test1/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portoutslicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/proj3/project3test1/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'stateoutput' of component 'pctosraminterface'.
+Entity <sraminterfacewithpport> analyzed. Unit <sraminterfacewithpport> generated.
+
+Analyzing Entity <d3_8e_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <d3_8e_mxilinx> analyzed. Unit <d3_8e_mxilinx> generated.
+
+Analyzing Entity <fd16ce_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q0> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q5> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q1> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q2> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q3> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q4> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q6> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q7> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q8> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q9> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q10> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q11> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q12> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q13> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q14> in unit <fd16ce_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "INIT =  0" for instance <i_q15> in unit <fd16ce_mxilinx>.
+Entity <fd16ce_mxilinx> analyzed. Unit <fd16ce_mxilinx> generated.
+
+Analyzing Entity <pctosraminterface> (Architecture <pctosraminterface_arch>).
+WARNING:Xst:819 - E:/proj3/project3test1/pctosraminterface-sv06.vhd (Line 193). The following signals are missing in the process sensitivity list:
+   asyncinputs, syncinputs1, syncinputs2.
+WARNING:Xst:819 - E:/proj3/project3test1/pctosraminterface-sv06.vhd (Line 211). The following signals are missing in the process sensitivity list:
+   softreset.
+Entity <pctosraminterface> analyzed. Unit <pctosraminterface> generated.
+
+Analyzing Entity <memorymultiplexor> (Architecture <memorymultiplexor_arch>).
+Entity <memorymultiplexor> analyzed. Unit <memorymultiplexor> generated.
+
+Analyzing Entity <sraminterface> (Architecture <sraminterface_arch>).
+Entity <sraminterface> analyzed. Unit <sraminterface> generated.
+
+
+Synthesizing Unit <sraminterface>.
+    Related source file is E:/proj3/project3test1/sram512kleft16bit50mhzreadreq-sv05.vhd.
+    Found finite state machine <FSM_0> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 8                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 19-bit register for signal <addrreg>.
+    Found 1-bit register for signal <cen>.
+    Found 1-bit register for signal <doingwrite1>.
+    Found 1-bit register for signal <doingwrite2>.
+    Found 1-bit register for signal <oen>.
+    Found 16-bit tristate buffer for signal <sramdata>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  39 D-type flip-flop(s).
+	inferred  19 Multiplexer(s).
+	inferred  16 Tristate(s).
+Unit <sraminterface> synthesized.
+
+
+Synthesizing Unit <memorymultiplexor>.
+    Related source file is E:/proj3/project3test1/memorymultiplexor-sv01.vhd.
+    Found 1-bit register for signal <presstate>.
+    Found 57 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred  57 Multiplexer(s).
+Unit <memorymultiplexor> synthesized.
+
+
+Synthesizing Unit <pctosraminterface>.
+    Related source file is E:/proj3/project3test1/pctosraminterface-sv06.vhd.
+WARNING:Xst:646 - Signal <regdatain> is assigned but never used.
+    Found finite state machine <FSM_1> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 45                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 12                                             |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 8-bit latch for signal <mysyncdata>.
+    Found 4-bit 4-to-1 multiplexer for signal <dataout>.
+    Found 19-bit adder for signal <$n0000> created at line 261.
+    Found 8-bit comparator equal for signal <$n0098> created at line 200.
+    Found 8-bit comparator equal for signal <$n0099> created at line 200.
+    Found 8-bit comparator equal for signal <$n0100> created at line 250.
+    Found 8-bit comparator equal for signal <$n0101> created at line 250.
+    Found 19-bit register for signal <curaddrreg>.
+    Found 5-bit register for signal <datainreg>.
+    Found 2-bit up counter for signal <inslicenum>.
+    Found 2-bit up counter for signal <outslicenum>.
+    Found 1-bit register for signal <pccontrolenabled>.
+    Found 16-bit register for signal <readdatareg>.
+    Found 8-bit register for signal <syncinputs1>.
+    Found 8-bit register for signal <syncinputs2>.
+    Found 8-bit register for signal <syncinputs3>.
+    Found 1-bit register for signal <syncnextslice>.
+    Found 1-bit register for signal <syncread>.
+    Found 1-bit register for signal <syncwrite>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred  84 D-type flip-flop(s).
+	inferred   8 Latch(s).
+	inferred   1 Adder/Subtracter(s).
+	inferred   4 Comparator(s).
+	inferred  23 Multiplexer(s).
+Unit <pctosraminterface> synthesized.
+
+
+Synthesizing Unit <fd16ce_mxilinx>.
+    Related source file is E:/proj3/project3test1/regfile.vhf.
+Unit <fd16ce_mxilinx> synthesized.
+
+
+Synthesizing Unit <d3_8e_mxilinx>.
+    Related source file is E:/proj3/project3test1/regfile.vhf.
+Unit <d3_8e_mxilinx> synthesized.
+
+
+Synthesizing Unit <sraminterfacewithpport>.
+    Related source file is E:/proj3/project3test1/sraminterfacewithpport-sv01.vhd.
+Unit <sraminterfacewithpport> synthesized.
+
+
+Synthesizing Unit <memorywrite>.
+    Related source file is E:/proj3/project3test1/memorywrite.vhd.
+    Found finite state machine <FSM_2> for signal <prestate>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <memorywrite> synthesized.
+
+
+Synthesizing Unit <memoryread>.
+    Related source file is E:/proj3/project3test1/memoryread.vhd.
+    Found finite state machine <FSM_3> for signal <prestate>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <memoryread> synthesized.
+
+
+Synthesizing Unit <regfile>.
+    Related source file is E:/proj3/project3test1/regfile.vhf.
+Unit <regfile> synthesized.
+
+
+Synthesizing Unit <obuf4_mxilinx>.
+    Related source file is E:/proj3/project3test1/project2.vhf.
+Unit <obuf4_mxilinx> synthesized.
+
+
+Synthesizing Unit <obuf16_mxilinx>.
+    Related source file is E:/proj3/project3test1/project2.vhf.
+Unit <obuf16_mxilinx> synthesized.
+
+
+Synthesizing Unit <memorymodule>.
+    Related source file is E:/proj3/project3test1/memaccess.vhd.
+Unit <memorymodule> synthesized.
+
+
+Synthesizing Unit <ibuf8_mxilinx>.
+    Related source file is E:/proj3/project3test1/project2.vhf.
+Unit <ibuf8_mxilinx> synthesized.
+
+
+Synthesizing Unit <ctrlunit>.
+    Related source file is E:/proj3/project3test1/CtrlUnit.vhd.
+    Found finite state machine <FSM_4> for signal <prestate>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 9                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <resetl>.
+    Found 14-bit adder for signal <$n0006> created at line 89.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Adder/Subtracter(s).
+Unit <ctrlunit> synthesized.
+
+
+Synthesizing Unit <project2>.
+    Related source file is E:/proj3/project3test1/project2.vhf.
+Unit <project2> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# FSMs                             : 5
+# Registers                        : 52
+  19-bit register                  : 1
+  8-bit register                   : 3
+  1-bit register                   : 45
+  5-bit register                   : 1
+  16-bit register                  : 2
+# Latches                          : 1
+  8-bit latch                      : 1
+# Counters                         : 2
+  2-bit up counter                 : 2
+# Multiplexers                     : 27
+  2-to-1 multiplexer               : 26
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 2
+  19-bit adder                     : 1
+  14-bit adder                     : 1
+# Comparators                      : 4
+  8-bit comparator equal           : 4
+
+=========================================================================
+
+Optimizing FSM <FSM_0> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_1> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_2> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_3> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_4> with One-Hot encoding and D flip-flops.
+
+Starting low level synthesis...
+Optimizing unit <memoryread> ...
+
+Optimizing unit <memorywrite> ...
+
+Optimizing unit <pctosraminterface> ...
+
+Optimizing unit <memorymultiplexor> ...
+
+Optimizing unit <d3_8e_mxilinx> ...
+
+Optimizing unit <fd16ce_mxilinx> ...
+
+Optimizing unit <regfile> ...
+
+Optimizing unit <obuf4_mxilinx> ...
+
+Optimizing unit <obuf16_mxilinx> ...
+
+Optimizing unit <ibuf8_mxilinx> ...
+
+Optimizing unit <ctrlunit> ...
+
+Optimizing unit <project2> ...
+
+Building and optimizing final netlist ...
+
+Register xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD2 equivalent to xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite1 has been removed
+Register xlxi_30_pctofpgainterface_fpgatosraminterface_presstate_FFD3 equivalent to xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2 has been removed
+WARNING:Xst:387 - The KEEP property attached to the net <d1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <d2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <d3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <d4> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <d5> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <d6> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <d7> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxi_3_wren3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxi_3_wren2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxi_3_wren1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxi_3_wren7> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxi_3_wren6> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxi_3_wren5> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <xlxi_3_wren4> may hinder timing optimization.
+   You may achieve better results by removing this property
+FlipFlop xlxi_30_pctofpgainterface_thememmultiplexor_presstate has been replicated 2 time(s)
+FlipFlop xlxi_30_pctofpgainterface_pportinterface_syncnextslice has been replicated 1 time(s)
+FlipFlop xlxi_30_pctofpgainterface_pportinterface_syncread has been replicated 1 time(s)
+=========================================================================
+Final Results
+Top Level Output File Name         : project2
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Macro Statistics
+# FSMs                             : 5
+# Registers                        : 54
+  19-bit register                  : 1
+  8-bit register                   : 3
+  1-bit register                   : 45
+  5-bit register                   : 1
+  16-bit register                  : 2
+  2-bit register                   : 2
+# Multiplexers                     : 1
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 2
+  19-bit adder                     : 1
+  14-bit adder                     : 1
+# Comparators                      : 4
+  8-bit comparator equal           : 4
+
+Design Statistics
+# IOs                              : 53
+
+Cell Usage :
+# BELS                             : 412
+#      GND                         : 1
+#      LUT1                        : 36
+#      LUT2                        : 57
+#      LUT3                        : 57
+#      LUT4                        : 158
+#      MUXCY                       : 47
+#      MUXF5                       : 24
+#      VCC                         : 1
+#      XORCY                       : 31
+# FlipFlops/Latches                : 278
+#      FDC                         : 51
+#      FDCE                        : 213
+#      FDP                         : 6
+#      LD                          : 8
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 53
+#      IBUF                        : 10
+#      IOBUF                       : 16
+#      OBUF                        : 27
+# Logical                          : 15
+#      AND2                        : 7
+#      AND4                        : 1
+#      AND4b1                      : 3
+#      AND4b2                      : 3
+#      AND4b3                      : 1
+# Others                           : 2
+#      buxmux16                    : 2
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clock                              | IBUF                   | 1     |
+xlxi_30_pctofpgainterface_pportinterface_I__n0037:O| NONE(*)(xlxi_30_pctofpgainterface_pportinterface_mysyncdata_1)| 8     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: 13.496ns (Maximum Frequency: 74.096MHz)
+   Minimum input arrival time before clock: 5.337ns
+   Maximum output required time after clock: 11.417ns
+   Maximum combinational path delay: 17.874ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default period analysis for Clock 'clock'
+Delay:               13.496ns (Levels of Logic = 4)
+  Source:            xlxi_30_alureadsram_prestate_FFD3
+  Destination:       xlxi_3_xlxi_72/i_q1
+  Source Clock:      clock rising
+  Destination Clock: clock rising
+
+  Data Path: xlxi_30_alureadsram_prestate_FFD3 to xlxi_3_xlxi_72/i_q1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              21   1.065   2.925  xlxi_30_alureadsram_prestate_FFD3 (xlxi_30_alureadsram_prestate_FFD3)
+    LUT4:I0->O             1   0.573   0.000  xlxi_31_I_prestate_XX_FFD3_F (N7772)
+    MUXF5:I0->O           24   0.436   3.060  xlxi_31_I_prestate_XX_FFD3 (N725)
+     begin scope: 'xlxi_3_xlxi_7'
+    AND4b2:I1->O           1   0.573   1.035  i_36_33 (d4)
+     end scope: 'xlxi_3_xlxi_7'
+    AND2:I0->O            16   0.573   2.520  xlxi_3_xlxi_82 (xlxi_3_wren4)
+     begin scope: 'xlxi_3_xlxi_72'
+    FDCE:CE                    0.736          i_q1
+    ----------------------------------------
+    Total                     13.496ns (3.956ns logic, 9.540ns route)
+                                       (29.3% logic, 70.7% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
+Offset:              5.337ns (Levels of Logic = 3)
+  Source:            xlxi_3_busamux
+  Destination:       xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_0
+  Destination Clock: clock rising
+
+  Data Path: xlxi_3_busamux to xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    buxmux16:o_0           2   0.000   1.206  xlxi_3_busamux (N741)
+    LUT4:I0->O             1   0.573   1.035  xlxi_31_I_0_LUT_76 (xlxi_31_N155)
+    LUT4:I2->O             1   0.573   1.035  xlxi_31_I_din_0_SW1 (xlxi_31_N1680)
+    LUT3:I2->O             1   0.573   0.000  xlxi_30_pctofpgainterface_thememmultiplexor_I_memwritedata_0 (N997)
+    FDCE:D                     0.342          xlxi_30_pctofpgainterface_fpgatosraminterface_writedatareg_0
+    ----------------------------------------
+    Total                      5.337ns (2.061ns logic, 3.276ns route)
+                                       (38.6% logic, 61.4% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
+Offset:              11.417ns (Levels of Logic = 2)
+  Source:            xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2
+  Destination:       ldata_7
+  Source Clock:      clock rising
+
+  Data Path: xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2 to ldata_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              14   1.065   2.340  xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2 (xlxi_30_pctofpgainterface_fpgatosraminterface_doingwrite2)
+    LUT3:I0->O            16   0.573   2.520  I_xlxi_30_pctofpgainterface_fpgatosraminterface_I7_EnableTr_INV (N564)
+    IOBUF:T->IO                4.919          ldata_7_IOBUF (ldata_7)
+    ----------------------------------------
+    Total                     11.417ns (6.557ns logic, 4.860ns route)
+                                       (57.4% logic, 42.6% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Delay:               17.874ns (Levels of Logic = 4)
+  Source:            clock
+  Destination:       ldata_7
+
+  Data Path: clock to ldata_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O              1   0.768   1.035  xlxi_16 (xlxn_1)
+    BUFG:I->O            272   0.679   7.380  xlxi_17 (clk)
+    LUT3:I1->O            16   0.573   2.520  I_xlxi_30_pctofpgainterface_fpgatosraminterface_I7_EnableTr_INV (N564)
+    IOBUF:T->IO                4.919          ldata_7_IOBUF (ldata_7)
+    ----------------------------------------
+    Total                     17.874ns (6.939ns logic, 10.935ns route)
+                                       (38.8% logic, 61.2% route)
+
+=========================================================================
+CPU : 16.55 / 16.76 s | Elapsed : 17.00 / 17.00 s
+ 
+--> 

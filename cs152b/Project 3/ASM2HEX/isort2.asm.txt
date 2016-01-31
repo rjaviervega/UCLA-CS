@@ -1,0 +1,45 @@
+Define arraySize 8
+Define arrayAddr 48	; 48..54
+Define arrayDest 56	; 56..62
+
+		
+	addi	r1,	r0,	0 ; r1 = i = 0
+	addi	r2,	r0,	0 ; r2 = j = 0
+	addi	r3, 	r0,	0 ; r3 = index = 0
+	addi	r4, 	r0, 	8 ; r4 array size = 8/2 = 4 mem addresses
+
+for:		slt	r5,	r1, r4
+		beq	r5, 	r0, done
+
+		; save reg1
+		sw	r1,	100 (r0)
+
+		; reg5 has memory to analize
+		lw	r5,	arrayAddr (r1)		
+
+	for2:	slt	r6,	r2,	r4
+		beq	r6,	r0,	done2
+
+		lw	r6, 	arrayAddr(r2)
+
+		slt	r1,	r6,	r5
+		beq	r1,	r0,   increment			
+
+		addi	r3,	r3,	2
+
+		
+increment:
+		addi	r2,	r2,	2
+		j	for2
+	done2:
+
+		; restore reg1
+		lw	r1,	100(r0)
+
+		sw	r5,	arrayDest(r3)
+
+		addi	r1,	r1,	2
+		j	for
+done:
+
+	hlt

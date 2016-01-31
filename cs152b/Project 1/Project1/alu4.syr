@@ -1,0 +1,416 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.03 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : alu4.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : alu4
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : alu4
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/HingKei/152bs04/Project1/alu4.vhf in Library work.
+Entity <inv4_mxilinx> (Architecture <schematic>) compiled.
+Entity <m2_1_mxilinx> (Architecture <schematic>) compiled.
+Entity <compm4_mxilinx> (Architecture <schematic>) compiled.
+Entity <ibuf4_mxilinx> (Architecture <schematic>) compiled.
+Entity <add4_mxilinx> (Architecture <schematic>) compiled.
+Entity <alu4> (Architecture <schematic>) compiled.
+
+Analyzing Entity <alu4> (Architecture <Schematic>).
+WARNING:Xst:753 - E:/HingKei/152bs04/Project1/alu4.vhf (Line 648). Unconnected output port 'ofl' of component 'add4_mxilinx'.
+    Set property "keep_hierarchy = TRUE" for instance <adder> in unit <alu4>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:753 - E:/HingKei/152bs04/Project1/alu4.vhf (Line 684). Unconnected output port 'gt' of component 'compm4_mxilinx'.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_28> in unit <alu4>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_6> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_7> in unit <alu4>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_112> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_44> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_29> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_91> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_90> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_89> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_87> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_86> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_85> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_83> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_82> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_81> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_69> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_70> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_63> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_71> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_67> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_73> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_66> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_74> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_75> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_62> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_65> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_77> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_78> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_79> in unit <alu4>.
+    Set property "keep_hierarchy = TRUE" for instance <xlxi_64> in unit <alu4>.
+WARNING:Xst:766 - E:/HingKei/152bs04/Project1/alu4.vhf (Line 856). Generating a Black Box for component <mux2to1>.
+WARNING:Xst:766 - E:/HingKei/152bs04/Project1/alu4.vhf (Line 861). Generating a Black Box for component <mux2to1>.
+WARNING:Xst:766 - E:/HingKei/152bs04/Project1/alu4.vhf (Line 868). Generating a Black Box for component <mux8to1>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <alu4> analyzed. Unit <alu4> generated.
+
+Analyzing Entity <add4_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_206> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_182> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_175> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_178> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_58> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R0C0.S1" for instance <i_36_62> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_55> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+    Set user-defined property "RLOC =  R1C0.S1" for instance <i_36_111> in unit <add4_mxilinx>.
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <add4_mxilinx> analyzed. Unit <add4_mxilinx> generated.
+
+Analyzing Entity <compm4_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <compm4_mxilinx> analyzed. Unit <compm4_mxilinx> generated.
+
+Analyzing Entity <ibuf4_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <ibuf4_mxilinx> analyzed. Unit <ibuf4_mxilinx> generated.
+
+Analyzing Entity <inv4_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <inv4_mxilinx> analyzed. Unit <inv4_mxilinx> generated.
+
+Analyzing Entity <m2_1_mxilinx> (Architecture <schematic>).
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+WARNING:Xst:37 - Unknown property "fpga_dont_touch".
+Entity <m2_1_mxilinx> analyzed. Unit <m2_1_mxilinx> generated.
+
+
+Synthesizing Unit <m2_1_mxilinx>.
+    Related source file is E:/HingKei/152bs04/Project1/alu4.vhf.
+Unit <m2_1_mxilinx> synthesized.
+
+
+Synthesizing Unit <inv4_mxilinx>.
+    Related source file is E:/HingKei/152bs04/Project1/alu4.vhf.
+Unit <inv4_mxilinx> synthesized.
+
+
+Synthesizing Unit <ibuf4_mxilinx>.
+    Related source file is E:/HingKei/152bs04/Project1/alu4.vhf.
+Unit <ibuf4_mxilinx> synthesized.
+
+
+Synthesizing Unit <compm4_mxilinx>.
+    Related source file is E:/HingKei/152bs04/Project1/alu4.vhf.
+Unit <compm4_mxilinx> synthesized.
+
+
+Synthesizing Unit <add4_mxilinx>.
+    Related source file is E:/HingKei/152bs04/Project1/alu4.vhf.
+WARNING:Xst:653 - Signal <dummy> is used but never assigned. Tied to value 0.
+Unit <add4_mxilinx> synthesized.
+
+
+Synthesizing Unit <alu4>.
+    Related source file is E:/HingKei/152bs04/Project1/alu4.vhf.
+Unit <alu4> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+
+Starting low level synthesis...
+Optimizing unit <m2_1_mxilinx> ...
+
+Optimizing unit <inv4_mxilinx> ...
+
+Optimizing unit <ibuf4_mxilinx> ...
+
+Optimizing unit <compm4_mxilinx> ...
+
+Optimizing unit <add4_mxilinx> ...
+
+Optimizing unit <alu4> ...
+
+Building and optimizing final netlist ...
+
+WARNING:Xst:387 - The KEEP property attached to the net <c0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <c2o> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <I3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <s3> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <complement_0> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <complement_1> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <complement_2> may hinder timing optimization.
+   You may achieve better results by removing this property
+WARNING:Xst:387 - The KEEP property attached to the net <complement_3> may hinder timing optimization.
+   You may achieve better results by removing this property
+=========================================================================
+Final Results
+Top Level Output File Name         : alu4
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Design Statistics
+# IOs                              : 19
+
+Cell Usage :
+# BELS                             : 27
+#      GND                         : 2
+#      INV                         : 16
+#      muxcy                       : 1
+#      muxcy_d                     : 1
+#      muxcy_l                     : 2
+#      VCC                         : 1
+#      xorcy                       : 4
+# IO Buffers                       : 19
+#      IBUF                        : 12
+#      OBUF                        : 7
+# Logical                          : 118
+#      AND2                        : 33
+#      AND2b1                      : 30
+#      AND3                        : 4
+#      AND3b1                      : 4
+#      AND4                        : 1
+#      NOR2                        : 1
+#      OR2                         : 38
+#      XNOR2                       : 2
+#      XOR2                        : 5
+# Others                           : 7
+#      fmap                        : 4
+#      mux2to1                     : 2
+#      mux8to1                     : 1
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 21.002ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Delay:               21.002ns (Levels of Logic = 10)
+  Source:            a3_in
+  Destination:       ovf
+
+  Data Path: a3_in to ovf
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     begin scope: 'xlxi_6'
+    IBUF:I->O             11   0.768   2.070  i_36_40 (o0)
+     end scope: 'xlxi_6'
+     begin scope: 'xlxi_28'
+    XNOR2:I0->O            2   0.573   1.206  i_36_8 (eq_3)
+    AND3b1:I1->O           1   0.573   1.035  i_36_14 (ge2_3)
+    OR2:I1->O              2   0.573   1.206  i_36_19 (gtb)
+    NOR2:I0->O             2   0.573   1.206  i_36_3 (eq2_3)
+    AND2:I0->O             1   0.573   1.035  i_36_2 (lta)
+    OR2:I1->O              1   0.573   1.035  i_36_11 (lt)
+     end scope: 'xlxi_28'
+     begin scope: 'xlxi_29'
+    AND2:I0->O             1   0.573   1.035  i_36_9 (m1)
+    OR2:I0->O              1   0.573   1.035  i_36_8 (O)
+     end scope: 'xlxi_29'
+    OBUF:I->O                  4.787          xlxi_36 (ovf)
+    ----------------------------------------
+    Total                     21.002ns (10.139ns logic, 10.863ns route)
+                                       (48.3% logic, 51.7% route)
+
+=========================================================================
+CPU : 5.31 / 5.34 s | Elapsed : 6.00 / 6.00 s
+ 
+--> 

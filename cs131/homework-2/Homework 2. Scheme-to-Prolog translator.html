@@ -1,0 +1,208 @@
+<!--?xml version="1.0" encoding="US-ASCII"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Homework 2. Scheme-to-Prolog translator</title>
+<link rel="copyright" href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">
+<link rev="made" href="mailto:eggert@cs.ucla.edu">
+</head>
+
+<body>
+
+<h1>Homework 2. Scheme-to-Prolog translator</h1>
+
+<h2>Motivation</h2>
+
+<p>Your boss at JCN wants to find more instances of copied Scheme code
+in TDP's operating system. JCN's legal project has been having
+problems using the Scheme-oriented pattern matchers: they're fast, but
+the pattern language isn't flexible enough, and JCN is not finding
+enough instances of copied code in TDP's OS. So your boss has decided
+to write a new set of pattern matchers in Prolog. These matchers will
+be integrated into the overall project, which is mostly written in
+Scheme.  You are assigned the task of writing a converter from Scheme
+programs to Prolog representations for those programs, and back
+again.</p>
+
+<h2>Limitations</h2>
+
+<p>For the purpose of this assignment, we'll use only the following
+subset of <a href="http://schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-10.html#%_sec_7.1.2">R5RS
+§7.1.2</a>:</p>
+
+<blockquote><p>&lt;datum&gt; → &lt;simple datum&gt; | &lt;compound datum&gt;
+<br>&lt;simple datum&gt; → &lt;boolean&gt; | &lt;symbol&gt;
+<br>&lt;boolean&gt; → <samp>#f</samp> | <samp>#t</samp>
+<br>&lt;symbol&gt; → &lt;identifier&gt;
+<br>&lt;compound datum&gt; → &lt;list&gt;
+<br>&lt;list&gt; → <samp>( </samp>&lt;datum&gt;* <samp>)</samp> | <samp>( </samp>&lt;datum&gt;+ <samp>.</samp> &lt;datum&gt; <samp>)</samp> | &lt;abbreviation&gt;
+<br>&lt;abbreviation&gt; → &lt;abbrev prefix&gt; &lt;datum&gt;
+<br>&lt;abbrev prefix&gt; → <samp>'</samp>
+<br></p></blockquote>
+
+<h2>Representation</h2>
+
+<p>Your boss decides to model the Scheme external representation as a
+token list, i.e., a list of Prolog atoms. The Prolog atoms
+<samp>'.'</samp>, <samp>''''</samp> (i.e., single apostrophe),
+<samp>'('</samp>, <samp>')'</samp>, <samp>'#f'</samp>, and
+<samp>'#t'</samp> represent the corresponding Scheme tokens; the
+Prolog atom <samp>[]</samp> is not allowed as a token; all other
+Prolog atoms represent the corresponding Scheme symbol.</p>
+
+<p>For example, the Scheme external representation <samp>(append '(#f
+a ((bb) '(car) . d)) 'e)</samp> is modeled by the Prolog term
+<samp>['(', append, '''', '(', '#f', a, '(', '(', bb, ')', '''', '(',
+car, ')', '.', d, ')', ')', '''', e, ')']</samp>.</p>
+
+<h2>Assignment</h2>
+
+<p>Write a Prolog predicate <samp>scheme_term(L,S)</samp> that
+succeeds if <samp>L</samp> is a list of Prolog symbols that model the
+Scheme external representation for <samp>S</samp>, and that fails
+otherwise. You may assume that either the first or the second argument
+to <samp>scheme_term/2</samp> is a ground term, that is, it does not
+contain any logical variables. Your program may not use any side
+effects like <samp>assert</samp>, <samp>retract</samp>, or I/O;
+however, it may use cuts.</p>
+
+<p><samp>scheme_term(L,S)</samp> may need to backtrack if
+<samp>S</samp> is a ground term that has multiple representations.  If
+this happens with <samp>L</samp> is initially a variable, the first
+success should bind <samp>L</samp> to the preferred representation for
+<samp>S</samp>. The preferred representation for a proper list is the
+representation without the internal period, and the preferred
+representation for an abbreviation uses <samp>'</samp> rather than
+<samp>quote</samp>.</p>
+
+<p>To turn in your assignment, <a href="http://www.cs.ucla.edu/classes/fall03/cs131/seasnet.html">submit</a> a
+file <samp>hw2.pl</samp> containing your predicate definitions.  The
+first line of <samp>hw2.pl</samp> should be a comment containing your
+name and student ID. Make sure that your definitions work with <a href="http://www.seas.ucla.edu/gprolog/"><samp>gprolog</samp></a>,
+the Prolog implementation installed on SEASnet.</p>
+
+<h2>Examples</h2>
+
+<p>In these examples, the programmer repeatedly typed "<samp>;</samp>"
+in order to backtrack through all possible solutions. Your program
+does not need to return the answers in the same order as shown below,
+except that the first answer for each query must be as shown. Also,
+your program's final response need not agree with the <samp>yes</samp>
+and <samp>; no</samp> responses in the examples shown below.</p>
+
+<pre><samp>$ gprolog
+GNU Prolog 1.2.16
+By Daniel Diaz
+Copyright (C) 1999-2002 Daniel Diaz
+| ?- consult('hw2.pl').
+compiling hw2.pl for byte code …
+
+yes
+| ?- scheme_term([], R).
+
+no
+| ?- scheme_term([a], R).
+
+R = a ? ;
+
+no
+| ?- scheme_term([[]], R).
+
+no
+| ?- scheme_term(['(', ')'], R).
+
+R = [] ? ;
+
+no
+| ?- scheme_term(['(', a, a, a, ')'], R).
+
+R = [a,a,a] ? ;
+
+no
+| ?- scheme_term(['(', a, a, '.', b, ')'], R).
+
+R = [a,a|b] ? ;
+
+no
+| ?- scheme_term(['(', a], R).
+
+no
+| ?- scheme_term([a, ')'], R).
+
+no
+| ?- scheme_term([a, b], R).
+
+no
+| ?- scheme_term(['(', '(', '(', '(', '(', a, ')', ')', ')', ')', ')'], R).
+
+R = [[[[[a]]]]] ? ;
+
+no
+| ?- scheme_term(['(', append, '''', '(', '#f', a, '(', '(', bb, ')',
+                  '''', '(', car, ')', '.', d, ')', ')', '''', e, ')'],
+                 R).
+
+R = [append,[quote,['#f',a,[[bb],[quote,[car]]|d]]],[quote,e]] ? ;
+
+no
+| ?- scheme_term(['(', '(', a, ')', '.', '(', b, ')', ')'], R).
+
+R = [[a],b] ? ;
+
+no
+| ?- scheme_term(['(', '(', a, ')', b, ')'], R).
+
+R = [[a],b] ? ;
+
+no
+| ?- scheme_term(L, [[a],b]).
+
+L = ['(','(',a,')',b,')'] ? ;
+
+L = ['(','(',a,')',b,'.','(',')',')'] ? ;
+
+L = ['(','(',a,')','.','(',b,')',')'] ? ;
+
+L = ['(','(',a,')','.','(',b,'.','(',')',')',')'] ? ;
+
+L = ['(','(',a,'.','(',')',')',b,')'] ? ;
+
+L = ['(','(',a,'.','(',')',')',b,'.','(',')',')'] ? ;
+
+L = ['(','(',a,'.','(',')',')','.','(',b,')',')'] ? ;
+
+L = ['(','(',a,'.','(',')',')','.','(',b,'.','(',')',')',')'] ? ;
+
+no
+| ?- scheme_term(['''', a], R), scheme_term(L, R).
+
+L = ['''',a]
+R = [quote,a] ? ;
+
+L = ['(',quote,a,')']
+R = [quote,a] ? ;
+
+L = ['(',quote,a,'.','(',')',')']
+R = [quote,a] ? ;
+
+L = ['(',quote,'.','(',a,')',')']
+R = [quote,a] ? ;
+
+L = ['(',quote,'.','(',a,'.','(',')',')',')']
+R = [quote,a] ? ;
+
+no
+</samp></pre>
+
+<hr>
+<address>
+ © 2003 <a href="http://www.cs.ucla.edu/classes/fall03/cs131/mail-eggert.html">Paul Eggert</a>.
+ See <a href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">copying rules</a>.<br>
+
+ $Id: hw2.html,v 1.4 2003/10/23 07:15:06 eggert Exp $
+
+</address>
+
+
+
+</body></html>

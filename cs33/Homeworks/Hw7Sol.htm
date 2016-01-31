@@ -1,0 +1,1527 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Gautam Bhatia">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (Win98; U) [Netscape]">
+   <title>CS33 Systems Programming</title>
+</head>
+<body>
+&nbsp;
+<center>
+<br><b><i><font size=+1>HOMEWORK</font></i></b>
+<br><b><i><font size=+1>Chapter 7</font></i></b></center>
+
+<p><br>
+<p>7-1.&nbsp;&nbsp;&nbsp; Attached
+<p>7-4.&nbsp;&nbsp;&nbsp; Attached
+<p>7-5.&nbsp;&nbsp;&nbsp; Generate a table of EBCDIC codes in ASCII order.&nbsp;
+Use the ASCII value
+<br>to index into the table with the LDC instruction to access the equivalent
+<br>EBCDIC character.
+<p>7-7.&nbsp;&nbsp;&nbsp; Attached
+<p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - -
+<p>&nbsp;CHASM - CUSP Assembler 08:59:16 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 1
+<br>&nbsp;Filename: P71_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA WINTER 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 7-1:&nbsp;
+TEST DRIVER
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 1, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MINI_OS,$E00&nbsp;&nbsp;&nbsp; ; BASE OF MINI_OS
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; GET_STR,$E04&nbsp;&nbsp;&nbsp; ; READ&nbsp;
+STRING
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR,$E05&nbsp;&nbsp;&nbsp; ; WRITE STRING
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL,$E06&nbsp;&nbsp;&nbsp;&nbsp; ; WRITE
+NEW LINE
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_CHR,$E08&nbsp;&nbsp;&nbsp; ; WRITE CHARACTER
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MY_LDC,$100&nbsp;&nbsp;&nbsp;&nbsp; ; MY_LDC
+SUBROUTINE
+<br>ADDRESS
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MY_STC,$101&nbsp;&nbsp;&nbsp;&nbsp; ; MY_STC
+SUBROUTINE
+<br>ADDRESS
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MAX_SIZE,32&nbsp;&nbsp;&nbsp;&nbsp; ; MAXIMUM
+NUMBER OF
+<br>INPUT CHARACTERS
+<br>&nbsp; 17.
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MAIN PROGRAM (DRIVER)
+<br>IS AT $000
+<br>&nbsp; 19.
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp; 000&nbsp;&nbsp; 020E00&nbsp;&nbsp; TEST:&nbsp;&nbsp;
+LDS#&nbsp;&nbsp;&nbsp; MINI_OS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE MINI_OS
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp; 001&nbsp;&nbsp; 080016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PROMPT_LENGTH&nbsp;&nbsp; ; PRINT PROMPT
+<br>&nbsp; 22.&nbsp;&nbsp;&nbsp; 002&nbsp;&nbsp; 080021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PROMPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 003&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 004&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 005&nbsp;&nbsp; 412E06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 006&nbsp;&nbsp; 080020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ENTER STRING
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 007&nbsp;&nbsp; 08002A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 008&nbsp;&nbsp; 080029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; ST_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 009&nbsp;&nbsp; 412E04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; GET_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 00A&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 00B&nbsp;&nbsp; 242029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TST&nbsp;&nbsp;&nbsp;&nbsp; ST_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR NON-NULL
+<br>STRING
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 00C&nbsp;&nbsp; 482020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 00D&nbsp;&nbsp; 010000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COPY STRING
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDC&nbsp;&nbsp;&nbsp;&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 00E&nbsp;&nbsp; 08002A&nbsp;&nbsp; LOOP:&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; IN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 00F&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 010&nbsp;&nbsp; 412100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; MY_LDC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 011&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STC&nbsp;&nbsp;&nbsp;&nbsp; OUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 012&nbsp;&nbsp; 08004A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; OUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 013&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 014&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 015&nbsp;&nbsp; 412101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; MY_STC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 016&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 017&nbsp;&nbsp; 602029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AOC&nbsp;&nbsp;&nbsp;&nbsp; ST_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 018&nbsp;&nbsp; 4A200E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLT&nbsp;&nbsp;&nbsp;&nbsp; LOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 47.&nbsp;&nbsp;&nbsp; 019&nbsp;&nbsp; 000020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; ' '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PRINT COPIED STRING
+<br>&nbsp;
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 01A&nbsp;&nbsp; 412E08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_CHR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 01B&nbsp;&nbsp; 082029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH&nbsp;&nbsp;&nbsp;&nbsp; ST_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 01C&nbsp;&nbsp; 08004A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; OUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 01D&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp; 01E&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 53.&nbsp;&nbsp;&nbsp; 01F&nbsp;&nbsp; 412E06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 54.&nbsp;&nbsp;&nbsp; 020&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; DONE:&nbsp;&nbsp;
+HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; STOP
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 08:59:16 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 2
+<br>&nbsp;Filename: P71_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 55.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 56.&nbsp;&nbsp;&nbsp; 021&nbsp;&nbsp; 57656C&nbsp;&nbsp; PROMPT:.CHAR&nbsp;&nbsp;&nbsp;
+'Welcome to STRING COPY',PROMPT_LENGTH
+<br>;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 022&nbsp;&nbsp; 636F6D
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 023&nbsp;&nbsp; 652074
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 024&nbsp;&nbsp; 6F2053
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 025&nbsp;&nbsp; 545249
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 026&nbsp;&nbsp; 4E4720
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 027&nbsp;&nbsp; 434F50
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 028&nbsp;&nbsp; 59202A
+<br>&nbsp; 57.&nbsp;&nbsp;&nbsp; 029&nbsp;&nbsp; 000000&nbsp;&nbsp; ST_LGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACTUAL STRING LENGTH
+<br>&nbsp;
+<br>&nbsp; 58.&nbsp;&nbsp;&nbsp; 02A&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; IN:&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE,-1&nbsp;&nbsp;&nbsp;&nbsp; ; INPUT&nbsp;
+STRING STORAGE
+<br>&nbsp; 59.&nbsp;&nbsp;&nbsp; 04A&nbsp;&nbsp; FFFFFE&nbsp;&nbsp; OUT:&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE,-2&nbsp;&nbsp;&nbsp;&nbsp; ; OUTPUT STRING
+STORAGE
+<br>&nbsp; 60.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 61.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; MINI_OS = 000E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GET_STR = 000E04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR
+= 000E05
+<br>&nbsp; PUT_NL = 000E06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PUT_CHR = 000E08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MY_LDC
+= 000100
+<br>&nbsp; MY_STC = 000101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MAX_SIZE = 000020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TEST = 000000
+<br>&nbsp; PROMPT_LENGTH = 000016&nbsp;&nbsp; PROMPT = 000021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+IN = 00002A
+<br>&nbsp; ST_LGT = 000029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE = 000020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP = 00000E
+<br>&nbsp; OUT = 00004A
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:09:26 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 1
+<br>&nbsp;Filename: P71_LIB.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA WINTER 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 7-1:&nbsp;
+LIBRARY:&nbsp; MY_LDC &amp;
+<br>MY_STC
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 1, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MY_LDC PARAMETERS
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; LSTRING,3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>LSTRING:CHAR_STRING (CBA)
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; LINDEX,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>LINDEX:INTEGER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (CBV)
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MY_STC PARAMETERS
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; SSTRING,4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>SSTRING:CHAR_STRING (CBA)
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; SINDEX,3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>SINDEX:INTEGER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (CBV)
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; SCH,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER SCH:CHAR
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (CBV)
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SUBROUTINE BASE IS AT
+<br>$100
+<br>&nbsp; 15.
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp; 100&nbsp;&nbsp; 402102&nbsp;&nbsp; MY_LDC:
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LDC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MY_LDC IS AT $100
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp; 101&nbsp;&nbsp; 402111&nbsp;&nbsp; MY_STC:
+JMP&nbsp;&nbsp;&nbsp;&nbsp; STC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MY_STC IS AT $101
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp; 102&nbsp;&nbsp; 680000&nbsp;&nbsp; LDC:&nbsp;&nbsp;&nbsp;
+BGN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE CALL
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp; 103&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE XR
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp; 104&nbsp;&nbsp; 003002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp; ! LINDEX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; POS := LINDEX MOD 3
+<br>&nbsp; 22.&nbsp;&nbsp;&nbsp; 105&nbsp;&nbsp; 1A0003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MOD#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 106&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE POS
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 107&nbsp;&nbsp; 003002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp; ! LINDEX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; WORD := LINDEX / 3
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 108&nbsp;&nbsp; 190003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DIV#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 109&nbsp;&nbsp; FFF000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TAX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 10A&nbsp;&nbsp; 009003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&amp;&nbsp; ! LSTRING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACC := STRING[WORD]
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 10B&nbsp;&nbsp; FFF014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE POS
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 10C&nbsp;&nbsp; 19412A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DIV+&nbsp;&nbsp;&nbsp; TABLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACC := ACC / 2 ** (16
+<br>- 8 * POS)
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 10D&nbsp;&nbsp; 3000FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AND#&nbsp;&nbsp;&nbsp; $FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACC := ACC .AND. $FF:
+<br>GET LOW BYTE
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 10E&nbsp;&nbsp; FFF014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE ORIGINAL XR
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 10F&nbsp;&nbsp; 690000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FIN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TERMINATE CALL
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 110&nbsp;&nbsp; FFF040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RTN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETURN
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:09:26 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 2
+<br>&nbsp;Filename: P71_LIB.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 34.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 111&nbsp;&nbsp; 680000&nbsp;&nbsp; STC:&nbsp;&nbsp;&nbsp;
+BGN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE CALL
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 112&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE ACC
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 113&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE XR
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 114&nbsp;&nbsp; 003003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp; ! SINDEX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; POS := INDEX MOD 3
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 115&nbsp;&nbsp; 1A0003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MOD#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 116&nbsp;&nbsp; FFF000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TAX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 117&nbsp;&nbsp; 00412A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA+&nbsp;&nbsp;&nbsp; TABLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SHIFT := 2 ** (16 - 8
+<br>* POS)
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 118&nbsp;&nbsp; 04212E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; SHIFT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 119&nbsp;&nbsp; 003002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp; ! SCH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; BITS := (SCH .AND.
+<br>$FF) * SHIFT
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 11A&nbsp;&nbsp; 3000FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AND#&nbsp;&nbsp;&nbsp; $FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 11B&nbsp;&nbsp; 18212E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MUL&nbsp;&nbsp;&nbsp;&nbsp; SHIFT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 11C&nbsp;&nbsp; 04212D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; BITS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 47.&nbsp;&nbsp;&nbsp; 11D&nbsp;&nbsp; 003003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp; ! SINDEX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; WORD := INDEX / 3
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 11E&nbsp;&nbsp; 190003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DIV#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 11F&nbsp;&nbsp; FFF000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TAX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 120&nbsp;&nbsp; 0000FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; $FF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MASK := $FF * SHIFT
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 121&nbsp;&nbsp; 18212E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MUL&nbsp;&nbsp;&nbsp;&nbsp; SHIFT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp; 122&nbsp;&nbsp; FFF021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+COMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACC := STRING[WORD]
+<br>.AND. (.NOT. MASK)
+<br>&nbsp; 53.&nbsp;&nbsp;&nbsp; 123&nbsp;&nbsp; 309004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AND&amp;&nbsp; ! SSTRING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 54.&nbsp;&nbsp;&nbsp; 124&nbsp;&nbsp; 31212D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BITS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACC := ACC .OR. BITS
+<br>&nbsp; 55.&nbsp;&nbsp;&nbsp; 125&nbsp;&nbsp; 049004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&amp;&nbsp; ! SSTRING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; STRING [WORD] = ACC
+<br>&nbsp; 56.&nbsp;&nbsp;&nbsp; 126&nbsp;&nbsp; FFF014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE ORIGINAL XR
+<br>&nbsp; 57.&nbsp;&nbsp;&nbsp; 127&nbsp;&nbsp; FFF013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE ACC
+<br>&nbsp; 58.&nbsp;&nbsp;&nbsp; 128&nbsp;&nbsp; 690000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FIN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TERMINATE CALL
+<br>&nbsp; 59.&nbsp;&nbsp;&nbsp; 129&nbsp;&nbsp; FFF040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RTN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETURN
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:09:26 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 3
+<br>&nbsp;Filename: P71_LIB.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 60.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 61.&nbsp;&nbsp;&nbsp; 12A&nbsp;&nbsp; 010000&nbsp;&nbsp; TABLE:
+.WORD&nbsp;&nbsp;&nbsp; 65536&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; 2 ** 16
+<br>&nbsp; 62.&nbsp;&nbsp;&nbsp; 12B&nbsp;&nbsp; 000100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.WORD&nbsp;&nbsp;&nbsp; 256&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; 2 ** 8
+<br>&nbsp; 63.&nbsp;&nbsp;&nbsp; 12C&nbsp;&nbsp; 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.WORD&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; 2 ** 0
+<br>&nbsp; 64.&nbsp;&nbsp;&nbsp; 12D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BITS:&nbsp; .BLKW&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; BITS TO BE "OR'ED"
+<br>&nbsp; 65.&nbsp;&nbsp;&nbsp; 12E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SHIFT: .BLKW&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SHIFT MULTIPLIER
+<br>&nbsp; 66.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 67.
+<br>&nbsp; 68.
+<br>&nbsp; 69.
+<br>&nbsp; 70.
+<br>&nbsp; 71.
+<br>&nbsp; 72.
+<br>&nbsp; 73.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; LSTRING = 000003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LINDEX = 000002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SSTRING
+= 000004
+<br>&nbsp; SINDEX = 000003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SCH = 000002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MY_LDC = 000100
+<br>&nbsp; LDC = 000102&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MY_STC = 000101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STC
+= 000111
+<br>&nbsp; TABLE = 00012A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SHIFT = 00012E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+BITS = 00012D
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:29:56 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 1
+<br>&nbsp;Filename: P74_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA SPRING 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 7-4:&nbsp;
+TEST SUBROUTINE
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 1, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MINI_OS,$E00&nbsp;&nbsp;&nbsp; ; BASE OF MINI_OS
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; GET_STR,$E04&nbsp;&nbsp;&nbsp; ; READ&nbsp;
+STRING
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR,$E05&nbsp;&nbsp;&nbsp; ; WRITE STRING
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL,$E06&nbsp;&nbsp;&nbsp;&nbsp; ; WRITE
+NEW LINE
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_CHR,$E08&nbsp;&nbsp;&nbsp; ; WRITE CHARACTER
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; CONCAT,$100&nbsp;&nbsp;&nbsp;&nbsp; ; CONCAT
+SUBROUTINE
+<br>ADDRESS
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STRING STRUCTURE
+<br>DEFINITIONS
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MAXBYT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET 0:&nbsp; MAXIMUM
+<br>LENGTH BYTE
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; CURBYT,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET 1:&nbsp; CURRENT
+<br>LENGTH BYTE
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; STRBYT,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET 2:&nbsp; FIRST
+<br>STRING BYTE
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MAX_SIZE,30&nbsp;&nbsp;&nbsp;&nbsp; ; MAXIMUM
+NUMBER OF
+<br>INPUT CHARACTERS
+<br>&nbsp; 20.
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MAIN PROGRAM (DRIVER)
+<br>IS AT $000
+<br>&nbsp; 22.
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 000&nbsp;&nbsp; 020E00&nbsp;&nbsp; TEST:&nbsp;&nbsp;
+LDS#&nbsp;&nbsp;&nbsp; MINI_OS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE MINI_OS
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 001&nbsp;&nbsp; 080016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PROMPT_LENGTH&nbsp;&nbsp; ; PRINT PROMPT
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 002&nbsp;&nbsp; 080049&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PROMPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 003&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 004&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 005&nbsp;&nbsp; 412E06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 006&nbsp;&nbsp; 08001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ENTER STRING1
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 007&nbsp;&nbsp; 080054&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 008&nbsp;&nbsp; 080051&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S1_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 009&nbsp;&nbsp; 412E04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; GET_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 00A&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp; 00B&nbsp;&nbsp; 08001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ENTER STRING2
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 00C&nbsp;&nbsp; 080074&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 00D&nbsp;&nbsp; 080052&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S2_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 00E&nbsp;&nbsp; 412E04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; GET_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 00F&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:29:57 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 2
+<br>&nbsp;Filename: P74_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 39.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COPY S1 TO SS1
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 010&nbsp;&nbsp; 010000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; MAXBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 011&nbsp;&nbsp; 00001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 012&nbsp;&nbsp; 5120B4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; SS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 013&nbsp;&nbsp; 010001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; CURBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 014&nbsp;&nbsp; 002051&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; S1_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 015&nbsp;&nbsp; 20001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 016&nbsp;&nbsp; 4C2018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 47.&nbsp;&nbsp;&nbsp; 017&nbsp;&nbsp; 00001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 018&nbsp;&nbsp; 5120B4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; SS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 019&nbsp;&nbsp; 010000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 01A&nbsp;&nbsp; 212051&nbsp;&nbsp; LOOP1:&nbsp;
+CMX&nbsp;&nbsp;&nbsp;&nbsp; S1_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 01B&nbsp;&nbsp; 4B2021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JGE&nbsp;&nbsp;&nbsp;&nbsp; DONE1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp; 01C&nbsp;&nbsp; 502054&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC&nbsp;&nbsp;&nbsp;&nbsp; S1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 53.&nbsp;&nbsp;&nbsp; 01D&nbsp;&nbsp; 110002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADX#&nbsp;&nbsp;&nbsp; STRBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 54.&nbsp;&nbsp;&nbsp; 01E&nbsp;&nbsp; 5120B4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; SS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 55.&nbsp;&nbsp;&nbsp; 01F&nbsp;&nbsp; 150001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SBX#&nbsp;&nbsp;&nbsp; STRBYT-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 56.&nbsp;&nbsp;&nbsp; 020&nbsp;&nbsp; 40201A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LOOP1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 57.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COPY S2 TO SS2
+<br>&nbsp; 58.&nbsp;&nbsp;&nbsp; 021&nbsp;&nbsp; 010000&nbsp;&nbsp; DONE1:&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; MAXBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 59.&nbsp;&nbsp;&nbsp; 022&nbsp;&nbsp; 00001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 60.&nbsp;&nbsp;&nbsp; 023&nbsp;&nbsp; 5120D4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; SS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 61.&nbsp;&nbsp;&nbsp; 024&nbsp;&nbsp; 010001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; CURBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 62.&nbsp;&nbsp;&nbsp; 025&nbsp;&nbsp; 002052&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; S2_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 63.&nbsp;&nbsp;&nbsp; 026&nbsp;&nbsp; 20001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 64.&nbsp;&nbsp;&nbsp; 027&nbsp;&nbsp; 4C2029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 65.&nbsp;&nbsp;&nbsp; 028&nbsp;&nbsp; 00001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 66.&nbsp;&nbsp;&nbsp; 029&nbsp;&nbsp; 5120D4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; SS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 67.&nbsp;&nbsp;&nbsp; 02A&nbsp;&nbsp; 010000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 68.&nbsp;&nbsp;&nbsp; 02B&nbsp;&nbsp; 212052&nbsp;&nbsp; LOOP2:&nbsp;
+CMX&nbsp;&nbsp;&nbsp;&nbsp; S2_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 69.&nbsp;&nbsp;&nbsp; 02C&nbsp;&nbsp; 4B2032&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JGE&nbsp;&nbsp;&nbsp;&nbsp; DONE2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 70.&nbsp;&nbsp;&nbsp; 02D&nbsp;&nbsp; 502074&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC&nbsp;&nbsp;&nbsp;&nbsp; S2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 71.&nbsp;&nbsp;&nbsp; 02E&nbsp;&nbsp; 110002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADX#&nbsp;&nbsp;&nbsp; STRBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 72.&nbsp;&nbsp;&nbsp; 02F&nbsp;&nbsp; 5120D4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; SS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 73.&nbsp;&nbsp;&nbsp; 030&nbsp;&nbsp; 150001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SBX#&nbsp;&nbsp;&nbsp; STRBYT-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 74.&nbsp;&nbsp;&nbsp; 031&nbsp;&nbsp; 40202B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LOOP2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 75.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; CALL CONCAT
+<br>&nbsp; 76.&nbsp;&nbsp;&nbsp; 032&nbsp;&nbsp; 0800B4&nbsp;&nbsp; DONE2:&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; SS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 77.&nbsp;&nbsp;&nbsp; 033&nbsp;&nbsp; 0800D4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; SS2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;
+<br>&nbsp; 78.&nbsp;&nbsp;&nbsp; 034&nbsp;&nbsp; 412100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; CONCAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 79.&nbsp;&nbsp;&nbsp; 035&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:29:57 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 3
+<br>&nbsp;Filename: P74_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 80.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COPY SS1 TO S3
+<br>&nbsp; 81.&nbsp;&nbsp;&nbsp; 036&nbsp;&nbsp; 010001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; CURBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 82.&nbsp;&nbsp;&nbsp; 037&nbsp;&nbsp; 5020B4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC&nbsp;&nbsp;&nbsp;&nbsp; SS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 83.&nbsp;&nbsp;&nbsp; 038&nbsp;&nbsp; 042053&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; S3_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 84.&nbsp;&nbsp;&nbsp; 039&nbsp;&nbsp; 200000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 85.&nbsp;&nbsp;&nbsp; 03A&nbsp;&nbsp; 482047&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; DONE3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 86.&nbsp;&nbsp;&nbsp; 03B&nbsp;&nbsp; FFF000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TAX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 87.&nbsp;&nbsp;&nbsp; 03C&nbsp;&nbsp; 110001&nbsp;&nbsp; LOOP3:&nbsp;
+ADX#&nbsp;&nbsp;&nbsp; STRBYT-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 88.&nbsp;&nbsp;&nbsp; 03D&nbsp;&nbsp; 5020B4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC&nbsp;&nbsp;&nbsp;&nbsp; SS1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 89.&nbsp;&nbsp;&nbsp; 03E&nbsp;&nbsp; 150002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SBX#&nbsp;&nbsp;&nbsp; STRBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 90.&nbsp;&nbsp;&nbsp; 03F&nbsp;&nbsp; 512094&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; S3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 91.&nbsp;&nbsp;&nbsp; 040&nbsp;&nbsp; 4D203C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JGT&nbsp;&nbsp;&nbsp;&nbsp; LOOP3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 92.&nbsp;&nbsp;&nbsp; 041&nbsp;&nbsp; 000020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; ' '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PRINT COPIED STRING
+<br>&nbsp;
+<br>&nbsp; 93.&nbsp;&nbsp;&nbsp; 042&nbsp;&nbsp; 412E08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_CHR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 94.&nbsp;&nbsp;&nbsp; 043&nbsp;&nbsp; 082053&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH&nbsp;&nbsp;&nbsp;&nbsp; S3_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 95.&nbsp;&nbsp;&nbsp; 044&nbsp;&nbsp; 080094&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 96.&nbsp;&nbsp;&nbsp; 045&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 97.&nbsp;&nbsp;&nbsp; 046&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 98.&nbsp;&nbsp;&nbsp; 047&nbsp;&nbsp; 412E06&nbsp;&nbsp; DONE3:&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 99.&nbsp;&nbsp;&nbsp; 048&nbsp;&nbsp; FFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; STOP
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:29:57 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 4
+<br>&nbsp;Filename: P74_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;100.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;101.&nbsp;&nbsp;&nbsp; 049&nbsp;&nbsp; 57656C&nbsp;&nbsp; PROMPT:.CHAR&nbsp;&nbsp;&nbsp;
+'Welcome to CONCATENATE',PROMPT_LENGTH
+<br>;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04A&nbsp;&nbsp; 636F6D
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04B&nbsp;&nbsp; 652074
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04C&nbsp;&nbsp; 6F2043
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04D&nbsp;&nbsp; 4F4E43
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04E&nbsp;&nbsp; 415445
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 04F&nbsp;&nbsp; 4E4154
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 050&nbsp;&nbsp; 45202A
+<br>&nbsp;102.&nbsp;&nbsp;&nbsp; 051&nbsp;&nbsp; 000000&nbsp;&nbsp; S1_LGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACTUAL STRING1
+<br>LENGTH
+<br>&nbsp;103.&nbsp;&nbsp;&nbsp; 052&nbsp;&nbsp; 000000&nbsp;&nbsp; S2_LGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACTUAL STRING2
+<br>LENGTH
+<br>&nbsp;104.&nbsp;&nbsp;&nbsp; 053&nbsp;&nbsp; 000000&nbsp;&nbsp; S3_LGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACTUAL STRING3
+<br>LENGTH
+<br>&nbsp;105.&nbsp;&nbsp;&nbsp; 054&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; S1:&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INPUT&nbsp; STRING1
+<br>STORAGE
+<br>&nbsp;106.&nbsp;&nbsp;&nbsp; 072&nbsp;&nbsp; 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; STRBYT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; FILLER
+<br>&nbsp;107.&nbsp;&nbsp;&nbsp; 074&nbsp;&nbsp; FFFFFE&nbsp;&nbsp; S2:&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE,-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INPUT&nbsp; STRING2
+<br>STORAGE
+<br>&nbsp;108.&nbsp;&nbsp;&nbsp; 092&nbsp;&nbsp; 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; STRBYT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; FILLER
+<br>&nbsp;109.&nbsp;&nbsp;&nbsp; 094&nbsp;&nbsp; FFFFFD&nbsp;&nbsp; S3:&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE,-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OUTPUT STRING3
+<br>STORAGE
+<br>&nbsp;110.&nbsp;&nbsp;&nbsp; 0B2&nbsp;&nbsp; 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; STRBYT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; FILLER
+<br>&nbsp;111.&nbsp;&nbsp;&nbsp; 0B4&nbsp;&nbsp; FFFFFC&nbsp;&nbsp; SS1:&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE+STRBYT,-4 ; SUBROUTINE STRING1
+<br>STORAGE
+<br>&nbsp;112.&nbsp;&nbsp;&nbsp; 0D4&nbsp;&nbsp; FFFFFB&nbsp;&nbsp; SS2:&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE+STRBYT,-5 ; SUBROUTINE STRING2
+<br>STORAGE
+<br>&nbsp;113.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;114.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; MINI_OS = 000E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+GET_STR = 000E04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR
+= 000E05
+<br>&nbsp; PUT_NL = 000E06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PUT_CHR = 000E08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONCAT
+= 000100
+<br>&nbsp; MAXBYT = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CURBYT = 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STRBYT
+= 000002
+<br>&nbsp; MAX_SIZE = 00001E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TEST = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PROMPT_LENGTH = 000016
+<br>&nbsp; PROMPT = 000049&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S1 = 000054&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S1_LGT = 000051
+<br>&nbsp; S2 = 000074&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S2_LGT = 000052&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SS1
+= 0000B4
+<br>&nbsp; LOOP1 = 00001A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE1 = 000021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SS2 = 0000D4
+<br>&nbsp; LOOP2 = 00002B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE2 = 000032&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S3_LGT = 000053
+<br>&nbsp; DONE3 = 000047&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP3 = 00003C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S3 = 000094
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:30:15 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 1
+<br>&nbsp;Filename: P74_LIB.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA SPRING 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 7-4:&nbsp;
+LIBRARY:&nbsp; CONCAT
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 1, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CONCAT PARAMETERS
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; DEST,3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>DEST_STR:STRING_REC&nbsp;&nbsp; (CBA)
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; SOURCE,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>SOURCE_STR:STRING_RE&nbsp; (CBA)
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STRING STRUCTURE
+<br>DEFINITIONS
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MAXBYT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET 0:&nbsp; MAXIMUM
+<br>LENGTH BYTE
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; CURBYT,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET 1:&nbsp; CURRENT
+<br>LENGTH BYTE
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; STRBYT,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OFFSET 2:&nbsp; FIRST
+<br>STRING BYTE
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SUBROUTINE BASE IS AT
+<br>$100
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp; 100&nbsp;&nbsp; 680000&nbsp;&nbsp; CONCAT:
+BGN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE CALL
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp; 101&nbsp;&nbsp; FFF010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE ACC
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp; 102&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE XR
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp; 103&nbsp;&nbsp; 010000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; MAXBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MAXLGT := DEST[MAXBYT]
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp; 104&nbsp;&nbsp; 507003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC*&nbsp; ! DEST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp; 105&nbsp;&nbsp; 042128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; MAXLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 22.&nbsp;&nbsp;&nbsp; 106&nbsp;&nbsp; 010001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; CURBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DSTLGT := DEST[CURBYT]
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 107&nbsp;&nbsp; 507003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC*&nbsp; ! DEST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 108&nbsp;&nbsp; 04212A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; DSTLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 109&nbsp;&nbsp; 507002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC*&nbsp; ! SOURCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SRCLGT :=
+<br>SOURCE[CURBYT]
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 10A&nbsp;&nbsp; 042129&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; SRCLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 10B&nbsp;&nbsp; 200000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR NONZERO
+<br>SOURCE LENGTH
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 10C&nbsp;&nbsp; 482124&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 10D&nbsp;&nbsp; 10212A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA&nbsp;&nbsp;&nbsp;&nbsp; DSTLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NEWLGT := DSTLGT +
+<br>SRCLGT
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 10E&nbsp;&nbsp; 202128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA&nbsp;&nbsp;&nbsp;&nbsp; MAXLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR TOO LONG
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 10F&nbsp;&nbsp; 4C2111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; @+2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 110&nbsp;&nbsp; 002128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; MAXLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NEWLGT := MAXLGT
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 111&nbsp;&nbsp; 04212B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; NEWLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp; 112&nbsp;&nbsp; 100002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA#&nbsp;&nbsp;&nbsp; STRBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NLPS := NEWLGT +
+<br>STRBYT
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 113&nbsp;&nbsp; 04212E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; NLPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 114&nbsp;&nbsp; 507003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC*&nbsp; ! DEST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DESTX := DEST[CURBYT]
+<br>+ STRBYT
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 115&nbsp;&nbsp; 100002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADA#&nbsp;&nbsp;&nbsp; STRBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 116&nbsp;&nbsp; 04212D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; DSTX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 117&nbsp;&nbsp; 000002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; STRBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SRCX := STRBYT
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 118&nbsp;&nbsp; 04212C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; SRCX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 119&nbsp;&nbsp; 01212C&nbsp;&nbsp; LOOP:&nbsp;&nbsp;
+LDX&nbsp;&nbsp;&nbsp;&nbsp; SRCX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DEST[DSTX] :=
+<br>SOURCE[SRCX]
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 11A&nbsp;&nbsp; 507002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC*&nbsp; ! SOURCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 11B&nbsp;&nbsp; 01212D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX&nbsp;&nbsp;&nbsp;&nbsp; DSTX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 11C&nbsp;&nbsp; 517003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC*&nbsp; ! DEST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 11D&nbsp;&nbsp; 1B212C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+INC&nbsp;&nbsp;&nbsp;&nbsp; SRCX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SRCX := SRCX + 1
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 11E&nbsp;&nbsp; 60212E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AOC&nbsp;&nbsp;&nbsp;&nbsp; NLPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DSTX := DSTX + 1&nbsp; &amp;
+<br>TEST
+<br>&nbsp; 47.&nbsp;&nbsp;&nbsp; 11F&nbsp;&nbsp; 05212D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STX&nbsp;&nbsp;&nbsp;&nbsp; DSTX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 120&nbsp;&nbsp; 4A2119&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JLT&nbsp;&nbsp;&nbsp;&nbsp; LOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 121&nbsp;&nbsp; 010001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; CURBYT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DEST[CURLGT] := NEWLGT
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 122&nbsp;&nbsp; 00212B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; NEWLGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 123&nbsp;&nbsp; 517003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC*&nbsp; ! DEST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:30:15 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 2
+<br>&nbsp;Filename: P74_LIB.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 52.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 53.&nbsp;&nbsp;&nbsp; 124&nbsp;&nbsp; FFF014&nbsp;&nbsp; DONE:&nbsp;&nbsp;
+POPX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE&nbsp; ORIGINAL XR
+<br>&nbsp; 54.&nbsp;&nbsp;&nbsp; 125&nbsp;&nbsp; FFF013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE ACC
+<br>&nbsp; 55.&nbsp;&nbsp;&nbsp; 126&nbsp;&nbsp; 690000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FIN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TERMINATE CALL
+<br>&nbsp; 56.&nbsp;&nbsp;&nbsp; 127&nbsp;&nbsp; FFF040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RTN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETURN
+<br>&nbsp; 57.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 58.&nbsp;&nbsp;&nbsp; 128&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; MAXLGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MAXIMUM STRING LENGTH
+<br>&nbsp;
+<br>&nbsp; 59.&nbsp;&nbsp;&nbsp; 129&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; SRCLGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SOURCE STRING LENGTH
+<br>&nbsp; 60.&nbsp;&nbsp;&nbsp; 12A&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; DSTLGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DESTINATION STRING
+<br>LENGTH
+<br>&nbsp; 61.&nbsp;&nbsp;&nbsp; 12B&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; NEWLGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NEW STRING LENGTH
+<br>&nbsp; 62.&nbsp;&nbsp;&nbsp; 12C&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; SRCX:&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; 1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SOURCE STRING INDEX
+<br>&nbsp; 63.&nbsp;&nbsp;&nbsp; 12D&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; DSTX:&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; 1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DESTINATION STRING
+<br>INDEX
+<br>&nbsp; 64.&nbsp;&nbsp;&nbsp; 12E&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; NLPS:&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; 1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; NEWLGT + STRLGT
+<br>&nbsp; 65.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 66.
+<br>&nbsp; 67.
+<br>&nbsp; 68.
+<br>&nbsp; 69.
+<br>&nbsp; 70.
+<br>&nbsp; 71.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; DEST = 000003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE = 000002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAXBYT
+= 000000
+<br>&nbsp; CURBYT = 000001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STRBYT = 000002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONCAT
+= 000100
+<br>&nbsp; MAXLGT = 000128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DSTLGT = 00012A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SRCLGT
+= 000129
+<br>&nbsp; DONE = 000124&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+NEWLGT = 00012B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NLPS
+= 00012E
+<br>&nbsp; DSTX = 00012D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SRCX = 00012C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP = 000119
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<p>CHASM - CUSP Assembler 09:48:11 Wednesday May 1st, 1996&nbsp; Page&nbsp;&nbsp;
+1
+<br>&nbsp;Filename: P77_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA SPRING 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 7-7:&nbsp;
+TEST DRIVER
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 1, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MINI_OS,$E00&nbsp;&nbsp;&nbsp; ; BASE OF MINI_OS
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_NUM,$E00&nbsp;&nbsp;&nbsp; ; WRITE NUMBER
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; GET_STR,$E04&nbsp;&nbsp;&nbsp; ; READ&nbsp;
+STRING
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR,$E05&nbsp;&nbsp;&nbsp; ; WRITE STRING
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL,$E06&nbsp;&nbsp;&nbsp;&nbsp; ; WRITE
+NEW LINE
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; COMPAR,$100&nbsp;&nbsp;&nbsp;&nbsp; ; COMPAR
+SUBROUTINE
+<br>ADDRESS
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; MAX_SIZE,31&nbsp;&nbsp;&nbsp;&nbsp; ; MAXIMUM
+NUMBER OF
+<br>INPUT CHARACTERS
+<br>&nbsp; 16.
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; MAIN PROGRAM (DRIVER)
+<br>IS AT $000
+<br>&nbsp; 18.
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp; 000&nbsp;&nbsp; 020E00&nbsp;&nbsp; TEST:&nbsp;&nbsp;
+LDS#&nbsp;&nbsp;&nbsp; MINI_OS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE MINI_OS
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp; 001&nbsp;&nbsp; 080019&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PROMPT_LENGTH&nbsp;&nbsp; ; PRINT PROMPT
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp; 002&nbsp;&nbsp; 080022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; PROMPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 22.&nbsp;&nbsp;&nbsp; 003&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 004&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 005&nbsp;&nbsp; 412E06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp; 006&nbsp;&nbsp; 08001F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ENTER STRING1
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 007&nbsp;&nbsp; 080031&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp; 008&nbsp;&nbsp; 08002F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S1_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 009&nbsp;&nbsp; 412E04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; GET_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 00A&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp; 00B&nbsp;&nbsp; 01202F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX&nbsp;&nbsp;&nbsp;&nbsp; S1_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; APPEND ZERO BYTE
+<br>TERMINATOR
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 00C&nbsp;&nbsp; 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 00D&nbsp;&nbsp; 512031&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; S1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 00E&nbsp;&nbsp; 08001F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; MAX_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ENTER STRING2
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp; 00F&nbsp;&nbsp; 080051&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 010&nbsp;&nbsp; 080030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S2_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp; 011&nbsp;&nbsp; 412E04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; GET_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 012&nbsp;&nbsp; 120003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 013&nbsp;&nbsp; 012030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX&nbsp;&nbsp;&nbsp;&nbsp; S2_LGT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; APPEND ZERO BYTE
+<br>TERMINATOR
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 014&nbsp;&nbsp; 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 40.&nbsp;&nbsp;&nbsp; 015&nbsp;&nbsp; 512051&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STC&nbsp;&nbsp;&nbsp;&nbsp; S2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 016&nbsp;&nbsp; 080031&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp; CALL COMPAR
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 017&nbsp;&nbsp; 080051&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; S2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp; 018&nbsp;&nbsp; 412100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; COMPAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.&nbsp;&nbsp;&nbsp; 019&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 45.&nbsp;&nbsp;&nbsp; 01A&nbsp;&nbsp; 04202E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; VALUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE COMPARE RESULT
+<br>&nbsp; 46.&nbsp;&nbsp;&nbsp; 01B&nbsp;&nbsp; 080009&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; RESULT_LENGTH&nbsp;&nbsp; ; PRINT RESULT
+<br>&nbsp; 47.&nbsp;&nbsp;&nbsp; 01C&nbsp;&nbsp; 08002B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSH#&nbsp;&nbsp;&nbsp; RESULT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 48.&nbsp;&nbsp;&nbsp; 01D&nbsp;&nbsp; 412E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_STR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 49.&nbsp;&nbsp;&nbsp; 01E&nbsp;&nbsp; 120002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADS#&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 50.&nbsp;&nbsp;&nbsp; 01F&nbsp;&nbsp; 00202E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; VALUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 51.&nbsp;&nbsp;&nbsp; 020&nbsp;&nbsp; 412E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JSR&nbsp;&nbsp;&nbsp;&nbsp; PUT_NUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 52.&nbsp;&nbsp;&nbsp; 021&nbsp;&nbsp; FFFFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; STOP
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:48:11 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 2
+<br>&nbsp;Filename: P77_TST.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 53.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 54.&nbsp;&nbsp;&nbsp; 022&nbsp;&nbsp; 57656C&nbsp;&nbsp; PROMPT:.CHAR&nbsp;&nbsp;&nbsp;
+'Welcome to STRING
+<br>COMPARE',PROMPT_LENGTH&nbsp; ;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 023&nbsp;&nbsp; 636F6D
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 024&nbsp;&nbsp; 652074
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 025&nbsp;&nbsp; 6F2053
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 026&nbsp;&nbsp; 545249
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 027&nbsp;&nbsp; 4E4720
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 028&nbsp;&nbsp; 434F4D
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 029&nbsp;&nbsp; 504152
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 02A&nbsp;&nbsp; 45202A
+<br>&nbsp; 55.&nbsp;&nbsp;&nbsp; 02B&nbsp;&nbsp; 526573&nbsp;&nbsp; RESULT:.CHAR&nbsp;&nbsp;&nbsp;
+'Result = ',RESULT_LENGTH
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 02C&nbsp;&nbsp; 756C74
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 02D&nbsp;&nbsp; 203D20
+<br>&nbsp; 56.&nbsp;&nbsp;&nbsp; 02E&nbsp;&nbsp; 000000&nbsp;&nbsp; VALUE:
+.BLKW&nbsp;&nbsp;&nbsp; 1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COMPARE RESULT
+<br>&nbsp; 57.&nbsp;&nbsp;&nbsp; 02F&nbsp;&nbsp; 000000&nbsp;&nbsp; S1_LGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACTUAL STRING1
+<br>LENGTH
+<br>&nbsp; 58.&nbsp;&nbsp;&nbsp; 030&nbsp;&nbsp; 000000&nbsp;&nbsp; S2_LGT:.BLKW&nbsp;&nbsp;&nbsp;
+1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ACTUAL STRING2
+<br>LENGTH
+<br>&nbsp; 59.&nbsp;&nbsp;&nbsp; 031&nbsp;&nbsp; FFFFFF&nbsp;&nbsp; S1:&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE+1,-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; INPUT&nbsp;
+STRING1
+<br>STORAGE
+<br>&nbsp; 60.&nbsp;&nbsp;&nbsp; 051&nbsp;&nbsp; FFFFFE&nbsp;&nbsp; S2:&nbsp;&nbsp;&nbsp;
+.BLKW&nbsp;&nbsp;&nbsp; MAX_SIZE+1,-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; INPUT&nbsp;
+STRING2
+<br>STORAGE
+<br>&nbsp; 61.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 62.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; MINI_OS = 000E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PUT_NUM = 000E00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GET_STR
+= 000E04
+<br>&nbsp; PUT_STR = 000E05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PUT_NL = 000E06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPAR
+= 000100
+<br>&nbsp; MAX_SIZE = 00001F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TEST = 000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PROMPT_LENGTH = 000019
+<br>&nbsp; PROMPT = 000022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S1 = 000031&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S1_LGT = 00002F
+<br>&nbsp; S2 = 000051&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+S2_LGT = 000030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VALUE
+= 00002E
+<br>&nbsp; RESULT_LENGTH = 000009&nbsp;&nbsp; RESULT = 00002B
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:48:18 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 1
+<br>&nbsp;Filename: P77_LIB.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp;&nbsp; 1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UCLA SPRING 1996
+<br>&nbsp;&nbsp; 2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CS 33 HOMEWORK PROBLEM 7-7:&nbsp;
+LIBRARY:&nbsp; COMPAR
+<br>&nbsp;&nbsp; 3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOHN A. ROHR
+<br>&nbsp;&nbsp; 4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MAY 1, 1996
+<br>&nbsp;&nbsp; 5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp;&nbsp; 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+COMPAR PARAMETERS
+<br>&nbsp;&nbsp; 7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; ST1,3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>ST1:STRING_REC (CBA)
+<br>&nbsp;&nbsp; 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; ST2,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; PARAMETER
+<br>ST2:STRING_REC (CBA)
+<br>&nbsp;&nbsp; 9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.EQU&nbsp;&nbsp;&nbsp;&nbsp; @,$100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SUBROUTINE BASE IS AT
+<br>$100
+<br>&nbsp; 11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 12.&nbsp;&nbsp;&nbsp; 100&nbsp;&nbsp; 680000&nbsp;&nbsp; COMPAR:
+BGN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; INITIALIZE CALL
+<br>&nbsp; 13.&nbsp;&nbsp;&nbsp; 101&nbsp;&nbsp; FFF011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PSHX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SAVE XR
+<br>&nbsp; 14.&nbsp;&nbsp;&nbsp; 102&nbsp;&nbsp; 0A2118&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CLR&nbsp;&nbsp;&nbsp;&nbsp; RESULT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESULT := 0
+<br>&nbsp; 15.&nbsp;&nbsp;&nbsp; 103&nbsp;&nbsp; 010000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDX#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; I := 0
+<br>&nbsp; 16.&nbsp;&nbsp;&nbsp; 104&nbsp;&nbsp; 507003&nbsp;&nbsp; LOOP:&nbsp;&nbsp;
+LDC*&nbsp; ! ST1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; ST1_CH = ST1[I]
+<br>&nbsp; 17.&nbsp;&nbsp;&nbsp; 105&nbsp;&nbsp; 042119&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STA&nbsp;&nbsp;&nbsp;&nbsp; ST1_CH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 18.&nbsp;&nbsp;&nbsp; 106&nbsp;&nbsp; 200000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TEST FOR ST1[I] = 0
+<br>&nbsp; 19.&nbsp;&nbsp;&nbsp; 107&nbsp;&nbsp; 482115&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; ONE0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF ZERO
+<br>&nbsp; 20.&nbsp;&nbsp;&nbsp; 108&nbsp;&nbsp; 507002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDC*&nbsp; ! ST2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COMPARE ST1[I] TO
+<br>ST2[I]
+<br>&nbsp; 21.&nbsp;&nbsp;&nbsp; 109&nbsp;&nbsp; 202119&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CMA&nbsp;&nbsp;&nbsp;&nbsp; ST1_CH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 22.&nbsp;&nbsp;&nbsp; 10A&nbsp;&nbsp; 49210D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JNE&nbsp;&nbsp;&nbsp;&nbsp; CHNE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF DIFFERENT
+<br>&nbsp; 23.&nbsp;&nbsp;&nbsp; 10B&nbsp;&nbsp; 110001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ADX#&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; I := I + 1
+<br>&nbsp; 24.&nbsp;&nbsp;&nbsp; 10C&nbsp;&nbsp; 402104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; GO TO NEXT CHARACTER
+<br>&nbsp; 25.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 26.&nbsp;&nbsp;&nbsp; 10D&nbsp;&nbsp; 4C2110&nbsp;&nbsp; CHNE:&nbsp;&nbsp;
+JLE&nbsp;&nbsp;&nbsp;&nbsp; MORE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; JUMP IF ST1[I] >
+<br>ST2[I]
+<br>&nbsp; 27.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 28.&nbsp;&nbsp;&nbsp; 10E&nbsp;&nbsp; 1C2118&nbsp;&nbsp; LESS:&nbsp;&nbsp;
+DEC&nbsp;&nbsp;&nbsp;&nbsp; RESULT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESULT := RESULT - 1
+<br>&nbsp; 29.&nbsp;&nbsp;&nbsp; 10F&nbsp;&nbsp; 402111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 30.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 31.&nbsp;&nbsp;&nbsp; 110&nbsp;&nbsp; 1B2118&nbsp;&nbsp; MORE:&nbsp;&nbsp;
+INC&nbsp;&nbsp;&nbsp;&nbsp; RESULT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESULT := RESULT + 1
+<br>&nbsp; 32.&nbsp;&nbsp;&nbsp; 111&nbsp;&nbsp; 002118&nbsp;&nbsp; DONE:&nbsp;&nbsp;
+LDA&nbsp;&nbsp;&nbsp;&nbsp; RESULT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; SET RESULT
+<br>&nbsp; 33.&nbsp;&nbsp;&nbsp; 112&nbsp;&nbsp; FFF014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+POPX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RESTORE ORIGINAL XR
+<br>&nbsp; 34.&nbsp;&nbsp;&nbsp; 113&nbsp;&nbsp; 690000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FIN#&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; TERMINATE CALL
+<br>&nbsp; 35.&nbsp;&nbsp;&nbsp; 114&nbsp;&nbsp; FFF040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RTN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; RETURN
+<br>&nbsp; 36.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 37.&nbsp;&nbsp;&nbsp; 115&nbsp;&nbsp; 507002&nbsp;&nbsp; ONE0:&nbsp;&nbsp;
+LDC*&nbsp; ! ST2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; COMPARE ST1[I] TO
+<br>ST2[I]
+<br>&nbsp; 38.&nbsp;&nbsp;&nbsp; 116&nbsp;&nbsp; 482111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JEQ&nbsp;&nbsp;&nbsp;&nbsp; DONE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; DONE IF ZERO
+<br>&nbsp; 39.&nbsp;&nbsp;&nbsp; 117&nbsp;&nbsp; 40210E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+JMP&nbsp;&nbsp;&nbsp;&nbsp; LESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; OTHERWISE LESS
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<p>&nbsp;CHASM - CUSP Assembler 09:48:18 Wednesday May 1st, 1996&nbsp;
+Page&nbsp;&nbsp; 2
+<br>&nbsp;Filename: P77_LIB.CSP
+<p>&nbsp;LINE&nbsp;&nbsp; ADDR&nbsp; CONTENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SOURCE LINE
+<p>&nbsp; 40.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.PAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 41.&nbsp;&nbsp;&nbsp; 118&nbsp;&nbsp; FFFF9C&nbsp;&nbsp; RESULT:.BLKW&nbsp;&nbsp;&nbsp;
+1,-100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; RESULT
+<br>&nbsp; 42.&nbsp;&nbsp;&nbsp; 119&nbsp;&nbsp; 000000&nbsp;&nbsp; ST1_CH:.BLKW&nbsp;&nbsp;&nbsp;
+1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; CHARACTER STORAGE
+<br>&nbsp;
+<br>&nbsp; 43.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;
+<br>&nbsp; 44.
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SYMBOL TABLE CONTENTS
+<p>&nbsp; ST1 = 000003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ST2 = 000002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+COMPAR = 000100
+<br>&nbsp; RESULT = 000118&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LOOP = 000104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ST1_CH = 000119
+<br>&nbsp; ONE0 = 000115&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CHNE = 00010D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MORE = 000110
+<br>&nbsp; LESS = 00010E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DONE = 000111
+<p>&nbsp; Number of Warning Lines:&nbsp;&nbsp; 0
+<br>&nbsp; Number of Error Lines:&nbsp;&nbsp; 0
+<p>&nbsp; &lt;&lt;&lt;&nbsp; End of Program Listing&nbsp;&nbsp; >>>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

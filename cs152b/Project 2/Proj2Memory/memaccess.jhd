@@ -1,0 +1,4 @@
+MODULE memorymodule
+   SUBMODULE memoryread
+   SUBMODULE memorywrite
+   SUBMODULE sraminterfacewithpport

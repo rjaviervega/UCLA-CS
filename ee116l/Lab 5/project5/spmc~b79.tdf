@@ -1,0 +1,58 @@
+SUBDESIGN SPMCONTROL
+(RUN, C3, C2, C1, C0, A0								:INPUT;
+ S1, S0, T1, T0, U1, U0, M1, M0, PCLRN, CTCLRN, DONE	:OUTPUT;
+)
+
+BEGIN
+
+IF (RUN == GND) THEN
+	S1 = VCC;
+	S0 = VCC;
+	T1 = VCC;
+	T0 = VCC;
+	U1 = VCC;
+	U0 = VCC;
+	M1 = GND;
+	M0 = GND;
+	PCLRN = GND;
+	CTCLRN = VCC;
+	DONE = GND;
+ELSE
+	IF (C0 == VCC) THEN
+			S1 = GND;
+			S0 = GND;
+			T1 = VCC;
+			T0 = VCC;
+			U1 = GND;
+			U0 = GND;
+			M1 = VCC;
+			M0 = A0;
+			PCLRN = VCC;
+			IF (C3 == VCC & C2 == GND & C1 == GND) THEN
+				CTCLRN = VCC;
+			ELSE
+				CTCLRN = GND;
+			END IF;
+			DONE = GND;
+	ELSE
+			S1 = GND;
+			S0 = VCC;
+			T1 = GND;
+			T0 = VCC;
+			U1 = GND;
+			U0 = GND;
+			M1 = GND;
+			M0 = GND;
+			PCLRN = VCC;
+			CTCLRN = GND;
+			IF (C3 == GND & C2 == GND & C1 == GND) THEN
+				DONE = VCC;
+			ELSE
+				DONE = GND;
+			END IF;
+	END IF;
+END IF;
+
+END;
+
+

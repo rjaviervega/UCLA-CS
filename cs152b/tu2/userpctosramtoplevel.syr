@@ -1,0 +1,488 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.19 s | Elapsed : 0.00 / 1.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.19 s | Elapsed : 0.00 / 1.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.19 s | Elapsed : 0.00 / 1.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : userpctosramtoplevel.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : userpctosramtoplevel
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : userpctosramtoplevel
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd in Library work.
+Entity <pctosraminterface> (Architecture <pctosraminterface_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/tu2/memorymultiplexor-sv01.vhd in Library work.
+Entity <memorymultiplexor> (Architecture <memorymultiplexor_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/tu2/sram512kleft16bit50mhzreadreq-sv05.vhd in Library work.
+Entity <sraminterface> (Architecture <sraminterface_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/tu2/wrdiptosram.vhd in Library work.
+Entity <wrdiptosram> (Architecture <behavioral>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd in Library work.
+Entity <sraminterfacewithpport> (Architecture <sraminterfacewithpport_arch>) compiled.
+Compiling vhdl file E:/HingKei/152bs04/tu2/userpctosramtoplevel.vhd in Library work.
+Entity <userpctosramtoplevel> (Architecture <behavioral>) compiled.
+
+Analyzing Entity <userpctosramtoplevel> (Architecture <Behavioral>).
+Entity <userpctosramtoplevel> analyzed. Unit <userpctosramtoplevel> generated.
+
+Analyzing Entity <wrdiptosram> (Architecture <behavioral>).
+Entity <wrdiptosram> analyzed. Unit <wrdiptosram> generated.
+
+Analyzing Entity <sraminterfacewithpport> (Architecture <sraminterfacewithpport_arch>).
+WARNING:Xst:753 - E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portinslicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'portoutslicenum' of component 'pctosraminterface'.
+WARNING:Xst:753 - E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd (Line 191). Unconnected output port 'stateoutput' of component 'pctosraminterface'.
+Entity <sraminterfacewithpport> analyzed. Unit <sraminterfacewithpport> generated.
+
+Analyzing Entity <pctosraminterface> (Architecture <pctosraminterface_arch>).
+WARNING:Xst:819 - E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd (Line 193). The following signals are missing in the process sensitivity list:
+   asyncinputs, syncinputs1, syncinputs2.
+WARNING:Xst:819 - E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd (Line 211). The following signals are missing in the process sensitivity list:
+   softreset.
+Entity <pctosraminterface> analyzed. Unit <pctosraminterface> generated.
+
+Analyzing Entity <memorymultiplexor> (Architecture <memorymultiplexor_arch>).
+Entity <memorymultiplexor> analyzed. Unit <memorymultiplexor> generated.
+
+Analyzing Entity <sraminterface> (Architecture <sraminterface_arch>).
+Entity <sraminterface> analyzed. Unit <sraminterface> generated.
+
+
+Synthesizing Unit <sraminterface>.
+    Related source file is E:/HingKei/152bs04/tu2/sram512kleft16bit50mhzreadreq-sv05.vhd.
+    Found finite state machine <FSM_0> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 8                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 19-bit register for signal <addrreg>.
+    Found 1-bit register for signal <cen>.
+    Found 1-bit register for signal <doingwrite1>.
+    Found 1-bit register for signal <doingwrite2>.
+    Found 1-bit register for signal <oen>.
+    Found 16-bit tristate buffer for signal <sramdata>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  39 D-type flip-flop(s).
+	inferred  19 Multiplexer(s).
+	inferred  16 Tristate(s).
+Unit <sraminterface> synthesized.
+
+
+Synthesizing Unit <memorymultiplexor>.
+    Related source file is E:/HingKei/152bs04/tu2/memorymultiplexor-sv01.vhd.
+    Found 1-bit register for signal <presstate>.
+    Found 57 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+	inferred  57 Multiplexer(s).
+Unit <memorymultiplexor> synthesized.
+
+
+Synthesizing Unit <pctosraminterface>.
+    Related source file is E:/HingKei/152bs04/tu2/pctosraminterface-sv06.vhd.
+WARNING:Xst:646 - Signal <regdatain> is assigned but never used.
+    Found finite state machine <FSM_1> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 45                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 12                                             |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 8-bit latch for signal <mysyncdata>.
+    Found 4-bit 4-to-1 multiplexer for signal <dataout>.
+    Found 19-bit adder for signal <$n0000> created at line 261.
+    Found 8-bit comparator equal for signal <$n0098> created at line 200.
+    Found 8-bit comparator equal for signal <$n0099> created at line 200.
+    Found 8-bit comparator equal for signal <$n0100> created at line 250.
+    Found 8-bit comparator equal for signal <$n0101> created at line 250.
+    Found 19-bit register for signal <curaddrreg>.
+    Found 5-bit register for signal <datainreg>.
+    Found 2-bit up counter for signal <inslicenum>.
+    Found 2-bit up counter for signal <outslicenum>.
+    Found 1-bit register for signal <pccontrolenabled>.
+    Found 16-bit register for signal <readdatareg>.
+    Found 8-bit register for signal <syncinputs1>.
+    Found 8-bit register for signal <syncinputs2>.
+    Found 8-bit register for signal <syncinputs3>.
+    Found 1-bit register for signal <syncnextslice>.
+    Found 1-bit register for signal <syncread>.
+    Found 1-bit register for signal <syncwrite>.
+    Found 16-bit register for signal <writedatareg>.
+    Found 19 1-bit 2-to-1 multiplexers.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred  84 D-type flip-flop(s).
+	inferred   8 Latch(s).
+	inferred   1 Adder/Subtracter(s).
+	inferred   4 Comparator(s).
+	inferred  23 Multiplexer(s).
+Unit <pctosraminterface> synthesized.
+
+
+Synthesizing Unit <sraminterfacewithpport>.
+    Related source file is E:/HingKei/152bs04/tu2/sraminterfacewithpport-sv01.vhd.
+Unit <sraminterfacewithpport> synthesized.
+
+
+Synthesizing Unit <wrdiptosram>.
+    Related source file is E:/HingKei/152bs04/tu2/wrdiptosram.vhd.
+WARNING:Xst:646 - Signal <readdatareg<15>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<14>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<13>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<12>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<11>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<10>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<9>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<8>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<7>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<6>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<5>> is assigned but never used.
+WARNING:Xst:646 - Signal <readdatareg<4>> is assigned but never used.
+    Found finite state machine <FSM_2> for signal <presstate>.
+    -----------------------------------------------------------------------
+    | States             | 7                                              |
+    | Transitions        | 15                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 7                                              |
+    | Reset type         | asynchronous                                   |
+    | Encoding           | automatic                                      |
+    | State register     | D  flip-flops                                  |
+    -----------------------------------------------------------------------
+    Found 7-bit comparator equal for signal <$n0028> created at line 114.
+    Found 7-bit comparator equal for signal <$n0029> created at line 114.
+    Found 19-bit up counter for signal <readaddrreg>.
+    Found 4-bit register for signal <readdatareg<3:0>>.
+    Found 5-bit register for signal <syncdata>.
+    Found 7-bit register for signal <syncinputs1>.
+    Found 7-bit register for signal <syncinputs2>.
+    Found 7-bit register for signal <syncinputs3>.
+    Found 1-bit register for signal <syncread>.
+    Found 1-bit register for signal <syncwrite>.
+    Found 19-bit up counter for signal <writeaddrreg>.
+    Found 5-bit register for signal <writedatareg<4:0>>.
+WARNING:Xst:647 - Input <readdata<15>> is never used.
+WARNING:Xst:647 - Input <readdata<14>> is never used.
+WARNING:Xst:647 - Input <readdata<13>> is never used.
+WARNING:Xst:647 - Input <readdata<12>> is never used.
+WARNING:Xst:647 - Input <readdata<11>> is never used.
+WARNING:Xst:647 - Input <readdata<10>> is never used.
+WARNING:Xst:647 - Input <readdata<9>> is never used.
+WARNING:Xst:647 - Input <readdata<8>> is never used.
+WARNING:Xst:647 - Input <readdata<7>> is never used.
+WARNING:Xst:647 - Input <readdata<6>> is never used.
+WARNING:Xst:647 - Input <readdata<5>> is never used.
+WARNING:Xst:647 - Input <readdata<4>> is never used.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred  37 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <wrdiptosram> synthesized.
+
+
+Synthesizing Unit <userpctosramtoplevel>.
+    Related source file is E:/HingKei/152bs04/tu2/userpctosramtoplevel.vhd.
+Unit <userpctosramtoplevel> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# FSMs                             : 3
+# Registers                        : 66
+  19-bit register                  : 1
+  8-bit register                   : 3
+  1-bit register                   : 55
+  16-bit register                  : 2
+  5-bit register                   : 2
+  7-bit register                   : 3
+# Latches                          : 1
+  8-bit latch                      : 1
+# Counters                         : 4
+  2-bit up counter                 : 2
+  19-bit up counter                : 2
+# Multiplexers                     : 27
+  2-to-1 multiplexer               : 26
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 1
+  19-bit adder                     : 1
+# Comparators                      : 6
+  8-bit comparator equal           : 4
+  7-bit comparator equal           : 2
+
+=========================================================================
+
+Optimizing FSM <FSM_0> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_1> with One-Hot encoding and D flip-flops.
+Optimizing FSM <FSM_2> with One-Hot encoding and D flip-flops.
+
+Starting low level synthesis...
+Optimizing unit <pctosraminterface> ...
+
+Optimizing unit <memorymultiplexor> ...
+
+Optimizing unit <wrdiptosram> ...
+
+Optimizing unit <userpctosramtoplevel> ...
+
+Building and optimizing final netlist ...
+
+Register pctofpgainterface_fpgatosraminterface_presstate_FFD2 equivalent to pctofpgainterface_fpgatosraminterface_doingwrite1 has been removed
+Register pctofpgainterface_fpgatosraminterface_presstate_FFD3 equivalent to pctofpgainterface_fpgatosraminterface_doingwrite2 has been removed
+FlipFlop pctofpgainterface_thememmultiplexor_presstate has been replicated 2 time(s)
+FlipFlop pctofpgainterface_pportinterface_syncnextslice has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_syncread has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_syncwrite has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_inslicenum_0 has been replicated 1 time(s)
+FlipFlop pctofpgainterface_pportinterface_inslicenum_1 has been replicated 1 time(s)
+WARNING:Xst:615 - Net user_design_readdatareg<4> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<5> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<6> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<7> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<8> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<9> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<10> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<11> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<12> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<13> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<14> not found, property iob not attached.
+WARNING:Xst:615 - Net user_design_readdatareg<15> not found, property iob not attached.
+=========================================================================
+Final Results
+Top Level Output File Name         : userpctosramtoplevel
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Macro Statistics
+# FSMs                             : 3
+# Registers                        : 70
+  19-bit register                  : 3
+  8-bit register                   : 3
+  1-bit register                   : 55
+  16-bit register                  : 2
+  2-bit register                   : 2
+  5-bit register                   : 2
+  7-bit register                   : 3
+# Multiplexers                     : 1
+  4-bit 4-to-1 multiplexer         : 1
+# Tristates                        : 1
+  16-bit tristate buffer           : 1
+# Adders/Subtractors               : 3
+  19-bit adder                     : 3
+# Comparators                      : 6
+  8-bit comparator equal           : 4
+  7-bit comparator equal           : 2
+
+Design Statistics
+# IOs                              : 67
+
+Cell Usage :
+# BELS                             : 481
+#      GND                         : 1
+#      LUT1                        : 59
+#      LUT2                        : 33
+#      LUT3                        : 78
+#      LUT3_D                      : 3
+#      LUT3_L                      : 19
+#      LUT4                        : 125
+#      LUT4_D                      : 3
+#      LUT4_L                      : 5
+#      MUXCY                       : 78
+#      MUXF5                       : 22
+#      VCC                         : 1
+#      XORCY                       : 54
+# FlipFlops/Latches                : 238
+#      FDC                         : 47
+#      FDCE                        : 158
+#      FDE                         : 21
+#      FDP                         : 4
+#      LD                          : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 66
+#      IBUF                        : 16
+#      IOBUF                       : 16
+#      OBUF                        : 34
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 232   |
+pctofpgainterface_pportinterface_I__n0037:O| NONE(*)(pctofpgainterface_pportinterface_mysyncdata_1)| 8     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: 10.801ns (Maximum Frequency: 92.584MHz)
+   Minimum input arrival time before clock: 9.867ns
+   Maximum output required time after clock: 11.327ns
+   Maximum combinational path delay: 16.079ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+-------------------------------------------------------------------------
+Timing constraint: Default period analysis for Clock 'clk'
+Delay:               10.801ns (Levels of Logic = 3)
+  Source:            pctofpgainterface_fpgatosraminterface_doingwrite2
+  Destination:       pctofpgainterface_pportinterface_curaddrreg_0
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: pctofpgainterface_fpgatosraminterface_doingwrite2 to pctofpgainterface_pportinterface_curaddrreg_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              13   1.065   2.250  pctofpgainterface_fpgatosraminterface_doingwrite2 (pctofpgainterface_fpgatosraminterface_doingwrite2)
+    LUT4_D:I1->O          15   0.573   2.430  pctofpgainterface_pportinterface_I_dosramwrite_1 (pctofpgainterface_pportinterface_I_dosramwrite_1)
+    LUT4:I0->O             1   0.573   1.035  pctofpgainterface_pportinterface_I_regcuraddr_SW6 (pctofpgainterface_pportinterface_N46612)
+    LUT4:I1->O             5   0.573   1.566  pctofpgainterface_pportinterface_I__n0169 (pctofpgainterface_pportinterface_N481)
+    FDCE:CE                    0.736          pctofpgainterface_pportinterface_curaddrreg_0
+    ----------------------------------------
+    Total                     10.801ns (3.520ns logic, 7.281ns route)
+                                       (32.6% logic, 67.4% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+Offset:              9.867ns (Levels of Logic = 2)
+  Source:            rstn
+  Destination:       user_design_syncdata_3
+  Destination Clock: clk rising
+
+  Data Path: rstn to user_design_syncdata_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    IBUF:I->O             26   0.768   3.150  rstn_IBUF (rstn_IBUF)
+    LUT1:I0->O            61   0.573   4.725  user_design_I_INV_resetn (user_design_N230)
+    FDCE:CLR                   0.651          user_design_syncdata_3
+    ----------------------------------------
+    Total                      9.867ns (1.992ns logic, 7.875ns route)
+                                       (20.2% logic, 79.8% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+Offset:              11.327ns (Levels of Logic = 2)
+  Source:            pctofpgainterface_fpgatosraminterface_doingwrite2
+  Destination:       ldata_0
+  Source Clock:      clk rising
+
+  Data Path: pctofpgainterface_fpgatosraminterface_doingwrite2 to ldata_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    FDC:C->Q              13   1.065   2.250  pctofpgainterface_fpgatosraminterface_doingwrite2 (pctofpgainterface_fpgatosraminterface_doingwrite2)
+    LUT3:I0->O            16   0.573   2.520  I_pctofpgainterface_fpgatosraminterface_I7_EnableTr_INV (N450)
+    IOBUF:T->IO                4.919          ldata_0_IOBUF (ldata_0)
+    ----------------------------------------
+    Total                     11.327ns (6.557ns logic, 4.770ns route)
+                                       (57.9% logic, 42.1% route)
+
+-------------------------------------------------------------------------
+Timing constraint: Default path analysis
+Delay:               16.079ns (Levels of Logic = 3)
+  Source:            clk
+  Destination:       ldata_0
+
+  Data Path: clk to ldata_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    BUFGP:I->O           232   0.687   7.380  clk_BUFGP (clk_BUFGP)
+    LUT3:I1->O            16   0.573   2.520  I_pctofpgainterface_fpgatosraminterface_I7_EnableTr_INV (N450)
+    IOBUF:T->IO                4.919          ldata_0_IOBUF (ldata_0)
+    ----------------------------------------
+    Total                     16.079ns (6.179ns logic, 9.900ns route)
+                                       (38.4% logic, 61.6% route)
+
+=========================================================================
+CPU : 10.59 / 10.80 s | Elapsed : 10.00 / 11.00 s
+ 
+--> 

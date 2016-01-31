@@ -1,0 +1,11 @@
+[xcv50-6pq240-XST VHDL]
+Design Entry Utilities=true
+[segdisplay]
+Generate Programming File=false
+Design Entry Utilities=true
+User Constraints=true
+Synthesize=false
+Implement Design=true
+[const_32]
+Design Entry Utilities=true
+User Constraints=true

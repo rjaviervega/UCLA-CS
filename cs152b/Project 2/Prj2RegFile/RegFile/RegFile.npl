@@ -1,0 +1,15 @@
+JDF E
+// Created by ISE ver 1.0
+PROJECT RegFile
+DESIGN regfile Normal
+DEVKIT xcv50-6pq240
+DEVFAM virtex
+FLOW XST VHDL
+MODULE buxmux16.xco
+MODSTYLE buxmux16 Normal
+MODULE RegFile.sch
+MODSTYLE regfile Normal
+[STRATEGY-LIST]
+Normal=True, 1089743818
+[Normal]
+p_ModelSimSimRes=xstvhd, VIRTEX, Schematic.t_launchModelSimSimulator, 1089941462, 1 ns

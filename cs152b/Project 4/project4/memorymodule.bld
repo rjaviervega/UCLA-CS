@@ -1,0 +1,21 @@
+Release 4.1i - ngdbuild E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -dd e:/proj2/project2/_ngo -nt timestamp -p xcv50-pq240-6
+memorymodule.ngc memorymodule.ngd 
+
+Reading NGO file "E:/proj2/project2/memorymodule.ngc" ...
+Reading component libraries for design expansion...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:477 - clock net 'clk_BUFGP' has non-clock connections
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Writing NGD file "memorymodule.ngd" ...
+
+Writing NGDBUILD log file "memorymodule.bld"...

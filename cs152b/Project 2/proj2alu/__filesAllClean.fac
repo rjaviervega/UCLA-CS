@@ -1,0 +1,32 @@
+Creating TCL Process
+Cleaning Up Project
+deleting file(s): __filesClean.fc
+deleting file(s): _coregen.crp
+deleting file(s): _map.log _par.log __projnav.log
+deleting file(s): _coreed.pl _toldo.pl __checkModelSim.pl
+deleting file(s): mux2_16bits.asy mux4to1_16bits.asy mux4_16bits.asy mux4_16bits_new.asy mux_four.asy
+deleting file(s): add.ldo alu.ldo logical.ldo negative_detect.ldo of_detect.ldo shift.ldo
+deleting file(s): alu.nc1 shift.nc1
+deleting file(s): alu.ncd alu_map.ncd shift.ncd shift_map.ncd
+deleting file(s): alu.ngd shift.ngd
+deleting file(s): alu.ngm shift.ngm
+deleting file(s): _add_sch2sym_exewrap.rsp _add_sch2vhf_exewrap.rsp _alu_sch2sym_exewrap.rsp _alu_sch2vhf_exewrap.rsp _control_unit_spl2sym_exewrap.rsp _launchCoregen.rsp _launchModelSimApp_exewrap.rsp _logical_spl2sym_exewrap.rsp _map.rsp _nc1TOncd_exewrap.rsp _negative_detect_spl2sym_exewrap.rsp _ngdTOnc1_exewrap.rsp _of_detect_spl2sym_exewrap.rsp _of_enable_spl2sym_exewrap.rsp _one_bus_spl2sym_exewrap.rsp _par.rsp _prepar.rsp _shift_spl2sym_exewrap.rsp _test_sch2sym_exewrap.rsp _zerobus_spl2sym_exewrap.rsp _zero_detect_spl2sym_exewrap.rsp __alu_2prj_exewrap.rsp __ednTOngd_exewrap.rsp __filesAllClean_exewrap.rsp __launchModelSimApp.rsp __ngdbuild.rsp __shift_2prj_exewrap.rsp
+deleting file(s): control_unit.spl logical.spl negative_detect.spl of_detect.spl of_enable.spl one_bus.spl shift.spl zerobus.spl zero_detect.spl
+deleting file(s): add.vhf alu.vhf
+deleting file(s): vsim.wlf
+deleting file(s): transcript
+deleting file(s): alu.syr shift.syr
+deleting file(s): alu.cup shift.cup
+deleting file(s): alu._prj shift._prj
+deleting file(s): alu.ngc shift.ngc
+deleting file(s): alu.bld shift.bld
+deleting file(s): alu.mrp shift.mrp
+deleting file(s): alu.par shift.par
+deleting file(s): alu.pad shift.pad
+deleting file(s): alu.dly shift.dly
+deleting file(s): par.opt
+deleting file(s): alu.xpi shift.xpi
+deleting file(s): alu.pcf shift.pcf
+deleting file(s): alu_ngdbuild.nav shift_ngdbuild.nav
+deleting directory: _ngo
+Finished cleaning up project

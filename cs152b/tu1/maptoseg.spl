@@ -1,0 +1,5 @@
+[Inputs]
+=Q[3:0]=
+[Outputs]
+=Lhex[6:0]=
+[BiDir]

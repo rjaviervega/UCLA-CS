@@ -1,0 +1,16 @@
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net xlxi_1_xlxi_17_N105
+   is sourced by a combinatorial pin. This is not good design practice. Use the
+   CE pin to control the loading of data into the flip-flop.
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net
+   xlxi_30_pctofpgainterface_pportinterface_N361 is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net xlxi_1_xlxi_10_N25 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:DesignRules:372 - Netcheck: Gated clock. Clock net xlxi_1_xlxi_5_N107 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:DesignRules:367 - Netcheck: Loadless. Net
+   xlxi_1_xlxi_15_xlxi_23/co_dummy has no load.
+DRC detected 0 errors and 5 warnings.

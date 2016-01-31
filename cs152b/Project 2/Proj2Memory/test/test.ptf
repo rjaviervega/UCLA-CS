@@ -1,0 +1,10 @@
+[test]
+Generate Programming File=false
+Design Entry Utilities=true
+Place & Route=true
+User Constraints=true
+Synthesize=false
+Implement Design=false
+[memorymodule]
+Design Entry Utilities=true
+User Constraints=true

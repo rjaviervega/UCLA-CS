@@ -1,0 +1,164 @@
+m255
+o
+cModel Technology
+dC:\152B\152bs04\tu1
+Econst_32
+DP ieee std_logic_unsigned hEMVMlaNCR^<OOoVNV;m90
+DP ieee std_logic_arith XinSYO>L7_n;;dMn;72:52
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1088532632
+dE:\HingKei\152bs04\tu1
+Fconst_32.vhd
+l0
+L6
+VM?;8BV9lH=?XdnWdQMP_W0
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Abehavioral
+DE work const_32 M?;8BV9lH=?XdnWdQMP_W0
+l12
+L10
+V[[^kSiJz=M>:PG4BEOYIQ3
+OX;C;5.5b;15
+31
+M3 ieee std_logic_1164
+M2 ieee std_logic_arith
+M1 ieee std_logic_unsigned
+o-skip e -93 -explicit -O0
+Ecounter_32
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1088531968
+dE:\HingKei\152bs04\tu1
+Fcounter_32.vhd
+l0
+L29
+V;]H<7ZVjSUml6o_8VcDMa2
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Acounter_32_a
+DP xilinxcorelib c_mux_bus_v4_0_comp ON42=cX2;GFk_6i^X^bMO2
+DP xilinxcorelib c_compare_v4_0_comp lNIE:<gWLDNZJD[4FdM;C0
+DP xilinxcorelib c_addsub_v4_0_comp zYje7QBK_J<]PEi0omc9L1
+DP xilinxcorelib c_reg_fd_v4_0_comp ??ezfL<i9ETbKkV[;7O992
+DP std textio K]Z^fghZ6B=BjnK5NomDT3
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP xilinxcorelib prims_utils_v4_0 nzB`[]agXVViPXLB^HZ[[2
+DP xilinxcorelib prims_constants_v4_0 cQm>=oC^m5Io^aHbPLN?j1
+DE xilinxcorelib c_counter_binary_v4_0 22<F[]F4QFoaGGTe11WBj1
+DE work counter_32 ;]H<7ZVjSUml6o_8VcDMa2
+l85
+L39
+V7Y0gS_@iVKn8]F;BU3E473
+OX;C;5.5b;15
+31
+M9 ieee std_logic_1164
+M8 xilinxcorelib prims_constants_v4_0
+M7 xilinxcorelib prims_utils_v4_0
+M6 ieee numeric_std
+M5 std textio
+M4 xilinxcorelib c_reg_fd_v4_0_comp
+M3 xilinxcorelib c_addsub_v4_0_comp
+M2 xilinxcorelib c_compare_v4_0_comp
+M1 xilinxcorelib c_mux_bus_v4_0_comp
+o-skip e -93 -explicit -O0
+Ecounter_4
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1088532312
+dE:\HingKei\152bs04\tu1
+Fcounter_4.vhd
+l0
+L29
+VJS6U67R0kTI8KWfR@d7h_0
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Acounter_4_a
+DP xilinxcorelib c_mux_bus_v4_0_comp ON42=cX2;GFk_6i^X^bMO2
+DP xilinxcorelib c_compare_v4_0_comp lNIE:<gWLDNZJD[4FdM;C0
+DP xilinxcorelib c_addsub_v4_0_comp zYje7QBK_J<]PEi0omc9L1
+DP xilinxcorelib c_reg_fd_v4_0_comp ??ezfL<i9ETbKkV[;7O992
+DP std textio K]Z^fghZ6B=BjnK5NomDT3
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP xilinxcorelib prims_utils_v4_0 nzB`[]agXVViPXLB^HZ[[2
+DP xilinxcorelib prims_constants_v4_0 cQm>=oC^m5Io^aHbPLN?j1
+DE xilinxcorelib c_counter_binary_v4_0 22<F[]F4QFoaGGTe11WBj1
+DE work counter_4 JS6U67R0kTI8KWfR@d7h_0
+l81
+L37
+VPodY7GU`YmQj>5hOcRnBn1
+OX;C;5.5b;15
+31
+M9 ieee std_logic_1164
+M8 xilinxcorelib prims_constants_v4_0
+M7 xilinxcorelib prims_utils_v4_0
+M6 ieee numeric_std
+M5 std textio
+M4 xilinxcorelib c_reg_fd_v4_0_comp
+M3 xilinxcorelib c_addsub_v4_0_comp
+M2 xilinxcorelib c_compare_v4_0_comp
+M1 xilinxcorelib c_mux_bus_v4_0_comp
+o-skip e -93 -explicit -O0
+Emaptoseg
+DP ieee std_logic_unsigned hEMVMlaNCR^<OOoVNV;m90
+DP ieee std_logic_arith XinSYO>L7_n;;dMn;72:52
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1088535088
+dE:\HingKei\152bs04\tu1
+Fmaptoseg.vhd
+l0
+L6
+VPB?:S8Obc3I`BWU1=_:J`0
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Abehavioral
+DE work maptoseg PB?:S8Obc3I`BWU1=_:J`0
+l13
+L11
+VDJZ>L77Xj63MGNm]4Im]h1
+OX;C;5.5b;15
+31
+M3 ieee std_logic_1164
+M2 ieee std_logic_arith
+M1 ieee std_logic_unsigned
+o-skip e -93 -explicit -O0
+Esegdisplay
+DP ieee vital_timing OBWK>;kUYmkG<OChK2lhV1
+DP unisim vcomponents jL`^J5In<MOQ=5<i7XAX93
+DP ieee numeric_std JEAJIQRRkDSZF:PY1:8aa1
+DP ieee std_logic_1164 GH1=`jDDBJ=`LM;:Ak`kf2
+w1088706044
+dE:\HingKei\152bs04\tu1
+Fsegdisplay.vhf
+l0
+L9
+ViD<0ABP4f580VDSa@Cd;X3
+OX;C;5.5b;15
+31
+o-just e -93 -explicit -O0
+Aschematic
+DP ieee std_logic_unsigned hEMVMlaNCR^<OOoVNV;m90
+DP ieee std_logic_arith XinSYO>L7_n;;dMn;72:52
+DE unisim obuf RL:D4:O9fBUQ1hX[f=b[@0
+DE work maptoseg PB?:S8Obc3I`BWU1=_:J`0
+DE unisim inv _3d1K<>j=1g]1ID8FlBog2
+DE unisim ibuf >X7@[RDgjbGlLcF[HB`0Q0
+DE work counter_4 JS6U67R0kTI8KWfR@d7h_0
+DE work counter_32 ;]H<7ZVjSUml6o_8VcDMa2
+DE work const_32 M?;8BV9lH=?XdnWdQMP_W0
+DE unisim bufg SNfmzZF63loM^MNgBi;aG3
+DE work segdisplay iD<0ABP4f580VDSa@Cd;X3
+l82
+L27
+VUSWQZW4ff2@YIDVV6FkMc1
+OX;C;5.5b;15
+31
+M6 ieee std_logic_1164
+M5 ieee numeric_std
+M4 unisim vcomponents
+M3 ieee vital_timing
+M2 ieee std_logic_arith
+M1 ieee std_logic_unsigned
+o-skip e -93 -explicit -O0

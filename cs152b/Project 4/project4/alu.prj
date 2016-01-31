@@ -1,0 +1,11 @@
+work zeroBus.vhd
+work OF_detect.vhd
+work negative_detect.vhd
+work one_bus.vhd
+work add.vhf
+work logical.vhd
+work shift.vhd
+work control_module.vhd
+work OF_enable.vhd
+work zero_detect.vhd
+work alu.vhf

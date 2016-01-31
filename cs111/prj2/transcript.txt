@@ -1,0 +1,165 @@
+Script started on Wed 05 May 2004 11:36:11 PM EDT
+[javier@localhost submit]$ gcc -isystem ../linux/include -Wall userprogram.c
+[javier@localhost submit]$ ./a.out
+Test #1:
+Parent PID: 1000.
+Parent has 3 std files plus 2 files opened.
+Call sys_cs111 with only the parent process id:
+sys_cs111: mfpid 1000, numfd 5, maxfd 4
+
+Test #2:
+Create 3 child process and call syscall with their pids.n
+Child #1 PID: 1001, 5 files open. Total 10.
+Child #2 PID: 1002, 3 files open. Total 7.
+Child #3 PID: 1003, 4 files open. Total 9.
+Sys_cs111 called ok.
+Note: max open files is Child 1, with 10 files total.
+sys_cs111: mfpid 1001, numfd 10, maxfd 9
+
+Test #3:
+Test failure due to null pointer:
+sys_cs111: return value -1.
+errno: 22
+
+Test #4:
+Test failure due to out of range failure:
+sys_cs111: return value -1.
+errno: 14
+Run dmesg for kernel specific errors.
+[javier@localhost submit]$ dem  mesg
+Linux version 2.4.26 (javier@localhost) (gcc version 3.3.1 (Mandrake Linux 9.2 3.3.1-2mdk)) #40 Wed May 5 23:24:57 EDT 2004
+BIOS-provided physical RAM map:
+ BIOS-e820: 0000000000000000 - 000000000009fc00 (usable)
+ BIOS-e820: 000000000009fc00 - 00000000000a0000 (reserved)
+ BIOS-e820: 00000000000f0000 - 0000000000100000 (reserved)
+ BIOS-e820: 0000000000100000 - 000000001fff0000 (usable)
+ BIOS-e820: 000000001fff0000 - 000000001fff3000 (ACPI NVS)
+ BIOS-e820: 000000001fff3000 - 0000000020000000 (ACPI data)
+ BIOS-e820: 00000000ffff0000 - 0000000100000000 (reserved)
+511MB LOWMEM available.
+On node 0 totalpages: 131056
+zone(0): 4096 pages.
+zone(1): 126960 pages.
+zone(2): 0 pages.
+Kernel command line: BOOT_IMAGE=cs111 ro root=302 3
+Initializing CPU#0
+Detected 551.263 MHz processor.
+Console: colour VGA+ 80x25
+Calibrating delay loop... 1101.00 BogoMIPS
+Memory: 515808k/524224k available (1457k kernel code, 8028k reserved, 377k data, 280k init, 0k highmem)
+Dentry cache hash table entries: 65536 (order: 7, 524288 bytes)
+Inode cache hash table entries: 32768 (order: 6, 262144 bytes)
+Mount cache hash table entries: 512 (order: 0, 4096 bytes)
+Buffer cache hash table entries: 32768 (order: 5, 131072 bytes)
+Page-cache hash table entries: 131072 (order: 7, 524288 bytes)
+CPU: L1 I cache: 16K, L1 D cache: 16K
+CPU: L2 cache: 512K
+CPU serial number disabled.
+Intel machine check architecture supported.
+Intel machine check reporting enabled on CPU#0.
+CPU:     After generic, caps: 0383f9ff 00000000 00000000 00000000
+CPU:             Common caps: 0383f9ff 00000000 00000000 00000000
+CPU: Intel Pentium III (Katmai) stepping 03
+Enabling fast FPU save and restore... done.
+Enabling unmasked SIMD FPU exception support... done.
+Checking 'hlt' instruction... OK.
+POSIX conformance testing by UNIFIX
+mtrr: v1.40 (20010327) Richard Gooch (rgooch@atnf.csiro.au)
+mtrr: detected mtrr type: Intel
+PCI: PCI BIOS revision 2.10 entry at 0xfb240, last bus=1
+PCI: Using configuration type 1
+PCI: Probing PCI hardware
+PCI: Probing PCI hardware (bus 00)
+PCI: Using IRQ router PIIX/ICH [8086/7110] at 00:07.0
+Limiting direct PCI/PCI transfers.
+Linux NET4.0 for Linux 2.4
+Based upon Swansea University Computer Society NET3.039
+Initializing RT netlink socket
+Starting kswapd
+Journalled Block Device driver loaded
+NTFS driver v1.1.22 [Flags: R/O]
+pty: 256 Unix98 ptys configured
+Serial driver version 5.05c (2001-07-08) with MANY_PORTS SHARE_IRQ SERIAL_PCI enabled
+ttyS00 at 0x03f8 (irq = 4) is a 16550A
+ttyS01 at 0x02f8 (irq = 3) is a 16550A
+Floppy drive(s): fd0 is 1.44M
+FDC 0 is a post-1991 82077
+loop: loaded (max 8 devices)
+Linux agpgart interface v0.99 (c) Jeff Hartmann
+agpgart: Maximum main memory to use for agp memory: 439M
+agpgart: Detected Intel 440BX chipset
+agpgart: AGP aperture is 64M @ 0xe0000000
+Uniform Multi-Platform E-IDE driver Revision: 7.00beta4-2.4
+ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+PIIX4: IDE controller at PCI slot 00:07.1
+PIIX4: chipset revision 1
+PIIX4: not 100% native mode: will probe irqs later
+    ide0: BM-DMA at 0xf000-0xf007, BIOS settings: hda:pio, hdb:pio
+    ide1: BM-DMA at 0xf008-0xf00f, BIOS settings: hdc:pio, hdd:pio
+hda: WDC WD205BA, ATA DISK drive
+hdb: IBM-DTLA-307045, ATA DISK drive
+blk: queue c0346fe0, I/O limit 4095Mb (mask 0xffffffff)
+blk: queue c034711c, I/O limit 4095Mb (mask 0xffffffff)
+hdc: Maxtor 34098H4, ATA DISK drive
+hdd: GENERIC DVD RW 4XMax, ATAPI CD/DVD-ROM drive
+blk: queue c0347434, I/O limit 4095Mb (mask 0xffffffff)
+ide0 at 0x1f0-0x1f7,0x3f6 on irq 14
+ide1 at 0x170-0x177,0x376 on irq 15
+hda: attached ide-disk driver.
+hda: host protected area => 1
+hda: 40088160 sectors (20525 MB) w/2048KiB Cache, CHS=2495/255/63, UDMA(33)
+hdb: attached ide-disk driver.
+hdb: host protected area => 1
+hdb: 90069840 sectors (46116 MB) w/1916KiB Cache, CHS=5606/255/63, UDMA(33)
+hdc: attached ide-disk driver.
+hdc: host protected area => 1
+hdc: 80043264 sectors (40982 MB) w/2048KiB Cache, CHS=79408/16/63, UDMA(33)
+hdd: attached ide-cdrom driver.
+hdd: ATAPI 40X DVD-ROM DVD-R CD-R/RW drive, 8192kB Cache, UDMA(33)
+Uniform CD-ROM driver Revision: 3.12
+Partition check:
+ hda: hda1 hda2 hda3 < hda5 hda6 hda7 hda8 >
+ hdb: hdb1
+ hdc: [PTBL] [4982/255/63] hdc1
+usb.c: registered new driver hub
+host/uhci.c: USB Universal Host Controller Interface driver v1.1
+host/uhci.c: USB UHCI at I/O 0xe000, IRQ 10
+usb.c: new USB bus registered, assigned bus number 1
+hub.c: USB hub found
+hub.c: 2 ports detected
+usb.c: registered new driver hid
+hid-core.c: v1.8.1 Andreas Gal, Vojtech Pavlik <vojtech@suse.cz>
+hid-core.c: USB HID support drivers
+mice: PS/2 mouse device common for all mice
+NET4: Linux TCP/IP 1.0 for NET4.0
+IP Protocols: ICMP, UDP, TCP
+IP: routing cache hash table of 4096 buckets, 32Kbytes
+TCP: Hash tables configured (established 32768 bind 65536)
+NET4: Unix domain sockets 1.0/SMP for Linux NET4.0.
+VFS: Mounted root (ext2 filesystem) readonly.
+Freeing unused kernel memory: 280k freed
+Adding Swap: 216836k swap-space (priority -1)
+NTFS: Warning! NTFS volume version is Win2k+: Mounting read-only
+cs111: succesfull.
+cs111: succesfull.
+cs111: null parameters.
+cs111: access_ok fail verify_read.
+cs111: succesfull.
+cs111: succesfull.
+cs111: null parameters.
+cs111: access_ok fail verify_read.
+cs111: succesfull.
+cs111: succesfull.
+cs111: succesfull.
+cs111: null parameters.
+cs111: access_ok fail verify_read.
+cs111: succesfull.
+cs111: succesfull.
+cs111: null parameters.
+cs111: access_ok fail verify_read.
+cs111: succesfull.
+cs111: succesfull.
+cs111: null parameters.
+cs111: access_ok fail verify_read.
+[javier@localhost submit]$ exit
+Script done on Wed 05 May 2004 11:36:35 PM EDT

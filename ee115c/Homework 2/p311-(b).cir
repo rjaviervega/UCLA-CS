@@ -1,0 +1,27 @@
+* PSPICE #3.11
+* Part (b)
+
+* R. Javier Vega
+* 003-110-717
+
+* Models
+.include "C:\Documents and Settings\Javier\My Documents\Ucla\Winter 2004\Ee115c\models.txt"
+
+* Power Supplies
+VDD  3 0 DC 2.5V
+VIN  1 0 DC 0V
+
+* Resistor
+R 3 2 8k
+
+* Mosfet Transistor
+M1 2 1 0 0 nmos W=1u L=0.25u
+
+* Analysis
+
+.OP
+.DC VIN 0 2.5 0.5
+.PROBE
+.PRINT DC V(2)
+.end
+

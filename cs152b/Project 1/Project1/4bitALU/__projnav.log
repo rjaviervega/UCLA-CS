@@ -1,0 +1,867 @@
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap -tapkeep -mode pipe -command createsch -family=virtex 4bitalu.sch'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux8x4bus.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1__4bit.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap -tapkeep -mode pipe -command createsch -family=virtex 4bits_multiplexer.sch'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bits_multiplexer.sch 4bits_multiplexer.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Manage Cores
+
+Starting: 'exewrap -command xilperl _coreed.pl'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Regenerate Core
+
+Starting: 'exewrap @_xcoTO_regenCore_exewrap.rsp'
+
+
+Creating TCL Process
+Starting: 'C:/Xilinx/bin/nt/wincoregen.exe C:/Xilinx/bin/nt/coregen.bat -b _xcoTO_regenCore_mux2to1.rsp'
+
+
+Tcl C:/Xilinx/data/projnav/_xcoTO_regenCore.tcl detected a return code of '-1' from program 'C:/Xilinx/bin/nt/wincoregen.exe C:/Xilinx/bin/nt/coregen.bat -b _xcoTO_regenCore_mux2to1.rsp'
+
+Error: Unable to set OverwriteFiles property
+Done: failed with exit code: 0001.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap -tapkeep -mode pipe -command createsch -family=virtex multiplexer.sch'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex multiplexer.sch multiplexer.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux3_4.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux3to1_4bits.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Manage Cores
+
+Starting: 'exewrap -command xilperl _coreed.pl'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'exewrap -tapkeep -mode pipe -command createsch -family=virtex const.sch'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex const.sch const.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex const.sch const.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Edit Implementation Constraints File
+
+Starting: 'exewrap @_editucf_exewrap.rsp'
+
+
+Creating TCL Process
+copy Foundation UCF template
+Starting: 'notepad 4bitalu.ucf'
+
+
+Tcl C:/Xilinx/data/projnav/_editucf.tcl detected that program 'notepad 4bitalu.ucf' completed successfully.
+
+Starting: 'chkdate'
+
+
+Tcl C:/Xilinx/data/projnav/_editucf.tcl detected that program 'chkdate' completed successfully.
+
+ Existing implementation results have been retained !
+ To incorporate your constraint changes, right click on the 'Implement Design' process and select 'Rerun All'.
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Edit Implementation Constraints (Constraints Editor)
+
+Starting: 'exewrap @_4bitalu_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w 4bitalu.sch 4bitalu.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap @__4bitalu_2prj_exewrap.rsp'
+
+
+Creating TCL Process
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -tcl -command C:/Xilinx/data/projnav/_filesAllClean.tcl _XSTClean.rsp 0'
+
+
+Creating TCL Process
+Cleaning Up Project
+Finished cleaning up project
+Done: completed successfully.
+
+Starting: 'exewrap -mode pipe -tapkeep -command C:/Xilinx/bin/nt/xst.exe -ifn 4bitalu.xst -ofn 4bitalu.syr'
+
+
+Starting: 'C:/Xilinx/bin/nt/xst.exe -ifn 4bitalu.xst -ofn 4bitalu.syr '
+
+
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.20 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.20 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.20 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : 4bitalu.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : 4bitalu
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : 4bitalu
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf in Library work.
+Entity <m2_1_mxilinx> (Architecture <schematic>) compiled.
+Entity <compm4_mxilinx> (Architecture <schematic>) compiled.
+Entity <ibuf4_mxilinx> (Architecture <schematic>) compiled.
+Entity <add4_mxilinx> (Architecture <schematic>) compiled.
+ERROR:HDLParsers:162 - E:/HingKei/152bs04/Project1/4bitALU/4bitalu.vhf Line 345. Read symbol 4, expecting IDENTIFIER.
+CPU : 0.50 / 0.70 s | Elapsed : 1.00 / 1.00 s
+ 
+--> 
+EXEWRAP detected a return code of '1' from program 'C:/Xilinx/bin/nt/xst.exe'
+
+Done: failed with exit code: 0001.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_const_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w const.sch const.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+WARNING:Portability:111 - Message file "SchematicEditor.msg" wasn't found.
+ERROR:SchematicEditor - Net "one3" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Net "one2" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Net "one1" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Net "one0" needs to be connected to pins or IO Ports.
+EXEWRAP detected a return code of '1' from program 'sch2vhdl'
+
+Done: failed with exit code: 0001.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_const_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w const.sch const.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+WARNING:Portability:111 - Message file "SchematicEditor.msg" wasn't found.
+ERROR:SchematicEditor - Net "one3" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Net "one2" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Net "one1" needs to be connected to pins or IO Ports.
+ERROR:SchematicEditor - Net "one0" needs to be connected to pins or IO Ports.
+EXEWRAP detected a return code of '1' from program 'sch2vhdl'
+
+Done: failed with exit code: 0001.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Launching: 'exewrap -command xilperl _coreed.pl'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'jhdparse @mux2to1_4bits.jp'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+
+ISE Auto-Make Log File
+-----------------------
+
+Updating: Launch ModelSim Simulator
+
+Starting: 'exewrap @_4bitalu_sch2vhf_exewrap.rsp'
+
+
+Starting: 'sch2vhdl -family=virtex -flat -suppress -w 4bitalu.sch 4bitalu.vhf '
+
+
+Release 4.1i - sch2vhdl E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+DRC Check completed: No Error found.
+Vhdl netlist file generated.
+EXEWRAP detected that program 'sch2vhdl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -tapkeep -mode pipe -command xilperl __checkModelSim.pl'
+
+
+Starting: 'xilperl __checkModelSim.pl '
+
+
+EXEWRAP detected that program 'xilperl' completed successfully.
+
+Done: completed successfully.
+
+Starting: 'exewrap -command xilperl _toldo.pl'
+
+
+Done: completed successfully.
+
+Launching: 'exewrap @_launchModelSimApp_exewrap.rsp'
+
+
+
+ISE Auto-Make Log File
+-----------------------
+
+Starting: 'sch2jhd -family=virtex 4bitalu.sch 4bitalu.jhd'
+
+
+Done: completed successfully.
+

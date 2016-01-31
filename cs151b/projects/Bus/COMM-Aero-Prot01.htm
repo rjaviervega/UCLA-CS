@@ -1,0 +1,621 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.chipcenter.com/circuitcellar/may01/c0501gn6.htm -->
+<HTML><HEAD><TITLE>COMMUNICATIONS PROTOCOLS IN AERONAUTICS</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT language=javascript>
+
+	function checkSearchTerm() {
+	   str = new String(document.superCatalogSearch.queryText.value);
+	   reg_exp = new RegExp("\\w");
+	   if(str.length == 0 || !str.match(reg_exp)) {
+	      alert("Part Information is invalid. Please enter 'Part Information'");
+	      return false;
+	   }
+	   else {
+	      return true;
+	   }
+
+	}
+
+</SCRIPT>
+
+<SCRIPT language=javascript>
+	var searchStringHasChanged = false;
+				
+	function changeSearchType(sType) {
+	   switch(sType) {
+	      case 'EXACTPARTNO':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "LM317AEMP";
+	         break;
+	      case 'PARTIALPARTNO':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "LM317";
+	         break;
+	      case 'PCNALERT':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "LM317";
+	         break;
+	      case 'DESCRIPTION':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "Op Amp";
+	         break;
+	      case 'ATTRIBUTE':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "power supply";
+	         break;
+	      case 'DATASHEETS':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "power supply";
+	         break;
+	      case 'EDITORIAL':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "analog";
+	         document.supersearch.collection.value = "all";
+	         break;
+	      case 'APPNOTES':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "power supply";
+	         document.supersearch.collection.value = "appnotes";
+	         document.supersearch.ResultTemplate.value = "appresults.hts";
+	         break;
+	      case 'COMMAND':
+	         if (!searchStringHasChanged) document.supersearch.queryText.value = "Part keyword";
+	         break;
+	      case 'ADVANCED':
+	         top.location = '/questlink/categorySearch.jhtml?type=cat&param=105000';
+	         break;	
+	      default:
+	         break;	
+	   }
+	}
+</SCRIPT>
+
+<SCRIPT language=javascript>
+
+	function makeWin() {
+
+	   // makeWin Generated Version 2.0
+	   // (c)1999 MM.PT
+
+	   url         = "/remote.html";
+	   windowName  = "remote";
+	   params      = "toolbar=0,";
+	   params     += "location=0,";
+	   params     += "directories=0,";
+	   params     += "status=0,";
+	   params     += "menubar=0,";
+	   params     += "scrollbars=0,";
+	   params     += "resizable=0,";
+	   params += "width=200,";
+	   params += "height=400";
+	   win = window.open(url, windowName, params);
+	}
+
+</SCRIPT>
+
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0 marginwidth="0" marginheight="0"><!-- BEGIN MAIN TABLE -->
+<TABLE cellSpacing=0 cellPadding=0 width=775 border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#000000><IMG height=5 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=140 border=0></TD>
+    <TD bgColor=#000000><IMG height=5 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=10 border=0></TD>
+    <TD bgColor=#000000><IMG height=5 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=480 border=0></TD>
+    <TD bgColor=#000000><IMG height=5 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=10 border=0></TD>
+    <TD bgColor=#000000><IMG height=5 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=135 border=0></TD></TR>
+  <TR>
+    <TD bgColor=#cccc99 colSpan=5>
+      <TABLE cellSpacing=0 cellPadding=0 width=775 border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=85 alt="" 
+            src="COMM-Aero-Prot01_files/bnr_chipcenterquestlink.gif" width=250 
+            useMap=#homebanner border=0></TD><MAP name=homebanner><AREA 
+            shape=RECT alt=ChipCenter coords=138,15,257,44 
+            href="http://www.chipcenter.com/"><AREA shape=RECT alt=Questlink 
+            coords=138,46,257,64 
+href="http://www.chipcenter.com/questlink/"></MAP>
+          <TD align=right>
+            <TABLE cellSpacing=0 cellPadding=0 width=498 border=0><!-- display 2 half size banners -->
+              <TBODY>
+              <TR>
+                <TD><!-- http://as.cmpnet.com/html.ng/affiliate=cc&pagepos=topleft&site=electronics&target=/circuitcellar/may01/c0501gn6.htm --><A 
+                  href="http://as.cmpnet.com/event.ng/Type=click&amp;FlightID=133&amp;AdID=191&amp;TargetID=74&amp;Segments=131,132,238,327,1411&amp;Targets=74,75,161&amp;Values=31,43,51,60,72,82,92,100,110,140,295,304,309,310,442,1259,1388&amp;RawValues=IP,66.77.24.76,&amp;Redirect=http://www.eet.com/newsletter" 
+                  target=_top><IMG height=60 alt="" 
+                  src="COMM-Aero-Prot01_files/special234.gif" width=234 
+                  border=0></A><IMG height=1 
+                  src="COMM-Aero-Prot01_files/dcfc.gif" width=1 border=0> </TD>
+                <TD><IMG height=60 alt="" 
+                  src="COMM-Aero-Prot01_files/dot_clear.gif" width=20 
+                border=0></TD>
+                <TD><!-- http://as.cmpnet.com/html.ng/affiliate=cc&pagepos=topright&site=electronics&target=/circuitcellar/may01/c0501gn6.htm --><A 
+                  href="http://as.cmpnet.com/event.ng/Type=click&amp;FlightID=869&amp;AdID=7597&amp;TargetID=75&amp;Segments=132,239,327,1411&amp;Targets=75,161&amp;Values=31,43,51,60,72,82,92,100,110,140,296,304,309,310,442,1259,1388&amp;RawValues=IP,66.77.24.76,&amp;Redirect=http://www.netseminar.com/nss/showSeminar?sem_num=768&amp;branding=ENEN&amp;clientID=ENEN&amp;dit=0" 
+                  target=_top><IMG height=60 alt="" 
+                  src="COMM-Aero-Prot01_files/Pfcban2.gif" width=234 
+                  border=0></A><IMG height=1 src="" width=1 border=0> </TD>
+                <TD><IMG height=60 alt="" 
+                  src="COMM-Aero-Prot01_files/dot_clear.gif" width=10 
+                border=0></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR vAlign=top>
+    <TD bgColor=#000099 colSpan=4><IMG height=10 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=640 border=0></TD>
+    <TD align=middle width=135 bgColor=#cccccc rowSpan=4>
+      <TABLE cellSpacing=0 cellPadding=0 width=135 bgColor=#000099 border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=10 alt="" src="COMM-Aero-Prot01_files/dot_clear.gif" 
+            width=135 border=0></TD></TR>
+        <TR>
+          <TD align=middle>
+            <FORM name=supersearch action=/search/contentSearch.jhtml 
+            method=post>
+            <TABLE cellSpacing=0 cellPadding=0 bgColor=#000099 border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffcc66; FONT-FAMILY: Arial,Helvetica,sans-serif" 
+                colSpan=2>SEARCH CHIPCENTER</TD></TR>
+              <TR>
+                <TD 
+                style="FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,sans-serif" 
+                colSpan=2>Search Type:</TD></TR>
+              <TR>
+                <TD colSpan=2><SELECT 
+                  style="FONT-SIZE: 8pt; FONT-FAMILY: Arial,Helvetica,sans-serif" 
+                  onchange=changeSearchType(this.options[this.selectedIndex].value) 
+                  name=SEARCHTYPE> <OPTION value=EDITORIAL selected>Content 
+                    Search<OPTION value=APPNOTES>App Notes<OPTION 
+                    value=ADVANCED>Datasheets</OPTION></SELECT> </TD></TR>
+              <TR>
+                <TD 
+                style="FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,sans-serif" 
+                colSpan=2>Search for:</TD></TR>
+              <TR>
+                <TD><INPUT 
+                  style="FONT-SIZE: 8pt; FONT-FAMILY: Arial,Helvetica,sans-serif" 
+                  onfocus="if (!searchStringHasChanged) { this.value=''; searchStringHasChanged = true}" 
+                  size=9 value=LM317AEMP name=queryText priority="10"><INPUT 
+                  type=hidden value=" " name=_D:queryText></TD>
+                <TD><INPUT style="FONT-SIZE: 8pt; FONT-FAMILY: Arial,Helvetica,sans-serif" onclick=document.supersearch.submit() type=button value=GO></TD></TR></TBODY></TABLE></FORM></TD></TR></TBODY></TABLE><BR>
+      <CENTER><!-- DO NOT REMOVE THIS TABLE-->
+      <TABLE height=60 cellPadding=0 width=110 border=0>
+        <TBODY>
+        <TR>
+          <TD width=110 height=60></TD></TR></TBODY></TABLE><!--BEGIN SPONSOR PANEL-->
+      <TABLE borderColor=#ffffff cellPadding=4 width=110 bgColor=#000099 
+      border=1>
+        <TBODY>
+        <TR>
+          <TD width=110 bgColor=#ffffff><!-- http://as.cmpnet.com/html.ng/affiliate=cc&pagepos=txt&site=electronics&target=/circuitcellar/may01/c0501gn6.htm --><FONT 
+            face="Geneva Ariel" size=2><A 
+            href="http://as.cmpnet.com/event.ng/Type=click&amp;FlightID=465&amp;AdID=948&amp;TargetID=78&amp;Segments=137,242,330,1411&amp;Targets=78,189&amp;Values=31,43,51,60,72,82,92,100,110,140,299,304,309,310,442,1259,1388&amp;RawValues=&amp;Redirect=http://www.st.com/stonline/products/support/mcu8/st7/pliteh.htm" 
+            target=top>ST's low-cost highly integrated 8-bit embedded flash 
+            microcontroller ***NEW*** ST7 Lite</A> </FONT><IMG height=1 
+            src="C:\Documents and Settings\Javier\My Documents\UCLA\Spring 2003\CSM151B\Bus\COMM-Aero-Prot01_files\dcfc(1).gif" 
+            width=1 border=0> </TD></TR></TBODY></TABLE><!-- sky for  buses interface kc --><BR><BR>
+      <TABLE border=0>
+        <TBODY>
+        <TR>
+          <TD><!-- http://as.cmpnet.com/html.ng/affiliate=cc&pagepos=sky&site=electronics&target=/circuitcellar/may01/c0501gn6.htm --><A 
+            href="http://as.cmpnet.com/event.ng/Type=click&amp;FlightID=138&amp;AdID=15655&amp;TargetID=79&amp;Segments=136,1411&amp;Targets=79&amp;Values=31,43,51,60,72,82,92,100,110,140,206,304,309,310,442,1259,1388&amp;RawValues=IP,66.77.24.76,&amp;Redirect=http://www.chipcenter.com" 
+            target=_top><IMG height=1 alt="" 
+            src="COMM-Aero-Prot01_files/iopsblank.gif" width=1 border=0></A><IMG 
+            height=1 src="" width=1 border=0> </TD></TR></TBODY></TABLE><!-- end sky for  buses interface kc --><!-- start ad links --><BR><BR>
+      <TABLE borderColor=#ffffff cellPadding=4 width=125 bgColor=#000099 
+      border=1>
+        <TBODY>
+        <TR>
+          <TD width=110 bgColor=#ffffff><FONT face="Geneva Ariel" 
+            size=2>Dramatic Test Compression - new technical paper on embedded 
+            deterministic test. <A 
+            href="http://ad.doubleclick.net/clk;5263613;7764184;o" 
+            target=_blank>Read today!</A> </FONT></TD></TR></TBODY></TABLE><!-- end ad links --><BR clear=both><BR><!-- begin section ad display --><!-- tm  navbar --><!--end  tm  navbar --><!-- end section ad display --></CENTER></TD></TR>
+  <TR>
+    <TD align=middle bgColor=#000099><A href="http://www.eetnetwork.com/"><IMG 
+      src="COMM-Aero-Prot01_files/eetimes_1.gif" border=0></A> </TD></TR>
+  <TR vAlign=top>
+    <TD width=140 bgColor=#000099><!-- Login/Logout -->
+      <TABLE cellSpacing=0 cellPadding=0 width=140 border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle><A 
+            href="http://www.chipcenter.com/login.jhtml"><IMG height=24 alt="" 
+            src="COMM-Aero-Prot01_files/btn_loginregister.gif" width=114 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><IMG height=25 alt="" src="COMM-Aero-Prot01_files/dot_clear.gif" 
+            width=114 border=0></TD></TR></TBODY></TABLE><!-- /Login/Logout -->
+      <SCRIPT language=JavaScript type=text/javascript>
+<!--
+		if(window.event + "" == "undefined") event = null;
+		function HM_f_PopUp(){return false};
+		function HM_f_PopDown(){return false};
+		popUp = HM_f_PopUp;
+		popDown = HM_f_PopDown;
+		//-->
+		</SCRIPT>
+
+      <SCRIPT language=JavaScript type=text/javascript>
+		<!--
+		HM_PG_MenuWidth = 140;
+		HM_PG_FontFamily = "Arial,sans-serif";
+		HM_PG_FontSize = 8;
+		HM_PG_FontBold = 0;
+		HM_PG_FontItalic = 0;
+		HM_PG_FontColor = "blue";
+		HM_PG_FontColorOver = "white";
+		HM_PG_BGColor = "#DDDDDD";
+		HM_PG_BGColorOver = "#FFCCCC";
+		HM_PG_ItemPadding = 2;
+		
+		HM_PG_BorderWidth = 1;
+		HM_PG_BorderColor = "black";
+		HM_PG_BorderStyle = "solid";
+		HM_PG_SeparatorSize = 2;
+		HM_PG_SeparatorColor = "#d0ff00";
+		
+		HM_PG_ImageSrc = "http://i.cmpnet.com/chipcenter/js/HM_More_black_right.gif";
+		HM_PG_ImageSrcLeft = "http://i.cmpnet.com/chipcenter/js/HM_More_black_left.gif";
+		HM_PG_ImageSrcOver = "http://i.cmpnet.com/chipcenter/js/HM_More_white_right.gif";
+		HM_PG_ImageSrcLeftOver = "http://i.cmpnet.com/chipcenter/js/HM_More_white_left.gif";
+		
+		HM_PG_ImageSize = 5;
+		HM_PG_ImageHorizSpace = 0;
+		HM_PG_ImageVertSpace = 2;
+		
+		HM_PG_KeepHilite = true; 
+		HM_PG_ClickStart = 0;
+		HM_PG_ClickKill = false;
+		HM_PG_ChildOverlap = 0;
+		HM_PG_ChildOffset = 0;
+		HM_PG_ChildPerCentOver = null;
+		HM_PG_TopSecondsVisible = .5;
+		HM_PG_StatusDisplayBuild =0;
+		HM_PG_StatusDisplayLink = 0;
+		HM_PG_UponDisplay = null;
+		HM_PG_UponHide = null;
+		HM_PG_RightToLeft = 0;
+		
+		HM_PG_CreateTopOnly = 0;
+		HM_PG_ShowLinkCursor = 1;
+		HM_PG_NSFontOver = true;
+		
+		//HM_a_TreesToBuild = [2];
+		
+//-->
+</SCRIPT>
+<!-- IMPORT NAV BAR -->
+      <TABLE cellSpacing=0 cellPadding=0 width=140 border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=20 alt="" 
+            src="COMM-Aero-Prot01_files/nav_cc_sitenavigator.gif" width=140 
+            border=0></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu1',event)" 
+            onmouseout="popDown('HM_Menu1')" 
+            href="http://www.chipcenter.com/knowledge_centers/"><IMG height=20 
+            alt="Knowledge Centers" 
+            src="COMM-Aero-Prot01_files/nav_cc_knowledgecenters.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu2',event)" 
+            onmouseout="popDown('HM_Menu2')" 
+            href="http://www.chipcenter.com/product_reviews/"><IMG height=20 
+            alt="Product Reviews" 
+            src="COMM-Aero-Prot01_files/nav_cc_productreviews.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu3',event)" 
+            onmouseout="popDown('HM_Menu3')" 
+            href="http://www.chipcenter.com/questlink"><IMG height=20 
+            alt="Data Sheets" src="COMM-Aero-Prot01_files/nav_cc_datasheets.gif" 
+            width=140 border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu4',event)" 
+            onmouseout="popDown('HM_Menu4')" 
+            href="http://www.chipcenter.com/eexpert"><IMG height=20 
+            alt="Guides &amp; Experts" 
+            src="COMM-Aero-Prot01_files/nav_cc_guidesandexperts.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu12',event)" 
+            onmouseout="popDown('HM_Menu12')" 
+            href="http://www.chipcenter.com/main.jhtml"><IMG height=20 alt=News 
+            src="COMM-Aero-Prot01_files/nav_cc_news.gif" width=140 
+          border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu14',event)" 
+            onmouseout="popDown('HM_Menu14')" 
+            href="http://www.chipcenter.com/main.jhtml"><IMG height=20 
+            alt=International 
+            src="COMM-Aero-Prot01_files/nav_cc_international.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu5',event)" 
+            onmouseout="popDown('HM_Menu5')" 
+            href="http://www.theworkcircuit.com/boards/"><IMG height=20 
+            alt="Ask Us" src="COMM-Aero-Prot01_files/nav_cc_askus.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu6',event)" 
+            onmouseout="popDown('HM_Menu6')" 
+            href="http://www.chipcenter.com/circuitcellar"><IMG height=20 
+            alt="Circuit Cellar Online" 
+            src="COMM-Aero-Prot01_files/nav_cc_circuitcellar.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu8',event)" 
+            onmouseout="popDown('HM_Menu8')" 
+            href="http://www.chipcenter.com/appnotes.html"><IMG height=20 
+            alt="App Notes" src="COMM-Aero-Prot01_files/nav_cc_appnotes.gif" 
+            width=140 border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu9',event)" 
+            onmouseout="popDown('HM_Menu9')" 
+            href="http://www.eetimes.com/netseminar.html"><IMG height=20 
+            alt=NetSeminars src="COMM-Aero-Prot01_files/nav_cc_netseminars.gif" 
+            width=140 border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu10',event)" 
+            onmouseout="popDown('HM_Menu10')" 
+            href="http://www.theworkcircuit.com/"><IMG height=20 alt=Careers 
+            src="COMM-Aero-Prot01_files/nav_cc_careers.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu11',event)" 
+            onmouseout="popDown('HM_Menu11')" 
+            href="http://www.chipcenter.com/resources"><IMG height=20 
+            alt=Resources src="COMM-Aero-Prot01_files/nav_cc_resources.gif" 
+            width=140 border=0></A></TD></TR>
+        <TR>
+          <TD><A href="http://www.chipcenter.com/faq.html"><IMG height=20 
+            alt=FAQ src="COMM-Aero-Prot01_files/nav_cc_faq.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu13',event)" 
+            onmouseout="popDown('HM_Menu13')" 
+            href="http://www.chipcenter.com/main.jhtml"><IMG height=20 
+            alt="EE Times Network" 
+            src="COMM-Aero-Prot01_files/nav_cc_eetnetwork.gif" width=140 
+            border=0></A></TD></TR>
+        <TR>
+          <TD><A onmouseover="popUp('HM_Menu16',event)" 
+            onmouseout="popDown('HM_Menu16')" 
+            href="http://www.chipcenter.com/main.jhtml"><IMG height=20 
+            alt="Electronics Group Sites" 
+            src="COMM-Aero-Prot01_files/nav_cc_groupsites.gif" width=140 
+            border=0></A></TD></TR></TBODY></TABLE><BR><!-- top left tile ad call-->
+      <P align=center><!-- http://as.cmpnet.com/html.ng/affiliate=cc&pagepos=tilelefttop&site=electronics&target=/circuitcellar/may01/c0501gn6.htm --><A 
+      href="http://as.cmpnet.com/event.ng/Type=click&amp;FlightID=10724&amp;AdID=15401&amp;TargetID=164&amp;Segments=133,240,328,1411&amp;Targets=76,164,160&amp;Values=31,43,51,60,72,82,92,100,110,140,297,304,309,310,442,1259,1388&amp;RawValues=IP,66.77.24.76,&amp;Redirect=http://www.chipcenter.com/exittracking.dyn?path=http://www.atmel.com/atmel/products/prod34.htm" 
+      target=_top><IMG height=125 alt="" src="COMM-Aero-Prot01_files/W0302.gif" 
+      width=125 border=0></A><IMG height=1 
+      src="C:\Documents and Settings\Javier\My Documents\UCLA\Spring 2003\CSM151B\Bus\COMM-Aero-Prot01_files\dcfc(2).gif" 
+      width=1 border=0> </P><!--- end of top left tile ad--><!-- bottom left tile ad call-->
+      <P align=center><!-- http://as.cmpnet.com/html.ng/affiliate=cc&pagepos=bottomlefttile&site=electronics&target=/circuitcellar/may01/c0501gn6.htm --><A 
+      href="http://as.cmpnet.com/event.ng/Type=click&amp;FlightID=870&amp;AdID=11563&amp;TargetID=76&amp;Segments=133,135,241,328,1411&amp;Targets=76,77,160&amp;Values=31,43,51,60,72,82,92,100,110,140,298,304,309,310,442,1259,1388&amp;RawValues=IP,66.77.24.76,&amp;Redirect=http://www.netseminar.com/index.cgi?sem_num=846" 
+      target=_top><IMG height=125 alt="" 
+      src="COMM-Aero-Prot01_files/Audiot125.gif" width=125 border=0></A><IMG 
+      height=1 
+      src="C:\Documents and Settings\Javier\My Documents\UCLA\Spring 2003\CSM151B\Bus\COMM-Aero-Prot01_files\dcfc(3).gif" 
+      width=1 border=0> </P><!--- end of bottom left tile ad-->
+      <P align=center><A href="http://www.netseminar.com/"><IMG 
+      src="COMM-Aero-Prot01_files/nss_button1.gif" border=0></A> </P></TD>
+    <TD width=10 bgColor=#ffffff><IMG height=1 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=10 border=0></TD>
+    <TD width=480 bgColor=#ffffff><FONT face="Arial, Helvetica, sans-serif" 
+      size=2>
+      <META content="memory management, EE memory, electrically erasable memory" 
+      name=KEYWORDS>
+      <META content=computer name=APPLICATIONS>
+      <META content=Column name=CONTENTTYPE>
+      <META content="George Martin" name=AUTHOR>
+      <META content="Circuit Cellar>&#10;&#10;<meta name=" name=SOURCE SECTION 
+?>
+      <META content="" name=TECHNOLOGIES>
+      <P align=left><BR></P>
+      <DIV align=center>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width=400 bgColor=#ffffff border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle bgColor=#ffffff colSpan=2>
+            <P align=center><IMG height=54 alt="Circuit Cellar Online" hspace=5 
+            src="COMM-Aero-Prot01_files/cc-logo.gif" width=372 vspace=5 
+            border=0><BR><FONT face=Arial><STRONG>THE MAGAZINE FOR COMPUTER 
+            APPLICATIONS</STRONG><BR><SMALL><SMALL><EM><FONT size=2>Circuit 
+            Cellar</FONT></EM> <FONT size=2><EM>Online</EM> offers articles 
+            illustrating creative solutions<BR>and unique applications through 
+            complete projects, practical<BR>tutorials, and useful design 
+            techniques.</FONT></SMALL></SMALL></FONT> </P></TD></TR>
+        <TR vAlign=center>
+          <TD align=middle bgColor=#ffffff colSpan=2 height=40>
+            <P align=center><IMG height=20 
+            src="COMM-Aero-Prot01_files/carticle.gif" width=370 align=middle 
+            useMap=../tabs.htm#header border=0> </P></TD></TR>
+        <TR>
+          <TD vAlign=top width="5%" bgColor=#ffffff></TD>
+          <TD vAlign=center width="95%" bgColor=#0000cc>
+            <P align=left><IMG height=16 alt="" 
+            src="COMM-Aero-Prot01_files/cslc.gif" width=13 align=absBottom 
+            border=0><B><FONT face=Arial color=#ffffff size=2>COMMUNICATIONS 
+            PROTOCOLS IN AERONAUTICS</FONT></B> </P></TD></TR>
+        <TR vAlign=top>
+          <TD align=left bgColor=#ffffff colSpan=2>
+            <P align=left><FONT face=Arial size=2><IMG height=58 
+            alt="Lessons from the Trenches" hspace=10 
+            src="COMM-Aero-Prot01_files/ctutorial.gif" width=95 align=left 
+            vspace=5 border=0> <I><B><FONT face=Arial size=2></FONT></B>by 
+            George Novacek</I></FONT></P>
+            <P><FONT face=Arial size=2><A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn1.htm">Start</A> 
+            • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn2.htm">Data 
+            Bus Systems</A> • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn3.htm">Timing 
+            is the Secret </A>• <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn4.htm">ARINC 
+            429</A> • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn5.htm">CSDB 
+            and ASCB</A> • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn6.htm">MIL-STD-1553B</A> 
+            • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn7.htm">ARINC 
+            629 and Beyond</A> • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn8.htm">ARINC 
+            429 Implementation</A> • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn9.htm">Data 
+            Format</A> • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn10.htm">Wrap 
+            Up </A>• <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn11.htm">Sources 
+            and PDF</A></FONT></P>
+            <P><B><FONT face=Arial size=2>MIL-STD-1553B</FONT></B></P>
+            <P><FONT face=Arial size=2>MIL-STD-1553B is a bidirectional, 
+            centrally controlled data bus predominant in military aircraft. It 
+            was originally developed in the early ’70s and since then has 
+            continuously improved. Its official name, Digital Time Division 
+            Command/Response Multiplex Data Bus, immediately betrays its 
+            military origins. Because the bus has been used extensively in 
+            critical systems for such a long time, its characteristics and 
+            performance under various adverse conditions are well-known. Thus, 
+            there is no hesitation to use it for data communications in 
+            fly-by-wire aircraft, in which data corruption would be more than 
+            likely catastrophic. (The fly-by-wire description is used when 
+            flight surface movement affecting pitch, roll, and yaw, 
+            traditionally performed by mechanical links, is done by servo 
+            systems. All highly maneuverable, thus unstable military aircraft 
+            today and many new commercial aircraft fall into this 
+            category.)</FONT></P>
+            <P><FONT face=Arial size=2>The 1553 bus sets one terminal as a BC 
+            and can support up to 31 users, called remote terminals (RT), with a 
+            bit rate of 1 Mbps. And because it would be silly to risk losing a 
+            multimillion-dollar airplane because of a stray bullet cutting a 
+            wire, this data bus is fully dual-redundant. It also exists in fiber 
+            optic implementation, which is defined in specification 
+            MIL-STD-1773. [1] Fiber optic interface has been used in 
+            applications in which exposure to HIRF (high-intensity radiated 
+            field), lightning, and otherwise unpleasant electromagnetic 
+            interference can affect data integrity.</FONT></P>
+            <P><FONT face=Arial size=2>Although the MIL-STD-1553B data bus 
+            doesn’t achieve the performance and flexibility of many modern 
+            commercial data buses, where lives or huge investments depend on 
+            transmitted data integrity and reliability, it unquestionably reigns 
+            supreme. Why isn’t it more commonly used? The main reason is cost. A 
+            chipset with the interface transformers for one RT costs well over 
+            $1000, a price tag hard to justify on systems in which the 1553B’s 
+            excellent performance isn’t needed. </FONT></P>
+            <P align=center><FONT face="Arial, Helvetica, sans-serif" size=2><A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn5.htm">PREVIOUS</A> 
+            • <A 
+            href="http://www.chipcenter.com/circuitcellar/may01/c0501gn7.htm">NEXT</A></FONT></P>
+            <DIR>
+            <P>&nbsp;</P></DIR><FONT face=Arial size=2>
+            <HR align=center width="80%" color=#ff0000>
+            Circuit Cellar provides up-to-date information for engineers. Visit 
+            <A 
+            href="http://www.circuitcellar.com/">http://www.circuitcellar.com/</A> 
+            for more information and additional articles.<BR>For subscription 
+            information, call (860) 875-2199, <A 
+            href="mailto:subscribe@circuitcellar.com">subscribe@circuitcellar.com</A> 
+            or <A href="http://www.circuitcellar.com/subscribe.htm">subscribe 
+            online</A>. ©Circuit Cellar, the Magazine for Computer Applications. 
+            Posted with permission. 
+      </FONT></TD></TR></TBODY></TABLE></CENTER></DIV><MAP name=header><AREA 
+        shape=RECT coords=246,0,352,19 
+        href="http://www.chipcenter.com/circuitcellar/cmorecc.htm"><AREA 
+        shape=RECT coords=190,0,244,19 
+        href="http://www.chipcenter.com/circuitcellar/ccontact.htm"><AREA 
+        shape=RECT coords=136,0,190,19 
+        href="http://www.chipcenter.com/circuitcellar/caboutus.htm"><AREA 
+        shape=RECT coords=86,0,134,19 
+        href="http://www.chipcenter.com/circuitcellar/carcive.htm"><AREA 
+        shape=RECT coords=14,0,86,19 
+        href="http://www.chipcenter.com/circuitcellar/main.htm"></MAP><!-- Industry Brains-->
+      <TABLE cellSpacing=0 cellPadding=0 width=469 border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=5><IMG src="COMM-Aero-Prot01_files/em_top.gif" 
+          border=0></TD></TR><!-- left border -->
+        <TR>
+          <TD width=1 bgColor=#000000 rowSpan=2><IMG 
+            src="COMM-Aero-Prot01_files/trans_spacer.gif" width=1 border=0></TD><!-- spacer -->
+          <TD width=5><IMG src="COMM-Aero-Prot01_files/trans_spacer.gif" 
+            width=5 border=0></TD>
+          <TD vAlign=top align=left width=457><FONT face=verdana,arial 
+            size=1><A 
+            href="http://links.industrybrains.com/?QFF1BxH3F3NZA1D3ZF1LSlWk1O1mj1H2M3HK1I3AQA1E4XPD13UK2L3l1C13M5O5K5qL5I1G4A3tC4L5DVL5L5M5N5nH4rJ4kI3I4N5C4iN5zL5K5kuvO5F4L3A4wK5L5sE13J3qzsuA3I"><B>Boundary-Scan 
+            seminars across North America and Europe</B></A><BR>JTAG 
+            Technologies presents seminars in the US, Canada, and Europe for 
+            test engineers, system designers and production managers covering 
+            board/system-level testing and in-system programming of flash 
+            memories and PLDs and include demonstrations. 
+            <P><A 
+            href="http://links.industrybrains.com/?QFF1BxH3F3NZA1D3YK2YQL2XZYE2QJ2jNI2n1K3JE2UAEH2DI1C3ZA1GPWF2CA1Wn1mTCHQI4F4qsA3EH1N5ukvwA4tK4oC4F13qN5lC4L5A4B4L3N5N5L5F4K5N5F13rvhprK5pntG4H1"><B>Embedded 
+            Test and FPGA configuration</B></A><BR>Register for a free white 
+            paper on Infrastructure IP for PCBs and Systems. SystemBIST(TM) 
+            provides centralized FPGA configuration and embedded test with 
+            diagnostics. Intellitech's structured patent-pending TEST-IP family 
+            lowers product costs and enables in-the-field re-configuration of 
+            FLASH, FPGAs and CPLDS 
+            <P><A 
+            href="http://links.industrybrains.com/?QFF1BxH3F3NZA1D3DD2CGI2XZNA2I3E2I2O1G1B4M5K5rC4HLvN5A4G13nwA4I4J3pE4qA4K5wI4C4E13K5uA4srK5C13C4tshpO5O5C4ttK4G1"><B>The 
+            Fastest Embedded Processor Ever - Xtensa V</B></A><BR>Test drive 
+            Tensilica's Xtensa V processor, the fastest ever according to EEMBC 
+            Certification Labs. 
+            <P><A 
+            href="http://links.industrybrains.com/?QFF1BxH3F3XIkl1n1E1OXE2Wn1DN3YjH2HN2J3RUG2I4L5M5G13D4wK4K3yI4A4E4qE4rG4C3E2F4XLYDD4knZND1E3F2YAG3UM3BmSM3A1j1L1M5E4O5wN5rHMH4K3N5G13svJ3H4oA4F4G3uL3pF13G3L5L3pJ4uA4F3qB4rvF13irL5vswE4J1"><B>Earn 
+            your Master's degree in Engineering from NTU</B></A><BR>National 
+            Technological University's master's degrees are offered in a 
+            convenient distance learning format. Advance your career with a 
+            technical degree from an accredited university. Learn more today! 
+            <P><A 
+            href="http://links.industrybrains.com/?QFF1BxH3F3NZA1D3l1D2CO1K2FJ3NK2n1kO3l1A2SK3ME2Uk1GO3O1D2Km1mk1j1TB2HhQKL2F4FA4L3B4G4txA3L3A1G4qA3A4C4L5uN5dExsB4yK5E4K5qA3N3E4PIJB2fl1O3n1n1E2O1CAA2QN3H3YN3JEUI2Xn1F3B2YC2EA3vO5O5D4L1KsL5kL5vA4D4B3F3N5E13vG3A3vJ4qhF3uC4sO5opK5O5L5O5wE4B4K5qtI4K"><B>FPGA 
+            Technical Papers</B></A><BR>Download the complete library of FPGA 
+            technical papers today! 
+            <P><!-- spacer --><A 
+            href="http://www.industrybrains.com/cmpelectronics" target=new>Click 
+            here to get your listing up.</A> </FONT><BR><IMG height=1 
+            src="COMM-Aero-Prot01_files/trans_spacer.gif" width=457 
+          border=0></P></TD>
+          <TD width=5><IMG src="COMM-Aero-Prot01_files/trans_spacer.gif" 
+            width=5 border=0></TD><!-- right border -->
+          <TD width=1 bgColor=#000000 rowSpan=2><IMG 
+            src="COMM-Aero-Prot01_files/trans_spacer.gif" width=1 
+border=0></TD></TR><!-- bottom border -->
+        <TR>
+          <TD width=457 bgColor=#000000 colSpan=3><IMG height=1 
+            src="COMM-Aero-Prot01_files/trans_spacer.gif" width=457 
+        border=0></TD></TR></TBODY></TABLE>
+      <P><!-- /Industry Brains--></FONT></P></TD>
+    <TD width=10 bgColor=#ffffff><IMG height=1 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=10 border=0></TD></TR>
+  <TR>
+    <TD bgColor=#000099><IMG height=30 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=140 border=0></TD>
+    <TD bgColor=#cccc99><IMG height=5 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=10 border=0></TD>
+    <TD bgColor=#cccc99>
+      <CENTER><FONT face="Arial, Helvetica" size=1>
+      <P>Copyright ©2002 ChipCenter-QuestLink</FONT> <BR><FONT 
+      face="Arial, Helvetica" size=1><A 
+      href="http://www.chipcenter.com/about/about.html">About 
+      ChipCenter-Questlink</A>&nbsp;<IMG height=7 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=7 border=0> <A 
+      href="http://www.chipcenter.com/contacts.html">Contact Us</A>&nbsp;<IMG 
+      height=7 alt="" src="COMM-Aero-Prot01_files/dot_clear.gif" width=7 
+      border=0> <A href="http://www.cmpnet.com/delivery/privacy.html">Privacy 
+      Statement</A>&nbsp;<IMG height=7 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=7 border=0>&nbsp; <A 
+      href="http://www.chipcenter.com/mediakit/">Advertising 
+      Information</A>&nbsp;<IMG height=7 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=7 border=0> <A 
+      href="http://www.chipcenter.com/faq.html/">FAQ</A>&nbsp;<IMG height=7 
+      alt="" src="COMM-Aero-Prot01_files/dot_clear.gif" width=7 border=0> 
+      </FONT><BR><FONT face="Arial, Helvetica" size=1>
+      <P></FONT></CENTER></P></TD>
+    <TD bgColor=#cccc99><IMG height=5 alt="" 
+      src="COMM-Aero-Prot01_files/dot_clear.gif" width=10 
+border=0></TD></TR></TBODY></TABLE>
+<SCRIPT language=JavaScript1.2 src="COMM-Aero-Prot01_files/ccMenuLoader.js" 
+type=text/javascript></SCRIPT>
+<!-- for cookie tracking reports --><IMG height=1 alt="" src="" width=5 
+border=0> </BODY></HTML>

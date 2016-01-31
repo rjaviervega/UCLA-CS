@@ -1,0 +1,58 @@
+*** CS118 PROJECT #1 INSTALL ***
+
+This program consists of two programs that run together:
+A server part and a client part.
+
+The first step to install the program is to compile it using make:
+
+Under the directory with the uncompress files type:
+
+bash$ make
+
+That should build the server and the client.
+
+Note:
+There is a Makefile provided with the program that should compile
+in most unix systems. However, it is nescesarry to have installed
+a c compiler like gcc and maketools.
+
+
+CLIENT INSTALLATION:
+====================
+
+The next step is to copy the file: webclient.cgi to a directory 
+that can be executed by the web browser. The idea is that somebody
+could type http://www.yourcompany.com/cgi-bin/webclient.cgi
+and the program would be executed.
+
+
+SERVER INSTALLATION:
+====================
+
+The next part is to have the server for the program running 
+on the machine to be connected.
+
+After compiling the program, type:
+
+bash$ ./server 
+
+to execute the server. If the server is running it would show
+the port where it is listening and it would output the
+connections with also the output.
+
+
+Thats it.
+
+R. Javier Vega
+
+
+--Copyright Note--
+
+The cgic library is also provided with this packet but it can be 
+downloaded from:
+
+http://www.boutell.com/cgic/
+
+All the copyright belongs to the authors of such library.
+
+

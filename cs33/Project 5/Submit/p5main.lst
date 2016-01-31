@@ -1,0 +1,1326 @@
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   1
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+   1.                   ;**************************************************************************
+   2.                   ;
+   3.                   ; FILE:		P5MAIN.CSP
+   4.                   ;
+   5.                   ; DESCRIPTION:	PROJECT 5 MAIN PROGRAM
+   6.                   ;
+   7.                   ; AUTHOR:	R. JAVIER VEGA
+   8.                   ;
+   9.                   ; SID:	003-110-717
+  10.                   ;**************************************************************************
+  11.                
+  12.                   ;			// CRT I/O PORTS
+  13.                   			.EQU	X_POS,		$314
+  14.                   			.EQU	Y_POS,		$315
+  15.                   			.EQU	CRT_CTRL,	$316
+  16.                   			.EQU	CRT_DATA,	$317
+  17.                   			
+  18.                   ;			// KEYBOARD I/O PORTS
+  19.                   			.EQU	KBD_STAT,	$000
+  20.                   			.EQU	KBD_DATA,	$001
+  21.                
+  22.                   ;			// PROGRAM CONSTANTS
+  23.                   			.EQU	@,			$000
+  24.                   			.EQU	ZERO,		$000
+  25.                   			.EQU	ONE,		$001
+  26.                   			.EQU	ROWS,		9
+  27.                   			.EQU	COLS,		8
+  28.                   			.EQU	TOT_CELLS,	ROWS * COLS
+  29.                   			
+  30.                   ;			// KEYBOARD CONSTANTS
+  31.                   			.EQU		ESC,		$1B
+  32.                   			.EQU		UP_ARW,		'H'
+  33.                   			.EQU		DN_ARW,		'P'
+  34.                   			.EQU		LT_ARW,		'K'
+  35.                   			.EQU		RT_ARW,		'M'
+  36.                   			.EQU		PLUS,		'+'
+  37.                   			.EQU		MINUS,		'-'
+  38.                   			.EQU		MULT,		'*'
+  39.                   			.EQU		DIVIDE,		'/'
+  40.                   			.EQU		NEW_DATA,	'N'
+  41.                   			.EQU		ENTER,		$0D
+  42.                
+  43.                   ;			// SCREEN MAP CONSTANTS
+  44.                   			.EQU		CRT_OPER,	$2F9			; POSITION WHERE TO START THE OPERATION STRINGS
+  45.                
+  46.                   			
+  47.                   ;			// FUNCTION CALLS
+  48.                   			.EQU	MOVE_CELL,		$A00			
+  49.                   			.EQU	SET_CELL,		$A01
+  50.                   			.EQU	BEEP_MSG,		$A02
+  51.                   			.EQU	CLEAR_BELL,		$A03
+  52.                   			.EQU	SHOW_CURR_CELL,	$A04
+  53.                   			.EQU	SHOW_CELL_VAL,	$A05
+  54.                   			.EQU	UPDATE_TOTS,	$A06
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   2
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+  55.                   						
+  56.                   ;			// MAIN PROGRAM
+  57.    000   020F00   			LDS#	$F00				; SET STACK POSSITION
+  58.    001   160048   MAIN:		SBS#	TOT_CELLS			; SPACE ON STACK TO STORE THE CELLS
+  59.    002   06216A   			STS		CELL_ARRAY			;
+  60.                
+  61.    003            RESTART:
+  62.    003   000001   			LDA#	$01					; CLEAR SCREEN BUFFER
+  63.    004   712316   			OUTB	CRT_CTRL			;
+  64.                
+  65.    005   000000   			LDA#	0
+  66.    006   010000   			LDX#	0					; EMPTY CELL_ARRAY
+  67.    007   210048   CLR_CELLS:	CMX#	TOT_CELLS			;
+  68.    008   4B200C   			JGE		@ + 4
+  69.    009   04816A   			STA&	CELL_ARRAY
+  70.    00A   110001   			ADX#	1
+  71.    00B   402007   			JMP		CLR_CELLS
+  72.                   						
+  73.    00C   000000   			LDA#	0					; OUTPUT THE LAYOUT OF THE SCREEN
+  74.    00D   010000   			LDX#	0
+  75.    00E   210220   LAYOUT:		CMX#	(38*14) + 12		; PRINT THE ARRAY OF STRINGS = TOTAL NUM OF SPACES PLUS SKIPED ONES (12)
+  76.    00F   4B201C   			JGE		DONE_L				; STORED IN THE CHARS VARIABLES
+  77.    010   200026   			CMA#	38					; IN CASE THE LAST CHAR IS PRINTED, SKIP PRITING 
+  78.    011   482019   			JEQ		SKIP				; A BLANK SPACE
+  79.    012   FFF010   			PSHA						; SAVE ACC
+  80.    013   502172   			LDC		T_STR				; LOAD CHAR ( TITLE STRINGS )
+  81.    014   712317   			OUTB	CRT_DATA			; PRINT CHAR
+  82.    015   FFF013   			POPA						; RESTORE ACC
+  83.    016   100001   			ADA#	1					; INCREASE COUNTER AND INDEX
+  84.    017   110001   			ADX#	1
+  85.    018   40200E   			JMP		LAYOUT				; LOOP BACK
+  86.    019   110001   SKIP:		ADX#	1					; DON'T PRINT THE CURRENT CHAR
+  87.    01A   000000   			LDA#	0
+  88.    01B   40200E   			JMP		LAYOUT				; LOOP BACK
+  89.    01C            DONE_L:
+  90.                
+  91.                
+  92.                   ;	// SET CELL POSITION ( 1, 1 )
+  93.    01C   000001   			LDA#	1					; INITIAL POSITION OF CELL = ( 1, 1 )
+  94.    01D   042168   			STA		X_CURR_CELL
+  95.    01E   042169   			STA		Y_CURR_CELL
+  96.                
+  97.    01F   082168   			PSH		X_CURR_CELL			; SET_CURSON IN RESPECTIVE CELL
+  98.    020   082169   			PSH		Y_CURR_CELL			; PASS VALUES BY REFERENCES
+  99.    021   412A01   			JSR		SET_CELL	
+ 100.    022   120002   			ADS#	2
+ 101.                
+ 102.                   			
+ 103.                   ;	// START INPUT READ FROM KEYBOARD
+ 104.                
+ 105.    023   000040   			LDA#	$40					; FLUSH KEYBOARD BUFFER
+ 106.    024   712000   			OUTB	KBD_STAT
+ 107.    025   702000   KEY_POLL:	INB		KBD_STAT			; LOOP FOR KEYBOARD INPUT
+ 108.    026   4B2025   			JGE		KEY_POLL			;
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   3
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 109.    027   702001   			INB		KBD_DATA			;
+ 110.                   			
+ 111.    028   200071   			CMA#	'q'					; ONCE THE BUFFER HAS A VALID KEY 
+ 112.    029   48209F   			JEQ		QUIT				; GO AND TEST FOR RELEVANT KEYS ELSE BEEP SCREEN
+ 113.    02A   200051   			CMA#	'Q'
+ 114.    02B   48209F   			JEQ		QUIT				; EXIT PROGRAM ON 'Q, q' KEY
+ 115.                   			
+ 116.    02C   200072   			CMA#	'r'					
+ 117.    02D   4820B7   			JEQ		RESET				
+ 118.    02E   200052   			CMA#	'R'					
+ 119.    02F   4820B7   			JEQ		RESET				; RESET PROGRAM ON 'R, r' KEY
+ 120.                   			
+ 121.    030   200063   			CMA#	'c'
+ 122.    031   48206F   			JEQ		CLR_CELL			; CLEAR CELLS ON 'C, c' KEY
+ 123.    032   200043   			CMA#	'C'
+ 124.    033   48206F   			JEQ		CLR_CELL
+ 125.                   			
+ 126.    034   20002B   			CMA#	PLUS				; IF PLUS BUTTON PRESS
+ 127.    035   482049   			JEQ		OPERAND				; JUMP TO PROCESS OPERANDS
+ 128.                   			
+ 129.    036   20002D   			CMA#	MINUS				; IF MINUS 
+ 130.    037   482049   			JEQ		OPERAND
+ 131.                   			
+ 132.    038   20002A   			CMA#	MULT				; IF MULT
+ 133.    039   482049   			JEQ		OPERAND
+ 134.                   			
+ 135.    03A   20002F   			CMA#	DIVIDE				; IF DIVISION 
+ 136.    03B   482049   			JEQ		OPERAND				; JUMP TO PROCESS OPERANS
+ 137.                   			
+ 138.    03C   20001B   			CMA#	ESC					; PROCESS COMBINATION KEYS (UP, DOWN, LEFT, RIGHT, ECT...)
+ 139.    03D   4820D1   			JEQ		ARRW_PRES			;	
+ 140.                   													
+ 141.    03E   200030   			CMA#	'0'					; IF NO MAJOR CHARACTER IS PRESS
+ 142.    03F   4A2047   			JLT		INV_INPUT			; CHECK FOR NUMBER INPUT
+ 143.    040   200039   			CMA#	'9'
+ 144.    041   4D2047   			JGT		INV_INPUT
+ 145.                   										; ELSE THE NUMBER IS VALID
+ 146.    042   04216C   			STA		TEMP_NUM			; STORE THE NUMBER ENTERED
+ 147.    043   00004E   			LDA#	NEW_DATA			; SET OPERAND TO NEW_DATA
+ 148.    044   04216F   			STA		OP					; SET OPERATION TO NEW_DATA ( VALID NUMBER ENTERED )
+ 149.    045   00216C   			LDA		TEMP_NUM
+ 150.    046   402107   			JMP		GET_NUM				; GO GET THE NUMBER RUTINE
+ 151.                   			
+ 152.    047   412A02   INV_INPUT:	JSR		BEEP_MSG			; ELSE INVALID INPUT MESSAGE
+ 153.    048   492025   			JNE		KEY_POLL			; START KEY POLLING AGAIN
+ 154.                
+ 155.                
+ 156.                   ; // PROCESS KEYS 
+ 157.                   ;
+ 158.                
+ 159.                   ; IN CASE AN OPERAND HAS BEEN PRESS
+ 160.    049   FFF010   OPERAND	:	PSHA						; SAVE VALUES
+ 161.    04A   FFF011   			PSHX
+ 162.    04B   04216F   			STA		OP					; SAVE THE COMAND SEND INTO OP
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   4
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 163.    04C   010000   			LDX#	0					; DISPLAY THE MESSAGE OF OPERATION
+ 164.    04D   21000A   			CMX#	OP_STRL				;
+ 165.    04E   4B2053   			JGE		@ + 5				;
+ 166.    04F   502230   			LDC 	OP_STR				;	
+ 167.    050   7142F9   			OUTB+	CRT_OPER			; $2F9 CODE WHERE TO START DISPLAYING OP_STRING
+ 168.    051   110001   			ADX#	1					;
+ 169.    052   40204D   			JMP		@ - 5				;
+ 170.    053   00216F   			LDA		OP					; DISPLAY THE OPERAND TO DO
+ 171.    054   7142F9   			OUTB+	CRT_OPER			;
+ 172.    055   010000   			LDX#	0					; DISPLAY VALUE STRING 
+ 173.    056   210009   			CMX#	VAL_STRL			;
+ 174.    057   4B205C   			JGE		@ + 5
+ 175.    058   502234   			LDC 	VAL_STR
+ 176.    059   714306   			OUTB+	$306
+ 177.    05A   110001   			ADX#	1
+ 178.    05B   402056   			JMP		@ - 5
+ 179.    05C   FFF014   			POPX						; RESTORE VALUE USED
+ 180.    05D   FFF013   			POPA						;
+ 181.                
+ 182.                   ; // ONCE THE CHARACTERS HAVE BEEN DISPLAYED 
+ 183.                   ; // PROCEDE TO PERFORM THE OPERATION
+ 184.                
+ 185.                   ; // GET THE NEXT CHARACTER TO GET THE NUMBER
+ 186.    05E            DO_OPERAND:
+ 187.    05E   702000   			INB		KBD_STAT				; KEYBOARD LOOPING FOR NUMBER INPUTS
+ 188.    05F   4B205E   			JGE		@ - 1					;
+ 189.    060   702001   			INB		KBD_DATA				;
+ 190.    061   200078   			CMA#	'x'
+ 191.    062   4820CF   			JEQ		CANCEL_OP				; CANCEL OPERATION 
+ 192.    063   200058   			CMA#	'X'
+ 193.    064   4820CF   			JEQ		CANCEL_OP				; CANCEL OPERATION 
+ 194.    065   200030   			CMA#	'0'						; CHECK FOR NUMBER INPUT
+ 195.    066   4A206D   			JLT		NO_NUM1					;
+ 196.    067   200039   			CMA#	'9'
+ 197.    068   4D206D   			JGT		NO_NUM1
+ 198.    069   04216C   			STA		TEMP_NUM				; IN CASE OF VALID NUMBER STORE IT INTO TEMP_NUM
+ 199.    06A   0A216B   			CLR		TEMP_CELL				; CLEAR TEMP_CELL VALUE
+ 200.    06B   00216C   			LDA		TEMP_NUM				; LOAD ACC WITH THE NUMBER ENTERED
+ 201.    06C   402107   			JMP		GET_NUM					; JUMP TO GET NUMBERS CODE
+ 202.    06D   412A02   NO_NUM1:	JSR		BEEP_MSG				; IN CASE OF INVALID NUMBER ENTERED BEEP MESSAGE
+ 203.    06E   40205E   			JMP		DO_OPERAND				; GO BACK FOR KEYBOARD LOOPING
+ 204.                   ;
+ 205.                
+ 206.                
+ 207.                   ;	// CODE FOR CLEARING THE VALUE OF A CELL
+ 208.    06F   FFF010   CLR_CELL:	PSHA
+ 209.    070   FFF011   			PSHX
+ 210.    071   010000   			LDX#	0						; DISPLAY THE OPERATION TO SCREEN
+ 211.    072   21000A   			CMX#	OP_STRL					;
+ 212.    073   4B2078   			JGE		@ + 5					;
+ 213.    074   502230   			LDC 	OP_STR					;
+ 214.    075   7142F9   			OUTB+	CRT_OPER				;
+ 215.    076   110001   			ADX#	1						;
+ 216.    077   402072   			JMP		@ - 5					;
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   5
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 217.    078   000043   			LDA#	'C'						;
+ 218.    079   7142F9   			OUTB+	CRT_OPER				;
+ 219.    07A   FFF014   			POPX
+ 220.    07B   FFF013   			POPA
+ 221.                   			
+ 222.                   ;	// CHECK FOR INPUT 'ENTER OR X'
+ 223.    07C   702000   C_LOOP:		INB		KBD_STAT				; KEYBOARD LOOPING
+ 224.    07D   4B207C   			JGE		C_LOOP
+ 225.    07E   702001   			INB		KBD_DATA
+ 226.    07F   20000D   			CMA#	ENTER
+ 227.    080   482087   			JEQ		DO_CLR					; EXIT PROGRAM ON 'Q' KEY
+ 228.    081   200078   			CMA#	'x'	
+ 229.    082   4820CF   			JEQ		CANCEL_OP				; CANCEL OPERATION 
+ 230.    083   200058   			CMA#	'X'
+ 231.    084   4820CF   			JEQ		CANCEL_OP				; CANCEL OPERATION 
+ 232.    085   412A02   			JSR		BEEP_MSG
+ 233.    086   4020C4   			JMP		R_LOOP
+ 234.    087   002169   DO_CLR:		LDA		Y_CURR_CELL				; STORE THE ZERO VALUE IN THE CELL_ARRAY
+ 235.    088   140001   			SBA#	1						; CALCULATE WHERE IN THE ARRAY
+ 236.    089   180008   			MUL#	8						;
+ 237.    08A   102168   			ADA		X_CURR_CELL				;
+ 238.    08B   140001   			SBA#	1						;
+ 239.    08C   04216D   			STA		TEMP_INDEX				; STORE THE INDEX VALUE INTO TEMP_INDEX
+ 240.    08D   01216D   			LDX		TEMP_INDEX
+ 241.    08E   000000   			LDA#	0
+ 242.    08F   04816A   			STA&	CELL_ARRAY				; STORE THE ZERO
+ 243.    090   000020   			LDA#	' '						; CLEAR THE CELL VALUE IN DISPLAY
+ 244.    091   FFF010   			PSHA							;
+ 245.    092   412237   			JSR		UPDATE_CONT				; CALL FUNCTION TO UPDATE CONTENT OF THE CELL
+ 246.    093   FFF013   			POPA
+ 247.    094   082168   			PSH		X_CURR_CELL				; CALL FUNCTION TO UPDATE TOTALS AND DISPLAYS
+ 248.    095   082169   			PSH		Y_CURR_CELL
+ 249.    096   08216A   			PSH		CELL_ARRAY
+ 250.    097   412A06   			JSR		UPDATE_TOTS
+ 251.    098   120003   			ADS#	3
+ 252.    099   082168   			PSH		X_CURR_CELL				; CALL THE FUNCTION TO SHOW THE CELL VALUE INTO THE BOX
+ 253.    09A   082169   			PSH		Y_CURR_CELL
+ 254.    09B   412A05   			JSR		SHOW_CELL_VAL
+ 255.    09C   120002   			ADS#	2
+ 256.    09D   412344   			JSR		CRL_BOTTOM				; CLEAR THE OPERATION MESAGE ONCE DONE
+ 257.    09E   402025   			JMP		KEY_POLL				; GO BACK TO LOOPING KEYS
+ 258.                   ;//	DONE CLEARING CELL
+ 259.                
+ 260.                
+ 261.                   ;	// CODE PROCCESS THE QUITING OF THE PROGRAM
+ 262.    09F   FFF010   QUIT:		PSHA
+ 263.    0A0   FFF011   			PSHX
+ 264.    0A1   010000   			LDX#	0						; DISPLAY THE OPERATION QUIT ON THE SCREEN
+ 265.    0A2   21000A   			CMX#	OP_STRL					;
+ 266.    0A3   4B20A8   			JGE		@ + 5					;
+ 267.    0A4   502230   			LDC 	OP_STR					; DISPLAY THE OPERAND Q
+ 268.    0A5   7142F9   			OUTB+	CRT_OPER				;
+ 269.    0A6   110001   			ADX#	1						;
+ 270.    0A7   4020A2   			JMP		@ - 5					;
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   6
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 271.    0A8   000051   			LDA#	'Q'						;
+ 272.    0A9   7142F9   			OUTB+	CRT_OPER				;
+ 273.    0AA   FFF014   			POPX
+ 274.    0AB   FFF013   			POPA
+ 275.                   ;	// CHECK FOR INPUT 'ENTER OR X'
+ 276.    0AC   702000   Q_LOOP:		INB		KBD_STAT				; KEY INPUT LOOP
+ 277.    0AD   4B20AC   			JGE		Q_LOOP
+ 278.    0AE   702001   			INB		KBD_DATA
+ 279.    0AF   20000D   			CMA#	ENTER
+ 280.    0B0   482166   			JEQ		EXIT					; EXIT PROGRAM ON 'Q' KEY
+ 281.    0B1   200078   			CMA#	'x'						;
+ 282.    0B2   4820CF   			JEQ		CANCEL_OP				; CANCEL OPERATION 
+ 283.    0B3   200058   			CMA#	'X'						;
+ 284.    0B4   4820CF   			JEQ		CANCEL_OP				; CANCEL OPERATION 
+ 285.    0B5   412A02   			JSR		BEEP_MSG				; INVALID INPUT 
+ 286.    0B6   4020C4   			JMP		R_LOOP					; START LOOPING KEYS AGAIN
+ 287.                   ;// END QUIT	
+ 288.                
+ 289.                
+ 290.                
+ 291.                   ;	// CODE PROCCESS THE REST OF THE CELLS
+ 292.    0B7   FFF010   RESET:		PSHA
+ 293.    0B8   FFF011   			PSHX
+ 294.    0B9   010000   			LDX#	0						; DISPLAYING OF THE OPERATION
+ 295.    0BA   21000A   			CMX#	OP_STRL					;
+ 296.    0BB   4B20C0   			JGE		@ + 5					;
+ 297.    0BC   502230   			LDC 	OP_STR
+ 298.    0BD   7142F9   			OUTB+	CRT_OPER
+ 299.    0BE   110001   			ADX#	1
+ 300.    0BF   4020BA   			JMP		@ - 5
+ 301.    0C0   000052   			LDA#	'R'
+ 302.    0C1   7142F9   			OUTB+	CRT_OPER	
+ 303.    0C2   FFF014   			POPX
+ 304.    0C3   FFF013   			POPA
+ 305.                   ;	// CHECK FOR INPUT 'ENTER OR X'
+ 306.    0C4   702000   R_LOOP:			INB		KBD_STAT
+ 307.    0C5   4B20C4   			JGE		R_LOOP
+ 308.    0C6   702001   			INB		KBD_DATA
+ 309.    0C7   20000D   			CMA#	ENTER
+ 310.    0C8   482003   			JEQ		RESTART				; EXIT PROGRAM ON 'Q' KEY
+ 311.    0C9   200078   			CMA#	'x'
+ 312.    0CA   4820CF   			JEQ		CANCEL_OP			; CANCEL OPERATION 
+ 313.    0CB   200058   			CMA#	'X'
+ 314.    0CC   4820CF   			JEQ		CANCEL_OP			; CANCEL OPERATION 
+ 315.    0CD   412A02   			JSR		BEEP_MSG
+ 316.    0CE   4020C4   			JMP		R_LOOP
+ 317.                   ;// END RESET
+ 318.                
+ 319.                
+ 320.                
+ 321.                   ;	//	CANCELS THE ANY OPERATION GOING BACK TO PULL KEYS
+ 322.    0CF   412344   CANCEL_OP:	JSR		CRL_BOTTOM			; CLEAR THE OPERATION TO BE PERFORMED CRT
+ 323.    0D0   402025   			JMP		KEY_POLL
+ 324.                
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   7
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 325.                
+ 326.                   ;	// PROCESS ARROW KEY MOVE MENTS
+ 327.    0D1   702001   ARRW_PRES:	INB		KBD_DATA			; ONCE AN ESC KEY HAS BEEN PRESS, PROCESS THE NEXT VALUE
+ 328.    0D2   20004D   			CMA#	RT_ARW				; IF RIGHT ARROW
+ 329.    0D3   4820DB   			JEQ		MOV_RT				; MOVE TO THE RIGHT 
+ 330.    0D4   20004B   			CMA#	LT_ARW				; IF LEFT ARROW 
+ 331.    0D5   4820E6   			JEQ		MOV_LT				; MOVE TO THE LEFT
+ 332.    0D6   200048   			CMA#	UP_ARW				; IF UP ARROW
+ 333.    0D7   4820F1   			JEQ		MOV_UP				; MOVE UP
+ 334.    0D8   200050   			CMA#	DN_ARW				; IF DOWN ARROW
+ 335.    0D9   4820FC   			JEQ		MOV_DN				; MOVE DOWN THE CURSOR
+ 336.    0DA   402025   			JMP		KEY_POLL			; JUMP BACK TO LOOP KEYS
+ 337.                
+ 338.                
+ 339.                   ;	// THE NEXT FOLLOWING LABELS CALL THE MOVE CELL FUNTION 
+ 340.                   ;	// WITH THE RESPECTIVE UP OR DOWN VALUES
+ 341.                   ;
+ 342.                
+ 343.    0DB   080001   MOV_RT:		PSH#	ONE
+ 344.    0DC   080000   			PSH#	ZERO
+ 345.    0DD   080168   			PSH#	X_CURR_CELL
+ 346.    0DE   080169   			PSH#	Y_CURR_CELL
+ 347.    0DF   412A00   			JSR		MOVE_CELL			; // CALL MOVE CELL ( 1, 0, &X, &Y )
+ 348.    0E0   120004   			ADS#	4
+ 349.    0E1   082168   			PSH		X_CURR_CELL
+ 350.    0E2   082169   			PSH		Y_CURR_CELL
+ 351.    0E3   412A05   			JSR		SHOW_CELL_VAL		; // UPDATE THE CURRENT VALUE OF THE NEXT CELL
+ 352.    0E4   120002   			ADS#	2
+ 353.    0E5   402025   			JMP		KEY_POLL
+ 354.    0E6   082171   MOV_LT:		PSH		NEG_ONE
+ 355.    0E7   080000   			PSH#	ZERO
+ 356.    0E8   080168   			PSH#	X_CURR_CELL
+ 357.    0E9   080169   			PSH#	Y_CURR_CELL
+ 358.    0EA   412A00   			JSR		MOVE_CELL			; //CALL MOVE CELL 	
+ 359.    0EB   120004   			ADS#	4
+ 360.    0EC   082168   			PSH		X_CURR_CELL
+ 361.    0ED   082169   			PSH		Y_CURR_CELL
+ 362.    0EE   412A05   			JSR		SHOW_CELL_VAL		; // UPDATE THE CURRENT VALUE OF THE NEXT CELL
+ 363.    0EF   120002   			ADS#	2
+ 364.    0F0   402025   			JMP		KEY_POLL
+ 365.    0F1   080000   MOV_UP:		PSH#	ZERO
+ 366.    0F2   082171   			PSH		NEG_ONE
+ 367.    0F3   080168   			PSH#	X_CURR_CELL
+ 368.    0F4   080169   			PSH#	Y_CURR_CELL
+ 369.    0F5   412A00   			JSR		MOVE_CELL			; // CALL MOVE CELL ( 1, 0, &X, &Y )
+ 370.    0F6   120004   			ADS#	4
+ 371.    0F7   082168   			PSH		X_CURR_CELL
+ 372.    0F8   082169   			PSH		Y_CURR_CELL
+ 373.    0F9   412A05   			JSR		SHOW_CELL_VAL		; // UPDATE THE CURRENT VALUE OF THE NEXT CELL
+ 374.    0FA   120002   			ADS#	2
+ 375.    0FB   402025   			JMP		KEY_POLL
+ 376.    0FC   080000   MOV_DN:		PSH#	ZERO
+ 377.    0FD   080001   			PSH#	ONE
+ 378.    0FE   080168   			PSH#	X_CURR_CELL
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   8
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 379.    0FF   080169   			PSH#	Y_CURR_CELL
+ 380.    100   412A00   			JSR		MOVE_CELL			; // CALL MOVE CELL ( 1, 0, &X, &Y )
+ 381.    101   120004   			ADS#	4
+ 382.    102   082168   			PSH		X_CURR_CELL
+ 383.    103   082169   			PSH		Y_CURR_CELL
+ 384.    104   412A05   			JSR		SHOW_CELL_VAL		; // UPDATE THE CURRENT VALUE OF THE NEXT CELL
+ 385.    105   120002   			ADS#	2
+ 386.                
+ 387.    106   402025   			JMP		KEY_POLL			; ONCE DONE GO BACK TO LOOP KEYS
+ 388.                
+ 389.                
+ 390.                   ; // CODE TO GET THE NUMBER FROM THE KEYBORD
+ 391.                   ; // NUMBER ALREADY STORED INTO TEMP_NUM
+ 392.    107            GET_NUM:	
+ 393.    107   04216C   			STA		TEMP_NUM			; STORE THE FIRT INPUT NUMBER INTO TEMP_CELL
+ 394.    108   010002   			LDX#	2
+ 395.    109   05216D   			STX		TEMP_INDEX
+ 396.    10A   51216B   			STC		TEMP_CELL
+ 397.    10B   412332   			JSR		NEW_VALUE
+ 398.    10C   412322   			JSR		SHOW_IN_VALUE		; SHOW THE VALUE INTO DISPLAY 
+ 399.                   			
+ 400.    10D   702000   GET_NEXT:	INB		KBD_STAT			; GET NEXT NUMBER
+ 401.    10E   4B210D   			JGE		@ - 1				;
+ 402.    10F   702001   			INB		KBD_DATA			;
+ 403.    110   04216C   			STA		TEMP_NUM			;
+ 404.                   			
+ 405.    111   20000D   			CMA#	ENTER				; PROCESS SPECIAL KEY
+ 406.    112   482134   			JEQ		ENTER_KEY			;
+ 407.                   			
+ 408.    113   200058   			CMA#	'X'					;
+ 409.    114   48211C   			JEQ		CANCEL_NUM			;
+ 410.                   										; CHECK FOR NUMBER INPUT
+ 411.    115   200030   			CMA#	'0'					;
+ 412.    116   4A211A   			JLT		GNO_NUM				;
+ 413.    117   200039   			CMA#	'9'					;
+ 414.    118   4D211A   			JGT		GNO_NUM				;
+ 415.                   			
+ 416.    119   40211E   			JMP		ADD_NEXT			; ADD A NEXT NUMBER
+ 417.                   	
+ 418.    11A   412A02   GNO_NUM:	JSR		BEEP_MSG
+ 419.    11B   40210D   			JMP		GET_NEXT			; GO GET THE NEXT NUMBER
+ 420.                
+ 421.    11C   0A216B   CANCEL_NUM:	CLR		TEMP_CELL			; CANCEL OPEARTION
+ 422.    11D   4020CF   			JMP		CANCEL_OP
+ 423.                   			
+ 424.    11E   01216D   ADD_NEXT:	LDX		TEMP_INDEX			; ADD THE NEXT ENTERED NUMBER TO TEMP_CELL
+ 425.    11F   150001   			SBX#	1					;
+ 426.    120   210FFF   			CMX#	$FFF				;
+ 427.    121   482132   			JEQ		TOO_MANY			; IN CASE MORE THAN THREE NUMBER ARE ATTTEMPT TO BE ENTERED
+ 428.                
+ 429.    122   05216D   			STX		TEMP_INDEX			; ELSE STORE THE INDEX OF THE POSSITION TO BE ENTERED
+ 430.                
+ 431.    123   FFF011   			PSHX
+ 432.    124   00216B   			LDA		TEMP_CELL			; SHIFT TEMP_CELL TO LEFT 8 BITS TO MAKE SPACE FOR NEW CHAR
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page   9
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 433.    125   010000   			LDX#	0					;
+ 434.    126   210008   			CMX#	8					;
+ 435.    127   48212B   			JEQ		@ + 4				;
+ 436.    128   FFF023   			SHLA
+ 437.    129   110001   			ADX#	1
+ 438.    12A   402126   			JMP		@ - 4
+ 439.    12B   04216B   			STA		TEMP_CELL			; STORE THE NEW VALUE INTO THE TEMPORARY CELL
+ 440.    12C   00216C   			LDA		TEMP_NUM			; 
+ 441.    12D   010002   			LDX#	2
+ 442.    12E   51216B   			STC		TEMP_CELL
+ 443.    12F   412322   			JSR		SHOW_IN_VALUE		; SHOW THE VALUE ENTERED
+ 444.    130   FFF014   			POPX
+ 445.                   			
+ 446.    131   40210D   			JMP		GET_NEXT			; GET THE NEXT NUMBER ENTERED
+ 447.                
+ 448.    132   412A02   TOO_MANY:	JSR		BEEP_MSG
+ 449.    133   40210D   			JMP		GET_NEXT
+ 450.                
+ 451.                
+ 452.    134            ENTER_KEY:	
+ 453.                   			; NOTE:		TEMP_CELL
+ 454.                   			; HAS THE VALUE ENTERED IN DECIMAL CHARS NOT THE ACTUAL NUMBER.
+ 455.                   			;
+ 456.                
+ 457.    134   08216B   			PSH		TEMP_CELL
+ 458.    135   412A04   			JSR		SHOW_CURR_CELL		; SHOW THE CELL VALUE JUST INSERTED
+ 459.    136   09216B   			POP		TEMP_CELL
+ 460.                   			
+ 461.    137   08216B   			PSH		TEMP_CELL
+ 462.    138   4122CB   			JSR		ST_VAL				; STORE THE ARITH VALUE INTO THE CURRENT CELL
+ 463.                   										; PERFORMING THE OPERATION STORE IN OP
+ 464.    139   09216B   			POP		TEMP_CELL
+ 465.                
+ 466.    13A   08216B   			PSH		TEMP_CELL
+ 467.    13B   412237   			JSR		UPDATE_CONT			; UPDATE THE SPECIFIC CELL CONTENT 
+ 468.    13C   09216B   			POP		TEMP_CELL			
+ 469.                
+ 470.    13D   082168   			PSH		X_CURR_CELL
+ 471.    13E   082169   			PSH		Y_CURR_CELL
+ 472.    13F   08216A   			PSH		CELL_ARRAY
+ 473.    140   412A06   			JSR		UPDATE_TOTS			; UPDATE TOTALS
+ 474.    141   120003   			ADS#	3
+ 475.                   			
+ 476.    142   412344   			JSR		CRL_BOTTOM			; IN CASE OF AN OPERAND SEND
+ 477.    143   412A03   			JSR		CLEAR_BELL			; DO NOT MOVE TO THE NEXT CELL
+ 478.    144   000000   			LDA#	0
+ 479.    145   04216B   			STA		TEMP_CELL
+ 480.                
+ 481.    146   082168   			PSH		X_CURR_CELL
+ 482.    147   082169   			PSH		Y_CURR_CELL
+ 483.    148   412A05   			JSR		SHOW_CELL_VAL		; SHOW THE VALUE OF THE CELL
+ 484.    149   120002   			ADS#	2
+ 485.                
+ 486.    14A   00216F   			LDA	OP
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  10
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 487.    14B   20004E   			CMA#	NEW_DATA			; PERFORM THE OPERATION IN THE CELL_ARRAY LOAD WITH NEW_DATA
+ 488.    14C   492025   			JNE		KEY_POLL			; IF NOT START POLLING INPUT
+ 489.                
+ 490.    14D   002168   			LDA		X_CURR_CELL			; THIS CODE CALCULATES THE NEXTT LOGIC POSSITION OF THE
+ 491.    14E   200008   			CMA#	8					; CURSOR
+ 492.    14F   4B2151   			JGE		SET_ZERO			; START ROW = 0
+ 493.    150   40215B   			JMP		NEXT_POS			; ELSE NEXT ROW + 1
+ 494.                   			
+ 495.    151   000000   SET_ZERO:	LDA#	0					; CALCULATE THE NEXT LOGICAL ADDRESS IN THE CELL STRUCTURE
+ 496.    152   042168   			STA		X_CURR_CELL			; SET X_CURR_CELL TO INITIAL POSSITION
+ 497.    153   002169   			LDA		Y_CURR_CELL			; CHECK FOR THE LAST COL
+ 498.    154   100001   			ADA#	1					;
+ 499.    155   20000A   			CMA#	10					;	
+ 500.    156   4B2159   			JGE		@+3					; IF IT IS THE LAST COL AND THE LAST ROW
+ 501.    157   042169   			STA		Y_CURR_CELL			; JUMP TO ELSE SET Y = 1
+ 502.    158   40215B   			JMP		NEXT_POS
+ 503.                
+ 504.    159   000001   			LDA#	1					; ELSE SET Y = 1
+ 505.    15A   042169   			STA		Y_CURR_CELL			;			
+ 506.                
+ 507.    15B   080001   NEXT_POS:	PSH#	ONE					; ELSE MOVE TO NEXT LOGICAL POSSITION
+ 508.    15C   080000   			PSH#	ZERO
+ 509.    15D   080168   			PSH#	X_CURR_CELL
+ 510.    15E   080169   			PSH#	Y_CURR_CELL
+ 511.    15F   412A00   			JSR		MOVE_CELL
+ 512.    160   120004   			ADS#	4
+ 513.                   			
+ 514.    161   082168   			PSH		X_CURR_CELL
+ 515.    162   082169   			PSH		Y_CURR_CELL
+ 516.    163   412A05   			JSR		SHOW_CELL_VAL		; SHOW THE VALUE OF THE CELL
+ 517.    164   120002   			ADS#	2
+ 518.                
+ 519.    165   402025   			JMP		KEY_POLL
+ 520.                
+ 521.    166   120048   EXIT:		ADS#	TOT_CELLS
+ 522.    167   FFFFFF   			HLT			
+ 523.                
+ 524.                
+ 525.                   ; // PROGRAM VARIABLES
+ 526.                   ;
+ 527.                
+ 528.    168   000000   X_CURR_CELL			:		.WORD	0			;	X POSITION OF CURRENT CELL
+ 529.    169   000000   Y_CURR_CELL			:		.WORD	0			;	Y POSITION OF CURRENT CELL
+ 530.    16A   000000   CELL_ARRAY			:		.WORD	0			;	LOCATION IN STACK FOR CELLS ARRAY
+ 531.    16B   000000   TEMP_CELL			:		.WORD	0			;	TEMPORARY FILLING ON INPUT CELL
+ 532.    16C   000000   TEMP_NUM			:		.WORD	0			;	TEMPORARY INSERTING NUMBER
+ 533.    16D   000000   TEMP_INDEX			:		.WORD	0			;	TEMPORARY INDEX FOR INSERTING VALUES
+ 534.    16E   000000   TEMP				:		.WORD	0			;	TEMP VAR FOR VARIOUS POURPOSES
+ 535.    16F   000000   OP					:		.WORD	0			;	STORE THE OPERATION TO BE DONE
+ 536.    170   FFFC19   MAX_NEG				:		.WORD	-999		;	MAXIMUN NEGATIVE VALUE ALLOWED
+ 537.    171   FFFFFF   NEG_ONE				:		.WORD	-1			;	MINUS ONE VAR USED AS CONSTANT
+ 538.                
+ 539.                   ; // STRING CONSTANTS
+ 540.                   ;
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  11
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 541.                
+ 542.    172   435320   T_STR			:		.CHAR		'CS 33 SPRING ''03 PROJECT 5 SPREADSHEET', T_LEN
+         173   333320
+         174   535052
+         175   494E47
+         176   202730
+         177   332050
+         178   524F4A
+         179   454354
+         17A   203520
+         17B   535052
+         17C   454144
+         17D   534845
+         17E   455420
+ 543.    17F   202020   C0				:		.CHAR		'     1   2   3   4   5   6   7   8 TOT',  C0L
+         180   202031
+         181   202020
+         182   322020
+         183   203320
+         184   202034
+         185   202020
+         186   352020
+         187   203620
+         188   202037
+         189   202020
+         18A   382054
+         18B   4F5420
+ 544.    18C   312020   C1				:		.CHAR		'1                                    0',  C1L
+         18D   202020
+         18E   202020
+         18F   202020
+         190   202020
+         191   202020
+         192   202020
+         193   202020
+         194   202020
+         195   202020
+         196   202020
+         197   202020
+         198   203020
+ 545.    199   322020   C2				:		.CHAR		'2                                    0',  C2L
+         19A   202020
+         19B   202020
+         19C   202020
+         19D   202020
+         19E   202020
+         19F   202020
+         1A0   202020
+         1A1   202020
+         1A2   202020
+         1A3   202020
+         1A4   202020
+         1A5   203020
+ 546.    1A6   332020   C3				:		.CHAR		'3                                    0',  C3L
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  12
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+         1A7   202020
+         1A8   202020
+         1A9   202020
+         1AA   202020
+         1AB   202020
+         1AC   202020
+         1AD   202020
+         1AE   202020
+         1AF   202020
+         1B0   202020
+         1B1   202020
+         1B2   203020
+ 547.    1B3   342020   C4				:		.CHAR		'4                                    0',  C4L
+         1B4   202020
+         1B5   202020
+         1B6   202020
+         1B7   202020
+         1B8   202020
+         1B9   202020
+         1BA   202020
+         1BB   202020
+         1BC   202020
+         1BD   202020
+         1BE   202020
+         1BF   203020
+ 548.    1C0   352020   C5				:		.CHAR		'5                                    0',  C5L
+         1C1   202020
+         1C2   202020
+         1C3   202020
+         1C4   202020
+         1C5   202020
+         1C6   202020
+         1C7   202020
+         1C8   202020
+         1C9   202020
+         1CA   202020
+         1CB   202020
+         1CC   203020
+ 549.    1CD   362020   C6				:		.CHAR		'6                                    0',  C6L
+         1CE   202020
+         1CF   202020
+         1D0   202020
+         1D1   202020
+         1D2   202020
+         1D3   202020
+         1D4   202020
+         1D5   202020
+         1D6   202020
+         1D7   202020
+         1D8   202020
+         1D9   203020
+ 550.    1DA   372020   C7				:		.CHAR		'7                                    0',  C7L
+         1DB   202020
+         1DC   202020
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  13
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+         1DD   202020
+         1DE   202020
+         1DF   202020
+         1E0   202020
+         1E1   202020
+         1E2   202020
+         1E3   202020
+         1E4   202020
+         1E5   202020
+         1E6   203020
+ 551.    1E7   382020   C8				:		.CHAR		'8                                    0',  C8L
+         1E8   202020
+         1E9   202020
+         1EA   202020
+         1EB   202020
+         1EC   202020
+         1ED   202020
+         1EE   202020
+         1EF   202020
+         1F0   202020
+         1F1   202020
+         1F2   202020
+         1F3   203020
+ 552.    1F4   392020   C9				:		.CHAR		'9                                    0',  C9L
+         1F5   202020
+         1F6   202020
+         1F7   202020
+         1F8   202020
+         1F9   202020
+         1FA   202020
+         1FB   202020
+         1FC   202020
+         1FD   202020
+         1FE   202020
+         1FF   202020
+         200   203020
+ 553.    201   542020   CT				:		.CHAR		'T    0   0   0   0   0   0   0   0   0',  CTL
+         202   202030
+         203   202020
+         204   302020
+         205   203020
+         206   202030
+         207   202020
+         208   302020
+         209   203020
+         20A   202030
+         20B   202020
+         20C   302020
+         20D   203020
+ 554.    20E   437572   CC				:		.CHAR		'Current:   Row 1  Column 1  Value     ',  CCL
+         20F   72656E
+         210   743A20
+         211   202052
+         212   6F7720
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  14
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+         213   312020
+         214   436F6C
+         215   756D6E
+         216   203120
+         217   205661
+         218   6C7565
+         219   202020
+         21A   202020
+ 555.    21B   4E6578   COL_N			:		.CHAR		'Next:                                 ',  COLNL
+         21C   743A20
+         21D   202020
+         21E   202020
+         21F   202020
+         220   202020
+         221   202020
+         222   202020
+         223   202020
+         224   202020
+         225   202020
+         226   202020
+         227   202020
+ 556.    228   4E6577   ND_STR			:		.CHAR		'New Data         Value',			       ND_STRL					
+         229   204461
+         22A   746120
+         22B   202020
+         22C   202020
+         22D   202056
+         22E   616C75
+         22F   652035
+ 557.    230   4F7065   OP_STR			:		.CHAR		'Operation ',							   OP_STRL
+         231   726174
+         232   696F6E
+         233   202035
+ 558.    234   202020   VAL_STR			:		.CHAR		'    Value',							   VAL_STRL
+         235   205661
+         236   6C7565
+ 559.                
+ 560.                
+ 561.                
+ 562.                
+ 563.                   ;**************************************************************************
+ 564.                   ;
+ 565.                   ;	FUNCTIONS DECLARED WITHIN THE MAIN FUNCTION
+ 566.                   ;	NOTE THIS FUNCTIONS USE PARAMETERS OF THE GLOBAL 
+ 567.                   ;	VARIABLES DEFINED AND USED BY THE MAIN PROGRAM.
+ 568.                   ;	THE FUNCTIONS DECLARED IN THE FILE P5SUB1.CSP
+ 569.                   ;	USE PARAMETER PASSING SINCE THEY ARE STORED IN A DIFFERENT
+ 570.                   ;	OBJECT CODE FILE.
+ 571.                   ;
+ 572.                   ;**************************************************************************
+ 573.                
+ 574.                
+ 575.                   ;	UPDATE_CONTENT
+ 576.                   ;
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  15
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 577.                   ;	//	THIS FUNCTION UPDATES THE CONTENT OF THE CURRENT CELL
+ 578.                   ;	//	WITH THE SPECIFIC VALUE ENTERED.
+ 579.                   ;	//	THIS FUNCTION WORKS WITH THE VALUE OF THE SCREEN
+ 580.                   ;	//	THAT ARE IN THE VALUE BOX FOR BROWSING THE
+ 581.                   ;	//	SPREADSHEET MATRIX.
+ 582.                   ;	
+ 583.                
+ 584.                   .EQU	TO_SHOW,	0
+ 585.                
+ 586.    237            UPDATE_CONT:
+ 587.    237   680001   			BGN#	1
+ 588.    238   FFF010   			PSHA
+ 589.    239   FFF011   			PSHX
+ 590.    23A   002169   			LDA		Y_CURR_CELL		; CALCULATE THE VALUE OF THE CURRENT CELL
+ 591.    23B   140001   			SBA#	1
+ 592.    23C   180008   			MUL#	8
+ 593.    23D   102168   			ADA		X_CURR_CELL
+ 594.    23E   140001   			SBA#	1
+ 595.    23F   04216E   			STA		TEMP
+ 596.    240   01216E   			LDX		TEMP
+ 597.    241   00816A   			LDA&	CELL_ARRAY
+ 598.    242   2003E7   			CMA#	999				; CHECK FOR STARTS ON INVALID VALUE
+ 599.    243   4D2247   			JGT		STRS
+ 600.    244   202170   			CMA		MAX_NEG	
+ 601.    245   4A2247   			JLT		STRS
+ 602.    246   40225B   			JMP		OK				; ELSE IT IS GOOD VALUE TO BE DISPLAYED
+ 603.                
+ 604.    247   000004   STRS:		LDA#	4				; CALCULATE THE INDEX WHERE TO PUT THE STARTS
+ 605.    248   182168   			MUL		X_CURR_CELL		;
+ 606.    249   100025   			ADA#	$25				;
+ 607.    24A   04216E   			STA		TEMP			;
+ 608.    24B   000026   			LDA#	38				;
+ 609.    24C   182169   			MUL		Y_CURR_CELL		;
+ 610.    24D   10216E   			ADA		TEMP			;
+ 611.    24E   04216E   			STA		TEMP			;
+ 612.    24F   01216E   			LDX		TEMP
+ 613.    250   000020   			LDA#	' '				; EMPTY THE NEGATIVE SPACE BLOCK
+ 614.    251   150001   			SBX#	1
+ 615.    252   714100   			OUTB+	$100
+ 616.    253   00002A   			LDA#	'*'				; LOAD CHARACTER *
+ 617.    254   01216E   			LDX		TEMP
+ 618.    255   714100   			OUTB+	$100			; DISPLAY CHARACTHER ***
+ 619.    256   110001   			ADX#	1				;
+ 620.    257   714100   			OUTB+	$100			;
+ 621.    258   110001   			ADX#	1				;
+ 622.    259   714100   			OUTB+	$100			;
+ 623.    25A   4022C7   			JMP		OUT_UP			; EXIT THE FUCNTION ONCE THE STARS HAVE BEEN DISPLAYED
+ 624.                
+ 625.    25B   FFF010   OK:			PSHA					; NUMBER IS VALID TO BE DISPLAYED
+ 626.    25C   000000   			LDA#	0
+ 627.    25D   04216D   			STA		TEMP_INDEX
+ 628.    25E   FFF013   			POPA
+ 629.    25F   200000   			CMA#	0
+ 630.    260   4A2262   			JLT		IS_NEG			; CHECK IF IT IS POSSITIVE OR NEGATIVE
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  16
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 631.    261   402268   			JMP		POS
+ 632.                
+ 633.    262   FFF021   IS_NEG:		COMA					; IF NEGATIVE
+ 634.    263   100001   			ADA#	1				; CONVERT VALUE TO POSITIVE FOR DISPLAY
+ 635.    264   FFF010   			PSHA
+ 636.    265   000001   			LDA#	1				; SET NEGATIVE SIMBOL ON
+ 637.    266   04216D   			STA		TEMP_INDEX		; SET TEMP IDEX TO 1 ( INDICATES DISPLAY - SIMBOL )
+ 638.    267   FFF013   			POPA						
+ 639.    268   FFF010   POS:		PSHA					; IF POSSITIVE
+ 640.                
+ 641.    269   1A0064   			MOD#	100				; CALCULATE THE FIRST NUMERICAL VAUE
+ 642.    26A   1A000A   			MOD#	10
+ 643.    26B   04216C   			STA		TEMP_NUM		; STORE IT ON TEMP_NUM
+ 644.    26C   100030   			ADA#	'0'	
+ 645.    26D   010002   			LDX#	2
+ 646.    26E   513000   			STC		!TO_SHOW		; STORE THE CHARACTER IN TO_SHOW VAR
+ 647.    26F   FFF013   			POPA
+ 648.                   			
+ 649.    270   14216C   			SBA		TEMP_NUM		; SUBSTRACT THE NUMBER FROM THE TOTAL NUMBER
+ 650.                   			
+ 651.    271   200064   			CMA#	100
+ 652.    272   4A227E   			JLT		ANEXT_NUM		; CHECK IF IT IS ONLY POWER OF 10^2
+ 653.    273   FFF010   			PSHA					;	
+ 654.    274   1A0064   			MOD#	100				;
+ 655.    275   200000   			CMA#	0				;
+ 656.    276   4D227D   			JGT		APOPN_NUM		;
+ 657.    277   000030   			LDA#	'0'				;
+ 658.    278   010001   			LDX#	1
+ 659.    279   513000   			STC		!TO_SHOW		; IF NOT CALCULATE THE NUMBER
+ 660.    27A   7122EC   			OUTB	$2EC
+ 661.    27B   FFF013   			POPA
+ 662.    27C   40228A   			JMP		ALAST_NUM		; CALCULATE THE LAST NUMBER
+ 663.                   			
+ 664.    27D   FFF013   APOPN_NUM:	POPA
+ 665.    27E   FFF010   ANEXT_NUM:	PSHA					; 
+ 666.    27F   1A0064   			MOD#	100				;
+ 667.    280   19000A   			DIV#	10				;
+ 668.    281   100030   			ADA#	'0'				;
+ 669.    282   200030   			CMA#	'0'				; IF THE NUMBER IS NOT ZERO THEN DISPLAY IT
+ 670.    283   492285   			JNE		@ + 2			; DO NOT DISPLAY IT
+ 671.    284   000020   			LDA#	' '				; DISPLAY EMPTY SPACE ON ITS PLACE
+ 672.    285   010001   			LDX#	1				;
+ 673.    286   513000   			STC		!TO_SHOW		; ELSE SHOW THE NUMBER
+ 674.    287   140030   			SBA#	'0'				;
+ 675.    288   04216C   			STA		TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 676.    289   FFF013   			POPA
+ 677.                   			
+ 678.    28A   FFF010   ALAST_NUM:	PSHA					; PROCESS THE LAST NUMBER
+ 679.    28B   190064   			DIV#	100
+ 680.    28C   100030   			ADA#	'0'
+ 681.    28D   200030   			CMA#	'0'
+ 682.    28E   492290   			JNE		@ + 2			; IF IT IS NOT ZERO 
+ 683.    28F   000020   			LDA#	' '				; SHOW THE BLANK SPACE
+ 684.    290   010000   			LDX#	0
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  17
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 685.    291   513000   			STC		!TO_SHOW		; STORE THE NUMBER TO BE DISPLAYED
+ 686.    292   140030   			SBA#	'0'
+ 687.    293   04216C   			STA		TEMP_NUM		; TEMP NUMBER HAS THE NUMBER WITH OUT THE LAST DIGIT
+ 688.    294   FFF013   			POPA
+ 689.                
+ 690.    295   000004   			LDA#	4				; OUTPUT THE CHARACTERS IN TO THE
+ 691.    296   182168   			MUL		X_CURR_CELL		; RESPECTIVE POSSITION FROM TO_SHOW	
+ 692.    297   100025   			ADA#	$25				;
+ 693.    298   04216E   			STA		TEMP			;
+ 694.    299   000026   			LDA#	38				;
+ 695.    29A   182169   			MUL		Y_CURR_CELL		;
+ 696.    29B   10216E   			ADA		TEMP			;
+ 697.    29C   04216E   			STA		TEMP			;
+ 698.    29D   000020   			LDA#	' '				; CLEAR THE NEGATIVE NUMBER IN CASE OF HUNDRED TYPE VALUE
+ 699.    29E   01216E   			LDX		TEMP
+ 700.    29F   150001   			SBX#	1
+ 701.    2A0   714100   			OUTB+	$100			; SHOW THE FIRST NUMBER
+ 702.    2A1   010000   			LDX#	0
+ 703.    2A2   503000   			LDC		!TO_SHOW
+ 704.    2A3   01216E   			LDX		TEMP
+ 705.    2A4   714100   			OUTB+	$100			; SHOW THE SECOND NUMBER
+ 706.    2A5   010001   			LDX#	1
+ 707.    2A6   503000   			LDC		!TO_SHOW
+ 708.    2A7   01216E   			LDX		TEMP
+ 709.    2A8   110001   			ADX#	1
+ 710.    2A9   714100   			OUTB+	$100			; SHOW THE THIRD NUMBER
+ 711.    2AA   010002   			LDX#	2
+ 712.    2AB   503000   			LDC		!TO_SHOW
+ 713.    2AC   01216E   			LDX		TEMP
+ 714.    2AD   110002   			ADX#	2
+ 715.    2AE   714100   			OUTB+	$100			;
+ 716.                
+ 717.    2AF   00216D   			LDA		TEMP_INDEX
+ 718.    2B0   200000   			CMA#	0				; IF NEGATIVE PROCCEDDE TO SHOW SYMBOL 
+ 719.    2B1   4822C7   			JEQ		OUT_UP			; GO TO POPX
+ 720.                
+ 721.    2B2   010001   			LDX#	1				; CALCULATE WHRE TO PLACE THE - SYMBOL
+ 722.    2B3   503000   			LDC		!TO_SHOW		;
+ 723.    2B4   200020   			CMA#	' '				;
+ 724.    2B5   4922BB   			JNE		@ + 6
+ 725.                   			
+ 726.    2B6   00002D   			LDA#	'-'				; DISPLAY THE SYMBOL
+ 727.    2B7   01216E   			LDX		TEMP			;
+ 728.    2B8   110001   			ADX#	1				;
+ 729.    2B9   714100   			OUTB+	$100			;
+ 730.    2BA   4022C7   			JMP		OUT_UP
+ 731.                   			
+ 732.    2BB   010000   			LDX#	0
+ 733.    2BC   503000   			LDC		!TO_SHOW
+ 734.    2BD   200020   			CMA#	' '
+ 735.    2BE   4922C3   			JNE		@ + 5
+ 736.    2BF   00002D   			LDA#	'-'				; DISPLAY THE SYMBOL
+ 737.    2C0   01216E   			LDX		TEMP			;
+ 738.    2C1   714100   			OUTB+	$100			;
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  18
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 739.    2C2   4022C7   			JMP		OUT_UP		
+ 740.                
+ 741.    2C3   00002D   			LDA#	'-'				; DISPLAY THE SYMBOL
+ 742.    2C4   01216E   			LDX		TEMP			;
+ 743.    2C5   150001   			SBX#	1				;
+ 744.    2C6   714100   			OUTB+	$100			;
+ 745.                
+ 746.    2C7   FFF014   OUT_UP:		POPX					; DONE WITH FUNCTION
+ 747.    2C8   FFF013   			POPA
+ 748.    2C9   690001   			FIN#	1
+ 749.    2CA   FFF040   			RTN
+ 750.                
+ 751.                
+ 752.                
+ 753.                
+ 754.                
+ 755.                   ;	STORE_VALUE
+ 756.                   ;
+ 757.                   ;	//	THIS FUNCTION STORES THE CONTENT OF THE CELL
+ 758.                   ;	//	WITH THE SPECIFIC VALUE ENTERED.
+ 759.                   ;	//	THIS FUNCTION WORKS WITH THE VALUE OF THE SCREEN
+ 760.                   ;	//	THAT ARE IN THE VALUE BOX FOR BROWSING THE
+ 761.                   ;	//	SPREADSHEET MATRIX.
+ 762.                   ;	
+ 763.    2CB   680000   ST_VAL:		BGN#	0
+ 764.    2CC   FFF010   			PSHA
+ 765.    2CD   FFF011   			PSHX
+ 766.    2CE   010000   			LDX#	0				; GET THE HUNDRED CHAR
+ 767.    2CF   50216B   			LDC		TEMP_CELL
+ 768.    2D0   200000   			CMA#	0
+ 769.    2D1   4822D4   			JEQ		@+3
+ 770.    2D2   140030   			SBA#	'0'
+ 771.    2D3   180064   			MUL#	100
+ 772.    2D4   04216C   			STA		TEMP_NUM
+ 773.                   					
+ 774.    2D5   000000   			LDA#	0				; GET THE TENTH CHAR
+ 775.    2D6   010001   			LDX#	1
+ 776.    2D7   50216B   			LDC		TEMP_CELL
+ 777.    2D8   200000   			CMA#	0
+ 778.    2D9   4822DC   			JEQ		@+3
+ 779.    2DA   140030   			SBA#	'0'
+ 780.    2DB   18000A   			MUL#	10
+ 781.    2DC   10216C   			ADA		TEMP_NUM
+ 782.    2DD   04216C   			STA		TEMP_NUM
+ 783.                   					
+ 784.    2DE   000000   			LDA#	0				; GET THE DECIMAL CHAR
+ 785.    2DF   010002   			LDX#	2
+ 786.    2E0   50216B   			LDC		TEMP_CELL
+ 787.    2E1   140030   			SBA#	'0'
+ 788.    2E2   10216C   			ADA		TEMP_NUM
+ 789.    2E3   04216C   			STA		TEMP_NUM
+ 790.                   					
+ 791.    2E4   000000   			LDA#	0				; CALCULATE THE OFFSET WHERE TO STORE THE CELL
+ 792.    2E5   102168   			ADA		X_CURR_CELL
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  19
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 793.    2E6   140001   			SBA#	1
+ 794.    2E7   04216D   			STA		TEMP_INDEX
+ 795.    2E8   000000   			LDA#	0
+ 796.    2E9   102169   			ADA		Y_CURR_CELL
+ 797.    2EA   140001   			SBA#	1
+ 798.    2EB   180008   			MUL#	8
+ 799.    2EC   10216D   			ADA		TEMP_INDEX
+ 800.    2ED   04216D   			STA		TEMP_INDEX
+ 801.                   			
+ 802.    2EE   01216D   			LDX		TEMP_INDEX
+ 803.    2EF   00216C   			LDA		TEMP_NUM		; TEMP_NUM HAS THE NUMERIC VALUE ENTERED IN DECIMAL
+ 804.                   			
+ 805.    2F0   00216F   			LDA		OP				; LOAD THE OPERATION TO BE PERFORMED
+ 806.    2F1   20002B   			CMA#	PLUS			; COMPARE OPERAND WITH THE OPEARTION TO BE PERFORMED
+ 807.    2F2   482302   			JEQ		ADD_			;
+ 808.    2F3   20002D   			CMA#	MINUS
+ 809.    2F4   4822FA   			JEQ		SUB_
+ 810.    2F5   20002A   			CMA#	MULT
+ 811.    2F6   48230A   			JEQ		MUL_
+ 812.    2F7   20002F   			CMA#	DIVIDE
+ 813.    2F8   482312   			JEQ		DIV_
+ 814.    2F9   40231A   			JMP		NEW_DATA_			
+ 815.                
+ 816.    2FA   00816A   SUB_:		LDA&	CELL_ARRAY		; LOAD THE VALUE FROM THE ARRAY
+ 817.    2FB   2003E7   			CMA#	999				; COMPARE MAXIMUNS
+ 818.    2FC   4D231D   			JGT		DONE_ST			;
+ 819.    2FD   202170   			CMA		MAX_NEG			;
+ 820.    2FE   4A231D   			JLT		DONE_ST			; IN CASE OF 
+ 821.    2FF   14216C   			SBA		TEMP_NUM		; PERFORM OPERATION
+ 822.    300   04816A   			STA&	CELL_ARRAY
+ 823.    301   40231D   			JMP		DONE_ST			
+ 824.    302   00816A   ADD_:		LDA&	CELL_ARRAY		; SAME AS AVOBE BUT WITH DIFFERENT OPERAND
+ 825.    303   2003E7   			CMA#	999				;
+ 826.    304   4D231D   			JGT		DONE_ST			;
+ 827.    305   202170   			CMA		MAX_NEG
+ 828.    306   4A231D   			JLT		DONE_ST
+ 829.    307   10216C   			ADA		TEMP_NUM
+ 830.    308   04816A   			STA&	CELL_ARRAY
+ 831.    309   40231D   			JMP		DONE_ST			
+ 832.    30A   00816A   MUL_:		LDA&	CELL_ARRAY		; SAME AS AVOBE BUT WITH DIFFERENT OPERAND
+ 833.    30B   2003E7   			CMA#	999				;
+ 834.    30C   4D231D   			JGT		DONE_ST			;
+ 835.    30D   202170   			CMA		MAX_NEG
+ 836.    30E   4A231D   			JLT		DONE_ST
+ 837.    30F   18216C   			MUL		TEMP_NUM
+ 838.    310   04816A   			STA&	CELL_ARRAY
+ 839.    311   40231D   			JMP		DONE_ST			
+ 840.    312   00816A   DIV_:		LDA&	CELL_ARRAY		; SAME AS AVOBE BUT WITH DIFFERENT OPERAND
+ 841.    313   2003E7   			CMA#	999				;
+ 842.    314   4D231D   			JGT		DONE_ST			;
+ 843.    315   202170   			CMA		MAX_NEG
+ 844.    316   4A231D   			JLT		DONE_ST
+ 845.    317   19216C   			DIV		TEMP_NUM
+ 846.    318   04816A   			STA&	CELL_ARRAY
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  20
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 847.    319   40231D   			JMP		DONE_ST			
+ 848.    31A   00216C   NEW_DATA_:	LDA		TEMP_NUM		; SAME AS AVOBE BUT WITH DIFFERENT OPERAND
+ 849.    31B   04816A   			STA&	CELL_ARRAY		;
+ 850.    31C   40231D   			JMP		DONE_ST
+ 851.                   			
+ 852.    31D   00816A   DONE_ST:	LDA&	CELL_ARRAY
+ 853.                
+ 854.    31E   FFF014   			POPX
+ 855.    31F   FFF013   			POPA
+ 856.    320   690000   			FIN#	0
+ 857.    321   FFF040   			RTN
+ 858.                
+ 859.                
+ 860.                   ;	SHOW_IN_VALUE
+ 861.                   ;
+ 862.                   ;	//	THIS FUNCTION DISPLAYS THE VALUE THAT IS JUST ENTED IN THE
+ 863.                   ;	//	BOTTOM LAST CORNER FOR INPUT VALUES.
+ 864.                   ;	
+ 865.    322            SHOW_IN_VALUE:
+ 866.    322   680000   			BGN#	0
+ 867.    323   FFF010   			PSHA
+ 868.    324   FFF011   			PSHX				; SAVE INITIAL VALUES
+ 869.                   			
+ 870.    325   010000   			LDX#	0			; LOAD TEMPORARY
+ 871.    326   50216B   			LDC		TEMP_CELL
+ 872.    327   712311   			OUTB	$311		; OUTPUT THE VALUE
+ 873.    328   010001   			LDX#	1
+ 874.    329   50216B   			LDC		TEMP_CELL	; LOAD NEXT CHAR
+ 875.    32A   712312   			OUTB	$312		; OUTPUT VALUE
+ 876.    32B   010002   			LDX#	2
+ 877.    32C   50216B   			LDC		TEMP_CELL	; LOAD NEXT CHAR
+ 878.    32D   712313   			OUTB	$313		; OUTPUT VALUE
+ 879.                   			
+ 880.    32E   FFF014   			POPX				; RESTORE INITIAL VALUES
+ 881.    32F   FFF013   			POPA
+ 882.    330   690000   			FIN#	0
+ 883.    331   FFF040   			RTN
+ 884.                
+ 885.                
+ 886.                   ;	NEW_VALUE
+ 887.                   ;
+ 888.                   ;	//	THIS FUNCTION OUTPUTS THE BOTTOM NEW VALUE MESSAGE
+ 889.                   ;	// 
+ 890.                   ;
+ 891.    332            NEW_VALUE:
+ 892.    332   680000   			BGN#	0
+ 893.    333   FFF010   			PSHA				; SAVE INITIAL VALUES
+ 894.    334   FFF011   			PSHX
+ 895.                   			
+ 896.    335   00216F   			LDA		OP			; LOAD THE OPERAND
+ 897.    336   20004E   			CMA#	NEW_DATA	;
+ 898.    337   482339   			JEQ		N_MSG
+ 899.    338   402340   			JMP		D_NV
+ 900.                   					
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  21
+ Filename: P5MAIN.CSP
+
+ LINE   ADDR  CONTENTS                                        SOURCE LINE
+
+ 901.    339   010000   N_MSG:		LDX#	0			; LOAD THE NEW_VALUE STRING INTO SCREEN
+ 902.    33A   210016   			CMX#	ND_STRL		;
+ 903.    33B   4B2340   			JGE		@ + 5		;
+ 904.    33C   502228   			LDC 	ND_STR		; 
+ 905.    33D   7142F9   			OUTB+	CRT_OPER	; DISPLAY IT WITH RESPECT TO THE POSITION
+ 906.    33E   110001   			ADX#	1			; OF THE CRT
+ 907.    33F   40233A   			JMP		@ - 5
+ 908.                   			
+ 909.    340   FFF014   D_NV:		POPX
+ 910.    341   FFF013   			POPA
+ 911.    342   690000   			FIN#	0
+ 912.    343   FFF040   			RTN
+ 913.                   			
+ 914.                   			
+ 915.                   ;	CRL_BOTTOM
+ 916.                   ;
+ 917.                   ;	//	THIS FUNCTION CLEARS THE BOTTOM CHARACTERS AFTER AN OPERATION
+ 918.                   ;	//	HAS BEEN DONE. TO DO THAT IT JUST LOADS THE LAST LINE OF THE 
+ 919.                   ;	//	SCREEN BUFFER ORIGINALLY USED TO DISPLAY THE MAIN SCREEN
+ 920.                   ; 			
+ 921.    344            CRL_BOTTOM:
+ 922.    344   680000   			BGN#	0
+ 923.    345   FFF010   			PSHA				; SAVE INITIAL VALUES
+ 924.    346   FFF011   			PSHX				;
+ 925.                   			
+ 926.    347   010000   			LDX#	0
+ 927.    348   210026   			CMX#	COLNL		; START X = 0
+ 928.    349   4B234E   			JGE		@ + 5		; DONE LOOP
+ 929.    34A   50221B   			LDC 	COL_N		; LOAD CHARACTHER
+ 930.    34B   7142EE   			OUTB+	$2EE		; OUTPUT CHARACTHER
+ 931.    34C   110001   			ADX#	1			; MOVE TO THE NEXT SPACE
+ 932.    34D   402348   			JMP		@ - 5		; LOOP BACK AGAIN
+ 933.                   			
+ 934.    34E   FFF014   			POPX				; RESTORE INITIAL VALUES
+ 935.    34F   FFF013   			POPA				;
+ 936.    350   690000   			FIN#	0
+ 937.    351   FFF040   			RTN
+ 938.                
+ 939.                
+ 940.                          
+
+                          SYMBOL TABLE CONTENTS
+
+  X_POS = 000314           Y_POS = 000315           CRT_CTRL = 000316
+  CRT_DATA = 000317        KBD_STAT = 000000        KBD_DATA = 000001
+  ZERO = 000000            ONE = 000001             ROWS = 000009
+  COLS = 000008            TOT_CELLS = 000048       ESC = 00001B
+  UP_ARW = 000048          DN_ARW = 000050          LT_ARW = 00004B
+  RT_ARW = 00004D          PLUS = 00002B            MINUS = 00002D
+  MULT = 00002A            DIVIDE = 00002F          NEW_DATA = 00004E
+  ENTER = 00000D           CRT_OPER = 0002F9        MOVE_CELL = 000A00
+  SET_CELL = 000A01        BEEP_MSG = 000A02        CLEAR_BELL = 000A03
+  SHOW_CURR_CELL = 000A04  SHOW_CELL_VAL = 000A05   UPDATE_TOTS = 000A06
+  MAIN = 000001            CELL_ARRAY = 00016A      RESTART = 000003
+
+
+ CHASM - CUSP Assembler 22:24:49 Friday May 16th, 2003  Page  22
+ Filename: P5MAIN.CSP
+
+                          SYMBOL TABLE CONTENTS
+
+  CLR_CELLS = 000007       LAYOUT = 00000E          DONE_L = 00001C
+  SKIP = 000019            T_STR = 000172           X_CURR_CELL = 000168
+  Y_CURR_CELL = 000169     KEY_POLL = 000025        QUIT = 00009F
+  RESET = 0000B7           CLR_CELL = 00006F        OPERAND = 000049
+  ARRW_PRES = 0000D1       INV_INPUT = 000047       TEMP_NUM = 00016C
+  OP = 00016F              GET_NUM = 000107         OP_STRL = 00000A
+  OP_STR = 000230          VAL_STRL = 000009        VAL_STR = 000234
+  DO_OPERAND = 00005E      CANCEL_OP = 0000CF       NO_NUM1 = 00006D
+  TEMP_CELL = 00016B       C_LOOP = 00007C          DO_CLR = 000087
+  R_LOOP = 0000C4          TEMP_INDEX = 00016D      UPDATE_CONT = 000237
+  CRL_BOTTOM = 000344      Q_LOOP = 0000AC          EXIT = 000166
+  MOV_RT = 0000DB          MOV_LT = 0000E6          MOV_UP = 0000F1
+  MOV_DN = 0000FC          NEG_ONE = 000171         NEW_VALUE = 000332
+  SHOW_IN_VALUE = 000322   GET_NEXT = 00010D        ENTER_KEY = 000134
+  CANCEL_NUM = 00011C      GNO_NUM = 00011A         ADD_NEXT = 00011E
+  TOO_MANY = 000132        ST_VAL = 0002CB          SET_ZERO = 000151
+  NEXT_POS = 00015B        TEMP = 00016E            MAX_NEG = 000170
+  T_LEN = 000026           C0 = 00017F              C0L = 000026
+  C1 = 00018C              C1L = 000026             C2 = 000199
+  C2L = 000026             C3 = 0001A6              C3L = 000026
+  C4 = 0001B3              C4L = 000026             C5 = 0001C0
+  C5L = 000026             C6 = 0001CD              C6L = 000026
+  C7 = 0001DA              C7L = 000026             C8 = 0001E7
+  C8L = 000026             C9 = 0001F4              C9L = 000026
+  CT = 000201              CTL = 000026             CC = 00020E
+  CCL = 000026             COL_N = 00021B           COLNL = 000026
+  ND_STR = 000228          ND_STRL = 000016         TO_SHOW = 000000
+  STRS = 000247            OK = 00025B              OUT_UP = 0002C7
+  IS_NEG = 000262          POS = 000268             ANEXT_NUM = 00027E
+  APOPN_NUM = 00027D       ALAST_NUM = 00028A       ADD_ = 000302
+  SUB_ = 0002FA            MUL_ = 00030A            DIV_ = 000312
+  NEW_DATA_ = 00031A       DONE_ST = 00031D         N_MSG = 000339
+  D_NV = 000340
+
+  Number of Warning Lines:   0
+  Number of Error Lines:   0
+
+  <<<  End of Program Listing   >>>

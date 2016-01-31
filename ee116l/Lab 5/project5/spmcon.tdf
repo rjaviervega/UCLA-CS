@@ -1,0 +1,60 @@
+SUBDESIGN SPMCON
+(RUN, CLK, A0									:INPUT;
+ S1, S0, T1, T0, U1, U0, M1, M0, PCLRN, DONE	:OUTPUT;
+)
+
+VARIABLE
+SM: MACHINE OF BITS (Q[3..0])
+		WITH STATES (V0 = B"0000",
+					 V1 = B"0001", 
+					 V2 = B"0010",
+					 V3 = B"0011",
+					 V4 = B"0100", 
+					 V5 = B"0101",
+					 V6 = B"0110",
+					 V7 = B"0111", 
+					 V8 = B"1000",
+					 V9 = B"1001");
+
+BEGIN
+SM.CLK = !CLK;
+SM.RESET = !RUN;
+TABLE
+	SM,		RUN		=>		SM;
+	V0,		0		=>		V0;
+	V0,		1		=>		V1;
+	V1,		1		=>		V2;
+	V2,		1		=>		V3;
+	V3,		1		=>		V4;
+	V4,		1		=>		V5;
+	V5,		1		=>		V6;
+	V6,		1		=>		V7;
+	V7,		1		=>		V8;
+	V8,		1		=>		V9;
+	V9,		1		=>		V9;
+	V9,		0		=>		V0;
+END TABLE;
+% AT S0, NOTHING IS DONE AND EVERY THING IS SET TO ZERO													 %
+% CLK COMES, GO TO S1, SO S1 DETERMINE THE ADDING MUX CONTROL AND STATE OF REGISTER AFTER ADD, WHICH IS  %
+% 			BEFORE CLK COMES																			 %
+% CLK COMES, GO TO S2, SO S2 DETERMINE THE SHIFTING OF BITS												 %
+% CLK COMES, ADD AGAIN, CLK COMES, SHIFT AGAIN...														 %
+% CLK COMES, GO TO S8, S8 DETERMINE THE LAST SHIFT														 %
+% CLK COMES, DATA STORE IN REGISTER, AND AT THIS S9, REGISTER SHOULD HOLD THE CONTENT AS LONG AS		 %
+%			RUN IS SET																					 %
+% TO DO ANOTHER MULTIPLICATION, RUN IS SET TO LOW AGAIN AND LOAD IN A AND B EVEN THEY ARE IN THE P AND A %
+% REGISTER																								 %
+S1 = !Q3 & !Q2 & !Q1 & !Q0;
+S0 = !Q0;
+T1 = (Q0 # (!Q3 & !Q2 & !Q1 & !Q0)) & !(Q3 & !Q2 & !Q1 & Q0);
+T0 = !(Q3 & !Q2 & !Q1 & Q0);
+U1 = !Q3 & !Q2 & !Q1 & !Q0;
+U0 = !Q3 & !Q2 & !Q1 & !Q0;
+M1 = Q0;
+M0 = Q0 & A0;
+PCLRN = Q3 # Q2 # Q1 # Q0;
+DONE = Q3 & !Q2 & !Q1 & Q0;
+
+END;
+
+

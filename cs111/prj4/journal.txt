@@ -1,0 +1,27 @@
+Eduardo Jose Esquivel:
+	Discuss implementation of project with partner		4  hours
+	Divide work with partner							1  hour
+	Work on recovering files from fat 					10 hours
+	Work on funtions getClusterValue from fat			12 hours
+	Work on funtions fat type							3 hours
+	Rearch about fat and others						5
+	Work on test program 							6  hours
+	Work on fixing race condition and other issues		4  hours
+	Type up of report					2  hours
+							Total:	52 hours
+
+
+
+Roberto Javier Vega:
+	Discuss implementation of project with partner		4  hours
+	Divide work with partner							1  hour
+	Working on read boot, fat and other data from disk	7 hours
+	Working on recousivly check all the directories 		20 hours
+	Working on recousivly check all the unsed sectors	5 hours
+	Wokring on recovering long file names and iconv	7
+	Testing and debugging erros						4
+	Research about fat 								6
+	Working on race condition and merging			3  hours
+							Total:	57 hours
+
+

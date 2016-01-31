@@ -1,0 +1,313 @@
+#
+# Pin assignments for the Virtex chip on the XSV Board 1.0
+#
+# To use the pin constraints in this ucf file with your
+# project in the Foundation Project Manager:
+#	* Ensure that the ports in your top-level entity use
+#	  the same names as those used in this ucf file.
+#	* Make a copy of this ucf file and only modify the copy.
+#	* In the copy of this file, uncomment the lines containing
+#	  pins that your top-level file uses (remove the # from
+#	  the start of the lines you wish to uncomment).
+#	* If you have not yet implemented your project, run the
+#	  implementation, but stop the implementation flow after
+#	  the "Translate" step.
+#	* In Foundation Project Manager, click on the
+#	  "Implementation" menu and select "Set Constraints File(s)...".
+#	* Tick the box labelled "Copy Constraints Data From:".
+#	* From the drop down menu select "Custom".
+#	* In the dialog box that appears, click "Browse..." and locate
+#	  your copy of this file. Then click "Open".
+#
+NET "clk" LOC = "P89";
+# Flash Ram
+#NET "fcen" LOC = "P170";
+#NET "foen" LOC = "P173";
+#NET "fwen" LOC = "P131";
+#NET "frdy" LOC = "P171";
+#NET "fdata<0>" LOC = "P177";
+#NET "fdata<1>" LOC = "P167";
+#NET "fdata<2>" LOC = "P163";
+#NET "fdata<3>" LOC = "P156";
+#NET "fdata<4>" LOC = "P145";
+#NET "fdata<5>" LOC = "P138";
+#NET "fdata<6>" LOC = "P134";
+#NET "fdata<7>" LOC = "P124";
+#NET "faddr<0>" LOC = "P132";
+#NET "faddr<1>" LOC = "P133";
+#NET "faddr<2>" LOC = "P139";
+#NET "faddr<3>" LOC = "P141";
+#NET "faddr<4>" LOC = "P144";
+#NET "faddr<5>" LOC = "P147";
+#NET "faddr<6>" LOC = "P152";
+#NET "faddr<7>" LOC = "P154";
+#NET "faddr<8>" LOC = "P157";
+#NET "faddr<9>" LOC = "P160";
+#NET "faddr<10>" LOC = "P162";
+#NET "faddr<11>" LOC = "P169";
+#NET "faddr<12>" LOC = "P168";
+#NET "faddr<13>" LOC = "P161";
+#NET "faddr<14>" LOC = "P159";
+#NET "faddr<15>" LOC = "P155";
+#NET "faddr<16>" LOC = "P153";
+#NET "faddr<17>" LOC = "P149";
+#NET "faddr<18>" LOC = "P146";
+#NET "faddr<19>" LOC = "P142";
+#NET "faddr<20>" LOC = "P140";
+# Left Bank Sram
+NET "lcen" LOC = "P186";
+NET "loen" LOC = "P228";
+NET "lwen" LOC = "P201";
+NET "ldata<0>" LOC = "P202";
+NET "ldata<1>" LOC = "P203";
+NET "ldata<2>" LOC = "P205";
+NET "ldata<3>" LOC = "P206";
+NET "ldata<4>" LOC = "P207";
+NET "ldata<5>" LOC = "P208";
+NET "ldata<6>" LOC = "P209";
+NET "ldata<7>" LOC = "P215";
+NET "ldata<8>" LOC = "P216";
+NET "ldata<9>" LOC = "P217";
+NET "ldata<10>" LOC = "P218";
+NET "ldata<11>" LOC = "P220";
+NET "ldata<12>" LOC = "P221";
+NET "ldata<13>" LOC = "P222";
+NET "ldata<14>" LOC = "P223";
+NET "ldata<15>" LOC = "P224";
+NET "laddr<0>" LOC = "P200";
+NET "laddr<1>" LOC = "P199";
+NET "laddr<2>" LOC = "P195";
+NET "laddr<3>" LOC = "P194";
+NET "laddr<4>" LOC = "P193";
+NET "laddr<5>" LOC = "P192";
+NET "laddr<6>" LOC = "P191";
+NET "laddr<7>" LOC = "P189";
+NET "laddr<8>" LOC = "P188";
+NET "laddr<9>" LOC = "P187";
+NET "laddr<10>" LOC = "P238";
+NET "laddr<11>" LOC = "P237";
+NET "laddr<12>" LOC = "P236";
+NET "laddr<13>" LOC = "P235";
+NET "laddr<14>" LOC = "P234";
+NET "laddr<15>" LOC = "P232";
+NET "laddr16" LOC = "P231";
+NET "laddr17" LOC = "P230";
+NET "laddr18" LOC = "P229";
+# Right Bank Sram
+#NET "rcen" LOC = "P109";
+#NET "roen" LOC = "P95";
+#NET "rwen" LOC = "P68";
+#NET "rdata<0>" LOC = "P70";
+#NET "rdata<1>" LOC = "P71";
+#NET "rdata<2>" LOC = "P72";
+#NET "rdata<3>" LOC = "P73";
+#NET "rdata<4>" LOC = "P74";
+#NET "rdata<5>" LOC = "P78";
+#NET "rdata<6>" LOC = "P79";
+#NET "rdata<7>" LOC = "P80";
+#NET "rdata<8>" LOC = "P81";
+#NET "rdata<9>" LOC = "P82";
+#NET "rdata<10>" LOC = "P84";
+#NET "rdata<11>" LOC = "P85";
+#NET "rdata<12>" LOC = "P86";
+#NET "rdata<13>" LOC = "P87";
+#NET "rdata<14>" LOC = "P93";
+#NET "rdata<15>" LOC = "P94";
+#NET "raddr<0>" LOC = "P67";
+#NET "raddr<1>" LOC = "P66";
+#NET "raddr<2>" LOC = "P65";
+#NET "raddr<3>" LOC = "P64";
+#NET "raddr<4>" LOC = "P63";
+#NET "raddr<5>" LOC = "P57";
+#NET "raddr<6>" LOC = "P56";
+#NET "raddr<7>" LOC = "P55";
+#NET "raddr<8>" LOC = "P54";
+#NET "raddr<9>" LOC = "P53";
+#NET "raddr<10>" LOC = "P108";
+#NET "raddr<11>" LOC = "P107";
+#NET "raddr<12>" LOC = "P103";
+#NET "raddr<13>" LOC = "P102";
+#NET "raddr<14>" LOC = "P101";
+#NET "raddr<15>" LOC = "P100";
+#NET "raddr<16>" LOC = "P99";
+#NET "raddr<17>" LOC = "P97";
+#NET "raddr<18>" LOC = "P96";
+# Video In
+#NET "llc" LOC = "P92";
+#NET "rts<0>" LOC = "P111";
+#NET "rts<1>" LOC = "P110";
+#NET "rtco" LOC = "P113";
+#NET "vpo<0>" LOC = "P116";
+#NET "vpo<1>" LOC = "P117";
+#NET "vpo<2>" LOC = "P118";
+#NET "vpo<3>" LOC = "P125";
+#NET "vpo<4>" LOC = "P126";
+#NET "vpo<5>" LOC = "P127";
+#NET "vpo<6>" LOC = "P128";
+#NET "vpo<7>" LOC = "P130";
+#NET "scl" LOC = "P114";
+#NET "sda" LOC = "P115";
+# Direct VGA
+#NET "hsync" LOC = "P48";
+#NET "vsync" LOC = "P49";
+#NET "r<0>" LOC = "P70";
+#NET "r<1>" LOC = "P71";
+#NET "g<0>" LOC = "P72";
+#NET "g<1>" LOC = "P73";
+#NET "b<0>" LOC = "P74";
+#NET "b<1>" LOC = "P78";
+# RAMDAC VGA
+#NET "pixelclk" LOC = "P52";
+#NET "hsync" LOC = "P48";
+#NET "vsync" LOC = "P49";
+#NET "blankn" LOC = "P50";
+#NET "pixel<0>" LOC = "P70";
+#NET "pixel<1>" LOC = "P71";
+#NET "pixel<2>" LOC = "P72";
+#NET "pixel<3>" LOC = "P73";
+#NET "pixel<4>" LOC = "P74";
+#NET "pixel<5>" LOC = "P78";
+#NET "pixel<6>" LOC = "P79";
+#NET "pixel<7>" LOC = "P80";
+#NET "rdn" LOC = "P47";
+#NET "wrn" LOC = "P46";
+#NET "rs<0>" LOC = "P31";
+#NET "rs<1>" LOC = "P28";
+#NET "rs<2>" LOC = "P26";
+#NET "data<0>" LOC = "P42";
+#NET "data<1>" LOC = "P41";
+#NET "data<2>" LOC = "P40";
+#NET "data<3>" LOC = "P39";
+#NET "data<4>" LOC = "P38";
+#NET "data<5>" LOC = "P36";
+#NET "data<6>" LOC = "P35";
+#NET "data<7>" LOC = "P34";
+# Stereo
+#NET "mclk" LOC = "P3";
+#NET "lrck" LOC = "P4";
+#NET "sclk" LOC = "P5";
+#NET "sdin" LOC = "P6";
+#NET "sdout" LOC = "P7";
+# Ethernet
+#NET "col" LOC = "P23";
+#NET "crs" LOC = "P21";
+#NET "trste" LOC = "P24";
+#NET "tx_clk" LOC = "P210";
+#NET "tx_en" LOC = "P25";
+#NET "tx_er" LOC = "P27";
+#NET "txdata<0>" LOC = "P42";
+#NET "txdata<1>" LOC = "P41";
+#NET "txdata<2>" LOC = "P40";
+#NET "txdata<3>" LOC = "P39";
+#NET "txdata<4>" LOC = "P31";
+#NET "rx_clk" LOC = "P213";
+#NET "rx_dv" LOC = "P26";
+#NET "rx_er" LOC = "P28";
+#NET "rxdata<0>" LOC = "P38";
+#NET "rxdata<1>" LOC = "P36";
+#NET "rxdata<2>" LOC = "P35";
+#NET "rxdata<3>" LOC = "P34";
+#NET "rxdata<4>" LOC = "P33";
+#NET "fds/mdint" LOC = "P18";
+#NET "mdc" LOC = "P19";
+#NET "mdio" LOC = "P20";
+# Pushbuttons
+#NET "pb<1>" LOC = "P174";
+#NET "pb<2>" LOC = "P175";
+#NET "pb<3>" LOC = "P176";
+#NET "pb<4>" LOC = "P185";
+#NET "pb1" LOC = "P174";
+#NET "pb2" LOC = "P175";
+#NET "pb3" LOC = "P176";
+#NET "pb4" LOC = "P185";
+# Dip Switches
+NET "reset" LOC = "P161";
+#NET "dip<2>" LOC = "P159";
+#NET "dip<3>" LOC = "P155";
+#NET "dip<4>" LOC = "P153";
+#NET "dip<5>" LOC = "P149";
+#NET "dip<6>" LOC = "P146";
+#NET "dip<7>" LOC = "P142";
+#NET "dip<8>" LOC = "P140";
+#NET "dip1" LOC = "P161";
+#NET "dip2" LOC = "P159";
+#NET "dip3" LOC = "P155";
+#NET "dip4" LOC = "P153";
+#NET "dip5" LOC = "P149";
+#NET "dip6" LOC = "P146";
+#NET "dip7" LOC = "P142";
+#NET "dip8" LOC = "P140";
+# Hex displays
+#NET "lhex<0>" LOC = "P177";
+#NET "lhex<1>" LOC = "P167";
+#NET "lhex<2>" LOC = "P163";
+#NET "lhex<3>" LOC = "P156";
+#NET "lhex<4>" LOC = "P145";
+#NET "lhex<5>" LOC = "P138";
+#NET "lhex<6>" LOC = "P134";
+#NET "rhex<0>" LOC = "P124";
+#NET "rhex<1>" LOC = "P132";
+#NET "rhex<2>" LOC = "P133";
+#NET "rhex<3>" LOC = "P139";
+#NET "rhex<4>" LOC = "P141";
+#NET "rhex<5>" LOC = "P144";
+#NET "rhex<6>" LOC = "P147";
+#NET "lhex0" LOC = "P177";
+#NET "lhex1" LOC = "P167";
+#NET "lhex2" LOC = "P163";
+#NET "lhex3" LOC = "P156";
+#NET "lhex4" LOC = "P145";
+#NET "lhex5" LOC = "P138";
+#NET "lhex6" LOC = "P134";
+#NET "rhex0" LOC = "P124";
+#NET "rhex1" LOC = "P132";
+#NET "rhex2" LOC = "P133";
+#NET "rhex3" LOC = "P139";
+#NET "rhex4" LOC = "P141";
+#NET "rhex5" LOC = "P144";
+#NET "rhex6" LOC = "P147";
+# Bargraph LEDs
+#NET "bar<0>" LOC = "P152";
+#NET "bar<1>" LOC = "P154";
+#NET "finish" LOC = "P157";
+#NET "bar<3>" LOC = "P160";
+NET "finish" LOC = "P162";
+NET "state1" LOC = "P169";
+NET "state2" LOC = "P168";
+NET "state3" LOC = "P173";
+NET "state4" LOC = "P131";
+#NET "bar<9>" LOC = "P171";
+#NET "bar0" LOC = "P152";
+#NET "bar1" LOC = "P154";
+#NET "bar2" LOC = "P157";
+#NET "bar3" LOC = "P160";
+#NET "bar4" LOC = "P162";
+#NET "bar5" LOC = "P169";
+#NET "bar6" LOC = "P168";
+#NET "bar7" LOC = "P173";
+#NET "bar8" LOC = "P131";
+#NET "bar9" LOC = "P171";
+# PS/2
+#NET "ps2clk" LOC = "P13";
+#NET "ps2data" LOC = "P17";
+# USB
+#NET "usb_oen" LOC = "P12";
+#NET "usb_vpo" LOC = "P13";
+#NET "usb_vmo/fseo" LOC = "P17";
+#NET "usb_rcv" LOC = "P11";
+#NET "usb_vp" LOC = "P10";
+#NET "usb_vm" LOC = "P9";
+#NET "usb_suspnd" LOC = "P12";
+# Parallel port
+NET "ppdata<0>" LOC = "P177";
+NET "ppdata<1>" LOC = "P167";
+NET "ppdata<2>" LOC = "P163";
+NET "ppdata<3>" LOC = "P156";
+NET "ppdata<4>" LOC = "P145";
+NET "ppdata<5>" LOC = "P138";
+NET "ppdata<6>" LOC = "P134";
+NET "ppdata<7>" LOC = "P124";
+NET "ppstatus<3>" LOC = "P132";
+NET "ppstatus<4>" LOC = "P133";
+NET "ppstatus<5>" LOC = "P139";
+NET "ppstatus<6>" LOC = "P141";

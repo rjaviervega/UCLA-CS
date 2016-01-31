@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0043)http://www.nist.gov/dads/HTML/graycode.html -->
+<HTML lang=en-US><HEAD><TITLE>Gray code</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META 
+content="Definition of Gray code,&#10;&#9;possibly with links to more information and implementations." 
+name=description>
+<META content="Gray code" name=keywords>
+<META content=definition name=type>
+<META content="Cryptography and Compression" name=area><!-- turn off Microsoft's added smart tags -->
+<META content=TRUE name=MSSmartTagsPreventParsing>
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<P align=center><A href="http://www.nist.gov/"><IMG height=43 alt=NIST 
+src="Gray code_files/webidblue_1linecentr.gif" width=229 border=0></A> </P>
+<H1>Gray code</H1>
+<P>(definition) </P>
+<P><STRONG>Definition:</STRONG> An ordering of 2<SUP>n</SUP> binary numbers such 
+that only one bit changes from one entry to the next. </P>
+<P><STRONG>See also</STRONG> <A 
+href="http://www.nist.gov/dads/HTML/karnaughmap.html"><EM>Karnaugh map</EM></A>. 
+</P>
+<P><EM>Note: Gray codes are useful in mechanical encoders since a slight change 
+in location only affects one bit. Using a typical binary code, up to n bits 
+could change, and slight misalignments between reading elements could cause 
+wildly incorrect readings. </P>
+<P>One Gray code for 3 bits is (000, 010, 011, 001, 101, 111, 110, 100). Gray 
+codes are not unique. An n-bit Gray code corresponds to a <A 
+href="http://www.nist.gov/dads/HTML/hamiltonianCycle.html"><EM>Hamiltonian 
+cycle</EM></A> on an n-dimensional hypercube. </P>
+<P>One way to construct a Gray code for n bits is to take a Gray code for n-1 
+bits with each code prefixed by 0 (for the first half of the code) and append 
+the n-1 Gray code reversed with each code prefixed by 1 (for the second half). 
+This is called a "binary-reflected Gray code". Here is an example of creating a 
+3-bit Gray code from a 2-bit Gray code. 
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD align=right>00</TD>
+    <TD align=right>01</TD>
+    <TD align=right>11</TD>
+    <TD align=right>10</TD>
+    <TD colSpan=4></TD>
+    <TD>A Gray code for 2 bits</TD></TR>
+  <TR>
+    <TD align=right>000</TD>
+    <TD align=right>001</TD>
+    <TD align=right>011</TD>
+    <TD align=right>010</TD>
+    <TD colSpan=4></TD>
+    <TD>the 2-bit code with "0" prefixes</TD></TR>
+  <TR>
+    <TD colSpan=4></TD>
+    <TD align=right>10</TD>
+    <TD align=right>11</TD>
+    <TD align=right>01</TD>
+    <TD align=right>00</TD>
+    <TD>the 2-bit code in reverse order</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD align=right>110</TD>
+    <TD align=right>111</TD>
+    <TD align=right>101</TD>
+    <TD align=right>100</TD>
+    <TD>the reversed code with "1" prefixes</TD></TR>
+  <TR>
+    <TD align=right>000</TD>
+    <TD align=right>001</TD>
+    <TD align=right>011</TD>
+    <TD align=right>010</TD>
+    <TD align=right>110</TD>
+    <TD align=right>111</TD>
+    <TD align=right>101</TD>
+    <TD align=right>100</TD>
+    <TD>A Gray code for 3 bits</TD></TR></TBODY></TABLE></P>
+<P>A Gray code was used in a telegraph demonstrated by French engineer Émile 
+Baudot in 1878. The codes were first patented by Frank Gray, a Bell Labs 
+researcher, in 1953.</EM> </P>
+<P>Author: <A 
+href="http://www.nist.gov/dads/Other/contrib.html#authorPEB">PEB</A></P>
+<H2>Implementation</H2>Glenn Rhoads' <A 
+href="http://www.nist.gov/cgi-bin/exit_nist.cgi?url=http://remus.rutgers.edu/%7Erhoads/Code/code.html">Snippets 
+(c)</A>. <A 
+href="http://www.nist.gov/cgi-bin/exit_nist.cgi?url=http://www.cs.bham.ac.uk/Mirrors/ftp.de.uu.net/EC/clife/www/Q21.htm">binary-to-Gray 
+and Gray-to-binary conversion (C)</A> with history, references, and application 
+to genetic algorithms. <A 
+href="http://www.nist.gov/cgi-bin/exit_nist.cgi?url=http://lib-www.lanl.gov/numerical/bookcpdf/c20-2.pdf">convert 
+between binary and Gray (C)</A>: a PDF document of section 20.2 of <EM>Numerical 
+recipes in C</EM>, <A 
+href="http://www.nist.gov/cgi-bin/exit_nist.cgi?url=http://web.usna.navy.mil/%7Ewdj/gray.htm">binary-to-Gray, 
+code generation, and plotting (Maple)</A> with applications and references. 
+<H2>More information</H2>
+<P>Pictures of a <A 
+href="http://www.nist.gov/cgi-bin/exit_nist.cgi?url=http://www.ida.net/users/tetonsl/railroad/graycode.htm">Gray 
+code rotary railroad control</A>. </P>
+<HR>
+Go to the <A href="http://www.nist.gov/dads/">Dictionary of Algorithms and Data 
+Structures</A> home page. 
+<HR>
+
+<P>If you have suggestions, corrections, or comments, please get in touch with 
+<A href="http://hissa.nist.gov/~black/">Paul E. Black</A> 
+&nbsp;(paul.black@nist.gov). </P>
+<P>Entry modified Mon Aug 26 11:37:30 2002.<BR>HTML page formatted Tue Apr 1 
+09:26:42 2003. </P>
+<P>This page's URL is <A 
+href="http://www.nist.gov/dads/HTML/graycode.html">http://www.nist.gov/dads/HTML/graycode.html</A> 
+</P>
+<P><A href="http://www.nist.gov/"><IMG height=32 alt="to NIST home page" 
+src="Gray code_files/nist_back3.gif" width=79 align=left border=0></A> <IMG 
+height=79 alt="NIST Centennial 1901-2001" 
+src="Gray code_files/centlogo_872_half.jpg" width=179 align=right border=0> 
+</P></BODY></HTML>

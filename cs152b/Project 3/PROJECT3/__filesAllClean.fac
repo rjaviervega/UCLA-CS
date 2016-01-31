@@ -1,0 +1,45 @@
+Creating TCL Process
+Cleaning Up Project
+deleting file(s): _map.log _par.log __projnav.log
+deleting file(s): _toldo.pl __checkModelSim.pl
+deleting file(s): ctrlunit.ldo project2.ldo
+deleting file(s): project2.nc1
+deleting file(s): project2.ncd project2_map.ncd
+deleting file(s): project2.ngd
+deleting file(s): project2.ngm
+deleting file(s): bitgen.rsp _add_sch2vhf_exewrap.rsp _alu_sch2vhf_exewrap.rsp _launchCoregen.rsp _launchModelSimApp_exewrap.rsp _map.rsp _nc1TOncd_exewrap.rsp _ngdTOnc1_exewrap.rsp _par.rsp _prepar.rsp _project2_sch2vhf_exewrap.rsp _regfile_sch2vhf_exewrap.rsp __ctrlunit_2prj_exewrap.rsp __ednTOngd_exewrap.rsp __filesAllClean_exewrap.rsp __launchModelSimApp.rsp __ngdbuild.rsp __project2_2prj_exewrap.rsp
+deleting file(s): add.vhf alu.vhf project2.vhf regfile.vhf
+deleting file(s): vsim.wlf
+deleting file(s): transcript
+deleting file(s): xst
+The tcl interpreter reported the following error when executing the script C:/Xilinx/data/projnav/_filesAllClean.tcl
+called "processFiles" with too many arguments
+    while executing
+"processFiles $_schematicFiles $_edifFiles"
+    ("foreach" body line 48)
+    invoked from within
+"foreach _File [split $_Files] {
+               set _RootName  [file rootname $_File]
+               set _Extension [file extension $_File]
+           ..."
+    ("cleanup" arm line 6)
+    invoked from within
+"switch -exact $_Type {
+         cleanup {
+            if [regexp {\*} $_Files junk] {
+               catch {glob -nocomplain $_Files} _FileList
+      ..."
+    ("foreach" body line 4)
+    invoked from within
+"foreach _line [split [read $_RspFileHandle] \n] {
+      set _Type  [lindex $_line 0]
+      set _Files [lrange $_line 1 [llength $_line]]
+      switch ..."
+    invoked from within
+"if [catch {open $_RspFile r} _RspFileHandle] {
+  puts "Cannot open $_RspFile: $_RspFileHandle"
+  set _RetVal 1
+} else {
+   puts "Cleaning Up Project"
+..."
+    (file "C:/Xilinx/data/projnav/_filesAllClean.tcl" line 41)

@@ -1,0 +1,190 @@
+Release 4.1i - xst E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to .
+CPU : 0.00 / 0.20 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter overwrite set to YES
+CPU : 0.00 / 0.20 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.20 s | Elapsed : 0.00 / 0.00 s
+ 
+--> =========================================================================
+---- Source Parameters
+Input Format                       : VHDL
+Input File Name                    : addfloat.prj
+
+---- Target Parameters
+Target Device                      : xcv50-pq240-6
+Output File Name                   : addfloat
+Output Format                      : NGC
+Target Technology                  : virtex
+
+---- Source Options
+Entity Name                        : addfloat
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+FSM Flip-Flop Type                 : D
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Complex Clock Enable Extraction    : YES
+ROM Extraction                     : Yes
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Equivalent register Removal        : YES
+Add Generic Clock Buffer(BUFG)     : 4
+Global Maximum Fanout              : 100
+Register Duplication               : YES
+Move First FlipFlop Stage          : YES
+Move Last FlipFlop Stage           : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+Speed Grade                        : 6
+
+---- General Options
+Optimization Criterion             : Speed
+Optimization Effort                : 1
+Check Attribute Syntax             : YES
+Keep Hierarchy                     : No
+Global Optimization                : AllClockNets
+Write Timing Constraints           : No
+Incremental Synthesis              : NO
+
+=========================================================================
+
+Compiling vhdl file E:/proj4/project3/Addf.vhd in Library work.
+Entity <addfloat> (Architecture <behavioral>) compiled.
+
+Analyzing Entity <addfloat> (Architecture <Behavioral>).
+Entity <addfloat> analyzed. Unit <addfloat> generated.
+
+
+Synthesizing Unit <addfloat>.
+    Related source file is E:/proj4/project3/Addf.vhd.
+WARNING:Xst:646 - Signal <signa> is assigned but never used.
+WARNING:Xst:646 - Signal <signb> is assigned but never used.
+WARNING:Xst:646 - Signal <exponenta> is assigned but never used.
+WARNING:Xst:646 - Signal <exponentb> is assigned but never used.
+WARNING:Xst:646 - Signal <mantisaa> is assigned but never used.
+WARNING:Xst:646 - Signal <mantisab> is assigned but never used.
+WARNING:Xst:646 - Signal <exponent> is assigned but never used.
+WARNING:Xst:647 - Input <a<15>> is never used.
+WARNING:Xst:647 - Input <a<14>> is never used.
+WARNING:Xst:647 - Input <a<13>> is never used.
+WARNING:Xst:647 - Input <a<12>> is never used.
+WARNING:Xst:647 - Input <a<11>> is never used.
+WARNING:Xst:647 - Input <a<10>> is never used.
+WARNING:Xst:647 - Input <a<9>> is never used.
+WARNING:Xst:647 - Input <a<8>> is never used.
+WARNING:Xst:647 - Input <a<7>> is never used.
+WARNING:Xst:647 - Input <a<6>> is never used.
+WARNING:Xst:647 - Input <a<5>> is never used.
+WARNING:Xst:647 - Input <a<4>> is never used.
+WARNING:Xst:647 - Input <a<3>> is never used.
+WARNING:Xst:647 - Input <a<2>> is never used.
+WARNING:Xst:647 - Input <a<1>> is never used.
+WARNING:Xst:647 - Input <a<0>> is never used.
+WARNING:Xst:647 - Input <b<15>> is never used.
+WARNING:Xst:647 - Input <b<14>> is never used.
+WARNING:Xst:647 - Input <b<13>> is never used.
+WARNING:Xst:647 - Input <b<12>> is never used.
+WARNING:Xst:647 - Input <b<11>> is never used.
+WARNING:Xst:647 - Input <b<10>> is never used.
+WARNING:Xst:647 - Input <b<9>> is never used.
+WARNING:Xst:647 - Input <b<8>> is never used.
+WARNING:Xst:647 - Input <b<7>> is never used.
+WARNING:Xst:647 - Input <b<6>> is never used.
+WARNING:Xst:647 - Input <b<5>> is never used.
+WARNING:Xst:647 - Input <b<4>> is never used.
+WARNING:Xst:647 - Input <b<3>> is never used.
+WARNING:Xst:647 - Input <b<2>> is never used.
+WARNING:Xst:647 - Input <b<1>> is never used.
+WARNING:Xst:647 - Input <b<0>> is never used.
+WARNING:Xst:648 -  Output <s<15>> is never used.
+WARNING:Xst:648 -  Output <s<14>> is never used.
+WARNING:Xst:648 -  Output <s<13>> is never used.
+WARNING:Xst:648 -  Output <s<12>> is never used.
+WARNING:Xst:648 -  Output <s<11>> is never used.
+WARNING:Xst:648 -  Output <s<10>> is never used.
+WARNING:Xst:648 -  Output <s<9>> is never used.
+WARNING:Xst:648 -  Output <s<8>> is never used.
+WARNING:Xst:648 -  Output <s<7>> is never used.
+WARNING:Xst:648 -  Output <s<6>> is never used.
+WARNING:Xst:648 -  Output <s<5>> is never used.
+WARNING:Xst:648 -  Output <s<4>> is never used.
+WARNING:Xst:648 -  Output <s<3>> is never used.
+WARNING:Xst:648 -  Output <s<2>> is never used.
+WARNING:Xst:648 -  Output <s<1>> is never used.
+WARNING:Xst:648 -  Output <s<0>> is never used.
+Unit <addfloat> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+
+Starting low level synthesis...
+Optimizing unit <addfloat> ...
+
+Building and optimizing final netlist ...
+
+=========================================================================
+Final Results
+Top Level Output File Name         : addfloat
+Output Format                      : NGC
+Optimization Criterion             : Speed
+Target Technology                  : virtex
+Keep Hierarchy                     : No
+Macro Generator                    : macro+
+
+Design Statistics
+# IOs                              : 48
+
+Cell Usage :
+# BELS                             : 1
+#      GND                         : 1
+# IO Buffers                       : 16
+#      OBUF                        : 16
+=========================================================================
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -6
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+CPU : 1.36 / 1.58 s | Elapsed : 1.00 / 1.00 s
+ 
+--> 

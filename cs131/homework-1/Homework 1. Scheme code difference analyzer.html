@@ -1,0 +1,237 @@
+<!--?xml version='1.0' encoding='US-ASCII'?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Homework 1. Scheme code difference analyzer</title>
+<link rel="copyright" href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">
+<link rev="made" href="mailto:eggert@cs.ucla.edu">
+</head>
+
+<body>
+
+<h1>Homework 1. Scheme code difference analyzer</h1>
+
+<h2>The problem</h2>
+
+<p>Tortuous Data Processing Inc. (TDP) is suing your employer
+Jerry-built Computer Networks Corp. (JCN), and is claiming that JCN
+stole large bodies of TDP's code and incorporated it into JCN's
+operating system. As part of the legal discovery process, JCN has
+obtained copies of TDP's operating system source code, and wants to
+compare it to TDP's to see whether the suit's claims have any
+merit. About 5% of both operating systems are written in Scheme. Your
+team has been assigned the job of comparing the Scheme parts.</p>
+
+<p>Your boss suggests that you start by writing a procedure
+<samp>compare-code</samp> that compares two Scheme expressions
+<var>x</var> and <var>y</var>, and produces an annotated difference
+summary of where the two inputs are the same and where they
+differ. This low-level procedure will be used often as part of a
+higher-level process written by other members of your team, so it needs
+to be relatively efficient.</p>
+
+<p>After consulting with other members of your team you decide that the
+difference summary should take the same form as the inputs where they
+are the same, and should be of the form <samp>(&lt;&gt; <var>x</var>
+<var>y</var>)</samp> where they differ. More precisely,
+<samp>(compare-code <var>x</var> <var>y</var>)</samp> by default
+should return <samp>(&lt;&gt; <var>x</var> <var>y</var>)</samp>,
+except that the following rules should be applied recursively to
+simplify the output:</p>
+
+<ul>
+<li>
+  If <samp><var>x</var></samp> equals <samp><var>y</var></samp> (in
+  the sense of <samp>equal?</samp>), then the output is replaced by
+  <samp><var>x</var></samp>.</li>
+<li>
+  If the output would be of the form <samp>(&lt;&gt; (<var>acar</var>
+  . <var>acdr</var>) (<var>bcar</var> . <var>bcdr</var>))</samp>, then
+  the output is replaced by <samp>((&lt;&gt; <var>acar</var>
+  <var>bcar</var>) . (&lt;&gt; <var>acdr</var>
+  <var>bcdr</var>))</samp>.</li>
+</ul>
+
+<p>You examine all the Scheme code to be compared, and discover that
+it has no occurrences of <samp>&lt;&gt;</samp>, so you do not have to
+worry about it appearing in the input arguments. Also, you and your
+team decide not to worry about applying the rule recursively to
+non-pairs (e.g., vectors), since they occur so rarely in the code; you
+need to worry only about recursing through pairs and lists.</p>
+
+<h2>Assignment</h2>
+
+<p>Write a Scheme procedure <samp>(compare-code
+</samp><var>x</var><samp> </samp><var>y</var><samp>)</samp> that
+implements the specification described above. Your implementation
+should work on any pair of objects that do not contain
+<samp>&lt;&gt;</samp> anywhere.</p>
+
+<p>Your implementation must be free of side effects; for example you
+cannot use the <samp>set!</samp> procedure. Also, your implementation
+should avoid using unnecessary storage: that is, it should attempt to
+minimize the number of new <samp>cons</samp> cells in the value that
+it returns. Returned values may share storage with arguments; they
+need not copy their arguments. Speed efficiency is also desirable,
+as your implementation will be invoked many times.</p>
+
+<p>To turn in your assignment, <a href="http://www.cs.ucla.edu/classes/fall03/cs131/seasnet.html">submit</a> a
+file <samp>hw1.ss</samp> containing the definition of
+<samp>compare-code</samp> along with any other auxiliary definitions
+needed to run it. The first line of <samp>hw1.ss</samp> should be a
+comment containing your name and student ID. Make sure that your
+definitions work with <a href="http://www.plt-scheme.org/software/mzscheme/"><samp>mzscheme</samp></a>,
+the Scheme implementation installed on SEASnet.</p>
+
+<h2>Examples</h2>
+
+<pre><samp>(compare-code '() '())  ===&gt;  ()
+(compare-code '() #f)  ===&gt;  (&lt;&gt; () #f)
+(compare-code 'a '(cons a b))  ===&gt;  (&lt;&gt; a (cons a b))
+(compare-code '(cons a b) '(cons a b))  ===&gt;  (cons a b)
+(compare-code '(cons a b) '(cons a c))  ===&gt;  (cons a (&lt;&gt; b c))
+(compare-code '(cons a b) '(list a b))  ===&gt;  ((&lt;&gt; cons list) a b)
+(compare-code '(car a) '(cons a b))  ===&gt;  ((&lt;&gt; car cons) a . (&lt;&gt; () (b)))
+
+; See discussion below for more about this example.
+(compare-code '(cons a b) '(list b a c))
+===&gt;
+  ((&lt;&gt; cons list) (&lt;&gt; a b) (&lt;&gt; b a) . (&lt;&gt; () (c)))
+
+(define TDP-match-*-defn
+  '(define match-*
+     (lambda (matcher frag accept)
+       (or (accept frag)
+           (matcher frag
+                    (lambda (frag1)
+                      (and (not (eq? frag frag1))
+                           (match-* matcher frag1 accept))))))))
+(define JCN-match-*-defn
+  '(define match-*
+     (lambda (matcher frag acc)
+       (or (acc frag)
+           (matcher frag
+                    (lambda (frag1)
+                      (and (not (eq? frag frag1))
+                           (match-* matcher frag1 acc))))))))
+(define match-*-comparison
+  (compare-code TDP-match-*-defn JCN-match-*-defn))
+
+match-*-comparison
+===&gt;
+  (define match-*
+    (lambda (matcher frag (&lt;&gt; accept acc))
+      (or ((&lt;&gt; accept acc) frag)
+	  (matcher frag
+		   (lambda (frag1)
+		     (and (not (eq? frag frag1))
+			  (match-* matcher frag1 (&lt;&gt; accept acc))))))))
+
+(define cdadaddaddr
+  (lambda (x)
+    (cdr (car (cdr (car (cdr (cdr (car (cdr (cdr x)))))))))))
+
+(cdadaddaddr match-*-comparison)  ===&gt;  (frag)
+(cdadaddaddr TDP-match-*-defn)  ===&gt;  (frag)
+(cdadaddaddr JCN-match-*-defn)  ===&gt;  (frag)
+
+(eq? match-*-comparison TDP-match-*-defn)  ===&gt;  #f
+(eq? (cdadaddaddr match-*-comparison)
+     (cdadaddaddr TDP-match-*-defn))  ===&gt;  #t
+(eq? (cdadaddaddr match-*-comparison)
+     (cdadaddaddr JCN-match-*-defn))  ===&gt;  <em>unspecified; either <samp>#t</samp> or <samp>#f</samp></em>
+</samp></pre>
+
+<h2>Discussion of example</h2>
+
+<p>The example call <samp>(compare-code '(cons a b) '(list b a c))</samp>
+is equivalent to:</p>
+
+<pre><samp>(compare-code
+   '(cons a b . ())
+   '(list b a . (c))
+   )
+</samp></pre>
+
+<p>If you line up the differing components, you get the result shown
+above. The result can also be derived from the rules (which start with
+"More precisely" above). According to these rules this example should
+return <samp>(&lt;&gt; (cons a b) (list b a c))</samp>, except that
+the rules rewrite this answer according to the following steps:</p>
+
+<pre><samp>(&lt;&gt; (cons a b) (list b a c))
+((&lt;&gt; cons list) . (&lt;&gt; (a b) (b a c)))
+((&lt;&gt; cons list) . ((&lt;&gt; a b) . (&lt;&gt; (b) (a c))))
+((&lt;&gt; cons list) . ((&lt;&gt; a b) . ((&lt;&gt; b a) . (&lt;&gt; () (c)))))
+</samp></pre>
+
+<p>and the last term is equivalent to:</p>
+
+<pre><samp>((&lt;&gt; cons list) (&lt;&gt; a b) (&lt;&gt; b a) . (&lt;&gt; () (c)))
+</samp></pre>
+
+<p>which the Scheme printer will display as follows:</p>
+
+<pre><samp>((&lt;&gt; cons list) (&lt;&gt; a b) (&lt;&gt; b a) &lt;&gt; () (c))
+</samp></pre>
+
+<h2>A solution</h2>
+
+<pre><samp>(define compare-code
+  (lambda (x y)
+    (cond
+     ((eqv? x y) x)
+     ((and (pair? x) (pair? y))
+      (let ((a (compare-code (car x) (car y)))
+	    (d (compare-code (cdr x) (cdr y))))
+	(if (and (eq? a (car x))
+		 (eq? d (cdr x)))
+	    x
+	    (cons a d))))
+     (#t (list '&lt;&gt; x y)))))
+</samp></pre>
+
+<h2>Test cases used for grading</h2>
+
+<p>20 test cases were used. Each was worth 5 points; they were
+individually all or nothing. The last test case was an efficiency
+test: quadratic implementations (for example, those that called
+<samp>(equal? x y)</samp> at each level of recursion) got 0
+points.</p>
+
+<table>
+<tbody><tr> <th> call </th> <th> expected result </th></tr>
+<tr> <td><samp>(compare-code '() '())			</samp></td> <td><samp>()</samp></td></tr>
+<tr> <td><samp>(compare-code '() '#f)			</samp></td> <td><samp>(&lt;&gt; () #f)</samp></td></tr>
+<tr> <td><samp>(compare-code 'a '(cons a b))			</samp></td> <td><samp>(&lt;&gt; a (cons a b))</samp></td></tr>
+<tr> <td><samp>(compare-code '(cons a b) '(cons a b))	</samp></td> <td><samp>(cons a b)</samp></td></tr>
+<tr> <td><samp>(compare-code '(cons a b) '(cons a c))	</samp></td> <td><samp>(cons a (&lt;&gt; b c))</samp></td></tr>
+<tr> <td><samp>(compare-code '(cons a b) '(list a b))	</samp></td> <td><samp>((&lt;&gt; cons list) a b)</samp></td></tr>
+<tr> <td><samp>(compare-code '(car a) '(cons a b))		</samp></td> <td><samp>((&lt;&gt; car cons) a &lt;&gt; () (b))</samp></td></tr>
+<tr> <td><samp>(compare-code '(cons a b) '(list b a c))	</samp></td> <td><samp>((&lt;&gt; cons list) (&lt;&gt; a b) (&lt;&gt; b a) &lt;&gt; () (c))</samp></td></tr>
+<tr> <td><samp>(cdadaddaddr match-*-comparison)		</samp></td> <td><samp>(frag)</samp></td></tr>
+<tr> <td><samp>(cdadaddaddr TDP-match-*-defn)		</samp></td> <td><samp>(frag)</samp></td></tr>
+<tr> <td><samp>(cdadaddaddr JCN-match-*-defn)		</samp></td> <td><samp>(frag)</samp></td></tr>
+<tr> <td><samp>(eq? match-*-comparison TDP-match-*-defn)	</samp></td> <td><samp>#f</samp></td></tr>
+<tr> <td><samp>(eq? (cdadaddaddr match-*-comparison) (cdadaddaddr TDP-match-*-defn))		</samp></td> <td><samp>#t</samp></td></tr>
+<tr> <td><samp>(eq? (cdadaddaddr match-*-comparison) (cdadaddaddr JCN-match-*-defn))		</samp></td> <td><samp>#f</samp></td></tr>
+<tr> <td><samp>(compare-code '#t '#f)			</samp></td> <td><samp>(&lt;&gt; #t #f)</samp></td></tr>
+<tr> <td><samp>(compare-code '(a . b) '(a . b))		</samp></td> <td><samp>(a . b)</samp></td></tr>
+<tr> <td><samp>(compare-code '(a . b) '(a))			</samp></td> <td><samp>(a &lt;&gt; b ())</samp></td></tr>
+<tr> <td><samp>(compare-code '(cons a b . ()) '(list b a . (c)))	</samp></td> <td><samp>((&lt;&gt; cons list) (&lt;&gt; a b) (&lt;&gt; b a) &lt;&gt; () (c))</samp></td></tr>
+<tr> <td><samp>(compare-code '(car (a (b c) . x)) '(list (a (d c) . y)))	</samp></td> <td><samp>((&lt;&gt; car list) (a ((&lt;&gt; b d) c) &lt;&gt; x y))</samp></td></tr>
+<tr> <td><samp>(bigtest 10000)				</samp></td> <td><em>answer omitted</em></td></tr>
+</tbody></table>
+
+<hr>
+<address>
+ © 2003 <a href="http://www.cs.ucla.edu/classes/fall03/cs131/mail-eggert.html">Paul Eggert</a>.
+ See <a href="http://www.cs.ucla.edu/classes/fall03/cs131/copyright.html">copying rules</a>.<br>
+
+ $Id: hw1.html,v 1.11 2003/10/24 07:24:51 eggert Exp $
+
+</address>
+
+
+
+</body></html>

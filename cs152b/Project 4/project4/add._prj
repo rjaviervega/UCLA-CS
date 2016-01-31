@@ -1,0 +1,2 @@
+plslib 
+pls    zeroBus.vhd OF_detect.vhd negative_detect.vhd one_bus.vhd Addf.vhd add.vhf 

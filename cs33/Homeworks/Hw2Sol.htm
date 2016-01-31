@@ -1,0 +1,91 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (Win98; U) [Netscape]">
+</head>
+<body>
+&nbsp;
+<center>
+<br><b><i><font size=+2>HOMEWORK Chapter 2</font></i></b></center>
+
+<p><br><font size=+1></font>
+<p>2-1.&nbsp;&nbsp;&nbsp; (a) Low memory is the set of memory cells near
+the beginning of memory
+<br>(i.e. with addresses near $000). (p32)
+<p>&nbsp;&nbsp;&nbsp; (b) An address space is the range of addresses of
+all available memory
+<br>locations. (p30)
+<p>&nbsp;&nbsp;&nbsp; (c) A stored program is a sequence of instruction
+stored in the memory of a
+<br>computer. (p34)
+<p>&nbsp;&nbsp;&nbsp; (d) A self-modifying program is a program which changes
+one of its
+<br>own instructions during its execution. (p42)
+<p>&nbsp;&nbsp;&nbsp; (e) A central processing unit is the part of a computer
+which makes
+<br>decisions, performs arithmetic, and control the operation of a computer
+system.
+<br>(p32)
+<p>&nbsp;&nbsp;&nbsp; (f) Instruction decoding is the process of determining
+what operation is to
+<br>be performed by an instruction (and preparing the circuits in the computer
+to
+<br>execute the instruction. (p35)
+<p>2-2.(a) A 20-bit address space supports 2**20&nbsp; =&nbsp; 1,048,576
+words.
+<br>There are 8 bits per byte and therefore 4 bytes per word.
+<br>Thus there are 4 * 1,048,576 bytes&nbsp; =&nbsp; 4,194,304 bytes or
+4Mbytes.
+<p>&nbsp;&nbsp;&nbsp; (b) The highest address is 2**20 - 1&nbsp; =&nbsp;
+1,048,575&nbsp; =&nbsp; $FFFFF.
+<p>2-3.&nbsp;&nbsp;&nbsp; Address registers hold only addresses which are
+positive, unsigned
+<br>integers.
+<br>The accumulator holds data values which are two's complement numbers.
+<p>2-4.&nbsp;&nbsp;&nbsp; The IR (Instruction Register) holds the current
+instruction in the CPU.
+<br>The PC (program Counter) hold the address of the next instruction to
+be
+<br>executed.
+<p>2-5.&nbsp;&nbsp;&nbsp; An invalid instruction causes a machine fault
+which causes the machine
+<br>to halt.
+<p>2-6.&nbsp;&nbsp;&nbsp; The CPU does not differentiate between an instruction
+or data word.
+<br>When a memory location is accessed during the fetch cycle, it is loaded
+into
+<br>the instruction register and treated as an instruction.&nbsp; When
+a location is
+<br>accessed as an operand, it is treated as a data word.&nbsp; The same
+location may be
+<br>a data word at one time and an instruction word at another time (in
+a self-
+<br>modifying program).
+<br>&nbsp;
+<p>2-7.(a) Memory[$01A]&nbsp;&nbsp;&nbsp; :=&nbsp; ACC
+<p>&nbsp;&nbsp;&nbsp; (b) Memory[$01A]&nbsp;&nbsp;&nbsp; :=&nbsp; $71A7EF
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ACC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+:=&nbsp; $71A7EF
+<p>2-8.&nbsp;&nbsp;&nbsp; By definition, all read and write operations
+can only change data
+<br>memory while all instructions reside in the program memory. Thus it
+is
+<br>impossible to construct a self-modifying program.
+<p>2-9.&nbsp;&nbsp;&nbsp; Registers in the CPU provide temporary storage
+which is much faster
+<br>than accessing the main memory using the bus.
+<p>2-10.&nbsp;&nbsp; The IR (Instruction Register) is used by the Control
+Unit in the CPU to
+<br>hold the instruction word so that the circuits of the CPU can decode
+the
+<br>instruction and execute the operation specified by it.&nbsp; The programmer
+does not
+<br>have access to or control of these circuits and cannot use the instruction
+<br>register:&nbsp; it is for hardware use only.
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

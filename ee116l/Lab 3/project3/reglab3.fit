@@ -1,0 +1,61 @@
+-- MAX+plus II Compiler Fit File      
+-- Version 10.23 07/09/2003           
+-- Compiled: 10/15/2003 21:18:32      
+
+-- Copyright (C) 1988-2003 Altera Corporation
+-- Any megafunction design, and related net list (encrypted or decrypted),
+-- support information, device programming or simulation file, and any other
+-- associated documentation or information provided by Altera or a partner
+-- under Altera's Megafunction Partnership Program may be used only to
+-- program PLD devices (but not masked PLD devices) from Altera.  Any other
+-- use of such megafunction design, net list, support information, device
+-- programming or simulation file, or any other related documentation or
+-- information is prohibited for any other purpose, including, but not
+-- limited to modification, reverse engineering, de-compiling, or use with
+-- any other silicon devices, unless such use is explicitly licensed under
+-- a separate agreement with Altera or a megafunction partner.  Title to
+-- the intellectual property, including patents, copyrights, trademarks,
+-- trade secrets, or maskworks, embodied in any such megafunction design,
+-- net list, support information, device programming or simulation file, or
+-- any other related documentation or information provided by Altera or a
+-- megafunction partner, remains with Altera, the megafunction partner, or
+-- their respective licensors.  No other licenses, including any licenses
+-- needed under any third party's intellectual property, are provided herein.
+
+CHIP "reglab3"
+BEGIN
+
+    DEVICE = "EPM7128SLC84-7";
+
+    "Ain"                          : INPUT_PIN  = 12     ; -- LC3
+    "Bin"                          : INPUT_PIN  = 9      ; -- LC8
+    "Cin"                          : INPUT_PIN  = 8      ; -- LC11
+    "clk"                          : INPUT_PIN  = 2      ;
+    "Din"                          : INPUT_PIN  = 5      ; -- LC14
+    "M0"                           : INPUT_PIN  = 6      ; -- LC13
+    "M1"                           : INPUT_PIN  = 10     ; -- LC6
+    "M2"                           : INPUT_PIN  = 11     ; -- LC5
+    "QA"                           : OUTPUT_PIN = 76     ; -- LC120
+    "QB"                           : OUTPUT_PIN = 74     ; -- LC117
+    "QC"                           : OUTPUT_PIN = 75     ; -- LC118
+    "QD"                           : OUTPUT_PIN = 73     ; -- LC115
+    "|74194:1|~37~1"               : LOCATION   = LC113  ;
+
+END;
+
+INTERNAL_INFO "reglab3"
+BEGIN
+	DEVICE = EPM7128SLC84-7;
+	LC118   : LORAX = "G111R0,PA15R0C7";
+	LC117   : LORAX = "G110R0,PA16R0C7";
+	LC115   : LORAX = "G55R0,PA4R0C7";
+	LC120   : LORAX = "G113R0,PA10R0C7";
+	OH5R0P10 : LORAX = "G205R0,PA28R0C7";
+	OH12R0P6 : LORAX = "G57R0,PA13R0C7";
+	OH4R0P11 : LORAX = "G204R0,PA29R0C7";
+	OH10R0P8 : LORAX = "G1R0,PA3R0C7";
+	OH7R0P9 : LORAX = "G206R0,PA32R0C7";
+	OH13R0P5 : LORAX = "G58R0,PA12R0C7";
+	OH2R0P12 : LORAX = "G148R0,PA19R0C7";
+	LC113   : LORAX = "G53R0,PA7R0C7";
+END;
